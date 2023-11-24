@@ -11,7 +11,6 @@
 	/// </summary>
 	public class IValidationResultComparer : IEqualityComparer<IValidationResult>
 	{
-
 		public static IValidationResultComparer Instance { get; } = new IValidationResultComparer();
 
 		public bool Equals(IValidationResult x, IValidationResult y)
@@ -20,6 +19,7 @@
 			{
 				return true;
 			}
+
 			if (x == null || y == null)
 			{
 				return false;

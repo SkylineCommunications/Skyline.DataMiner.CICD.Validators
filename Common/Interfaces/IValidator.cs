@@ -19,7 +19,7 @@
         /// <param name="validatorSettings">The validator settings.</param>
         /// <param name="testsToExecute">Indication of which tests should be executed. By default, all tests are executed.</param>
         /// <returns>The validator results.</returns>
-        IList<IValidationResult> RunValidate(IProtocolInputData input, CancellationToken cancellationToken, ValidatorSettings validatorSettings, ICollection<(Category category, uint checkId)> testsToExecute = null);
+        IList<IValidationResult> RunValidate(IProtocolInputData input, ValidatorSettings validatorSettings, CancellationToken cancellationToken);
 
 		/// <summary>
 		/// Performs a comparison between the two provided connector versions and returns detected major changes, if any.
@@ -29,7 +29,7 @@
 		/// <param name="cancellationToken">Cancellation token.</param>
 		/// <param name="validatorSettings">The validator settings.</param>
 		/// <returns>Detected major changes, if any.</returns>
-		IList<IValidationResult> RunCompare(IProtocolInputData newData, IProtocolInputData oldData, CancellationToken cancellationToken, ValidatorSettings validatorSettings);
+		IList<IValidationResult> RunCompare(IProtocolInputData newData, IProtocolInputData oldData, ValidatorSettings validatorSettings, CancellationToken cancellationToken);
 
         /// <summary>
         /// Performs a code fix.

@@ -12,7 +12,7 @@
         /// <summary>
         /// Information.
         /// </summary>
-		Information = -1,
+		Information = -1, // Remnant of old validator
         /// <summary>
         /// Bubble up.
         /// </summary>

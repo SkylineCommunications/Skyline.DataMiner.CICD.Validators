@@ -54,7 +54,7 @@
         /// </summary>
         /// <value><c>true</c> if the suppression reason is valid; otherwise; <c>false</c>.</value>
         /// <remarks>The suppression reason is considered invalid if it <see langword="null"/> or white space.</remarks>
-        public override bool IsValid => !string.IsNullOrWhiteSpace(Reason);
+        public override bool IsValid => !String.IsNullOrWhiteSpace(Reason);
 
 		/// <summary>
 		/// Parses the specified XML comment and converts it into a normal suppression token.
@@ -91,12 +91,12 @@
         /// <exception cref="ArgumentException"><paramref name="resultCode"/> or <paramref name="reason"/> is <see langword="null"/> or white space.</exception>
         public static void CreateXmlComments(string resultCode, string reason, out string startComment, out string endComment)
         {
-            if (string.IsNullOrWhiteSpace(resultCode))
+            if (String.IsNullOrWhiteSpace(resultCode))
             {
                 throw new ArgumentException(nameof(resultCode) + " cannot be empty", nameof(resultCode));
             }
 
-            if (string.IsNullOrWhiteSpace(reason))
+            if (String.IsNullOrWhiteSpace(reason))
             {
                 throw new ArgumentException(nameof(reason) + " cannot be empty", nameof(resultCode));
             }

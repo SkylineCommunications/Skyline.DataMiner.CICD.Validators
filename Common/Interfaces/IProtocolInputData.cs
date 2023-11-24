@@ -1,5 +1,6 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Common.Interfaces
 {
+    using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Parsers.Common.Xml;
 
@@ -27,16 +28,10 @@
         string Code { get; }
 
         /// <summary>
-        /// Gets the line info provider.
+        /// Gets the QAction compilation model.
         /// </summary>
-        /// <value>The line info provider.</value>
-        ILineInfoProvider LineInfoProvider { get; }
-
-		/// <summary>
-		/// Gets the QAction compilation model provider.
-		/// </summary>
-		/// <value>The QAction compilation model provider.</value>
-		IQActionCompilationModelProvider QActionCompilationModelProvider { get; }
+        /// <value>The QAction compilation model.</value>
+        QActionCompilationModel QActionCompilationModel { get; }
 
 		/// <summary>
 		/// If this is the model of an exported protocol, this property contains the model of the main protocol that was used to create the export.

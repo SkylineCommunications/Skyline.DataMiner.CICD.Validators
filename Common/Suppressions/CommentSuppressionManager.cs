@@ -5,18 +5,17 @@
     using System.Linq;
 
     using Skyline.DataMiner.CICD.Parsers.Common.Xml;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
     /// <summary>
     /// Suppression manager for comment-based suppressions.
     /// </summary>
     public class CommentSuppressionManager
     {
-        private readonly XmlDocument _document;
-        private readonly ILineInfoProvider _lineInfoProvider;
+        private readonly ILineInfoProvider lineInfoProvider;
 
-        private readonly List<CommentSuppression> _suppressions;
-        private readonly IDictionary<string, List<CommentSuppression>> _dictSuppressions;
+        private readonly List<CommentSuppression> suppressions;
+        private readonly IDictionary<string, List<CommentSuppression>> dictSuppressions;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommentSuppression"/> class.
@@ -26,17 +25,16 @@
         /// <exception cref="ArgumentNullException"><paramref name="document"/> or <paramref name="lineInfoProvider"/> is <see langword="null"/>.</exception>
         public CommentSuppressionManager(XmlDocument document, ILineInfoProvider lineInfoProvider)
         {
-            _document = document ?? throw new ArgumentNullException(nameof(document));
-            _lineInfoProvider = lineInfoProvider ?? throw new ArgumentNullException(nameof(lineInfoProvider));
+            this.lineInfoProvider = lineInfoProvider ?? throw new ArgumentNullException(nameof(lineInfoProvider));
 
-            _suppressions = CommentSuppression.GetAllSuppressions(document).ToList();
-            _dictSuppressions = _suppressions.GroupBy(s => s.Code).ToDictionary(x => x.Key, x => x.ToList());
+            suppressions = CommentSuppression.GetAllSuppressions(document).ToList();
+            dictSuppressions = suppressions.GroupBy(s => s.Code).ToDictionary(x => x.Key, x => x.ToList());
         }
 
-		/// <summary>
-		/// Gets the comment-based suppressions.
-		/// </summary>
-		public IReadOnlyCollection<CommentSuppression> Suppressions => _suppressions;
+        /// <summary>
+        /// Gets the comment-based suppressions.
+        /// </summary>
+        public IReadOnlyCollection<CommentSuppression> Suppressions => suppressions.AsReadOnly();
 
         /// <summary>
         /// Determines whether the specified validation result is suppressed.
@@ -54,15 +52,15 @@
             return TryFindSuppression(result, out _);
         }
 
-		/// <summary>
-		/// Determines whether the all sub results of the specified validation result are suppressed.
-		/// </summary>
-		/// <param name="result">The validation result.</param>
-		/// <returns><c>true</c> if all the child results of the specified validator result are suppressed; otherwise, <c>false</c>.</returns>
-		/// <exception cref="ArgumentNullException"><paramref name="result"/> is <see langword="null"/>.</exception>
-		public bool AreAllChildrenSuppressed(IValidationResult result)
+        /// <summary>
+        /// Determines whether the all sub results of the specified validation result are suppressed.
+        /// </summary>
+        /// <param name="result">The validation result.</param>
+        /// <returns><c>true</c> if all the child results of the specified validator result are suppressed; otherwise, <c>false</c>.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="result"/> is <see langword="null"/>.</exception>
+        public bool AreAllChildrenSuppressed(IValidationResult result)
         {
-            if(result == null) throw new ArgumentNullException(nameof(result));
+            if (result == null) throw new ArgumentNullException(nameof(result));
 
             if (result.SubResults == null || result.SubResults.Count == 0)
             {
@@ -92,12 +90,12 @@
                 throw new ArgumentNullException(nameof(suppression));
             }
 
-            _suppressions.Add(suppression);
+            suppressions.Add(suppression);
 
-            if (!_dictSuppressions.TryGetValue(suppression.Code, out var list))
+            if (!dictSuppressions.TryGetValue(suppression.Code, out var list))
             {
                 list = new List<CommentSuppression>();
-                _dictSuppressions.Add(suppression.Code, list);
+                dictSuppressions.Add(suppression.Code, list);
             }
 
             list.Add(suppression);
@@ -117,9 +115,9 @@
                 throw new ArgumentNullException(nameof(result));
             }
 
-            var resultCode = string.IsNullOrWhiteSpace(result.FullId) ? Convert.ToString(result.ErrorId) : result.FullId;
+            var resultCode = String.IsNullOrWhiteSpace(result.FullId) ? Convert.ToString(result.ErrorId) : result.FullId;
 
-            if (_dictSuppressions.TryGetValue(resultCode, out var suppressionsForResultCode))
+            if (dictSuppressions.TryGetValue(resultCode, out var suppressionsForResultCode))
             {
                 int pos = GetPosition(result);
                 suppression = suppressionsForResultCode.FirstOrDefault(s => pos >= s.Start && pos <= s.End);
@@ -139,8 +137,8 @@
 
             if (result.Position <= 0 && result.Line > 0)
             {
-                int pos = _lineInfoProvider.GetOffset(result.Line - 1, 0);
-                pos += _lineInfoProvider.GetFirstNonWhitespaceOffset(result.Line - 1) ?? 0;
+                int pos = lineInfoProvider.GetOffset(result.Line - 1, 0);
+                pos += lineInfoProvider.GetFirstNonWhitespaceOffset(result.Line - 1) ?? 0;
 
                 return pos;
             }
