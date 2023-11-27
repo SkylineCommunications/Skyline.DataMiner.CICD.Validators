@@ -10,18 +10,18 @@
     /// </summary>
     public abstract class VersionHistorySuppression : ISuppression
     {
-		/// <summary>
-		/// Initializes a new instance of the <see cref="VersionHistorySuppression"/> class.
-		/// </summary>
-		protected VersionHistorySuppression()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VersionHistorySuppression"/> class.
+        /// </summary>
+        protected VersionHistorySuppression()
         {
         }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="VersionHistorySuppression"/> class.
-		/// </summary>
-		/// <exception cref="ArgumentException">Invalid location, result ID, reason or type.</exception>
-		protected VersionHistorySuppression(IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionSuppressionsSuppression suppression)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VersionHistorySuppression"/> class.
+        /// </summary>
+        /// <exception cref="ArgumentException">Invalid location, result ID, reason or type.</exception>
+        protected VersionHistorySuppression(IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionSuppressionsSuppression suppression)
         {
             if (suppression == null)
             {
@@ -58,14 +58,14 @@
         /// <value>The suppression type.</value>
         public EnumSuppressionType Type { get; protected set; }
 
-		/// <summary>
-		/// Parses the specified version history based suppression XML edit node.
-		/// </summary>
-		/// <param name="versionSuppression">The version history based suppression XML edit node.</param>
-		/// <param name="suppression">When this method returns, contains the version history based suppression.</param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentNullException"><paramref name="versionSuppression"/> is <see langword="null"/>.</exception>
-		public static bool TryParse(
+        /// <summary>
+        /// Parses the specified version history based suppression XML edit node.
+        /// </summary>
+        /// <param name="versionSuppression">The version history based suppression XML edit node.</param>
+        /// <param name="suppression">When this method returns, contains the version history based suppression.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"><paramref name="versionSuppression"/> is <see langword="null"/>.</exception>
+        public static bool TryParse(
             IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionSuppressionsSuppression
                 versionSuppression, out VersionHistorySuppression suppression)
         {

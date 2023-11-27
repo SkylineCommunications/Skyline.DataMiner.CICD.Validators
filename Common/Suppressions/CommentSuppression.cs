@@ -11,13 +11,13 @@
     /// </summary>
     public class CommentSuppression
     {
-		/// <summary>
-		/// Initializes a new instance of the <see cref="CommentSuppression"/> class.
-		/// </summary>
-		/// <param name="startToken">The start token.</param>
-		/// <param name="endToken">The end token.</param>
-		/// <exception cref="ArgumentNullException"><paramref name="startToken"/> or <paramref name="endToken"/> is <see langword="null"/>.</exception>
-		public CommentSuppression(SuppressionToken startToken, SuppressionToken endToken)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommentSuppression"/> class.
+        /// </summary>
+        /// <param name="startToken">The start token.</param>
+        /// <param name="endToken">The end token.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="startToken"/> or <paramref name="endToken"/> is <see langword="null"/>.</exception>
+        public CommentSuppression(SuppressionToken startToken, SuppressionToken endToken)
         {
             StartToken = startToken ?? throw new ArgumentNullException(nameof(startToken));
             EndToken = endToken ?? throw new ArgumentNullException(nameof(endToken));
@@ -26,13 +26,13 @@
             End = EndToken.Position;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="CommentSuppression"/> class.
-		/// </summary>
-		/// <param name="startToken">The start token.</param>
-		/// <param name="end">The end.</param>
-		/// <exception cref="ArgumentNullException"><paramref name="startToken"/> is <see langword="null"/>.</exception>
-		public CommentSuppression(SuppressionToken startToken, int end)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommentSuppression"/> class.
+        /// </summary>
+        /// <param name="startToken">The start token.</param>
+        /// <param name="end">The end.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="startToken"/> is <see langword="null"/>.</exception>
+        public CommentSuppression(SuppressionToken startToken, int end)
         {
             StartToken = startToken ?? throw new ArgumentNullException(nameof(startToken));
 
@@ -64,32 +64,32 @@
         /// <value>The start.</value>
         public int Start { get; }
 
-		/// <summary>
-		/// Gets the end.
-		/// </summary>
-		/// <value>The end.</value>
-		public int End { get; }
+        /// <summary>
+        /// Gets the end.
+        /// </summary>
+        /// <value>The end.</value>
+        public int End { get; }
 
-		/// <summary>
-		/// Gets the suppression type.
-		/// </summary>
-		/// <value>The suppression type.</value>
-		public SuppressionType Type => StartToken.Type;
+        /// <summary>
+        /// Gets the suppression type.
+        /// </summary>
+        /// <value>The suppression type.</value>
+        public SuppressionType Type => StartToken.Type;
 
-		/// <summary>
-		/// Gets the code.
-		/// </summary>
-		/// <value>The code.</value>
-		public string Code => StartToken.Code;
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
+        /// <value>The code.</value>
+        public string Code => StartToken.Code;
 
-		/// <summary>
-		/// Retrieves all comment-based suppressions from the specified XML document.
-		/// </summary>
-		/// <param name="document">The XML document.</param>
-		/// <param name="onlyValid">Indicates whether only valid suppressions should be retrieved.</param>
-		/// <returns>All comment-based suppressions from the specified XML document.</returns>
-		/// <exception cref="ArgumentNullException"><paramref name="document"/> is <see langword="null"/>.</exception>
-		public static IEnumerable<CommentSuppression> GetAllSuppressions(XmlDocument document, bool onlyValid = true)
+        /// <summary>
+        /// Retrieves all comment-based suppressions from the specified XML document.
+        /// </summary>
+        /// <param name="document">The XML document.</param>
+        /// <param name="onlyValid">Indicates whether only valid suppressions should be retrieved.</param>
+        /// <returns>All comment-based suppressions from the specified XML document.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="document"/> is <see langword="null"/>.</exception>
+        public static IEnumerable<CommentSuppression> GetAllSuppressions(XmlDocument document, bool onlyValid = true)
         {
             if (document == null)
             {

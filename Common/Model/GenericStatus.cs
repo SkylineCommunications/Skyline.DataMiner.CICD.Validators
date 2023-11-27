@@ -25,11 +25,11 @@
         /// </summary>
         Untrimmed = 4,
 
-		/// <summary>
-		/// Invalid.
-		/// </summary>
-		/// <remarks>When the ValueTag.Value is null this indicates the value could not be parsed to the model type (ex: Enum, Int32, etc.).</remarks>
-		Invalid = 8,
+        /// <summary>
+        /// Invalid.
+        /// </summary>
+        /// <remarks>When the ValueTag.Value is null this indicates the value could not be parsed to the model type (ex: Enum, Int32, etc.).</remarks>
+        Invalid = 8,
 
         //Something = 16,
         //Something = 32,

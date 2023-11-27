@@ -7,11 +7,11 @@
     /// </summary>
     public interface ISuppression
     {
-		/// <summary>
-		/// Gets the location of the suppression.
-		/// </summary>
-		/// <value>The location of the suppression.</value>
-		string Location { get; }
+        /// <summary>
+        /// Gets the location of the suppression.
+        /// </summary>
+        /// <value>The location of the suppression.</value>
+        string Location { get; }
 
         /// <summary>
         /// Gets the result ID.

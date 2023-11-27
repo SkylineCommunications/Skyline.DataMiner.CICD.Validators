@@ -12,16 +12,16 @@
     /// </summary>
     public abstract class SuppressionToken
     {
-		/// <summary>
-		/// Initializes a new instance of the <see cref="SuppressionToken"/> class.
-		/// </summary>
-		/// <param name="document">The XML document.</param>
-		/// <param name="comment">The comment.</param>
-		/// <param name="type">The suppression type.</param>
-		/// <param name="code">The code.</param>
-		/// <param name="isClose">Indicates whether this is a closing token.</param>
-		/// <exception cref="ArgumentNullException"><paramref name="comment"/> of <paramref name="comment"/> is <see langword="null"/>.</exception>
-		protected SuppressionToken(XmlDocument document, XmlComment comment, SuppressionType type, string code, bool isClose)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SuppressionToken"/> class.
+        /// </summary>
+        /// <param name="document">The XML document.</param>
+        /// <param name="comment">The comment.</param>
+        /// <param name="type">The suppression type.</param>
+        /// <param name="code">The code.</param>
+        /// <param name="isClose">Indicates whether this is a closing token.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="comment"/> of <paramref name="comment"/> is <see langword="null"/>.</exception>
+        protected SuppressionToken(XmlDocument document, XmlComment comment, SuppressionType type, string code, bool isClose)
         {
             Document = document ?? throw new ArgumentNullException(nameof(document));
             CommentNode = comment ?? throw new ArgumentNullException(nameof(comment));
@@ -31,16 +31,16 @@
             IsClose = isClose;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="SuppressionToken"/> class.
-		/// </summary>
-		/// <param name="document">The XML document.</param>
-		/// <param name="position">The position.</param>
-		/// <param name="type">The suppression type.</param>
-		/// <param name="code">The code.</param>
-		/// <param name="isClose">Indicates whether this is a closing token.</param>
-		/// <exception cref="ArgumentNullException"><paramref name="document"/> or <paramref name="code"/> is <see langword="null"/>.</exception>
-		protected SuppressionToken(XmlDocument document, int position, SuppressionType type, string code, bool isClose)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SuppressionToken"/> class.
+        /// </summary>
+        /// <param name="document">The XML document.</param>
+        /// <param name="position">The position.</param>
+        /// <param name="type">The suppression type.</param>
+        /// <param name="code">The code.</param>
+        /// <param name="isClose">Indicates whether this is a closing token.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="document"/> or <paramref name="code"/> is <see langword="null"/>.</exception>
+        protected SuppressionToken(XmlDocument document, int position, SuppressionType type, string code, bool isClose)
         {
             Document = document ?? throw new ArgumentNullException(nameof(document));
             Position = position;
@@ -85,17 +85,17 @@
         /// <value>The position.</value>
         public int Position { get; }
 
-		/// <summary>
-		/// Gets a value indicating whether this is an opening token.
-		/// </summary>
-		/// <value><c>true</c> if this is an opening token; otherwise, <c>false</c>.</value>
-		public bool IsOpen => !IsClose;
+        /// <summary>
+        /// Gets a value indicating whether this is an opening token.
+        /// </summary>
+        /// <value><c>true</c> if this is an opening token; otherwise, <c>false</c>.</value>
+        public bool IsOpen => !IsClose;
 
-		/// <summary>
-		/// Gets a value indicating whether this token is valid.
-		/// </summary>
-		/// <value><c>true</c> if this token is valid; otherwise, <c>false</c>.</value>
-		public abstract bool IsValid { get; }
+        /// <summary>
+        /// Gets a value indicating whether this token is valid.
+        /// </summary>
+        /// <value><c>true</c> if this token is valid; otherwise, <c>false</c>.</value>
+        public abstract bool IsValid { get; }
 
         /// <summary>
         /// Retrieves all tokens of the specified XML document.
@@ -121,7 +121,7 @@
             }
         }
 
-        public static bool DetectToken(XmlDocument document, XmlComment comment, out SuppressionToken token)
+        internal static bool DetectToken(XmlDocument document, XmlComment comment, out SuppressionToken token)
         {
             if (NormalValidatorSuppressionToken.TryParse(document, comment, out var t1))
             {
@@ -176,23 +176,23 @@
             return allComments;
         }
 
-		private static void TreeWalker<T>(T root, Func<T, IEnumerable<T>> getChildren, Action<T> processNode) where T : class
-		{
-			Queue<T> nodes = new Queue<T>();
-			nodes.Enqueue(root);
+        private static void TreeWalker<T>(T root, Func<T, IEnumerable<T>> getChildren, Action<T> processNode) where T : class
+        {
+            Queue<T> nodes = new Queue<T>();
+            nodes.Enqueue(root);
 
-			while (nodes.Count > 0)
-			{
-				T node = nodes.Dequeue();
+            while (nodes.Count > 0)
+            {
+                T node = nodes.Dequeue();
 
-				processNode(node);
+                processNode(node);
 
-				var children = getChildren(node);
-				foreach (var c in children)
-				{
-					nodes.Enqueue(c);
-				}
-			}
-		}
-	}
+                var children = getChildren(node);
+                foreach (var c in children)
+                {
+                    nodes.Enqueue(c);
+                }
+            }
+        }
+    }
 }

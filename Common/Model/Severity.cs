@@ -17,10 +17,10 @@
         /// Bubble up.
         /// </summary>
         BubbleUp = -100, // Default bubble up
-		/// <summary>
-		/// Warning.
-		/// </summary>
-		Warning = 0,
+        /// <summary>
+        /// Warning.
+        /// </summary>
+        Warning = 0,
         /// <summary>
         /// Minor.
         /// </summary>

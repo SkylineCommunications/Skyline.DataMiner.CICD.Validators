@@ -11,10 +11,10 @@
         /// <value><c>true</c> if applying the code fix succeeded; otherwise, <c>false</c>.</value>
         bool Success { get; }
 
-		/// <summary>
-		/// Gets the message related to application of the code fix.
-		/// </summary>
-		/// <value>The message related to application of the code fix.</value>
-		string Message { get; }
+        /// <summary>
+        /// Gets the message related to application of the code fix.
+        /// </summary>
+        /// <value>The message related to application of the code fix.</value>
+        string Message { get; }
     }
 }

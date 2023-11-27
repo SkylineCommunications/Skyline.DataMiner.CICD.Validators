@@ -4,7 +4,7 @@
     using System.Threading;
 
     using Skyline.DataMiner.CICD.Parsers.Common.XmlEdit;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     /// <summary>
     /// Validator interface.
@@ -17,19 +17,18 @@
         /// <param name="input">The input data.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <param name="validatorSettings">The validator settings.</param>
-        /// <param name="testsToExecute">Indication of which tests should be executed. By default, all tests are executed.</param>
         /// <returns>The validator results.</returns>
         IList<IValidationResult> RunValidate(IProtocolInputData input, ValidatorSettings validatorSettings, CancellationToken cancellationToken);
 
-		/// <summary>
-		/// Performs a comparison between the two provided connector versions and returns detected major changes, if any.
-		/// </summary>
-		/// <param name="newData">The data representing the new version.</param>
-		/// <param name="oldData">The data representing the previous version.</param>
-		/// <param name="cancellationToken">Cancellation token.</param>
-		/// <param name="validatorSettings">The validator settings.</param>
-		/// <returns>Detected major changes, if any.</returns>
-		IList<IValidationResult> RunCompare(IProtocolInputData newData, IProtocolInputData oldData, ValidatorSettings validatorSettings, CancellationToken cancellationToken);
+        /// <summary>
+        /// Performs a comparison between the two provided connector versions and returns detected major changes, if any.
+        /// </summary>
+        /// <param name="newData">The data representing the new version.</param>
+        /// <param name="oldData">The data representing the previous version.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <param name="validatorSettings">The validator settings.</param>
+        /// <returns>Detected major changes, if any.</returns>
+        IList<IValidationResult> RunCompare(IProtocolInputData newData, IProtocolInputData oldData, ValidatorSettings validatorSettings, CancellationToken cancellationToken);
 
         /// <summary>
         /// Performs a code fix.
