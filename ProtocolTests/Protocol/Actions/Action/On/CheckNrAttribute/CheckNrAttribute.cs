@@ -111,12 +111,6 @@ namespace SLDisValidatorUnitTests.Protocol.Actions.Action.On.CheckNrAttribute
     }
 
     [TestClass]
-    public class ErrorMessages
-    {
-
-    }
-
-    [TestClass]
     public class Attribute
     {
         private readonly IRoot check = new CheckNrAttribute();
