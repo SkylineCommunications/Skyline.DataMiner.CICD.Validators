@@ -1,0 +1,49 @@
+namespace SLDisValidator2.Tests.Protocol.Chains.CheckChildNameAttributes
+{
+    using System;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using SLDisValidator2.Common;
+    using SLDisValidator2.Interfaces;
+
+    public static class Error
+    {
+        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string chainName)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckChildNameAttributes,
+                ErrorId = ErrorIds.DuplicatedValue,
+                FullId = "15.1.1",
+                Category = Category.Chain,
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Duplicated {0} Name '{1}'.", "Chain child", chainName),
+                HowToFix = "",
+                ExampleCode = "",
+                Details = "",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+    }
+
+    public static class ErrorIds
+    {
+        public const uint DuplicatedValue = 1;
+    }
+
+    public static class CheckId
+    {
+        public const uint CheckChildNameAttributes = 1;
+    }
+}

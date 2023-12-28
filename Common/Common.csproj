@@ -19,6 +19,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="1.0.7" />
+		<PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1-a" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -34,6 +35,7 @@
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="CommonTests" />
+		<InternalsVisibleTo Include="Skyline.DataMiner.CICD.Validators.Protocol" />
 	</ItemGroup>
 
 </Project>

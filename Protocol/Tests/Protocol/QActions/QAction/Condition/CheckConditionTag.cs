@@ -1,0 +1,80 @@
+namespace SLDisValidator2.Tests.Protocol.QActions.QAction.Condition.CheckConditionTag
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using SLDisValidator2.Common;
+    using SLDisValidator2.Common.Attributes;
+    using SLDisValidator2.Common.Extensions;
+    using SLDisValidator2.Helpers.Conditions;
+    using SLDisValidator2.Interfaces;
+
+    [Test(CheckId.CheckConditionTag, Category.QAction)]
+    public class CheckConditionTag : IValidate
+    {
+        public List<IValidationResult> Validate(ValidatorContext context)
+        {
+            List<IValidationResult> results = new List<IValidationResult>();
+            
+            foreach (IQActionsQAction qaction in context.EachQActionWithValidId())
+            {
+                if (qaction.Condition == null)
+                {
+                    continue;
+                }
+
+                if (String.IsNullOrWhiteSpace(qaction.Condition.Value))
+                {
+                    results.Add(Error.InvalidCondition(this, qaction, qaction, qaction.Condition.RawValue, "Condition is empty.", qaction.Id.RawValue));
+                    continue;
+                }
+
+                var conditionValidationResults = new List<IValidationResult>();
+
+                var addInvalidConditionError = new Action<string>(message => conditionValidationResults.Add(Error.InvalidCondition(this, qaction, qaction.Condition, qaction.Condition.Value, message, qaction.Id.RawValue)));
+                var addInvalidParamIdError = new Action<string>(paramId => conditionValidationResults.Add(Error.NonExistingId(this, qaction, qaction.Condition, paramId, qaction.Id.RawValue)));
+                var addConditionCanBeSimpliefiedWarning = new Action(() => { if (!conditionValidationResults.Any(r => r.FullId == "3.35.3")) { conditionValidationResults.Add(Error.ConditionCanBeSimplified(this, qaction, qaction.Condition, qaction.Condition.Value, qaction.Id.RawValue)); }});
+
+                Conditional conditional = new Conditional(addInvalidConditionError, addInvalidParamIdError, addConditionCanBeSimpliefiedWarning);
+
+                conditional.ParseConditional(qaction.Condition.Value);
+
+                if (conditionValidationResults.Count == 0 || !conditionValidationResults.Any(result => (result.Severity == Severity.Major || result.Severity == Severity.Critical)))
+                {
+                    conditional.CheckConditional(context.ProtocolModel);
+                }
+
+                results.AddRange(conditionValidationResults);
+            }
+
+            return results;
+        }
+
+        ////public ICodeFixResult Fix(CodeFixContext context)
+        ////{
+        ////    CodeFixResult result = new CodeFixResult();
+
+        ////    switch (context.Result.ErrorId)
+        ////    {
+
+        ////        default:
+        ////            result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
+        ////            break;
+        ////    }
+
+        ////    return result;
+        ////}
+        
+        ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
+        ////{
+        ////    List<IValidationResult> results = new List<IValidationResult>();
+
+        ////    return results;
+        ////}
+    }
+}

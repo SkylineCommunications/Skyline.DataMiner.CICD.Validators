@@ -1,0 +1,101 @@
+namespace SLDisValidator2.Tests.Protocol.Display.CheckWideColumnPagesAttribute
+{
+    using System;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using SLDisValidator2.Common;
+    using SLDisValidator2.Interfaces;
+
+    public static class Error
+    {
+        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckWideColumnPagesAttribute,
+                ErrorId = ErrorIds.EmptyAttribute,
+                FullId = "1.29.1",
+                Category = Category.Protocol,
+                Severity = Severity.Warning,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Empty attribute '{0}'.", "Protocol/Display@wideColumnPage"),
+                HowToFix = "",
+                ExampleCode = "",
+                Details = "The Protocol/Display@wideColumnPages allows to define a semicolon list of pages that should take the whole width available even if it only contains 1 column." + Environment.NewLine + "It should refer to pages that are present in the Protocol/Display@pageOrder attribute and on which at least one parameter is displayed.",
+                HasCodeFix = true,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckWideColumnPagesAttribute,
+                ErrorId = ErrorIds.UntrimmedAttribute,
+                FullId = "1.29.2",
+                Category = Category.Protocol,
+                Severity = Severity.Warning,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "wideColumnsPages", untrimmedValue),
+                HowToFix = "",
+                ExampleCode = "",
+                Details = "The Protocol/Display@wideColumnPages allows to define a semicolon list of pages that should take the whole width available even if it only contains 1 column." + Environment.NewLine + "It should refer to pages that are present in the Protocol/Display@pageOrder attribute and on which at least one parameter is displayed.",
+                HasCodeFix = true,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult UnexistingPage(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckWideColumnPagesAttribute,
+                ErrorId = ErrorIds.UnexistingPage,
+                FullId = "1.29.3",
+                Category = Category.Protocol,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("The page '{0}' specified in 'Protocol/Display@wideColumnPages' does not exist.", pageName),
+                HowToFix = "",
+                ExampleCode = "",
+                Details = "The Protocol/Display@wideColumnPages allows to define a semicolon list of pages that should take the whole width available even if it only contains 1 column." + Environment.NewLine + "It should refer to pages that are present in the Protocol/Display@pageOrder attribute and on which at least one parameter is displayed.",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+    }
+
+    public static class ErrorIds
+    {
+        public const uint EmptyAttribute = 1;
+        public const uint UntrimmedAttribute = 2;
+        public const uint UnexistingPage = 3;
+    }
+
+    public static class CheckId
+    {
+        public const uint CheckWideColumnPagesAttribute = 29;
+    }
+}

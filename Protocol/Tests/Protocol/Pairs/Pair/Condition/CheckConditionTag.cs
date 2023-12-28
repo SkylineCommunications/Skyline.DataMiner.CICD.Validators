@@ -1,0 +1,80 @@
+namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Condition.CheckConditionTag
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using SLDisValidator2.Common;
+    using SLDisValidator2.Common.Attributes;
+    using SLDisValidator2.Common.Extensions;
+    using SLDisValidator2.Helpers.Conditions;
+    using SLDisValidator2.Interfaces;
+
+    [Test(CheckId.CheckConditionTag, Category.Pair)]
+    public class CheckConditionTag : IValidate
+    {
+        public List<IValidationResult> Validate(ValidatorContext context)
+        {
+            List<IValidationResult> results = new List<IValidationResult>();
+
+            foreach (IPairsPair pair in context.EachPairWithValidId())
+            {
+                if (pair.Condition == null)
+                {
+                    continue;
+                }
+
+                if (String.IsNullOrWhiteSpace(pair.Condition.Value))
+                {
+                    results.Add(Error.InvalidCondition(this, pair, pair, pair.Condition.RawValue, "Condition is empty.", pair.Id.RawValue));
+                    continue;
+                }
+
+                var conditionValidationResults = new List<IValidationResult>();
+
+                var addInvalidConditionError = new Action<string>(message => conditionValidationResults.Add(Error.InvalidCondition(this, pair, pair.Condition, pair.Condition.Value, message, pair.Id.RawValue)));
+                var addInvalidParamIdError = new Action<string>(paramId => conditionValidationResults.Add(Error.NonExistingId(this, pair, pair.Condition, paramId, pair.Id.RawValue)));
+                var addConditionCanBeSimpliefiedWarning = new Action(() => { if (!conditionValidationResults.Any(r => r.FullId == "9.7.3")) { conditionValidationResults.Add(Error.ConditionCanBeSimplified(this, pair, pair.Condition, pair.Condition.Value, pair.Id.RawValue)); }});
+
+                Conditional conditional = new Conditional(addInvalidConditionError, addInvalidParamIdError, addConditionCanBeSimpliefiedWarning);
+
+                conditional.ParseConditional(pair.Condition.Value);
+
+                if (conditionValidationResults.Count == 0 || !conditionValidationResults.Any(result => (result.Severity == Skyline.DataMiner.CICD.Validators.Common.Model.Severity.Major || result.Severity == Skyline.DataMiner.CICD.Validators.Common.Model.Severity.Critical)))
+                {
+                    conditional.CheckConditional(context.ProtocolModel);
+                }
+
+                results.AddRange(conditionValidationResults);
+            }
+
+            return results;
+        }
+
+        ////public ICodeFixResult Fix(CodeFixContext context)
+        ////{
+        ////    CodeFixResult result = new CodeFixResult();
+
+        ////    switch (context.Result.ErrorId)
+        ////    {
+
+        ////        default:
+        ////            result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
+        ////            break;
+        ////    }
+
+        ////    return result;
+        ////}
+
+        ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
+        ////{
+        ////    List<IValidationResult> results = new List<IValidationResult>();
+
+        ////    return results;
+        ////}
+    }
+}

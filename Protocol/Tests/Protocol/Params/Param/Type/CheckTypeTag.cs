@@ -1,0 +1,119 @@
+namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckTypeTag
+{
+    using System.Collections.Generic;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Enums;
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using SLDisValidator2.Common;
+    using SLDisValidator2.Common.Attributes;
+    using SLDisValidator2.Common.Extensions;
+    using SLDisValidator2.Generic;
+    using SLDisValidator2.Interfaces;
+
+    [Test(CheckId.CheckTypeTag, Category.Param)]
+    public class CheckTypeTag : IValidate, ICodeFix/*, ICompare*/
+    {
+        public List<IValidationResult> Validate(ValidatorContext context)
+        {
+            List<IValidationResult> results = new List<IValidationResult>();
+
+            foreach (var param in context.EachParamWithValidId())
+            {
+                ValidateHelper helper = new ValidateHelper(this, context, results, param);
+                helper.Validate();
+            }
+
+            return results;
+        }
+
+        public ICodeFixResult Fix(CodeFixContext context)
+        {
+            CodeFixResult result = new CodeFixResult();
+
+            if (context.Protocol.Params == null)
+            {
+                result.Message = "No Param found";
+                return result;
+            }
+
+            switch (context.Result.ErrorId)
+            {
+                case ErrorIds.UntrimmedTag:
+                    {
+                        var paramReadNode = (IParamsParam)context.Result.ReferenceNode;
+                        var paramEditNode = context.Protocol.Params.Get(paramReadNode);
+
+                        paramEditNode.Type.Value = paramReadNode.Type.Value;
+
+                        result.Success = true;
+                        break;
+                    }
+                default:
+                    result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
+                    break;
+            }
+
+            return result;
+        }
+        
+        ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
+        ////{
+        ////    List<IValidationResult> results = new List<IValidationResult>();
+
+        ////    return results;
+        ////}
+    }
+
+    internal class ValidateHelper
+    {
+        private readonly IValidate test;
+        private readonly ValidatorContext context;
+        private readonly List<IValidationResult> results;
+
+        private readonly IParamsParam param;
+
+        public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam param)
+        {
+            this.test = test;
+            this.context = context;
+            this.results = results;
+
+            this.param = param;
+        }
+
+        public void Validate()
+        {
+            (GenericStatus status, string rawType, EnumParamType? _) = GenericTests.CheckBasics(param.Type, isRequired: true);
+
+            // Missing
+            if (status.HasFlag(GenericStatus.Missing))
+            {
+                results.Add(Error.MissingTag(test, param, param, param.Id.RawValue));
+                return;
+            }
+
+            // Empty
+            if (status.HasFlag(GenericStatus.Empty))
+            {
+                results.Add(Error.EmptyTag(test, param, param, param.Id.RawValue));
+                return;
+            }
+
+            // Invalid
+            if (status.HasFlag(GenericStatus.Invalid))
+            {
+                results.Add(Error.InvalidValue(test, param, param, rawType, param.Id?.RawValue));
+                return;
+            }
+
+            // Untrimmed
+            if (status.HasFlag(GenericStatus.Untrimmed))
+            {
+                results.Add(Error.UntrimmedTag(test, param, param, param.Id?.RawValue, rawType));
+            }
+        }
+    }
+}
