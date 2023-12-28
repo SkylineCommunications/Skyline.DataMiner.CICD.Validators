@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Name>Empty</Name>
+			<Type id="">read</Type>
+		</Param>
+		<Param id="2">
+			<Name>Spaces</Name>
+			<Type id=" ">read</Type>
+		</Param>
+		<Param id="3">
+			<Name>EmptyLines</Name>
+			<Type id="
+				  ">read</Type>
+		</Param>
+	</Params>
+	
+</Protocol>

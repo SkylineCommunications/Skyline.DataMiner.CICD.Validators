@@ -1,0 +1,99 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpNotifyDataMinerNTSetAlarmState_DeltIncompatible</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public const int NT_SET_ALARM_STATE_GlobalConst = 116;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="Defining_NotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_SET_ALARM_STATE_Const = 116;
+		int NT_SET_ALARM_STATE_Int = 116;
+		int NT_SET_ALARM_STATE_Math = 110;
+
+		uint elementId = 661;
+		uint state = 10;	// 10:Masked | 11:Unmasked
+		object elementDetails = new uint[] { elementId, state};
+
+		string maskType = "20";
+		string comment = "myComment";
+		object maskDetails = new string[] { maskType, comment};
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(116, elementDetails, maskDetails);
+		protocol.NotifyDataMiner(110 + 10 - 4, elementDetails, maskDetails);
+
+		protocol.NotifyDataMiner(NT_SET_ALARM_STATE_Const, elementDetails, maskDetails);
+		protocol.NotifyDataMiner(NT_SET_ALARM_STATE_Int, elementDetails, maskDetails);
+		//protocol.NotifyDataMiner(NT_SET_ALARM_STATE_Math + 6, elementDetails, maskDetails);
+		protocol.NotifyDataMiner(MyClass.NT_SET_ALARM_STATE_GlobalConst, elementDetails, maskDetails);
+
+		protocol.NotifyDataMiner((int)NT_SET_ALARM_STATE_Const, elementDetails, maskDetails);
+		protocol.NotifyDataMiner((int)NT_SET_ALARM_STATE_Int, elementDetails, maskDetails);
+		//protocol.NotifyDataMiner((int)NT_SET_ALARM_STATE_Math + 6, elementDetails, maskDetails);
+		protocol.NotifyDataMiner((int)MyClass.NT_SET_ALARM_STATE_GlobalConst, elementDetails, maskDetails);
+		protocol.NotifyDataMiner((int)NotifyType.SetAlarmState, elementDetails, maskDetails);
+		
+		protocol.NotifyDataMinerQueued(116, elementDetails, maskDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="Defining_Element" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint elementId = 661;
+		uint state = 100;
+
+		uint[] elementDetails = { state, elementId };
+		uint[] elementDetails_hardcoded = { 10, 2 };
+
+		object elementDetails_asObject = new uint[] { state, elementId };
+		object elementDetails_hardcoded_asObject = new uint[] { 10, 2 };
+
+		uint[] elementDetails_multiline;
+		elementDetails_multiline = new uint[] { 10, 2 };
+
+		// Different ways to define the element
+		protocol.NotifyDataMiner(116, new[] { 10, 2 }, null);
+		protocol.NotifyDataMiner(116, new uint[] { 10, 2 }, null);
+
+		protocol.NotifyDataMiner(116, new[] { state, elementId }, null);
+		protocol.NotifyDataMiner(116, new uint[] { state, elementId }, null);
+
+		protocol.NotifyDataMiner(116, elementDetails, null);
+		protocol.NotifyDataMiner(116, elementDetails_hardcoded, null);
+
+		protocol.NotifyDataMiner(116, elementDetails_asObject, null);
+		protocol.NotifyDataMiner(116, elementDetails_hardcoded_asObject, null);
+
+		//protocol.NotifyDataMiner(116, elementDetails_multiline, null);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

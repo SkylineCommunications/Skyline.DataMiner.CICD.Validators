@@ -1,0 +1,533 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Requires a unit-->
+		<Param id="1">
+			<Name>RTDisplayNumber</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>%</Units>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>RTDisplayAnalog</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>kSamples/min</Units>
+			</Display>
+			<Measurement>
+				<Type>analog</Type>
+			</Measurement>
+		</Param>
+		<Param id="3">
+			<Name>RTDisplayProgress</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>%</Units>
+			</Display>
+			<Measurement>
+				<Type>progress</Type>
+			</Measurement>
+		</Param>
+
+		<!--Does not require a unit-->
+		<Param id="50">
+			<Name>RTDisplayButton</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+		<Param id="51">
+			<Name>RTDisplayChart</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>chart</Type>
+			</Measurement>
+		</Param>
+		<Param id="52">
+			<Name>RTDisplayDigitalThreshold</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>digital threshold</Type>
+			</Measurement>
+		</Param>
+		<Param id="53">
+			<Name>RTDisplayDiscreet</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+			</Measurement>
+		</Param>
+		<Param id="54">
+			<Name>RTDisplayMatrix</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="55">
+			<Name>RTDisplayPageButton</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>pagebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="56">
+			<Name>RTDisplayString</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="57">
+			<Name>RTDisplayTable</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="58">
+			<Name>RTDisplayTitle</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>title</Type>
+			</Measurement>
+		</Param>
+		<Param id="59">
+			<Name>RTDisplayToggleButton</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="60">
+			<Name>RTDisplayDateTime</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Standalone Params</Page>
+						<Column>0</Column>
+						<Row>11</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="datetime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="61">
+			<Name>RTDisplayTime</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Standalone Params</Page>
+						<Column>0</Column>
+						<Row>11</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="time">number</Type>
+			</Measurement>
+		</Param>
+
+		<!--No unit for RTDiplay=false params-->
+		<Param id="101">
+			<Name>NonRTDisplayNumber</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="102">
+			<Name>NonRTDisplayAnalog</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>analog</Type>
+			</Measurement>
+		</Param>
+		<Param id="103">
+			<Name>NonRTDisplayProgress</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>progress</Type>
+			</Measurement>
+		</Param>
+		<Param id="150">
+			<Name>NonRTDisplayButton</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+		<Param id="151">
+			<Name>NonRTDisplayChart</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>chart</Type>
+			</Measurement>
+		</Param>
+		<Param id="152">
+			<Name>NonRTDisplayDigitalThreshold</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>digital threshold</Type>
+			</Measurement>
+		</Param>
+		<Param id="153">
+			<Name>NonRTDisplayDiscreet</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+			</Measurement>
+		</Param>
+		<Param id="154">
+			<Name>NonRTDisplayMatrix</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="155">
+			<Name>NonRTDisplayPageButton</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>pagebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="156">
+			<Name>NonRTDisplayString</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="157">
+			<Name>NonRTDisplayTable</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="158">
+			<Name>NonRTDisplayTitle</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>title</Type>
+			</Measurement>
+		</Param>
+		<Param id="159">
+			<Name>NonRTDisplayToggleButton</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="160">
+			<Name>NonRTDisplayDateTime</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type options=";dateTime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="161">
+			<Name>NonRTDisplayToggleTime</Name>
+			<Display>
+			</Display>
+			<Measurement>
+				<Type options=";time">number</Type>
+			</Measurement>
+		</Param>
+
+		<!--No unit for RTDiplay=false params-->
+		<Param id="201">
+			<Name>RTDisplayFalseNumber</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="202">
+			<Name>RTDisplayFalseAnalog</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>analog</Type>
+			</Measurement>
+		</Param>
+		<Param id="203">
+			<Name>RTDisplayFalseProgress</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>progress</Type>
+			</Measurement>
+		</Param>
+		<Param id="250">
+			<Name>RTDisplayFalseButton</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+		<Param id="251">
+			<Name>RTDisplayFalseChart</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>chart</Type>
+			</Measurement>
+		</Param>
+		<Param id="252">
+			<Name>RTDisplayFalseDigitalThreshold</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>digital threshold</Type>
+			</Measurement>
+		</Param>
+		<Param id="253">
+			<Name>RTDisplayFalseDiscreet</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+			</Measurement>
+		</Param>
+		<Param id="254">
+			<Name>RTDisplayFalseMatrix</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="255">
+			<Name>RTDisplayFalsePageButton</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>pagebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="256">
+			<Name>RTDisplayFalseString</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="257">
+			<Name>RTDisplayFalseTable</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="258">
+			<Name>RTDisplayFalseTitle</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>title</Type>
+			</Measurement>
+		</Param>
+		<Param id="259">
+			<Name>RTDisplayFalseToggleButton</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="260">
+			<Name>RTDisplayFalseDateTime</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options=";dateTime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="261">
+			<Name>RTDisplayFalseTime</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options=";time">number</Type>
+			</Measurement>
+		</Param>
+
+		<!--Read Only Table-->
+		<Param id="1000">
+			<Name>ReadOnlyTable</Name>
+			<Description>Read Only Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="1004" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="1005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="1007" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="1008" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="1010" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Tables</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4-1007|5-1008|6-1010|7,width:155-152-152-146-155-137-200-160,sort:STRING-INT-INT-INT-INT-INT-INT-INT,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>ReadOnlyPrimaryKeyColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1002">
+			<Name>ReadOnlyNumberColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>%</Units>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1003">
+			<Name>ReadOnlyDiscreetColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+			</Measurement>
+		</Param>
+		<Param id="1004">
+			<Name>ReadOnlyAnalogColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>%</Units>
+			</Display>
+			<Measurement>
+				<Type>analog</Type>
+			</Measurement>
+		</Param>
+		<Param id="1005">
+			<Name>ReadOnlyProgressColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>%</Units>
+			</Display>
+			<Measurement>
+				<Type>progress</Type>
+			</Measurement>
+		</Param>
+		<Param id="1007">
+			<Name>ReadOnlyChartColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>chart</Type>
+			</Measurement>
+		</Param>
+		<Param id="1008">
+			<Name>ReadOnlyDigitalThresholdColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>digital threshold</Type>
+			</Measurement>
+		</Param>
+		<Param id="1010">
+			<Name>ReadOnlyDateTimeColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="datetime">number</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

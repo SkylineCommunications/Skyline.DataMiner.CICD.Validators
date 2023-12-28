@@ -1,0 +1,110 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Standalone with alarm properties-->
+		<Param id="100">
+			<Name>Standalone_WithAlarmProperties_100</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Alarm options="threshold:101,102;propertyNames:Prop1,Prop2,Prop3;properties:|aaa|111|*value:*112">
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="101">
+			<Name>Standalone_WithAlarmProperties_100_Threshold_101</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="102">
+			<Name>Standalone_WithAlarmProperties_100_Threshold_102</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="111">
+			<Name>Standalone_WithAlarmProperties_100_PropertyValue_111</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="112">
+			<Name>Standalone_WithAlarmProperties_100_PropertyValue_112</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<!--Tables with alarm properties-->
+		<Param id="1000">
+			<Name>Table_WithAlarmProtperties</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>Table_WithAlarmProtperties_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>Table_WithAlarmProtperties_Column2</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Alarm options="propertyNames:Prop1,Prop2,Prop3;properties:,aaa,10002,*value:*10003">
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<Param id="10000">
+			<Name>Table1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="10003" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="10001">
+			<Name>Table1_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10002">
+			<Name>Table1_Column2_PropertyValue_10002</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="10003">
+			<Name>Table1_Column3_PropertyValue_10003</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,85 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Params>
+		<Param id="1">
+			<Name>Standalone_MissingReadOnly</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		
+        <Param id="100">
+            <Name>Standalone_MissingRead</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="150">
+            <Name>Standalone_MissingRead</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+
+
+		<Param id="200">
+			<Name>Standalone_MissingWriteOnly</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="300">
+			<Name>Standalone_MissingWrite</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="350">
+			<Name>Standalone_MissingWrite</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>Table_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>Table_MissingWrite</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1052">
+			<Name>Table_MissingWrite</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+    </Params>
+	
+</Protocol>

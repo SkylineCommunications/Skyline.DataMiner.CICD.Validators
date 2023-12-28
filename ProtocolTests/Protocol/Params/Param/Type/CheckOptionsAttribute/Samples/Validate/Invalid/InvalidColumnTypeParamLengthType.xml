@@ -1,0 +1,89 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Matrixes-->
+		<Param id="1">
+			<Name>Matrix_LastNextParam</Name>
+			<Description>Matrix LastNextParam</Description>
+			<Type options="dimensions=32,16;columntypes=101:0-15">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>Matrix_LastNextParam</Name>
+			<Description>Matrix LastNextParam</Description>
+			<Type options="dimensions=32,16;columntypes=101:0-15">write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="3">
+			<Name>Matrix_OtherParam</Name>
+			<Description>Matrix OtherParam</Description>
+			<Type options="dimensions=32,16;columntypes=102:0-15">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="4">
+			<Name>Matrix_OtherParam</Name>
+			<Description>Matrix OtherParam</Description>
+			<Type options="dimensions=32,16;columntypes=102:0-15">write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		
+		<!--ColumnTypes Params-->
+		<Param id="101" trending="false">
+			<Name>ColumnTypes_Matrix_LastNextParam</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>last next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="102" trending="false">
+			<Name>ColumnTypes_Matrix_OtherParam</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>other param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

@@ -1,0 +1,22 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Monitored Standalone-->
+		<Param id="101">
+			<Name>Monitored_Standalone_NoThreshold</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="102">
+			<Name>Monitored_Standalone_EmptyThresholds</Name>
+			<Alarm>
+				<!--DM is currently ignoring empty tag and tags containing only white spaces-->
+				<Monitored>true</Monitored>
+				<Normal></Normal>
+				<CH>  </CH>
+			</Alarm>
+		</Param>
+	</Params>
+
+</Protocol>

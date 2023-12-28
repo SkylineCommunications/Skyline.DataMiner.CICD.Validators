@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="10">
+			<!-- refers to itself -->
+			<ArrayOptions options=";view=10">
+			</ArrayOptions>
+		</Param>
+		<Param id="11">
+			<!-- refers to a non-existing table -->
+			<ArrayOptions options=";view=12345">
+			</ArrayOptions>
+		</Param>
+	</Params>
+	
+</Protocol>

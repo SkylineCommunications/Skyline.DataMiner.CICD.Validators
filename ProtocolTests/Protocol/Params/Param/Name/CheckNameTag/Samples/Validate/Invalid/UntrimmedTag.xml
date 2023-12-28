@@ -1,0 +1,17 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Params>
+        <Param id="1">
+            <Name> ABC </Name>
+        </Param>
+
+		<!--2 read params to make sure UntrimmedTag errors are not hiding DuplicatedValue errors and vice versa-->
+		<Param id="10">
+			<Name> XYZ </Name>
+		</Param>
+		<Param id="11">
+			<Name> XYZ </Name>
+		</Param>
+    </Params>
+	
+</Protocol>

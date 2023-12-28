@@ -1,0 +1,44 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="100">
+			<Name>Updated_NumericValues</Name>
+			<Measurement>
+				<Discreets>
+					<Discreet>
+                        <Display>Updated</Display>
+                        <Value>1</Value>
+					</Discreet>
+                    <Discreet>
+                        <Display>Updated_2</Display>
+                        <Value>2</Value>
+                    </Discreet>
+					<Discreet>
+						<Display>ToEmpty</Display>
+						<Value>3</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+        <Param id="200">
+			<Name>Updated_StringValues</Name>
+            <Measurement>
+                <Discreets>
+                    <Discreet>
+                        <Display>Updated</Display>
+                        <Value>aaa</Value>
+                    </Discreet>
+                    <Discreet>
+                        <Display>Updated_2</Display>
+                        <Value>bbb</Value>
+                    </Discreet>
+					<Discreet>
+						<Display>ToEmpty</Display>
+						<Value>ccc</Value>
+					</Discreet>
+                </Discreets>
+            </Measurement>
+        </Param>
+	</Params>
+	
+</Protocol>

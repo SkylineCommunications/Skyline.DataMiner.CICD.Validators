@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<HTTP>
+		<Session id="1" name="GET Request">
+			<Connection id="1">
+				<Request verb="GET">
+					<Headers>
+						<Header key="Pragma">value</Header>
+					</Headers>
+				</Request>
+			</Connection>
+		</Session>
+		
+		<Session id="2" name="POST Request">
+			<Connection id="1">
+				<Request verb="POST">
+					<Headers>
+						<Header key="Content-Type">value</Header>
+					</Headers>
+				</Request>
+			</Connection>
+		</Session>
+	</HTTP>
+	
+</Protocol>

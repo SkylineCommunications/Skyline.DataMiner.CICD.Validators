@@ -1,0 +1,53 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Timers>
+		<!--Classic Timers-->
+		<Timer id="1">
+			<Name>Very Fast Timer (1s)</Name>
+			<Time initial="true">1000</Time>
+			<Interval>75</Interval>
+			<Content>
+			</Content>
+		</Timer>
+		<Timer id="2">
+			<Name>Fast Timer (10s)</Name>
+			<Time initial="true">10000</Time>
+			<Interval>75</Interval>
+			<Content>
+			</Content>
+		</Timer>
+		<Timer id="3">
+			<Name>Medium Timer (1m)</Name>
+			<Time initial="true" dataDisplay="30000">60000</Time>
+			<Interval>75</Interval>
+			<Content>
+			</Content>
+		</Timer>
+		<Timer id="4">
+			<Name>Slow Timer (1h)</Name>
+			<Time initial="true">3600000</Time>
+			<Interval>75</Interval>
+			<Content>
+			</Content>
+		</Timer>
+		<Timer id="5">
+			<Name>Slowest timer (max value = 24 days)</Name>
+			<Time>2073600000</Time>
+		</Timer>
+
+		<!--Loop Timers-->
+		<Timer id="11">
+			<Name>Loop Timer 11</Name>
+			<Time>loop</Time>
+		</Timer>
+
+		<!--Multi-threaded Timers-->
+		<Timer id="21" options="ip:2000,1;each:5000;pollingrate:30,5,5;threadpool:20;qactionbefore:2000">
+			<Name>Multi-threaded 21</Name>
+			<Time>1000</Time>
+		</Timer>
+		<Timer id="22" options="ip:3000,1;each:5000;pollingrate:30,5,5;threadpool:20;qactionbefore:3000">
+			<Name>Multi-threaded 22</Name>
+			<Time>1000</Time>
+		</Timer>
+	</Timers>
+</Protocol>

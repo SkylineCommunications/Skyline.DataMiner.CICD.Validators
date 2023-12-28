@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--
+	- MismatchingNamesUndefined1: no names given via PortSettings tag
+	- MismatchingNamesUndefined2: no names given via Protocol/Type tag
+	-->
+
+	<Type advanced="smart-serial:IP Connection;snmp:SNMP Connection - BLA;http:HTTP Connection">snmp</Type>
+
+	<PortSettings>
+	</PortSettings>
+
+	<Ports>
+		<PortSettings>
+			<PortTypeSerial>
+				<Disabled>true</Disabled>
+			</PortTypeSerial>
+		</PortSettings>
+		<PortSettings>
+		</PortSettings>
+		<PortSettings></PortSettings>
+	</Ports>
+
+</Protocol>

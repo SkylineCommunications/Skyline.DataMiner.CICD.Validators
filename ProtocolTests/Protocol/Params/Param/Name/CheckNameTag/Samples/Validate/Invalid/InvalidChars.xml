@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Params>
+		<!--There are currently no invalid char.-->
+
+		<!--2 read params to make sure EmptyTag errors are not hiding DuplicatedValue errors and vice versa-->
+    </Params>
+	
+</Protocol>

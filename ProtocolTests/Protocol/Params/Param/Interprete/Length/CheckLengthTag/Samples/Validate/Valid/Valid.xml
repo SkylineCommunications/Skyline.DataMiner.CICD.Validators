@@ -1,0 +1,91 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1" trending="false">
+			<Name>TitleSoftwareManagement</Name>
+			<Description>TitleSoftwareManagement</Description>
+			<Type>fixed</Type>
+			<Measurement>
+				<Type options="begin">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>Title_Begin_Identification</Name>
+			<Description>Identification</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="begin">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="3">
+			<Name>Title_End_Generic</Name>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="end">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="4">
+			<Name>testParm</Name>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>fixed</LengthType>
+				<Type>string</Type>
+				<Length>4</Length>
+				<Value>AAAA</Value>
+			</Interprete>
+		</Param>
+
+		<Param id="103">
+			<Name>RealStateV0</Name>
+			<Description>Real State V0</Description>
+			<Information>
+				<Subtext>Real State V0</Subtext>
+			</Information>
+			<Type id="21">read bit</Type>
+			<Interprete>
+				<RawType>unsigned number</RawType>
+				<LengthType>fixed</LengthType>
+				<Type>double</Type>
+				<StartPosition>7</StartPosition>
+				<NbrOfBits>1</NbrOfBits>
+			</Interprete>
+		</Param>
+
+		<Param id="6024">
+			<Type>length</Type>
+			<Interprete>
+				<RawType>unsigned number</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>4</Length>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="6025">
+			<Type>length</Type>
+			<Interprete>
+				<RawType>signed number</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>4</Length>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+
+        <Param id="6026">
+            <Type>length</Type>
+            <Interprete>
+                <RawType>signed number</RawType>
+                <LengthType>fixed</LengthType>
+                <Length>2</Length>
+                <Type>double</Type>
+            </Interprete>
+        </Param>
+		
+	</Params>
+</Protocol>

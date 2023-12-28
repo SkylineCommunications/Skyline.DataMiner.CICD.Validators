@@ -1,0 +1,27 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Table ContextMenu-->
+		<Param id="999">
+			<Name>MyTable_ContextMenu</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet dependencyValues="1002;1003?">
+					</Discreet>
+
+					<Discreet>
+					</Discreet>
+
+					<Discreet dependencyValues="1002;1003?;1004:[value:1005];1006?:[value:AAA]">
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

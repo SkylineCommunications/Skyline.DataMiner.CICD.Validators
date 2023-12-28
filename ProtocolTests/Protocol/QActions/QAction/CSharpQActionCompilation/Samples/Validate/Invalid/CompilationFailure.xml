@@ -1,0 +1,85 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpQActionCompilation_CompilationFailure</Name>
+	<Version>0.0.0.0</Version>
+	
+	<QActions>
+		<QAction id="1" name="PreCompile_OK" encoding="csharp" options="precompile">
+			<![CDATA[namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public class MyClass
+		{
+			public static int MyMethod(int x)
+			{
+				int y = x * 2;
+				return y;
+			}
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="2" name="PreCompile_NOK" encoding="csharp" options="precompile">
+			<![CDATA[namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public class MyClass
+		{
+			public static int MyMethod(int x)
+			{
+				int y = x * 2,
+				return y;
+			}
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="100" name="Simple" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: Simple.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		protocol.MyMistypedMethod();
+	}
+}]]>
+		</QAction>
+		<QAction id="201" name="DllImport_PrecompiledQAction" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: DllImport_PrecompiledQAction.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		int goodTest1 = MyClass.MyMethod(5);
+
+		int badTest1 = MyClass.MyMistypedMethod1();
+		int badTest2 = MyClass.MyMistypedMethod2();
+
+		protocol.Log("goodTest1 '" + goodTest1 + "' - badTest1 '" + badTest1 + "' - badTest2 '" + badTest2 + "'",
+			LogType.DebugInfo,
+			LogLevel.NoLogging);
+	}
+}]]>
+		</QAction>
+	</QActions>
+</Protocol>

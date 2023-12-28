@@ -1,0 +1,34 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1">
+			<Name>command</Name>
+			<On>command</On>
+		</Action>
+		<Action id="2">
+			<Name>group</Name>
+			<On>group</On>
+		</Action>
+		<Action id="3">
+			<Name>pair</Name>
+			<On>pair</On>
+		</Action>
+		<Action id="4">
+			<Name>parameter</Name>
+			<On>parameter</On>
+		</Action>
+		<Action id="5">
+			<Name>protocol</Name>
+			<On>protocol</On>
+		</Action>
+		<Action id="6">
+			<Name>response</Name>
+			<On>response</On>
+		</Action>
+		<Action id="7">
+			<Name>timer</Name>
+			<On>timer</On>
+		</Action>
+	</Actions>
+	
+</Protocol>

@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Interprete>
+				<Exceptions>
+					<Exception id="1">
+						<Display>My Exception</Display>
+					</Exception>
+					<Exception id="2">
+						<Display>My Exception</Display>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+	</Params>
+
+</Protocol>

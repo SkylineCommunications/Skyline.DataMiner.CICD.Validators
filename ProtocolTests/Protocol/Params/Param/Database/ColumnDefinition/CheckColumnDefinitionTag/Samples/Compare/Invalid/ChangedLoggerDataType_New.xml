@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <Database>
+                <ColumnDefinition>VARCHAR(10)</ColumnDefinition>
+            </Database>
+        </Param>
+        <Param id="2">
+            <Database>
+                <ColumnDefinition>VARCHAR(20)</ColumnDefinition>
+            </Database>
+        </Param>
+        <Param id="3">
+            <Database>
+                <ColumnDefinition>DOUBLE</ColumnDefinition>
+            </Database>
+        </Param>
+        <Param id="4">
+            <Database>
+                <ColumnDefinition>SMALLINT</ColumnDefinition>
+            </Database>
+        </Param>
+    </Params>
+</Protocol>

@@ -1,0 +1,190 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Triggers>
+        
+        <!--Valid on parameter combinations-->
+        <Trigger id="1">
+            <Name>Parameter Change</Name>
+            <On id="each">parameter</On>
+            <Time>change</Time>
+        </Trigger>
+        <Trigger id="2">
+            <Name>Parameter 2 Change</Name>
+            <On id="2">parameter</On>
+            <Time>change</Time>
+        </Trigger>
+        <Trigger id="3">
+            <Name>Parameter 3 Change</Name>
+            <On id="3">parameter</On>
+            <Time>change</Time>
+        </Trigger>
+        
+        <!--Valid on command combinations-->
+        <Trigger id="100">
+            <Name>Command Before</Name>
+            <On id="each">command</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="101">
+            <Name>Command After</Name>
+            <On id="each">command</On>
+            <Time>after</Time>
+        </Trigger>
+        <Trigger id="102">
+            <Name>Command 1 Before</Name>
+            <On id="1">command</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="103">
+            <Name>Command 1 After</Name>
+            <On id="1">command</On>
+            <Time>after</Time>
+        </Trigger>
+        <Trigger id="104">
+            <Name>Command 2 Before</Name>
+            <On id="2">command</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="105">
+            <Name>Command 2 After</Name>
+            <On id="2">command</On>
+            <Time>after</Time>
+        </Trigger>
+        
+        <!--Valid on response combinations-->
+        <Trigger id="200">
+            <Name>Response Before</Name>
+            <On id="each">response</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="201">
+            <Name>Response After</Name>
+            <On id="each">response</On>
+            <Time>after</Time>
+        </Trigger>
+        <Trigger id="202">
+            <Name>Response 1 Before</Name>
+            <On id="1">response</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="203">
+            <Name>Response 1 After</Name>
+            <On id="1">response</On>
+            <Time>after</Time>
+        </Trigger>
+        <Trigger id="204">
+            <Name>Response 2 Before</Name>
+            <On id="2">response</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="205">
+            <Name>Response 2 After</Name>
+            <On id="2">response</On>
+            <Time>after</Time>
+        </Trigger>
+        
+        <!--Valid on pair combinations-->
+        <Trigger id="300">
+            <Name>Pair Succeeded</Name>
+            <On id="each">pair</On>
+            <Time>succeeded</Time>
+        </Trigger>
+        <Trigger id="301">
+            <Name>Pair Timeout</Name>
+            <On id="each">pair</On>
+            <Time>timeout</Time>
+        </Trigger>
+        <Trigger id="302">
+            <Name>Pair Timeout After Retries</Name>
+            <On id="each">pair</On>
+            <Time>timeout after retries</Time>
+        </Trigger>
+        <Trigger id="303">
+            <Name>Pair 1 Succeeded</Name>
+            <On id="1">pair</On>
+            <Time>succeeded</Time>
+        </Trigger>
+        <Trigger id="304">
+            <Name>Pair 1 Timeout</Name>
+            <On id="1">pair</On>
+            <Time>timeout</Time>
+        </Trigger>
+        <Trigger id="305">
+            <Name>Pair 1 Timeout After Retries</Name>
+            <On id="1">pair</On>
+            <Time>timeout after retries</Time>
+        </Trigger>
+        
+        <!--Valid on group combinations-->
+        <Trigger id="400">
+            <Name>Group Before</Name>
+            <On id="each">group</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="401">
+            <Name>Group After</Name>
+            <On id="each">group</On>
+            <Time>after</Time>
+        </Trigger>
+        <Trigger id="402">
+            <Name>Group 1 Before</Name>
+            <On id="1">group</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="403">
+            <Name>Group 1 After</Name>
+            <On id="1">group</On>
+            <Time>after</Time>
+        </Trigger>
+        
+        <!--Valid on session combinations-->
+        <Trigger id="500">
+            <Name>Session Timeout</Name>
+            <On id="each">session</On>
+            <Time>timeout</Time>
+        </Trigger>
+        <Trigger id="501">
+            <Name>Session 1 Timeout</Name>
+            <On id="1">session</On>
+            <Time>timeout</Time>
+        </Trigger>
+        <Trigger id="502">
+            <Name>Session 2 Timeout</Name>
+            <On id="2">session</On>
+            <Time>timeout</Time>
+        </Trigger>
+        
+        <!--Valid on timer combinations-->
+        <Trigger id="600">
+            <Name>Timer Before</Name>
+            <On id="each">timer</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="601">
+            <Name>Timer 1 Before</Name>
+            <On id="1">timer</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="602">
+            <Name>Timer 2 Before</Name>
+            <On id="2">timer</On>
+            <Time>before</Time>
+        </Trigger>
+        
+        <!--Valid on protocol combinations-->
+        <Trigger id="700">
+            <Name>Protocol After Startup</Name>
+            <On>protocol</On>
+            <Time>after startup</Time>
+        </Trigger>
+        <Trigger id="701">
+            <Name>Protocol Link File Change</Name>
+            <On>protocol</On>
+            <Time>link file change</Time>
+        </Trigger>
+        
+        <!--Valid no on and time tag (triggered from other trigger or QAction)-->
+        <Trigger id="800">
+            <Name>CheckTrigger</Name>
+        </Trigger>
+    </Triggers>
+</Protocol>

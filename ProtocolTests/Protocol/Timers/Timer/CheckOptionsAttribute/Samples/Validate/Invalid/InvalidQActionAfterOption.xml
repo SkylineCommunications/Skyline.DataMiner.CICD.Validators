@@ -1,0 +1,37 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+		</Param>
+		<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+		</Param>
+	</Params>
+	
+	<Timers>
+		<!-- Empty -->
+		<Timer id="1" options="ip:2000,1;each:1000;threadPool:10;qactionAfter">
+			<Name>Empty 1</Name>
+		</Timer>
+		<Timer id="2" options="ip:2000,1;each:1000;threadPool:10;qactionAfter:">
+			<Name>Empty 2</Name>
+		</Timer>
+		
+		<!-- Invalid -->
+		<Timer id="10" options="ip:2000,1;each:1000;threadPool:10;qactionAfter:abc">
+			<Name>NonNumeric</Name>
+		</Timer>
+
+		<!-- Missing QAction is covered by NonExistingIdInOption.xml-->
+	</Timers>
+	
+</Protocol>

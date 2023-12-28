@@ -1,0 +1,59 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100" trending="true">
+			<Name>TrendingTrue_RTDisplayTrue</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="200" trending="false" export="true">
+			<Name>TrendingFalse_RTDisplayTrue</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="201" trending="false">
+			<Name>TrendingFalse_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="202" trending="false">
+			<Name>TrendingFalse_NoRTDisplay</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>false</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="203" trending="false">
+			<Name>TrendingFalse_NoDisplay</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+
+		<Param id="300" export="true">
+			<!--trending is implicitly true-->
+			<Name>NoTrending_RTDisplayTrue</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="301">
+			<!--trending is implicitly false-->
+			<Name>NoTrending_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>My Discreet 0</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>My Discreet 1</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

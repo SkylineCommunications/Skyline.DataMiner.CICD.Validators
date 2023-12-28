@@ -1,0 +1,14 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="12" trending="false">
+            <Interprete>
+                <Type>string</Type>
+            </Interprete>
+        </Param>
+    </Params>
+	<Triggers>
+		<Trigger id="1">
+            <Condition>id:12 == ("test")</Condition>
+		</Trigger>
+	</Triggers>
+</Protocol>

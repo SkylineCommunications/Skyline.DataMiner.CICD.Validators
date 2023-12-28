@@ -1,0 +1,37 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+        <Param id="2">
+            <ArrayOptions options=";">
+            </ArrayOptions>
+        </Param>
+        <Param id="3">
+            <ArrayOptions options=";database">
+            </ArrayOptions>
+        </Param>
+
+        <!--Normal table with no options-->
+		<Param id="10">
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="11" />
+				<ColumnOption idx="1" pid="12" />
+				<ColumnOption idx="2" pid="13" />
+				<ColumnOption idx="3" pid="14" />
+			</ArrayOptions>
+		</Param>
+		<Param id="11">
+			<Type>read</Type>
+		</Param>
+		<Param id="12">
+			<Type>read</Type>
+		</Param>
+		<Param id="13">
+			<Type>read</Type>
+		</Param>
+		<Param id="14">
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+</Protocol>

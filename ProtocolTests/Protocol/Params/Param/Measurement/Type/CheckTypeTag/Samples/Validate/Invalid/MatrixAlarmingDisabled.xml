@@ -1,0 +1,47 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10000">
+			<Name>Matrix MonitoredFalse</Name>
+			<Description>Matrix MonitoredFalse</Description>
+			<Type>array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>Matrix NoAlarm</Name>
+			<Description>Matrix NoAlarm</Description>
+			<Type>array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10002">
+			<Name>Matrix NoMonitored</Name>
+			<Description>Matrix NoMonitored</Description>
+			<Type>array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Alarm></Alarm>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

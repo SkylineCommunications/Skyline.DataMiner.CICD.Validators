@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<HTTP>
+		<Session id="1" name="Session with 2 duplicate connections">
+			<Connection id="101" name="Duplicate_101_1"></Connection>
+			<Connection id="101" name="Duplicate_101_2"></Connection>
+			<Connection id="102" name="NonDuplicate"></Connection>
+		</Session>
+
+		<Session id="2" name="Session with 3 duplicate connections">
+			<Connection id="201" name="Duplicate_201_1"></Connection>
+			<Connection id="201" name="Duplicate_201_2"></Connection>
+			<Connection id="201" name="Duplicate_201_3"></Connection>
+			<Connection id="202" name="NonDuplicate"></Connection>
+		</Session>
+	</HTTP>
+
+</Protocol>

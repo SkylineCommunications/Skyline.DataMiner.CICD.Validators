@@ -1,0 +1,73 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="101">
+			<Name>TreeControl_ParameterId</Name>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table_Level1_RTDisplayFalse</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>Table_Level1_RTDisplayFalse_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="2000">
+			<Name>Table_Level2_NoRTDisplay</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="2001">
+			<Name>Table_Level2_NoRTDisplay_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="3000">
+			<Name>Table_Level3_NoDisplay</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="3001">
+			<Name>Table_Level3_NoDisplay_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="101">
+			<Hierarchy>
+				<Table id="1000"/>
+				<Table id="2000"/>
+				<Table id="3000"/>
+			</Hierarchy>
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>

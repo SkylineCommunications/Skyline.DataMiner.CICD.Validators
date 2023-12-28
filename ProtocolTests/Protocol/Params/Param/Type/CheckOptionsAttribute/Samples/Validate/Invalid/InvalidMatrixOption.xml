@@ -1,0 +1,148 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Name>InvalidColumnType_MissingMaxColumnType</Name>
+			<Type options="dimensions=16,32;columntypes=:100:0-">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>InvalidColumnType_MissingMinColumnType</Name>
+			<Type options="dimensions=16,32;columntypes=100:-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="3">
+			<Name>InvalidColumnType_TooComplexColumnTypes</Name>
+			<Type options="dimensions=16,32;columntypes=100:0-15,16|17-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="4">
+			<Name>InvalidColumnType_MissingPidColumnType</Name>
+			<Type options="dimensions=16,32;columntypes=0-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="5">
+			<Name>InvalidColumnType_BadSeparator</Name>
+			<Type options="dimensions=16,32;columntypes=100:0,31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="50">
+			<Name>InvalidDimensions_BadSeparator</Name>
+			<Type options="dimensions=16-32;columntypes=100:0-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="51">
+			<Name>InvalidDimensions_BadSeparator2</Name>
+			<Type options="dimensions=16;32;columntypes=100:0-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="52">
+			<Name>InvalidDimensions_MissingRows</Name>
+			<Type options="dimensions=,32;columntypes=100:0-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="53">
+			<Name>InvalidDimensions_MissingColumns</Name>
+			<Type options="dimensions=16,;columntypes=100:0-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="54">
+			<Name>InvalidDimensions_Value</Name>
+			<Type options="dimensions=,;columntypes=100:0-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="55">
+			<Name>InvalidDimensions_NegativeRows</Name>
+			<Type options="dimensions=-1,32;columntypes=100:0-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="56">
+			<Name>InvalidDimensions_NegativeColumns</Name>
+			<Type options="dimensions=16,-32;columntypes=100:0-31">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

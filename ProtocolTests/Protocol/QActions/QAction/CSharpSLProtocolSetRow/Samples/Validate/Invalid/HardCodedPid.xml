@@ -1,0 +1,106 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>SetRow_HardCodedPid</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="1000">
+			<Name>SetRow</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001" historySet="true">
+			<Name>SetRow_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002" historySet="true">
+			<Name>SetRow_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003" historySet="true">
+			<Name>SetRow_Column3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void SetRowWrapper(this SLProtocol protocol, int tablePid, string rowPk, object[] rowValues)
+			{
+				protocol.SetRow(tablePid, rowPk, rowValues);
+			}
+			
+			public static void SetRowWrapper(this SLProtocol protocol, int tablePid, string rowPk, object[] rowValues, ValueType timeInfo)
+			{
+				protocol.SetRow(tablePid, rowPk, rowValues, timeInfo);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int MyParam_1000 = 1000;
+			public const int MyParam_11 = 11;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="102" name="SetRow_HardCodedPid" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	private const int TablePid_GlobalConst = 1000;
+
+	public static void Run(SLProtocol protocol)
+	{
+		ValueType date_vt = new DateTime(2008, 8, 29, 19, 27, 15);
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] rowValues = { null, "Column2_Value", "Column3_Value" };
+		bool overRideBehaviour = true;
+
+		// By Key
+		protocol.SetRow(1000, "PK_1", rowValues);
+		protocol.SetRow(1000, "PK_1", rowValues, overRideBehaviour);
+		protocol.SetRow(1000, "PK_1", rowValues, date_dt);
+		protocol.SetRow(1000, "PK_1", rowValues, date_vt);
+
+		// By RowPosition
+		protocol.SetRow(1000, 1, rowValues);
+		protocol.SetRow(1000, 1, rowValues, overRideBehaviour);
+		protocol.SetRow(1000, 1, rowValues, date_dt);
+		protocol.SetRow(1000, 1, rowValues, date_vt);
+
+		// Constant in a different location
+		protocol.SetRow(MyParams.MyParam_1000, 1, rowValues);
+
+		// Constant in the same method
+		const int tablePid_const = 1000;
+		protocol.SetRow(tablePid_const, 1, rowValues);
+
+		// Constant as global property
+		protocol.SetRow(TablePid_GlobalConst, 1, rowValues);
+
+		// Unchanged variable inside the same method
+		int tablePid2 = 1000;
+		protocol.SetRow(tablePid2, 1, rowValues);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

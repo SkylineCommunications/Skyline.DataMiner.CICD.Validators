@@ -1,0 +1,56 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10000">
+			<Description>Missing CIMax</Description>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,1,0">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Description>pages in wrong first position</Description>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=pages,16,32,0,1,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10002">
+			<Description>pages in wrong middle position</Description>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,pages,0,1,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10003">
+			<Description>noDisconnectsInBackup wrong position 6</Description>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,1,0,31,noDisconnectsInBackup">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10004">
+			<Description>Something except noDisconnectsInBackup in position 8</Description>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,1,0,31,pages,evenSmallPages">matrix</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="20000">
+			<Name>MatrixCOMinLowerThan0</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,-1,1,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="20001">
+			<Name>MatrixCIMinLowerThan0</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,1,-1,31">matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

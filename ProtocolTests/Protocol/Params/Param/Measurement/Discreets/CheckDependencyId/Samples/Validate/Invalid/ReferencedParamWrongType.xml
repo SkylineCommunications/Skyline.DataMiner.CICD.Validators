@@ -1,0 +1,280 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>array</Name>
+			<Type>array</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="101">
+			<Name>bus</Name>
+			<Type>bus</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="102">
+			<Name>crc</Name>
+			<Type>crc</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="103">
+			<Name>dataminer info</Name>
+			<Type>dataminer info</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="104">
+			<Name>discreet info</Name>
+			<Type>discreet info</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="105">
+			<Name>dummy</Name>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="106">
+			<Name>elementdmaid</Name>
+			<Type>elementdmaid</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="107">
+			<Name>elementid</Name>
+			<Type>elementid</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="108">
+			<Name>elementname</Name>
+			<Type>elementname</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="109">
+			<Name>fixed</Name>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="110">
+			<Name>group</Name>
+			<Type>group</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="111">
+			<Name>header</Name>
+			<Type>header</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="112">
+			<Name>ip</Name>
+			<Type>ip</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="113">
+			<Name>length</Name>
+			<Type>length</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="114">
+			<Name>pollingip</Name>
+			<Type>pollingip</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="115">
+			<Name>read</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="116">
+			<Name>read bit</Name>
+			<Type>read bit</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="117">
+			<Name>response</Name>
+			<Type>response</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="118">
+			<Name>trailer</Name>
+			<Type>trailer</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="119">
+			<Name>write</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="120">
+			<Name>write bit</Name>
+			<Type>write bit</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>DependencyId_ToArray</Name>
+			<Measurement>
+				<Discreets dependencyId="100"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>DependencyId_ToBus</Name>
+			<Measurement>
+				<Discreets dependencyId="101"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1002">
+			<Name>DependencyId_ToCrc</Name>
+			<Measurement>
+				<Discreets dependencyId="102"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1003">
+			<Name>DependencyId_ToCataMinerInfo</Name>
+			<Measurement>
+				<Discreets dependencyId="103"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1004">
+			<Name>DependencyId_ToDiscreetInfo</Name>
+			<Measurement>
+				<Discreets dependencyId="104"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1005">
+			<Name>DependencyId_ToDummy</Name>
+			<Measurement>
+				<Discreets dependencyId="105"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1006">
+			<Name>DependencyId_ToElementDmaId</Name>
+			<Measurement>
+				<Discreets dependencyId="106"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1007">
+			<Name>DependencyId_ToElementId</Name>
+			<Measurement>
+				<Discreets dependencyId="107"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1008">
+			<Name>DependencyId_ToElementName</Name>
+			<Measurement>
+				<Discreets dependencyId="108"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1009">
+			<Name>DependencyId_ToFixed</Name>
+			<Measurement>
+				<Discreets dependencyId="109"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1010">
+			<Name>DependencyId_ToGroup</Name>
+			<Measurement>
+				<Discreets dependencyId="110"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1011">
+			<Name>DependencyId_ToHeader</Name>
+			<Measurement>
+				<Discreets dependencyId="111"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1012">
+			<Name>DependencyId_ToIP</Name>
+			<Measurement>
+				<Discreets dependencyId="112"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1013">
+			<Name>DependencyId_ToLength</Name>
+			<Measurement>
+				<Discreets dependencyId="113"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1014">
+			<Name>DependencyId_ToPollingIP</Name>
+			<Measurement>
+				<Discreets dependencyId="114"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1015">
+			<Name>DependencyId_ToRead</Name>
+			<Measurement>
+				<Discreets dependencyId="115"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1016">
+			<Name>DependencyId_ToReadBit</Name>
+			<Measurement>
+				<Discreets dependencyId="116"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1017">
+			<Name>DependencyId_ToResponse</Name>
+			<Measurement>
+				<Discreets dependencyId="117"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1018">
+			<Name>DependencyId_ToTrailer</Name>
+			<Measurement>
+				<Discreets dependencyId="118"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1019">
+			<Name>DependencyId_ToWrite</Name>
+			<Measurement>
+				<Discreets dependencyId="119"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1020">
+			<Name>DependencyId_ToWriteBit</Name>
+			<Measurement>
+				<Discreets dependencyId="120"></Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

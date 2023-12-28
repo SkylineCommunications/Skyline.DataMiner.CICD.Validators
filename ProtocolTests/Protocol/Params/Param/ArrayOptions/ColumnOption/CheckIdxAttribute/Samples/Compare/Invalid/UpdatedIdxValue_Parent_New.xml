@@ -1,0 +1,35 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>WithoutDisplayKey</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="105" />
+				<ColumnOption idx="1" pid="102" />
+				<ColumnOption idx="2" pid="103" />
+				<ColumnOption idx="3" pid="104" />
+				<ColumnOption idx="4" pid="101" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="200">
+			<Name>WithDisplayKey</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="201" />
+				<ColumnOption idx="1" pid="204" />
+				<ColumnOption idx="2" pid="203" />
+				<ColumnOption idx="3" pid="205" />
+				<ColumnOption idx="4" pid="202" type="displaykey" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

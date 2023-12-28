@@ -1,0 +1,145 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpQActionCompilation_Valid</Name>
+	<Version>0.0.0.0</Version>
+	
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public class MyClass
+		{
+			public static int MyMethod(int x)
+			{
+				int y = x * 2;
+				return y;
+			}
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="Simple" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: Simple.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		protocol.Log("QA" + protocol.QActionID + "|Run|##### Start of QAction #####", LogType.DebugInfo, LogLevel.NoLogging);
+	}
+}]]>
+		</QAction>
+
+		<QAction id="200" name="DllImport_ExternalDll" encoding="csharp" dllImport="Newtonsoft.Json.dll">
+			<![CDATA[using Newtonsoft.Json.Converters;
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: DllImport_ExternalDll.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		BinaryConverter test = new BinaryConverter();
+		protocol.Log(test.ToString(), LogType.DebugInfo, LogLevel.NoLogging);
+	}
+}]]>
+		</QAction>
+		<QAction id="201" name="DllImport_PrecompiledQAction" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: DllImport_PrecompiledQAction.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		int test = MyClass.MyMethod(5);
+		protocol.Log("QA" + protocol.QActionID + "|Run|test '" + test + "'.", LogType.DebugInfo, LogLevel.NoLogging);
+	}
+}]]>
+		</QAction>
+		<QAction id="210" name="DllImport_IgnoreEmpty1" encoding="csharp" dllImport="">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: DllImport_IgnoreEmpty1.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		protocol.Log("QA" + protocol.QActionID + "|Run|##### Start of QAction #####", LogType.DebugInfo, LogLevel.NoLogging);
+	}
+}]]>
+		</QAction>
+		<QAction id="211" name="DllImport_IgnoreEmpty2" encoding="csharp" dllImport=";;[ProtocolName].[ProtocolVersion].QAction.1.dll;">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: DllImport_IgnoreEmpty1.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		protocol.Log("QA" + protocol.QActionID + "|Run|##### Start of QAction #####", LogType.DebugInfo, LogLevel.NoLogging);
+	}
+}]]>
+		</QAction>
+
+		<QAction id="10000" name="jscript" encoding="jscript">
+			<![CDATA[
+				id:5 = "*" + id:101 + "*"; 
+			]]>
+		</QAction>
+		<QAction id="10001" name="vbscript" encoding="vbscript" include="DMAAlarm.vbs">
+			<![CDATA[
+				Dim triggerId 
+				triggerId = SLScript.Parameter(-1) - 18 
+				Dim alarmID
+				call NewAlarm(id:50,(triggerId + 1),SLScript.ParameterValue(triggerId + 2),"Normal",alarmID)
+				SLScript.Parameter(triggerId + 10) = ""
+			]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

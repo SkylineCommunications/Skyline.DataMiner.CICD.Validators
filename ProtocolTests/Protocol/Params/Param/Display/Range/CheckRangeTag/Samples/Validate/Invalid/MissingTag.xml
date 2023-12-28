@@ -1,0 +1,1095 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!--Read Only Standalone Params-->
+        <!--<Param id="1">
+            <Name>ReadOnlyString</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>-->
+        <Param id="2">
+            <Name>ReadOnlyNumber</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>0</Column>
+                        <Row>1</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <!--<Param id="3">
+            <Name>ReadOnlyDiscreet</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>0</Column>
+                        <Row>2</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>-->
+        <Param id="4">
+            <Name>ReadOnlyAnalog</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>0</Column>
+                        <Row>3</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="5">
+            <Name>ReadOnlyProgress</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>0</Column>
+                        <Row>4</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <!--<Param id="6">
+            <Name>ReadOnlyButton</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>button</Type>
+            </Measurement>
+        </Param>-->
+        <!--<Param id="7">
+            <Name>ReadOnlyChart</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>0</Column>
+                        <Row>7</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="8">
+            <Name>ReadOnlyDigitalThreshold</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>0</Column>
+                        <Row>8</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>-->
+        <!--<Param id="9">
+            <Name>ReadOnlyToggleButton</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>togglebutton</Type>
+            </Measurement>
+        </Param>-->
+        <!--<Param id="10">
+            <Name>ReadOnlyDateTime</Name>
+            <Description>DateTime</Description>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>0</Column>
+                        <Row>11</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type options="datetime">number</Type>
+            </Measurement>
+        </Param>-->
+
+        <!--Write Only Standalone Params-->
+        <!--<Param id="101">
+            <Name>WriteOnlyString</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>-->
+        <Param id="102">
+            <Name>WriteOnlyNumber</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>1</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <!--<Param id="103">
+            <Name>WriteOnlyDiscreet</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>2</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>-->
+        <Param id="104">
+            <Name>WriteOnlyAnalog</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>3</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="105">
+            <Name>WriteOnlyProgress</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>4</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <!--<Param id="106">
+            <Name>WriteOnlyButton</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>5</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>button</Type>
+            </Measurement>
+        </Param>
+        <Param id="107">
+            <Name>WriteOnlyChart</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>6</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="108">
+            <Name>WriteOnlyDigitalThreshold</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>7</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>
+        <Param id="109">
+            <Name>WriteOnlyToggleButton</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>8</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>togglebutton</Type>
+            </Measurement>
+        </Param>-->
+        <!--<Param id="110">
+            <Name>WriteOnlyDateTime</Name>
+            <Description>DateTime</Description>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>1</Column>
+                        <Row>9</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type options="datetime">number</Type>
+            </Measurement>
+        </Param>-->
+
+        <!--Read Write Standalone Params-->
+        <!--<Param id="201">
+            <Name>ReadWriteString</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>
+        <Param id="251" setter="true">
+            <Name>ReadWriteString</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>-->
+        <Param id="202">
+            <Name>ReadWriteNumber</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>1</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <Param id="252" setter="true">
+            <Name>ReadWriteNumber</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>1</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <!--<Param id="203">
+            <Name>ReadWriteDiscreet</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>2</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="253" setter="true">
+            <Name>ReadWriteDiscreet</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>2</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>-->
+        <Param id="204">
+            <Name>ReadWriteAnalog</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>3</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="254" setter="true">
+            <Name>ReadWriteAnalog</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>3</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="205">
+            <Name>ReadWriteProgress</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>4</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <Param id="255" setter="true">
+            <Name>ReadWriteProgress</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>4</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <!--<Param id="206">
+            <Name>ReadWriteButton</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>5</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="256" setter="true">
+            <Name>ReadWriteButton</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>5</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>button</Type>
+            </Measurement>
+        </Param>
+        <Param id="207">
+            <Name>ReadWriteChart</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>6</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="257" setter="true">
+            <Name>ReadWriteChart</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>6</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="208">
+            <Name>ReadWriteDigitalThreshold</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>7</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>
+        <Param id="258" setter="true">
+            <Name>ReadWriteDigitalThreshold</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>7</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>
+        <Param id="209">
+            <Name>ReadWriteToggleButton</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>8</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="259" setter="true">
+            <Name>ReadWriteToggleButton</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>8</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>togglebutton</Type>
+            </Measurement>
+        </Param>-->
+        <!--<Param id="210">
+            <Name>ReadWriteDateTime</Name>
+            <Description>DateTime</Description>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>9</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type options="datetime">number</Type>
+            </Measurement>
+        </Param>-->
+        <!--<Param id="260" setter="true">
+            <Name>ReadWriteDateTime</Name>
+            <Description>DateTime</Description>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Standalone Params</Page>
+                        <Column>2</Column>
+                        <Row>9</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type options="datetime">number</Type>
+            </Measurement>
+        </Param>-->
+
+        <!--Read Only Not Displayed Params-->
+        <!--<Param id="301">
+            <Name>ReadOnlyNotDisplayedString</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>
+        <Param id="302">
+            <Name>ReadOnlyNotDisplayedNumber</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <Param id="303">
+            <Name>ReadOnlyNotDisplayedDiscreet</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="304">
+            <Name>ReadOnlyNotDisplayedAnalog</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="305">
+            <Name>ReadOnlyNotDisplayedProgress</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <Param id="306">
+            <Name>ReadOnlyNotDisplayedButton</Name>
+            <Type>write</Type>
+            <Measurement>
+                <Type>button</Type>
+            </Measurement>
+        </Param>
+        <Param id="307">
+            <Name>ReadOnlyNotDisplayedChart</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="308">
+            <Name>ReadOnlyNotDisplayedDigitalThreshold</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>
+        <Param id="309">
+            <Name>ReadOnlyNotDisplayedToggleButton</Name>
+            <Type>write</Type>
+            <Measurement>
+                <Type>togglebutton</Type>
+            </Measurement>
+        </Param>
+        <Param id="310">
+            <Name>ReadOnlyNotDisplayedDateTime</Name>
+            <Description>DateTime</Description>
+            <Type>read</Type>
+            <Measurement>
+                <Type options="datetime">number</Type>
+            </Measurement>
+        </Param>-->
+
+        <!--Read Write Table-->
+        <Param id="1100">
+            <Name>ReadWriteTable</Name>
+            <Description>Read Write Table</Description>
+            <Type>array</Type>
+            <ArrayOptions index="0">
+                <ColumnOption idx="0" pid="1101" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="1102" type="retrieved" options="" />
+                <ColumnOption idx="2" pid="1103" type="retrieved" options="" />
+                <ColumnOption idx="3" pid="1104" type="retrieved" options="" />
+                <ColumnOption idx="4" pid="1105" type="retrieved" options="" />
+                <ColumnOption idx="5" pid="1107" type="retrieved" options="" />
+                <ColumnOption idx="6" pid="1108" type="retrieved" options="" />
+                <ColumnOption idx="7" pid="1109" type="retrieved" options="" />
+                <ColumnOption idx="8" pid="1110" type="retrieved" options="" />
+            </ArrayOptions>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Tables</Page>
+                        <Column>0</Column>
+                        <Row>1</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type options="tab=lines:25,filter:true">table</Type>
+            </Measurement>
+        </Param>
+        <Param id="1101">
+            <Name>ReadWriteStringColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>
+        <Param id="1151" setter="true">
+            <Name>ReadWriteStringColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>
+        <Param id="1102">
+            <Name>ReadWriteNumberColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <Param id="1152" setter="true">
+            <Name>ReadWriteNumberColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <Param id="1103">
+            <Name>ReadWriteDiscreetColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="1153" setter="true">
+            <Name>ReadWriteDiscreetColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="1104">
+            <Name>ReadWriteAnalogColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="1154" setter="true">
+            <Name>ReadWriteAnalogColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="1105">
+            <Name>ReadWriteProgressColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <Param id="1155" setter="true">
+            <Name>ReadWriteProgressColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <Param id="1056">
+            <Name>ReadWriteButtonColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="1156">
+            <Name>ReadWriteButtonColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>button</Type>
+            </Measurement>
+        </Param>
+        <Param id="1107">
+            <Name>ReadWriteChartColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="1157" setter="true">
+            <Name>ReadWriteChartColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="1108">
+            <Name>ReadWriteDigitalThresholdColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>
+        <Param id="1158" setter="true">
+            <Name>ReadWriteDigitalThresholdColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>
+        <Param id="1109">
+            <Name>ReadWriteToggleButtonColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="1159">
+            <Name>ReadWriteToggleButtonColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>togglebutton</Type>
+            </Measurement>
+        </Param>
+        <Param id="1110">
+            <Name>ReadWriteDateTimeColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Range>
+                    <Low>0</Low>
+                    <High>1</High>
+                </Range>
+            </Display>
+            <Measurement>
+                <Type options="datetime">number</Type>
+            </Measurement>
+        </Param>
+        <Param id="1160" setter="true">
+            <Name>ReadWriteDateTimeColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Range>
+                    <Low>0</Low>
+                    <High>1</High>
+                </Range>
+            </Display>
+            <Measurement>
+                <Type options="datetime">number</Type>
+            </Measurement>
+        </Param>
+
+        <!--Read Only Not Displayed Table-->
+        <!--<Param id="1200">
+            <Name>ReadOnlyNotDisplayedTable</Name>
+            <Description>Read Only Not Displayed Table</Description>
+            <Type>array</Type>
+            <ArrayOptions index="0">
+                <ColumnOption idx="0" pid="1201" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="1202" type="retrieved" options="" />
+                <ColumnOption idx="2" pid="1203" type="retrieved" options="" />
+                <ColumnOption idx="3" pid="1204" type="retrieved" options="" />
+                <ColumnOption idx="4" pid="1205" type="retrieved" options="" />
+                <ColumnOption idx="5" pid="1207" type="retrieved" options="" />
+                <ColumnOption idx="6" pid="1208" type="retrieved" options="" />
+                <ColumnOption idx="7" pid="1210" type="retrieved" options="" />
+            </ArrayOptions>
+            <Measurement>
+                <Type>table</Type>
+            </Measurement>
+        </Param>
+        <Param id="1201">
+            <Name>ReadOnlyNotDisplayedStringColumn</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>
+        <Param id="1202">
+            <Name>ReadOnlyNotDisplayedNumberColumn</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <Param id="1203">
+            <Name>ReadOnlyNotDisplayedDiscreetColumn</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="1204">
+            <Name>ReadOnlyNotDisplayedAnalogColumn</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="1205">
+            <Name>ReadOnlyNotDisplayedProgressColumn</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <Param id="1206">
+            <Name>ReadOnlyNotDisplayedButtonColumn</Name>
+            <Type>write</Type>
+            <Measurement>
+                <Type>button</Type>
+            </Measurement>
+        </Param>
+        <Param id="1207">
+            <Name>ReadOnlyNotDisplayedChartColumn</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="1208">
+            <Name>ReadOnlyNotDisplayedDigitalThresholdColumn</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>
+        <Param id="1209">
+            <Name>ReadOnlyNotDisplayedToggleButtonColumn</Name>
+            <Type>write</Type>
+            <Measurement>
+                <Type>togglebutton</Type>
+            </Measurement>
+        </Param>
+        <Param id="1210">
+            <Name>ReadOnlyNotDisplayedDateTimeColumn</Name>
+            <Type>read</Type>
+            <Measurement>
+                <Type options="datetime">number</Type>
+            </Measurement>
+        </Param>-->
+    </Params>
+</Protocol>

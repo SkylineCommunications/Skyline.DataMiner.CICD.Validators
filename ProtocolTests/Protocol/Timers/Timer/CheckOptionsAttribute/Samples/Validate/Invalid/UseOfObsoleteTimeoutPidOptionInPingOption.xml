@@ -1,0 +1,29 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="10">
+			<Name>MultiThread_Ping_Timeout</Name>
+		</Param>
+		
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+		</Param>
+		<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+		</Param>
+	</Params>
+	
+	<Timers>
+		<!-- Obsolete "ping" option "timeoutPid" value.-->
+		<Timer id="1" options="ip:2000,1;each:1000;threadPool:10;ping:timeoutPid=10" />
+	</Timers>
+	
+</Protocol>

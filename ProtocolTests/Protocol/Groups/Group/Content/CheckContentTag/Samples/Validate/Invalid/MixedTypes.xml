@@ -1,0 +1,83 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Groups>
+		<Group id="101">
+            <Name>GroupPoll_Pair_Param</Name>
+            <Type>poll</Type>
+			<Content>
+                <Pair>25</Pair>
+                <Param>25</Param>
+			</Content>
+		</Group>
+		<Group id="102">
+			<Name>GroupPoll_Pair_Session</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>25</Pair>
+				<Session>25</Session>
+			</Content>
+		</Group>
+		<Group id="103">
+			<Name>GroupPoll_Pair_Param_Session</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>25</Pair>
+				<Param>25</Param>
+				<Session>25</Session>
+			</Content>
+		</Group>
+
+		<Group id="111">
+			<Name>GroupPoll_Param_Pair</Name>
+			<!--Implicit Group/Type 'poll'-->
+			<Content>
+				<Param>25</Param>
+				<Pair>25</Pair>
+			</Content>
+		</Group>
+		<Group id="112">
+			<Name>GroupPoll_Param_Session</Name>
+			<!--Implicit Group/Type 'poll'-->
+			<Content>
+				<Param>25</Param>
+				<Session>25</Session>
+			</Content>
+		</Group>
+		<Group id="113">
+			<Name>GroupPoll_Param_Pair_Session</Name>
+			<!--Implicit Group/Type 'poll'-->
+			<Content>
+				<Param>25</Param>
+				<Pair>25</Pair>
+				<Session>25</Session>
+			</Content>
+		</Group>
+
+		<Group id="121">
+			<Name>GroupPoll_Session_Pair</Name>
+			<Type>poll</Type>
+			<Content>
+				<Session>25</Session>
+				<Pair>25</Pair>
+			</Content>
+		</Group>
+		<Group id="122">
+			<Name>GroupPoll_Session_Param</Name>
+			<Type>poll</Type>
+			<Content>
+				<Session>25</Session>
+				<Param>25</Param>
+			</Content>
+		</Group>
+		<Group id="123">
+			<Name>GroupPoll_Session_Param_Pair</Name>
+			<Type>poll</Type>
+			<Content>
+				<Session>25</Session>
+				<Pair>25</Pair>
+				<Param>25</Param>
+			</Content>
+		</Group>
+	</Groups>
+	
+</Protocol>

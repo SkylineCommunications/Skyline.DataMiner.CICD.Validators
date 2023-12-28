@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10000">
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=InputCount,OutputCount,MinConnectedInputs,MaxConnectedInputs,MinConnectedOutputs,MaxConnectedOutputs">matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

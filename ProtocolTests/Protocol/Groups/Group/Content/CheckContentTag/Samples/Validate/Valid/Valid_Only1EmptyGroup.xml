@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Groups>
+		<Group id="1">
+			<!--Workaround for a software issue:
+				When a protocol has no group at all, we need to add a dummy empty one so that:
+					- Some protocol threads get triggered/started.
+					- Some threads get added to SLWatchdog.
+				This also means than having such empty group only makes sense in 2 scenarios:
+					- the group is a multi-threaded group.
+					- the group is the only one in the protocol (doesn't make sense to have non multi-threaded and empty group if there are other groups in the protocol)-->
+			<Name>Dummy Group</Name>
+		</Group>
+	</Groups>
+
+</Protocol>

@@ -1,0 +1,22 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10">
+			<Interprete>
+				<Exceptions>
+					<Exception>
+						<Display>N/A</Display>
+					</Exception>
+					<Exception>
+						<Display>N/A</Display>
+					</Exception>
+					<Exception>
+						<Display>N/A</Display>
+					</Exception>
+					<Exception>
+						<Display>N/A</Display>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+	</Params>
+</Protocol>

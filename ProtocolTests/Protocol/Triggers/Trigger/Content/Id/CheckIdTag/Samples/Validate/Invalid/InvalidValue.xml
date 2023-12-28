@@ -1,0 +1,31 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Triggers>
+		<!--Triggers triggering other triggers-->
+		<Trigger id="100">
+			<Name>String</Name>
+			<Content>
+				<Id>aaa</Id>
+			</Content>
+		</Trigger>
+
+		<!--Triggers triggering actions-->
+		<Trigger id="1000">
+			<Name>Number_NonUint</Name>
+			<Content>
+				<Id>-2</Id>
+				<Id>1.5</Id>
+				<Id>2,6</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="1001">
+			<Name>Number_Format</Name>
+			<Content>
+				<Id>03</Id>
+				<Id>+4</Id>
+				<Id>5x10^1</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+
+</Protocol>

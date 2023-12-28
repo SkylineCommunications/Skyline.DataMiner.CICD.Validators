@@ -1,0 +1,192 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>NtFillArrayWithColumn_ColumnMissingHistorySet</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="1000">
+			<Name>NoHistorySet</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>NoHistorySet_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>NoHistorySet_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>NoHistorySet_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1100">
+			<Name>HistorySetFalse</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1102" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1103" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1101" historySet="false">
+			<Name>HistorySetFalse_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1102" historySet="false">
+			<Name>HistorySetFalse_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1103" historySet="false">
+			<Name>HistorySetFalse_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<!--<Param id="2000">
+			<Name>HistorySetTrue</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>HistorySetTrue_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002" historySet="true">
+			<Name>HistorySetTrue_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2003" historySet="true">
+			<Name>HistorySetTrue_Column3</Name>
+			<Type>read</Type>
+		</Param>-->
+
+		<Param id="10000">
+			<Name>MyTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="10003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="10004" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10001">
+			<Name>MyTable_Column1_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10002" historySet="true">
+			<Name>MyTable_Column2_HistorySetTrue</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10003" historySet="false">
+			<Name>MyTable_Column3_HistorySetFalse</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10004">
+			<Name>MyTable_Column4_NoHistorySet</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void SetColumnsWrapper(this SLProtocol protocol, object[] columnPids, object[] columnValues)
+			{
+				protocol.NotifyProtocol(220, columnPids, columnValues);
+			}
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="103" name="FillArrayWithColumn_HistorySetOnMethodCallLevel" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] primaryKeys = { "PK_1", "PK_2", "PK_3" };
+		object[] columnValues = { "Value_1", "Value_2", "Value_3" };
+		object[] columnValues2 = { "Value_1", "Value_2", "Value_3" };
+		object[] columnValues3 = { "Value_1", "Value_2", "Value_3" };
+
+		// History sets on method call level
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, Parameter.Nohistoryset.Pid.nohistoryset_column3, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { primaryKeys, columnValues, columnValues2 });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { primaryKeys, columnValues, columnValues2 });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, Parameter.Mytable.Pid.mytable_column3_historysetfalse, Parameter.Mytable.Pid.mytable_column4_nohistoryset, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { primaryKeys, columnValues, columnValues2, columnValues3 });
+
+		// Wrappers
+		protocol.SetColumnsWrapper(new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, Parameter.Nohistoryset.Pid.nohistoryset_column3, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { primaryKeys, columnValues, columnValues2 });
+		protocol.SetColumnsWrapper(new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { primaryKeys, columnValues, columnValues2 });
+		protocol.SetColumnsWrapper(new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, Parameter.Mytable.Pid.mytable_column3_historysetfalse, Parameter.Mytable.Pid.mytable_column4_nohistoryset, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { primaryKeys, columnValues, columnValues2, columnValues3 });
+	}
+}]]>
+		</QAction>
+		<QAction id="104" name="FillArrayWithColumn_HistorySetOnCellLevel" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] primaryKeys = { "PK_1", "PK_2", "PK_3" };
+		object[] columnValues = { "Value_1", "Value_2", "Value_3" };
+		object[] columnValuesAndDateTimes = new object[] { new object[] { "Column3_Row1", date_dt }, new object[] { "Column3_Row2", date_dt }, "Column3_Row3" };
+
+		// History sets on cell level - no optional field
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, Parameter.Nohistoryset.Pid.nohistoryset_column3 }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValues });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3 }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, Parameter.Mytable.Pid.mytable_column3_historysetfalse, Parameter.Mytable.Pid.mytable_column4_nohistoryset }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValuesAndDateTimes, columnValuesAndDateTimes });
+
+		// History sets on cell level - optional bool field
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, Parameter.Nohistoryset.Pid.nohistoryset_column3, useClearAndLeaveFalse }, new object[] { primaryKeys, columnValues, columnValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3, useClearAndLeaveFalse }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValues });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, Parameter.Mytable.Pid.mytable_column3_historysetfalse, Parameter.Mytable.Pid.mytable_column4_nohistoryset, useClearAndLeaveFalse }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValues, columnValuesAndDateTimes });
+
+		// History sets on cell level - optional array field {bool}
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, Parameter.Nohistoryset.Pid.nohistoryset_column3, new object[] { useClearAndLeaveFalse } }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3, new object[] { useClearAndLeaveFalse } }, new object[] { primaryKeys, columnValues, columnValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, Parameter.Mytable.Pid.mytable_column3_historysetfalse, Parameter.Mytable.Pid.mytable_column4_nohistoryset, new object[] { useClearAndLeaveFalse } }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValuesAndDateTimes, columnValues });
+
+		// History sets on cell level - optional array field {bool, null}
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, Parameter.Nohistoryset.Pid.nohistoryset_column3, new object[] { useClearAndLeaveFalse, null } }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3, new object[] { useClearAndLeaveFalse, null } }, new object[] { primaryKeys, columnValuesAndDateTimes, columnValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, Parameter.Mytable.Pid.mytable_column3_historysetfalse, Parameter.Mytable.Pid.mytable_column4_nohistoryset, new object[] { useClearAndLeaveFalse, null } }, new object[] { primaryKeys, columnValues, columnValuesAndDateTimes, columnValuesAndDateTimes });
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

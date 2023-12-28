@@ -1,0 +1,14 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<QActions>
+		<QAction id="aaa" name="String"></QAction>
+
+		<QAction id="-2" name="Number_Negative"></QAction>
+		<QAction id="1.5" name="Number_Double_1"></QAction>
+		<QAction id="2,6" name="Number_Double_2"></QAction>
+		<QAction id="03" name="Number_LeadingZero"></QAction>
+		<QAction id="+4" name="Number_LeadingPlusSign"></QAction>
+		<QAction id="5x10^1" name="Number_ScientificNotation"></QAction>
+	</QActions>
+
+</Protocol>

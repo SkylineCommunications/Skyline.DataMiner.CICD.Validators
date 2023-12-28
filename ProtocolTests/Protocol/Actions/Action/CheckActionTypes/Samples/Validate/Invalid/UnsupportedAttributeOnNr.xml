@@ -1,0 +1,72 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1"></Param>
+	</Params>
+
+	<Pairs>
+		<Pair id="100">
+		</Pair>
+	</Pairs>
+
+	<Groups>
+		<Group id="1"></Group>
+	</Groups>
+
+	<Actions>
+		<!--1000: On Command-->
+		<Action id="1000">
+			<Name>Unsupported_Reverse_Group</Name>
+			<On nr="0;1">command</On>
+			<Type>crc</Type>
+		</Action>
+
+		<!--2000: On Group-->
+		<Action id="2000">
+			<Name>group_add to execute</Name>
+			<On id="1" nr="1">group</On>
+			<Type>add to execute</Type>
+		</Action>
+
+		<!--3000: On Pair-->
+		<Action id="3010">
+			<Name>pair_timeout</Name>
+			<On id="100" nr="1">pair</On>
+			<Type id="1">timeout</Type>
+		</Action>
+		
+		<!--4000: On Param-->
+		<Action id="4000">
+			<Name>parameter_aggregate</Name>
+			<On nr="1">parameter</On>
+			<Type>aggregate</Type>
+		</Action>
+
+		<!--5000: On Protocol-->
+		<Action id="5000">
+			<Name>protocol_close</Name>
+			<On nr="1">protocol</On>
+			<Type>close</Type>
+		</Action>
+
+		<!--6000: On Response-->
+		<Action id="6000">
+			<Name>response_clear</Name>
+			<On nr="1">response</On>
+			<Type>clear</Type>
+		</Action>
+
+		<!--7000: On Timer-->
+		<Action id="7000">
+			<Name>timer_reschedule</Name>
+			<On id="1" nr="1">timer</On>
+			<Type>reschedule</Type>
+		</Action>		
+		
+	</Actions>
+
+	<Timers>
+		<Timer id="1"></Timer>
+	</Timers>
+
+</Protocol>

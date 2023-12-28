@@ -1,0 +1,143 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<QActions>
+		<QAction id="1" name="UnrecommendedConstructors_XmlSerializer_Default" encoding="csharp">
+			<![CDATA[using System.Threading;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+
+	}
+
+	public static void MyMethod()
+	{
+		// Used by ThreadStart
+	}
+}]]>
+		</QAction>
+		<QAction id="2" name="UnrecommendedConstructors_XmlSerializer_XmlTypeMapping" encoding="csharp">
+			<![CDATA[using System.Threading;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		SoapAttributeOverrides soapOverrides = new SoapAttributeOverrides();
+		XmlTypeMapping myTypeMapping = (new SoapReflectionImporter(soapOverrides)).ImportTypeMapping(typeof(string));
+		var serializer = new XmlSerializer(myTypeMapping);
+	}
+}]]>
+		</QAction>
+		<QAction id="3" name="UnrecommendedConstructors_XmlSerializer_Type_TypeArray" encoding="csharp">
+			<![CDATA[
+using System;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		Type[] extraTypes = new Type[1];
+		extraTypes[0] = typeof(object);
+
+		// Create the XmlSerializer instance.
+		XmlSerializer mySerializer = new XmlSerializer(typeof(string), extraTypes);
+	}
+}]]>
+		</QAction>
+		<QAction id="4" name="UnrecommendedConstructors_XmlSerializer_Type_XmlAttributeOverrides" encoding="csharp">
+			<![CDATA[using System;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		XmlAttributeOverrides attrOverrides = new XmlAttributeOverrides();
+		XmlSerializer mySerializer = new XmlSerializer(typeof(string), attrOverrides);
+	}
+}]]>
+		</QAction>
+		<QAction id="5" name="UnrecommendedConstructors_XmlSerializer_Type_XmlRootAttribute" encoding="csharp">
+			<![CDATA[using System;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		XmlRootAttribute xRoot = new XmlRootAttribute();
+		XmlSerializer mySerializer = new XmlSerializer(typeof(string), xRoot);
+	}
+}]]>
+		</QAction>
+		<QAction id="6" name="UnrecommendedConstructors_XmlSerializer_Type_XmlAttributeOverrides_TypeArray_XmlRootAttribute_String" encoding="csharp">
+			<![CDATA[using System;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		XmlAttributeOverrides xmlAttributesOverrides = new XmlAttributeOverrides();
+		Type[] extraTypes = new Type[] { typeof(string) };
+		XmlRootAttribute xRoot = new XmlRootAttribute();
+		XmlSerializer mySerializer = new XmlSerializer(typeof(string), xmlAttributesOverrides, extraTypes, xRoot, "");
+	}
+}]]>
+		</QAction>
+		<QAction id="7" name="UnrecommendedConstructors_XmlSerializer_Type_XmlAttributeOverrides_TypeArray_XmlRootAttribute_String_String" encoding="csharp">
+			<![CDATA[using System;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		XmlAttributeOverrides xmlAttributesOverrides = new XmlAttributeOverrides();
+		Type[] extraTypes = new Type[] { typeof(string) };
+		XmlRootAttribute xRoot = new XmlRootAttribute();
+		XmlSerializer mySerializer = new XmlSerializer(typeof(string), xmlAttributesOverrides, extraTypes, xRoot, "", "");
+	}
+}]]>
+		</QAction>
+		<QAction id="8" name="UnrecommendedConstructors_XmlSerializer_Type_XmlAttributeOverrides_TypeArray_XmlRootAttribute_String_String_Evidence" encoding="csharp">
+			<![CDATA[using System;
+using System.Security.Policy;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		XmlAttributeOverrides xmlAttributesOverrides = new XmlAttributeOverrides();
+		Type[] extraTypes = new Type[] { typeof(string) };
+		XmlRootAttribute xRoot = new XmlRootAttribute();
+		Evidence evidence = new Evidence();
+		XmlSerializer mySerializer = new XmlSerializer(typeof(string), xmlAttributesOverrides, extraTypes, xRoot, "", "", evidence);
+	}
+}]]>
+		</QAction>
+	</QActions>
+</Protocol>

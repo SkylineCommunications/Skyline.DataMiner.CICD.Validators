@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Compliancies>
+        <MinimumRequiredVersion>10.0.0.0</MinimumRequiredVersion>
+    </Compliancies>
+
+    <Chains>
+		<Chain name="MyChain" groupingName="MyGroupName"></Chain>
+		<Chain defaultSelectionField="MyFieldName"></Chain>
+    </Chains>
+
+</Protocol>

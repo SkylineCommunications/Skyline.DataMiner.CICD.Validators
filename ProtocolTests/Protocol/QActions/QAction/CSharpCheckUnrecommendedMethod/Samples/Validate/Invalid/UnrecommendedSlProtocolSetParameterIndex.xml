@@ -1,0 +1,63 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckUnrecommendedMethod_UnrecommendedSetParameterIndex</Name>
+	<Version>0.0.0.0</Version>
+
+	<Params>
+		<Param id="10">
+			<Name>MyStandalone</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="1000">
+			<Name>MyTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" />
+				<ColumnOption idx="1" pid="1002" type="retrieved" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>MyTableInstance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>MyTableColumn2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>MyTableColumn3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="104" name="UnrecommendedMethods" encoding="csharp">
+			<![CDATA[using System.Threading;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		protocol.SetParameterIndex(10, 10, 10, null);
+		protocol.SetParameterIndex(100 / 10, 10, 10, null);
+
+		int myLocalInt_10 = 10;
+		int[] ids = { 10, 20 };
+		int[] iXs = { 10, 10 };
+		int[] iYs = { 10, 10 };
+		object[] values = { "value 1", "value 2" };
+
+		protocol.SetParameterIndex(myLocalInt_10, 10, myLocalInt_10, "newValue");
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

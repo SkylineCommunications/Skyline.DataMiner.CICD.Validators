@@ -1,0 +1,71 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>TableSyntax1</Name>
+			<Type id="1001;1002;1003">array</Type>
+			<ArrayOptions index="0"></ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>TableSyntax1_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1002">
+			<Name>TableSyntax1_Column2_String</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue currently not supported on table columns (only on standalone params).-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="1003">
+			<Name>TableSyntax1_Column3_Double</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>double</Type>
+				<!--DefaultValue currently not supported on table columns (only on standalone params).-->
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="1100">
+			<Name>TableSyntax2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" />
+				<ColumnOption idx="1" pid="1102" />
+				<ColumnOption idx="2" pid="1103" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1101">
+			<Name>TableSyntax2_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1102">
+			<Name>TableSyntax2_Column2_String</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue currently not supported on table columns (only on standalone params).-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="1103">
+			<Name>TableSyntax2_Column3_Double</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>double</Type>
+				<!--DefaultValue currently not supported on table columns (only on standalone params).-->
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+	</Params>
+
+</Protocol>

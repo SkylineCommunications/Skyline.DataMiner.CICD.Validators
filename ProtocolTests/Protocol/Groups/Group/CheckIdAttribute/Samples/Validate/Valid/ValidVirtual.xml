@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>virtual</Type>
+
+	<Groups>
+		<!-- For virtual connection, defining a Ping group should not be done. -->
+		<!--<Group id="-1">
+			<Name>Ping Group</Name>
+		</Group>-->
+
+		<Group id="1">
+			<Name>Classic Group 1</Name>
+		</Group>
+
+		<Group id="1000">
+			<Name>Classic Group 1000</Name>
+		</Group>
+	</Groups>
+
+</Protocol>

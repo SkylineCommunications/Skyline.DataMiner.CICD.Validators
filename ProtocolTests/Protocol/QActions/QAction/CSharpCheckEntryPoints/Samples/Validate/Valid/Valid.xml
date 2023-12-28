@@ -1,0 +1,151 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckEntryPoints_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="Ignore_PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+}]]>
+		</QAction>
+		<QAction id="2" name="Ignore_NoTrigger" encoding="csharp" entryPoint="MyMethod;MyClass.MyMethod">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+
+		<QAction id="10" name="DefaultClass_DefaultMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+
+		<QAction id="20" name="DefaultClass_MyMethod" encoding="csharp" entryPoint="MyMethod" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+	public class QAction
+	{
+		public static void MyMethod(SLProtocol protocol)
+		{
+			
+		}
+	}]]>
+		</QAction>
+		<QAction id="30" name="MyClass_MyMethod" encoding="csharp" entryPoint="MyClass.MyMethod" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class MyClass
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="MultipleEntryPoints_Dedicated" encoding="csharp" entryPoint="MyMethod;MyClass.MyMethod;MyClass.MyMethodSecond" triggers="1;2">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QAction
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+		
+	}
+}
+
+public class MyClass
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+	
+	}
+	
+	public static void MyMethodSecond(SLProtocolExt protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="MultipleEntryPoints_Reused" encoding="csharp" entryPoint="MyMethod;MyReusedMethod;MyReusedMethod" triggers="1;2;3">
+			<![CDATA[
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+    public void MyMethod(SLProtocol protocol)
+    {
+    }
+
+    public void MyReusedMethod(SLProtocol protocol)
+    {
+    }
+}]]>
+		</QAction>
+
+        <QAction id="1000" name="DefaultClass_DefaultMethod_ContainsExtraClasses" encoding="csharp" triggers="1">
+            <![CDATA[using Skyline.DataMiner.Scripting;
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		ExtraRandomClass extra = new ExtraRandomClass();
+		extra.PublicMethod(protocol);
+
+		ExtraRandomClass2 extra2 = new ExtraRandomClass2();
+		extra2.PublicMethod(protocol);
+	}
+
+	private class ExtraRandomClass2
+	{
+		public void PublicMethod(SLProtocol protocol)
+		{
+			InternalMethod(protocol);
+			PrivateMethod(protocol);
+		}
+
+		internal void InternalMethod(SLProtocol protocol)
+		{
+
+		}
+
+		private void PrivateMethod(SLProtocol protocol)
+		{
+
+		}
+	}
+}
+
+internal class ExtraRandomClass
+{
+	public void PublicMethod(SLProtocol protocol)
+	{
+		InternalMethod(protocol);
+		PrivateMethod(protocol);
+	}
+
+	internal void InternalMethod(SLProtocol protocol)
+	{
+
+	}
+
+	private void PrivateMethod(SLProtocol protocol)
+	{
+
+	}
+}]]>
+        </QAction>
+	</QActions>
+
+</Protocol>

@@ -1,0 +1,3 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Type options="exportProtocol:Mother ChildA - Slot:100;exportProtocol:Mother ChildA OldName:150">snmp</Type>
+</Protocol>

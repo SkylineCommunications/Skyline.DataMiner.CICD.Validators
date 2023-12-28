@@ -1,0 +1,8 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<!-- Extended tests are performed in Helpers/ConditionalTests.cs -->
+	<Triggers>
+		<Trigger id="1">
+			<Condition><![CDATA[(id:10 + 10) > 20]]></Condition>
+		</Trigger>
+	</Triggers>
+</Protocol>

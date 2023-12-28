@@ -1,0 +1,52 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="100">
+			<Name>Normal_Page</Name>
+			<Display>
+				<Positions>
+					<Position>
+						<Page>My Valid Page Name</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		
+		<Param id="200">
+			<Name>CPE_Page</Name>
+			<Display>
+				<Positions>
+					<Position>
+						<Page>CPEIntegration_My Valid Page Name</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<!--title end parameters can be used multiple times on the same page
+				since the same title end can be re-used to close different group boxes.-->
+			<Name>Title_End_Generic</Name>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>11</Row>
+					</Position>
+					<Position>
+						<Page>General</Page>
+						<Row>8</Row>
+						<Column>1</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="end">title</Type>
+			</Measurement>
+		</Param>
+	</Params>
+	
+</Protocol>

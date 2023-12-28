@@ -1,0 +1,480 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpNotifyDataMinerNTEditProperty_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public const int NT_EDIT_PROPERTY_GlobalConst = 62;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="EditElementProperty_DefiningNotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	//public static uint dmaID = 100;
+	//public static uint elementID = 200;
+	//public static uint[] elementDetails_class = new uint[] { dmaID, elementID };
+
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_EDIT_PROPERTY_Const = 62;
+		int NT_EDIT_PROPERTY_Int = 62;
+		int NT_EDIT_PROPERTY_Math = 60;
+
+		string elementDetails = "element:10:20";
+
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(62, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner(60 + 10 - 8, elementDetails, propertyDetails);
+
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Const, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Int, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Math + 2, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner(MyClass.NT_EDIT_PROPERTY_GlobalConst, elementDetails, propertyDetails);
+
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Const, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Int, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Math + 2, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)MyClass.NT_EDIT_PROPERTY_GlobalConst, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NotifyType.EditProperty, elementDetails, propertyDetails);
+		
+		protocol.NotifyDataMinerQueued(62, elementDetails, propertyDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="EditElementProperty_DefiningElement" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		int dmaId = 346;
+		int elementId = 806;
+
+		string elementDetails = "element:10:20";
+		string elementDetails_var = "element:" + elementId + ":" + dmaId;
+		string elementDetails_var_protocol = "element:" + protocol.ElementID + ":" + dmaId;
+
+		string elementDetails_multiline_lit;
+		elementDetails_multiline_lit = "element:10:20";
+
+		string elementDetails_multiline_var;
+		elementDetails_multiline_var = "element:" + elementId + ":" + dmaId;
+
+		string elementDetails_multiline_var2;
+		elementDetails_multiline_var2 = "element:";
+		elementDetails_multiline_var2 += elementId;
+		elementDetails_multiline_var2 += ":";
+		elementDetails_multiline_var2 += dmaId;
+
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Different ways to define element
+		protocol.NotifyDataMiner(62, "element:200:400", propertyDetails);
+		protocol.NotifyDataMiner(62, "element:" + elementId + ":" + dmaId, propertyDetails);
+		protocol.NotifyDataMiner(62, elementDetails, propertyDetails);
+		protocol.NotifyDataMiner(62, elementDetails_var, propertyDetails);
+		protocol.NotifyDataMiner(62, elementDetails_var_protocol, propertyDetails);
+
+		protocol.NotifyDataMiner(62, elementDetails_multiline_lit, propertyDetails);
+		protocol.NotifyDataMiner(62, elementDetails_multiline_var, propertyDetails);
+		protocol.NotifyDataMiner(62, elementDetails_multiline_var2, propertyDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="EditElementProperty_MultipleProperties" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Edit multiple properties
+		string[] elementsDetails = new string[] { "element:200:400", "element:200:401" };
+		object[] propertiesDetails = new object[]
+		{
+			propertyDetails,
+			new string[]
+			{
+				"MyProperty2",
+				"read-write",
+				"NewValue",
+			},
+		};
+
+		protocol.NotifyDataMiner(62, elementsDetails, propertiesDetails);
+	}
+}]]>
+		</QAction>
+		
+		<QAction id="200" name="EditViewProperty_DefiningNotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_EDIT_PROPERTY_Const = 62;
+		int NT_EDIT_PROPERTY_Int = 62;
+		int NT_EDIT_PROPERTY_Math = 60;
+
+		string viewDetails = "view:10";
+
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";  // Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(62, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner(60 + 10 - 8, viewDetails, propertyDetails);
+
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Const, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Int, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Math + 2, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner(MyClass.NT_EDIT_PROPERTY_GlobalConst, viewDetails, propertyDetails);
+
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Const, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Int, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Math + 2, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)MyClass.NT_EDIT_PROPERTY_GlobalConst, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NotifyType.EditProperty, viewDetails, propertyDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="201" name="EditViewProperty_DefiningView" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		int viewId = 806;
+
+		string viewDetails = "view:10";
+		string viewDetails_var = "view:" + viewId;
+		string viewDetails_var_protocol = "view:" + protocol.ElementID;
+
+		string viewDetails_multiline_lit;
+		viewDetails_multiline_lit = "view:10:20";
+
+		string viewDetails_multiline_var;
+		viewDetails_multiline_var = "view:" + viewId;
+
+		string viewDetails_multiline_var2;
+		viewDetails_multiline_var2 = "view:";
+		viewDetails_multiline_var2 += viewId;
+
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";  // Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Different ways to define view
+		protocol.NotifyDataMiner(62, "view:200", propertyDetails);
+		protocol.NotifyDataMiner(62, "view:" + viewId, propertyDetails);
+		protocol.NotifyDataMiner(62, viewDetails, propertyDetails);
+		protocol.NotifyDataMiner(62, viewDetails_var, propertyDetails);
+		protocol.NotifyDataMiner(62, viewDetails_var_protocol, propertyDetails);
+
+		protocol.NotifyDataMiner(62, viewDetails_multiline_lit, propertyDetails);
+		protocol.NotifyDataMiner(62, viewDetails_multiline_var, propertyDetails);
+		protocol.NotifyDataMiner(62, viewDetails_multiline_var2, propertyDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="202" name="EditViewProperty_MultipleProperties" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";  // Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Edit multiple properties
+		string[] viewsDetails = new string[] { "view:200", "view:201" };
+		object[] propertiesDetails = new object[]
+		{
+			propertyDetails,
+			new string[]
+			{
+				"MyProperty2",
+				"read-write",
+				"NewValue",
+			},
+		};
+
+		protocol.NotifyDataMiner(62, viewsDetails, propertiesDetails);
+	}
+}]]>
+		</QAction>
+
+		<QAction id="300" name="EditServiceProperty_DefiningNotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_EDIT_PROPERTY_Const = 62;
+		int NT_EDIT_PROPERTY_Int = 62;
+		int NT_EDIT_PROPERTY_Math = 60;
+
+		string serviceDetails = "service:10:20";
+
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(62, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner(60 + 10 - 8, serviceDetails, propertyDetails);
+
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Const, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Int, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Math + 2, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner(MyClass.NT_EDIT_PROPERTY_GlobalConst, serviceDetails, propertyDetails);
+
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Const, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Int, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Math + 2, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)MyClass.NT_EDIT_PROPERTY_GlobalConst, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NotifyType.EditProperty, serviceDetails, propertyDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="301" name="EditServiceProperty_DefiningService" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		int serviceId = 346;
+		int dmaId = 806;
+
+		string serviceDetails = "service:10:20";
+		string serviceDetails_var = "service:" + dmaId + ":" + serviceId;
+		string serviceDetails_var_protocol = "service:" + protocol.DataMinerID + ":" + serviceId;
+
+		string serviceDetails_multiline_lit;
+		serviceDetails_multiline_lit = "service:10:20";
+
+		string serviceDetails_multiline_var;
+		serviceDetails_multiline_var = "service:" + dmaId + ":" + serviceId;
+
+		string serviceDetails_multiline_var2;
+		serviceDetails_multiline_var2 = "service:";
+		serviceDetails_multiline_var2 += dmaId;
+		serviceDetails_multiline_var2 += ":";
+		serviceDetails_multiline_var2 += serviceId;
+
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Different ways to define element
+		protocol.NotifyDataMiner(62, "service:200:400", propertyDetails);
+		protocol.NotifyDataMiner(62, "service:" + dmaId + ":" + serviceId, propertyDetails);
+		protocol.NotifyDataMiner(62, serviceDetails, propertyDetails);
+		protocol.NotifyDataMiner(62, serviceDetails_var, propertyDetails);
+		protocol.NotifyDataMiner(62, serviceDetails_var_protocol, propertyDetails);
+
+		protocol.NotifyDataMiner(62, serviceDetails_multiline_lit, propertyDetails);
+		protocol.NotifyDataMiner(62, serviceDetails_multiline_var, propertyDetails);
+		protocol.NotifyDataMiner(62, serviceDetails_multiline_var2, propertyDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="302" name="EditServiceProperty_MultpleProperties" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Edit multiple properties
+		string[] servicesDetails = new string[] { "service:200:400", "service:200:401" };
+		object[] propertiesDetails = new object[]
+		{
+			propertyDetails,
+			new string[]
+			{
+				"MyProperty2",
+				"read-write",
+				"NewValue",
+			},
+		};
+
+		protocol.NotifyDataMiner(62, servicesDetails, propertiesDetails);
+	}
+}]]>
+		</QAction>
+
+		<QAction id="400" name="EditAlarmProperty_DefiningNotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_EDIT_PROPERTY_Const = 62;
+		int NT_EDIT_PROPERTY_Int = 62;
+		int NT_EDIT_PROPERTY_Math = 60;
+
+		string alarmDetails = "alarm:10:20:30";
+
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(62, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner(60 + 10 - 8, alarmDetails, propertyDetails);
+
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Const, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Int, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner(NT_EDIT_PROPERTY_Math + 2, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner(MyClass.NT_EDIT_PROPERTY_GlobalConst, alarmDetails, propertyDetails);
+
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Const, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Int, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NT_EDIT_PROPERTY_Math + 2, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)MyClass.NT_EDIT_PROPERTY_GlobalConst, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner((int)NotifyType.EditProperty, alarmDetails, propertyDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="401" name="EditAlarmProperty_DefiningAlarm" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	//public static uint dmaID = 100;
+	//public static uint elementID = 200;
+	//public static uint[] alarmDetails_class = new uint[] { dmaID, elementID };
+
+	public static void Run(SLProtocol protocol)
+	{
+		int alarmId = 10;
+		int dmaId = 20;
+		int elementId = 30;
+
+		string alarmDetails = "alarm:10:20:30";
+		string alarmDetails_var = "alarm:" + alarmId + ":" + dmaId + ":" + elementId;
+		string alarmDetails_var_protocol = "alarm:" + alarmId + ":" + protocol.DataMinerID + ":" + elementId;
+
+		string alarmDetails_multiline_lit;
+		alarmDetails_multiline_lit = "alarm:10:20:30";
+
+		string alarmDetails_multiline_var;
+		alarmDetails_multiline_var = "alarm:" + alarmId + ":" + dmaId + ":" + elementId;
+
+		string alarmDetails_multiline_var2;
+		alarmDetails_multiline_var2 = "alarm:";
+		alarmDetails_multiline_var2 += alarmId;
+		alarmDetails_multiline_var2 += ":";
+		alarmDetails_multiline_var2 += dmaId;
+		alarmDetails_multiline_var2 += ":";
+		alarmDetails_multiline_var2 += elementId;
+
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Different ways to define element
+		protocol.NotifyDataMiner(62, "alarm:10:20:30", propertyDetails);
+		protocol.NotifyDataMiner(62, "alarm:" + alarmId + ":" + dmaId + ":" + elementId, propertyDetails);
+		protocol.NotifyDataMiner(62, alarmDetails, propertyDetails);
+		protocol.NotifyDataMiner(62, alarmDetails_var, propertyDetails);
+		protocol.NotifyDataMiner(62, alarmDetails_var_protocol, propertyDetails);
+
+		protocol.NotifyDataMiner(62, alarmDetails_multiline_lit, propertyDetails);
+		protocol.NotifyDataMiner(62, alarmDetails_multiline_var, propertyDetails);
+		protocol.NotifyDataMiner(62, alarmDetails_multiline_var2, propertyDetails);
+	}
+}]]>
+		</QAction>
+		<QAction id="402" name="EditAlarmProperty_MultipleProperties" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		string[] propertyDetails = new string[3];
+		propertyDetails[0] = "MyProperty";	// Property name
+		propertyDetails[1] = "read-write";	// Property type
+		propertyDetails[2] = "NewValue";	// Property value
+
+		// Edit multiple properties
+		string[] alarmsDetails = new string[] { "alarm:10:20:30", "alarm:11:20:30" };
+		object[] propertiesDetails = new object[]
+		{
+			propertyDetails,
+			new string[]
+			{
+				"MyProperty2",
+				"read-write",
+				"NewValue",
+			},
+		};
+
+		protocol.NotifyDataMiner(62, alarmsDetails, propertiesDetails);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

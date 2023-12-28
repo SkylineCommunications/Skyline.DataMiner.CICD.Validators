@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<ParameterGroups>
+		<Group id="101" name="LeadingSpaces" />
+		<Group id="102" name="TrailingSpaces" />
+		<Group id="103" name="LeadingAndTrailingSpaces" />
+	</ParameterGroups>
+
+</Protocol>

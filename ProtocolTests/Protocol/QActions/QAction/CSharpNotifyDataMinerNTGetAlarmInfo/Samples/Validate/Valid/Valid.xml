@@ -1,0 +1,110 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpNotifyDataMinerNTGetAlarmInfo_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public const int NT_GET_ALARM_INFO_GlobalConst = 48;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="Defining_NotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_GET_ALARM_INFO_Const = 48;
+		int NT_GET_ALARM_INFO_Int = 48;
+		int NT_GET_ALARM_INFO_Math = 40;
+
+		uint dmaId = 200;
+		uint elementId = 661;
+		uint[] elementDetails = { dmaId, elementId };
+
+		int pid = 100;
+		uint[] pids = new uint[] { 100, 300 };
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(48, elementDetails, null);
+		protocol.NotifyDataMiner(40 + 10 - 2, elementDetails, pid);
+
+		protocol.NotifyDataMiner(NT_GET_ALARM_INFO_Const, elementDetails, pids);
+		protocol.NotifyDataMiner(NT_GET_ALARM_INFO_Int, elementDetails, null);
+		protocol.NotifyDataMiner(NT_GET_ALARM_INFO_Math + 8, elementDetails, pid);
+		protocol.NotifyDataMiner(MyClass.NT_GET_ALARM_INFO_GlobalConst, elementDetails, pids);
+
+		protocol.NotifyDataMiner((int)NT_GET_ALARM_INFO_Const, elementDetails, null);
+		protocol.NotifyDataMiner((int)NT_GET_ALARM_INFO_Int, elementDetails, pid);
+		protocol.NotifyDataMiner((int)NT_GET_ALARM_INFO_Math + 8, elementDetails, pids);
+		protocol.NotifyDataMiner((int)MyClass.NT_GET_ALARM_INFO_GlobalConst, elementDetails, null);
+		protocol.NotifyDataMiner((int)NotifyType.AssignAlarmTemplate, elementDetails, pid);
+		
+		protocol.NotifyDataMinerQueued(48, elementDetails, null);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="Defining_Element" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint dmaId = 200;
+		uint elementId = 661;
+
+		uint[] elementDetails = { dmaId, elementId };
+		uint[] elementDetails_hardcoded = { 10, 2 };
+
+		uint[] elementDetails_multiline;
+		elementDetails_multiline = new uint[] { 10, 2 };
+
+		int pid = 100;
+		uint[] pids = new uint[] { 100, 300 };
+
+		// Different ways to define element
+		protocol.NotifyDataMiner(48, new uint[] { 10, 2 }, null);
+		protocol.NotifyDataMiner(48, new uint[] { dmaId, elementId }, pid);
+		protocol.NotifyDataMiner(48, elementDetails, pids);
+		protocol.NotifyDataMiner(48, elementDetails_hardcoded, null);
+		protocol.NotifyDataMiner(48, elementDetails_multiline, pid);
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="Processing_Result" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint dmaId = 200;
+		uint elementId = 661;
+		uint[] elementDetails = { dmaId, elementId };
+
+		// Process result
+		object[] result = (object[])protocol.NotifyDataMiner(48, elementDetails, null);
+		if (result != null)
+		{
+			// Something
+		}
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

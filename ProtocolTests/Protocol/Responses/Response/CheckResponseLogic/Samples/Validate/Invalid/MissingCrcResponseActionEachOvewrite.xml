@@ -1,0 +1,56 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2">
+			<Name>CrcParam</Name>
+			<Type>crc</Type>
+		</Param>
+	</Params>
+	
+	<Responses>
+		<Response id="2">
+			<Name>CrcResponse</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Response>
+	</Responses>
+	
+	<Triggers>
+		<Trigger id="1">
+			<Name>BeforeResponseEach</Name>
+			<On id="each">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="2">
+			<Name>BeforeResponse2</Name>
+			<On id="2">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="3">
+			<Name>BeforeResponseEach2</Name>
+			<On id="each">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+	
+	<Actions>
+		<Action id="1">
+			<Name>CalculateCrcResponse</Name>
+			<On>response</On>
+			<Type>crc</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

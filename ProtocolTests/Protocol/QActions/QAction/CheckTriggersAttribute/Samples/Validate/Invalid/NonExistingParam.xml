@@ -1,0 +1,21 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckTriggersAttribute_NonExistingParam</Name>
+	<Version>0.0.0.0</Version>
+	
+	<Params>
+		<Param id="2">
+			<Name>MyParam</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+	<QActions>
+		<QAction id="1" triggers="1"/>
+		<QAction id="2" triggers="1;2;3"/>
+	</QActions>
+	
+	<Groups>
+		<Group id="1"/>
+	</Groups>
+	
+</Protocol>

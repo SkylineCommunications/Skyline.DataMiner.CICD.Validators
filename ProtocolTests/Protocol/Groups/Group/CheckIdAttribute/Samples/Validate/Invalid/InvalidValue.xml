@@ -1,0 +1,28 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Groups>
+		<Group id="aaa">
+			<Name>String</Name>
+		</Group>
+
+		<Group id="-2">
+			<Name>Number_Negative</Name>
+		</Group>
+		<Group id="1.5">
+			<Name>Number_Double_1</Name>
+		</Group>
+		<Group id="2,6">
+			<Name>Number_Double_2</Name>
+		</Group>
+		<Group id="03">
+			<Name>Number_LeadingZero</Name>
+		</Group>
+		<Group id="+4">
+			<Name>Number_LeadingPlusSign</Name>
+		</Group>
+		<Group id="5x10^1">
+			<Name>Number_ScientificNotation</Name>
+		</Group>
+	</Groups>
+
+</Protocol>

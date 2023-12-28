@@ -1,0 +1,41 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Name>Zero</Name>
+			<Display>
+                <Trending logarithmic="true"></Trending>
+				<Range>
+                    <Low>0</Low>
+				</Range>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>NegativeInteger</Name>
+			<Display>
+				<Trending logarithmic="true"></Trending>
+				<Range>
+					<Low>-1</Low>
+				</Range>
+			</Display>
+		</Param>
+		<Param id="3">
+			<Name>NegativeDouble</Name>
+			<Display>
+				<Trending logarithmic="true"></Trending>
+				<Range>
+					<Low>-10.5</Low>
+				</Range>
+			</Display>
+		</Param>
+        <Param id="4">
+            <Name>MissingLow</Name>
+            <Display>
+                <Trending logarithmic="true"></Trending>
+                <Range>
+                </Range>
+            </Display>
+        </Param>
+	</Params>
+
+</Protocol>

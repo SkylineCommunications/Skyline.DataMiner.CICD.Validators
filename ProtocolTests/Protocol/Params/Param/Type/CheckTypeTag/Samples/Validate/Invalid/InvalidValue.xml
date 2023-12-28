@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Type>InvalidType</Type>
+		</Param>
+	</Params>
+
+</Protocol>

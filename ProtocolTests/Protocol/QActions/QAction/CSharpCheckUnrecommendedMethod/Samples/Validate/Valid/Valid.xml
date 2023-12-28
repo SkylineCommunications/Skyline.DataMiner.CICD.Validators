@@ -1,0 +1,150 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckUnrecommendedMethod_Valid</Name>
+	<Version>0.0.0.0</Version>
+	
+	<Params>
+		<Param id="100">
+			<Name>Standalone_Read</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1000">
+			<Name>MyTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>MyTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>MyTable_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>MyTable_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="10000">
+			<Name>MyMatrix</Name>
+			<Type options="dimensions=2,2;columntypes=10001:0-1">array</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type link="labels.xml" options="matrix=2,2,0,1,0,1">matrix</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Input 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 2</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 1</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 2</Display>
+						<Value>4</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>MyMatrix_ColumnType</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="100" name="AllowedMethods" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: AllowedMethods.
+/// </summary>
+public static class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		object currentValue = protocol.GetParameterIndexByKey(1000, "PK_1", 2);
+		protocol.SetParameterIndexByKey(1000, "PK_1", 2, "newValue");
+
+		protocol.NotifyDataMiner(262, "value1", "value2");
+		protocol.NotifyDataMiner((int)NotifyType.NT_ACK_MERGE_REQUEST, "value1", "value2");
+	}
+}]]>
+		</QAction>
+		<QAction id="200" name="UnrecommendedMethod_AllowedOnMatrix" encoding="csharp">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: UnrecommendedMethod_AllowedOnMatrix.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime myDateTime = new DateTime(2000, 12, 31);
+
+		protocol.GetParameterIndex(10000, 0, 1);
+		protocol.SetParameterIndex(10000, 1, 0, 1);
+		protocol.SetParameterIndex(10000, 1, 0, 1, myDateTime);
+
+		int[] ids = { 10000, 10000 };
+		int[] iXs = { 0, 0, 1, 1 };
+		int[] iYs = { 0, 1, 0, 1 };
+		object[] values = { 1, 0, 1, 0 };
+		DateTime[] dateTimes = { myDateTime, myDateTime, myDateTime, myDateTime };
+		protocol.SetParametersIndex(ids, iXs, iYs, values);
+		protocol.SetParametersIndex(ids, iXs, iYs, values, dateTimes);
+	}
+
+	public static void WriteDataToTableUsingIndex(SLProtocol protocol)
+	{
+		List<int> tableIdForIndex = new List<int>();
+		Dictionary<int, List<int>> tableDataForIndex = new Dictionary<int, List<int>>();
+
+		var ids2 = new int[1];
+		var rows = new int[1];
+		var columns = new int[1];
+		var values = new object[1];
+
+		int currentIndex = 0;
+
+		for (int i = 0; i < 1; i++)
+		{
+			ids2[currentIndex] = tableIdForIndex[i];
+			rows[currentIndex] = Convert.ToInt32(tableDataForIndex[i][0]);
+			columns[currentIndex] = Convert.ToInt32(tableDataForIndex[i][1]);
+			values[currentIndex] = tableDataForIndex[i][2];
+
+			currentIndex++;
+		}
+
+		protocol.SetParametersIndex(ids2, rows, columns, values);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

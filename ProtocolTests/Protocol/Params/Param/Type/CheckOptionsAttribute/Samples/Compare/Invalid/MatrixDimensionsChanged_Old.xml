@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <Type options="dimensions=64,64;columntypes=101:0-128">array</Type>
+            <!--
+		help on options:
+			the different options are separated with a ';'
+			- dimensions:	row,column
+			- columntype:	2:0-20,35|3:21-34,36
+				where the number before the : specifies the parameter id and the numbers behind the columns (0 based)
+	-->
+        </Param>
+        <Param id="2">
+            <Type options="dimensions=64,64;columntypes=101:0-128">array</Type>
+            <!--
+		help on options:
+			the different options are separated with a ';'
+			- dimensions:	row,column
+			- columntype:	2:0-20,35|3:21-34,36
+				where the number before the : specifies the parameter id and the numbers behind the columns (0 based)
+	-->
+        </Param>
+    </Params>
+</Protocol>

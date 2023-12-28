@@ -1,0 +1,94 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>GetParameter_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>ReadParam_100</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>WriteParam_200</Name>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="300">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="350">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>write</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void GetParameterWrapper(this SLProtocol protocol, int paramId)
+			{
+				protocol.GetParameter(paramId);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int MyReadParam_100 = 100;
+			public const int MyWriteParam_200 = 200;
+			public const int MyReadWriteParam_300 = 300;
+			public const int MyReadWriteParam_350 = 350;
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="100" name="GetParameter" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: GetParameter.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		int pid = 100;
+
+		// DM Params are ignored as the don't have to be present in the driver + the Parameter Helper class can't be used.
+		// DM Param range 1: [64 300 -> 69 999]
+		protocol.GetParameter(64300);			// DM Param Range 1 Low
+		protocol.GetParameter(60000 + 9999);	// DM Param Range 1 High
+
+		// DM Param range 2: [100 000 -> 999 999]
+		protocol.GetParameter(100000);			// DM Param Range 2 Low
+		protocol.GetParameter(900000 + 99999);  // DM Param Range 2 High
+
+		// Parameter helper class
+		protocol.GetParameter(Parameter.readparam_100);
+		protocol.GetParameter(Parameter.Write.writeparam_200);
+		protocol.GetParameter(Parameter.readwriteparam_300_350);
+		protocol.GetParameter(Parameter.Write.readwriteparam_300_350);
+
+		// Wrappers
+		protocol.GetParameterWrapper(Parameter.readparam_100);
+		protocol.GetParameterWrapper(Parameter.Write.writeparam_200);
+		protocol.GetParameterWrapper(Parameter.readwriteparam_300_350);
+		protocol.GetParameterWrapper(Parameter.Write.readwriteparam_300_350);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

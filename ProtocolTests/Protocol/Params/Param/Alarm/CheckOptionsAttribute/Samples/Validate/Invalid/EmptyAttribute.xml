@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="100">
+			<Name>AlarmProtperties_Standalone_1000</Name>
+			<Type>read</Type>
+			<Alarm options="">
+			</Alarm>
+		</Param>
+	</Params>
+	
+</Protocol>

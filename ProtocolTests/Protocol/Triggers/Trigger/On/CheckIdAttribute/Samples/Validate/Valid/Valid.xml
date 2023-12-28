@@ -1,0 +1,112 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    
+    <Params>
+        <Param id="1"></Param>
+    </Params>
+
+	<HTTP>
+		<Session id="1"></Session>
+	</HTTP>
+    
+    <Commands>
+        <Command id="1"></Command>
+    </Commands>
+    
+    <Responses>
+        <Response id="1"></Response>
+    </Responses>
+    
+    <Pairs>
+        <Pair id="1"></Pair>
+    </Pairs>
+    
+    <Groups>
+        <Group id="1"></Group>
+    </Groups>
+    
+    <Triggers>
+        <Trigger id="11">
+			<Name>Command 1</Name>
+            <On id="1">command</On>
+        </Trigger>
+		<Trigger id="12">
+			<Name>Command each</Name>
+			<On id="each">command</On>
+		</Trigger>
+		
+        <Trigger id="21">
+			<Name>Communication</Name>
+            <On>communication</On>
+        </Trigger>
+		
+        <Trigger id="31">
+			<Name>Group 1</Name>
+            <On id="1">group</On>
+        </Trigger>
+		<Trigger id="32">
+			<Name>Group each</Name>
+			<On id="each">group</On>
+		</Trigger>
+		
+        <Trigger id="41">
+			<Name>Pair 1</Name>
+            <On id="1">pair</On>
+        </Trigger>
+		<Trigger id="42">
+			<Name>Pair each</Name>
+			<On id="each">pair</On>
+		</Trigger>
+		
+        <Trigger id="51">
+			<Name>Parameter 1</Name>
+            <On id="1">parameter</On>
+        </Trigger>
+		<Trigger id="52">
+			<Name>Parameter each</Name>
+			<On id="each">parameter</On>
+		</Trigger>
+        <Trigger id="53">
+			<Name>Parameter 65008 - DM Internal param</Name>
+            <!--Triggering on DM internal params
+				Those don't need to be in the driver as they are added automatically by DM-->
+            <On id="65008">parameter</On>
+        </Trigger>
+		
+        <Trigger id="61">
+			<Name>Protocol</Name>
+            <On>protocol</On>
+        </Trigger>
+		
+        <Trigger id="71">
+			<Name>Response 1</Name>
+            <On id="1">response</On>
+        </Trigger>
+		<Trigger id="72">
+			<Name>Response each</Name>
+			<On id="each">response</On>
+		</Trigger>
+		
+        <Trigger id="81">
+			<Name>Session 1</Name>
+            <On id="1">session</On>
+        </Trigger>
+		<Trigger id="82">
+			<Name>Session each</Name>
+			<On id="each">session</On>
+		</Trigger>
+		
+        <Trigger id="91">
+			<Name>Timer 1</Name>
+            <On id="1">timer</On>
+        </Trigger>
+		<Trigger id="92">
+			<Name>Timer each</Name>
+			<On id="each">timer</On>
+		</Trigger>
+    </Triggers>
+    
+    <Timers>
+        <Timer id="1"></Timer>
+    </Timers>
+    
+</Protocol>

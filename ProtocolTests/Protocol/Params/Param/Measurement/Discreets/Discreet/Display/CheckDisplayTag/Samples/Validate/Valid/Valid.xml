@@ -1,0 +1,129 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100" export="true">
+			<Name>pagebutton</Name>
+			<Measurement>
+				<Type>pagebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>AAA...</Display>
+						<Value>AAA</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="200" export="true">
+			<Name>button_double</Name>
+			<Measurement>
+				<Type>button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>AAA</Display>
+						<Value>0</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="201" export="true">
+			<Name>button_string</Name>
+			<Measurement>
+				<Type>button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>AAA</Display>
+						<Value>A</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="300" export="true">
+			<Name>discreet_double</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>AAA</Display>
+						<Value>0</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="301" export="true">
+			<Name>discreet_string</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>AAA</Display>
+						<Value>A</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="400" export="true">
+			<Name>string</Name>
+			<Measurement>
+				<Type>string</Type>
+				<Discreets>
+					<Discreet>
+						<Display>AAA</Display>
+						<Value>0</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="401" export="true">
+			<Name>number</Name>
+			<Measurement>
+				<Type>number</Type>
+				<Discreets>
+					<Discreet>
+						<Display>AAA</Display>
+						<Value>0</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="1000" export="true">
+			<Name>number</Name>
+			<Measurement>
+				<Type>number</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Correct Casing</Display>
+						<Value>0</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1001" export="true">
+			<Name>NoTitleCasingNeededFor_ContextMenu</Name>
+			<!--DM default context menu items are not title cased so,
+				for consistency, we should not do it either.-->
+			<Type>write</Type>
+			<Measurement>
+				<Type>number</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Add stream...</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet options="separator">
+						<Display>Separator 1</Display>
+						<Value>100</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Do something...</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

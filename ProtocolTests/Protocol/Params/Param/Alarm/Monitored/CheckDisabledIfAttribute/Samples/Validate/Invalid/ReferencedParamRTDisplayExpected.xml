@@ -1,0 +1,60 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Params alarmed with condition-->
+		<Param id="1">
+			<Name>Alarmed_ConditionOn_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored disabledIf="1001,value1">true</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>Alarmed_ConditionOn_NoRTDisplay</Name>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored disabledIf="1002,0">true</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3">
+			<Name>Alarmed_ConditionOn_NoDisplay</Name>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored disabledIf="1003,0">true</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<!--Params used as condition-->
+		<Param id="1001">
+			<Name>Condition_Read_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>Condition_Read_NoRTDisplay</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="1003">
+			<Name>Condition_Read_NoDisplay</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,115 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>RegularParam</Name>
+			<Type>read</Type>
+        </Param>
+
+        <!--Group & read bit params-->
+		<Param id="10">
+			<Name>GroupRead</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="11">
+			<Name>GroupRead_ReadBit_1</Name>
+			<Type id="10">read bit</Type>
+		</Param>
+
+		<!--Group & write bit params-->
+		<Param id="20">
+			<Name>GroupWrite</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="21">
+			<Name>GroupWrite_WriteBit_1</Name>
+			<Type id="20">write bit</Type>
+		</Param>
+
+		<!--Response param-->
+		<Param id="100">
+			<Name>ResponseParam</Name>
+			<Type id="1">response</Type>
+		</Param>
+
+		<!--Normal tables-->
+		<Param id="1000">
+			<Name>TableSyntax1NoRTDisplay</Name>
+			<Type id="1001;1002">array</Type>
+			<ArrayOptions index="0"></ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>TableSyntax1NoRTDisplay_Instance</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1002">
+			<Name>TableSyntax1NoRTDisplay_Column2</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="1100">
+			<Name>TableSyntax1RTDisplay</Name>
+			<Type id="1101;1102">array</Type>
+			<ArrayOptions index="0"></ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1101">
+			<Name>TableSyntax1RTDisplay_Instance</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1102">
+			<Name>TableSyntax1RTDisplay_Column2</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<!--Table Syntax 2 added to make sure no exception occurs when id attribute is not present.-->
+		<Param id="9000">
+			<Name>TableSyntax2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="9001" />
+				<ColumnOption idx="1" pid="9002" />
+			</ArrayOptions>
+		</Param>
+		<Param id="9001">
+			<Name>TableSyntax2_Instance</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="9002">
+			<Name>TableSyntax2_Column2</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+
+	<Responses>
+		<Response id="1">
+		</Response>
+	</Responses>
+
+</Protocol>

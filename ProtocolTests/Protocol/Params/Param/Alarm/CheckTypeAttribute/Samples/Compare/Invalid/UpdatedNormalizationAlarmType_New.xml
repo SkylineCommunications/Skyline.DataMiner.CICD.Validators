@@ -1,0 +1,88 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <Alarm type="relative:2214,100">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="2">
+            <Alarm type="relative:2214">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="3">
+            <Alarm type="relative">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="4">
+            <Alarm type="absolute">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="5">
+            <Alarm type="relative:2214">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="6">
+            <Alarm type="relative:2214,100">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="7">
+            <Alarm type="relative">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="8">
+            <Alarm type="absolute">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+    </Params>
+    
+    <Triggers>
+        <Trigger id="1">
+            <Name>After Startup</Name>
+            <On>protocol</On>
+            <Time>after startup</Time>
+            <Type>action</Type>
+            <Content>
+                <Id>1</Id>
+            </Content>
+        </Trigger>
+    </Triggers>
+    
+    <Actions>
+        <Action id="1">
+            <Name>AfterStartup</Name>
+            <On id="1">group</On>
+            <Type>execute</Type>
+        </Action>
+        <Action id="2">
+            <Condition>id:10 != 1</Condition>
+            <Name>Normalize7</Name>
+            <On id="7">parameter</On>
+            <Type id="2214">normalize</Type>
+        </Action>
+        <Action id="3">
+            <Condition>id:10 != 1</Condition>
+            <Name>Normalize8</Name>
+            <On id="8">parameter</On>
+            <Type>normalize</Type>
+        </Action>
+    </Actions>
+    
+    <Groups>
+        <Group id="1">
+            <Name>AfterStartup</Name>
+            <Description>AfterStartup</Description>
+            <Type>poll action</Type>
+            <Content>
+                <Action>3</Action>
+            </Content>
+        </Group>
+    </Groups>
+    
+</Protocol>

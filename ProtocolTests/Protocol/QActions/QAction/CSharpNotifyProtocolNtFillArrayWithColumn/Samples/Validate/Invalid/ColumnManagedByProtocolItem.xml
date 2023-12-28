@@ -1,0 +1,121 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>NtFillArrayWithColumn_ColumnManagedByProtocolItem</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="11000">
+			<Name>MultiThreading</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="11001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="11002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="11003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="11004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="11005" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="11006" type="retrieved" options=""/>
+				<ColumnOption idx="6" pid="11007" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="11001">
+			<Name>MultiThreading_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11002">
+			<Name>MultiThreading_IpAddress</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11003">
+			<Name>MultiThreading_RTT</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11004">
+			<Name>MultiThreading_Timestamp</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11005">
+			<Name>MultiThreading_Jitter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11006">
+			<Name>MultiThreading_Latency</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11007">
+			<Name>MultiThreading_PacketLossRate</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="11000" name="MultiThreading_SingleColumn" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: MultiThreading_SingleColumn.
+/// </summary>
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] keys = { "PK_1", "PK_2", "PK_3", "PK_4", "PK_5" };
+		object[] values = { "Value_1", "Value_2", "Value_3", "Value_4", "Value_5" };
+		object[] ValuesAndDateTimes = new object[] { new object[] { "Column3_Row1", date_dt }, new object[] { "Column3_Row2", date_dt }, "Column3_Row3" };
+
+		// RTT (No History Sets)
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_rtt }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_rtt_11003, useClearAndLeaveFalse }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_rtt_11003, new object[] { } }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_rtt_11003, new object[] { useClearAndLeaveFalse } }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_rtt_11003, new object[] { useClearAndLeaveTrue, null } }, new object[] { keys, values });
+
+		// Timestamp (History sets on method call level)
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_timestamp_11004, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { keys, values });
+
+		// Jitter (History sets on cell level)
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_jitter_11005 }, new object[] { keys, ValuesAndDateTimes });
+
+		// Latency
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_latency_11006 }, new object[] { keys, values });
+
+		// PacketLossRateColumn
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_packetlossrate_11007 }, new object[] { keys, values });
+	}
+}]]>
+		</QAction>
+		<QAction id="11001" name="MultiThreading_MultipleColumns" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: MultiThreading_MultipleColumns.
+/// </summary>
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		object[] keys = { "PK_1", "PK_2", "PK_3", "PK_4", "PK_5" };
+		object[] values = { "Value_1", "Value_2", "Value_3", "Value_4", "Value_5" };
+
+		// All Columns
+		protocol.NotifyProtocol(220,
+			new object[7] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_ipaddress_11002, Parameter.Multithreading.Pid.multithreading_rtt_11003, Parameter.Multithreading.Pid.multithreading_timestamp_11004, Parameter.Multithreading.Pid.multithreading_jitter_11005, Parameter.Multithreading.Pid.multithreading_latency_11006, Parameter.Multithreading.Pid.multithreading_packetlossrate_11007 },
+			new object[7] { keys, values, values, values, values, values, values });
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+	<Timers>
+		<Timer id="1" options="ip:11000,1;each:1000;threadPool:10;typo;ping:rttColumn=3,ttl=250,timeout=500,timestampColumn=4,type=icmp,size=100,continueSnmpOnTimeout=true,jitterColumn=5,latencyColumn=6,packetLossRateColumn=7,amountPacketsMeasurements=100">
+			<Name>MultiThreaded Timer</Name>
+		</Timer>
+	</Timers>
+
+</Protocol>

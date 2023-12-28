@@ -1,0 +1,28 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="100">
+			<Name>TrapReceiver_SLProtocol</Name>
+			<Description>Trap Received Via SLProtocol</Description>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<SNMP>
+				<Enabled>true</Enabled>
+				<TrapOID mapAlarm="TRUE|Severity:1:Information,*|" type="wildcard">*</TrapOID>
+			</SNMP>
+		</Param>
+
+		<Param id="200">
+			<Name>TrapReceiver_SLScripting</Name>
+			<Description>Trap Received Via SLScripting</Description>
+			<Type>dummy</Type>
+			<SNMP>
+				<Enabled>true</Enabled>
+				<TrapOID setBindings="allBindingInfo" type="wildcard">*</TrapOID>
+			</SNMP>
+		</Param>
+	</Params>
+	
+</Protocol>

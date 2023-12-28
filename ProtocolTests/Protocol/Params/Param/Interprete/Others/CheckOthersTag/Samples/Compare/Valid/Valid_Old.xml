@@ -1,0 +1,121 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--No Others-->
+		<Param id="1">
+			<Name>No Others</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<!--Same Others-->
+		<Param id="101">
+			<Name>Same Others 1</Name>
+			<Interprete>
+				<Others>
+					<Other>
+						<Display>N/A</Display>
+						<Value>1</Value>
+					</Other>
+				</Others>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="102">
+			<Name>Same Others 1</Name>
+			<Interprete>
+				<Others>
+					<Other id="10">
+						<Display>N/A</Display>
+					</Other>
+				</Others>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<!--Adding Out of Range Others-->
+		<Param id="200">
+			<Name>Added Out of Range Other</Name>
+			<Interprete>
+				<Range>
+					<Low>5</Low>
+					<High>10</High>
+				</Range>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<!--Changes on Non-monitored params-->
+		<Param id="1000">
+			<Name>NonMonitored - AddedOther</Name>
+			<Interprete>
+				<Range>
+					<Low>5</Low>
+					<High>10</High>
+				</Range>
+			</Interprete>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="1001">
+			<Name>NonMonitored - RemovedOther</Name>
+			<Interprete>
+				<Others>
+					<Other>
+						<Display>N/A</Display>
+						<Value>2</Value>
+					</Other>
+				</Others>
+				<Range>
+					<Low>5</Low>
+					<High>10</High>
+				</Range>
+			</Interprete>
+		</Param>
+		<!--<Param id="1002">
+			<Name>NonMonitored - UpdatedOtherDisplay</Name>
+			<Information>
+				<Subtext>Currently commented out as considered potentially breaking change as we might change the meaning of the Other item.
+Not related to breaking the monitoring template but just the behavior.</Subtext>
+			</Information>
+			<Interprete>
+				<Others>
+					<Other>
+						<Display>N/A</Display>
+						<Value>2</Value>
+					</Other>
+				</Others>
+				<Range>
+					<Low>5</Low>
+					<High>10</High>
+				</Range>
+			</Interprete>
+		</Param>
+		<Param id="1003">
+			<Name>NonMonitored - UpdatedOtherId</Name>
+			<Information>
+				<Subtext>Currently commented out as considered potentially breaking change as we might change the behavior of the Other item.
+Not related to breaking the monitoring template but just the behavior.</Subtext>
+			</Information>
+			<Interprete>
+				<Others>
+					<Other id="1">
+						<Display>N/A</Display>
+						<Value>2</Value>
+					</Other>
+				</Others>
+				<Range>
+					<Low>5</Low>
+					<High>10</High>
+				</Range>
+			</Interprete>
+		</Param>-->
+	</Params>
+</Protocol>

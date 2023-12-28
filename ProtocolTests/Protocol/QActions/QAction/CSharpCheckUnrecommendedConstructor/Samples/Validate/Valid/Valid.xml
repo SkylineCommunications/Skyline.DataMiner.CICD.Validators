@@ -1,0 +1,44 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<QActions>
+		<QAction id="1" name="ValidConstructor_XmlSerializer_Type" encoding="csharp">
+			<![CDATA[using System.Threading;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		var serializer = new XmlSerializer(typeof(string));
+	}
+
+	public static void MyMethod()
+	{
+		// Used by ThreadStart
+	}
+}]]>
+		</QAction>
+		<QAction id="2" name="ValidConstructor_XmlSerializer_Type_String" encoding="csharp">
+			<![CDATA[using System.Threading;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		var serializer = new XmlSerializer(typeof(string), "Default.Namespace");
+	}
+
+	public static void MyMethod()
+	{
+		// Used by ThreadStart
+	}
+}]]>
+		</QAction>
+	</QActions>
+</Protocol>

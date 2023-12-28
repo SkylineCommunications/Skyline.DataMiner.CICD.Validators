@@ -1,0 +1,276 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>GetParameters_HardCodedPid</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>ReadParam_100</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>WriteParam_200</Name>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="300">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="350">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>write</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static object[] GetParametersWrapper(this SLProtocol protocol, object paramIds)
+			{
+				return (object[])protocol.GetParameters(paramIds);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int MyReadParam_100 = 100;
+			public const int MyWriteParam_200 = 200;
+			public const int MyReadWriteParam_300 = 300;
+			public const int MyReadWriteParam_350 = 350;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="GetParameters_DataTypes" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// string
+		string stringVar = Parameter.readparam_100.ToString();
+		protocol.GetParameters(stringVar);
+
+		// double
+		object stringToObject = (double)Parameter.readparam_100;
+		protocol.GetParameters(stringToObject);
+
+		// int
+		var intToVar = Parameter.readparam_100;
+		protocol.GetParameters(intToVar);
+
+		// uint
+		uint uintVar = (uint)Parameter.readparam_100;
+		protocol.GetParameters(uintVar);
+		protocol.GetParameters((uint)Parameter.readparam_100);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="GetParameters_ExplicitArrayTypes" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// string[] to string[]
+		string[] stringArray = new string[] { Parameter.readparam_100.ToString(), Parameter.readwriteparam_300_350.ToString() };
+		protocol.GetParameters(stringArray);
+
+		// double[] to object
+		object stringArrayToObject = new double[] { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		protocol.GetParameters(stringArrayToObject);
+
+		// int[] to var
+		var intArrayToVar = new int[] { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		protocol.GetParameters(intArrayToVar);
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="GetParameters_ImplicitArrayTypes" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// int array via Implicit Array Type
+		object implicitIntArray = new[] { Parameter.readparam_100 };
+		protocol.GetParameters(implicitIntArray);
+
+		// int array via Implicit Array Type
+		object implicitIntArray2 = new[] { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		protocol.GetParameters(implicitIntArray2);
+	}
+}]]>
+		</QAction>
+		<QAction id="103" name="GetParameters_Lists" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// List<int> to array
+		List<int> intList = new List<int> { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		protocol.GetParameters(intList.ToArray());
+		protocol.GetParameters(intList);
+	}
+}]]>
+		</QAction>
+		<QAction id="104" name="GetParameters_Enumerables" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// List<int> to array
+		IEnumerable<int> intEnumerable = GetPids();
+		protocol.GetParameters(intEnumerable);
+	}
+
+	public static IEnumerable<int> GetPids()
+	{
+		yield return Parameter.readparam_100;
+		yield return Parameter.readwriteparam_300_350;
+	}
+}]]>
+		</QAction>
+		<QAction id="200" name="GetParameters_ClassTypes" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		MyClass myClassInstance = new MyClass();
+		protocol.GetParameters(myClassInstance);
+	}
+}
+
+public class MyClass
+{
+}]]>
+		</QAction>
+
+		<QAction id="1000" name="GetParametersWrapper_DataTypes" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// string
+		string stringVar = Parameter.readparam_100.ToString();
+		protocol.GetParametersWrapper(stringVar);
+
+		// double
+		object stringToObject = (double)Parameter.readparam_100;
+		protocol.GetParametersWrapper(stringToObject);
+
+		// int
+		var intToVar = Parameter.readparam_100;
+		protocol.GetParametersWrapper(intToVar);
+
+		// uint
+		uint uintVar = (uint)Parameter.readparam_100;
+		protocol.GetParametersWrapper(uintVar);
+		protocol.GetParametersWrapper((uint)Parameter.readparam_100);
+	}
+}]]>
+		</QAction>
+		<QAction id="1001" name="GetParametersWrapper_ExplicitArrayTypes" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// string[] to string[]
+		string[] stringArray = new string[] { Parameter.readparam_100.ToString(), Parameter.readwriteparam_300_350.ToString() };
+		protocol.GetParametersWrapper(stringArray);
+
+		// double[] to object
+		object stringArrayToObject = new double[] { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		protocol.GetParametersWrapper(stringArrayToObject);
+
+		// int[] to var
+		var intArrayToVar = new int[] { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		protocol.GetParametersWrapper(intArrayToVar);
+	}
+}]]>
+		</QAction>
+		<QAction id="1002" name="GetParametersWrapper_ImplicitArrayTypes" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// int array via Implicit Array Type
+		object implicitIntArray = new[] { Parameter.readparam_100 };
+		protocol.GetParametersWrapper(implicitIntArray);
+
+		// int array via Implicit Array Type
+		object implicitIntArray2 = new[] { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		protocol.GetParametersWrapper(implicitIntArray2);
+	}
+}]]>
+		</QAction>
+		<QAction id="1003" name="GetParametersWrapper_ListToArray" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		// List<int> to array
+		List<int> intList = new List<int> { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		protocol.GetParametersWrapper(intList.ToArray());
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

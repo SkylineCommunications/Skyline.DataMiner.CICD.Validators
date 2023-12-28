@@ -1,0 +1,35 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1000">
+			<Name>TableSyntax1</Name>
+			<Type id="1001;1002;1003;1004">array</Type>
+			<ArrayOptions index="0"></ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>TableSyntax1_Instance</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<!--<Param id="1002">
+			<Name>TableSyntax1_Column2</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>-->
+		<Param id="1003">
+			<Name>TableSyntax1_Column3</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<!--<Param id="1004">
+			<Name>TableSyntax1_Column4</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>-->
+	</Params>
+	
+</Protocol>

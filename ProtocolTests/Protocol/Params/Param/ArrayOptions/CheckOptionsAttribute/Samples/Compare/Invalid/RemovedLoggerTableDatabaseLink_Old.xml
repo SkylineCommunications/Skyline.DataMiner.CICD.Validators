@@ -1,0 +1,29 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        
+        <!--Database option to empty attribute-->
+        <Param id="100">
+            <ArrayOptions options=";database:1000">
+            </ArrayOptions>
+        </Param>
+
+        <!--Database + other options to only other options-->
+        <Param id="200">
+            <ArrayOptions options=";naming=/101,202;database:1000">
+            </ArrayOptions>
+        </Param>
+
+        <!--Database options to removed attribute-->
+        <Param id="300">
+            <ArrayOptions options=";database:1000">
+            </ArrayOptions>
+        </Param>
+
+        <!--Database options to removed ArrayOptions-->
+        <!--Not sure if this should be tackled here or via another check (checkArrayOptionsTag)-->
+        <!--<Param id="400">
+            <ArrayOptions options=";database:1000">
+            </ArrayOptions>
+        </Param>-->
+    </Params>
+</Protocol>

@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Triggers>
+		<Trigger id="100">
+			<Name>ContentMissing</Name>
+		</Trigger>
+		<Trigger id="101">
+			<Name>ContentEmpty</Name>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="102">
+			<Name>Typo</Name>
+			<Content>
+				<Typo></Typo>
+			</Content>
+		</Trigger>
+	</Triggers>
+	
+</Protocol>

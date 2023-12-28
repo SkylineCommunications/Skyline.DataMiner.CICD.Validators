@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Commands>
+		<Command id="">
+			<Name>Empty</Name>
+		</Command>
+		<Command id="  ">
+			<Name>Spaces</Name>
+		</Command>
+	</Commands>
+	
+</Protocol>

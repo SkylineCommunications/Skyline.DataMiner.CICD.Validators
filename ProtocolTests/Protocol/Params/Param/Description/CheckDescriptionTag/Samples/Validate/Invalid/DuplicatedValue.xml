@@ -1,0 +1,59 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>Duplicate Read</Name>
+			<Description>Duplicate Read</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="101">
+			<Name>Duplicate Read</Name>
+			<Description>Duplicate Read</Description>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="110">
+			<Name>Duplicate Write</Name>
+			<Description>Duplicate Write</Description>
+			<Type>write</Type>
+		</Param>
+		<Param id="111">
+			<Name>Duplicate Write</Name>
+			<Description>Duplicate Write</Description>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="120">
+			<Name>Duplicate ReadWrite</Name>
+			<Description>Duplicate Read-Write</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="220">
+			<Name>Duplicate ReadWrite</Name>
+			<Description>Duplicate Read-Write</Description>
+			<Type>write</Type>
+		</Param>
+		<Param id="121">
+			<Name>Duplicate ReadWrite</Name>
+			<Description>Duplicate Read-Write</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="221">
+			<Name>Duplicate ReadWrite</Name>
+			<Description>Duplicate Read-Write</Description>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="1000" export="true">
+			<Name>Duplicate_Different_Casing</Name>
+			<Description>Duplicate_Different_Casing</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="1001" export="true">
+			<Name>Duplicate_different_Casing</Name>
+			<Description>Duplicate_different_Casing</Description>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+</Protocol>

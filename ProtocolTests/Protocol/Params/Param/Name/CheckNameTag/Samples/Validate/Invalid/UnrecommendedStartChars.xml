@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Params>
+        <Param id="1">
+            <Name>1AAA</Name>
+			<Type>read</Type>
+        </Param>
+
+		<!--2 read params to make sure UnrecommendedStartChars errors are not hiding DuplicatedValue errors and vice versa-->
+		<Param id="10">
+			<Name>10AAA</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11">
+			<Name>10AAA</Name>
+			<Type>read</Type>
+		</Param>		
+    </Params>
+	
+</Protocol>

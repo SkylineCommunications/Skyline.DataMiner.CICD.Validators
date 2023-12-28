@@ -1,0 +1,60 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Normal tables-->
+		<Param id="1000">
+			<Name>TableSyntax1</Name>
+			<Type id="1001;1002">array</Type>
+			<ArrayOptions index="0" options=" ;naming=/1002">
+			</ArrayOptions>
+		</Param>
+		<Param id="1001" duplicateAs="10001">
+			<Name>TableSyntax1_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1002" duplicateAs="10002">
+			<Name>TableSyntax1_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="1100">
+			<Name>TableSyntax2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";naming=/1101,1102 ">
+				<ColumnOption idx="0" pid="1101" />
+				<ColumnOption idx="1" pid="1102" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1101">
+			<Name>TableSyntax2_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1102">
+			<Name>TableSyntax2_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+
+		<!--View tables-->
+		<Param id="10000">
+			<Name>ViewTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=" ;volatile;view=1000;naming=/10001,10002 ">
+				<ColumnOption idx="0" pid="10001" options=";view=1001" />
+				<ColumnOption idx="1" pid="10002" options=";view=1002" />
+			</ArrayOptions>
+		</Param>
+	</Params>
+
+</Protocol>

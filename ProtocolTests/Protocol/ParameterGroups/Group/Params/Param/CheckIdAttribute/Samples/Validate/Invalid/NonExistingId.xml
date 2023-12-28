@@ -1,0 +1,76 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<ParameterGroups>
+		<!-- Standalone Interfaces -->
+		<Group id="1" name="StandaloneInterface_1" type="inout"></Group>
+
+		<!-- Standalone Interfaces with alarm linking -->
+		<Group id="1000" name="StandaloneInterface_AlarmLinking_1Standalone" type="inout">
+			<Params>
+				<Param id="101" />
+			</Params>
+		</Group>
+		<Group id="1001" name="StandaloneInterface_AlarmLinking_2Standalone" type="inout">
+			<Params>
+				<Param id="101" />
+				<Param id="102" />
+			</Params>
+		</Group>
+		<Group id="1002" name="StandaloneInterface_AlarmLinking_3Standalone" type="inout">
+			<Params>
+				<Param id="101" />
+				<Param id="102" />
+				<Param id="103" />
+			</Params>
+		</Group>
+
+		<Group id="1100" name="StandaloneInterface_AlarmLinking_1TableCell" type="inout">
+			<Params>
+				<Param id="1002" index="Key_1" />
+			</Params>
+		</Group>
+
+		<Group id="1200" name="StandaloneInterface_AlarmLinking_1TableCell_1Standalone" type="inout">
+			<Params>
+				<Param id="101" index="" />
+				<Param id="1002" index="Key_1" />
+			</Params>
+		</Group>
+
+		<!--Dynamic Interfaces-->
+		<Group id="2001" name="DynamicInterface_Table" dynamicId="1000" dynamicIndex="*"></Group>
+	</ParameterGroups>
+
+	<Params>
+		<!--<Param id="101">
+			<Name>DcfInterface_AlarmLinking_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="102">
+			<Name>DcfInterface_AlarmLinking_2</Name>
+			<Type>read</Type>
+		</Param>-->
+		<Param id="103">
+			<Name>DcfInterface_AlarmLinking_3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1000">
+			<Name>DcfInterfacesTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved"/>
+				<!--<ColumnOption idx="1" pid="1002" type="retrieved"/>-->
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>DcfInterfacesTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<!--<Param id="1002">
+			<Name>DcfInterfacesTable_Column2</Name>
+			<Type>read</Type>
+		</Param>-->
+	</Params>
+
+</Protocol>

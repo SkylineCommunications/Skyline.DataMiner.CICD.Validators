@@ -1,0 +1,15 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1" />
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<ExtraDetails>
+				<LinkedDetails discreetColumnId="" />
+			</ExtraDetails>
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>

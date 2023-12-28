@@ -1,0 +1,88 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>MissingMessage_RebootButton</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="101">
+			<Name>MissingMessage_ShutdownButton</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Shutdown</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="102">
+			<Name>MissingMessage_RebootAndShutdownButtons</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Shutdown</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="103">
+			<Name>MissingMessage_RebootAndRandomButtons</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Random</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<!--ConfirmPopup attribute-->
+		<Param id="1000" confirmPopup="never">
+			<Name>MissingMessage_ConfirmPopupNever</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1001" confirmPopup="dm">
+			<Name>MissingMessage_ConfirmPopupDM</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

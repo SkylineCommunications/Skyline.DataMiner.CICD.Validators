@@ -1,0 +1,130 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpNotifyDataMinerNTUpdateDescriptionXml_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public const int NT_UPDATE_DESCRIPTION_XML_GlobalConst = 127;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="Defining_NotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_UPDATE_DESCRIPTION_XML_Const = 127;
+		int NT_UPDATE_DESCRIPTION_XML_Int = 127;
+		int NT_UPDATE_DESCRIPTION_XML_Math = 120;
+
+		uint dmaId = 200;
+		uint elementId = 661;
+		uint[] elementDetails = { dmaId, elementId };
+
+		object[] update1 = new string[]
+		{
+			"1",		// Type (1:Description | 3:RangeLow | 4:RangeHigh | 5:StepSize)
+			"newValue",
+			"10",		// pid
+		};
+		object[] updates = new object[] { update1 };
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(127, elementDetails, updates);
+		protocol.NotifyDataMiner(120 + 10 - 3, elementDetails, updates);
+
+		protocol.NotifyDataMiner(NT_UPDATE_DESCRIPTION_XML_Const, elementDetails, updates);
+		protocol.NotifyDataMiner(NT_UPDATE_DESCRIPTION_XML_Int, elementDetails, updates);
+		protocol.NotifyDataMiner(NT_UPDATE_DESCRIPTION_XML_Math + 7, elementDetails, updates);
+		protocol.NotifyDataMiner(MyClass.NT_UPDATE_DESCRIPTION_XML_GlobalConst, elementDetails, updates);
+
+		protocol.NotifyDataMiner((int)NT_UPDATE_DESCRIPTION_XML_Const, elementDetails, updates);
+		protocol.NotifyDataMiner((int)NT_UPDATE_DESCRIPTION_XML_Int, elementDetails, updates);
+		protocol.NotifyDataMiner((int)NT_UPDATE_DESCRIPTION_XML_Math + 7, elementDetails, updates);
+		protocol.NotifyDataMiner((int)MyClass.NT_UPDATE_DESCRIPTION_XML_GlobalConst, elementDetails, updates);
+		protocol.NotifyDataMiner((int)NotifyType.UpdateDescriptionXml, elementDetails, updates);
+		
+		protocol.NotifyDataMinerQueued(127, elementDetails, updates);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="Defining_Element" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint dmaId = 200;
+		uint elementId = 661;
+
+		uint[] elementDetails = { dmaId, elementId };
+		uint[] elementDetails_hardcoded = { 10, 2 };
+
+		uint[] elementDetails_multiline;
+		elementDetails_multiline = new uint[] { 10, 2 };
+
+		object[] update1 = new string[]
+		{
+			"1",		// Type (1:Description | 3:RangeLow | 4:RangeHigh | 5:StepSize)
+			"newValue",
+			"10",		// pid
+		};
+		object[] updates = new object[] { update1 };
+
+		// Different ways to define the parameter
+		protocol.NotifyDataMiner(127, new[] { 10, 2 }, updates);
+		protocol.NotifyDataMiner(127, new uint[] { 10, 2 }, updates);
+
+		protocol.NotifyDataMiner(127, new[] { dmaId, elementId }, updates);
+		protocol.NotifyDataMiner(127, new uint[] { dmaId, elementId }, updates);
+
+		protocol.NotifyDataMiner(127, elementDetails, updates);
+		protocol.NotifyDataMiner(127, elementDetails_hardcoded, updates);
+		protocol.NotifyDataMiner(127, elementDetails_multiline, updates);
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="Processing_Result" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint dmaId = 200;
+		uint elementId = 661;
+		uint[] elementDetails = { dmaId, elementId };
+
+		object[] update1 = new string[]
+		{
+			"1",		// Type (1:Description | 3:RangeLow | 4:RangeHigh | 5:StepSize)
+			"newValue",
+			"10",		// pid
+		};
+		object[] updates = new object[] { update1 };
+
+		int result = (int)protocol.NotifyDataMiner(127, elementDetails, updates);
+		protocol.Log("QA" + protocol.QActionID + "|Run|result '" + result + "'", LogType.DebugInfo, LogLevel.NoLogging);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

@@ -1,0 +1,14 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<TreeControls>
+		<TreeControl parameterId="A"></TreeControl>
+
+		<TreeControl parameterId="01"></TreeControl>
+		<TreeControl parameterId="-2"></TreeControl>
+		<TreeControl parameterId="1.5"></TreeControl>
+		<TreeControl parameterId="2,6"></TreeControl>
+		<TreeControl parameterId="+4"></TreeControl>
+		<TreeControl parameterId="5x10^1"></TreeControl>
+	</TreeControls>
+	
+</Protocol>

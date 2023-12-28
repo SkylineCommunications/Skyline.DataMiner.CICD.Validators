@@ -1,0 +1,168 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--With Message-->
+		<Param id="100">
+			<Name>Message_RebootButton</Name>
+			<Message>Are you sure you want to do this?</Message>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="101">
+			<Name>Message_Shutdown_Button</Name>
+			<Message>Are you sure you want to do this?</Message>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Shutdown</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="102">
+			<Name>Message_RebootAndShutdownButtons</Name>
+			<Message>Are you sure you want to do this?</Message>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Shutdown</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="103">
+			<Name>Message_RebootAndRandomButtons</Name>
+			<Message>Are you sure you want to do this?</Message>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Something</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="104">
+			<Name>Message_RebootSmthButton</Name>
+			<Message>Are you sure you want to do this?</Message>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>RebootSmth</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="105">
+			<Name>Message_SmthRebootButton</Name>
+			<Message>Are you sure you want to do this?</Message>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>SmthReboot</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="200">
+			<Name>Message_RandomButton</Name>
+			<Message>Are you sure you want to do this?</Message>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Something</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="201">
+			<Name>Message_RandomButtons</Name>
+			<Message>Are you sure you want to do this?</Message>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Something</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Something else</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<!--Without Message-->
+		<Param id="1000">
+			<Name>NoMessage_RandomButton</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Something</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>NoMessage_RandomButtons</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Something</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Something else</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+
+		<Param id="1100" confirmPopup="always">
+			<Name>NoMessage_ButConfirmPopupAttribute</Name>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Reboot</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

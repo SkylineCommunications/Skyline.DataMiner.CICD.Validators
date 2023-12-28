@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<HTTP>
+		<Session>
+			<Connection>
+				<Request>
+					<Headers>
+					</Headers>
+				</Request>
+			</Connection>
+		</Session>
+	</HTTP>
+</Protocol>

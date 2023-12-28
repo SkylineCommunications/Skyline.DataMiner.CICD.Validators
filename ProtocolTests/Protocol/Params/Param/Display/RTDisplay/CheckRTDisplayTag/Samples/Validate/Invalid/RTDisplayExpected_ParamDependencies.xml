@@ -1,0 +1,107 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="10">
+			<Name>ButtonWithDependencies_RTDisplayFalse</Name>
+			<Type>write</Type>
+			<Dependencies>
+				<Id>11</Id>
+				<Id>12</Id>
+				<Id>13</Id>
+			</Dependencies>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="11">
+			<Name>ButtonWithDependencies_RTDisplayFalse_Dependency1</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="12">
+			<Name>ButtonWithDependencies_RTDisplayFalse_Dependency2</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="13">
+			<Name>ButtonWithDependencies_RTDisplayFalse_Dependency3</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+
+		<Param id="20">
+			<Name>ButtonWithDependencies_NoRTDisplay</Name>
+			<Type>write</Type>
+			<Dependencies>
+				<Id>21</Id>
+				<Id>22</Id>
+				<Id>23</Id>
+			</Dependencies>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="21">
+			<Name>ButtonWithDependencies_NoRTDisplay_Dependency1</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="22">
+			<Name>ButtonWithDependencies_NoRTDisplay_Dependency2</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="23">
+			<Name>ButtonWithDependencies_NoRTDisplay_Dependency3</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+
+		<Param id="30">
+			<Name>ButtonWithDependencies_NoDisplay</Name>
+			<Type>write</Type>
+			<Dependencies>
+				<Id>31</Id>
+				<Id>32</Id>
+				<Id>33</Id>
+			</Dependencies>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="31">
+			<Name>ButtonWithDependencies_NoDisplay_Dependency1</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="32">
+			<Name>ButtonWithDependencies_NoDisplay_Dependency2</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="33">
+			<Name>ButtonWithDependencies_NoDisplay_Dependency3</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+	</Params>
+
+</Protocol>

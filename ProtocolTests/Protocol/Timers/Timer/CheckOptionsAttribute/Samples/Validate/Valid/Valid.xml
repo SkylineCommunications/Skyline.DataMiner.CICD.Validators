@@ -1,0 +1,205 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckOptionsAttriubte_Valid</Name>
+	<Version>0.0.0.0</Version>
+	
+	<Params>
+		<Param id="50">
+			<Name>threadPool_Usage</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="51">
+			<Name>threadPool_Waiting</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="52">
+			<Name>threadPool_MaxDuration</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="53">
+			<Name>threadPool_AvgDuration</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="54">
+			<Name>threadPool_Counter</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="100">
+			<Name>dynamicThreadPool_NbOfUsedThreads</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1000">
+			<Name>OtherTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options="">
+				<ColumnOption idx="0" pid="1001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="1002" type="custom" options=";" />
+				<ColumnOption idx="2" pid="1003" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>OtherTable_PK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>OtherTable_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>OtherTable_Column3</Name>
+			<Type>read</Type>
+		</Param>
+		
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+				<ColumnOption idx="2" pid="2003" type="custom" options=";" />
+				<ColumnOption idx="3" pid="2004" type="custom" options=";" />
+				<ColumnOption idx="4" pid="2005" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2003">
+			<Name>MultiThreadTable_IgnoreIf</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2004">
+			<Name>MultiThreadTable_Ping_RTT</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2005">
+			<Name>MultiThreadTable_Ping_TimeStamp</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+	<QActions>
+		<QAction id="20" name="qactionBefore" />
+		<QAction id="21" name="qactionAfter" />
+	</QActions>
+	
+	<Groups>
+		<Group id="1">
+			<Name>Normal Group</Name>
+		</Group>
+		
+		<Group id="100">
+			<Name>MultiThread Group</Name>
+		</Group>
+	</Groups>
+	
+	<Timers>
+		<Timer id="1">
+			<Name>Normal Timer</Name>
+			<Content>
+				<Group>1</Group>
+			</Content>
+		</Timer>
+
+		<!--Multi threaded timers-->
+		<Timer id="100" options="ip:2000,1;each:1000;threadPool:10">
+			<Name>MultiThread Timer: threadPool Size</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		<Timer id="101" options="ip:2000,1;each:1000;threadPool:10,-1,-1,-1,-1,-1,-1,20">
+			<Name>MultiThread Timer: threadPool Size, StackSize)</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		<!--This is a valid case but a warning will be generated since CalculationInterval has impact on performance-->
+		<!--<Timer id="102" options="ip:2000,1;each:1000;threadPool:10,5,50,51,52,53,54,20">
+			<Name>MultiThread Timer: threadPool Size, CalculationInterval, UsagePid, WaitingPid, MaxDurationPid, AvgDurationPid, CounterPid, StackSize</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>-->
+		<!--This is a valid case but a warning will be generated since CalculationInterval has impact on performance-->
+		<!--<Timer id="103" options="ip:2000,1;each:1000;threadPool:10,5,50,-1,52,-1,54,20">
+			<Name>MultiThread Timer: threadPool Size, CalculationInterval, UsagePid, MaxDurationPid, CounterPid, StackSize</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>-->
+		
+		<Timer id="150" options="ip:2000,1;each:1000;threadPool:10;dynamicThreadPool:100">
+			<Name>MultiThread Timer: dynamicThreadPool</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		
+		<Timer id="200" options="ip:2000,1;each:1000;threadPool:10;ignoreIf:2,randomValue">
+			<Name>MultiThread Timer: ignoreIf</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+
+		<Timer id="250" options="ip:2000,1;each:1000;threadPool:10;instance:2000,0">
+			<Name>MultiThread Timer: instance (on same table)</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		<Timer id="251" options="ip:2000,1;each:1000;threadPool:10;instance:1000,0">
+			<Name>MultiThread Timer: instance (on different table)</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+
+		<Timer id="300" options="ip:2000,1;each:1000;threadPool:10;ping:rttColumn=4,timestampColumn=5,ttl=250,timeout=500,type=icmp,continueSnmpOnTimeout=true">
+			<Name>MultiThread Timer: ping icmp true</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		<Timer id="301" options="ip:2000,1;each:1000;threadPool:10;ping:rttColumn=4,timestampColumn=5,ttl=250,timeout=500,type=winSock,continueSnmpOnTimeout=false">
+			<Name>MultiThread Timer: ping winSock false</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+
+		<Timer id="350" options="ip:2000,1;each:1000;threadPool:10;pollingRate:50,10,10">
+			<Name>MultiThread Timer: pollingRate</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+
+		<Timer id="400" options="ip:2000,1;each:1000;threadPool:10;qactionAfter:21">
+			<Name>MultiThread Timer: qactionAfter</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		<Timer id="401" options="ip:2000,1;each:1000;threadPool:10;qactionBefore:20">
+			<Name>MultiThread Timer: qactionBefore</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		<Timer id="402" options="ip:2000,1;each:1000;threadPool:10;qactionBefore:20;qactionAfter:21">
+			<Name>MultiThread Timer: qactionBefore and qactionAfter</Name>
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+	</Timers>
+	
+</Protocol>

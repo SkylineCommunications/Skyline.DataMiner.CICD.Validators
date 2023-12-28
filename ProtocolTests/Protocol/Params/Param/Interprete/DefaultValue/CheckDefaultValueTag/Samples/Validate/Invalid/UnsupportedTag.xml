@@ -1,0 +1,290 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>Standalone_Bus</Name>
+			<Type>bus</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="2">
+			<Name>Standalone_CRC</Name>
+			<Type>crc</Type>
+			<Interprete>
+				<Type>double</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="3">
+			<Name>Standalone_DataminerInfo</Name>
+			<Type>dataminer info</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="4">
+			<Name>Standalone_DiscreetInfo</Name>
+			<Type>discreet info</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="5">
+			<Name>Standalone_Dummy</Name>
+			<Type>dummy</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="6">
+			<Name>Standalone_ElementDmaId</Name>
+			<Type>elementdmaid</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="7">
+			<Name>Standalone_ElementId</Name>
+			<Type>elementid</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="8">
+			<Name>Standalone_ElementName</Name>
+			<Type>elementname</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="9">
+			<Name>Standalone_Fixed</Name>
+			<Type>fixed</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="10">
+			<Name>Standalone_Group</Name>
+			<Type>group</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="11">
+			<Name>Standalone_Header</Name>
+			<Type>header</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="12">
+			<Name>Standalone_IP</Name>
+			<Type>ip</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="13">
+			<Name>Standalone_Length</Name>
+			<Type>length</Type>
+			<Interprete>
+				<Type>double</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="14">
+			<Name>Standalone_PollingIp</Name>
+			<Type>pollingip</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="15">
+			<Name>Standalone_ReadBit</Name>
+			<Type>read bit</Type>
+			<Interprete>
+				<Type>double</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="16">
+			<Name>Standalone_Response</Name>
+			<Type>response</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="17">
+			<Name>Standalone_Trailer</Name>
+			<Type>trailer</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="18">
+			<Name>Standalone_WriteBit</Name>
+			<Type>write bit</Type>
+			<Interprete>
+				<Type>double</Type>
+				<!--DefaultValue only supported on read params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="100">
+			<Name>Standalone_String_ReadOnly</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="101">
+			<Name>Standalone_String_ReadWrite</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="151">
+			<Name>Standalone_String_ReadWrite</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue not supported on write params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="152">
+			<Name>Standalone_String_WriteOnly</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>string</Type>
+				<!--DefaultValue not supported on write params-->
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="200">
+			<Name>Standalone_Double_ReadOnly</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>double</Type>
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="201">
+			<Name>Standalone_Double_ReadWrite</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>double</Type>
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="251">
+			<Name>Standalone_Double_ReadWrite</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>double</Type>
+				<!--DefaultValue not supported on write params-->
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="252">
+			<Name>Standalone_Double_WriteOnly</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>double</Type>
+				<!--DefaultValue not supported on write params-->
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="1000">
+			<Name>TableSyntax1</Name>
+			<Type id="1001">array</Type>
+			<ArrayOptions index="0"></ArrayOptions>
+			<Interprete>
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="1001">
+			<Name>TableSyntax1_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="1100">
+			<Name>TableSyntax2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" />
+			</ArrayOptions>
+			<Interprete>
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="1101">
+			<Name>TableSyntax2_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="1200">
+			<Name>TableSyntax3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1201" />
+			</ArrayOptions>
+			<Interprete>
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+		</Param>
+		<Param id="1201">
+			<Name>TableSyntax3_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+
+</Protocol>

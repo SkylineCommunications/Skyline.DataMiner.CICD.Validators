@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+        <Param id="1">
+            <Alarm options="threshold:104,2206">
+            </Alarm>
+        </Param>
+        <Param id="2">
+            <Alarm options="threshold:105,2206;propertyNames:Type,Descr;properties:|4|*INT:*303">
+            </Alarm>
+        </Param>
+        <Param id="3">
+            <Alarm options="propertyNames:Type,Descr;properties:|4|*INT:*303;threshold:106,2208">
+            </Alarm>
+        </Param>
+	</Params>
+</Protocol>

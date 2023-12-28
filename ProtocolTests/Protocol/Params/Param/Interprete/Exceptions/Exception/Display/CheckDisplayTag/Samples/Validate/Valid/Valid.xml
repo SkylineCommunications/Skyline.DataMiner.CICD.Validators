@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Interprete>
+				<Exceptions>
+					<Exception id="1">
+						<Display>N/A</Display>
+					</Exception>
+					<Exception id="2">
+						<Display>Not Available</Display>
+					</Exception>
+					<Exception id="3">
+						<Display>Some Random Value</Display>
+					</Exception>
+					<Exception id="4">
+						<Display>Name Ending on A</Display>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+	</Params>
+
+</Protocol>

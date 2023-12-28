@@ -1,0 +1,32 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>RTDisplayFalse</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>NoRTDisplay</Name>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

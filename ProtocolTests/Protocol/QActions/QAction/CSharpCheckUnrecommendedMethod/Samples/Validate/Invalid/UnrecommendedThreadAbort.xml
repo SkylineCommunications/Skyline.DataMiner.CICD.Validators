@@ -1,0 +1,29 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckUnrecommendedMethod_UnrecommendedThreadAbort</Name>
+	<Version>0.0.0.0</Version>
+	
+	<QActions>
+		<QAction id="106" name="UnrecommendedMethods" encoding="csharp">
+			<![CDATA[using System.Threading;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		ThreadStart threadStart = MyMethod;
+		Thread thread = new Thread(threadStart);
+		thread.Abort();
+	}
+
+	public static void MyMethod()
+	{
+		// Used by ThreadStart
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

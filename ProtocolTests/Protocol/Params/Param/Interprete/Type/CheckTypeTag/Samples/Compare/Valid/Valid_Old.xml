@@ -1,0 +1,116 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!-- Not Changed -->
+		<Param id="101">
+			<Name>NoChange_Double</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+		<Param id="201">
+			<Name>NoChange_Double</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+		<Param id="102">
+			<Name>NoChange_String</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="202">
+			<Name>NoChange_String</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="103">
+			<Name>NoChange_HighNible</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>high nibble</Type>
+			</Interprete>
+		</Param>
+		<Param id="203">
+			<Name>NoChange_HighNible</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>high nibble</Type>
+			</Interprete>
+		</Param>
+
+		<!-- Adding params -->
+		<!--<Param id="301">
+			<Name>NewParam_Double</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+		<Param id="401">
+			<Name>NewParam_Double</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+		<Param id="302">
+			<Name>NewParam_String</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="402">
+			<Name>NewParam_String</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="303">
+			<Name>NewParam_HighNible</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>high nibble</Type>
+			</Interprete>
+		</Param>
+		<Param id="403">
+			<Name>NewParam_HighNible</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>high nibble</Type>
+			</Interprete>
+		</Param>-->
+		
+		<!-- Allowed changes -->
+		<Param id="1001">
+			<Name>AllowedChange_Write_DoubleToString</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+		<Param id="1002">
+			<Name>AllowedChange_Write_StringToDouble</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1003">
+			<Name>AllowedChange_Write_HighNibbleToString</Name>
+			<Type>write</Type>
+			<Interprete>
+				<Type>high nibble</Type>
+			</Interprete>
+		</Param>
+	</Params>
+
+</Protocol>

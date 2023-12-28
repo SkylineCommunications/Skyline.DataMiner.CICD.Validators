@@ -1,0 +1,503 @@
+﻿<!--
+
+- Noise (1-> 99): Adding all kind of noise items to the different cases
+  ex: Adding multiple actions not causing any loop to a trigger to make sure the one causing a loop is still detected.
+
+-->
+<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckEndlessLoop_ValidMultipleSequences</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="1">
+			<Name>Noise_Param_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2">
+			<Name>Noise_Param_2</Name>
+			<Type>read</Type>
+		</Param>
+
+		<!--<Param id="10">
+			<Name>Condition_Param_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11">
+			<Name>Condition_Param_2</Name>
+			<Type>read</Type>
+		</Param>-->
+
+		<Param id="201">
+			<Name>Aggregate_OneReturnParam</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="202">
+			<Name>Aggregate_MultipleReturnParam</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="242">
+			<Name>Aggregate_MultipleReturnParam</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="262">
+			<Name>Aggregate_MultipleReturnParam</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="203">
+			<Name>Aggregate_Default</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="204">
+			<Name>Aggregate_OneGroupby</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="205">
+			<Name>Aggregate_MultipleGroupBy1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="245">
+			<Name>Aggregate_MultipleGroupBy2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="210">
+			<Name>Aggregate_OneReturn_Default</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="250">
+			<Name>Aggregate_OneReturn_Default</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="211">
+			<Name>Aggregate_MultipleReturn_Default1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="251">
+			<Name>Aggregate_MultipleReturn_Default2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="271">
+			<Name>Aggregate_MultipleReturn_Default2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="212">
+			<Name>Aggregate_OneGroupBy_Default1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="252">
+			<Name>Aggregate_OneGroupBy_Default2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="213">
+			<Name>Aggregate_OneReturn_Default1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="253">
+			<Name>Aggregate_OneReturn_Default2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="273">
+			<Name>Aggregate_OneReturn_Default3</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="214">
+			<Name>Aggregate_OneGroupBy_OneReturn1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="254">
+			<Name>Aggregate_OneGroupBy_OneReturn2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="215">
+			<Name>Aggregate_MultipleGroupBy_OneReturn1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="255">
+			<Name>Aggregate_MultipleGroupBy_OneReturn2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="275">
+			<Name>Aggregate_MultipleGroupBy_OneReturn3</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="216">
+			<Name>Aggregate_MultipleGroupBy_MultipleReturn1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="256">
+			<Name>Aggregate_MultipleGroupBy_MultipleReturn2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="276">
+			<Name>Aggregate_MultipleGroupBy_MultipleReturn3</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="296">
+			<Name>Aggregate_MultipleGroupBy_MultipleReturn4</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="217">
+			<Name>Aggregate_OneGroupBy_OneReturn_Default1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="257">
+			<Name>Aggregate_OneGroupBy_OneReturn_Default2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="277">
+			<Name>Aggregate_OneGroupBy_OneReturn_Default3</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="218">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="258">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="278">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default3</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="298">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default4</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="219">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="259">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="279">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default3</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="299">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default4</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="309">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default5</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="220">
+			<Name>Aggregate_Weight</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="221">
+			<Name>Aggregate_Weight_OneReturn</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="301">
+			<Name>Aggregate_Weight_OneReturn</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="397">
+			<Name>Aggregate_TriggerParameter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="398">
+			<Name>Aggregate_OnParameter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="399">
+			<Name>Aggregate_WeightParameter</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="Noise_QAction_1" triggers="1" />
+	</QActions>
+
+	<Triggers>
+		<Trigger id="1">
+			<Name>Noise_Trigger_1_AfterStartup</Name>
+			<On>protocol</On>
+			<Time>after startup</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="2">
+			<Name>Noise_Trigger_2_EmptyContent</Name>
+			<On id="2">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="3">
+			<Name>Noise_Trigger_3_NoContent</Name>
+			<On id="2">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+		</Trigger>
+
+		<Trigger id="200">
+			<Name>Aggregate_EmptyOptions</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>200</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="201">
+			<Name>Aggregate_OneReturn</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>201</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="202">
+			<Name>Aggregate_MultipleReturn</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>202</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="203">
+			<Name>Aggregate_Default</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>203</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="204">
+			<Name>Aggregate_OneGroupBy</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>204</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="205">
+			<Name>Aggregate_MultipleGroupBy</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>205</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="210">
+			<Name>Aggregate_OneReturn_Default</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>210</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="211">
+			<Name>Aggregate_MultipleReturn_Default</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>211</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="212">
+			<Name>Aggregate_OneGroupBy_Default</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>212</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="213">
+			<Name>Aggregate_MultipleGroupBy_Default</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>213</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="214">
+			<Name>Aggregate_OneGroupBy_OneReturn</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>214</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="215">
+			<Name>Aggregate_MultipleGroupBy_OneReturn</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>215</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="216">
+			<Name>Aggregate_MultipleGroupBy_MultipleReturn</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>216</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="217">
+			<Name>Aggregate_OneGroupBy_OneReturn_Default</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>217</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="218">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>218</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="219">
+			<Name>Aggregate_MultipleGroupBy_MultipleReturn_Default</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>219</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="220">
+			<Name>Aggregate_Weight</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>220</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="221">
+			<Name>Aggregate_Weight_OneReturn</Name>
+			<On id="397">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>221</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+
+	<Actions>
+		<Action id="1">
+			<Name>Noise_RunActions_1</Name>
+			<On id="1">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+
+		<Action id="200">
+			<Name>Aggregate_EmptyOptions</Name>
+			<On id="398">parameter</On>
+			<Type options="">aggregate</Type>
+		</Action>
+		<Action id="201">
+			<Name>Aggregate_OneReturn</Name>
+			<On id="398">parameter</On>
+			<Type options="return:201">aggregate</Type>
+		</Action>
+		<Action id="202">
+			<Name>Aggregate_MultipleReturn</Name>
+			<On id="398">parameter</On>
+			<Type options="return:202,242,272">aggregate</Type>
+		</Action>
+		<Action id="203">
+			<Name>Aggregate_Default</Name>
+			<On id="398">parameter</On>
+			<Type options="default:203,0">aggregate</Type>
+		</Action>
+		<Action id="204">
+			<Name>Aggregate_OneGroupBy</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:204">aggregate</Type>
+		</Action>
+		<Action id="205">
+			<Name>Aggregate_MultipleGroupBy</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:205,2:205">aggregate</Type>
+		</Action>
+		<Action id="210">
+			<Name>Aggregate_OneReturn_Default</Name>
+			<On id="398">parameter</On>
+			<Type options="default:210,0;return:250">aggregate</Type>
+		</Action>
+		<Action id="211">
+			<Name>Aggregate_MultipleReturn_Default</Name>
+			<On id="398">parameter</On>
+			<Type options="default:211;return:251,271">aggregate</Type>
+		</Action>
+		<Action id="212">
+			<Name>Aggregate_OneGroupBy_Default</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:212;default:252">aggregate</Type>
+		</Action>
+		<Action id="213">
+			<Name>Aggregate_MultipleGroupby_Default</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:213,2:253;default:273,0">aggregate</Type>
+		</Action>
+		<Action id="214">
+			<Name>Aggregate_OneGroupBy_OneReturn</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:214;return:254">aggregate</Type>
+		</Action>
+		<Action id="215">
+			<Name>Aggregate_MultipleGroupBy_OneReturn</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:215,2:255;return:275">aggregate</Type>
+		</Action>
+		<Action id="216">
+			<Name>Aggregate_MultipleGroupBy_MultipleReturn</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:216,2:256;return:276,296">aggregate</Type>
+		</Action>
+		<Action id="217">
+			<Name>Aggregate_OneGroupBy_OneReturn_Default</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:217;default:257,0;return:277">aggregate</Type>
+		</Action>
+		<Action id="218">
+			<Name>Aggregate_MultipleGroupBy_OneReturn_Default</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:218,2:258;default:278,0;return:298">aggregate</Type>
+		</Action>
+		<Action id="219">
+			<Name>Aggregate_MultipleGroupBy_MultipleReturn_Default</Name>
+			<On id="398">parameter</On>
+			<Type options="groupby:15:219,2:259;default:279,0;return:299,309">aggregate</Type>
+		</Action>
+		<Action id="220">
+			<Name>Aggregate_Weight</Name>
+			<On id="398">parameter</On>
+			<Type options="weight:220">aggregate</Type>
+		</Action>
+		<Action id="221">
+			<Name>Aggregate_Weight_OneReturn</Name>
+			<On id="398">parameter</On>
+			<Type options="weight:221;return:301">aggregate</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

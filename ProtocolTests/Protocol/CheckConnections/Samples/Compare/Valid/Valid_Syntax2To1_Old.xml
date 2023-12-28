@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Connections>
+		<Connection id="0" name="IP Connection">
+			<Type>serial</Type>
+		</Connection>
+		<Connection id="1" name="SNMP Connection">
+			<Type>snmp</Type>
+		</Connection>
+	</Connections>
+	
+</Protocol>

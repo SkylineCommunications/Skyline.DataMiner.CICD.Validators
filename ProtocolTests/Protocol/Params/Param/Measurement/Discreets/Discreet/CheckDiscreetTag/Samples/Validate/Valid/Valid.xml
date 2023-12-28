@@ -1,0 +1,51 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Name>Button</Name>
+			<Measurement>
+				<Type>button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>BLA</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>PageButton</Name>
+			<Measurement>
+				<Type>pagebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>New Page...</Display>
+						<Value>New Page</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="3">
+			<Name>Discreet_HardCoded</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>BLA</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>ABC</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="4">
+			<Name>Discreet_Dynamic</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets dependencyId="1" />
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Measurement>
+				<Discreets>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

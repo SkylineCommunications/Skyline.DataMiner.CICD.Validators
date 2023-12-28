@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Name>Referenced param</Name>
+			<Type>read</Type>
+		</Param>
+		
+		<!--Unsupported types-->
+		<Param id="1000">
+			<Name>NormalTable</Name>
+			<Type>array</Type>
+			<ArrayOptions></ArrayOptions>
+			<SNMP>
+				<OID id=" 11 ">1.3.6.1.2.1.1.5.0</OID>
+			</SNMP>
+		</Param>
+		
+	</Params>
+</Protocol>

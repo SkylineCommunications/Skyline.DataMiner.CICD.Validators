@@ -1,6 +1,7 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Common.Model
 {
-    using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Common;
     using Skyline.DataMiner.XmlSchemas.Protocol;
@@ -14,10 +15,23 @@
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidatorSettings"/> class.
+        /// Used for unit tests
+        /// </summary>
+        internal ValidatorSettings()
+        {
+	        testsToExecute = new List<(Category catergory, uint checkId)>();
+	        UnitList = new UnitList();
+	        MinimumSupportedDataMinerVersion = new DataMinerVersion(new Version(10, 1, 0, 0), 9966);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidatorSettings"/> class.
         /// </summary>
         public ValidatorSettings(DataMinerVersion minimumSupportedDataMinerVersion)
         {
 	        testsToExecute = new List<(Category catergory, uint checkId)>();
+
+            // TODO-MOD: Probably don't initialize it here just in case an error happens? Maybe only on the get of the property if the field is null still?
 	        UnitList = new UnitList();
 
             MinimumSupportedDataMinerVersion = minimumSupportedDataMinerVersion;

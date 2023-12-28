@@ -1,0 +1,56 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+
+        <!--Remove one page-->
+        <Param id="1">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page1</Page>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+
+        <!--Change the page-->
+        <Param id="2">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page2</Page>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+
+        <!--Remove multiple pages-->
+        <Param id="3">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page3</Page>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+
+        <!--Remove full Positions tag-->
+        <Param id="4">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+
+        <!--Empty Positions tag-->
+        <Param id="5">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                </Positions>
+            </Display>
+        </Param>
+    </Params>
+</Protocol>

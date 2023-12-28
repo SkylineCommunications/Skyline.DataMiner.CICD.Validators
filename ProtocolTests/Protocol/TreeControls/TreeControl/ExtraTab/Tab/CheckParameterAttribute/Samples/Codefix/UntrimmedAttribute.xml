@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<ExtraTabs>
+				<Tab parameter="1000" type="relation" />
+				<Tab type="title"/>
+			</ExtraTabs>
+		</TreeControl>
+	</TreeControls>
+
+	<Params>
+		<Param id="1" />
+
+		<Param id="1000" />
+	</Params>
+
+</Protocol>

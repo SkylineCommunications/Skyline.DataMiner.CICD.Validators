@@ -1,0 +1,17 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--For extensive unit tests on title casing, go to TitleCasing.ToTitleCase method unit tests-->
+
+	<Params>
+		<Param id="100">
+			<Measurement>
+				<Discreets>
+					<Discreet>
+						<Display>wrong casing</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

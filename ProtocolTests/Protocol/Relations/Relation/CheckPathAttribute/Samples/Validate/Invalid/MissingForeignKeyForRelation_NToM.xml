@@ -1,0 +1,83 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="10000">
+			<Name>NToMParentTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10001">
+			<Name>NToMParentTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="10100">
+			<Name>
+				NToMIntermediateTable1_FkMissing_Options<!--Children To Parent-->
+			</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10102" type="retrieved" options=";foreignKey=10000"/>
+				<ColumnOption idx="2" pid="10103" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10101">
+			<Name>NToMIntermediateTable1_FkMissing_Options_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10102">
+			<Name>NToMIntermediateTable1_FkMissing_Options_FkTo10000</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10103">
+			<Name>NToMIntermediateTable1_FkMissing_Options_FkTo10200</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="10150">
+			<Name>
+				NToMIntermediateTable2_FkMissing_Options<!--Children To Parent-->
+			</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10151" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10152" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="10153" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10151">
+			<Name>NToMIntermediateTable2_FkMissing_Options_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10152">
+			<Name>NToMIntermediateTable2_FkMissing_Options_FkTo10000</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10153">
+			<Name>NToMIntermediateTable2_FkMissing_Options_FkTo10200</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="10200">
+			<Name>NToMChildrenTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10201" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10201">
+			<Name>NToMChildrenTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<Relations>
+		<!--N to M Relations-->
+		<Relation name="NToM - Missing 1 FK" path="10000;10100;10200" />
+		<Relation name="NToM - Missing 2 FKs" path="10000;10150;10200" />
+	</Relations>
+
+</Protocol>

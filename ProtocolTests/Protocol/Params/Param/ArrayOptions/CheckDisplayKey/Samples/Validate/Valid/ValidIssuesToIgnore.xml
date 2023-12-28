@@ -1,0 +1,222 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--This protocol contains issues that should be ignored as they will be tackled by other checks.-->
+	
+	<Params>
+		<!--NamingFormat-->
+		<Param id="1000">
+			<Name>NamingFormat_EmptyTag</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<NamingFormat></NamingFormat>
+				<ColumnOption idx="0" pid="1001" />
+				<ColumnOption idx="1" pid="1002" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>NamingFormat_EmptyTag_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1002">
+			<Name>NamingFormat_EmptyTag_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="1100">
+			<Name>NamingFormat_EmptyCDATA</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[]]></NamingFormat>
+				<ColumnOption idx="0" pid="1101" />
+				<ColumnOption idx="1" pid="1102" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1101">
+			<Name>NamingFormat_EmptyCDATA_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1102">
+			<Name>NamingFormat_EmptyCDATA_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="1200">
+			<Name>NamingFormat_1Separator</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[,]]></NamingFormat>
+				<ColumnOption idx="0" pid="1201" />
+				<ColumnOption idx="1" pid="1202" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1201">
+			<Name>NamingFormat_1Separator_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1202">
+			<Name>NamingFormat_1Separator_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!--naming option-->
+		<Param id="2000">
+			<Name>Naming_Empty1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";naming">
+				<ColumnOption idx="0" pid="2001" />
+				<ColumnOption idx="1" pid="2002" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>Naming_Empty1_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2002">
+			<Name>Naming_Empty1_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="2100">
+			<Name>Naming_Empty2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";naming=">
+				<ColumnOption idx="0" pid="2101" />
+				<ColumnOption idx="1" pid="2102" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2101">
+			<Name>Naming_Empty2_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2102">
+			<Name>Naming_Empty2_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="2200">
+			<Name>Naming_Empty3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";naming=/">
+				<ColumnOption idx="0" pid="2201" />
+				<ColumnOption idx="1" pid="2202" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2201">
+			<Name>Naming_Empty3_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2202">
+			<Name>Naming_Empty3_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

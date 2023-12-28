@@ -1,0 +1,3 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Type relativeTimers="true" advanced="smart-serial;http:HTTP Connection;serial:Serial Name">snmp</Type>
+</Protocol>

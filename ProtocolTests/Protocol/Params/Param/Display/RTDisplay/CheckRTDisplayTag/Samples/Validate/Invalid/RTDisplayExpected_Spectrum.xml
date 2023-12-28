@@ -1,0 +1,42 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Display type="spectrum analyzer" />
+
+	<Params>
+		<Param id="1" trending="false">
+			<Name>OtherParam</Name>
+		</Param>
+
+		<!-- 64.000 -> 64.299: For Spectrum Only-->
+		<Param id="64000">
+			<Name>TODO_CorrectName_64000</Name>
+			<Description>Correct Description 64000</Description>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="64001">
+			<Name>TODO_CorrectName_64001</Name>
+			<Description>Correct Description 64001</Description>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="64002">
+			<Name>TODO_CorrectName_64002</Name>
+			<Description>Correct Description 64002</Description>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		
+		<Param id="64299">
+			<Name>TODO_CorrectName_64299</Name>
+			<Description>Correct Description 64299</Description>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

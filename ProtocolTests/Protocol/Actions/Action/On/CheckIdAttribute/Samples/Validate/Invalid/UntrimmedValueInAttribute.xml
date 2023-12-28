@@ -1,0 +1,42 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1">
+			<Name>LeadingSpaces</Name>
+			<On id=" 101">command</On>
+		</Action>
+		<Action id="2">
+			<Name>TrailingSpaces</Name>
+			<On id="102 ">command</On>
+		</Action>
+		<Action id="3">
+			<Name>LeadingAndTrailingSpace</Name>
+			<On id=" 103 ">command</On>
+		</Action>
+		
+		<Action id="102">
+			<Name>Untrimmed_2</Name>
+			<On id="101 ; 102">command</On>
+		</Action>
+		<Action id="103">
+			<Name>Untrimmed_3</Name>
+			<On id=" 101;102 ; 103">command</On>
+		</Action>
+		<Action id="104">
+			<Name>Untrimmed_4</Name>
+			<On id="101 ; 102;103 ; 104 ;105;106;107">command</On>
+		</Action>
+	</Actions>
+
+	<Commands>
+		<Command id="101"></Command>
+		<Command id="102"></Command>
+		<Command id="103"></Command>
+		<Command id="104"></Command>
+		<Command id="105"></Command>
+		<Command id="106"></Command>
+		<Command id="107"></Command>
+		<Command id="108"></Command>
+	</Commands>
+
+</Protocol>

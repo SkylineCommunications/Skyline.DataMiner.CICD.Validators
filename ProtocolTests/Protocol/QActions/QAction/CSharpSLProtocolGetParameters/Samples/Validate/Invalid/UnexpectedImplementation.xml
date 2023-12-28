@@ -1,0 +1,87 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>GetParameters_UnexpectedImplementation</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>ReadParam_100</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>WriteParam_200</Name>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="300">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="350">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>write</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static object[] GetParametersWrapper(this SLProtocol protocol, object paramIds)
+			{
+				return (object[])protocol.GetParameters(paramIds);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int NonExisting_199 = 199;
+			public const int NonExisting_1299 = 1299;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="101" name="GetParameters" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint pids = 99;
+
+		protocol.GetParameters(new uint[] { pids, Parameter.readparam_100, MyParams.NonExisting_199 });
+
+		var pidsToGet = new uint[] { 999 + 1000, MyParams.NonExisting_1299 };
+		protocol.GetParameters(pidsToGet);
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="GetParametersWrapper" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		int pids = 99;
+
+		protocol.GetParametersWrapper(new int[] { pids, Parameter.readparam_100, MyParams.NonExisting_199 });
+
+		var pidsToGet = new int[] { 999 + 1000, MyParams.NonExisting_1299 };
+		protocol.GetParametersWrapper(pidsToGet);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

@@ -1,0 +1,33 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="aaa">
+			<Name>String</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="-2">
+			<Name>Number_Negative</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1.5">
+			<Name>Number_Double_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2,6">
+			<Name>Number_Double_2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="03">
+			<Name>Number_LeadingZero</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="+4">
+			<Name>Number_LeadingPlusSign</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5x10^1">
+			<Name>Number_ScientificNotation</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+</Protocol>

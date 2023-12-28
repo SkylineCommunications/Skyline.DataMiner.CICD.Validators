@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Display>
+		<Pages>
+			<Page>
+				<Name>BALABL</Name>
+			</Page>
+		</Pages>
+	</Display>
+</Protocol>

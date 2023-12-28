@@ -1,0 +1,51 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>serial</Type>
+
+	<Commands>
+		<Command id="1">
+			<Name>Command 1</Name>
+		</Command>
+	</Commands>
+
+	<Responses>
+		<Response id="1">
+			<Name>Response 1</Name>
+		</Response>
+	</Responses>
+
+	<Pairs>
+		<Pair id="1" ping="true">
+			<Name>Ping Pair 1</Name>
+			<Content>
+				<Command>1</Command>
+				<Response>1</Response>
+			</Content>
+		</Pair>
+		<Pair id="2" ping="true" options="connection:0">
+			<Name>Ping Pair 2</Name>
+			<Content>
+				<Command>1</Command>
+				<Response>1</Response>
+			</Content>
+		</Pair>
+		<Pair id="3">
+			<Name>Ping Pair 3 - Via Group id "-1"</Name>
+			<Content>
+				<Command>1</Command>
+				<Response>1</Response>
+			</Content>
+		</Pair>
+	</Pairs>
+
+	<Groups>
+		<Group id="-1">
+			<Name>Ping Group (id '-1')</Name>
+			<Content>
+				<Pair>3</Pair>
+			</Content>
+		</Group>
+	</Groups>
+
+	<PortSettings name="My Serial Main Connection"></PortSettings>
+	
+</Protocol>

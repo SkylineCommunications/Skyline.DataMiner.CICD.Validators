@@ -1,0 +1,36 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Timers>
+		<!--Normal Timers-->
+		<Timer id="1">
+			<Name>1m Timer 1</Name>
+			<Time>60000</Time>
+		</Timer>
+		<Timer id="2">
+			<Name>1m Timer 2</Name>
+			<Time>60000</Time>
+		</Timer>
+		
+		<Timer id="11">
+			<Name>5m Timer 1</Name>
+			<Time>300000</Time>
+		</Timer>
+		<Timer id="12">
+			<Name>5m Timer 2</Name>
+			<Time>300000</Time>
+		</Timer>
+		<Timer id="13">
+			<Name>5m Timer 3</Name>
+			<Time>300000</Time>
+		</Timer>
+
+		<!--Loop Timers-->
+		<Timer id="1001">
+			<Name>Loop Timer 1</Name>
+			<Time>loop</Time>
+		</Timer>
+		<Timer id="1002">
+			<Name>Loop Timer 2</Name>
+			<Time>loop</Time>
+		</Timer>
+	</Timers>
+</Protocol>

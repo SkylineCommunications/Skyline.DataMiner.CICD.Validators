@@ -1,0 +1,49 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>serial</Type>
+
+	<Commands>
+		<Command id="1">
+			<Name>Command 1</Name>
+		</Command>
+	</Commands>
+
+	<Responses>
+		<Response id="1">
+			<Name>Response 1</Name>
+		</Response>
+	</Responses>
+
+	<Pairs>
+		<Pair id="1">
+			<Name>Other Pair</Name>
+			<Content>
+				<Command>1</Command>
+				<Response>1</Response>
+			</Content>
+		</Pair>
+		<Pair id="2">
+			<Name>Ping Pair (via group with id '-1')</Name>
+			<Content>
+				<Command>1</Command>
+				<!--<Response>1</Response>-->
+			</Content>
+		</Pair>
+	</Pairs>
+
+	<Groups>
+		<Group id="1">
+			<Name>Other Group</Name>
+			<Content>
+				<Pair>1</Pair>
+			</Content>
+		</Group>
+
+		<Group id="-1">
+			<Name>Ping Group (group with id '-1')</Name>
+			<Content>
+				<Pair>2</Pair>
+			</Content>
+		</Group>
+	</Groups>
+
+</Protocol>

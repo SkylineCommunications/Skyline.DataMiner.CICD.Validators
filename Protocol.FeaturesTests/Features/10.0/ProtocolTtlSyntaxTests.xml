@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param>
+			<Database>
+				<Partition>infinite</Partition>
+			</Database>
+		</Param>
+	</Params>
+</Protocol>

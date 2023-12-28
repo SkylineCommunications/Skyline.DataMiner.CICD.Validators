@@ -1,0 +1,8 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<QActions>
+		<QAction id="" name="Empty"></QAction>
+		<QAction id="  " name="Spaces"></QAction>
+	</QActions>
+
+</Protocol>

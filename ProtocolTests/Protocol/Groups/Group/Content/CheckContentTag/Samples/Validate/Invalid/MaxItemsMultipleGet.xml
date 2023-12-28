@@ -1,0 +1,66 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Groups>
+		<Group id="103">
+            <Name>GroupPoll_ContentParam</Name>
+            <Type>poll</Type>
+			<Content multipleGet="true">
+                <Param>1</Param>
+                <Param>2</Param>
+                <Param>3</Param>
+                <Param>4</Param>
+                <Param>5</Param>
+                <Param>6</Param>
+                <Param>7</Param>
+                <Param>8</Param>
+                <Param>9</Param>
+                <Param>10</Param>
+                <Param>11</Param>
+                <Param>12</Param>
+                <Param>13</Param>
+                <Param>14</Param>
+                <Param>15</Param>
+                <Param>16</Param>
+                <Param>17</Param>
+                <Param>18</Param>
+                <Param>19</Param>
+                <Param>20</Param>
+                <Param>21</Param>
+                <Param>22</Param>
+                <Param>23</Param>
+                <Param>24</Param>
+			</Content>
+		</Group>
+
+		<Group id="153">
+			<Name>GroupPoll_Implicit_ContentParam</Name>
+			<Content multipleGet="true">
+				<Param>1</Param>
+				<Param>2</Param>
+				<Param>3</Param>
+				<Param>4</Param>
+				<Param>5</Param>
+				<Param>6</Param>
+				<Param>7</Param>
+				<Param>8</Param>
+				<Param>9</Param>
+				<Param>10</Param>
+				<Param>11</Param>
+				<Param>12</Param>
+				<Param>13</Param>
+				<Param>14</Param>
+				<Param>15</Param>
+				<Param>16</Param>
+				<Param>17</Param>
+				<Param>18</Param>
+				<Param>19</Param>
+				<Param>20</Param>
+				<Param>21</Param>
+				<Param>22</Param>
+				<Param>23</Param>
+				<Param>24</Param>
+			</Content>
+		</Group>
+	</Groups>
+	
+</Protocol>

@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="200">
+			<Name>Destination_NoFilter</Name>
+			<Type virtual=" destination ">read</Type>
+		</Param>
+	</Params>
+
+</Protocol>

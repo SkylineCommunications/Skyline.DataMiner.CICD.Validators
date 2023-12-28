@@ -1,0 +1,1070 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="10000">
+			<Name>Matrix</Name>
+			<Description>Matrix</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type link="labels.xml" options="matrix=16,32,0,1,0,31">matrix</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Input 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 2</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 3</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 4</Display>
+						<Value>4</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 5</Display>
+						<Value>5</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 6</Display>
+						<Value>6</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 7</Display>
+						<Value>7</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 8</Display>
+						<Value>8</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 9</Display>
+						<Value>9</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 10</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 11</Display>
+						<Value>11</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 12</Display>
+						<Value>12</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 13</Display>
+						<Value>13</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 15</Display>
+						<Value>15</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 16</Display>
+						<Value>16</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 1</Display>
+						<Value>17</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 2</Display>
+						<Value>18</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 3</Display>
+						<Value>19</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 4</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 5</Display>
+						<Value>21</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 6</Display>
+						<Value>22</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 7</Display>
+						<Value>23</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 8</Display>
+						<Value>24</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 9</Display>
+						<Value>25</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 10</Display>
+						<Value>26</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 11</Display>
+						<Value>27</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 12</Display>
+						<Value>28</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 13</Display>
+						<Value>29</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 14</Display>
+						<Value>30</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 15</Display>
+						<Value>31</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 16</Display>
+						<Value>32</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 17</Display>
+						<Value>33</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 18</Display>
+						<Value>34</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 19</Display>
+						<Value>35</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 20</Display>
+						<Value>36</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 21</Display>
+						<Value>37</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 22</Display>
+						<Value>38</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 23</Display>
+						<Value>39</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 24</Display>
+						<Value>40</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 25</Display>
+						<Value>41</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 26</Display>
+						<Value>42</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 27</Display>
+						<Value>43</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 28</Display>
+						<Value>44</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 29</Display>
+						<Value>45</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 30</Display>
+						<Value>46</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 31</Display>
+						<Value>47</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 32</Display>
+						<Value>48</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="10100">
+			<Name>Matrix</Name>
+			<Description>Matrix</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">write</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="10001">
+			<Name>MatrixWithPages</Name>
+			<Description>MatrixWithPages</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type link="labels.xml" options="matrix=16,32,0,1,0,31,pages">matrix</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Input 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 2</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 3</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 4</Display>
+						<Value>4</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 5</Display>
+						<Value>5</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 6</Display>
+						<Value>6</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 7</Display>
+						<Value>7</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 8</Display>
+						<Value>8</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 9</Display>
+						<Value>9</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 10</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 11</Display>
+						<Value>11</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 12</Display>
+						<Value>12</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 13</Display>
+						<Value>13</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 15</Display>
+						<Value>15</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 16</Display>
+						<Value>16</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 1</Display>
+						<Value>17</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 2</Display>
+						<Value>18</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 3</Display>
+						<Value>19</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 4</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 5</Display>
+						<Value>21</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 6</Display>
+						<Value>22</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 7</Display>
+						<Value>23</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 8</Display>
+						<Value>24</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 9</Display>
+						<Value>25</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 10</Display>
+						<Value>26</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 11</Display>
+						<Value>27</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 12</Display>
+						<Value>28</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 13</Display>
+						<Value>29</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 14</Display>
+						<Value>30</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 15</Display>
+						<Value>31</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 16</Display>
+						<Value>32</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 17</Display>
+						<Value>33</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 18</Display>
+						<Value>34</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 19</Display>
+						<Value>35</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 20</Display>
+						<Value>36</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 21</Display>
+						<Value>37</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 22</Display>
+						<Value>38</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 23</Display>
+						<Value>39</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 24</Display>
+						<Value>40</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 25</Display>
+						<Value>41</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 26</Display>
+						<Value>42</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 27</Display>
+						<Value>43</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 28</Display>
+						<Value>44</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 29</Display>
+						<Value>45</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 30</Display>
+						<Value>46</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 31</Display>
+						<Value>47</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 32</Display>
+						<Value>48</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="10101">
+			<Name>MatrixWithPages</Name>
+			<Description>MatrixWithPages</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">write</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="10002">
+			<Name>MatrixWithEvenSmallPages</Name>
+			<Description>MatrixWithEvenSmallPages</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type link="labels.xml" options="matrix=16,32,0,1,0,31,evenSmallPages">matrix</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Input 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 2</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 3</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 4</Display>
+						<Value>4</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 5</Display>
+						<Value>5</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 6</Display>
+						<Value>6</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 7</Display>
+						<Value>7</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 8</Display>
+						<Value>8</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 9</Display>
+						<Value>9</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 10</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 11</Display>
+						<Value>11</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 12</Display>
+						<Value>12</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 13</Display>
+						<Value>13</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 15</Display>
+						<Value>15</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 16</Display>
+						<Value>16</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 1</Display>
+						<Value>17</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 2</Display>
+						<Value>18</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 3</Display>
+						<Value>19</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 4</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 5</Display>
+						<Value>21</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 6</Display>
+						<Value>22</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 7</Display>
+						<Value>23</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 8</Display>
+						<Value>24</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 9</Display>
+						<Value>25</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 10</Display>
+						<Value>26</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 11</Display>
+						<Value>27</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 12</Display>
+						<Value>28</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 13</Display>
+						<Value>29</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 14</Display>
+						<Value>30</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 15</Display>
+						<Value>31</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 16</Display>
+						<Value>32</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 17</Display>
+						<Value>33</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 18</Display>
+						<Value>34</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 19</Display>
+						<Value>35</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 20</Display>
+						<Value>36</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 21</Display>
+						<Value>37</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 22</Display>
+						<Value>38</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 23</Display>
+						<Value>39</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 24</Display>
+						<Value>40</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 25</Display>
+						<Value>41</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 26</Display>
+						<Value>42</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 27</Display>
+						<Value>43</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 28</Display>
+						<Value>44</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 29</Display>
+						<Value>45</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 30</Display>
+						<Value>46</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 31</Display>
+						<Value>47</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 32</Display>
+						<Value>48</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="10102">
+			<Name>MatrixWithEvenSmallPages</Name>
+			<Description>MatrixWithEvenSmallPages</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">write</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="10003">
+			<Name>MatrixWithNoDisconnectsAndPages</Name>
+			<Description>MatrixWithNoDisconnectsAndPages</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type link="labels.xml" options="matrix=16,32,0,1,0,31,pages,noDisconnectsInBackup">matrix</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Input 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 2</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 3</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 4</Display>
+						<Value>4</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 5</Display>
+						<Value>5</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 6</Display>
+						<Value>6</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 7</Display>
+						<Value>7</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 8</Display>
+						<Value>8</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 9</Display>
+						<Value>9</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 10</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 11</Display>
+						<Value>11</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 12</Display>
+						<Value>12</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 13</Display>
+						<Value>13</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 15</Display>
+						<Value>15</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 16</Display>
+						<Value>16</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 1</Display>
+						<Value>17</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 2</Display>
+						<Value>18</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 3</Display>
+						<Value>19</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 4</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 5</Display>
+						<Value>21</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 6</Display>
+						<Value>22</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 7</Display>
+						<Value>23</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 8</Display>
+						<Value>24</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 9</Display>
+						<Value>25</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 10</Display>
+						<Value>26</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 11</Display>
+						<Value>27</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 12</Display>
+						<Value>28</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 13</Display>
+						<Value>29</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 14</Display>
+						<Value>30</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 15</Display>
+						<Value>31</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 16</Display>
+						<Value>32</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 17</Display>
+						<Value>33</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 18</Display>
+						<Value>34</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 19</Display>
+						<Value>35</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 20</Display>
+						<Value>36</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 21</Display>
+						<Value>37</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 22</Display>
+						<Value>38</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 23</Display>
+						<Value>39</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 24</Display>
+						<Value>40</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 25</Display>
+						<Value>41</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 26</Display>
+						<Value>42</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 27</Display>
+						<Value>43</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 28</Display>
+						<Value>44</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 29</Display>
+						<Value>45</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 30</Display>
+						<Value>46</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 31</Display>
+						<Value>47</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 32</Display>
+						<Value>48</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="10103">
+			<Name>MatrixWithNoDisconnectsAndPages</Name>
+			<Description>MatrixWithNoDisconnectsAndPages</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">write</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="10004">
+			<Name>MatrixWithNoDisconnectsAndEvenSmallPages</Name>
+			<Description>MatrixWithNoDisconnectsAndEvenSmallPages</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type link="labels.xml" options="matrix=16,32,0,1,0,31,evenSmallPages,noDisconnectsInBackup">matrix</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Input 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 2</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 3</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 4</Display>
+						<Value>4</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 5</Display>
+						<Value>5</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 6</Display>
+						<Value>6</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 7</Display>
+						<Value>7</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 8</Display>
+						<Value>8</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 9</Display>
+						<Value>9</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 10</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 11</Display>
+						<Value>11</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 12</Display>
+						<Value>12</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 13</Display>
+						<Value>13</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 15</Display>
+						<Value>15</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Input 16</Display>
+						<Value>16</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 1</Display>
+						<Value>17</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 2</Display>
+						<Value>18</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 3</Display>
+						<Value>19</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 4</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 5</Display>
+						<Value>21</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 6</Display>
+						<Value>22</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 7</Display>
+						<Value>23</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 8</Display>
+						<Value>24</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 9</Display>
+						<Value>25</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 10</Display>
+						<Value>26</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 11</Display>
+						<Value>27</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 12</Display>
+						<Value>28</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 13</Display>
+						<Value>29</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 14</Display>
+						<Value>30</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 15</Display>
+						<Value>31</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 16</Display>
+						<Value>32</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 17</Display>
+						<Value>33</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 18</Display>
+						<Value>34</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 19</Display>
+						<Value>35</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 20</Display>
+						<Value>36</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 21</Display>
+						<Value>37</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 22</Display>
+						<Value>38</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 23</Display>
+						<Value>39</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 24</Display>
+						<Value>40</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 25</Display>
+						<Value>41</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 26</Display>
+						<Value>42</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 27</Display>
+						<Value>43</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 28</Display>
+						<Value>44</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 29</Display>
+						<Value>45</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 30</Display>
+						<Value>46</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 31</Display>
+						<Value>47</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Output 32</Display>
+						<Value>48</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="10104">
+			<Name>MatrixWithNoDisconnectsAndEvenSmallPages</Name>
+			<Description>MatrixWithNoDisconnectsAndEvenSmallPages</Description>
+			<Type options="dimensions=16,32;columntypes=400:0-31">write</Type>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+	
+</Protocol>

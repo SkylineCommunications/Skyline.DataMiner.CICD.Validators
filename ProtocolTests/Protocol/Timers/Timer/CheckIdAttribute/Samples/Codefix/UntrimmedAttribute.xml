@@ -1,0 +1,15 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Timers>
+		<Timer id="101">
+			<Name>LeadingSpaces</Name>
+		</Timer>
+		<Timer id="102">
+			<Name>TrailingSpaces</Name>
+		</Timer>
+		<Timer id="103">
+			<Name>LeadingAndTrailingSpaces</Name>
+		</Timer>
+	</Timers>
+
+</Protocol>

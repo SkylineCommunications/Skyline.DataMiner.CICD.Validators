@@ -1,0 +1,43 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type advanced="serial:SSH Connection - Logs">serial</Type>
+
+	<PortSettings name="SSH Connection - Polling">
+        <IPport>
+            <DefaultValue>22</DefaultValue>
+            <Disabled>true</Disabled>
+        </IPport>
+        <BusAddress>
+            <Disabled>true</Disabled>
+        </BusAddress>
+        <PortTypeSerial>
+            <Disabled>true</Disabled>
+        </PortTypeSerial>
+        <PortTypeUDP>
+            <Disabled>true</Disabled>
+        </PortTypeUDP>
+	</PortSettings>
+
+	<Ports>
+        <PortSettings name="SSH Connection - Logs">
+            <IPport>
+                <DefaultValue>2222</DefaultValue>
+            </IPport>
+            <BusAddress>
+                <Disabled>true</Disabled>
+            </BusAddress>
+            <PortTypeSerial>
+                <Disabled>true</Disabled>
+            </PortTypeSerial>
+            <PortTypeUDP>
+                <Disabled>true</Disabled>
+            </PortTypeUDP>
+            <SSH>
+                <Credentials>
+                    <Username pid="5" />
+                    <Password pid="7" />
+                </Credentials>
+            </SSH>
+        </PortSettings>
+	</Ports>
+
+</Protocol>

@@ -1,0 +1,273 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Relation 1: 2 levels-->
+		<Param id="1000">
+			<Name>Relation1TableLevel1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>Relation1TableLevel1_Instance</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1100">
+			<Name>Relation1TableLevel2</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="1101" type="retrieved" />
+				<ColumnOption idx="1" pid="1102" type="retrieved" options=";foreignKey=1000" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1101">
+			<Name>Relation1TableLevel2_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1102">
+			<Name>Relation1TableLevel2_FkTo1000</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!--Relation 2: 3 levels-->
+		<Param id="2000">
+			<Name>Relation2TableLevel1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>Relation2TableLevel1_Instance</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="2100">
+			<Name>Relation2TableLevel2</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="2101" type="retrieved" />
+				<ColumnOption idx="1" pid="2102" type="retrieved" options=";foreignKey=2000" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2101">
+			<Name>Relation2TableLevel2_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2102">
+			<Name>Relation2TableLevel2_FkTo2000</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="2200">
+			<Name>Relation2TableLevel3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2201" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2202" type="retrieved" options=";foreignKey=2100"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="2201">
+			<Name>Relation2TableLevel3_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2202">
+			<Name>Relation2TableLevel3_FkTo2100</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!--Relation 3: 4 levels-->
+		<Param id="3000">
+			<Name>Relation3TableLevel1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="3001">
+			<Name>Relation3TableLevel1_Instance</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="3100">
+			<Name>Relation3TableLevel2</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="3101" type="retrieved" />
+				<ColumnOption idx="1" pid="3102" type="retrieved" options=";foreignKey=3000" />
+			</ArrayOptions>
+		</Param>
+		<Param id="3101">
+			<Name>Relation3TableLevel2_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3102">
+			<Name>Relation3TableLevel2_FkTo2000</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="3200">
+			<Name>Relation3TableLevel3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3201" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="3202" type="retrieved" options=";foreignKey=3100"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="3201">
+			<Name>Relation3TableLevel3_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3202">
+			<Name>Relation3TableLevel3_FkTo2100</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="3300">
+			<Name>Relation3TableLevel4</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="3301" type="retrieved" />
+				<ColumnOption idx="1" pid="3302" type="retrieved" options=";foreignKey=3200" />
+			</ArrayOptions>
+		</Param>
+		<Param id="3301">
+			<Name>Relation3TableLevel4_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3302">
+			<Name>Relation3TableLevel4_FkTo2200</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!--Relation 10 : N to M-->
+		<Param id="10000">
+			<Name>NToMParentTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10001">
+			<Name>NToMParentTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="10100">
+			<Name>NToMIntermediateTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10102" type="retrieved" options=";foreignKey=10000"/>
+				<ColumnOption idx="2" pid="10103" type="retrieved" options=";foreignKey=10200"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10101">
+			<Name>NToMIntermediateTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10102">
+			<Name>NToMIntermediateTable_FkTo10000</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10103">
+			<Name>NToMIntermediateTable_FkTo10200</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="10200">
+			<Name>NToMChildrenTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10201" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10201">
+			<Name>NToMChildrenTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<!--<Relations>
+		<Relation name="Relation1_2Levels" path="1000;1100" />
+		<Relation name="Relation2_3Levels" path="2000;2100;2200" />
+		<Relation name="Relation3_4Levels" path="3000;3100;3200;3300" />
+
+		<Relation name="Relation10_NToM" path="10000;10100;10200" />
+	</Relations>-->
+
+</Protocol>

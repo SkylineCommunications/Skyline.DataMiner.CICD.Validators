@@ -1,0 +1,30 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Triggers>
+		<Trigger id="1"/>
+		<Trigger id="2"/>
+		<Trigger id="3"/>
+	</Triggers>
+
+	<Groups>
+		<Group id="1">
+			<Content>
+				<Trigger>test1</Trigger>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Content>
+				<Trigger>1</Trigger>
+				<Trigger>test2</Trigger>
+				<Trigger>3</Trigger>
+			</Content>
+		</Group>
+		<Group id="3">
+			<Content>
+				<Trigger>test3</Trigger>
+				<Trigger>test4</Trigger>
+			</Content>
+		</Group>
+	</Groups>
+
+</Protocol>

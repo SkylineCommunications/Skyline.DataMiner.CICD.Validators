@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Range>
+                    <Low>80</Low>
+                </Range>
+            </Display>
+        </Param>
+    </Params>
+</Protocol>

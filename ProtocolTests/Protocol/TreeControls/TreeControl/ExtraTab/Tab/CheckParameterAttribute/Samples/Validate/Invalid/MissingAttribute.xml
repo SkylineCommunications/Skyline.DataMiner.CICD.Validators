@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1" />
+		
+		<Param id="1000" />
+	</Params>
+	
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<ExtraTabs>
+				<Tab tableId="1000" title="Move params from main list to extra tab" type="parameters" />
+				<Tab tableId="1000" title="Add a different child table to extra tab" type="relation" />
+				<Tab tableId="1000" title="Add a grandChild table to extra tab" type="summary" />
+			</ExtraTabs>
+		</TreeControl>
+	</TreeControls>
+	
+</Protocol>

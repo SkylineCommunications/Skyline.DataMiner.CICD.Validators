@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>NoComma</Name>
+			<Alarm>
+				<Monitored disabledIf="aaa">true</Monitored>
+			</Alarm>
+		</Param>
+	</Params>
+
+</Protocol>

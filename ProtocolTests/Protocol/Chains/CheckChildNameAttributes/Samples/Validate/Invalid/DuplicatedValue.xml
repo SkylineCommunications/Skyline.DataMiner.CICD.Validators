@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Chains>
+		<Chain name="Name1" />
+		<Chain name="Name1" />
+		<SearchChain name="Name2" />
+		<SearchChain name="Name2" />
+		<Chain name="Name3" />
+		<SearchChain name="Name3" />
+	</Chains>
+</Protocol>

@@ -1,0 +1,142 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>FillArrayWithColumns_MissingHistorySet</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="1000">
+			<Name>NoHistorySet</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>NoHistorySet_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002" historySet="true">
+			<Name>NoHistorySet_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>NoHistorySet_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1100">
+			<Name>HistorySetFalse</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1102" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1103" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1101">
+			<Name>HistorySetFalse_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1102" historySet="false">
+			<Name>HistorySetFalse_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1103" historySet="true">
+			<Name>HistorySetFalse_Column3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void FillArrayWithColumnsWrapper(this SLProtocol protocol, int tablePid, int columnPid, object[] keys, object[] values)
+			{
+				protocol.FillArrayWithColumn(tablePid, columnPid, keys, values);
+			}
+
+			public static void FillArrayWithColumnWrapper(this SLProtocol protocol, int tablePid, int columnPid, object[] keys, object[] values, DateTime timeInfo)
+			{
+				protocol.FillArrayWithColumn(tablePid, columnPid, keys, values, timeInfo);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int Table1000 = Parameter.Nohistoryset.tablePid;
+			public const int Table1000_Column1 = Parameter.Nohistoryset.Pid.nohistoryset_instance_1001;
+			public const int Table1000_Column2 = Parameter.Nohistoryset.Pid.nohistoryset_column2_1002;
+			public const int Table1000_Column3 = Parameter.Nohistoryset.Pid.nohistoryset_column3_1003;
+
+			public const int Table1100 = Parameter.Historysetfalse.tablePid;
+			public const int Table1100_Column1 = Parameter.Historysetfalse.Pid.historysetfalse_instance_1101;
+			public const int Table1100_Column2 = Parameter.Historysetfalse.Pid.historysetfalse_column2_1102;
+			public const int Table1100_Column3 = Parameter.Historysetfalse.Pid.historysetfalse_column3_1103;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="103" name="FillArrayNoDelete_ParamMissingHistorySet" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: Simple_FillArrayNoDelete_ParamMissingHistorySet.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		int table1Pid = Parameter.Nohistoryset.tablePid;
+		int table1Column2Pid = Parameter.Nohistoryset.Pid.nohistoryset_column2_1002;
+
+		int table2Pid = Parameter.Historysetfalse.tablePid;
+		int table2Column3Pid = Parameter.Historysetfalse.Pid.historysetfalse_column3_1103;
+
+		//int table3Pid = Parameter.HistorySetTrue.tablePid;
+		//int table3Column1Pid = 2003;
+
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+
+		// Hard-coded
+		protocol.FillArrayWithColumn(table1Pid, 1002, keys, values, date_dt);
+		protocol.FillArrayWithColumn(table2Pid, 1103, keys, values, date_dt);
+
+		// Local Variable
+		protocol.FillArrayWithColumn(table1Pid, table1Column2Pid, keys, values, date_dt);
+		protocol.FillArrayWithColumn(table2Pid, table2Column3Pid, keys, values, date_dt);
+
+		// Generic Constant
+		protocol.FillArrayWithColumn(table1Pid, MyParams.Table1000_Column2, keys, values, date_dt);
+		protocol.FillArrayWithColumn(table2Pid, MyParams.Table1100_Column3, keys, values, date_dt);
+
+		// Parameter class
+		protocol.FillArrayWithColumn(table1Pid, Parameter.Nohistoryset.Pid.nohistoryset_column2_1002, keys, values, date_dt);
+		protocol.FillArrayWithColumn(table2Pid, Parameter.Historysetfalse.Pid.historysetfalse_column3_1103, keys, values, date_dt);
+
+		// Wrappers (Not yet covered)
+		protocol.FillArrayWithColumnWrapper(table1Pid, Parameter.Nohistoryset.Pid.nohistoryset_column2_1002, keys, values, date_dt);
+		protocol.FillArrayWithColumnWrapper(table2Pid, Parameter.Historysetfalse.Pid.historysetfalse_column3_1103, keys, values, date_dt);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

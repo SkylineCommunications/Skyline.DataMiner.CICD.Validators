@@ -1,0 +1,59 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!-- Other Parameters -->
+		<Param id="1">
+			<Name>OtherParam</Name>
+		</Param>
+
+
+		<!-- Virtual Sources (RTDisplay needed) -->
+		<Param id="100">
+			<Name>Source_NoFilter</Name>
+			<Type virtual="source">read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="110">
+			<Name>Source_ProtocolFilter</Name>
+			<Type virtual="source:protocol=My Protocol Name">read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="120">
+			<Name>Source_ProtocolFilter_ParamFilter</Name>
+			<Type virtual="source:protocol=My Protocol Name:parameterDescription=My Param Description">read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="130">
+			<Name>Source_ParamFilter</Name>
+			<Type virtual="source:parameterDescription=My Param Description">read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<!-- Virtual Destinations (RTDisplay NOT needed) -->
+		<Param id="200">
+			<Name>Destination_NoFilter</Name>
+			<Type virtual="destination">read</Type>
+		</Param>
+		<Param id="210">
+			<Name>Destination_ProtocolFilter</Name>
+			<Type virtual="destination:protocol=My Protocol Name">read</Type>
+		</Param>
+		<Param id="220">
+			<Name>Destination_ProtocolFilter_ParamFilter</Name>
+			<Type virtual="destination:protocol=My Protocol Name:parameterDescription=My Param Description">read</Type>
+		</Param>
+		<Param id="230">
+			<Name>Destination_ParamFilter</Name>
+			<Type virtual="destination:parameterDescription=My Param Description">read</Type>
+		</Param>
+	</Params>
+
+</Protocol>

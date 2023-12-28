@@ -1,0 +1,68 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1"></Param>
+	</Params>
+
+	<Pairs>
+		<Pair id="100"></Pair>
+		<Pair id="200"></Pair>
+	</Pairs>
+
+	<Groups>
+		<Group id="100">
+			<Content>
+				<Pair>100</Pair>
+				<Pair>200</Pair>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Triggers>
+		<Trigger id="101">
+			<On id="100">group</On>
+			<Type>action</Type>
+			<Content>
+				<Id>3000</Id>
+				<Id>3001</Id>
+			</Content>
+		</Trigger>
+		<!--<Trigger id="400">
+			<On id="100">group</On>
+			<Type>action</Type>
+			<Content>
+				<Id>4000</Id>
+			</Content>
+		</Trigger>-->
+		<Trigger id="500">
+			<Type>action</Type>
+			<Content>
+				<Id>5000</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+
+	<Actions>
+		<Action id="3000">
+			<Name>pair_set next_HardCoded</Name>
+			<On nr="a;1;2;5">pair</On>
+			<Type value="1000">set next</Type>
+		</Action>
+		<Action id="3001">
+			<Name>pair_set next_Dynamic</Name>
+			<On nr="1;b;0;-1;;10;2">pair</On>
+			<Type id="1">set next</Type>
+		</Action>
+		<Action id="4000">
+			<Name>pair_set next_NoTrigger</Name>
+			<On nr="1">pair</On>
+			<Type id="1">set next</Type>
+		</Action>
+		<Action id="5000">
+			<Name>pair_set next_NoGroup</Name>
+			<On nr="1">pair</On>
+			<Type id="1">set next</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

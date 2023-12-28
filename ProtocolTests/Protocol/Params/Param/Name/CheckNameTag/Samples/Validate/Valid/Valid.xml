@@ -1,0 +1,73 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!--Read / Write-->
+        <Param id="101">
+            <Name>Read</Name>
+            <Type>read</Type>
+        </Param>
+        <Param id="152">
+            <Name>Write</Name>
+            <Type>write</Type>
+        </Param>
+        <Param id="103">
+            <Name>ReadWrite</Name>
+            <Type>read</Type>
+        </Param>
+        <Param id="153">
+            <Name>ReadWrite</Name>
+            <Type>write</Type>
+        </Param>
+
+        <!-- Group Bits-->
+        <Param id="201">
+            <Name>GroupRead</Name>
+            <Type>read</Type>
+        </Param>
+        <Param id="252">
+            <Name>GroupWrite</Name>
+            <Type>write</Type>
+        </Param>
+        <Param id="211">
+            <Name>ReadBit</Name>
+            <Type>read bit</Type>
+        </Param>
+        <Param id="262">
+            <Name>WriteBit</Name>
+            <Type>write bit</Type>
+        </Param>
+        <Param id="213">
+            <Name>ReadBitWrite</Name>
+            <Type>read bit</Type>
+        </Param>
+        <Param id="263">
+            <Name>ReadBitWrite</Name>
+            <Type>write</Type>
+        </Param>
+        <Param id="214">
+            <Name>ReadWriteBit</Name>
+            <Type>read</Type>
+        </Param>
+        <Param id="264">
+            <Name>ReadWriteBit</Name>
+            <Type>write bit</Type>
+        </Param>
+        <Param id="215">
+            <Name>ReadBitWriteBit</Name>
+            <Type>read bit</Type>
+        </Param>
+        <Param id="265">
+            <Name>ReadBitWriteBit</Name>
+            <Type>write bit</Type>
+        </Param>
+
+        <!--Matrix-->
+        <Param id="101">
+            <Name>ArrayWrite</Name>
+            <Type>array</Type>
+        </Param>
+        <Param id="151">
+            <Name>ArrayWrite</Name>
+            <Type>write</Type>
+        </Param>
+    </Params>
+</Protocol>

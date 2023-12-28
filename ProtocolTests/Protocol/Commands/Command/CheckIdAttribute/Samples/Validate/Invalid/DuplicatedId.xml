@@ -1,0 +1,22 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Commands>
+		<Command id="101">
+			<Name>Duplicate_101_1</Name>
+		</Command>
+		<Command id="101">
+			<Name>Duplicate_101_2</Name>
+		</Command>
+		
+		<Command id="102">
+			<Name>Duplicate_102_1</Name>
+		</Command>
+		<Command id="102">
+			<Name>Duplicate_102_2</Name>
+		</Command>
+		<Command id="102">
+			<Name>Duplicate_102_3</Name>
+		</Command>
+	</Commands>
+	
+</Protocol>

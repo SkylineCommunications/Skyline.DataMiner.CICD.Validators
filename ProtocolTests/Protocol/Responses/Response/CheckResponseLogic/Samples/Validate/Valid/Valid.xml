@@ -1,0 +1,64 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2">
+			<Name>CrcParam</Name>
+			<Type>crc</Type>
+		</Param>
+		<Param id="3">
+			<Name>FixedParamAAA</Name>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>fixed</LengthType>
+				<Length>3</Length>
+				<Value>AAA</Value>
+			</Interprete>
+		</Param>
+	</Params>
+	
+	<Responses>
+		<Response id="2">
+			<Name>CrcResponse</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Response>
+		<Response id="3">
+			<Name>NoCrcResponse</Name>
+			<Content>
+				<Param>3</Param>
+			</Content>
+		</Response>
+	</Responses>
+	
+	<Triggers>
+		<Trigger id="3">
+			<Name>BeforeCommandEach</Name>
+			<On id="each">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="4">
+			<Name>BeforeResponse2</Name>
+			<On id="2">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+	
+	<Actions>
+		<Action id="1">
+			<Name>CrcResponse</Name>
+			<On>response</On>
+			<Type>crc</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

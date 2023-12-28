@@ -1,0 +1,255 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--None to None-->
+		<Param id="10">
+			<Name>NoneToNone_1</Name>
+			<ArrayOptions>
+			</ArrayOptions>
+		</Param>
+		<Param id="11">
+			<Name>NoneToNone_2</Name>
+			<ArrayOptions options="">
+			</ArrayOptions>
+		</Param>
+		<Param id="12">
+			<Name>NoneToNone_3</Name>
+			<ArrayOptions options=";smth">
+			</ArrayOptions>
+		</Param>
+		<Param id="13">
+			<Name>NoneToNone_Invalid_2</Name>
+			<ArrayOptions options="\smth\smtEelse">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="20">
+			<Name>NoneToNone_InvalidNaming_1</Name>
+			<ArrayOptions options=";smth;naming">
+			</ArrayOptions>
+		</Param>
+		<Param id="21">
+			<Name>NoneToNone_InvalidNaming_2</Name>
+			<ArrayOptions options=";smth;naming=">
+			</ArrayOptions>
+		</Param>
+		<Param id="22">
+			<Name>NoneToNone_InvalidNaming_3</Name>
+			<ArrayOptions options=";smth;naming=/">
+			</ArrayOptions>
+		</Param>
+		<Param id="23">
+			<Name>NoneToNone_InvalidNaming_4</Name>
+			<ArrayOptions options=";smth;naming=/typo">
+			</ArrayOptions>
+		</Param>
+		<Param id="24">
+			<Name>NoneToNone_InvalidNaming_5</Name>
+			<ArrayOptions options=";smth;naming=/typo1,typo2">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="30">
+			<Name>NoneToNone_InvalidNamingFormat_1</Name>
+			<ArrayOptions>
+				<NamingFormat></NamingFormat>
+			</ArrayOptions>
+		</Param>
+
+		<!--Naming to Naming-->
+		<Param id="100">
+			<Name>NamingToNaming_DefaultSeparator_1Part</Name>
+			<ArrayOptions options=";naming=/102;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="110">
+			<Name>NamingToNaming_DefaultSeparator_2Parts</Name>
+			<ArrayOptions options="\naming=/112,113\blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="120">
+			<Name>NamingToNaming_DefaultSeparator_3Parts</Name>
+			<ArrayOptions options="*naming=/102,103,104*blabla">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="150">
+			<Name>NamingToNaming_OtherSeparator1_1Part</Name>
+			<ArrayOptions options=";naming=\102;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="160">
+			<Name>NamingToNaming_OtherSeparator1_2Parts</Name>
+			<ArrayOptions options="/naming=\102,103/blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="170">
+			<Name>NamingToNaming_OtherSeparator1_3Parts</Name>
+			<ArrayOptions options="*naming=\102,103,104*blabla">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="200">
+			<Name>NamingToNaming_OtherSeparator2_1Part</Name>
+			<ArrayOptions options=";naming=*102;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="210">
+			<Name>NamingToNaming_OtherSeparator2_2Parts</Name>
+			<ArrayOptions options="/naming=*102,103/blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="220">
+			<Name>NamingToNaming_OtherSeparator2_3Parts</Name>
+			<ArrayOptions options="\naming=*102,103,104\blabla">
+			</ArrayOptions>
+		</Param>
+
+		<!--Naming to NamingFormat-->
+		<Param id="1000">
+			<Name>NamingToNamingFormat_DefaultSeparator_1Part</Name>
+			<ArrayOptions options=";naming=/102;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="1010">
+			<Name>NamingToNamingFormat_DefaultSeparator_2Parts</Name>
+			<ArrayOptions options="\naming=/102,103\blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="1020">
+			<Name>NamingToNamingFormat_DefaultSeparator_3Parts</Name>
+			<ArrayOptions options="*naming=/102,103,104*blabla">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="1050">
+			<Name>NamingToNamingFormat_OtherSeparator1_1Part</Name>
+			<ArrayOptions options=";naming=\102;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="1060">
+			<Name>NamingToNamingFormat_OtherSeparator1_2Parts</Name>
+			<ArrayOptions options="/naming=\102,103/blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="1070">
+			<Name>NamingToNamingFormat_OtherSeparator1_3Parts</Name>
+			<ArrayOptions options="*naming=\102,103,104*blabla">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="1100">
+			<Name>NamingToNamingFormat_OtherSeparator2_1Part</Name>
+			<ArrayOptions options=";naming=*102;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="1110">
+			<Name>NamingToNamingFormat_OtherSeparator2_2Parts</Name>
+			<ArrayOptions options="/naming=*102,103/blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="1120">
+			<Name>NamingToNamingFormat_OtherSeparator2_3Parts</Name>
+			<ArrayOptions options="\naming=*102,103,104\blabla">
+			</ArrayOptions>
+		</Param>
+
+		<!--NamingFormat to Naming-->
+		<Param id="2000">
+			<Name>NamingFormatToNaming_DefaultSeparator_1Part</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="2010">
+			<Name>NamingFormatToNaming_DefaultSeparator_2Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,/,103,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="2020">
+			<Name>NamingFormatToNaming_DefaultSeparator_3Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,/,103,/,104,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+
+		<Param id="2050">
+			<Name>NamingFormatToNaming_OtherSeparator1_1Part</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="2060">
+			<Name>NamingFormatToNaming_OtherSeparator1_2Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,\,103,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="2070">
+			<Name>NamingFormatToNaming_OtherSeparator1_3Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,\,103,\,104,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+
+		<Param id="2100">
+			<Name>NamingFormatToNaming_OtherSeparator2_1Part</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="2110">
+			<Name>NamingFormatToNaming_OtherSeparator2_2Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,*,103,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="2120">
+			<Name>NamingFormatToNaming_OtherSeparator2_3Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,*,103,*,104,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+
+		<!--NamingFormat to NamingFormat-->
+		<Param id="3100">
+			<Name>NamingFormatToNamingFormat_AddMeaninglessSeparators_1Part</Name>
+			<ArrayOptions>
+				<NamingFormat>,102</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="3110">
+			<Name>NamingFormatToNamingFormat_AddMeaninglessSeparators_2Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,*,103</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="3120">
+			<Name>NamingFormatToNamingFormat_AddMeaninglessSeparators_3Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,*,103,*,104</NamingFormat>
+			</ArrayOptions>
+		</Param>
+
+		<Param id="3150">
+			<Name>NamingFormatToNamingFormat_RemoveMeaninglessSeparators_1Part</Name>
+			<ArrayOptions>
+				<NamingFormat>$102$</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="3160">
+			<Name>NamingFormatToNamingFormat_RemoveMeaninglessSeparators_2Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>;102;*;103;</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="3170">
+			<Name>NamingFormatToNamingFormat_RemoveMeaninglessSeparators_3Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>;102;*;103;*;104;</NamingFormat>
+			</ArrayOptions>
+		</Param>
+	</Params>
+	
+</Protocol>

@@ -1,0 +1,144 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Relations>
+		<Relation path="1000;2000;3000"/>
+	</Relations>
+
+	<Params>
+		<Param id="101">
+			<Name>TreeControl_ParameterId</Name>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table_Level1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>Table_Level1_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<!--RTDisplay required on PK due to foreignKey linking to this table-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>Table_Level1_TypeForCondition</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Discreets>
+					<Discreet>
+						<Display>AAA</Display>
+						<Value>AAA</Value>
+					</Discreet>
+					<Discreet>
+						<Display>BBB</Display>
+						<Value>BBB</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	
+		<Param id="2000">
+			<Name>Table_Level2_AAA</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=";foreignKey=1000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2001">
+			<Name>Table_Level2_AAA_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<!--RTDisplay required on PK due to foreignKey linking to this table-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2002">
+			<Name>Table_Level2_AAA_FkTo1000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="2100">
+			<Name>Table_Level2_BBB</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2102" type="retrieved" options=";foreignKey=1000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2101">
+			<Name>Table_Level2_BBB_Instance</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="2102">
+			<Name>Table_Level2_BBB_FkTo1000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	
+		<Param id="3000">
+			<Name>Table_Level3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="3002" type="retrieved" options=";foreignKey=2000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3001">
+			<Name>Table_Level3_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3002">
+			<Name>Table_Level3_FkTo2000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="101">
+			<Hierarchy>
+				<Table id="1000"/>
+				
+				<Table id="2000" parent="1000" condition="1002:AAA"/>
+				<Table id="2100" parent="1000" condition="1002:BBB;filter:fk=2102"/>
+				
+				<Table id="3000" parent="2000"/>
+			</Hierarchy>
+		</TreeControl>
+	</TreeControls>
+	
+</Protocol>

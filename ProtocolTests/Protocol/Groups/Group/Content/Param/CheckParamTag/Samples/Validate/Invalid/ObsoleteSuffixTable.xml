@@ -1,0 +1,28 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>MultiThread_table</Name>
+			<Type options="loadOID">read</Type>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="1000">
+			<Name>MultiThreadSuffix_table</Name>
+			<Content>
+				<Param>1000:table</Param>
+			</Content>
+		</Group>
+	</Groups>
+	
+	<Timers>
+		<Timer id="1000" options="ip:2000,1;each:1000;threadPool:10">
+			<Name>MultiThread Timer</Name>
+			<Content>
+				<Group>1000</Group>
+			</Content>
+		</Timer>
+	</Timers>
+
+</Protocol>

@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1">
+			<Name>Leading</Name>
+			<Type>  add to execute</Type>
+		</Action>
+		<Action id="2">
+			<Name>Trailing</Name>
+			<Type>aggregate  </Type>
+		</Action>
+		<Action id="3">
+			<Name>Leading_Trailing</Name>
+			<Type> append </Type>
+		</Action>
+	</Actions>
+
+</Protocol>

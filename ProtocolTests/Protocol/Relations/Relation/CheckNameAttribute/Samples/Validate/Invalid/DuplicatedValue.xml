@@ -1,0 +1,6 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Relations>
+		<Relation name="Name1" />
+		<Relation name="Name1" />
+	</Relations>
+</Protocol>

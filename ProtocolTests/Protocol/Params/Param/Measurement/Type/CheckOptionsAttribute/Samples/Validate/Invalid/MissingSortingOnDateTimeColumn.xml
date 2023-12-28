@@ -1,0 +1,486 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Display defaultPage="General" pageOrder="General" wideColumnPages="" />
+	<Params>
+		<!--There is 1 dateTime column but table has no sorting-->
+		<Param id="1000">
+			<Name>1DateTimeNoSorting</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="1002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" options="" />
+				<!--This below ColumnOption is added to make sure we don't get an exception when the same column pid is added to the table twice-->
+				<ColumnOption idx="3" pid="1003" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0-1002|1-1003|2,width:100-100-100,sort:STRING-INT-INT,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>1DateTimeNoSortingPrimaryKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1002">
+			<Name>1DateTimeNoSortingDateTime1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="datetime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1003">
+			<Name>1DateTimeNoSortingNormal1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<!--There is 1 dateTime column but table has following sorting:
+			0: Normal1-->
+		<Param id="1100">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2NoPrio</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="1102" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1103" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="1104" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1101|0-1102|1-1103|2-1104|3,width:100-100-100-100,sort:STRING-INT|ASC|1-INT|ASC|0-INT,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1101">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2NoPrioPrimaryKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1102">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2NoPrioDateTime1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="datetime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1103">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2NoPrioNormal1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1104">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2NoPrioDateTime2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="DateTime">number</Type>
+			</Measurement>
+		</Param>
+
+		<!--There is 1 dateTime column but table has following sorting:
+			0: Normal1
+			1: DateTime1
+			2: DateTime2-->
+		<Param id="1200">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2Prio2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1201" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="1202" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1203" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="1204" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1201|0-1202|1-1203|2-1204|3,width:100-100-100-100,sort:STRING-INT|ASC|1-INT|ASC|0-INT|ASC|2,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1201">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2Prio2PrimaryKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1202">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2Prio2DateTime1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="datetime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1203">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2Prio2Normal1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1204">
+			<Name>DateTime1Prio1_NormalPrio0_DateTime2Prio2DateTime2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="DateTime">number</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="10000">
+			<Name>1DateNoSorting</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="10002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="10003" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:10001|0-10002|1-10003|2,width:100-100-100,sort:STRING-INT-INT,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>1DateNoSortingPrimaryKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10002">
+			<Name>1DateNoSortingDate1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="date">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10003">
+			<Name>1DateNoSortingNormal1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<!--There is 1 dateTime column but table has following sorting:
+			0: Normal1-->
+		<Param id="10100">
+			<Name>Date1Prio1_NormalPrio0_Date2NoPrio</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10101" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="10102" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="10103" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="10104" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:10101|0-10102|1-10103|2-10104|3,width:100-100-100-100,sort:STRING-INT|ASC|1-INT|ASC|0-INT,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="10101">
+			<Name>Date1Prio1_NormalPrio0_Date2NoPrioPrimaryKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10102">
+			<Name>Date1Prio1_NormalPrio0_Date2NoPrioDate1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="date">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10103">
+			<Name>Date1Prio1_NormalPrio0_Date2NoPrioNormal1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10104">
+			<Name>Date1Prio1_NormalPrio0_Date2NoPrioDate2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="DaTe">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10200">
+			<Name>Date1Prio1_NormalPrio0_Date2Prio2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10201" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="10202" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="10203" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="10204" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:10201|0-10202|1-10203|2-10204|3,width:100-100-100-100,sort:STRING-INT|ASC|1-INT|ASC|0-INT|ASC|2,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="10201">
+			<Name>Date1Prio1_NormalPrio0_Date2Prio2PrimaryKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10202">
+			<Name>Date1Prio1_NormalPrio0_Date2Prio2Date1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="date">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10203">
+			<Name>Date1Prio1_NormalPrio0_Date2Prio2Normal1</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10204">
+			<Name>Date1Prio1_NormalPrio0_Date2Prio2Date2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="DaTe">number</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

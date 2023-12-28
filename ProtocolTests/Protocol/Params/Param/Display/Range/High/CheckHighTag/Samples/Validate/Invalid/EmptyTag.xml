@@ -1,0 +1,32 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>Empty</Name>
+			<Display>
+				<Range>
+					<High></High>
+				</Range>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>Spaces</Name>
+			<Display>
+				<Range>
+					<High></High>
+				</Range>
+			</Display>
+		</Param>
+		<Param id="3">
+			<Name>Enters</Name>
+			<Display>
+				<Range>
+					<High>
+
+					</High>
+				</Range>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

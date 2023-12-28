@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Timers>
+		<Timer id="1">
+			<Time>lalala</Time>
+		</Timer>
+		<Timer id="2">
+			<Time>0</Time>
+		</Timer>
+	</Timers>
+</Protocol>

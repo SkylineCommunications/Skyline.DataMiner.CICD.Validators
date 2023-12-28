@@ -35,5 +35,9 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Common\Common.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Protocol.FeaturesTests" />
+	</ItemGroup>
 	
 </Project>

@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>http</Type>
+
+	<Groups>
+		<!--For HTTP, Group@id="-1" is currently the only way to define the ping group-->
+		<Group id="-1">
+			<Name>Ping Group</Name>
+		</Group>
+		
+		<Group id="1">
+			<Name>Classic Group 1</Name>
+		</Group>
+
+		<Group id="1000">
+			<Name>Classic Group 1000</Name>
+		</Group>
+	</Groups>
+
+</Protocol>

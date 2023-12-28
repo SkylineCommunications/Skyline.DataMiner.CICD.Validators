@@ -1,0 +1,79 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Params alarmed with condition-->
+		<Param id="1">
+			<Name>Alarmed_ConditionOnString</Name>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored disabledIf="1001,value1">true</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>Alarmed_ConditionOnNumber</Name>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored disabledIf="1002,0">true</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3">
+			<Name>Alarmed_ConditionOnDiscreet</Name>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored disabledIf="1003,0">true</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<!--Params used as condition-->
+		<Param id="1001">
+			<Name>Condition_Read_String</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1002">
+			<Name>Condition_Read_Number</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="1003">
+			<Name>Condition_Read_Discreet</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

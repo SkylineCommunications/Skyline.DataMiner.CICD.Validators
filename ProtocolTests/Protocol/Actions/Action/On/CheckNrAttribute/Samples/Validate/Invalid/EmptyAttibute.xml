@@ -1,0 +1,22 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Actions>
+		<Action id="1">
+			<Name>Empty</Name>
+			<On nr="">parameter</On>
+			<Type>reverse</Type>
+		</Action>
+		<Action id="2">
+			<Name>Spaces</Name>
+			<On nr="">parameter</On>
+			<Type>reverse</Type>
+		</Action>
+		<Action id="3">
+			<Name>Enters</Name>
+			<On nr="
+				">parameter</On>
+			<Type>reverse</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

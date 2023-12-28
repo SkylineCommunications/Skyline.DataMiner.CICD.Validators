@@ -1,0 +1,71 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1200">
+			<Name>NamingFormat_1LocalColumn_1HardCoded</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[,1202,blabla]]></NamingFormat>
+				<ColumnOption idx="0" pid="1201" />
+				<ColumnOption idx="1" pid="1202" type="retrieved" />
+				<ColumnOption idx="2" pid="1208" type="displaykey" />
+				<ColumnOption idx="3" pid="1209" type="displaykey" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1201">
+			<Name>NamingFormat_1LocalColumn_1HardCoded_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1202">
+			<Name>NamingFormat_1LocalColumn_1HardCoded_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1208">
+			<Name>NamingFormat_1LocalColumn_1HardCoded_DK1 [IDX]</Name>
+			<Description>NamingFormat_1LocalColumn_1HardCoded_DK1 [IDX]</Description>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1209">
+			<Name>NamingFormat_1LocalColumn_1HardCoded_DK2 [IDX]</Name>
+			<Description>NamingFormat_1LocalColumn_1HardCoded_DK2 [IDX]</Description>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+	</Params>
+	
+</Protocol>

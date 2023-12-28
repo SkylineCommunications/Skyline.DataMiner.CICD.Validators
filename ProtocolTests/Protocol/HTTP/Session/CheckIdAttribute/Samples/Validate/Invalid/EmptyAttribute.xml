@@ -1,0 +1,8 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<HTTP>
+		<Session id="" name="Empty"></Session>
+		<Session id="  " name="Spaces"></Session>
+	</HTTP>
+
+</Protocol>

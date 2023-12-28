@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="100">
+			<Name>String</Name>
+			<On id="aaa">command</On>
+		</Action>
+		
+		<Action id="200">
+			<Name>Number_NonUint</Name>
+			<On id="-2;1.5;2,6">command</On>
+		</Action>
+		<Action id="203">
+			<Name>Number_Format</Name>
+			<On id="03;+4;5x10^1">command</On>
+		</Action>
+	</Actions>
+	
+</Protocol>

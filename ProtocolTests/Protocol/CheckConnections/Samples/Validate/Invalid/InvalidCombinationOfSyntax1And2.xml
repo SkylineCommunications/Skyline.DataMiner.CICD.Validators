@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--Syntax 1-->
+	<Type>virtual</Type>
+
+	<!--Syntax 2-->
+	<Connections></Connections>
+	
+</Protocol>

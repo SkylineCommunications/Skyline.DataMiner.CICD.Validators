@@ -1,0 +1,11 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Type advanced="snmp:SNMP Connection">serial</Type>
+
+	<PortSettings name="IP Connection"></PortSettings>
+
+	<Ports>
+		<PortSettings name="SNMP Connection"></PortSettings>
+	</Ports>
+
+</Protocol>

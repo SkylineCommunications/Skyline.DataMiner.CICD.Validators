@@ -1,0 +1,5 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<!--In case another syntax is used to define connections (such as below Protocol/Connections tag),
+		the Type tag is not required-->
+	<Connections></Connections>
+</Protocol>

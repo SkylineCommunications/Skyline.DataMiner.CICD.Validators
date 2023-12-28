@@ -1,0 +1,72 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!--Existing Params-->
+        <Param id="101">
+            <Name>ExistingRead</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="102">
+            <Name>ExistingReadWrite</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="152">
+            <Name>ExistingReadWrite</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="103">
+            <Name>ExistingWrite</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+
+        <!--New Params-->
+        <Param id="201">
+            <Name>NewRead</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="202">
+            <Name>NewReadWrite</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="252">
+            <Name>NewReadWrite</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="203">
+            <Name>NewWrite</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+
+        <!--Updated Params-->
+        <Param id="300">
+            <Name>TrimRead</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+    </Params>
+</Protocol>

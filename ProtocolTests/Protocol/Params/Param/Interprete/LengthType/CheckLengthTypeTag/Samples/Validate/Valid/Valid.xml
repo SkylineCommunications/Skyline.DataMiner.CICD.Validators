@@ -1,0 +1,55 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1" trending="false">
+			<Name>TitleSoftwareManagement</Name>
+			<Description>TitleSoftwareManagement</Description>
+			<Type>fixed</Type>
+			<Measurement>
+				<Type options="begin">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>Title_Begin_Identification</Name>
+			<Description>Identification</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="begin">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="3">
+			<Name>Title_End_Generic</Name>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="end">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="4">
+			<Name>testParam</Name>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>fixed</LengthType>
+				<Type>string</Type>
+				<Length>4</Length>
+				<Value>AAAA</Value>
+			</Interprete>
+		</Param>
+        <Param id="5">
+            <Name>ValidUnsignedParam</Name>
+            <Type>fixed</Type>
+            <Interprete>
+                <RawType>unsigned number</RawType>
+                <LengthType>fixed</LengthType>
+                <Type>double</Type>
+                <Length>4</Length>
+                <Value>1234</Value>
+            </Interprete>
+        </Param>
+	</Params>
+</Protocol>

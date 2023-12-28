@@ -1,0 +1,13 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="101">
+			<Type options="SSH Username">read</Type>
+		</Param>
+        <Param id="102">
+            <Type options="SSH PWD">read</Type>
+        </Param>
+        <Param id="103">
+            <Type options="SSH Options">read</Type>
+        </Param>
+    </Params>
+</Protocol>

@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<ParameterGroups>
+		<Group id="1" name="Name1" />
+		<Group id="2" name="Name2" />
+
+		<!-- Group without Id won't be checked. -->
+		<Group></Group>
+	</ParameterGroups>
+</Protocol>

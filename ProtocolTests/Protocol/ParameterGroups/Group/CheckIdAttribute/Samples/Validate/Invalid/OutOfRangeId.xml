@@ -1,0 +1,11 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<ParameterGroups>
+        <Group id="10001" />
+        <Group id="100001" />
+        
+        <!-- Untrimmed check should have lowest priority -->
+        <Group id=" 10002 " />
+    </ParameterGroups>
+	
+</Protocol>

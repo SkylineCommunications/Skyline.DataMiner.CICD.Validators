@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Params>
+		<!--2 read params to make sure RestrictedName errors are not hiding DuplicatedValue errors and vice versa-->
+        <Param id="1">
+            <Name>__StartingWithTwoUnderscores</Name>
+			<Type>read</Type>
+        </Param>
+		<Param id="2">
+			<Name>__StartingWithTwoUnderscores</Name>
+			<Type>read</Type>
+		</Param>
+
+		<!--2 read params to make sure RestrictedName errors are not hiding DuplicatedValue errors and vice versa-->
+        <Param id="10">
+            <Name>TotalNbrOfActiveCriticalAlarms</Name>
+			<Type>read</Type>
+        </Param>
+		<Param id="11">
+			<Name>TotalNbrOfActiveCriticalAlarms</Name>
+			<Type>read</Type>
+		</Param>
+    </Params>
+	
+</Protocol>

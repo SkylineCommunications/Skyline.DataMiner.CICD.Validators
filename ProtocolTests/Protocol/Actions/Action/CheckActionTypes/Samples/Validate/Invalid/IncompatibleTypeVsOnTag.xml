@@ -1,0 +1,54 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<!--On Command-->
+		<Action id="1000">
+			<Name>command_close</Name>
+			<On>command</On>
+			<Type>close</Type>
+		</Action>
+
+		<!--On Group-->
+		<Action id="2000">
+			<Name>group_close</Name>
+			<On>group</On>
+			<Type>close</Type>
+		</Action>
+
+		<!--On Pair-->
+		<Action id="3000">
+			<Name>pair_close</Name>
+			<On>pair</On>
+			<Type>close</Type>
+		</Action>
+
+		<!--On Param-->
+		<Action id="4000">
+			<Name>parameter_close</Name>
+			<On>parameter</On>
+			<Type>close</Type>
+		</Action>
+
+		<!--On Protocol-->
+		<Action id="5000">
+			<Name>protocol_add to execute</Name>
+			<On>protocol</On>
+			<Type>add to execute</Type>
+		</Action>
+
+		<!--On Response-->
+		<Action id="6000">
+			<Name>response_close</Name>
+			<On>response</On>
+			<Type>close</Type>
+		</Action>
+
+		<!--On Timer-->
+		<Action id="7000">
+			<Name>timer_close</Name>
+			<On>timer</On>
+			<Type>close</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

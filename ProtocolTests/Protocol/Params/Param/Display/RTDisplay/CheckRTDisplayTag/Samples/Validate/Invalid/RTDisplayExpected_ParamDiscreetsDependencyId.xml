@@ -1,0 +1,61 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>Read_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="101">
+			<Name>Read_NoRTDisplay</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="102">
+			<Name>Read_NoDisplay</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+
+		<Param id="200">
+			<Name>ReadBit_RTDisplayFalse</Name>
+			<Type>read bit</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>DependencyId_ToRead_RTDisplayFalse</Name>
+			<Measurement>
+				<Discreets dependencyId="100"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>DependencyId_ToRead_NoRTDisplay</Name>
+			<Measurement>
+				<Discreets dependencyId="101"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1002">
+			<Name>DependencyId_ToRead_NoDisplay</Name>
+			<Measurement>
+				<Discreets dependencyId="102"></Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="2000">
+			<Name>DependencyId_ToReadBit_RTDisplayFalse</Name>
+			<Measurement>
+				<Discreets dependencyId="200"></Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

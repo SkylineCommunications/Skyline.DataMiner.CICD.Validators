@@ -1,0 +1,86 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>TableLevel1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>TableLevel1_Instance</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="2000">
+			<Name>TableLevel2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=";foreignKey=1000"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>TableLevel2_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002">
+			<Name>TableLevel2_FkTo1000</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="3000">
+			<Name>TableLevel3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="3002" type="retrieved" options=";foreignKey=2000"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="3001">
+			<Name>TableLevel3_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3002">
+			<Name>TableLevel3_FkTo2000</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="4000">
+			<Name>TableLevel4_FkMissing_Options</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="4002" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="4001">
+			<Name>TableLevel4_FkMissing_Options_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="4002">
+			<Name>TableLevel4_FkMissing_Options_FkTo3000</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5000">
+			<Name>TableLevel5_FkMissing_Column</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="5001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="5001">
+			<Name>TableLevel5_FkMissing_Column_Instance</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<Relations>
+		<!--Parent To Children-->
+		<Relation name="ParentToChildren - 4 Levels - Missing 1 FK - 1 Invalid TablePid" path="1000;test;3000;4000" />
+		<Relation name="ParentToChildren - 4 Levels - Missing 2 FKs - 1 Invalid TablePid" path="test2;3000;4000;5000" />
+		<Relation name="ParentToChildren - 4 Levels - Missing 1 FK - 21 Invalid TablePid" path="test3;3000;4000;test4" />
+	</Relations>
+
+</Protocol>

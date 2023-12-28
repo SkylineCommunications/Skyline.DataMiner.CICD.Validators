@@ -1,0 +1,102 @@
+﻿<Protocol baseFor="Information Platform" xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <ElementType>Base Information Platform</ElementType>
+    <Params>
+        <!--0: Not Allowed: Out of Range-->
+        <!--<Param id="0" />-->
+
+
+
+        <!-- 1 -> 999: For Enhanced Service Only-->
+        <!--<Param id="1">
+            <Name>TODO_Correct Name 1</Name>
+            <Description>Correct Description 1</Description>
+        </Param>
+        <Param id="2">
+            <Name>Service Severity</Name>
+            <Description>Service Severity</Description>
+        </Param>
+        <Param id="213">
+            <Name>active_service_alarms_category</Name>
+            <Description>Category (Active Service Alarms)</Description>
+        </Param>
+        <Param id="999">
+            <Name>TODO_Correct Name 2</Name>
+            <Description>Correct Description 2</Description>
+        </Param>-->
+
+        <!-- 1000 -> 2999: For non-Service AND non-SLA Only-->
+        <Param id="1" />
+        <Param id="999" />
+
+        <!-- 1 -> 2999: For SLA Only-->
+        <!--<Param id="1">
+            <Name>read_service_name</Name>
+            <Description>Service Name</Description>
+        </Param>
+        <Param id="2059">
+            <Name>show_active_alarms</Name>
+            <Description>Active Alarms</Description>
+        </Param>
+        <Param id="2999">
+            <Name>TODO_Correct Name 2</Name>
+            <Description>Correct Description 2</Description>
+        </Param>-->
+
+        <!-- 1000 -> 2999: For non-SLA Only-->
+        <Param id="1000" />
+        <Param id="2999" />
+
+
+
+        <!-- 3000 -> 49.999: Allowed-->
+        <Param id="3000" />
+        <Param id="49999" />
+
+        <!-- 50.000 -> 60.000: For Non Spectrum Only-->
+        <Param id="50000" />
+        <Param id="60000" />
+
+        <!-- 60.001 -> 63.999: Allowed-->
+        <Param id="60001" />
+        <Param id="63999" />
+
+        <!-- 64.000 -> 64.299: For Spectrum Only-->
+        <!--<Param id="64000">
+            <Name>TODO_CorrectName1</Name>
+            <Description>Correct Description 1</Description>
+        </Param>
+        <Param id="64299">
+            <Name>TODO_CorrectName1</Name>
+            <Description>Correct Description 1</Description>
+        </Param>-->
+
+        <!-- 64.300 -> 69.999: Not allowed: Reserved for DataMiner-->
+        <!--<Param id="64300" />
+        <Param id="69999" />-->
+
+        <!-- 70.000 -> 79.999: For Mediation Only-->
+        <Param id="70000" />
+        <Param id="79999" />
+
+        <!-- 80.000 -> 99.000: DataMiner Modules Params Only-->
+        <Param id="80000">
+            <Name>TODO_CorrectName1</Name>
+            <Description>TODO Correct Description 1</Description>
+        </Param>
+        <Param id="99000">
+            <Name>TODO_CorrectName2</Name>
+            <Description>TODO Correct Description 2</Description>
+        </Param>
+
+        <!-- 100.000 -> 999.999: Not allowed: Reserved for DataMiner-->
+        <!--<Param id="100000" />
+        <Param id="999999" />-->
+
+        <!-- 1.000.000 -> 9.999.999: Allowed-->
+        <Param id="1000000" />
+        <Param id="9999999" />
+
+        <!-- 10.000.000 -> XXX: Not Allowed: Out of Range-->
+        <!--<Param id="10000000" />-->
+    </Params>
+</Protocol>

@@ -1,0 +1,43 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!--Removing last column-->
+        <Param id="100">
+            <ArrayOptions options=";database:1000">
+                <ColumnOption idx="0" pid="101" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="102" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="103" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="104" type="retrieved" options=""/>
+                <ColumnOption idx="4" pid="105" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+
+        <!--Removing columns in the middle-->
+        <Param id="200">
+            <ArrayOptions options=";database:1000">
+                <ColumnOption idx="0" pid="201" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="202" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="203" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="204" type="retrieved" options=""/>
+                <ColumnOption idx="4" pid="205" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+
+        <!--Replacing a column-->
+        <Param id="300">
+            <ArrayOptions options=";database:1000">
+                <ColumnOption idx="0" pid="301" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="302" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="303" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="304" type="retrieved" options=""/>
+                <ColumnOption idx="4" pid="305" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+
+        <!--Removing all columns-->
+        <Param id="400">
+            <ArrayOptions options=";database:1000">
+                <ColumnOption idx="0" pid="401" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+    </Params>
+</Protocol>

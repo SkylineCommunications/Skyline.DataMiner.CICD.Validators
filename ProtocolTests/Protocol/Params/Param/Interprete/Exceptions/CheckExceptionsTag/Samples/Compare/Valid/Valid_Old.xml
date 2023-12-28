@@ -1,0 +1,187 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>SameExceptions_NoException</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="101">
+			<Name>SameExceptions_1Exception</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="1">
+						<Display>Exception_1</Display>
+						<Value>1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="102">
+			<Name>SameExceptions_2Exceptions</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="1">
+						<Display>Exception_1</Display>
+						<Value>1</Value>
+					</Exception>
+					<Exception id="2" value="2">
+						<Display>Exception_2</Display>
+						<Value>2</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="103">
+			<Name>SameExceptions_TrimmedValues</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="1">
+						<Display>Number_TrimBefore</Display>
+						<Value> 1</Value>
+					</Exception>
+					<Exception id="2" value="2">
+						<Display>String_TrimBefore</Display>
+						<Value> TrimBefore</Value>
+					</Exception>
+					<Exception id="3" value="3">
+						<Display>String_TrimAfter</Display>
+						<Value>Trim After </Value>
+					</Exception>
+					<Exception id="4" value="4">
+						<Display>String_Trim</Display>
+						<Value> Trim </Value>
+					</Exception>
+					<Exception id="5" value="5">
+						<Display>String_TrimEnters</Display>
+						<Value>
+							TrimEnters
+						</Value>
+					</Exception>
+					<Exception id="6" value="6">
+						<Display>String_TrimEnters_Emtpy</Display>
+						<Value>
+						</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<Param id="200">
+			<Name>AddedException_OutOfRange_FromNoException</Name>
+			<Interprete>
+				<!--<Exceptions>
+					<Exception id="1" value="-1">
+						<Display>Exception_1</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>-->
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>100</High>
+				</Range>
+			</Display>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="201">
+			<Name>AddedException_OutOfRange_FromOneException</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display>Exception_1</Display>
+						<Value>-1</Value>
+					</Exception>
+					<!--<Exception id="2" value="-2">
+						<Display>Exception_2</Display>
+						<Value>-2</Value>
+					</Exception>-->
+				</Exceptions>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>100</High>
+				</Range>
+			</Display>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<Param id="300">
+			<Name>AddedException_OutOfDiscreetValues_FromNoException</Name>
+			<Interprete>
+				<!--<Exceptions>
+					<Exception id="1" value="-1">
+						<Display>Exception_1</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>-->
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Discreet 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Discreet 2</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="301">
+			<Name>AddedException_OutOfDiscreetValues_FromOneException</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display>Exception_1</Display>
+						<Value>-1</Value>
+					</Exception>
+					<!--<Exception id="2" value="-2">
+						<Display>Exception_2</Display>
+						<Value>-2</Value>
+					</Exception>-->
+				</Exceptions>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Discreet 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Discreet 2</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

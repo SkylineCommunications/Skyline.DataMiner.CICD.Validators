@@ -1,0 +1,32 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2000" trending="false">
+			<Type>array</Type>
+			<ArrayOptions index="0" options="">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+				<ColumnOption idx="2" pid="2003" type="custom" options=";" />
+				<ColumnOption idx="3" pid="2004" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="10"></Group>
+	</Groups>
+
+	<Timers>
+		<Timer id="1">
+			<Content>
+				<Group>10</Group>
+			</Content>
+		</Timer>
+		<Timer id="2" options="ip:2000,1">
+			<Content>
+				<Group>col:3:10</Group>
+			</Content>
+		</Timer>
+	</Timers>
+
+</Protocol>

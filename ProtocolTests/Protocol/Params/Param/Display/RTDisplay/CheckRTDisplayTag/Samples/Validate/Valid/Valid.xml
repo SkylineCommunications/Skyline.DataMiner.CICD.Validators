@@ -1,0 +1,36 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<!-- Params requiring RTDisplay -->
+		<!--<Param id="100">
+			<Name>RTDisplay_DisplayedParam</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>-->
+
+		<!-- Params that should not have RTDisplay -->
+		<Param id="10000">
+			<Name>NoRTDisplay_DummyParam</Name>
+			<Type>dummy</Type>
+		</Param>
+
+		<!-- Params that should not have RTDisplay but have OnAppLevel attribute -->
+		<Param id="11000">
+			<Name>NoRTDisplay_DummyParam</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay onAppLevel="true">true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

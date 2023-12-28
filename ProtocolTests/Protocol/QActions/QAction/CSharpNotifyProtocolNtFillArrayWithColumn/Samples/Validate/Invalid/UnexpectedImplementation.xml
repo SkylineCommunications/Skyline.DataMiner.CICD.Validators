@@ -1,0 +1,183 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>NtFillArrayWithColumn__UnexpectedImplementation</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="1000">
+			<Name>NoHistorySet</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>NoHistorySet_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>NoHistorySet_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>NoHistorySet_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1100">
+			<Name>HistorySetFalse</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1102" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1103" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1101" historySet="false">
+			<Name>HistorySetFalse_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1102" historySet="false">
+			<Name>HistorySetFalse_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1103" historySet="false">
+			<Name>HistorySetFalse_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="2000">
+			<Name>HistorySetTrue</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>HistorySetTrue_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002" historySet="true">
+			<Name>HistorySetTrue_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2003" historySet="true">
+			<Name>HistorySetTrue_Column3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+using SLNetMessages = Skyline.DataMiner.Net.Messages;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			// wrapper
+			public static void FillArrayWithColumnsWrapper(this SLProtocol protocol, object[] columnPids, object[] columnValues)
+			{
+				protocol.NotifyProtocol(220, columnPids, columnValues);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int MyColumn_2002 = 2002;
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="FillArrayWithColumn_TableHistorySet_SeveralColumns" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+using SLNetMessages = Skyline.DataMiner.Net.Messages;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+
+		// dateTIme in array with boolean - Optional Field - historySet false
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3, new object[] { false, date_dt } }, new object[] { keys, values, values });
+	}
+}]]>
+		</QAction>
+		<QAction id="103" name="FillArrayWithColumn_CellHistorySet_SeveralColumns" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+using SLNetMessages = Skyline.DataMiner.Net.Messages;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+		object[] values2 = { "Value_1", new object[] { "Value_2", date_dt }, "Value_3" };
+		object[] values3 = { "Value_1", new object[] { "Value_2", date_dt }, new object[] { "Value_3", date_dt } };
+
+		// historySet false - multiple cells with historySet - multiple columns
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2 ,Parameter.Nohistoryset.Pid.nohistoryset_column3, new object[] { false } }, new object[] { keys, values2, values3 });
+	}
+}]]>
+		</QAction>
+		<QAction id="104" name="FillArrayWithColumn_HardCodedColumnPid_SeveralColumns" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+using SLNetMessages = Skyline.DataMiner.Net.Messages;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysettrue.tablePid, MyParams.MyColumn_2002, 2003, true }, new object[] { keys, values, values });
+
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, 1102, 1103}, new object[] { keys, values, values });
+	}
+}]]>
+		</QAction>
+		<QAction id="105" name="FillArrayWithColumn_HardCodedColumnPid_And_HistorySet" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+using SLNetMessages = Skyline.DataMiner.Net.Messages;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, 1102, 1103, new object[] { true , date_dt }}, new object[] { keys, values, values });
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

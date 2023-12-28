@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<HTTP>
+		<Session id="1" name="Session with 1 Connection">
+			<Connection id="1" name="Connection 1"></Connection>
+		</Session>
+
+		<Session id="2" name="Session with 2 Connections">
+			<Connection id="1" name="Connection 1"></Connection>
+			<Connection id="2" name="Connection 2"></Connection>
+		</Session>
+
+		<Session id="3" name="Session with 3 Connections">
+			<Connection id="1" name="Connection 1"></Connection>
+			<Connection id="2" name="Connection 2"></Connection>
+			<Connection id="3" name="Connection 3"></Connection>
+		</Session>
+	</HTTP>
+
+</Protocol>

@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--Increasing MinRequiredVersion to a version <= MinSupportedDmVersion is no problem -->
+
+	<Compliancies>
+		<MinimumRequiredVersion>2.2.2.2 - 6487</MinimumRequiredVersion>
+	</Compliancies>
+
+</Protocol>

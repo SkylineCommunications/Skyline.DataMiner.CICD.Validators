@@ -1,0 +1,44 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1"></Param>
+	</Params>
+
+	<Pairs>
+		<Pair id="100"></Pair>
+		<Pair id="200"></Pair>
+	</Pairs>
+
+	<Groups>
+		<Group id="100">
+			<Content>
+				<Pair>100</Pair>
+				<Pair>200</Pair>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Triggers>
+		<Trigger id="100">
+			<On id="100">group</On>
+			<Type>action</Type>
+			<Content>
+				<Id>3000</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+
+	<Actions>
+		<Action id="3000">
+			<Name>pair_set next_HardCoded</Name>
+			<On>pair</On>
+			<Type value="1000">set next</Type>
+		</Action>
+		<Action id="3001">
+			<Name>pair_set next_Dynamic</Name>
+			<On>pair</On>
+			<Type id="1">set next</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

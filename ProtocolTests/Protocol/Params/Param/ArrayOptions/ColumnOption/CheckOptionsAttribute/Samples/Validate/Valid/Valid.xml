@@ -1,0 +1,89 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--DVE Table-->
+		<Param id="1000">
+			<Name>DveTable</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="1001" />
+				<ColumnOption idx="1" pid="1002" options=";view" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>DvePK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>DveViewColumn</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<!--Relation/ForeignKey-->
+		<Param id="2000">
+			<Name>RelationalTable</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="2001" />
+				<ColumnOption idx="1" pid="2002" options=";foreignKey=1000" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>RelationalPK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002">
+			<Name>RelationalForeignKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!-- (direct)ViewTable -->
+		<Param id="3000">
+			<Name>ViewTable</Name>
+			<Type>array</Type>
+			<ArrayOptions >
+				<ColumnOption idx="0" pid="3001" options=";view=1002" />
+				<ColumnOption idx="1" pid="3002" options=";view=:1002:3000:1" />
+				<ColumnOption idx="2" pid="3003" options=";view=1002:2002" />
+			</ArrayOptions>
+		</Param>
+		<Param id="3001">
+			<Name>ViewSyntax1</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3002">
+			<Name>ViewSyntax2</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3003">
+			<Name>ViewSyntax3</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<Relations>
+		<Relation name="2000To1000" path="1000;2000" />
+	</Relations>
+
+</Protocol>

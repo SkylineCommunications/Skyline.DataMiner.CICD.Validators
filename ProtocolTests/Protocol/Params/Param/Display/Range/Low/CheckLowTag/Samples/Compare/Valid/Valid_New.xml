@@ -1,0 +1,106 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!--No change. -->
+        <Param id="1">
+            <Display>
+                <Range>
+                    <Low>100</Low>
+                </Range>
+            </Display>
+        </Param>
+        
+        <!-- Removed Low range -->
+        <Param id="10">
+            <Display>
+                <Range>
+                </Range>
+            </Display>
+        </Param>
+        <Param id="11">
+            <Display>
+            </Display>
+        </Param>
+        <Param id="12">
+        </Param>
+        
+        <!-- Decreased low range. -->
+        <Param id="20">
+            <Display>
+                <Range>
+                    <Low>10</Low>
+                </Range>
+            </Display>
+        </Param>
+
+        <!--Added low range on RTDisplay=false params-->
+        <Param id="30">
+            <Display>
+                <RTDisplay>false</RTDisplay>
+                <Range>
+                    <Low>100</Low>
+                </Range>
+            </Display>
+        </Param>
+        <Param id="31">
+            <Display>
+                <RTDisplay>false</RTDisplay>
+                <Range>
+                    <Low>100</Low>
+                </Range>
+            </Display>
+        </Param>
+
+        <!--Decreased low range on RTDisplay=false params-->
+        <Param id="40">
+            <Display>
+                <RTDisplay>false</RTDisplay>
+                <Range>
+                    <Low>10</Low>
+                </Range>
+            </Display>
+        </Param>
+        <Param id="41">
+            <Display>
+                <Range>
+                    <Low>10</Low>
+                </Range>
+            </Display>
+        </Param>
+
+        <!--Added low range on newly RTDisplay=false params-->
+        <Param id="50">
+            <Display>
+                <RTDisplay>false</RTDisplay>
+                <Range>
+                    <Low>100</Low>
+                </Range>
+            </Display>
+        </Param>
+        <Param id="51">
+            <Display>
+                <RTDisplay>false</RTDisplay>
+                <Range>
+                    <Low>100</Low>
+                </Range>
+            </Display>
+        </Param>
+
+        <!--Increased low range on newly RTDisplay=false params-->
+        <Param id="60">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Range>
+                    <Low>1000</Low>
+                </Range>
+            </Display>
+        </Param>
+        <Param id="61">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Range>
+                    <Low>1000</Low>
+                </Range>
+            </Display>
+        </Param>
+    </Params>
+</Protocol>

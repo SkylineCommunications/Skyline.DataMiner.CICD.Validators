@@ -1,0 +1,108 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpNotifyDataMinerNTServiceSetVdx_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public const int NT_SERVICE_SET_VDX_GlobalConst = 232;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="Defining_NotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_SERVICE_SET_VDX_Const = 232;
+		int NT_SERVICE_SET_VDX_Int = 232;
+		int NT_SERVICE_SET_VDX_Math = 230;
+
+		uint dmaId = 200;
+		uint serviceId = 661;
+		string serviceDetails = dmaId + "/" + serviceId;
+
+		string serviceVdx = "myVisioFile.vsdx|1";
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(232, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner(230 + 10 - 8, serviceDetails, serviceVdx);
+
+		protocol.NotifyDataMiner(NT_SERVICE_SET_VDX_Const, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner(NT_SERVICE_SET_VDX_Int, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner(NT_SERVICE_SET_VDX_Math + 2, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner(MyClass.NT_SERVICE_SET_VDX_GlobalConst, serviceDetails, serviceVdx);
+
+		protocol.NotifyDataMiner((int)NT_SERVICE_SET_VDX_Const, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner((int)NT_SERVICE_SET_VDX_Int, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner((int)NT_SERVICE_SET_VDX_Math + 2, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner((int)MyClass.NT_SERVICE_SET_VDX_GlobalConst, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner((int)NotifyType.GetValue, serviceDetails, serviceVdx);
+		
+		protocol.NotifyDataMinerQueued(232, serviceDetails, serviceVdx);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="Defining_Element" encoding="csharp">
+			<![CDATA[using System;
+using System.Text;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint dmaId = 200;
+		uint serviceId = 661;
+
+		string serviceDetails = dmaId + "/" + serviceId;
+		string serviceDetails_hardcoded = "200/661";
+		string serviceDetails_stringFormat = string.Format("{0}/{1}", dmaId, serviceId);
+
+		string serviceDetails_multiline;
+		serviceDetails_multiline = dmaId + "/" + serviceId;
+
+		string serviceDetails_multiline2;
+		serviceDetails_multiline2 = Convert.ToString(dmaId);
+		serviceDetails_multiline2 += "/";
+		serviceDetails_multiline2 += Convert.ToString(serviceId);
+
+		StringBuilder serviceDetails_stringBuilder = new StringBuilder();
+		serviceDetails_stringBuilder.Append(dmaId);
+		serviceDetails_stringBuilder.Append("/");
+		serviceDetails_stringBuilder.Append(serviceId);
+
+		string serviceVdx = "myVisioFile.vsdx|1";
+
+		// Different ways to define the parameter
+		protocol.NotifyDataMiner(232, "200/661", serviceVdx);
+
+		protocol.NotifyDataMiner(232, dmaId + "/" + serviceId, serviceVdx);
+		protocol.NotifyDataMiner(232, string.Format("{0}/{1}", dmaId, serviceId), serviceVdx);
+
+		protocol.NotifyDataMiner(232, serviceDetails, serviceVdx);
+		protocol.NotifyDataMiner(232, serviceDetails_hardcoded, serviceVdx);
+		protocol.NotifyDataMiner(232, serviceDetails_stringFormat, serviceVdx);
+		protocol.NotifyDataMiner(232, serviceDetails_multiline, serviceVdx);
+		protocol.NotifyDataMiner(232, serviceDetails_multiline2, serviceVdx);
+		protocol.NotifyDataMiner(232, serviceDetails_stringBuilder.ToString(), serviceVdx);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

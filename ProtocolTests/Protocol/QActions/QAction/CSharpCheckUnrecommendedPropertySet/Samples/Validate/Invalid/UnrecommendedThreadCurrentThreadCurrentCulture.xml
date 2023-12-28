@@ -1,0 +1,51 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>UnrecommendedThreadCurrentThreadCurrentCulture</Name>
+	<Version>0.0.0.0</Version>
+
+	<QActions>
+		<QAction id="10" name="UnrecommendedThreadCurrentThreadCurrentCulture" encoding="csharp">
+			<![CDATA[using System.Globalization;
+using System.Threading;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		Thread.CurrentThread.CurrentCulture = CultureInfo.CurrentCulture;
+	}
+}]]>
+		</QAction>
+		<QAction id="20" name="UnrecommendedThreadCurrentThreadCurrentCulture" encoding="csharp">
+			<![CDATA[using System.Globalization;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.CurrentCulture;
+	}
+}]]>
+		</QAction>
+        <QAction id="30" name="UnrecommendedThreadCurrentThreadCurrentCulture" encoding="csharp">
+            <![CDATA[using System.Globalization;
+using System.Threading;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		Thread currentThread = Thread.CurrentThread;
+		currentThread.CurrentCulture = CultureInfo.CurrentUICulture;
+	}
+}]]>
+        </QAction>
+	</QActions>
+
+</Protocol>

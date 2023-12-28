@@ -1,0 +1,52 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Matrixes-->
+		<Param id="1">
+			<Name>Matrix_Other</Name>
+			<Description>Matrix Other</Description>
+			<Type options="dimensions=32,16;columntypes=100:0-15">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>Matrix_Other</Name>
+			<Description>Matrix Other</Description>
+			<Type options="dimensions=32,16;columntypes=101:0-15">write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+
+		<!--ColumnTypes Params-->
+		<Param id="100" trending="false">
+			<Name>ColumnTypes_ReadMatrix_Other</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+		<Param id="101" trending="false">
+			<Name>ColumnTypes_WriteMatrix_Other</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>1</Length>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+	</Params>
+</Protocol>

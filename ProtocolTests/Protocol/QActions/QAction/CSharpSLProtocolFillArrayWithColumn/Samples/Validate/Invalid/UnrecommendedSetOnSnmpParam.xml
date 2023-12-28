@@ -1,0 +1,83 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>FillArrayWithColumns_UnrecommendedSetOnSnmpParam</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>SNMP</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="101" type="snmp" options=""/>
+				<ColumnOption idx="1" pid="102" type="snmp" options=""/>
+				<ColumnOption idx="2" pid="103" type="snmp" options=""/>
+				<ColumnOption idx="3" pid="104" type="custom" options=""/>
+				<ColumnOption idx="4" pid="105" type="custom" options=""/>
+				<ColumnOption idx="5" pid="106" type="snmp" options=""/>
+				<ColumnOption idx="6" pid="107" type="retrieved" options=""/>
+				<ColumnOption idx="7" pid="108" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="101">
+			<Name>SNMP_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="102">
+			<Name>SNMP_Column2_SNMP</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="103">
+			<Name>SNMP_Column3_SNMP</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="104">
+			<Name>SNMP_Column4_Custom</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="105">
+			<Name>SNMP_Column5_Custom</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="106">
+			<Name>SNMP_Column6_SNMP</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="107">
+			<Name>SNMP_Column7_Retrieved</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="108">
+			<Name>SNMP_Column8_Retrieved</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+	<QActions>
+		<QAction id="100" name="SNMP" encoding="csharp" triggers="100">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: SNMP.
+/// </summary>
+public static class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+		object[] column3Values = { "Value_1", "Value_2", protocol.Clear, null, protocol.Leave };
+
+		protocol.FillArrayWithColumn(Parameter.Snmp.tablePid, Parameter.Snmp.Pid.snmp_column2_snmp, keys, values);
+		protocol.FillArrayWithColumn(Parameter.Snmp.tablePid, Parameter.Snmp.Pid.snmp_column3_snmp_103, keys, values);
+		protocol.FillArrayWithColumn(Parameter.Snmp.tablePid, Parameter.Snmp.Pid.snmp_column6_snmp, keys, column3Values);
+	}
+}]]>
+		</QAction>
+	</QActions>
+	
+</Protocol>

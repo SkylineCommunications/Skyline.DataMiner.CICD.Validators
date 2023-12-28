@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>ReferencedParam_OtherParam</Name>
+			<Interprete>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="200">
+			<Name>LengthTypeOtherParam</Name>
+			<Interprete>
+				<LengthType id="1">next param</LengthType>
+			</Interprete>
+		</Param>
+	</Params>
+
+</Protocol>

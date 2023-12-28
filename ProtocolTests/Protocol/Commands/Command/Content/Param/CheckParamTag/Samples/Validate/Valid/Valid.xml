@@ -1,0 +1,27 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1001"/>
+		<Param id="1002"/>
+		<Param id="1003"/>
+	</Params>
+	
+	<Commands>
+		<Command id="1">
+			<Name>1 Param</Name>
+			<Content>
+				<Param>1001</Param>
+			</Content>
+		</Command>
+		<Command id="2">
+			<Name>4 Params (1 duplicate)</Name>
+			<Content>
+				<Param>1001</Param>
+				<Param>1002</Param>
+				<Param>1003</Param>
+				<Param>1001</Param>
+			</Content>
+		</Command>
+	</Commands>
+	
+</Protocol>

@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<!-- Extended tests are performed in Helpers/ConditionalTests.cs -->
+	<Params>
+		<Param id="12" trending="false">
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+	<Pairs>
+		<Pair id="1">
+			<Condition></Condition>
+		</Pair>
+		<Pair id="2">
+			<Condition><![CDATA[((id:12 + "efg") + 10) == "defefgabc"]]></Condition>
+		</Pair>
+	</Pairs>
+</Protocol>

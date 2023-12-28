@@ -1,0 +1,30 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>Leading</Name>
+			<Display>
+				<Range>
+					<Low>   18</Low>
+				</Range>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>Trailing</Name>
+			<Display>
+				<Range>
+					<Low>18 </Low>
+				</Range>
+			</Display>
+		</Param>
+		<Param id="3">
+			<Name>LeadingAndTrailing</Name>
+			<Display>
+				<Range>
+					<Low> 18 </Low>
+				</Range>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

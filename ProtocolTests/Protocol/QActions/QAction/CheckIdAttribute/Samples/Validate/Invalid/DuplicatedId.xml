@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<QActions>
+		<QAction id="101" name="Duplicate_101_1"></QAction>
+		<QAction id="101" name="Duplicate_101_2"></QAction>
+
+		<QAction id="102" name="Duplicate_102_1"></QAction>
+		<QAction id="102" name="Duplicate_102_2"></QAction>
+		<QAction id="102" name="Duplicate_102_3"></QAction>
+	</QActions>
+
+</Protocol>

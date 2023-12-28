@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Display>
+		<Pages>
+			<Page>
+				<Name>Page1</Name>
+				<Visibility default="false" overridePID="10 " value="1"/>
+			</Page>
+		</Pages>
+	</Display>
+
+</Protocol>

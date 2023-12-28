@@ -1,0 +1,30 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Faulty id attributes-->
+		<Param id="10">
+			<Name>Refers to table</Name>
+			<SNMP>
+				<OID type="complete" id=" 100 ">1.3.6.1.2.*</OID>
+			</SNMP>
+		</Param>
+		<Param id="11">
+			<Name>Refers to column</Name>
+			<SNMP>
+				<OID type="complete" id=" 101 ">1.3.6.1.2.*</OID>
+			</SNMP>
+		</Param>
+
+		<!--Referenced params-->
+		<Param id="100" trending="false">
+			<Name>Table</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="101" type="retrieved" options=";save" />
+			</ArrayOptions>
+		</Param>
+		<Param id="101">
+			<Name>TableColumn</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+</Protocol>

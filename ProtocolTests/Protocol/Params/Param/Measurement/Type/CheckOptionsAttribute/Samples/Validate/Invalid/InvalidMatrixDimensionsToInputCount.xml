@@ -1,0 +1,36 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10000">
+			<Name>InputCountTooLow</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=15,32,0,1,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>InputCountTooHigh</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=17,32,0,1,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10002">
+			<Name>InputCountTooHigh (Mistaken with outputCount)</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=32,32,0,1,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10003">
+			<Name>InputAndOutputCountTooLow</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=15,31,0,1,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

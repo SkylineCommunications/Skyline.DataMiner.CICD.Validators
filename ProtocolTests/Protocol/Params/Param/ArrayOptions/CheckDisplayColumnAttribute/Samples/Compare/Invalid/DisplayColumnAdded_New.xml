@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="100">
+            <Name>SomeTable</Name>
+            <Description>Some Table</Description>
+            <ArrayOptions index="0" displayColumn="1">
+            </ArrayOptions>
+        </Param>
+        <Param id="200">
+            <Name>SomeTable2</Name>
+            <Description>Some Table 2</Description>
+            <ArrayOptions index="0" displayColumn="2">
+            </ArrayOptions>
+        </Param>
+    </Params>
+</Protocol>

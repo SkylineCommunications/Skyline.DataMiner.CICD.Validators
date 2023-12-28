@@ -1,0 +1,23 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Relations>
+		<Relation path="1000;1100" />
+		<Relation path="1000;1100" />
+	</Relations>
+
+	<Params>
+		<Param id="1000">
+			<ArrayOptions />
+            <Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1100" >
+			<ArrayOptions>
+				<ColumnOption options=";foreignKey=1000"/>
+            </ArrayOptions>
+            <Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

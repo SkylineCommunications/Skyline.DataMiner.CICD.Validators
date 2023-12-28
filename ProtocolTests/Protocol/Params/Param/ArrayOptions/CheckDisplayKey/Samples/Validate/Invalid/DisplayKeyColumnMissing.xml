@@ -1,0 +1,283 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--NamingFormat-->
+		<Param id="1200">
+			<Name>NamingFormat_1LocalColumn_1HardCoded</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[,1202,blabla]]></NamingFormat>
+				<ColumnOption idx="0" pid="1201" />
+				<ColumnOption idx="1" pid="1202" type="retrieved" />
+				<!--<ColumnOption idx="2" pid="1209" type="displaykey" />-->
+			</ArrayOptions>
+		</Param>
+		<Param id="1201">
+			<Name>NamingFormat_1LocalColumn_1HardCoded_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1202">
+			<Name>NamingFormat_1LocalColumn_1HardCoded_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1209">
+			<Name>NamingFormat_1LocalColumn_1HardCoded_Column3 [IDX]</Name>
+			<Description>NamingFormat_1LocalColumn_1HardCoded_Column3 [IDX]</Description>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="1300">
+			<Name>NamingFormat_1LocalColumn_1RemoteColumn</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[,1302,10002]]></NamingFormat>
+				<ColumnOption idx="0" pid="1301" />
+				<ColumnOption idx="1" pid="1302" type="retrieved" />
+				<ColumnOption idx="2" pid="1303" type="retrieved" options="foreignKey=10000" />
+				<!--<ColumnOption idx="3" pid="1309" type="displaykey" />-->
+			</ArrayOptions>
+		</Param>
+		<Param id="1301">
+			<Name>NamingFormat_1LocalColumn_1RemoteColumn_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1302">
+			<Name>NamingFormat_1LocalColumn_1RemoteColumn_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1303">
+			<Name>NamingFormat_1LocalColumn_1RemoteColumn_Column3_FK</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1309">
+			<Name>NamingFormat_1LocalColumn_1RemoteColumn_Column4 [IDX]</Name>
+			<Description>NamingFormat_1LocalColumn_1RemoteColumn_Column4 [IDX]</Description>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="1500">
+			<Name>NamingFormat_2LocalColumns</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[,1501,1502]]></NamingFormat>
+				<ColumnOption idx="0" pid="1501" />
+				<ColumnOption idx="1" pid="1502" type="retrieved" />
+				<!--<ColumnOption idx="2" pid="1509" type="displaykey" />-->
+			</ArrayOptions>
+		</Param>
+		<Param id="1501">
+			<Name>NamingFormat_2LocalColumns_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1502">
+			<Name>NamingFormat_2LocalColumns_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1509">
+			<Name>NamingFormat_2LocalColumns_Column3 [IDX]</Name>
+			<Description>NamingFormat_2LocalColumns_Column3 [IDX]</Description>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!--naming option-->
+		<Param id="2100">
+			<Name>Naming_1LocalColumn_1RemoveColumn</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";naming=/2101,10002">
+				<ColumnOption idx="0" pid="2101" />
+				<ColumnOption idx="1" pid="2102" options="foreignKey=10000"/>
+				<!--<ColumnOption idx="2" pid="2109" type="displaykey" />-->
+			</ArrayOptions>
+		</Param>
+		<Param id="2101">
+			<Name>Naming_1LocalColumn_1RemoveColumn_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2102">
+			<Name>Naming_1LocalColumn_1RemoveColumn_Column2_FK</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2109">
+			<Name>Naming_1LocalColumn_1RemoveColumn_Column3 [IDX]</Name>
+			<Description>Naming_1LocalColumn_1RemoveColumn_Column3 [IDX]</Description>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="2200">
+			<Name>Naming_2LocalColumns</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";naming=/2201,2202">
+				<ColumnOption idx="0" pid="2201" />
+				<ColumnOption idx="1" pid="2202" type="custom"/>
+				<!--<ColumnOption idx="2" pid="2209" type="displaykey" />-->
+			</ArrayOptions>
+		</Param>
+		<Param id="2201">
+			<Name>Naming_2LocalColumns_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2202">
+			<Name>Naming_2LocalColumns_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2209">
+			<Name>Naming_2LocalColumns_Column3 [IDX]</Name>
+			<Description>Naming_2LocalColumns_Column3 [IDX]</Description>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!--displayColumn (no displaykey column needed)-->
+		
+		<!--No DisplayKey -> Default to PK (no displaykey column needed -->
+	</Params>
+
+	<Relations>
+		<Relation path="10000;1300"/>
+		<Relation path="10000;2100"/>
+	</Relations>
+
+</Protocol>

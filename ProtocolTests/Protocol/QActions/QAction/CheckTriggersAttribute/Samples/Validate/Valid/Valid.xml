@@ -1,0 +1,87 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckTriggersAttribute_Valid</Name>
+	<Version>0.0.0.0</Version>
+	
+	<Params>
+		<Param id="1">
+			<Name>MyParam</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2">
+			<Name>MyParam2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3">
+			<Name>MyParam3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+	<QActions>
+		<!--Trigger on params-->
+		<QAction id="1" triggers="1" />
+		<QAction id="2" triggers="1;2;3" />
+
+		<!--Trigger on groups-->
+		<QAction id="100" options="group" triggers="100" />
+		<QAction id="101" options="group" triggers="100;101;102" />
+
+		<!--Triggered by multi-threaded timers-->
+		<QAction id="200" row="true" />
+		<QAction id="201" row="true" />
+		<QAction id="202" row="true" />
+
+		<QAction id="210" row="true" />
+		<QAction id="211" row="true" />
+		<QAction id="212" row="true" />
+
+		<!--Precompiled-->
+		<QAction id="300" options="precompile" />
+
+		<!--Triggering on DM internal params:
+			Those don't need to be in the driver as they are added automatically by DM-->
+		<QAction id="400" triggers="65008" />
+	</QActions>
+	
+	<Groups>
+		<Group id="100"/>
+		<Group id="101"/>
+		<Group id="102"/>
+	</Groups>
+	
+	<Timers>
+		<Timer id="1" options="qaction:200">
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		<Timer id="2" options="qactionBefore:201">
+			<Content>
+				<Group>101</Group>
+			</Content>
+		</Timer>
+		<Timer id="3" options="qactionAfter:202">
+			<Content>
+				<Group>102</Group>
+			</Content>
+		</Timer>
+
+		<!--These options are case insensitive-->
+		<Timer id="11" options="qAction:210">
+			<Content>
+				<Group>100</Group>
+			</Content>
+		</Timer>
+		<Timer id="12" options="qactionbefore:211">
+			<Content>
+				<Group>101</Group>
+			</Content>
+		</Timer>
+		<Timer id="13" options="qactionafter:212">
+			<Content>
+				<Group>102</Group>
+			</Content>
+		</Timer>
+	</Timers>
+	
+</Protocol>

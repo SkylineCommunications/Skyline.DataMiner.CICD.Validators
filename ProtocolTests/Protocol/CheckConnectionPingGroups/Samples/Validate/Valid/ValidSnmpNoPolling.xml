@@ -1,0 +1,34 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>snmp</Type>
+
+	<!--No ping group needed since SNMP connection only there for traps, no polling.-->
+
+	<Params>
+		<Param id="1">
+			<Name>TrapReceiver</Name>
+			<Description>Trap Received</Description>
+			<Type>dummy</Type>
+			<SNMP>
+				<Enabled>true</Enabled>
+				<TrapOID setBindings="allBindingInfo" type="wildcard">*</TrapOID>
+			</SNMP>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="1">
+			<Name>Other Group</Name>
+			<Type>action</Type>
+			<Content>
+				<Action>1</Action>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Actions>
+		<Action id="1">
+			<Name>Other Action</Name>
+		</Action>
+	</Actions>
+	
+</Protocol>

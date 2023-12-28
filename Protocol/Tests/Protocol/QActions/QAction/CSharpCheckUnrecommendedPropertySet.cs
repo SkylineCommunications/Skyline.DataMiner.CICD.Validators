@@ -63,8 +63,10 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
 
     internal class QActionAnalyzer : CSharpAnalyzerBase
     {
-        private static readonly System.Type ThreadType = typeof(Thread);
-        private static readonly string ThreadAssemblyName = ThreadType.Assembly.GetName().Name;
+	    private static readonly System.Type ThreadType = typeof(Thread);
+
+        // QActions are in .NET Framework
+        private const string ThreadAssemblyName = "mscorlib";
 
         private readonly List<IValidationResult> results;
         private readonly IValidate test;

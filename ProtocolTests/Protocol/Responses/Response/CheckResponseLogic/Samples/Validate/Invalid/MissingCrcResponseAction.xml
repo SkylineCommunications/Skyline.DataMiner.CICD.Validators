@@ -1,0 +1,110 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2">
+			<Name>CrcParam</Name>
+			<Type>crc</Type>
+		</Param>
+	</Params>
+	
+	<Responses>
+		<Response id="1">
+			<Name>NoTrigger</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Response>
+		<Response id="2">
+			<Name>NoAction</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Response>
+		<Response id="3">
+			<Name>NoCrcAction</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Response>
+		<Response id="4">
+			<Name>TriggerInsteadOfAction</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Response>
+	</Responses>
+	
+	<Triggers>
+		<Trigger id="1">
+			<Name>DummyTrigger</Name>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="2">
+			<Name>BeforeResponse2</Name>
+			<On id="2">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="3">
+			<Name>BeforeResponse3</Name>
+			<On id="3">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>3</Id>
+				<Id>4</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="4">
+			<Name>BeforeResponse4</Name>
+			<On id="4">response</On>
+			<Time>before</Time>
+			<Type>trigger</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="100">
+			<Name>BeforeCommandEach</Name>
+			<On id="each">command</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="101">
+			<Name>BeforeCommand2</Name>
+			<On id="1">command</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+	
+	<Actions>
+		<Action id="1">
+			<Name>CalculateCrcResponse</Name>
+			<On>response</On>
+			<Type>crc</Type>
+		</Action>
+		<Action id="3">
+			<Name>CalculateResponseLength</Name>
+			<On>response</On>
+			<Type>length</Type>
+		</Action>
+		<Action id="4">
+			<Name>CalculateCrcCommand</Name>
+			<On>command</On>
+			<Type>crc</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

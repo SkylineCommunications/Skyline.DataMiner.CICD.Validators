@@ -1,0 +1,17 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>SingleChange</Name>
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="101" />
+				<ColumnOption idx="1" pid="102" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

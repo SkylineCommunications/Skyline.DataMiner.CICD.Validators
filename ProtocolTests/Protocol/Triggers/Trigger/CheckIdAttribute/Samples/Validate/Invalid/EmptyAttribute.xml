@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Triggers>
+		<Trigger id="">
+			<Name>Empty</Name>
+		</Trigger>
+		<Trigger id="  ">
+			<Name>Spaces</Name>
+		</Trigger>
+	</Triggers>
+
+</Protocol>

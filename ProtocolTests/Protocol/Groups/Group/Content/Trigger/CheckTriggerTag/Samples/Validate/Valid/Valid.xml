@@ -1,0 +1,39 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Groups>
+		<Group id="1">
+			<Name>1 Trigger</Name>
+			<Content>
+				<Trigger>1</Trigger>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Name>3 Triggers</Name>
+			<Content>
+				<Trigger>1</Trigger>
+				<Trigger>2</Trigger>
+				<Trigger>3</Trigger>
+			</Content>
+		</Group>
+
+		<!--Empty Groups-->
+		<Group id="100">
+			<Name>Content Tag Empty 1</Name>
+			<Content/>
+		</Group>
+		<Group id="101">
+			<Name>Content Tag Empty 2</Name>
+			<Content></Content>
+		</Group>
+		<Group id="102">
+			<Name>Content Tag Not Present</Name>
+		</Group>
+	</Groups>
+	
+	<Triggers>
+		<Trigger id="1"/>
+		<Trigger id="2"/>
+		<Trigger id="3"/>
+	</Triggers>
+	
+</Protocol>

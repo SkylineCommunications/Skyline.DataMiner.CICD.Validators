@@ -1,0 +1,33 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<Hierarchy path="1000;2000" />
+			<HiddenColumns>A</HiddenColumns>
+		</TreeControl>
+		
+		<TreeControl parameterId="2">
+			<Hierarchy path="1000;2000" />
+			<HiddenColumns>A,B,C</HiddenColumns>
+		</TreeControl>
+		
+		<TreeControl parameterId="3">
+			<Hierarchy path="1000;2000" />
+			<!--separator should be ',' instead of ';'-->
+			<HiddenColumns>1001;1002</HiddenColumns>
+		</TreeControl>
+	</TreeControls>
+	
+	<Params>
+		<Param id="1" />
+		<Param id="2" />
+		<Param id="3" />
+		
+		<Param id="1000" />
+		<Param id="1001" />
+		<Param id="1002" />
+		
+		<Param id="2000" />
+	</Params>
+	
+</Protocol>

@@ -1,0 +1,95 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>FillArrayWithColumns_ColumnManagedByDataMiner</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="9999">
+			<Name>DVEs_DisplayKey</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10000">
+			<Name>DVEs</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="10003" type="retrieved" options=";element"/>
+				<ColumnOption idx="3" pid="10004" type="state" options=""/>
+				<ColumnOption idx="4" pid="10005" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="10006" type="retrieved" options=";severity"/>
+				<ColumnOption idx="6" pid="10007" type="concatenation" value="1,2,3,4" options=";separator=."/>
+				<ColumnOption idx="7" pid="9999" type="displaykey" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10001">
+			<Name>DVEs_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10002">
+			<Name>DVEs_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10003">
+			<Name>DVEs_Column3_DveElement</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10004">
+			<Name>DVEs_Column4_State</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10005">
+			<Name>DVEs_Column5_DeleteButton</Name>
+			<Type>write</Type>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+		<Param id="10006">
+			<Name>DVEs_Column6_DveSeverity</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10007">
+			<Name>DVEs_Column7_Concatenation</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="10000" name="DVEs" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: DVEs.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+
+		// DVE Element
+		protocol.FillArrayWithColumn(Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column3_dveelement, keys, values);
+		protocol.FillArrayWithColumn(Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column3_dveelement_10003, keys, values, date_dt);
+
+		// State
+		protocol.FillArrayWithColumn(Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column4_state_10004, keys, values);
+
+		// DisplayKey
+		protocol.FillArrayWithColumn(Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_displaykey_9999, keys, values);
+
+		// Concatenation
+		protocol.FillArrayWithColumn(Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column7_concatenation_10007, keys, values);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

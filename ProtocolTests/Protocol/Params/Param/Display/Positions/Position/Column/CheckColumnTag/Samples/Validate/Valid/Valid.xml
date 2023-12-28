@@ -1,0 +1,27 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Display>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+					<Position>
+						<Page>Page2</Page>
+						<Column>1</Column>
+						<Row>1</Row>
+					</Position>
+					<Position>
+						<Page>Page3</Page>
+						<Column>1</Column>
+						<Row>10</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+	
+</Protocol>

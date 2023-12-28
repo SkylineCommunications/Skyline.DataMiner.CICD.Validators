@@ -1,0 +1,183 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <TreeControls>
+        <TreeControl parameterId="7"></TreeControl>
+    </TreeControls>
+    <Params>
+        <Param id="1">
+            <Information>
+                <Subtext>This is a valid Text.</Subtext>
+            </Information>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>TestPage</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+        <Param id="2">
+            <Information>
+                <Subtext><![CDATA[This is a valid Text too.]]></Subtext>
+        </Information>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>TestPage</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+        <Param id="3">
+            <Information>
+                <Subtext><![CDATA[This is yet another valid Text.
+And it has some enters.
+Allowing a multiline text.]]></Subtext>
+        </Information>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>TestPage</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+        <Param id="4">
+            <!--<Information>
+                <Subtext>This param doesn't need an information tag as it is not displayed.</Subtext>
+            </Information>-->
+        </Param>
+        <Param id="5">
+            <Name>Title_Begin_Title</Name>
+            <Description>Title</Description>
+            <Type>fixed</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type options="begin;connect">title</Type>
+            </Measurement>
+        </Param>
+        <Param id="6">
+            <Name>ButtonParam</Name>
+            <Description></Description>
+            <Information>
+                <Subtext>This is the button that will refresh something?</Subtext>
+                <Includes>
+                    <Include>time</Include>
+                    <Include>range</Include>
+                    <Include>steps</Include>
+                    <Include>units</Include>
+                </Includes>
+            </Information>
+            <Type>write</Type>
+            <Interprete>
+                <RawType>numeric text</RawType>
+                <LengthType>next param</LengthType>
+                <Type>double</Type>
+            </Interprete>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Row>0</Row>
+                        <Column>0</Column>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type width="110">button</Type>
+                <Discreets>
+                    <Discreet>
+                        <Display>Refresh</Display>
+                        <Value>1</Value>
+                    </Discreet>
+                </Discreets>
+            </Measurement>
+        </Param>
+        <Param id="7">
+            <Information>
+                <Subtext>Valid Subtext!</Subtext>
+            </Information>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Row>10</Row>
+                        <Column>1</Column>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+        <Param id="1000">
+            <Name>tableName</Name>
+            <Description>tableDescription</Description>
+            <Type>array</Type>
+            <ArrayOptions index="0">
+                <ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+            </ArrayOptions>
+            <Information>
+                <Subtext>tableInformation</Subtext>
+            </Information>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Row>0</Row>
+                        <Column>0</Column>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type options="tab=columns:1001|0,width:100,sort:STRING,lines:25,filter:true">table</Type>
+            </Measurement>
+        </Param>
+        <Param id="1001" trending="false">
+            <Name>tableNameInstance</Name>
+            <Description>Instance (tableDescription)</Description>
+            <Information>
+                <Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+            </Information>
+            <Type>read</Type>
+            <Interprete>
+                <RawType>other</RawType>
+                <LengthType>next param</LengthType>
+                <Type>string</Type>
+            </Interprete>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>
+        <Param id="1100">
+            <Information>
+                <Subtext>This is a valid Text.</Subtext>
+            </Information>
+            <Type>read bit</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>TestPage</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+    </Params>
+</Protocol>

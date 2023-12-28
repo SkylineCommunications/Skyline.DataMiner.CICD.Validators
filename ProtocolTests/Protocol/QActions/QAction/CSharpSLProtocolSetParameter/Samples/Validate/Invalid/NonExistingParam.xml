@@ -1,0 +1,110 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>SetParameter_NonExistingparam</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void SetParameterWrapper(this SLProtocol protocol, int paramId, object newValue)
+			{
+				protocol.SetParameter(paramId, newValue);
+			}
+
+			public static void SetParameterWrapper(this SLProtocol protocol, int paramId, object newValue, ValueType timeInfo)
+			{
+				protocol.SetParameter(paramId, newValue, timeInfo);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int NonExisting_199 = 199;
+			public const int NonExisting_1299 = 1299;
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="100" name="SetParameter" encoding="csharp"  dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: SetParameter.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		// Hard-coded
+		protocol.SetParameter(9, "value");
+		protocol.SetParameter(20 - 1, "value");
+		protocol.SetParameter(1 - 30, "value");
+
+		// Variables
+		int pid_99 = 99;
+		protocol.SetParameter(pid_99, "value");
+		protocol.SetParameter(MyParams.NonExisting_199, "value");
+
+		// Wrappers: Not (yet) covered
+		int pid_1199 = 1199;
+		protocol.SetParameterWrapper(999, "value");
+		protocol.SetParameterWrapper(1100 - 1, "value");
+		protocol.SetParameterWrapper(pid_1199, "value");
+		protocol.SetParameterWrapper(MyParams.NonExisting_1299, "value");
+	}
+}
+]]>
+		</QAction>
+		<QAction id="101" name="SetParameter_HistorySet" encoding="csharp"  dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: SetParameter_HistorySet.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		ValueType date_vt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		protocol.SetParameter(9, "value", date_dt);
+		protocol.SetParameter(20 - 1, "value", date_vt);
+		protocol.SetParameter(1 - 30, "value", date_dt);
+
+		int pid_99 = 99;
+		protocol.SetParameter(pid_99, "value", date_dt);
+		protocol.SetParameter(MyParams.NonExisting_199, "value", date_vt);
+
+		int pid_1199 = 1199;
+		protocol.SetParameterWrapper(999, "value", date_dt);						// Not (yet) covered
+		protocol.SetParameterWrapper(1100 - 1, "value", date_vt);					// Not (yet) covered
+		protocol.SetParameterWrapper(pid_1199, "value", date_dt);					// Not (yet) covered
+		protocol.SetParameterWrapper(MyParams.NonExisting_1299, "value", date_vt);	// Not (yet) covered
+	}
+}
+]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Timers>
+		<!--Group 1-->
+		<Timer id="1">
+			<Time>1000</Time>
+		</Timer>
+		<Timer id="2">
+			<Time>1001</Time>
+		</Timer>
+		<Timer id="3">
+			<Time>2000</Time>
+		</Timer>
+
+		<!--Group 2-->
+		<Timer id="11">
+			<Time>5000</Time>
+		</Timer>
+		<Timer id="12">
+			<Time>5099</Time>
+		</Timer>
+		<Timer id="13">
+			<Time>6050</Time>
+		</Timer>
+	</Timers>
+</Protocol>

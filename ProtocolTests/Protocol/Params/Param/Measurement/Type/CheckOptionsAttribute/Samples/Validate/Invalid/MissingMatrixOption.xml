@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10000">
+			<Name>Matrix_SomeRandomOtherOption</Name>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type options="SomeRandomOtherOption">matrix</Type>				
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>Matrix_MisspelledMatrixOption</Name>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type options="mat=0,1,2,3,4,5">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10002">
+			<Name>Matrix_EmptyOptionAttribute</Name>
+			<Measurement>
+				<!-- Sequence for matrix options Number Inputs/Number Outputs/COMin/COMax/CIMin/CIMax -->
+				<Type options="">matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

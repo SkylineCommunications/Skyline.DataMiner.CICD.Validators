@@ -1,0 +1,43 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpQActionCompilation_Valid_CSharp4</Name>
+	<Version>0.0.0.0</Version>
+
+	<!--This unit test is meant to be sure
+		we don't throw back false positives when C#4 is used and supported.-->
+
+	<Compliancies>
+		<MinimumRequiredVersion>8.5.0.0</MinimumRequiredVersion>
+	</Compliancies>
+
+	<QActions>
+		<QAction id="100" name="Simple_CSharp" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: Simple_CSharp4.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		// C#4
+		protocol.Log("QA" + protocol.QActionID + "|Run|##### Start of QAction #####", LogType.DebugInfo, LogLevel.NoLogging);
+
+		// C#6
+		//object test = "";
+		//if (string.IsNullOrEmpty(test?.ToString()))
+		//{
+		//	protocol.Log("QA" + protocol.QActionID + "|Run|'test' is null or empty.", LogType.DebugInfo, LogLevel.NoLogging);
+		//}
+
+		// C#7.3 (not yet supported as it would require us to drop support of VS2015)
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>Empty Includes</Name>
+			<Information>
+				<Includes>
+				</Includes>
+			</Information>
+		</Param>
+		<Param id="2">
+			<Name>Fully Filled Includes</Name>
+			<Information>
+				<Includes>
+					<Include>range</Include>
+					<Include>steps</Include>
+					<Include>time</Include>
+					<Include>units</Include>
+				</Includes>
+			</Information>
+		</Param>
+	</Params>
+
+</Protocol>

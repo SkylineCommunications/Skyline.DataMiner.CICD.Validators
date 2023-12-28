@@ -1,0 +1,127 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckEntryPoints_MissingEntryPoints</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="10" name="DefaultClass_DefaultMethodTypo" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QAction
+{
+	public static void RunTypo(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+		<QAction id="11" name="DefaultClassTypo_DefaultMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QActionTypo
+{
+	public static void Run(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+		<QAction id="12" name="DefaultClassTypo_DefaultMethodTypo" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QActionTypo
+{
+	public static void RunTypo(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+
+		<QAction id="20" name="DefaultClass_MyMethodTypo" entryPoint="MyMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QAction
+{
+	public static void MyMethodTypo(SLProtocol protocol)
+	{
+		
+	}
+}]]>
+		</QAction>
+		<QAction id="21" name="DefaultClassTypo_MyMethod" entryPoint="MyMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QActionTypo
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+		
+	}
+}]]>
+		</QAction>
+		<QAction id="22" name="DefaultClassTypo_MyMethodTypo" entryPoint="MyMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QActionTypo
+{
+	public static void MyMethodTypo(SLProtocol protocol)
+	{
+		
+	}
+}]]>
+		</QAction>
+
+		<QAction id="30" name="MyClass_MyMethodTypo" entryPoint="MyClass.MyMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class MyClass
+{
+	public static void MyMethodTypo(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+		<QAction id="31" name="MyClassTypo_MyMethod" entryPoint="MyClass.MyMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class MyClassTypo
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+		<QAction id="32" name="MyClassTypo.MyMethodTypo" entryPoint="MyClass.MyMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class MyClassTypo
+{
+	public static void MyMethodTypo(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="Combination" entryPoint="MyMethodTypo;MyClass1.MyMethodTypo;MyClass2Typo.MyMethod" encoding="csharp" triggers="1;2;3">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QAction
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+		
+	}
+}
+
+public class MyClass1
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+	
+	}
+}
+
+public class MyClass2
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+	
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

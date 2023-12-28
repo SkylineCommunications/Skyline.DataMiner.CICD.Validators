@@ -1,0 +1,49 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<!--Monitored Standalone-->
+		<Param id="101">
+			<Name>Monitored_Standalone_WithInfoThreshold</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Info>*</Info>
+			</Alarm>
+		</Param>
+		<Param id="102">
+			<Name>Monitored_Standalone_WithCriticalHighThreshold</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<CH>Something</CH>
+			</Alarm>
+		</Param>
+		<Param id="103">
+			<Name>Monitored_Standalone_WithNormalThreshold</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>Something</Normal>
+			</Alarm>
+		</Param>
+
+		<!--Not Monitored-->
+		<Param id="10001">
+			<Name>NotMonitored_NoAlarm</Name>
+		</Param>
+		<Param id="10002">
+			<Name>NotMonitored_NoMonitored</Name>
+			<Alarm></Alarm>
+		</Param>
+		<Param id="10003">
+			<Name>NotMonitored_MonitoredFalse</Name>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="10004">
+			<Name>NotMonitored_MonitoredTypo</Name>
+			<Alarm>
+				<Monitored>typo</Monitored>
+			</Alarm>
+		</Param>
+	</Params>
+	
+</Protocol>

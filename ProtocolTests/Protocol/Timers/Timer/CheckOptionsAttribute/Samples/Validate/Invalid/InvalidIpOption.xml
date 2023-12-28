@@ -1,0 +1,54 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<!--<ColumnOption idx="1" pid="2002" type="custom" options=";" />-->
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+		</Param>
+		<!--<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+		</Param>-->
+	</Params>
+
+	<Timers>
+		<!-- Empty -->
+		<Timer id="1" options="threadPool:10;each:100;ip">
+			<Name>Ip_Empty1</Name>
+		</Timer>
+		<Timer id="2" options="threadPool:10;each:100;ip:">
+			<Name>Ip_Empty2</Name>
+		</Timer>
+
+		<!-- Non Numeric -->
+		<Timer id="10" options="threadPool:10;each:100;ip:aaa,1">
+			<Name>Ip_InvalidTablePid</Name>
+		</Timer>
+		<Timer id="11" options="threadPool:10;each:100;ip:2000,bbb">
+			<Name>Ip_InvalidColumnIdx</Name>
+		</Timer>
+		<Timer id="12" options="threadPool:10;each:100;ip:ccc,ddd">
+			<Name>Ip_InvalidTablePid_InvalidColumnIdx</Name>
+		</Timer>
+
+		<!-- Unexisting reference -->
+		<Timer id="20" options="threadPool:10;each:100;ip:1000,0">
+			<Name>Ip_UnexistingTablePid</Name>
+		</Timer>
+		<Timer id="21" options="threadPool:10;each:100;ip:2000,1">
+			<Name>Ip_UnexistingColumnIdx</Name>
+		</Timer>
+
+		<!-- Missing -->
+		<Timer id="30" options="threadPool:10;each:100;ip:2000">
+			<Name>Ip_MissingColumnIdx</Name>
+		</Timer>
+	</Timers>
+
+</Protocol>

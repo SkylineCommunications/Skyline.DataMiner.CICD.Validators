@@ -1,0 +1,21 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<ParameterGroups>
+		<Group id="1002" name="dynamicIndex_MissingDynamicId" dynamicIndex="*"></Group>
+	</ParameterGroups>
+
+	<Params>
+		<Param id="1000">
+			<Name>DCF_Interfaces_Table</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>DCF_Interfaces_TableInstance</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+</Protocol>

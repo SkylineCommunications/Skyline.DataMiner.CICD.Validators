@@ -1,0 +1,29 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Pairs>
+		<Pair id="100">
+			<Name>String</Name>
+			<Content>
+				<ResponseOnBadCommand>aaa</ResponseOnBadCommand>
+			</Content>
+		</Pair>
+
+		<Pair id="200">
+			<Name>Number_NonUint</Name>
+			<Content>
+				<ResponseOnBadCommand>-2</ResponseOnBadCommand>
+				<ResponseOnBadCommand>1.5</ResponseOnBadCommand>
+				<ResponseOnBadCommand>2,6</ResponseOnBadCommand>
+			</Content>
+		</Pair>
+		<Pair id="203">
+			<Name>Number_Format</Name>
+			<Content>
+				<ResponseOnBadCommand>03</ResponseOnBadCommand>
+				<ResponseOnBadCommand>+4</ResponseOnBadCommand>
+				<ResponseOnBadCommand>5x10^1</ResponseOnBadCommand>
+			</Content>
+		</Pair>
+	</Pairs>
+
+</Protocol>

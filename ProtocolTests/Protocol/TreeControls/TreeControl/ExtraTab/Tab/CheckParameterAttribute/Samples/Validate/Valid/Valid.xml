@@ -1,0 +1,104 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Relations>
+		<Relation name="TreeControl1" path="1000;2000;3000" />
+		<Relation name="Extra Tab" path="1000;10000" />
+	</Relations>
+
+	<Params>
+		<Param id="1">
+			<Name>TreeControl1</Name>
+		</Param>
+		<Param id="2">
+			<Name>TreeControl2</Name>
+		</Param>
+		<Param id="3">
+			<Name>TreeControl3</Name>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table1</Name>
+		</Param>
+		<Param id="1001">
+			<Name>Table1 Column1</Name>
+		</Param>
+		<Param id="1002">
+			<Name>Table1 Column2</Name>
+		</Param>
+		<Param id="1003">
+			<Name>Table1 Column3</Name>
+		</Param>
+
+		<Param id="2000">
+			<Name>Table2</Name>
+		</Param>
+		<Param id="2001">
+			<Name>Table2 Column1 (FK to 1000)</Name>
+		</Param>
+		<Param id="2002">
+			<Name>Table2 Column2</Name>
+		</Param>
+		<Param id="2003">
+			<Name>Table2 Column3</Name>
+		</Param>
+
+		<Param id="3000">
+			<Name>Table3</Name>
+		</Param>
+		<Param id="3001">
+			<Name>Table3 Column1 (FK to 2000)</Name>
+		</Param>
+		<Param id="3002">
+			<Name>Table3 Column2</Name>
+		</Param>
+		<Param id="3003">
+			<Name>Table3 Column3</Name>
+		</Param>
+
+		<Param id="10000">
+			<Name>Table10</Name>
+		</Param>
+		<Param id="10001">
+			<Name>Table10 Column1 (FK to 1000)</Name>
+		</Param>
+		<Param id="10002">
+			<Name>Table10 Column2</Name>
+		</Param>
+		<Param id="10003">
+			<Name>Table10 Column3</Name>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<ExtraTabs>
+				<!--Type"default", "chart" & "web" -> no parameter attribute allowed.-->
+				<Tab tableId="1000" title="Rename Default Tab" type="default" />
+				<Tab tableId="1000" title="Chart?" type="chart|Pie-Pie|1002-1003" />
+				<Tab tableId="1000" title="Web?" type="http://[Polling Ip]/" />
+				
+				<!--Type"parameters" -> parameter attribute should contain a comma separated list of references to
+						- Columns from the main table (the one refered to via the tableId attribute)
+						- Params added via ExtraDetails-->
+				<Tab tableId="1000" title="Move params from main list to extra tab" type="parameters" parameter="1002,1003" />
+				
+				<!--Type"relation" -> parameter attribute should refer to a column that:
+						- contains a foreignKey to the main table (the one refered to via the tableId attribute)
+						- be from a different table than the one that is already the child for this TreeControl-->
+				<Tab tableId="1000" title="Add a different child table to extra tab" type="relation" parameter="10001" />
+				
+				<!--Type"default" -> parameter attribute should refer to a granChildren table.-->
+				<Tab tableId="1000" title="Add a grandChild table to extra tab" type="relation" parameter="3000" />
+			</ExtraTabs>
+		</TreeControl>
+
+		<TreeControl parameterId="2">
+			<ExtraTabs>
+			</ExtraTabs>
+		</TreeControl>
+
+		<TreeControl parameterId="3">
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>
