@@ -5,7 +5,7 @@
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    public static class ValidationResultListExtensions
+    internal static class ValidationResultListExtensions
     {
         public static bool AddIfNotNull(this List<IValidationResult> results, IEnumerable<IValidationResult> newResults)
         {

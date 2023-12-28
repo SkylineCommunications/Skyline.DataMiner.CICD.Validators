@@ -13,7 +13,7 @@
     /// </summary>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    public sealed class MinDataMinerVersionsAttribute : Attribute
+    internal sealed class MinDataMinerVersionsAttribute : Attribute
     {
         public MinDataMinerVersionsAttribute(string mainRelease, string featureRelease)
         {

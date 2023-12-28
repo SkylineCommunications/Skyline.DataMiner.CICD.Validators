@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.Response.CheckRespon
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckResponseTag, Category.Pair)]
-    public class CheckResponseTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckResponseTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

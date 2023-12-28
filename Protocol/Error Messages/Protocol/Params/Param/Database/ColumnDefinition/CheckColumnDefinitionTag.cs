@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Database.ColumnDefinition.
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult ChangedLoggerDataType(IReadable referenceNode, IReadable positionNode, string oldType, string tablePid, string newType)
+        internal static IValidationResult ChangedLoggerDataType(IReadable referenceNode, IReadable positionNode, string oldType, string tablePid, string newType)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Database.ColumnDefinition.
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint ChangedLoggerDataType = 1;
     }

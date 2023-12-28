@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTD
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckRTDisplayTag, Category.Param, TestOrder.Post1)]
-    public class CheckRTDisplayTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckRTDisplayTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

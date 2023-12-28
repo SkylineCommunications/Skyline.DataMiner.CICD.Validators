@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayC
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult DisplayColumnRemoved(IReadable referenceNode, IReadable positionNode, string columnIdx, string tableId)
+        internal static IValidationResult DisplayColumnRemoved(IReadable referenceNode, IReadable positionNode, string columnIdx, string tableId)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayC
             };
         }
 
-        public static IValidationResult DisplayColumnAdded(IReadable referenceNode, IReadable positionNode, string columnIdx, string tableId)
+        internal static IValidationResult DisplayColumnAdded(IReadable referenceNode, IReadable positionNode, string columnIdx, string tableId)
         {
             return new ValidationResult
             {
@@ -60,7 +60,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayC
             };
         }
 
-        public static IValidationResult DisplayColumnContentChanged(IReadable referenceNode, IReadable positionNode, string previousColumnIdx, string tableId, string newColumnIdx)
+        internal static IValidationResult DisplayColumnContentChanged(IReadable referenceNode, IReadable positionNode, string previousColumnIdx, string tableId, string newColumnIdx)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayC
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DisplayColumnRemoved = 1;
         public const uint DisplayColumnAdded = 2;

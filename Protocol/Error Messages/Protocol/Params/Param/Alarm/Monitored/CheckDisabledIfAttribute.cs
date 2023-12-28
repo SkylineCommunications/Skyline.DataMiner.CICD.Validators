@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string pid)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
             };
         }
 
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string pid)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string pid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
             };
         }
 
-        public static IValidationResult ReferencedParamWrongType(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedParamType, string referencedPid)
+        internal static IValidationResult ReferencedParamWrongType(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedParamType, string referencedPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
             };
         }
 
-        public static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string referencingPid)
+        internal static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string referencingPid)
         {
             return new ValidationResult
             {
@@ -162,7 +162,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyAttribute = 1;
         public const uint UntrimmedAttribute = 2;

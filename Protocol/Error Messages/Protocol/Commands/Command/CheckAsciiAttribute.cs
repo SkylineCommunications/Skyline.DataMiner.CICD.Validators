@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string commandId)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string commandId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
             };
         }
 
-        public static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string asciiValue, string commandId)
+        internal static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string asciiValue, string commandId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
             };
         }
 
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string commandId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string commandId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyAttribute = 1;
         public const uint InvalidAttribute = 2;

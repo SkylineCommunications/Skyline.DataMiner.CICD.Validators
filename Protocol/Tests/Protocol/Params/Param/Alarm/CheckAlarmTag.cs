@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckAlarmTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckAlarmTag, Category.Param)]
-    public class CheckAlarmTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckAlarmTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

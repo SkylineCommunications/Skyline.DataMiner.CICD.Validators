@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckEntryPoints
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingEntryPoint(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string qactionId)
+        internal static IValidationResult MissingEntryPoint(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckEntryPoints
             };
         }
 
-        public static IValidationResult UnexpectedAccessModifierForEntryPointMethod(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string currentAccessModifier, string qactionId)
+        internal static IValidationResult UnexpectedAccessModifierForEntryPointMethod(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string currentAccessModifier, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckEntryPoints
             };
         }
 
-        public static IValidationResult UnexpectedAccessModifierForEntryPointClass(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string currentAccessModifier, string qactionId)
+        internal static IValidationResult UnexpectedAccessModifierForEntryPointClass(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string currentAccessModifier, string qactionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckEntryPoints
             };
         }
 
-        public static IValidationResult UnexpectedArg0TypeForEntryPointMethod(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string arg0Type, string qactionId)
+        internal static IValidationResult UnexpectedArg0TypeForEntryPointMethod(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string arg0Type, string qactionId)
         {
             return new ValidationResult
             {
@@ -112,7 +112,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckEntryPoints
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingEntryPoint = 1;
         public const uint UnexpectedAccessModifierForEntryPointMethod = 2;

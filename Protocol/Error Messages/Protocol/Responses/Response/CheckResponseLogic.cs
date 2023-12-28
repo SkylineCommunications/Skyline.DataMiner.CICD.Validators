@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.CheckResponseLogic
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingCrcResponseAction(IValidate test, IReadable referenceNode, IReadable positionNode, string responseId, string paramPid)
+        internal static IValidationResult MissingCrcResponseAction(IValidate test, IReadable referenceNode, IReadable positionNode, string responseId, string paramPid)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.CheckResponseLogic
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingCrcResponseAction = 1;
     }

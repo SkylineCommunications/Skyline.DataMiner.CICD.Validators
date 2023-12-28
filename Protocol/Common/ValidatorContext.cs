@@ -12,7 +12,7 @@
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
 
-    public class ValidatorContext
+    internal class ValidatorContext
     {
         private readonly Lazy<IReadOnlyDictionary<ProjectId, CompiledQActionProject>> compiledQActions;
 
@@ -40,6 +40,6 @@
 
         public CrossData.CrossData CrossData { get; } = new CrossData.CrossData();
 
-        public HelperCollection Helpers { get; }
+        internal HelperCollection Helpers { get; }
     }
 }

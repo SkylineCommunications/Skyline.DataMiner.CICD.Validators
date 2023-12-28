@@ -18,7 +18,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
 
 
     [Test(CheckId.CheckActionTypes, Category.Action)]
-    public class CheckActionTypes : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckActionTypes : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

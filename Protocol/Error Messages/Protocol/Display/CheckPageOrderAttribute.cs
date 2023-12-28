@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult UnsupportedPage(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
+        internal static IValidationResult UnsupportedPage(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult MissingPage(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
+        internal static IValidationResult MissingPage(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult MissingWebPage(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingWebPage(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult WrongWebPagePosition(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
+        internal static IValidationResult WrongWebPagePosition(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult UnexistingPage(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
+        internal static IValidationResult UnexistingPage(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult DuplicateEntries(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
+        internal static IValidationResult DuplicateEntries(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult MissingPage_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string pageName)
+        internal static IValidationResult MissingPage_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string pageName)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
             };
         }
 
-        public static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid)
+        internal static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid)
         {
             return new ValidationResult
             {
@@ -312,7 +312,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyAttribute = 2;

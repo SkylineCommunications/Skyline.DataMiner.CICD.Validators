@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckParentAttribute, Category.TreeControl)]
-    public class CheckParentAttribute : IValidate, ICodeFix
+    internal class CheckParentAttribute : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

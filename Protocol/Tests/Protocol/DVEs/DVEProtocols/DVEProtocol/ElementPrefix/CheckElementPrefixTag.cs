@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.ElementPr
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckElementPrefixTag, Category.Protocol)]
-    public class CheckElementPrefixTag : ICompare
+    internal class CheckElementPrefixTag : ICompare
     {
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {

@@ -12,7 +12,7 @@
 
     // TODO: Add build number when 10.4 is released
     [MinDataMinerVersions("10.4.0.0", "10.3.8.0-13183")]
-    public class ExportRule_whereAttribute : IFeatureCheck
+    internal class ExportRule_whereAttribute : IFeatureCheck
     {
         public string Title => "Export Rules - whereAttribute";
 

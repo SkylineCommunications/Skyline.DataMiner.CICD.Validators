@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.Command.CheckCommand
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckCommandTag, Category.Pair)]
-    public class CheckCommandTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckCommandTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

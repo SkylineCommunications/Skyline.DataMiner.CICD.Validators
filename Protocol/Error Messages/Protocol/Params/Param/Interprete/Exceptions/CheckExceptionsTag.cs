@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Chec
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedExceptionValueTag(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid, string previousExceptionValue, string newExceptionValue)
+        internal static IValidationResult UpdatedExceptionValueTag(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid, string previousExceptionValue, string newExceptionValue)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Chec
             };
         }
 
-        public static IValidationResult RemovedException(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid)
+        internal static IValidationResult RemovedException(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid)
         {
             return new ValidationResult
             {
@@ -60,7 +60,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Chec
             };
         }
 
-        public static IValidationResult AddedException(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid)
+        internal static IValidationResult AddedException(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Chec
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedExceptionValueTag = 1;
         public const uint RemovedException = 2;

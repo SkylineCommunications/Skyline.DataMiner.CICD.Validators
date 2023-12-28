@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckNameAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckNameAttribute, Category.QAction)]
-    public class CheckNameAttribute : IValidate, ICodeFix, ICompare
+    internal class CheckNameAttribute : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

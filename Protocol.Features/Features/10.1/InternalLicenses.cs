@@ -9,7 +9,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.13.0-9784")]
-    public class InternalLicenses : IFeatureCheck
+    internal class InternalLicenses : IFeatureCheck
     {
         public string Title => "Internal Licenses";
 

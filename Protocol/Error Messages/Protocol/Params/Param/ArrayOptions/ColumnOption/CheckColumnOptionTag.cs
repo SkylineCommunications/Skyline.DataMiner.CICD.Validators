@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult RemovedColumnOptionTag(IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
+        internal static IValidationResult RemovedColumnOptionTag(IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint RemovedColumnOptionTag = 1;
     }

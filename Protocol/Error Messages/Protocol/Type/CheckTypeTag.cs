@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckTypeTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckTypeTag
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckTypeTag
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string allowedValues)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string allowedValues)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckTypeTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingTag = 1;
         public const uint EmptyTag = 2;

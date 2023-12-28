@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.NamingFormat.
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckNamingFormatTag, Category.Param)]
-    public class CheckNamingFormatTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckNamingFormatTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

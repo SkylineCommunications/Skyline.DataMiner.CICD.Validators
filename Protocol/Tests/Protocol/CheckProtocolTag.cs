@@ -10,7 +10,7 @@
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckProtocolTag, Category.Protocol)]
-    public class CheckProtocolTag : IValidate
+    internal class CheckProtocolTag : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

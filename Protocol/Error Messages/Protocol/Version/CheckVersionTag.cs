@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Version.CheckVersionTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Version.CheckVersionTag
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Version.CheckVersionTag
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Version.CheckVersionTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingTag = 1;
         public const uint EmptyTag = 2;

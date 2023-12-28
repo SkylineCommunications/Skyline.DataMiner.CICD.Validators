@@ -21,7 +21,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.MeasurementTypeOptions.TableClass;
 
     [Test(CheckId.CheckOptionsAttribute, Category.Param)]
-    public class CheckOptionsAttribute : IValidate, ICodeFix, ICompare
+    internal class CheckOptionsAttribute : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

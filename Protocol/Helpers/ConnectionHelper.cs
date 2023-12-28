@@ -5,7 +5,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    public static class ConnectionHelper
+    internal static class ConnectionHelper
     {
         internal static string CreateConnectionName(IProtocol protocol, IPortSettingsBase portSettings)
         {

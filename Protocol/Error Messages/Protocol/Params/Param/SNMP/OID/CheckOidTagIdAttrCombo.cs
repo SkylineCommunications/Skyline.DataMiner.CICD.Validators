@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckOidTagIdAttr
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult ExcessiveAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult ExcessiveAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -34,7 +34,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckOidTagIdAttr
             };
         }
 
-        public static IValidationResult InvalidCombo(IValidate test, IReadable referenceNode, IReadable positionNode, string oidValue, string idValue, string pid)
+        internal static IValidationResult InvalidCombo(IValidate test, IReadable referenceNode, IReadable positionNode, string oidValue, string idValue, string pid)
         {
             return new ValidationResult
             {
@@ -60,7 +60,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckOidTagIdAttr
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint ExcessiveAttribute = 1;
         public const uint InvalidCombo = 2;

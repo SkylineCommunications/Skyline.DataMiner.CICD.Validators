@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.DefaultValue.Ch
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDefaultValueTag, Category.Param)]
-    public class CheckDefaultValueTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckDefaultValueTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

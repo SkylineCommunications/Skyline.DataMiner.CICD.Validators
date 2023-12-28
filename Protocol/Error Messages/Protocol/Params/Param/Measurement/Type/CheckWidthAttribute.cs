@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
             };
         }
 
-        public static IValidationResult EmptyWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
             };
         }
 
-        public static IValidationResult UntrimmedWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedWidth, string pid)
+        internal static IValidationResult UntrimmedWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedWidth, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
             };
         }
 
-        public static IValidationResult InvalidWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidWidth, string pid)
+        internal static IValidationResult InvalidWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidWidth, string pid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
             };
         }
 
-        public static IValidationResult InconsistentWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName, string paramIDs, string widthValues, bool hasCodeFix)
+        internal static IValidationResult InconsistentWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName, string paramIDs, string widthValues, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
             };
         }
 
-        public static IValidationResult UnsupportedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string measurementType, string pid)
+        internal static IValidationResult UnsupportedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string measurementType, string pid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
             };
         }
 
-        public static IValidationResult UnrecommendedWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string widthValue, string pid)
+        internal static IValidationResult UnrecommendedWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string widthValue, string pid)
         {
             return new ValidationResult
             {
@@ -187,7 +187,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyWidth = 2;

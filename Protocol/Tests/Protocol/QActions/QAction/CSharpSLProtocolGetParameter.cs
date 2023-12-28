@@ -21,7 +21,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolGetPar
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpSLProtocolGetParameter, Category.QAction)]
-    public class CSharpSLProtocolGetParameter : IValidate
+    internal class CSharpSLProtocolGetParameter : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

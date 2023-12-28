@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckArrayOpt
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckArrayOptionsTag, Category.Param)]
-    public class CheckArrayOptionsTag : ICompare
+    internal class CheckArrayOptionsTag : ICompare
     {
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {

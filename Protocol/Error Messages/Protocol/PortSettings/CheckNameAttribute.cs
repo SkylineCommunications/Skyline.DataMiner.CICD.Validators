@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.PortSettings.CheckNameAttribute
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId)
         {
             return new ValidationResult
             {
@@ -34,7 +34,7 @@ namespace SLDisValidator2.Tests.Protocol.PortSettings.CheckNameAttribute
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId)
         {
             return new ValidationResult
             {
@@ -59,7 +59,7 @@ namespace SLDisValidator2.Tests.Protocol.PortSettings.CheckNameAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string attributeValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string attributeValue)
         {
             return new ValidationResult
             {
@@ -85,7 +85,7 @@ namespace SLDisValidator2.Tests.Protocol.PortSettings.CheckNameAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyAttribute = 2;

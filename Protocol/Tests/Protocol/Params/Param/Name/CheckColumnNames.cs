@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckColumnNames
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckColumnNames, Category.Param)]
-    public class CheckColumnNames : IValidate, ICodeFix
+    internal class CheckColumnNames : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

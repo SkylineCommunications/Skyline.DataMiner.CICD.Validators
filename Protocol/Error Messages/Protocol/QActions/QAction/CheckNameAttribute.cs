@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckNameAttribute
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string qactionIds)
+        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string qactionIds)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckNameAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DuplicatedValue = 1;
     }

@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.CheckContentTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckContentTag, Category.Pair)]
-    public class CheckContentTag : IValidate
+    internal class CheckContentTag : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

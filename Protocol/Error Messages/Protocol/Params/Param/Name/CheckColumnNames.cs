@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckColumnNames
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTableNameAsPrefixes(IValidate test, IReadable referenceNode, IReadable positionNode, string tableName, string tablePid)
+        internal static IValidationResult MissingTableNameAsPrefixes(IValidate test, IReadable referenceNode, IReadable positionNode, string tableName, string tablePid)
         {
             return new ValidationResult
             {
@@ -34,7 +34,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckColumnNames
             };
         }
 
-        public static IValidationResult MissingTableNameAsPrefix(IValidate test, IReadable referenceNode, IReadable positionNode, string tableName, string columnName, string columnPid)
+        internal static IValidationResult MissingTableNameAsPrefix(IValidate test, IReadable referenceNode, IReadable positionNode, string tableName, string columnName, string columnPid)
         {
             return new ValidationResult
             {
@@ -60,7 +60,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckColumnNames
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingTableNameAsPrefixes = 1;
         public const uint MissingTableNameAsPrefix = 2;

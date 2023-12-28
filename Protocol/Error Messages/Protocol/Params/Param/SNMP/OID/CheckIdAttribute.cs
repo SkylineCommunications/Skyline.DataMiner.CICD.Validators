@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckIdAttribute
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -34,7 +34,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidAttributeValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string currentValue)
+        internal static IValidationResult InvalidAttributeValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string currentValue)
         {
             return new ValidationResult
             {
@@ -59,7 +59,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckIdAttribute
             };
         }
 
-        public static IValidationResult NonExistingParam(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string pid)
+        internal static IValidationResult NonExistingParam(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string pid)
         {
             return new ValidationResult
             {
@@ -84,7 +84,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckIdAttribute
             };
         }
 
-        public static IValidationResult UnsupportedParam(IValidate test, IReadable referenceNode, IReadable positionNode, string idAttributeValue, string pid)
+        internal static IValidationResult UnsupportedParam(IValidate test, IReadable referenceNode, IReadable positionNode, string idAttributeValue, string pid)
         {
             return new ValidationResult
             {
@@ -109,7 +109,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckIdAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -135,7 +135,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckIdAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyAttribute = 1;
         public const uint InvalidAttributeValue = 2;

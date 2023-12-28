@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.ExportRules.ExportRule.CheckTableAttrib
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.ExportRules.ExportRule.CheckTableAttrib
             };
         }
 
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.ExportRules.ExportRule.CheckTableAttrib
             };
         }
 
-        public static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tableValue)
+        internal static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tableValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.ExportRules.ExportRule.CheckTableAttrib
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -112,7 +112,7 @@ namespace SLDisValidator2.Tests.Protocol.ExportRules.ExportRule.CheckTableAttrib
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingId = 1;
         public const uint MissingAttribute = 2;

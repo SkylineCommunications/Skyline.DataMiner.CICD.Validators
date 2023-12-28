@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Session.CheckSessi
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string groupId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Session.CheckSessi
             };
         }
 
-        public static IValidationResult EmptySessionTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult EmptySessionTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Session.CheckSessi
             };
         }
 
-        public static IValidationResult InvalidSessionTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
+        internal static IValidationResult InvalidSessionTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Session.CheckSessi
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingId = 1;
         public const uint EmptySessionTag = 2;

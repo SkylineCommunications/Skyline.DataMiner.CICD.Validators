@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckHistorySetAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckHistorySetAttribute, Category.Param)]
-    public class CheckHistorySetAttribute : /*IValidate, ICodeFix, */ICompare
+    internal class CheckHistorySetAttribute : /*IValidate, ICodeFix, */ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

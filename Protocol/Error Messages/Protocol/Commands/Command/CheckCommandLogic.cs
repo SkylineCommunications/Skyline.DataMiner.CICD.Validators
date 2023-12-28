@@ -10,9 +10,9 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckCommandLogic
     using SLDisValidator2.Interfaces;
 
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingCrcCommandAction(IValidate test, IReadable referenceNode, IReadable positionNode, string commandId, string pid)
+        internal static IValidationResult MissingCrcCommandAction(IValidate test, IReadable referenceNode, IReadable positionNode, string commandId, string pid)
         {
             return new ValidationResult
             {
@@ -38,7 +38,7 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckCommandLogic
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingCrcCommandAction = 1;
     }

@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckValueAttribute, Category.Param)]
-    public class CheckValueAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckValueAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

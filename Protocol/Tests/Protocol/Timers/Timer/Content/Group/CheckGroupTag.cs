@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Content.Group.CheckGroupTa
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckGroupTag, Category.Timer)]
-    public class CheckGroupTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckGroupTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

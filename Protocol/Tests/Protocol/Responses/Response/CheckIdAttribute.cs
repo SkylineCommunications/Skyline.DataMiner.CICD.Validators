@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.CheckIdAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckIdAttribute, Category.Response)]
-    public class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

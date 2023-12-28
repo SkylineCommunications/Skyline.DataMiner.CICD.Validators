@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIndex
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingDynamicIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId)
+        internal static IValidationResult MissingDynamicIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIndex
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingDynamicIdAttribute = 1;
     }

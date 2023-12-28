@@ -6,7 +6,7 @@
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    public class CSharpValidationResult : ValidationResult, ICSharpValidationResult
+    internal class CSharpValidationResult : ValidationResult, ICSharpValidationResult
     {
         [IgnoreDataMember]
         public Location CSharpLocation { get; set; }

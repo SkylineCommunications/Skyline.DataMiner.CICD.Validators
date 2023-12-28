@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Others.CheckOth
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdateOtherId(IReadable referenceNode, IReadable positionNode, string oldId, string newId, string valueTag, string paramPid)
+        internal static IValidationResult UpdateOtherId(IReadable referenceNode, IReadable positionNode, string oldId, string newId, string valueTag, string paramPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Others.CheckOth
             };
         }
 
-        public static IValidationResult UpdateOtherDisplay(IReadable referenceNode, IReadable positionNode, string oldDisplayTag, string newDisplayTag, string valueTag, string paramPid)
+        internal static IValidationResult UpdateOtherDisplay(IReadable referenceNode, IReadable positionNode, string oldDisplayTag, string newDisplayTag, string valueTag, string paramPid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Others.CheckOth
             };
         }
 
-        public static IValidationResult DeletedValue(IReadable referenceNode, IReadable positionNode, string oldValue, string paramPid)
+        internal static IValidationResult DeletedValue(IReadable referenceNode, IReadable positionNode, string oldValue, string paramPid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Others.CheckOth
             };
         }
 
-        public static IValidationResult AddedOthers(IReadable referenceNode, IReadable positionNode, string newValue, string paramPid)
+        internal static IValidationResult AddedOthers(IReadable referenceNode, IReadable positionNode, string newValue, string paramPid)
         {
             return new ValidationResult
             {
@@ -112,7 +112,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Others.CheckOth
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdateOtherId = 1;
         public const uint UpdateOtherDisplay = 2;

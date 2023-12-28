@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Others.CheckOth
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckOthersTag, Category.Param)]
-    public class CheckOthersTag : /*IValidate, ICodeFix, */ICompare
+    internal class CheckOthersTag : /*IValidate, ICodeFix, */ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

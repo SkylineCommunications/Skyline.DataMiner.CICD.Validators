@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
             };
         }
 
-        public static IValidationResult UntrimmedColumnPid(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedColumnPid, string treeControlId)
+        internal static IValidationResult UntrimmedColumnPid(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedColumnPid, string treeControlId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string treeControlPid)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
             };
         }
 
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
             };
         }
 
-        public static IValidationResult InvalidValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string treeControlId, string optionValue)
+        internal static IValidationResult InvalidValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string treeControlId, string optionValue)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
             };
         }
 
-        public static IValidationResult MissingValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string valueName, string treeControlId)
+        internal static IValidationResult MissingValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string valueName, string treeControlId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
             };
         }
 
-        public static IValidationResult ReferencedColumnExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string treeControlPid)
+        internal static IValidationResult ReferencedColumnExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -187,7 +187,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Tabl
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyAttribute = 1;
         public const uint UntrimmedColumnPid = 2;

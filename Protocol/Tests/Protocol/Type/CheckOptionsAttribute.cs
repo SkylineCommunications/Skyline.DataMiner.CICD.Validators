@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckOptionsAttribute, Category.Protocol)]
-    public class CheckOptionsAttribute : IValidate, ICodeFix, ICompare
+    internal class CheckOptionsAttribute : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

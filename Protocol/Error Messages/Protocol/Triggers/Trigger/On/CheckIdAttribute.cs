@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
             };
         }
 
-        public static IValidationResult ExcessiveAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string onTagValue, string triggerId)
+        internal static IValidationResult ExcessiveAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string onTagValue, string triggerId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
             };
         }
 
-        public static IValidationResult MultipleIds(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
+        internal static IValidationResult MultipleIds(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string allowedValues)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string allowedValues)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
             };
         }
 
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string referenceKind, string referenceId, string triggerId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string referenceKind, string referenceId, string triggerId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
             };
         }
 
-        public static IValidationResult LeadingZeros(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId, string attributeValue)
+        internal static IValidationResult LeadingZeros(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId, string attributeValue)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
         {
             return new ValidationResult
             {
@@ -212,7 +212,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.On.CheckIdAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint ExcessiveAttribute = 2;

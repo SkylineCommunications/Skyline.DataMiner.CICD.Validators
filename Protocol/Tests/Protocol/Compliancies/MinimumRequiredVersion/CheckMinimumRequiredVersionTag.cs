@@ -19,7 +19,7 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckMinimumRequiredVersionTag, Category.Protocol)]
-    public class CheckMinimumRequiredVersionTag : IValidate, ICodeFix, ICompare
+    internal class CheckMinimumRequiredVersionTag : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {
@@ -157,8 +157,7 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
                 minRequiredVersion = context.ValidatorSettings.MinimumSupportedDataMinerVersion;
             }
 
-            IDmaVersionCheckResults versionCheckResults =
-	            new VersionChecker(context.ValidatorSettings.MinimumSupportedDataMinerVersion).GetUsedFeatures(context.InputData,
+            IDmaVersionCheckResults versionCheckResults = VersionChecker.GetUsedFeatures(context.InputData,
 		            context.CompiledQActions, context.IsSolutionBased, CancellationToken.None);
 
             DataMinerVersion expectedVersion = minRequiredVersion;

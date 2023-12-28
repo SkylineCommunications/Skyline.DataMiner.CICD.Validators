@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.High.CheckHi
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckHighTag, Category.Param)]
-    public class CheckHighTag : IValidate, ICodeFix, ICompare
+    internal class CheckHighTag : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

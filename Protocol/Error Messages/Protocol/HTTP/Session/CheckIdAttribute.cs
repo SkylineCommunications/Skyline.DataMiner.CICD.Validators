@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckIdAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckIdAttribute
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckIdAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string sessionName)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string sessionName)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckIdAttribute
             };
         }
 
-        public static IValidationResult DuplicatedId(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string sessionNames)
+        internal static IValidationResult DuplicatedId(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string sessionNames)
         {
             return new ValidationResult
             {
@@ -137,7 +137,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckIdAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyAttribute = 2;

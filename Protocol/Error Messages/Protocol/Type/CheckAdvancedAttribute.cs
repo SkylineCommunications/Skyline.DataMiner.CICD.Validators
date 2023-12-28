@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckAdvancedAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckAdvancedAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckAdvancedAttribute
             };
         }
 
-        public static IValidationResult UntrimmedValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
+        internal static IValidationResult UntrimmedValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckAdvancedAttribute
             };
         }
 
-        public static IValidationResult UnknownConnection(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId)
+        internal static IValidationResult UnknownConnection(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId)
         {
             return new ValidationResult
             {
@@ -112,7 +112,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckAdvancedAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyAttribute = 4;
         public const uint UntrimmedAttribute = 5;

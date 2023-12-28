@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckAdvancedAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckAdvancedAttribute, Category.Protocol)]
-    public class CheckAdvancedAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckAdvancedAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

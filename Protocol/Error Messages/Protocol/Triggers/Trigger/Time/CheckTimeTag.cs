@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.Time.CheckTimeTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MultipleAfterStartup(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
+        internal static IValidationResult MultipleAfterStartup(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.Time.CheckTimeTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MultipleAfterStartup = 1;
     }

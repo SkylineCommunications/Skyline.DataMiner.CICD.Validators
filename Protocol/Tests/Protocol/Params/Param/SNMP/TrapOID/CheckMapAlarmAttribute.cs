@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarm
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckMapAlarmAttribute, Category.Param)]
-    public class CheckMapAlarmAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckMapAlarmAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

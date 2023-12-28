@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.On.CheckNrAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckNrAttribute, Category.Action)]
-    public class CheckNrAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckNrAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

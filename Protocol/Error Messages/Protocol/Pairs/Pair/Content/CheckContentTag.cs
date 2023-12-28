@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.CheckContentTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingClearResponseRoutine(IValidate test, IReadable referenceNode, IReadable positionNode, string pairId)
+        internal static IValidationResult MissingClearResponseRoutine(IValidate test, IReadable referenceNode, IReadable positionNode, string pairId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.CheckContentTag
             };
         }
 
-        public static IValidationResult MissingClearResponseRoutine_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string responseIdToClear, string responseIdOnWhichToTrigger)
+        internal static IValidationResult MissingClearResponseRoutine_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string responseIdToClear, string responseIdOnWhichToTrigger)
         {
             return new ValidationResult
             {
@@ -62,7 +62,7 @@ namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.CheckContentTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingClearResponseRoutine = 1;
         public const uint MissingClearResponseRoutine_Sub = 2;

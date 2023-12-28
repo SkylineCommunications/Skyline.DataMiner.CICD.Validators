@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string untrimmedValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
             };
         }
 
-        public static IValidationResult NamingEmpty(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult NamingEmpty(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
             };
         }
 
-        public static IValidationResult NamingRefersToNonExistingParam(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string tablePid)
+        internal static IValidationResult NamingRefersToNonExistingParam(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string tablePid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
             };
         }
 
-        public static IValidationResult PreserveStateShouldBeAvoided(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult PreserveStateShouldBeAvoided(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
             };
         }
 
-        public static IValidationResult ViewTableInvalidReference(IValidate test, IReadable referenceNode, IReadable positionNode, Severity severity, string viewOption, string viewTablePid)
+        internal static IValidationResult ViewTableInvalidReference(IValidate test, IReadable referenceNode, IReadable positionNode, Severity severity, string viewOption, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
             };
         }
 
-        public static IValidationResult ViewTableFilterChangeInvalidColumns(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string viewTablePid)
+        internal static IValidationResult ViewTableFilterChangeInvalidColumns(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
             };
         }
 
-        public static IValidationResult ViewTableDirectViewInvalidColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string viewTablePid)
+        internal static IValidationResult ViewTableDirectViewInvalidColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -212,9 +212,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult RemovedLoggerTableDatabaseLink(IReadable referenceNode, IReadable positionNode, string paramPid)
+        internal static IValidationResult RemovedLoggerTableDatabaseLink(IReadable referenceNode, IReadable positionNode, string paramPid)
         {
             return new ValidationResult
             {
@@ -240,7 +240,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsA
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyAttribute = 1;
         public const uint UntrimmedAttribute = 2;

@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.CheckContentTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult IncompatibleContentWithGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string groupType, string contentChildTagName, string groupId)
+        internal static IValidationResult IncompatibleContentWithGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string groupType, string contentChildTagName, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.CheckContentTag
             };
         }
 
-        public static IValidationResult MixedTypes(IValidate test, IReadable referenceNode, IReadable positionNode, string contentTypes, string groupId)
+        internal static IValidationResult MixedTypes(IValidate test, IReadable referenceNode, IReadable positionNode, string contentTypes, string groupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.CheckContentTag
             };
         }
 
-        public static IValidationResult MaxItemsMultipleGet(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult MaxItemsMultipleGet(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.CheckContentTag
             };
         }
 
-        public static IValidationResult MaxItems(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult MaxItems(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.CheckContentTag
             };
         }
 
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -137,7 +137,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.CheckContentTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint IncompatibleContentWithGroupType = 1;
         public const uint MixedTypes = 2;

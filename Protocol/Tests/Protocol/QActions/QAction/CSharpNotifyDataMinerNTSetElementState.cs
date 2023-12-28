@@ -19,7 +19,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpNotifyDataMinerN
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpNotifyDataMinerNTSetElementState, Category.QAction)]
-    public class CSharpNotifyDataMinerNTSetElementState : IValidate
+    internal class CSharpNotifyDataMinerNTSetElementState : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

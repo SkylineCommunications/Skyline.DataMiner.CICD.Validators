@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckProxyPasswordAttribut
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckProxyPasswordAttribute, Category.HTTP)]
-    public class CheckProxyPasswordAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckProxyPasswordAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

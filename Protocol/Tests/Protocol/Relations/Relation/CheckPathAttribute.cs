@@ -18,7 +18,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.ColumnOptionOptions;
 
     [Test(CheckId.CheckPathAttribute, Category.Relation)]
-    public class CheckPathAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckPathAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

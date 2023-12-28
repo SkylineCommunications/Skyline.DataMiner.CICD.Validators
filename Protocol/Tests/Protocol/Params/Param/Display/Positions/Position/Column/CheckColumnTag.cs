@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckColumnTag, Category.Param)]
-    public class CheckColumnTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckColumnTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
             };
         }
 
-        public static IValidationResult InvalidAttributeValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string currentValue)
+        internal static IValidationResult InvalidAttributeValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string currentValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
             };
         }
 
-        public static IValidationResult NonExistingColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string indexValue, string tablePid)
+        internal static IValidationResult NonExistingColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string indexValue, string tablePid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
             };
         }
 
-        public static IValidationResult UnrecommendedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string indexValue, string tablePid, string recommendedIndex)
+        internal static IValidationResult UnrecommendedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string indexValue, string tablePid, string recommendedIndex)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string untrimmedIndex)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string untrimmedIndex)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
             };
         }
 
-        public static IValidationResult InvalidColumnInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIntrepeteType, string pkColumnPid)
+        internal static IValidationResult InvalidColumnInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIntrepeteType, string pkColumnPid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
             };
         }
 
-        public static IValidationResult InvalidColumnMeasurementType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnMeasurementType, string pkColumnPid)
+        internal static IValidationResult InvalidColumnMeasurementType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnMeasurementType, string pkColumnPid)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
             };
         }
 
-        public static IValidationResult InvalidColumnType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string pkColumnPid)
+        internal static IValidationResult InvalidColumnType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string pkColumnPid)
         {
             return new ValidationResult
             {
@@ -237,7 +237,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyAttribute = 2;

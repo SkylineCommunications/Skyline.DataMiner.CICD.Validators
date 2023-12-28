@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckTriggersAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTriggersAttribute, Category.QAction)]
-    public class CheckTriggersAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckTriggersAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

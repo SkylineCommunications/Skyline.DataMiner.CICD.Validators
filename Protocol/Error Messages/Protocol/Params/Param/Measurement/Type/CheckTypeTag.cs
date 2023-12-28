@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult TogglebuttonRecommended(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult TogglebuttonRecommended(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult MatrixInvalidInterpreteRawType(IValidate test, IReadable referenceNode, IReadable positionNode, string rawType, string matrixPid, bool hasCodeFix)
+        internal static IValidationResult MatrixInvalidInterpreteRawType(IValidate test, IReadable referenceNode, IReadable positionNode, string rawType, string matrixPid, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult MatrixInvalidInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string interpreteType, string matrixPid, string expectedInterpreteType, bool hasCodeFix)
+        internal static IValidationResult MatrixInvalidInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string interpreteType, string matrixPid, string expectedInterpreteType, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult MatrixInvalidInterpreteLengthType(IValidate test, IReadable referenceNode, IReadable positionNode, string lengthType, string matrixPid, bool hasCodeFix)
+        internal static IValidationResult MatrixInvalidInterpreteLengthType(IValidate test, IReadable referenceNode, IReadable positionNode, string lengthType, string matrixPid, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult MatrixAlarmingDisabled(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult MatrixAlarmingDisabled(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult MatrixTrendingEnabled(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult MatrixTrendingEnabled(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult MatrixSetterOnWrite(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult MatrixSetterOnWrite(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult MatrixInvalidInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult MatrixInvalidInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult InvalidParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string measurementType, string paramId)
+        internal static IValidationResult InvalidParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string measurementType, string paramId)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string measurementType, string paramId)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string measurementType, string paramId)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -312,7 +312,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint TogglebuttonRecommended = 1;
         public const uint MatrixInvalidInterpreteRawType = 2;

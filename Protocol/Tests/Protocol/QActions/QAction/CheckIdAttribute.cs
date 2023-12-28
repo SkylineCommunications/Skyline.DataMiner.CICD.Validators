@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckIdAttribute
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckIdAttribute, Category.QAction)]
-    public class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

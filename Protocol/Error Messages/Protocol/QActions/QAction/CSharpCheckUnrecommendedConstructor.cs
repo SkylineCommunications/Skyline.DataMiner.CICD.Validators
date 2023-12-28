@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult UnrecommendedXmlSerializerConstructor(IValidate test, IReadable referenceNode, IReadable positionNode, string typeUnrecommendedConstructor, string constructorNamespace, string qactionId)
+        internal static IValidationResult UnrecommendedXmlSerializerConstructor(IValidate test, IReadable referenceNode, IReadable positionNode, string typeUnrecommendedConstructor, string constructorNamespace, string qactionId)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UnrecommendedXmlSerializerConstructor = 1;
     }

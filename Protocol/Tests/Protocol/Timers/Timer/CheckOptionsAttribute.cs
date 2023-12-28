@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.TimerOptions;
 
     [Test(CheckId.CheckOptionsAttribute, Category.Timer)]
-    public class CheckOptionsAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckOptionsAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

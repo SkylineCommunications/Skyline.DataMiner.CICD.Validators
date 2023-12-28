@@ -6,7 +6,7 @@
 
     using SLDisValidator2.Common;
 
-    public interface IValidate : IRoot
+    internal interface IValidate : IRoot
     {
         List<IValidationResult> Validate(ValidatorContext context);
     }

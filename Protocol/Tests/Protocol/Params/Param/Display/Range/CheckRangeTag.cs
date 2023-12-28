@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.CheckRangeTa
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckRangeTag, Category.Param)]
-    public class CheckRangeTag : IValidate
+    internal class CheckRangeTag : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

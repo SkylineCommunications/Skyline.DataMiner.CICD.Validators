@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult DuplicateDisplayKeyDefinition(IValidate test, IReadable referenceNode, IReadable positionNode, string tableId)
+        internal static IValidationResult DuplicateDisplayKeyDefinition(IValidate test, IReadable referenceNode, IReadable positionNode, string tableId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult DisplayColumnSameAsPK(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult DisplayColumnSameAsPK(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult DisplayColumnUnrecommended(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, bool hasCodeFix)
+        internal static IValidationResult DisplayColumnUnrecommended(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult DisplayKeyColumnInvalidInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIntrepeteType, string dkColumnPid)
+        internal static IValidationResult DisplayKeyColumnInvalidInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIntrepeteType, string dkColumnPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult DisplayKeyColumnInvalidMeasurementType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnMeasurementType, string dkColumnPid)
+        internal static IValidationResult DisplayKeyColumnInvalidMeasurementType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnMeasurementType, string dkColumnPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult DisplayKeyColumnInvalidType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string dkColumnPid)
+        internal static IValidationResult DisplayKeyColumnInvalidType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string dkColumnPid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult DisplayKeyColumnMissing(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult DisplayKeyColumnMissing(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult UnexpectedIdxSuffix(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
+        internal static IValidationResult UnexpectedIdxSuffix(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult DuplicateDisplayKeyColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult DuplicateDisplayKeyColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -237,9 +237,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult FormatChanged(IReadable referenceNode, IReadable positionNode, string oldSyntax, string oldFormat, string newSyntax, string newFormat, string tablePid)
+        internal static IValidationResult FormatChanged(IReadable referenceNode, IReadable positionNode, string oldSyntax, string oldFormat, string newSyntax, string newFormat, string tablePid)
         {
             return new ValidationResult
             {
@@ -264,7 +264,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
             };
         }
 
-        public static IValidationResult FormatRemoved(IReadable referenceNode, IReadable positionNode, string oldSyntax, string tablePid)
+        internal static IValidationResult FormatRemoved(IReadable referenceNode, IReadable positionNode, string oldSyntax, string tablePid)
         {
             return new ValidationResult
             {
@@ -290,7 +290,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DuplicateDisplayKeyDefinition = 1;
         public const uint DisplayColumnSameAsPK = 2;

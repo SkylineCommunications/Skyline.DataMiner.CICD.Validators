@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.CheckContentTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckContentTag, Category.Group)]
-    public class CheckContentTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckContentTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

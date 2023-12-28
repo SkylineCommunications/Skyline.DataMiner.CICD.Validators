@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckColumns
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckColumns, Category.Param)]
-    public class CheckColumns : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckColumns : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

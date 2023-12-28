@@ -10,7 +10,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.3.0-8092")]
-    public class ProtocolTtlSyntax : IFeatureCheck
+    internal class ProtocolTtlSyntax : IFeatureCheck
     {
         public string Title => "Protocol TTL Syntax";
 

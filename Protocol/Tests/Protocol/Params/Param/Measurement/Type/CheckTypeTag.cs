@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckType
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTypeTag, Category.Param)]
-    public class CheckTypeTag : IValidate, ICodeFix
+    internal class CheckTypeTag : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

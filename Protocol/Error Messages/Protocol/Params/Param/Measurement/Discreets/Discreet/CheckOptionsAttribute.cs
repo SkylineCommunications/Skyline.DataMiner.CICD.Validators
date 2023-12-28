@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MisconfiguredConfirmOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MisconfiguredConfirmOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
             };
         }
 
-        public static IValidationResult MissingConfirmOption(IValidate test, IReadable referenceNode, IReadable positionNode, string contextMenuItem, string pid)
+        internal static IValidationResult MissingConfirmOption(IValidate test, IReadable referenceNode, IReadable positionNode, string contextMenuItem, string pid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
             };
         }
 
-        public static IValidationResult EmptyConfirmOption(IValidate test, IReadable referenceNode, IReadable positionNode, string contextMenuItem, string pid)
+        internal static IValidationResult EmptyConfirmOption(IValidate test, IReadable referenceNode, IReadable positionNode, string contextMenuItem, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
             };
         }
 
-        public static IValidationResult UntrimmedConfirmOption(IValidate test, IReadable referenceNode, IReadable positionNode, string contextMenuItem, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedConfirmOption(IValidate test, IReadable referenceNode, IReadable positionNode, string contextMenuItem, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -112,7 +112,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MisconfiguredConfirmOptions = 1;
         public const uint MissingConfirmOption = 2;

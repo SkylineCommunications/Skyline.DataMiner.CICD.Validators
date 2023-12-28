@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
 
-    public static class ProtocolHelper
+    internal static class ProtocolHelper
     {
         public static char[] RestrictedProtocolNameChars { get; } = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', ';', '°' };
 

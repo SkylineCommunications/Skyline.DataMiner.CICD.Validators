@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckPartialA
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult EnabledPartial(IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult EnabledPartial(IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckPartialA
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EnabledPartial = 1;
     }

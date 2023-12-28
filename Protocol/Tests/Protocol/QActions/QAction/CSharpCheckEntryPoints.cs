@@ -21,7 +21,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckEntryPoints
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpCheckEntryPoints, Category.QAction)]
-    public class CSharpCheckEntryPoints : IValidate, ICodeFix/*, ICompare*/
+    internal class CSharpCheckEntryPoints : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.Params.Param.Chec
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckIdAttribute, Category.ParameterGroup)]
-    public class CheckIdAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckIdAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

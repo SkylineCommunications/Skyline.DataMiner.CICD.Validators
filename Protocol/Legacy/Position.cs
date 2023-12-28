@@ -7,7 +7,7 @@
 	/// Info on parameter positions.
 	/// </summary>
 	/// <seealso cref="System.IEquatable{Skyline.DataMiner.ProtocolValidator.Position}" />
-	public class Position : IEquatable<Position>
+	internal class Position : IEquatable<Position>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Position"/> class. This <see cref="Position"/> will be empty.
@@ -155,7 +155,7 @@
 	/// Compare two <see cref="Position"/> objects.
 	/// </summary>
 	/// <seealso cref="System.Collections.Generic.IEqualityComparer{Skyline.DataMiner.ProtocolValidator.Position}" />
-	public class PositionComparer : IEqualityComparer<Position>
+	internal class PositionComparer : IEqualityComparer<Position>
 	{
 		/// <summary>
 		/// Determines whether the specified objects are equal.

@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedIdxValue(IReadable referenceNode, IReadable positionNode, string columnPid, string oldSLProtocolPosition, string newSLProtocolPosition, string tablePid)
+        internal static IValidationResult UpdatedIdxValue(IReadable referenceNode, IReadable positionNode, string columnPid, string oldSLProtocolPosition, string newSLProtocolPosition, string tablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult UpdatedIdxValue_Parent(IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult UpdatedIdxValue_Parent(IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -62,7 +62,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedIdxValue = 1;
         public const uint UpdatedIdxValue_Parent = 2;

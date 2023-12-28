@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string overrideIconColumnsValue, string treeControlPid)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string overrideIconColumnsValue, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult NonExistingIds(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
+        internal static IValidationResult NonExistingIds(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult NonExistingIds_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string treeControlPid)
+        internal static IValidationResult NonExistingIds_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult DuplicateId(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId, string treeControlId)
+        internal static IValidationResult DuplicateId(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId, string treeControlId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult DuplicateOverrideIconColumns(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string treeControlPid)
+        internal static IValidationResult DuplicateOverrideIconColumns(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult UntrimmedValueInTag_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
+        internal static IValidationResult UntrimmedValueInTag_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult InvalidValueInTag_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidPart)
+        internal static IValidationResult InvalidValueInTag_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidPart)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult DuplicateOverrideIconColumns_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId)
+        internal static IValidationResult DuplicateOverrideIconColumns_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
             };
         }
 
-        public static IValidationResult IrrelevantColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string treeControlId)
+        internal static IValidationResult IrrelevantColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string treeControlId)
         {
             return new ValidationResult
             {
@@ -287,7 +287,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyTag = 1;
         public const uint UntrimmedTag = 2;

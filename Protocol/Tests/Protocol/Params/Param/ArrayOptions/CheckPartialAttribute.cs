@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckPartialA
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckPartialAttribute, Category.Param)]
-    public class CheckPartialAttribute : /*IValidate, ICodeFix, */ICompare
+    internal class CheckPartialAttribute : /*IValidate, ICodeFix, */ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

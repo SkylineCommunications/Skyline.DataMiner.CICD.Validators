@@ -11,7 +11,7 @@
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    public static class ValidationResultExtensions
+    internal static class ValidationResultExtensions
     {
         private static readonly MapperConfiguration _csharpValidationResultMapperConfig
             = new MapperConfiguration(cfg =>

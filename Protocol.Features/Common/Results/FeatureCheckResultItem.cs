@@ -4,7 +4,7 @@
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    public class FeatureCheckResultItem
+    internal class FeatureCheckResultItem
     {
         public IReadable Node { get; }
 

@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Trending.Type.Chec
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedTrendType(IReadable referenceNode, IReadable positionNode, string oldTrendType, string paramId, string newTrendType)
+        internal static IValidationResult UpdatedTrendType(IReadable referenceNode, IReadable positionNode, string oldTrendType, string paramId, string newTrendType)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Trending.Type.Chec
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedTrendType = 1;
     }

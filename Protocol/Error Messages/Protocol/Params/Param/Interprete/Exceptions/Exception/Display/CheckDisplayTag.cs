@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult UnrecommendedNADisplayValue(IValidate test, IReadable referenceNode, IReadable positionNode, string currentDisplay, string paramPid, string possibleValues)
+        internal static IValidationResult UnrecommendedNADisplayValue(IValidate test, IReadable referenceNode, IReadable positionNode, string currentDisplay, string paramPid, string possibleValues)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
             };
         }
 
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
             };
         }
 
-        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateValue, string paramId)
+        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateValue, string paramId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
             };
         }
 
-        public static IValidationResult WrongCasing_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue, string expectedValue, string pid)
+        internal static IValidationResult WrongCasing_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue, string expectedValue, string pid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
             };
         }
 
-        public static IValidationResult WrongCasing(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult WrongCasing(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -187,7 +187,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UnrecommendedNADisplayValue = 1;
         public const uint MissingTag = 2;

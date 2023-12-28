@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTa
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string groupId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTa
             };
         }
 
-        public static IValidationResult EmptyParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult EmptyParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTa
             };
         }
 
-        public static IValidationResult InvalidParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
+        internal static IValidationResult InvalidParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTa
             };
         }
 
-        public static IValidationResult InvalidParamSuffix(IValidate test, IReadable referenceNode, IReadable positionNode, string suffix, string groupId)
+        internal static IValidationResult InvalidParamSuffix(IValidate test, IReadable referenceNode, IReadable positionNode, string suffix, string groupId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTa
             };
         }
 
-        public static IValidationResult ObsoleteSuffixTable(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult ObsoleteSuffixTable(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTa
             };
         }
 
-        public static IValidationResult SuffixRequiresMultiThreadedTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string suffix, string groupId)
+        internal static IValidationResult SuffixRequiresMultiThreadedTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string suffix, string groupId)
         {
             return new ValidationResult
             {
@@ -162,7 +162,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTa
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingId = 1;
         public const uint EmptyParamTag = 2;

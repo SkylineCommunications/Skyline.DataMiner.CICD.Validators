@@ -16,7 +16,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     // [MinDataMinerVersions("10.0.0.0-9118", "9.6.13.0-8820")]
-    public class HistorySets_FillArray_Single/* : IFeatureCheck*/
+    internal class HistorySets_FillArray_Single/* : IFeatureCheck*/
     {
         public string Title => "History Sets - FillArray - Single";
 

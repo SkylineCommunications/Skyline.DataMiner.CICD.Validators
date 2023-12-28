@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDisplayTag, Category.Param)]
-    public class CheckDisplayTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckDisplayTag : IValidate, ICodeFix/*, ICompare*/
     {
         private const string CorrectNotApplicableDisplayValue = "N/A";
 

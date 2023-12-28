@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Message.CheckMessageTag
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -34,7 +34,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Message.CheckMessageTag
             };
         }
 
-        public static IValidationResult MissingTag_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string discreetDisplayValue)
+        internal static IValidationResult MissingTag_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string discreetDisplayValue)
         {
             return new ValidationResult
             {
@@ -60,7 +60,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Message.CheckMessageTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingTag = 1;
         public const uint MissingTag_Sub = 2;

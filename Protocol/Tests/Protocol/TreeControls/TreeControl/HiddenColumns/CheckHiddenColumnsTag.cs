@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.HiddenColumns.
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckHiddenColumnsTag, Category.TreeControl)]
-    public class CheckHiddenColumnsTag : IValidate, ICodeFix
+    internal class CheckHiddenColumnsTag : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

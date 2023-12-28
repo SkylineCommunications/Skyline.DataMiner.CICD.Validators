@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.LengthType.Chec
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckLengthTypeTag, Category.Param)]
-    public class CheckLengthTypeTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckLengthTypeTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

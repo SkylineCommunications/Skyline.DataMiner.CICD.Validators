@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.ExportRules.ExportRule.CheckWhereAttrib
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckWhereAttributeAttribute, Category.ExportRule)]
-    public class CheckWhereAttributeAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckWhereAttributeAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckNameTag, Category.Param)]
-    public class CheckNameTag : IValidate, ICodeFix, ICompare
+    internal class CheckNameTag : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

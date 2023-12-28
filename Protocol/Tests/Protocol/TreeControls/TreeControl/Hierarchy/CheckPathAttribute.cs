@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckPathAttribute, Category.TreeControl)]
-    public class CheckPathAttribute : IValidate, ICodeFix
+    internal class CheckPathAttribute : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

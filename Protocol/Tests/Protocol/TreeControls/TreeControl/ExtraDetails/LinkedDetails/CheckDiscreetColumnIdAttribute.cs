@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.ExtraDetails.L
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDiscreetColumnIdAttribute, Category.TreeControl)]
-    public class CheckDiscreetColumnIdAttribute : IValidate, ICodeFix
+    internal class CheckDiscreetColumnIdAttribute : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

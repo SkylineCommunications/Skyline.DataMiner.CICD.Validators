@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Information.Subtext.CheckS
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckSubtextTag, Category.Param)]
-    public class CheckSubtextTag : IValidate
+    internal class CheckSubtextTag : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

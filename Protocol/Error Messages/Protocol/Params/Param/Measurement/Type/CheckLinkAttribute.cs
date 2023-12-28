@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckLink
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckLink
             };
         }
 
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -62,7 +62,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckLink
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint InvalidAttribute = 1;
         public const uint MissingAttribute = 2;

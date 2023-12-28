@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckHeaders, Category.HTTP)]
-    public class CheckHeaders : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckHeaders : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

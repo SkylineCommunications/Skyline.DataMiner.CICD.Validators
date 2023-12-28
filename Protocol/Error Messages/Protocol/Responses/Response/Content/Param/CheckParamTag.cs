@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.Content.Param.CheckP
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string responseId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string responseId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.Content.Param.CheckP
             };
         }
 
-        public static IValidationResult EmptyParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string responseId)
+        internal static IValidationResult EmptyParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string responseId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.Content.Param.CheckP
             };
         }
 
-        public static IValidationResult InvalidParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string responseId)
+        internal static IValidationResult InvalidParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string responseId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.Content.Param.CheckP
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingId = 1;
         public const uint EmptyParamTag = 2;

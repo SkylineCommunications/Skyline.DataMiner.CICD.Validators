@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.11.0-8649")]
-    public class Tooltip : IFeatureCheck
+    internal class Tooltip : IFeatureCheck
     {
         public string Title => "Tooltip";
 

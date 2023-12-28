@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnectionPingGroups
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckConnectionPingGroups, Category.Protocol)]
-    public class CheckConnectionPingGroups : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckConnectionPingGroups : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

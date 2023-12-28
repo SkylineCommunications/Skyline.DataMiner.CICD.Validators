@@ -19,7 +19,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpNotifyProtocolNT
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpNotifyProtocolNTSnmpGet, Category.QAction)]
-    public class CSharpNotifyProtocolNTSnmpGet : IValidate
+    internal class CSharpNotifyProtocolNTSnmpGet : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

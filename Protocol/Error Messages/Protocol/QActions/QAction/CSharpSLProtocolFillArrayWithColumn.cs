@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingTable(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string qactionId)
+        internal static IValidationResult NonExistingTable(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
             };
         }
 
-        public static IValidationResult NonExistingColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string qactionId)
+        internal static IValidationResult NonExistingColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
             };
         }
 
-        public static IValidationResult ParamMissingHistorySet(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
+        internal static IValidationResult ParamMissingHistorySet(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
             };
         }
 
-        public static IValidationResult HardCodedTablePid(IValidate test, IReadable referenceNode, IReadable positionNode, string hardCodedTablePid, string qactionId)
+        internal static IValidationResult HardCodedTablePid(IValidate test, IReadable referenceNode, IReadable positionNode, string hardCodedTablePid, string qactionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
             };
         }
 
-        public static IValidationResult HardCodedColumnPid(IValidate test, IReadable referenceNode, IReadable positionNode, string hardCodedColumnPid, string qactionId)
+        internal static IValidationResult HardCodedColumnPid(IValidate test, IReadable referenceNode, IReadable positionNode, string hardCodedColumnPid, string qactionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
             };
         }
 
-        public static IValidationResult ColumnManagedByDataMiner(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string optionLocation, string optionName)
+        internal static IValidationResult ColumnManagedByDataMiner(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string optionLocation, string optionName)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
             };
         }
 
-        public static IValidationResult ColumnManagedByProtocolItem(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string managedByItemKind, string managedByItemId, string optionLocation, string optionName)
+        internal static IValidationResult ColumnManagedByProtocolItem(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string managedByItemKind, string managedByItemId, string optionLocation, string optionName)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
             };
         }
 
-        public static IValidationResult UnrecommendedSetOnSnmpParam(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
+        internal static IValidationResult UnrecommendedSetOnSnmpParam(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
         {
             return new ValidationResult
             {
@@ -212,7 +212,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingTable = 1;
         public const uint NonExistingColumn = 2;

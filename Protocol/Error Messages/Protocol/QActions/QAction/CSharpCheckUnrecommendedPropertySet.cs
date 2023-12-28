@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult UnrecommendedCultureInfoDefaultThreadCurrentCulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedCultureInfoDefaultThreadCurrentCulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedThreadCurrentThreadCurrentCulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedThreadCurrentThreadCurrentCulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedThreadCurrentThreadCurrentUICulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedThreadCurrentThreadCurrentUICulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UnrecommendedCultureInfoDefaultThreadCurrentCulture = 1;
         public const uint UnrecommendedThreadCurrentThreadCurrentCulture = 2;

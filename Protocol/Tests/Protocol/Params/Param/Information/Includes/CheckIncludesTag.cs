@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Information.Includes.Check
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckIncludesTag, Category.Param)]
-    public class CheckIncludesTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckIncludesTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

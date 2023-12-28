@@ -4,7 +4,7 @@
     using Skyline.DataMiner.CICD.Parsers.Common.XmlEdit;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public class CodeFixContext
+    internal class CodeFixContext
     {
         public XmlDocument Document { get; }
         public Protocol Protocol { get; }

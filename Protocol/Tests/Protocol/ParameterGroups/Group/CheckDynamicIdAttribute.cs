@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIdAtt
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDynamicIdAttribute, Category.ParameterGroup)]
-    public class CheckDynamicIdAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckDynamicIdAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

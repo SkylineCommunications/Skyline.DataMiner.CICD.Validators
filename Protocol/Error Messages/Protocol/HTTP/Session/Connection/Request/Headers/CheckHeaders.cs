@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingHeaderForVerb(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string verb, string sessionId, string connectionId)
+        internal static IValidationResult MissingHeaderForVerb(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string verb, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
             };
         }
 
-        public static IValidationResult DuplicateHeaderKeys(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId, bool hasCodeFix)
+        internal static IValidationResult DuplicateHeaderKeys(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -62,7 +62,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingHeaderForVerb = 1;
         public const uint DuplicateHeaderKeys = 2;

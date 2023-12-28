@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string displayValue, string paramId, string previousValue, string newValue)
+        internal static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string displayValue, string paramId, string previousValue, string newValue)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
             };
         }
 
-        public static IValidationResult RemovedItem(IReadable referenceNode, IReadable positionNode, string discreetValue, string paramId)
+        internal static IValidationResult RemovedItem(IReadable referenceNode, IReadable positionNode, string discreetValue, string paramId)
         {
             return new ValidationResult
             {
@@ -62,7 +62,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedValue = 1;
         public const uint RemovedItem = 2;

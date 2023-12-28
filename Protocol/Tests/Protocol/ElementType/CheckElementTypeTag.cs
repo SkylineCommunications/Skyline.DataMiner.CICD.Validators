@@ -11,7 +11,7 @@ namespace SLDisValidator2.Tests.Protocol.ElementType.CheckElementTypeTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckElementTypeTag, Category.Protocol)]
-    public class CheckElementTypeTag : IValidate
+    internal class CheckElementTypeTag : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

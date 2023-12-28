@@ -11,7 +11,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpQActionCompilati
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpQActionCompilation, Category.QAction)]
-    public class CSharpQActionCompilation : IValidate
+    internal class CSharpQActionCompilation : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

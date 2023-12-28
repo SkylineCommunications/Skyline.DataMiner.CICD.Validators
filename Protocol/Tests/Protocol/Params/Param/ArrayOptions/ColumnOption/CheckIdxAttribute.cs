@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckIdxAttribute, Category.Param)]
-    public class CheckIdxAttribute : /*IValidate, ICodeFix, */ICompare
+    internal class CheckIdxAttribute : /*IValidate, ICodeFix, */ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.PortSettings.CheckNameAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckNameAttribute, Category.PortSettings)]
-    public class CheckNameAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckNameAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

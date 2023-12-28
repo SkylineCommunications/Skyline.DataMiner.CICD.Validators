@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOver
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOver
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOver
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName, string untrimmedValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOver
             };
         }
 
-        public static IValidationResult NonExistingParam(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string pageName)
+        internal static IValidationResult NonExistingParam(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string pageName)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOver
             };
         }
 
-        public static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string pageName)
+        internal static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string pageName)
         {
             return new ValidationResult
             {
@@ -137,7 +137,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOver
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyAttribute = 2;

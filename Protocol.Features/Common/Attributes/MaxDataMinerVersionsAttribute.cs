@@ -13,7 +13,7 @@
     /// </summary>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    public sealed class MaxDataMinerVersionsAttribute : Attribute
+    internal sealed class MaxDataMinerVersionsAttribute : Attribute
     {
         public MaxDataMinerVersionsAttribute(string mainRelease, string featureRelease)
         {

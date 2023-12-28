@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribut
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -34,7 +34,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribut
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -59,7 +59,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribut
             };
         }
 
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string pid)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string pid)
         {
             return new ValidationResult
             {
@@ -84,7 +84,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribut
             };
         }
 
-        public static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string referencingPid)
+        internal static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string referencedPid, string referencingPid)
         {
             return new ValidationResult
             {
@@ -110,9 +110,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribut
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedThresholdAlarmType(IReadable referenceNode, IReadable positionNode, string oldValue, string paramPid, string newValue)
+        internal static IValidationResult UpdatedThresholdAlarmType(IReadable referenceNode, IReadable positionNode, string oldValue, string paramPid, string newValue)
         {
             return new ValidationResult
             {
@@ -137,7 +137,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribut
             };
         }
 
-        public static IValidationResult AddedThresholdAlarmType(IReadable referenceNode, IReadable positionNode, string newValue, string paramPid)
+        internal static IValidationResult AddedThresholdAlarmType(IReadable referenceNode, IReadable positionNode, string newValue, string paramPid)
         {
             return new ValidationResult
             {
@@ -162,7 +162,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribut
             };
         }
 
-        public static IValidationResult RemovedThresholdAlarmType(IReadable referenceNode, IReadable positionNode, string oldValue, string paramPid)
+        internal static IValidationResult RemovedThresholdAlarmType(IReadable referenceNode, IReadable positionNode, string oldValue, string paramPid)
         {
             return new ValidationResult
             {
@@ -188,7 +188,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribut
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedThresholdAlarmType = 1;
         public const uint AddedThresholdAlarmType = 2;

@@ -21,7 +21,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolCheckT
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpSLProtocolCheckTrigger, Category.QAction)]
-    public class CSharpSLProtocolCheckTrigger : IValidate
+    internal class CSharpSLProtocolCheckTrigger : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

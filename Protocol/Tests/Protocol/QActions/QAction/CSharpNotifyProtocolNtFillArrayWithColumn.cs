@@ -23,7 +23,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpNotifyProtocolNt
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpNotifyProtocolNtFillArrayWithColumn, Category.QAction)]
-    public class CSharpNotifyProtocolNtFillArrayWithColumn : IValidate, ICodeFix/*, ICompare*/
+    internal class CSharpNotifyProtocolNtFillArrayWithColumn : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

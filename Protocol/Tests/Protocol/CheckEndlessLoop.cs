@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckEndlessLoop
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckEndlessLoop, Category.Protocol)]
-    public class CheckEndlessLoop : IValidate
+    internal class CheckEndlessLoop : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
+        internal static IValidationResult MissingHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
         {
             return new ValidationResult
             {
@@ -34,7 +34,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
+        internal static IValidationResult InvalidHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
         {
             return new ValidationResult
             {
@@ -59,7 +59,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult ExcessiveHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult ExcessiveHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -84,7 +84,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult DuplicateHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string linkId, string headerOrTrailer, string paramPids)
+        internal static IValidationResult DuplicateHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string linkId, string headerOrTrailer, string paramPids)
         {
             return new ValidationResult
             {
@@ -109,7 +109,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InconsistentColumnTypeDimensions(IValidate test, IReadable referenceNode, IReadable positionNode, string columnTypes, string dimensions, string matrixPid)
+        internal static IValidationResult InconsistentColumnTypeDimensions(IValidate test, IReadable referenceNode, IReadable positionNode, string columnTypes, string dimensions, string matrixPid)
         {
             return new ValidationResult
             {
@@ -134,7 +134,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidColumnTypeParamRawType(IValidate test, IReadable referenceNode, IReadable positionNode, string rawType, string columnTypePid, string matrixPid)
+        internal static IValidationResult InvalidColumnTypeParamRawType(IValidate test, IReadable referenceNode, IReadable positionNode, string rawType, string columnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -159,7 +159,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MissingMatrixOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
+        internal static IValidationResult MissingMatrixOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
         {
             return new ValidationResult
             {
@@ -184,7 +184,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MissingAttributeForMatrix(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult MissingAttributeForMatrix(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -209,7 +209,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidMatrixParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string matrixPid)
+        internal static IValidationResult InvalidMatrixParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string matrixPid)
         {
             return new ValidationResult
             {
@@ -234,7 +234,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
+        internal static IValidationResult InvalidMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
         {
             return new ValidationResult
             {
@@ -259,7 +259,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidColumnTypeParamLengthType(IValidate test, IReadable referenceNode, IReadable positionNode, string lengthType, string columnTypePid, string matrixPid)
+        internal static IValidationResult InvalidColumnTypeParamLengthType(IValidate test, IReadable referenceNode, IReadable positionNode, string lengthType, string columnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -284,7 +284,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidColumnTypeParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string type, string columnTypePid, string matrixPid)
+        internal static IValidationResult InvalidColumnTypeParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string type, string columnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -309,7 +309,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MissingColumnTypeParam(IValidate test, IReadable referenceNode, IReadable positionNode, string missingColumnTypePid, string matrixPid)
+        internal static IValidationResult MissingColumnTypeParam(IValidate test, IReadable referenceNode, IReadable positionNode, string missingColumnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -334,7 +334,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MissingColumnTypeParamInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string missingColumnTypePid, string matrixPid)
+        internal static IValidationResult MissingColumnTypeParamInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string missingColumnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -359,7 +359,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidColumnTypeParamInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string columnTypePid, string matrixPid)
+        internal static IValidationResult InvalidColumnTypeParamInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string columnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -384,7 +384,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult UnrecommendedSshOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string option, string pid)
+        internal static IValidationResult UnrecommendedSshOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string option, string pid)
         {
             return new ValidationResult
             {
@@ -409,7 +409,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidMixOfSshOptionsAndPortSettings(IValidate test, IReadable referenceNode, IReadable positionNode, string option, string pid)
+        internal static IValidationResult InvalidMixOfSshOptionsAndPortSettings(IValidate test, IReadable referenceNode, IReadable positionNode, string option, string pid)
         {
             return new ValidationResult
             {
@@ -435,9 +435,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult MatrixDimensionsChanged(IReadable referenceNode, IReadable positionNode, string matrixPid, string oldDimensions, string newDimensions)
+        internal static IValidationResult MatrixDimensionsChanged(IReadable referenceNode, IReadable positionNode, string matrixPid, string oldDimensions, string newDimensions)
         {
             return new ValidationResult
             {
@@ -462,7 +462,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MatrixDimensionsRemoved(IReadable referenceNode, IReadable positionNode, string matrixDimensions, string matrixPid)
+        internal static IValidationResult MatrixDimensionsRemoved(IReadable referenceNode, IReadable positionNode, string matrixDimensions, string matrixPid)
         {
             return new ValidationResult
             {
@@ -488,7 +488,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MatrixDimensionsChanged = 2;
         public const uint MatrixDimensionsRemoved = 3;

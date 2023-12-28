@@ -8,7 +8,7 @@
     /// Holds info on the parameter and its <see cref="Position"/>s.
     /// </summary>
     /// <seealso cref="System.IEquatable{Skyline.DataMiner.ProtocolValidator.ParameterInfo}" />
-    public class ParameterInfo : IEquatable<ParameterInfo>
+    internal class ParameterInfo : IEquatable<ParameterInfo>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ParameterInfo" /> class.
@@ -224,7 +224,7 @@
 	/// Compare two <see cref="ParameterInfo"/> objects.
 	/// </summary>
 	/// <seealso cref="System.Collections.Generic.IEqualityComparer{Skyline.DataMiner.ProtocolValidator.ParameterInfo}" />
-	public class ParameterInfoComparer : IEqualityComparer<ParameterInfo>
+	internal class ParameterInfoComparer : IEqualityComparer<ParameterInfo>
 	{
 		/// <summary>
 		/// Determines whether the specified objects are equal.

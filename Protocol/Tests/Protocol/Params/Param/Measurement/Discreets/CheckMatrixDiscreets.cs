@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Chec
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.ParamTypeOptions;
 
     [Test(CheckId.CheckMatrixDiscreets, Category.Param)]
-    public class CheckMatrixDiscreets : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckMatrixDiscreets : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

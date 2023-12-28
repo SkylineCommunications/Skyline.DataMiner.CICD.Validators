@@ -21,7 +21,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpCheckUnrecommendedMethod, Category.QAction)]
-    public class CSharpCheckUnrecommendedMethod : IValidate, ICodeFix
+    internal class CSharpCheckUnrecommendedMethod : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -10,7 +10,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckDatabaseOptionsAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDatabaseOptionsAttribute, Category.Protocol)]
-    public class CheckDatabaseOptionsAttribute : /*IValidate, ICodeFix, */ICompare
+    internal class CheckDatabaseOptionsAttribute : /*IValidate, ICodeFix, */ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

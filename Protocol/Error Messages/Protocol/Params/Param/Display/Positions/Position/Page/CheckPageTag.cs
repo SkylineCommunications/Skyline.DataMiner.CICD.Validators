@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateValue, string paramId)
+        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateValue, string paramId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult WrongCasing_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue, string expectedValue, string pid)
+        internal static IValidationResult WrongCasing_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue, string expectedValue, string pid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult WrongCasing(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult WrongCasing(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -162,9 +162,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult RemovedFromPage(IReadable referenceNode, IReadable positionNode, string paramPid, string pageName)
+        internal static IValidationResult RemovedFromPage(IReadable referenceNode, IReadable positionNode, string paramPid, string pageName)
         {
             return new ValidationResult
             {
@@ -190,7 +190,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint RemovedFromPage = 1;
         public const uint MissingTag = 2;

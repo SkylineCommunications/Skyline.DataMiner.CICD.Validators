@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolTrigge
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingActionId(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId, string qactionId)
+        internal static IValidationResult NonExistingActionId(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId, string qactionId)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolTrigge
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingActionId = 1;
     }

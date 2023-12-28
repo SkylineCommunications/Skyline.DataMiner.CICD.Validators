@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "10.0.2.0-8924")]
-    public class ValueMapping : IFeatureCheck
+    internal class ValueMapping : IFeatureCheck
     {
         public string Title => "ValueMapping";
 

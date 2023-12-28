@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult ViewInvalidSyntax(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIdx, string viewTablePid)
+        internal static IValidationResult ViewInvalidSyntax(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIdx, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult ViewInvalidColumnReference(IValidate test, IReadable referenceNode, IReadable positionNode, Severity severity, string viewOption, string viewTablePid)
+        internal static IValidationResult ViewInvalidColumnReference(IValidate test, IReadable referenceNode, IReadable positionNode, Severity severity, string viewOption, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult ViewInvalidCombinationFilterChange(IValidate test, IReadable referenceNode, IReadable positionNode, string viewTablePid)
+        internal static IValidationResult ViewInvalidCombinationFilterChange(IValidate test, IReadable referenceNode, IReadable positionNode, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult ForeignKeyMissingRelation(IValidate test, IReadable referenceNode, IReadable positionNode, string fkToTablePid, string fkFromTablePid, string fkColumnPid)
+        internal static IValidationResult ForeignKeyMissingRelation(IValidate test, IReadable referenceNode, IReadable positionNode, string fkToTablePid, string fkFromTablePid, string fkColumnPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult ColumnOptionExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string option, string tablePid)
+        internal static IValidationResult ColumnOptionExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string option, string tablePid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult ForeignKeyTargetExpectingRTDisplayOnPK(IValidate test, IReadable referenceNode, IReadable positionNode, string pkColumnPid, string foreignKeyOption, string tablePid)
+        internal static IValidationResult ForeignKeyTargetExpectingRTDisplayOnPK(IValidate test, IReadable referenceNode, IReadable positionNode, string pkColumnPid, string foreignKeyOption, string tablePid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult ForeignKeyColumnInvalidInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIntrepeteType, string fkColumnPid)
+        internal static IValidationResult ForeignKeyColumnInvalidInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIntrepeteType, string fkColumnPid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult ForeignKeyColumnInvalidMeasurementType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnMeasurementType, string fkColumnPid)
+        internal static IValidationResult ForeignKeyColumnInvalidMeasurementType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnMeasurementType, string fkColumnPid)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
             };
         }
 
-        public static IValidationResult ForeignKeyColumnInvalidType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string fkColumnPid)
+        internal static IValidationResult ForeignKeyColumnInvalidType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string fkColumnPid)
         {
             return new ValidationResult
             {
@@ -237,7 +237,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint ViewInvalidSyntax = 1;
         public const uint ViewInvalidColumnReference = 2;

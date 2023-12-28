@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckWideColumnPagesAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckWideColumnPagesAttribute, Category.Protocol)]
-    public class CheckWideColumnPagesAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckWideColumnPagesAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

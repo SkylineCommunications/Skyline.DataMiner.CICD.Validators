@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Chec
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult InvalidDiscreetCount(IValidate test, IReadable referenceNode, IReadable positionNode, string discreetCount, string expectedDiscreetCount, string matrixPid)
+        internal static IValidationResult InvalidDiscreetCount(IValidate test, IReadable referenceNode, IReadable positionNode, string discreetCount, string expectedDiscreetCount, string matrixPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Chec
             };
         }
 
-        public static IValidationResult MissingDiscreetValue(IValidate test, IReadable referenceNode, IReadable positionNode, string missingValues, string matrixPid)
+        internal static IValidationResult MissingDiscreetValue(IValidate test, IReadable referenceNode, IReadable positionNode, string missingValues, string matrixPid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Chec
             };
         }
 
-        public static IValidationResult DiscreetsNotOneBased(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult DiscreetsNotOneBased(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Chec
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint InvalidDiscreetCount = 1;
         public const uint MissingDiscreetValue = 2;

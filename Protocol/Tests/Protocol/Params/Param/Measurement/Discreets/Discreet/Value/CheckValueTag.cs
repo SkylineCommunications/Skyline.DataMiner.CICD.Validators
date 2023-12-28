@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckValueTag, Category.Param)]
-    public class CheckValueTag : ICompare
+    internal class CheckValueTag : ICompare
     {
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {

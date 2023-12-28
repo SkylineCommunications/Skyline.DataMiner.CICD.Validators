@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Content.Group.CheckGroupTa
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingIdInGroup(IValidate test, IReadable referenceNode, IReadable positionNode, string referenceKind, string referenceId, string timerId)
+        internal static IValidationResult NonExistingIdInGroup(IValidate test, IReadable referenceNode, IReadable positionNode, string referenceKind, string referenceId, string timerId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Content.Group.CheckGroupTa
             };
         }
 
-        public static IValidationResult EmptyGroupTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        internal static IValidationResult EmptyGroupTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Content.Group.CheckGroupTa
             };
         }
 
-        public static IValidationResult InvalidGroupTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string timerId)
+        internal static IValidationResult InvalidGroupTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string timerId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Content.Group.CheckGroupTa
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingIdInGroup = 2;
         public const uint EmptyGroupTag = 3;

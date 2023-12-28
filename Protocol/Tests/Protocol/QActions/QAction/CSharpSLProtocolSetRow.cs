@@ -22,7 +22,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolSetRow
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CSharpSLProtocolSetRow, Category.QAction)]
-    public class CSharpSLProtocolSetRow : IValidate, ICodeFix
+    internal class CSharpSLProtocolSetRow : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpQActionCompilati
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult CompilationFailure(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult CompilationFailure(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpQActionCompilati
             };
         }
 
-        public static IValidationResult CompilationFailure_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string errorMessage)
+        internal static IValidationResult CompilationFailure_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string errorMessage)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpQActionCompilati
             };
         }
 
-        public static IValidationResult NoCSharpCodeAnalysisPerformed(IValidate test, IReadable referenceNode, IReadable positionNode, string cSharpVersion, string visualStudioVersion)
+        internal static IValidationResult NoCSharpCodeAnalysisPerformed(IValidate test, IReadable referenceNode, IReadable positionNode, string cSharpVersion, string visualStudioVersion)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpQActionCompilati
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint CompilationFailure = 1;
         public const uint CompilationFailure_Sub = 2;

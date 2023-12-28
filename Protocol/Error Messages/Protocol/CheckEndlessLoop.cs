@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.CheckEndlessLoop
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EndlessLoop(IValidate test, IReadable referenceNode, IReadable positionNode, string involvedItems)
+        internal static IValidationResult EndlessLoop(IValidate test, IReadable referenceNode, IReadable positionNode, string involvedItems)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckEndlessLoop
             };
         }
 
-        public static IValidationResult PotentialEndlessLoop(IValidate test, IReadable referenceNode, IReadable positionNode, string involvedItems)
+        internal static IValidationResult PotentialEndlessLoop(IValidate test, IReadable referenceNode, IReadable positionNode, string involvedItems)
         {
             return new ValidationResult
             {
@@ -62,7 +62,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckEndlessLoop
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EndlessLoop = 1;
         public const uint PotentialEndlessLoop = 2;

@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using Results;
 
-    public interface IFeatureCheckResult
+    internal interface IFeatureCheckResult
     {
         bool IsUsed { get; }
 

@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.Version.CheckVersionTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckVersionTag, Category.Protocol)]
-    public class CheckVersionTag : IValidate, ICodeFix
+    internal class CheckVersionTag : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

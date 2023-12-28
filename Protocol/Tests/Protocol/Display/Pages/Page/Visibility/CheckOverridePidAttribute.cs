@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOver
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckOverridePidAttribute, Category.Protocol)]
-    public class CheckOverridePidAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckOverridePidAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

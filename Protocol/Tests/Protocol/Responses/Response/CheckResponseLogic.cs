@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.CheckResponseLogic
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckResponseLogic, Category.Response)]
-    public class CheckResponseLogic : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckResponseLogic : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

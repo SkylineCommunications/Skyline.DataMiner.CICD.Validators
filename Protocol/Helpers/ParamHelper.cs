@@ -10,7 +10,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
 
-    public static class ParamHelper
+    internal static class ParamHelper
     {
         public static char[] RestrictedParamNameChars { get; } = { };
 

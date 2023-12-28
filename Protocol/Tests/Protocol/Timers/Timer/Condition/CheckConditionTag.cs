@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Condition.CheckConditionTa
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckConditionTag, Category.Timer)]
-    public class CheckConditionTag : IValidate
+    internal class CheckConditionTag : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

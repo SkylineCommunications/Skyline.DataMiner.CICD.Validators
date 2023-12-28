@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonit
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckMonitoredTag, Category.Param)]
-    public class CheckMonitoredTag : IValidate, ICodeFix, ICompare
+    internal class CheckMonitoredTag : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

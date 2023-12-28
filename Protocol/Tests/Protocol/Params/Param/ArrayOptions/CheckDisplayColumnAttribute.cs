@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayC
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDisplayColumnAttribute, Category.Param)]
-    public class CheckDisplayColumnAttribute : ICompare
+    internal class CheckDisplayColumnAttribute : ICompare
     {
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {

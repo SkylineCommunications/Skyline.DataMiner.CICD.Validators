@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult ReferencedParamWrongType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
+        internal static IValidationResult ReferencedParamWrongType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string dveTablePid)
+        internal static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string dveTablePid)
         {
             return new ValidationResult
             {
@@ -137,9 +137,9 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedDveExportProtocolName(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId, string newDveProtocolName)
+        internal static IValidationResult UpdatedDveExportProtocolName(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId, string newDveProtocolName)
         {
             return new ValidationResult
             {
@@ -164,7 +164,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult RemovedDveExportProtocolName(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        internal static IValidationResult RemovedDveExportProtocolName(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -189,7 +189,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult AddedNoElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        internal static IValidationResult AddedNoElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -214,7 +214,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult RemovedNoElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        internal static IValidationResult RemovedNoElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -239,7 +239,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult AddedUnicode(IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult AddedUnicode(IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -264,7 +264,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult RemovedUnicode(IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult RemovedUnicode(IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -290,7 +290,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedDveExportProtocolName = 2;
         public const uint RemovedDveExportProtocolName = 3;

@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.CheckParameter
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckParameterIdAttribute, Category.TreeControl)]
-    public class CheckParameterIdAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckParameterIdAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

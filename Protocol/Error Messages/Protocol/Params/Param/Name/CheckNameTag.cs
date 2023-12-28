@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -60,7 +60,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -85,7 +85,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult InvalidChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidCharacters)
+        internal static IValidationResult InvalidChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidCharacters)
         {
             return new ValidationResult
             {
@@ -110,7 +110,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult RestrictedName(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string paramName)
+        internal static IValidationResult RestrictedName(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string paramName)
         {
             return new ValidationResult
             {
@@ -135,7 +135,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string paramIds)
+        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string paramIds)
         {
             return new ValidationResult
             {
@@ -160,7 +160,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult UnrecommendedChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagName, string tagValue, string invalidCharacters)
+        internal static IValidationResult UnrecommendedChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagName, string tagValue, string invalidCharacters)
         {
             return new ValidationResult
             {
@@ -191,7 +191,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult UnrecommendedStartChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagName, string tagValue, string unrecommendedStartCharacters)
+        internal static IValidationResult UnrecommendedStartChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagName, string tagValue, string unrecommendedStartCharacters)
         {
             return new ValidationResult
             {
@@ -216,7 +216,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult RTDisplayExpectedOnContextMenu(IValidate test, IReadable referenceNode, IReadable positionNode, string contextMenuPid)
+        internal static IValidationResult RTDisplayExpectedOnContextMenu(IValidate test, IReadable referenceNode, IReadable positionNode, string contextMenuPid)
         {
             return new ValidationResult
             {
@@ -241,7 +241,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult RTDisplayExpectedOnQActionFeedback(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionFeedbackPid)
+        internal static IValidationResult RTDisplayExpectedOnQActionFeedback(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionFeedbackPid)
         {
             return new ValidationResult
             {
@@ -267,9 +267,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult LoggerTableColumnNameChanged(IReadable referenceNode, IReadable positionNode, string oldColumnName, string columnPid, string tablePid, string newColumnName)
+        internal static IValidationResult LoggerTableColumnNameChanged(IReadable referenceNode, IReadable positionNode, string oldColumnName, string columnPid, string tablePid, string newColumnName)
         {
             return new ValidationResult
             {
@@ -295,7 +295,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingTag = 1;
         public const uint EmptyTag = 2;

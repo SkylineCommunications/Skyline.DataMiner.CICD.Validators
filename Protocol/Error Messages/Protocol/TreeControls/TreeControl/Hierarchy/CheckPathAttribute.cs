@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid, string untrimmedValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pathValue, string treeControlPid)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pathValue, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
             };
         }
 
-        public static IValidationResult NonExistingIdsInAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
+        internal static IValidationResult NonExistingIdsInAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
             };
         }
 
-        public static IValidationResult NonExistingIdsInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string treeControlPid)
+        internal static IValidationResult NonExistingIdsInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
             };
         }
 
-        public static IValidationResult DuplicateId(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId, string treeControlId)
+        internal static IValidationResult DuplicateId(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId, string treeControlId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
             };
         }
 
-        public static IValidationResult UntrimmedValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
+        internal static IValidationResult UntrimmedValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
             };
         }
 
-        public static IValidationResult InvalidValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidPart)
+        internal static IValidationResult InvalidValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidPart)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
             };
         }
 
-        public static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -237,7 +237,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Chec
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyAttribute = 1;
         public const uint UntrimmedAttribute = 2;

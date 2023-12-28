@@ -8,7 +8,7 @@
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class GenericTests
+    internal static class GenericTests
     {
         /// <summary>
         /// Allows to perform some basic and generic checks on Tags and attribute

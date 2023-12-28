@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Type.CheckTypeT
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string paramId, string oldTypeValue, string newTypeValue)
+        internal static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string paramId, string oldTypeValue, string newTypeValue)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Type.CheckTypeT
             };
         }
 
-        public static IValidationResult RemovedTag(IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult RemovedTag(IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Type.CheckTypeT
             };
         }
 
-        public static IValidationResult AddedTag(IReadable referenceNode, IReadable positionNode, string typeValue, string paramId)
+        internal static IValidationResult AddedTag(IReadable referenceNode, IReadable positionNode, string typeValue, string paramId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Type.CheckTypeT
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedValue = 1;
         public const uint RemovedTag = 2;

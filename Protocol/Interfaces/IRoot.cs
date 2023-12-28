@@ -1,6 +1,6 @@
 ﻿namespace SLDisValidator2.Interfaces
 {
-    public interface IRoot
+    internal interface IRoot
     {
     }
 }

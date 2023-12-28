@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Information.Includes.Check
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult ObsoleteTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult ObsoleteTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Information.Includes.Check
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint ObsoleteTag = 1;
     }

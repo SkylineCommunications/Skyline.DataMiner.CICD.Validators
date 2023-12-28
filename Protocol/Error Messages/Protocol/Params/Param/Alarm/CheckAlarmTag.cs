@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckAlarmTag
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingDefaultThreshold(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingDefaultThreshold(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckAlarmTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingDefaultThreshold = 1;
     }

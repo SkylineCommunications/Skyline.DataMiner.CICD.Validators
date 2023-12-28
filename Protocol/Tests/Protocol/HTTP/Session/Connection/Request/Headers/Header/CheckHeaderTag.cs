@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckHeaderTag, Category.HTTP)]
-    public class CheckHeaderTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckHeaderTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

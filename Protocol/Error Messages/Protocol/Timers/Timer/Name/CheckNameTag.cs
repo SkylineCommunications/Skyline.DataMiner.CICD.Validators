@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Name.CheckNameTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string timerIds)
+        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string timerIds)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Name.CheckNameTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DuplicatedValue = 1;
     }

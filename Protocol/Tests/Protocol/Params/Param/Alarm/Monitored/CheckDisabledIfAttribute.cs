@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckDisabledIfAttribute, Category.Param)]
-    public class CheckDisabledIfAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckDisabledIfAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -19,7 +19,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckPageOrderAttribute, Category.Protocol)]
-    public class CheckPageOrderAttribute : IValidate, ICodeFix
+    internal class CheckPageOrderAttribute : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

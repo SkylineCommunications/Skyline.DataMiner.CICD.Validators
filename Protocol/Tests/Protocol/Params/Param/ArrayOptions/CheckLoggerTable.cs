@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckLoggerTa
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckLoggerTable, Category.Param)]
-    public class CheckLoggerTable : /*IValidate, ICodeFix, */ICompare
+    internal class CheckLoggerTable : /*IValidate, ICodeFix, */ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

@@ -11,7 +11,7 @@ namespace Skyline.DataMiner.ProtocolValidator
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public partial class ProtocolChecks
+    internal partial class ProtocolChecks
     {
         #region fields and properties
         /// <summary>

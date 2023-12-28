@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckArrayOpt
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult DisplayColumnChangedToNaming(IReadable referenceNode, IReadable positionNode, string columnIdx, string tableId, string namingValue)
+        internal static IValidationResult DisplayColumnChangedToNaming(IReadable referenceNode, IReadable positionNode, string columnIdx, string tableId, string namingValue)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckArrayOpt
             };
         }
 
-        public static IValidationResult DisplayColumnChangeToNamingFormat(IReadable referenceNode, IReadable positionNode, string columnIdx, string tableId, string namingFormatValue)
+        internal static IValidationResult DisplayColumnChangeToNamingFormat(IReadable referenceNode, IReadable positionNode, string columnIdx, string tableId, string namingFormatValue)
         {
             return new ValidationResult
             {
@@ -62,7 +62,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckArrayOpt
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DisplayColumnChangedToNaming = 1;
         public const uint DisplayColumnChangeToNamingFormat = 2;

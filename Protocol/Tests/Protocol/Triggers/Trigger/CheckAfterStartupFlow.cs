@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckAfterStartupFlow, Category.Trigger)]
-    public class CheckAfterStartupFlow : IValidate
+    internal class CheckAfterStartupFlow : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

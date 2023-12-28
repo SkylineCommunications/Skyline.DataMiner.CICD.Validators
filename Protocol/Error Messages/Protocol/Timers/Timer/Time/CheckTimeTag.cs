@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
             };
         }
 
-        public static IValidationResult InvalidTagValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string allowedValues)
+        internal static IValidationResult InvalidTagValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string allowedValues)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
             };
         }
 
-        public static IValidationResult TimerTimeCannotBeLargerThan24Days(IValidate test, IReadable referenceNode, IReadable positionNode, string timeValue, string timerId)
+        internal static IValidationResult TimerTimeCannotBeLargerThan24Days(IValidate test, IReadable referenceNode, IReadable positionNode, string timeValue, string timerId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
             };
         }
 
-        public static IValidationResult DuplicateTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string timerTime, string timerIDs)
+        internal static IValidationResult DuplicateTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string timerTime, string timerIDs)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
             };
         }
 
-        public static IValidationResult TooFastTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string timerTime, string timerId)
+        internal static IValidationResult TooFastTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string timerTime, string timerId)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
             };
         }
 
-        public static IValidationResult TooSimilarTimers(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string timerTime)
+        internal static IValidationResult TooSimilarTimers(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string timerTime)
         {
             return new ValidationResult
             {
@@ -212,7 +212,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingTag = 1;
         public const uint EmptyTag = 2;

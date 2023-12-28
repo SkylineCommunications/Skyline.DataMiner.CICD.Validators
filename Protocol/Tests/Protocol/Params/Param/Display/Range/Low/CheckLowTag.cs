@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckLowTag, Category.Param)]
-    public class CheckLowTag : IValidate, ICodeFix, ICompare
+    internal class CheckLowTag : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

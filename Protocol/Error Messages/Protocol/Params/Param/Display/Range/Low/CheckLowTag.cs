@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string paramId)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string paramId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
             };
         }
 
-        public static IValidationResult UntrimmedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string untrimmedValue)
+        internal static IValidationResult UntrimmedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
             };
         }
 
-        public static IValidationResult LogarithmicLowerOrEqualToZero(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLow, string paramId)
+        internal static IValidationResult LogarithmicLowerOrEqualToZero(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLow, string paramId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
             };
         }
 
-        public static IValidationResult WriteDifferentThanRead(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLowOnWrite, string rangeLowOnRead, string writePid)
+        internal static IValidationResult WriteDifferentThanRead(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLowOnWrite, string rangeLowOnRead, string writePid)
         {
             return new ValidationResult
             {
@@ -137,9 +137,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedLowRange(IReadable referenceNode, IReadable positionNode, string previousValue, string paramPid, string newValue)
+        internal static IValidationResult UpdatedLowRange(IReadable referenceNode, IReadable positionNode, string previousValue, string paramPid, string newValue)
         {
             return new ValidationResult
             {
@@ -164,7 +164,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
             };
         }
 
-        public static IValidationResult AddedLowRange(IReadable referenceNode, IReadable positionNode, string newValue, string paramPid)
+        internal static IValidationResult AddedLowRange(IReadable referenceNode, IReadable positionNode, string newValue, string paramPid)
         {
             return new ValidationResult
             {
@@ -190,7 +190,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLow
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedLowRange = 1;
         public const uint AddedLowRange = 2;

@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Response.CheckS
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckStatusCodeAttribute, Category.HTTP)]
-    public class CheckStatusCodeAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckStatusCodeAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

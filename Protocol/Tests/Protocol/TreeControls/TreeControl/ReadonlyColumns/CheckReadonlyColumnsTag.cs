@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.ReadonlyColumn
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckReadonlyColumnsTag, Category.TreeControl)]
-    public class CheckReadonlyColumnsTag : IValidate, ICodeFix
+    internal class CheckReadonlyColumnsTag : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckPageTag, Category.Param)]
-    public class CheckPageTag : IValidate, ICodeFix, ICompare
+    internal class CheckPageTag : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

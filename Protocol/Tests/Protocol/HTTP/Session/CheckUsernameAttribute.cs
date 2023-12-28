@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckUsernameAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckUsernameAttribute, Category.HTTP)]
-    public class CheckUsernameAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckUsernameAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

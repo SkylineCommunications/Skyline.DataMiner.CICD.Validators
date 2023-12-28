@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckColumns
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult ColumnInvalidType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string columnPid)
+        internal static IValidationResult ColumnInvalidType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string columnPid)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckColumns
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint ColumnInvalidType = 1;
     }

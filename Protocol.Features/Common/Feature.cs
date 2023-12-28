@@ -11,7 +11,7 @@
     using Skyline.DataMiner.CICD.Common;
 
     // Inherits IFeature so it always will have the info if we add extra.
-    public class Feature : IFeature
+    internal class Feature : IFeature
     {
         private readonly IFeatureCheck featureCheck;
         private readonly MinDataMinerVersionsAttribute minDmaVersionAttribute;

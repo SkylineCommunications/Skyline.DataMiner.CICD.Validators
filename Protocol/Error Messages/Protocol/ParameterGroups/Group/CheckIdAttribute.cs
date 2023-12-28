@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckIdAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckIdAttribute
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckIdAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId, string parameterGroupName)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId, string parameterGroupName)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckIdAttribute
             };
         }
 
-        public static IValidationResult OutOfRangeId(IValidate test, IReadable referenceNode, IReadable positionNode, Certainty certainty, string id)
+        internal static IValidationResult OutOfRangeId(IValidate test, IReadable referenceNode, IReadable positionNode, Certainty certainty, string id)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckIdAttribute
             };
         }
 
-        public static IValidationResult DuplicatedId(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId, string parameterGroupNames)
+        internal static IValidationResult DuplicatedId(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId, string parameterGroupNames)
         {
             return new ValidationResult
             {
@@ -162,7 +162,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckIdAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyAttribute = 2;

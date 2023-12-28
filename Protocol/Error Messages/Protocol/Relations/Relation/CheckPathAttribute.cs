@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
             };
         }
 
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pathValue)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pathValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
             };
         }
 
-        public static IValidationResult MissingForeignKeyForRelation(IValidate test, IReadable referenceNode, IReadable positionNode, string relationNameOrPath)
+        internal static IValidationResult MissingForeignKeyForRelation(IValidate test, IReadable referenceNode, IReadable positionNode, string relationNameOrPath)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
             };
         }
 
-        public static IValidationResult MissingForeignKeyInTable_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string table1Pid, string table2Pid)
+        internal static IValidationResult MissingForeignKeyInTable_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string table1Pid, string table2Pid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
             };
         }
 
-        public static IValidationResult ReferencedParamWrongType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
+        internal static IValidationResult ReferencedParamWrongType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
             };
         }
 
-        public static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
             };
         }
 
-        public static IValidationResult DuplicateValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateValue)
+        internal static IValidationResult DuplicateValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateValue)
         {
             return new ValidationResult
             {
@@ -237,7 +237,7 @@ namespace SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingId = 1;
         public const uint MissingAttribute = 2;

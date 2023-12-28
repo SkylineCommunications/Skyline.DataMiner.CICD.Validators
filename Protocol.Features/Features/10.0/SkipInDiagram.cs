@@ -9,7 +9,7 @@
     using SLDisDmFeatureCheck.Common.Attributes;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.4.0-8151")]
-    public class SkipInDiagram : IFeatureCheck
+    internal class SkipInDiagram : IFeatureCheck
     {
         public string Title => "SkipInDiagram";
 

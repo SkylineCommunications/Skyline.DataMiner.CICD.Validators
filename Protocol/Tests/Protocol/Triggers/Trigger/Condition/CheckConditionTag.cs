@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.Condition.CheckConditi
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckConditionTag, Category.Trigger)]
-    public class CheckConditionTag : IValidate
+    internal class CheckConditionTag : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

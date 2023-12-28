@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonit
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonit
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonit
             };
         }
 
-        public static IValidationResult InvalidTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string pid)
+        internal static IValidationResult InvalidTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonit
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonit
             };
         }
 
-        public static IValidationResult RTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult RTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -137,9 +137,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonit
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult RemovedAlarming(IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult RemovedAlarming(IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -165,7 +165,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonit
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint RemovedAlarming = 1;
         public const uint MissingTag = 2;

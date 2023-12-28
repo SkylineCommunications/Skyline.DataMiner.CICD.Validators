@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAtt
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckIndexAttribute, Category.Param)]
-    public class CheckIndexAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckIndexAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

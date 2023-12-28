@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Type.CheckTypeT
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTypeTag, Category.Param)]
-    public class CheckTypeTag : ICompare
+    internal class CheckTypeTag : ICompare
     {
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {

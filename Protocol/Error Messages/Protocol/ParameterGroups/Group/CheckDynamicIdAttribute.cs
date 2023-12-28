@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIdAtt
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string parameterGroupId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string parameterGroupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIdAtt
             };
         }
 
-        public static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string parameterGroupId)
+        internal static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string parameterGroupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIdAtt
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIdAtt
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingId = 1;
         public const uint InvalidAttribute = 2;

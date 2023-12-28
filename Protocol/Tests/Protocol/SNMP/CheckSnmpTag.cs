@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.SNMP.CheckSnmpTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckSnmpTag, Category.Protocol)]
-    public class CheckSnmpTag : IValidate, ICodeFix
+    internal class CheckSnmpTag : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckTypeAttribut
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult DcfParameterGroupTypeChanged(IReadable referenceNode, IReadable positionNode, string groupId, string oldType, string newType)
+        internal static IValidationResult DcfParameterGroupTypeChanged(IReadable referenceNode, IReadable positionNode, string groupId, string oldType, string newType)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckTypeAttribut
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DcfParameterGroupTypeChanged = 1;
     }

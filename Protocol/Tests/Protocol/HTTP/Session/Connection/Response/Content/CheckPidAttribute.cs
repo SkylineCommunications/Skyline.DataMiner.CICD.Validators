@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Response.Conten
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckPidAttribute, Category.HTTP)]
-    public class CheckPidAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckPidAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

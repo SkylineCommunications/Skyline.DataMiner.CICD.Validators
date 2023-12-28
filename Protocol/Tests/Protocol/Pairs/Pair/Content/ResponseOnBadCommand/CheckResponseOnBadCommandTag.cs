@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.ResponseOnBadCommand
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckResponseOnBadCommandTag, Category.Pair)]
-    public class CheckResponseOnBadCommandTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckResponseOnBadCommandTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

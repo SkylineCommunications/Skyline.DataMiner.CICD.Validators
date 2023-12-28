@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.ExportRules.ExportRule.CheckTableAttrib
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTableAttribute, Category.ExportRule)]
-    public class CheckTableAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckTableAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

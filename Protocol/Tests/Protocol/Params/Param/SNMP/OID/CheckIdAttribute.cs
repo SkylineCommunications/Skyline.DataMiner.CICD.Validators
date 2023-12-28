@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckIdAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckIdAttribute, Category.Param)]
-    public class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         // Regex to detect wrong values such as '01', '+1', etc, which are invalid but can be parsed to uint
         // Instead of this regex, we could consider making the protocol model more strict by using stricter NumberStyle in parser or so.

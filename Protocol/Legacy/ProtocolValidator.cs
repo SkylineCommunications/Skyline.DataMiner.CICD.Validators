@@ -369,11 +369,13 @@ namespace Skyline.DataMiner.ProtocolValidator
             return validationResult;
         }
 
+        /// <inheritdoc cref="IValidator.ExecuteCodeFix"/>
         public ICodeFixResult ExecuteCodeFix(XmlEdit.XmlDocument document, Skyline.DataMiner.CICD.Models.Protocol.Edit.Protocol protocol, IValidationResult result, ValidatorSettings validatorSettings)
         {
             throw new NotSupportedException();
         }
 
+        /// <inheritdoc cref="IValidator.RunCompare"/>
         public IList<IValidationResult> RunCompare(IProtocolInputData newCode, IProtocolInputData previousCode, ValidatorSettings validatorSettings, CancellationToken cancellationToken)
         {
             throw new NotSupportedException();

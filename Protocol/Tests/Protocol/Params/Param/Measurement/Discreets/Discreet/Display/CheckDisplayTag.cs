@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckDisplayTag, Category.Param)]
-    public class CheckDisplayTag : IValidate, ICodeFix, ICompare
+    internal class CheckDisplayTag : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

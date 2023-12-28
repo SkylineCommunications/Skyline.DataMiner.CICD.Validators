@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckTypeAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTypeAttribute, Category.Param)]
-    public class CheckTypeAttribute : /*IValidate, ICodeFix,*/ ICompare
+    internal class CheckTypeAttribute : /*IValidate, ICodeFix,*/ ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

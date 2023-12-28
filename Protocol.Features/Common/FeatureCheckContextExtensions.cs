@@ -6,7 +6,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    public static class FeatureCheckContextExtensions
+    internal static class FeatureCheckContextExtensions
     {
         public static IEnumerable<(IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel)> EachQActionProjectsAndSyntaxTreesAndModels(this FeatureCheckContext context)
         {

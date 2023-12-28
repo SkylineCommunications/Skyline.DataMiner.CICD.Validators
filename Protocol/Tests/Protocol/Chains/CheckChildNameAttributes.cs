@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Chains.CheckChildNameAttributes
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckChildNameAttributes, Category.Chain)]
-    public class CheckChildNameAttributes : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckChildNameAttributes : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

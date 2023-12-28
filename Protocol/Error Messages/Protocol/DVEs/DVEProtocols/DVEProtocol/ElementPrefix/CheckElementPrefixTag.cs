@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.ElementPr
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult AddedElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        internal static IValidationResult AddedElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.ElementPr
             };
         }
 
-        public static IValidationResult RemovedElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        internal static IValidationResult RemovedElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.ElementPr
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint AddedElementPrefix = 1;
         public const uint RemovedElementPrefix = 2;

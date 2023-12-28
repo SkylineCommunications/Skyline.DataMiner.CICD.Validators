@@ -4,7 +4,7 @@
     using System.Linq;
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
 
-    public static class TriggerHelper
+    internal static class TriggerHelper
     {
         private static readonly Dictionary<EnumTriggerOn, EnumTriggerTime[]> TriggerValidOnTimeTagCombinations = new Dictionary<EnumTriggerOn, EnumTriggerTime[]>
         {

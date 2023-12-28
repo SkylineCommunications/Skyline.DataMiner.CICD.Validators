@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.CheckName
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckNameAttribute, Category.Protocol)]
-    public class CheckNameAttribute : ICompare
+    internal class CheckNameAttribute : ICompare
     {
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {

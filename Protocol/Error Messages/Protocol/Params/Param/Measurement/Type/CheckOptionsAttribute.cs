@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingPriorityForSortedColumns(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        internal static IValidationResult MissingPriorityForSortedColumns(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
             };
         }
 
-        public static IValidationResult InvalidConnectedMatrixPoints(IValidate test, IReadable referenceNode, IReadable positionNode, string badValue, string minOrMax, string inputOrOutput, string matrixPid)
+        internal static IValidationResult InvalidConnectedMatrixPoints(IValidate test, IReadable referenceNode, IReadable positionNode, string badValue, string minOrMax, string inputOrOutput, string matrixPid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
             };
         }
 
-        public static IValidationResult InvalidColumnDimensionsToOutputCount(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid, string measurementOutputCount, string dimensionColumnCount)
+        internal static IValidationResult InvalidColumnDimensionsToOutputCount(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid, string measurementOutputCount, string dimensionColumnCount)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
             };
         }
 
-        public static IValidationResult InvalidMatrixDimensionsToInputCount(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid, string measurementInputCount, string dimensionRowCount)
+        internal static IValidationResult InvalidMatrixDimensionsToInputCount(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid, string measurementInputCount, string dimensionRowCount)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
             };
         }
 
-        public static IValidationResult InvalidMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
+        internal static IValidationResult InvalidMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
             };
         }
 
-        public static IValidationResult MissingMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
+        internal static IValidationResult MissingMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
             };
         }
 
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
             };
         }
 
-        public static IValidationResult MissingSortingOnDateTimeColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string columnPids)
+        internal static IValidationResult MissingSortingOnDateTimeColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string columnPids)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
             };
         }
 
-        public static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
+        internal static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
         {
             return new ValidationResult
             {
@@ -237,9 +237,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult ColumnOrderChanged(IReadable referenceNode, IReadable positionNode, string oldColumnOrder, string tablePid, string newColumnOrder)
+        internal static IValidationResult ColumnOrderChanged(IReadable referenceNode, IReadable positionNode, string oldColumnOrder, string tablePid, string newColumnOrder)
         {
             return new ValidationResult
             {
@@ -265,7 +265,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint ColumnOrderChanged = 1;
         public const uint MissingPriorityForSortedColumns = 2;

@@ -8,7 +8,7 @@
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Extensions;
     
-    public static class Helper
+    internal static class Helper
     {
         public static readonly string[] CriticalActions =
         {

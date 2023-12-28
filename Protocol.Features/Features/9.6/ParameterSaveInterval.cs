@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("9.6.0.0-8235", "9.5.7.0-6665")]
-    public class ParameterSaveInterval : IFeatureCheck
+    internal class ParameterSaveInterval : IFeatureCheck
     {
         public string Title => "Parameter save interval";
 

@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public static class HttpHelper
+    internal static class HttpHelper
     {
         private static readonly HashSet<string> RedundantHttpRequestHeaders = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "User-Agent" };
 

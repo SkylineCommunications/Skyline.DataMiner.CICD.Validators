@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingIdInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string referItemType, string referItemId)
+        internal static IValidationResult NonExistingIdInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string referItemType, string referItemId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidValueInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string optionValue)
+        internal static IValidationResult InvalidValueInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string optionValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string attributeValue)
+        internal static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string attributeValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MissingIpOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
+        internal static IValidationResult MissingIpOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidIgnoreIfOption(IValidate test, IReadable referenceNode, IReadable positionNode, string ignoreIfValue)
+        internal static IValidationResult InvalidIgnoreIfOption(IValidate test, IReadable referenceNode, IReadable positionNode, string ignoreIfValue)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidEachOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidEachOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidDynamicThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidDynamicThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidInstanceOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidInstanceOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidIpOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidIpOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidPollingRateOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidPollingRateOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidQActionOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidQActionOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidQActionBeforeOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidQActionBeforeOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -311,7 +311,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidQActionAfterOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidQActionAfterOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -336,7 +336,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -361,7 +361,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MissingEachOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
+        internal static IValidationResult MissingEachOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
         {
             return new ValidationResult
             {
@@ -386,7 +386,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MissingThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
+        internal static IValidationResult MissingThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
         {
             return new ValidationResult
             {
@@ -411,7 +411,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult NonExistingIdInDynamicThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult NonExistingIdInDynamicThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -436,7 +436,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult MissingValueInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string placeholderName)
+        internal static IValidationResult MissingValueInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string placeholderName)
         {
             return new ValidationResult
             {
@@ -461,7 +461,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult InvalidPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        internal static IValidationResult InvalidPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -486,7 +486,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult UnknownOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
+        internal static IValidationResult UnknownOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
         {
             return new ValidationResult
             {
@@ -511,7 +511,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult DuplicateOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
+        internal static IValidationResult DuplicateOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
         {
             return new ValidationResult
             {
@@ -536,7 +536,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult UnknownOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
+        internal static IValidationResult UnknownOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
         {
             return new ValidationResult
             {
@@ -561,7 +561,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult DuplicateOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
+        internal static IValidationResult DuplicateOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
         {
             return new ValidationResult
             {
@@ -586,7 +586,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult ThreadPoolCalculationIntervalDefined(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        internal static IValidationResult ThreadPoolCalculationIntervalDefined(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -611,7 +611,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult UseOfObsoleteTimeoutPidOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult UseOfObsoleteTimeoutPidOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -636,7 +636,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult UseOfObsoleteQActionOption(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult UseOfObsoleteQActionOption(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -661,7 +661,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult NonExistingColumnIdxInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string columnIdx, string tablePid)
+        internal static IValidationResult NonExistingColumnIdxInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string columnIdx, string tablePid)
         {
             return new ValidationResult
             {
@@ -686,7 +686,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
             };
         }
 
-        public static IValidationResult NonExistingColumnPositionInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string columnPosition, string tablePid)
+        internal static IValidationResult NonExistingColumnPositionInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string columnPosition, string tablePid)
         {
             return new ValidationResult
             {
@@ -712,7 +712,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingIdInOption = 2;
         public const uint InvalidValueInOption = 3;

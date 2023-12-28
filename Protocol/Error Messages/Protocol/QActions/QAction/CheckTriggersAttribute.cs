@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckTriggersAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckTriggersAttribute
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckTriggersAttribute
             };
         }
 
-        public static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string triggersValue, string qactionId)
+        internal static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string triggersValue, string qactionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckTriggersAttribute
             };
         }
 
-        public static IValidationResult NonExistingParam(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string qactionId)
+        internal static IValidationResult NonExistingParam(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string qactionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckTriggersAttribute
             };
         }
 
-        public static IValidationResult NonExistingGroup(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId, string qactionId)
+        internal static IValidationResult NonExistingGroup(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId, string qactionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckTriggersAttribute
             };
         }
 
-        public static IValidationResult DuplicateId(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId, string qactionId)
+        internal static IValidationResult DuplicateId(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId, string qactionId)
         {
             return new ValidationResult
             {
@@ -162,7 +162,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CheckTriggersAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyAttribute = 2;

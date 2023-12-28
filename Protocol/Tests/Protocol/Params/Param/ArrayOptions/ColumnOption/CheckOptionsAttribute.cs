@@ -20,7 +20,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.ColumnOptionOptions;
 
     [Test(CheckId.CheckOptionsAttribute, Category.Param)]
-    public class CheckOptionsAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckOptionsAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

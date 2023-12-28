@@ -21,7 +21,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpNotifyDataMinerN
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CSharpNotifyDataMinerNTEditProperty, Category.QAction)]
-    public class CSharpNotifyDataMinerNTEditProperty : IValidate
+    internal class CSharpNotifyDataMinerNTEditProperty : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

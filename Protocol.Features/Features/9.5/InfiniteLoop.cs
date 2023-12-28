@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("9.5.0.0-8068", "9.6.3.0-8092")]
-    public class InfiniteLoop : IFeatureCheck
+    internal class InfiniteLoop : IFeatureCheck
     {
         public string Title => "Infinite loop detection";
 

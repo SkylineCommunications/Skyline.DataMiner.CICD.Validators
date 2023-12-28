@@ -21,7 +21,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpSLProtocolFillArrayNoDelete, Category.QAction)]
-    public class CSharpSLProtocolFillArrayNoDelete : IValidate, ICodeFix
+    internal class CSharpSLProtocolFillArrayNoDelete : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

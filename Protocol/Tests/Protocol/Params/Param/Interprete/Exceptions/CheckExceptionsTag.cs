@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Chec
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckExceptionsTag, Category.Param)]
-    public class CheckExceptionsTag : ICompare
+    internal class CheckExceptionsTag : ICompare
     {
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {

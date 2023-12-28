@@ -5,7 +5,7 @@
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public class MajorChangeCheckContext
+    internal class MajorChangeCheckContext
     {
         public IProtocolInputData NewInputData { get; }
 

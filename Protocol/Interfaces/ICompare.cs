@@ -6,7 +6,7 @@
 
     using SLDisValidator2.Common;
 
-    public interface ICompare : IRoot
+    internal interface ICompare : IRoot
     {
         List<IValidationResult> Compare(MajorChangeCheckContext context);
     }

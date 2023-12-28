@@ -20,7 +20,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
     }
 
     [Test(CheckId.CheckPidAttribute, Category.Param)]
-    public class CheckPidAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckPidAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

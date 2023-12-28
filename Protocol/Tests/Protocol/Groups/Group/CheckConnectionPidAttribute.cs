@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.CheckConnectionPidAttribut
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckConnectionPidAttribute, Category.Group)]
-    public class CheckConnectionPidAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckConnectionPidAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

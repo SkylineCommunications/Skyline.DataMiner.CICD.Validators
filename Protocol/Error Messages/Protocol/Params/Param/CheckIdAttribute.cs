@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string paramName)
+        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string paramName)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult OutOfRangeId(IValidate test, IReadable referenceNode, IReadable positionNode, string id)
+        internal static IValidationResult OutOfRangeId(IValidate test, IReadable referenceNode, IReadable positionNode, string id)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidUseOfSpectrumIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult InvalidUseOfSpectrumIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidUseOfMediationIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult InvalidUseOfMediationIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidUseOfDataMinerModulesIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult InvalidUseOfDataMinerModulesIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidUseOfEnhancedServiceIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult InvalidUseOfEnhancedServiceIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult InvalidUseOfSlaIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult InvalidUseOfSlaIdRange(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult DuplicatedId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string paramNames)
+        internal static IValidationResult DuplicatedId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string paramNames)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
             };
         }
 
-        public static IValidationResult RTDisplayExpectedOnSpectrumParam(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult RTDisplayExpectedOnSpectrumParam(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -312,9 +312,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult MissingParam(IReadable referenceNode, IReadable positionNode, string paramName, string paramType, string paramId)
+        internal static IValidationResult MissingParam(IReadable referenceNode, IReadable positionNode, string paramName, string paramType, string paramId)
         {
             return new ValidationResult
             {
@@ -340,7 +340,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingAttribute = 1;
         public const uint EmptyAttribute = 2;

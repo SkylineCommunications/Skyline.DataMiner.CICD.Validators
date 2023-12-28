@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckQActionImpl
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
     //[Test(CheckId.CSharpCheckQActionImplementedInterface, Category.QAction)]
-    public class CSharpCheckQActionImplementedInterface : IValidate
+    internal class CSharpCheckQActionImplementedInterface : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

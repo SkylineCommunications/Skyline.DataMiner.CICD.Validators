@@ -8,15 +8,34 @@
     using SLDisValidator2.Common.Enums;
     using SLDisValidator2.Interfaces;
 
+    /// <summary>
+    /// Indicates that the class is a validator check.
+    /// </summary>
+    /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Class)]
     public class TestAttribute : Attribute
     {
+        /// <summary>
+        /// Gets the check identifier.
+        /// </summary>
         public uint CheckId { get; }
 
+        /// <summary>
+        /// Gets the category.
+        /// </summary>
         public Category Category { get; }
 
+        /// <summary>
+        /// Gets the test order.
+        /// </summary>
         public TestOrder TestOrder { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TestAttribute"/> class.
+        /// </summary>
+        /// <param name="checkId">The check identifier.</param>
+        /// <param name="category">The category.</param>
+        /// <param name="testOrder">The test order.</param>
         public TestAttribute(uint checkId, Category category, TestOrder testOrder = TestOrder.Mid)
         {
             Category = category;
@@ -24,7 +43,13 @@
             CheckId = checkId;
         }
 
-        public static TestAttribute GetAttribute(Type type)
+        /// <summary>
+        /// Gets the attribute.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns>The attribute.</returns>
+        /// <exception cref="System.ArgumentNullException">type</exception>
+        internal static TestAttribute GetAttribute(Type type)
         {
             if (type == null)
             {
@@ -34,7 +59,13 @@
             return type.GetCustomAttribute(typeof(TestAttribute)) as TestAttribute;
         }
 
-        public static TestAttribute GetAttribute(IValidate test)
+        /// <summary>
+        /// Gets the attribute.
+        /// </summary>
+        /// <param name="test">The test.</param>
+        /// <returns>The attribute.</returns>
+        /// <exception cref="System.ArgumentNullException">test</exception>
+        internal static TestAttribute GetAttribute(IValidate test)
         {
             if (test == null)
             {

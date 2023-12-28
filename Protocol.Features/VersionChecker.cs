@@ -7,32 +7,19 @@
 
     using Microsoft.CodeAnalysis;
 
-    using Skyline.DataMiner.CICD.Common;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    
+
     using SLDisDmFeatureCheck.Common;
     using SLDisDmFeatureCheck.Common.Attributes;
     using SLDisDmFeatureCheck.Common.Exceptions;
     using SLDisDmFeatureCheck.Common.Interfaces;
     using SLDisDmFeatureCheck.Common.Results;
 
-    public class VersionChecker
+    public static class VersionChecker
     {
-	    private readonly DataMinerVersion minimumSupportedDataMinerVersion;
-
 	    private static IEnumerable<(IFeatureCheck feature, MinDataMinerVersionsAttribute minVersion, MaxDataMinerVersionsAttribute maxVersion)> allFeatures;
-
-        public VersionChecker(DataMinerVersion minimumSupportedDataMinerVersion)
-        {
-	        this.minimumSupportedDataMinerVersion = minimumSupportedDataMinerVersion;
-        }
-
-        public DataMinerVersion GetMinimumSupportedVersion()
-        {
-            return minimumSupportedDataMinerVersion;
-        }
-
+        
         /// <summary>
         /// Gets the used features.
         /// </summary>
@@ -47,7 +34,7 @@
         /// data
         /// </exception>
         /// <exception cref="DataMinerVersionCheckException">Internal error, see internal exception for more details.</exception>
-        public IDmaVersionCheckResults GetUsedFeatures(IProtocolInputData input, IReadOnlyDictionary<ProjectId, CompiledQActionProject> compiledQActions, bool isSolutionBased, CancellationToken cancellationToken)
+        public static IDmaVersionCheckResults GetUsedFeatures(IProtocolInputData input, IReadOnlyDictionary<ProjectId, CompiledQActionProject> compiledQActions, bool isSolutionBased, CancellationToken cancellationToken)
         {
             if (input == null)
             {

@@ -15,7 +15,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.3.0-8964")]
-    public class DeleteFolder_RecycleOption : IFeatureCheck
+    internal class DeleteFolder_RecycleOption : IFeatureCheck
     {
         public string Title => "Delete Folder - Recycle Option";
 

@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTa
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckParamTag, Category.Group)]
-    public class CheckParamTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckParamTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

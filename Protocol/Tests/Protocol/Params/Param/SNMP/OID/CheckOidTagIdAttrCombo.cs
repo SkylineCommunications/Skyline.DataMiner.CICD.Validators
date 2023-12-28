@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.OID.CheckOidTagIdAttr
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckOidTagIdAttrCombo, Category.Param)]
-    public class CheckOidTagIdAttrCombo : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckOidTagIdAttrCombo : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

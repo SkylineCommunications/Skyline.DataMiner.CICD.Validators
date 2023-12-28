@@ -13,7 +13,7 @@
 
     [Serializable]
     [DataContract]
-    public class ValidationResult : IValidationResult, ISeverityBubbleUpResult
+    internal class ValidationResult : IValidationResult, ISeverityBubbleUpResult
     {
         public Dictionary<Enum, object> ExtraData { get; set; }
 

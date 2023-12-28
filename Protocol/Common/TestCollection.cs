@@ -7,7 +7,7 @@
 
     using SLDisValidator2.Common.Attributes;
 
-    public class TestCollection<T>
+    internal class TestCollection<T>
     {
         internal TestCollection(IReadOnlyList<(T, TestAttribute)> tests)
         {

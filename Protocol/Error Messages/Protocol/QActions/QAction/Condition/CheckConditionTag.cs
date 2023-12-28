@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.Condition.CheckConditi
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult InvalidCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string conditionString, string invalidityReason, string qactionId)
+        internal static IValidationResult InvalidCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string conditionString, string invalidityReason, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.Condition.CheckConditi
             };
         }
 
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string qactionId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.Condition.CheckConditi
             };
         }
 
-        public static IValidationResult ConditionCanBeSimplified(IValidate test, IReadable referenceNode, IReadable positionNode, string conditionString, string qactionId)
+        internal static IValidationResult ConditionCanBeSimplified(IValidate test, IReadable referenceNode, IReadable positionNode, string conditionString, string qactionId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.Condition.CheckConditi
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint InvalidCondition = 1;
         public const uint NonExistingId = 2;

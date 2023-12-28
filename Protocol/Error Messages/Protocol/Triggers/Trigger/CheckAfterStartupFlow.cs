@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult InvalidAfterStartupTriggerCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
+        internal static IValidationResult InvalidAfterStartupTriggerCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
             };
         }
 
-        public static IValidationResult InvalidAfterStartupActionCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
+        internal static IValidationResult InvalidAfterStartupActionCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
             };
         }
 
-        public static IValidationResult InvalidAfterStartupTriggerType(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
+        internal static IValidationResult InvalidAfterStartupTriggerType(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
             };
         }
 
-        public static IValidationResult InvalidAfterStartupActionOn(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
+        internal static IValidationResult InvalidAfterStartupActionOn(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
             };
         }
 
-        public static IValidationResult InvalidAfterStartupActionType(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
+        internal static IValidationResult InvalidAfterStartupActionType(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
             };
         }
 
-        public static IValidationResult InvalidAfterStartupGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult InvalidAfterStartupGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -162,7 +162,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint InvalidAfterStartupTriggerCondition = 1;
         public const uint InvalidAfterStartupActionCondition = 2;

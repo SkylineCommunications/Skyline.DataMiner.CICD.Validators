@@ -11,7 +11,7 @@
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public class QActionAnalyzerBase : CSharpAnalyzerBase
+    internal class QActionAnalyzerBase : CSharpAnalyzerBase
     {
         protected readonly IValidate test;
         protected readonly ValidatorContext context;

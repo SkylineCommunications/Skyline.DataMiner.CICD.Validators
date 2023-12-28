@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.1.0-7839")]
-    public class DynamicParameterReplication : IFeatureCheck
+    internal class DynamicParameterReplication : IFeatureCheck
     {
         public string Title => "Dynamic Parameter Replication";
 

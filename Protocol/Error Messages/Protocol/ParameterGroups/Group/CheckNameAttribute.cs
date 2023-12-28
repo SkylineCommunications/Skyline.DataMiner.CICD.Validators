@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckNameAttribut
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId)
+        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckNameAttribut
             };
         }
 
-        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId)
+        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckNameAttribut
             };
         }
 
-        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string parameterGroupIds)
+        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string parameterGroupIds)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckNameAttribut
             };
         }
 
-        public static IValidationResult InvalidChars(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string invalidCharacters)
+        internal static IValidationResult InvalidChars(IValidate test, IReadable referenceNode, IReadable positionNode, string attributeValue, string invalidCharacters)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckNameAttribut
             };
         }
 
-        public static IValidationResult LengthyValue(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupName)
+        internal static IValidationResult LengthyValue(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupName)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckNameAttribut
             };
         }
 
-        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId, string untrimmedName)
+        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId, string untrimmedName)
         {
             return new ValidationResult
             {
@@ -162,9 +162,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckNameAttribut
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult DcfParameterGroupNameChanged(IReadable referenceNode, IReadable positionNode, string groupId, string oldName, string newName)
+        internal static IValidationResult DcfParameterGroupNameChanged(IReadable referenceNode, IReadable positionNode, string groupId, string oldName, string newName)
         {
             return new ValidationResult
             {
@@ -190,7 +190,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckNameAttribut
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DcfParameterGroupNameChanged = 3;
         public const uint MissingAttribute = 4;

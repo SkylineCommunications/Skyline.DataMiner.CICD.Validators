@@ -14,7 +14,7 @@
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckUnitsTag, Category.Param)]
-    public class CheckUnitsTag : IValidate, ICodeFix
+    internal class CheckUnitsTag : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

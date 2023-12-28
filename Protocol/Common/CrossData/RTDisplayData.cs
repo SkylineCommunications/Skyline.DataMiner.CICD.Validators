@@ -6,6 +6,9 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
+    /// <summary>
+    /// Holds the data needed for <see cref="SLDisValidator2.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag.CheckRTDisplayTag"/>.
+    /// </summary>
     public class RtDisplayData
     {
         private readonly Dictionary<int, (IParamsParam param, List<IValidationResult> results)> parameters = new Dictionary<int, (IParamsParam, List<IValidationResult>)>();

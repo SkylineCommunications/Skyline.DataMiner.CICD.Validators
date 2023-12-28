@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.C
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTableIdAttribute, Category.TreeControl)]
-    public class CheckTableIdAttribute : IValidate, ICodeFix
+    internal class CheckTableIdAttribute : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

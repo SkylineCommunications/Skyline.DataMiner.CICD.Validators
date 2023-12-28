@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
     enum ExtraData { dependencyId }
 
     [Test(CheckId.CheckIdTag, Category.Param)]
-    public class CheckIdTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckIdTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

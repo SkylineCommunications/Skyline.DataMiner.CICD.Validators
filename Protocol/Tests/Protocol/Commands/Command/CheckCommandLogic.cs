@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckCommandLogic
 
 
     [Test(CheckId.CheckCommandLogic, Category.Command)]
-    public class CheckCommandLogic : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckCommandLogic : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

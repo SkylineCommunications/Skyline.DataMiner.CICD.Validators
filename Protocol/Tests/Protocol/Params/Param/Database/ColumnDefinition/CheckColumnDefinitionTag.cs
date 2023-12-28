@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Database.ColumnDefinition.
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckColumnDefinitionTag, Category.Param)]
-    public class CheckColumnDefinitionTag : /*IValidate, ICodeFix, */ICompare
+    internal class CheckColumnDefinitionTag : /*IValidate, ICodeFix, */ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

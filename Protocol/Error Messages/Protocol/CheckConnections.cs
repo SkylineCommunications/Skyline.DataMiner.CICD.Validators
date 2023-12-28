@@ -10,9 +10,9 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
     using SLDisValidator2.Interfaces;
 
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MismatchingNames(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string names, bool hasCodeFix)
+        internal static IValidationResult MismatchingNames(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string names, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
             };
         }
 
-        public static IValidationResult InvalidConnectionName(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionName, string connectionType, string connectionId)
+        internal static IValidationResult InvalidConnectionName(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionName, string connectionType, string connectionId)
         {
             return new ValidationResult
             {
@@ -62,7 +62,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
             };
         }
 
-        public static IValidationResult DuplicateConnectionName(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName)
+        internal static IValidationResult DuplicateConnectionName(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
             };
         }
 
-        public static IValidationResult DuplicateConnectionName_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string connectionIds)
+        internal static IValidationResult DuplicateConnectionName_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string connectionIds)
         {
             return new ValidationResult
             {
@@ -112,7 +112,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
             };
         }
 
-        public static IValidationResult InvalidConnectionCount(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionCount, string portSettingCount)
+        internal static IValidationResult InvalidConnectionCount(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionCount, string portSettingCount)
         {
             return new ValidationResult
             {
@@ -137,7 +137,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
             };
         }
 
-        public static IValidationResult InvalidCombinationOfSyntax1And2(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult InvalidCombinationOfSyntax1And2(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -162,7 +162,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
             };
         }
 
-        public static IValidationResult UnrecommendedSyntax2(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult UnrecommendedSyntax2(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -188,9 +188,9 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult ConnectionsOrderChanged(IReadable referenceNode, IReadable positionNode, string oldOrder, string newOrder)
+        internal static IValidationResult ConnectionsOrderChanged(IReadable referenceNode, IReadable positionNode, string oldOrder, string newOrder)
         {
             return new ValidationResult
             {
@@ -215,7 +215,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
             };
         }
 
-        public static IValidationResult ConnectionTypeChanged(IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId, string connectionName, string newConnectionType)
+        internal static IValidationResult ConnectionTypeChanged(IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId, string connectionName, string newConnectionType)
         {
             return new ValidationResult
             {
@@ -240,7 +240,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
             };
         }
 
-        public static IValidationResult ConnectionAdded(IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId, string connectionName)
+        internal static IValidationResult ConnectionAdded(IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId, string connectionName)
         {
             return new ValidationResult
             {
@@ -266,7 +266,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MismatchingNames = 1;
         public const uint InvalidConnectionName = 2;

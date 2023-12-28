@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.CheckPasswordAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckPasswordAttribute, Category.HTTP)]
-    public class CheckPasswordAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckPasswordAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

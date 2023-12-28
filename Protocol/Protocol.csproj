@@ -18,8 +18,6 @@
 		<Description>TODO: Validates protocols</Description>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Validators</RepositoryUrl>
-
-		<SonarQubeExclude>true</SonarQubeExclude>
 	</PropertyGroup>
 
 	<ItemGroup>

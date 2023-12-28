@@ -22,7 +22,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpSLProtocolFillArrayWithColumn, Category.QAction)]
-    public class CSharpSLProtocolFillArrayWithColumn : IValidate, ICodeFix
+    internal class CSharpSLProtocolFillArrayWithColumn : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Pair.CheckPairTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckPairTag, Category.Group)]
-    public class CheckPairTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckPairTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

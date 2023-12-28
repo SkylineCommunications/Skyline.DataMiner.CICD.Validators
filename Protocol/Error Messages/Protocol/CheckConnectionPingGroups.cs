@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnectionPingGroups
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult InvalidPingGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string groupId)
+        internal static IValidationResult InvalidPingGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnectionPingGroups
             };
         }
 
-        public static IValidationResult PingSerialPairHasNoResponse(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string pairId)
+        internal static IValidationResult PingSerialPairHasNoResponse(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string pairId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnectionPingGroups
             };
         }
 
-        public static IValidationResult MultiplePingPairsForConnection(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionName, string connectionType, string connectionId)
+        internal static IValidationResult MultiplePingPairsForConnection(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionName, string connectionType, string connectionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnectionPingGroups
             };
         }
 
-        public static IValidationResult MultiplePingPairsForConnection_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string pairId)
+        internal static IValidationResult MultiplePingPairsForConnection_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string pairId)
         {
             return new ValidationResult
             {
@@ -112,7 +112,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnectionPingGroups
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint InvalidPingGroupType = 1;
         public const uint PingSerialPairHasNoResponse = 2;

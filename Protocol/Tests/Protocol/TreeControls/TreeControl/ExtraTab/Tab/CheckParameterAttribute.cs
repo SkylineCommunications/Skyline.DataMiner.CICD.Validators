@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.C
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckParameterAttribute, Category.TreeControl)]
-    public class CheckParameterAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckParameterAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -12,7 +12,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.10.0-9454")]
-    public class NuGetPackages : IFeatureCheck
+    internal class NuGetPackages : IFeatureCheck
     {
         public string Title => "NuGet packages";
 

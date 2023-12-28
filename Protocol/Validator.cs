@@ -16,6 +16,7 @@
     
     public class Validator : IValidator
     {
+        /// <inheritdoc cref="IValidator.RunValidate"/>
         public IList<IValidationResult> RunValidate(IProtocolInputData input, ValidatorSettings validatorSettings, CancellationToken cancellationToken)
         {
             var results = new List<IValidationResult>();
@@ -109,6 +110,7 @@
             return results;
         }
 
+        /// <inheritdoc cref="IValidator.RunCompare"/>
         public IList<IValidationResult> RunCompare(IProtocolInputData newData, IProtocolInputData oldData, ValidatorSettings validatorSettings, CancellationToken cancellationToken)
         {
             List<IValidationResult> results = new List<IValidationResult>();
@@ -147,6 +149,7 @@
             return results;
         }
 
+        /// <inheritdoc cref="IValidator.ExecuteCodeFix"/>
         public ICodeFixResult ExecuteCodeFix(Skyline.DataMiner.CICD.Parsers.Common.XmlEdit.XmlDocument document, Skyline.DataMiner.CICD.Models.Protocol.Edit.Protocol protocol, IValidationResult result, ValidatorSettings validatorSettings)
         {
             if (document == null)

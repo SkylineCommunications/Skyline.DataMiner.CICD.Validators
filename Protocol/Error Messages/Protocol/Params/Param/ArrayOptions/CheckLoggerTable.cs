@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckLoggerTa
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult RemovedLoggerColumn(IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
+        internal static IValidationResult RemovedLoggerColumn(IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckLoggerTa
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint RemovedLoggerColumn = 1;
     }

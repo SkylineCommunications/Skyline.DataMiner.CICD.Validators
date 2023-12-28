@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Trigger.CheckTrigg
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTriggerTag, Category.Group)]
-    public class CheckTriggerTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckTriggerTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

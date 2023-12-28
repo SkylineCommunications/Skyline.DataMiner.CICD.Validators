@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.On.CheckOnTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckOnTag, Category.Action)]
-    public class CheckOnTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckOnTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -60,7 +60,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult InvalidTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string pid)
+        internal static IValidationResult InvalidTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string pid)
         {
             return new ValidationResult
             {
@@ -85,7 +85,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -110,7 +110,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
             };
         }
 
-        public static IValidationResult UnrecommendedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName, string paramIDs)
+        internal static IValidationResult UnrecommendedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName, string paramIDs)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingTag = 1;
         public const uint EmptyTag = 2;

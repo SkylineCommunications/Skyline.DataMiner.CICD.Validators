@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Responses.Response.Content.Param.CheckP
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckParamTag, Category.Response)]
-    public class CheckParamTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckParamTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

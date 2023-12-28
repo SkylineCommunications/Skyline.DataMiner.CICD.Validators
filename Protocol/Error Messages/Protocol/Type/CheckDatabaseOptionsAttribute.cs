@@ -7,9 +7,9 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckDatabaseOptionsAttribute
     using SLDisValidator2.Common;
 
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult EnabledPartitionedTrending(IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EnabledPartitionedTrending(IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckDatabaseOptionsAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EnabledPartitionedTrending = 1;
     }

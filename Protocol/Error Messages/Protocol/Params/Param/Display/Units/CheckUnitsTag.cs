@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTa
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTa
             };
         }
 
-        public static IValidationResult OutdatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string obsoleteUnit, string newUnit, string paramPid)
+        internal static IValidationResult OutdatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string obsoleteUnit, string newUnit, string paramPid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTa
             };
         }
 
-        public static IValidationResult InvalidTag(IValidate test, IReadable referenceNode, IReadable positionNode, string unitValue, string paramPid)
+        internal static IValidationResult InvalidTag(IValidate test, IReadable referenceNode, IReadable positionNode, string unitValue, string paramPid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTa
             };
         }
 
-        public static IValidationResult UnsupportedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramDisplayType, string paramPid)
+        internal static IValidationResult UnsupportedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramDisplayType, string paramPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTa
             };
         }
 
-        public static IValidationResult ExcessiveTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagName, string reason, string paramPid)
+        internal static IValidationResult ExcessiveTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagName, string reason, string paramPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTa
             };
         }
 
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramDisplayType, string paramPid)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramDisplayType, string paramPid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTa
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -187,7 +187,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTa
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EmptyTag = 2;
         public const uint OutdatedValue = 3;

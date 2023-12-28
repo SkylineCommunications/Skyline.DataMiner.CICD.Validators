@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckDefaultPageAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDefaultPageAttribute, Category.Protocol)]
-    public class CheckDefaultPageAttribute : IValidate, ICodeFix
+    internal class CheckDefaultPageAttribute : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

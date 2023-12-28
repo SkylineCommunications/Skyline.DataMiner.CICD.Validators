@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.Condition.CheckCondition
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckConditionTag, Category.Action)]
-    public class CheckConditionTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckConditionTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

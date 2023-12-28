@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckWidt
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckWidthAttribute, Category.Param)]
-    public class CheckWidthAttribute : IValidate, ICodeFix
+    internal class CheckWidthAttribute : IValidate, ICodeFix
     {
         private const uint DefaultWidth = 110;
 

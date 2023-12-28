@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckColumnOptionTag, Category.Param)]
-    public class CheckColumnOptionTag : /*IValidate, ICodeFix, */ICompare
+    internal class CheckColumnOptionTag : /*IValidate, ICodeFix, */ICompare
     {
         ////public List<IValidationResult> Validate(ValidatorContext context)
         ////{

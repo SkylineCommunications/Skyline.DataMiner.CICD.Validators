@@ -19,7 +19,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CSharpCheckUnrecommendedConstructor, Category.QAction)]
-    public class CSharpCheckUnrecommendedConstructor : IValidate /*, ICodeFix, ICompare*/
+    internal class CSharpCheckUnrecommendedConstructor : IValidate /*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

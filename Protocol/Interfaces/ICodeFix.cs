@@ -4,7 +4,7 @@
 
     using SLDisValidator2.Common;
 
-    public interface ICodeFix : IRoot
+    internal interface ICodeFix : IRoot
     {
         ICodeFixResult Fix(CodeFixContext context);
     }

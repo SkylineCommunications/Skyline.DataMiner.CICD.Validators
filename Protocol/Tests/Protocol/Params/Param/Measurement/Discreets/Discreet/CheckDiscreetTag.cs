@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDiscreetTag, Category.Param)]
-    public class CheckDiscreetTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckDiscreetTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

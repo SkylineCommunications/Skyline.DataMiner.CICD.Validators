@@ -11,7 +11,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckXMLDeclaration
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckXMLDeclaration, Category.Protocol)]
-    public class CheckXMLDeclaration : IValidate, ICodeFix
+    internal class CheckXMLDeclaration : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

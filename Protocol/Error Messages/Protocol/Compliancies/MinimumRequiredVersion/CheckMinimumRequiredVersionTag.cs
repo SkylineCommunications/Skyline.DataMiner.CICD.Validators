@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MinVersionTooLow(IValidate test, IReadable referenceNode, IReadable positionNode, string currentMinDmVersion, string expectedMinDmVersion)
+        internal static IValidationResult MinVersionTooLow(IValidate test, IReadable referenceNode, IReadable positionNode, string currentMinDmVersion, string expectedMinDmVersion)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
             };
         }
 
-        public static IValidationResult MinVersionTooLow_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string requiredDmVersion, string usedFeature)
+        internal static IValidationResult MinVersionTooLow_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string requiredDmVersion, string usedFeature)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
             };
         }
 
-        public static IValidationResult MinVersionFeatureUsedInItemWithId_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string itemKind, string identifierType, string itemId)
+        internal static IValidationResult MinVersionFeatureUsedInItemWithId_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string itemKind, string identifierType, string itemId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
             };
         }
 
-        public static IValidationResult MinVersionFeatureUsedInItem_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string itemKind)
+        internal static IValidationResult MinVersionFeatureUsedInItem_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string itemKind)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
         {
             return new ValidationResult
             {
@@ -137,9 +137,9 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult MinVersionIncreased(IReadable referenceNode, IReadable positionNode, string oldMinDmVersion, string newMinDmVersion)
+        internal static IValidationResult MinVersionIncreased(IReadable referenceNode, IReadable positionNode, string oldMinDmVersion, string newMinDmVersion)
         {
             return new ValidationResult
             {
@@ -165,7 +165,7 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MinVersionTooLow = 1;
         public const uint MinVersionTooLow_Sub = 2;

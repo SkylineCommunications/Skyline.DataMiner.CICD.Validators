@@ -11,7 +11,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.5.0-9164")]
-    public class LoginMethod_Certificate : IFeatureCheck
+    internal class LoginMethod_Certificate : IFeatureCheck
     {
         public string Title => "Login Method - Certificate";
 

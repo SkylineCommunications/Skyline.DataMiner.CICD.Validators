@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.CheckName
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId, string newDveProtocolName)
+        internal static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId, string newDveProtocolName)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.CheckName
             };
         }
 
-        public static IValidationResult RemovedItem(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        internal static IValidationResult RemovedItem(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.CheckName
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedValue = 1;
         public const uint RemovedItem = 2;

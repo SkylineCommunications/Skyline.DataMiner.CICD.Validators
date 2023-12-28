@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Provider.CheckProviderTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckProviderTag, Category.Protocol)]
-    public class CheckProviderTag : IValidate, ICodeFix
+    internal class CheckProviderTag : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

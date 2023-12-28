@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UntrimmedTag = 1;
     }

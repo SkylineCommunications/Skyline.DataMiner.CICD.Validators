@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Session.CheckSessi
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckSessionTag, Category.Group)]
-    public class CheckSessionTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckSessionTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

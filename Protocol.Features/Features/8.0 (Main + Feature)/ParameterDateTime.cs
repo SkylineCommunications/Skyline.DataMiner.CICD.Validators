@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("8.5-2859", "8.0.8.4-2556")]
-    public class ParameterDateTime : IFeatureCheck
+    internal class ParameterDateTime : IFeatureCheck
     {
         public string Title => "Parameter DateTime";
 

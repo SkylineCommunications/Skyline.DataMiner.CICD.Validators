@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Name.CheckNameTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult InvalidChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidCharacters)
+        internal static IValidationResult InvalidChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidCharacters)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Name.CheckNameTag
             };
         }
 
-        public static IValidationResult InvalidPrefix(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidPrefix)
+        internal static IValidationResult InvalidPrefix(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidPrefix)
         {
             return new ValidationResult
             {
@@ -137,9 +137,9 @@ namespace SLDisValidator2.Tests.Protocol.Name.CheckNameTag
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string oldProtocolName, string newProtocolName)
+        internal static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string oldProtocolName, string newProtocolName)
         {
             return new ValidationResult
             {
@@ -165,7 +165,7 @@ namespace SLDisValidator2.Tests.Protocol.Name.CheckNameTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint MissingTag = 1;
         public const uint EmptyTag = 2;

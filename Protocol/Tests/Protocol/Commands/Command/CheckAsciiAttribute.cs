@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckAsciiAttribute, Category.Command)]
-    public class CheckAsciiAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckAsciiAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

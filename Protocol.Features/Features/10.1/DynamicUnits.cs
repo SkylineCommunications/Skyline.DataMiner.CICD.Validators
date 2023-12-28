@@ -10,7 +10,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.9.0-9385")]
-    public class DynamicUnits : IFeatureCheck
+    internal class DynamicUnits : IFeatureCheck
     {
         public string Title => "Dynamic Units";
 

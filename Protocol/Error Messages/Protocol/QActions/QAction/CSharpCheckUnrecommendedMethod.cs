@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult UnrecommendedThreadAbort(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedThreadAbort(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedSlProtocolGetParameterIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedSlProtocolGetParameterIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedSlProtocolSetParameterIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedSlProtocolSetParameterIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedSlProtocolSetParametersIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedSlProtocolSetParametersIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyDataMinerNTGetRemoteTrend(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyDataMinerNTGetRemoteTrend(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyDataMinerNTGetRemoteTrendAvg(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyDataMinerNTGetRemoteTrendAvg(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNTDeleteRow(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNTDeleteRow(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNTAddRow(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNTAddRow(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_CHECK_TRIGGER(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_CHECK_TRIGGER(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_KEY_POSITION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_KEY_POSITION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -311,7 +311,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_BY_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_BY_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -336,7 +336,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_BY_NAME(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_BY_NAME(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -361,7 +361,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_DESCRIPTION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_DESCRIPTION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -386,7 +386,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_INDEX(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_INDEX(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -411,7 +411,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_ITEM_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_ITEM_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -436,7 +436,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_ROW(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_ROW(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -461,7 +461,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_ARRAY_ROW_COUNT(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_ARRAY_ROW_COUNT(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -486,7 +486,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_NOTIFY_DISPLAY(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_NOTIFY_DISPLAY(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -511,7 +511,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_WITH_HISTORY(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_WITH_HISTORY(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -536,7 +536,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_BY_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_BY_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -561,7 +561,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_BY_NAME(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_BY_NAME(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -586,7 +586,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_DESCRIPTION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_DESCRIPTION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -611,7 +611,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_ITEM_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_ITEM_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -636,7 +636,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
             };
         }
 
-        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_ROW(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_ROW(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -662,7 +662,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UnrecommendedThreadAbort = 1;
         public const uint UnrecommendedSlProtocolGetParameterIndex = 2;

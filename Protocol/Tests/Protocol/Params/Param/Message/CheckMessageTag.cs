@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Message.CheckMessageTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckMessageTag, Category.Param)]
-    public class CheckMessageTag : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckMessageTag : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

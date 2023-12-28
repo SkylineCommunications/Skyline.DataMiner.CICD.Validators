@@ -20,7 +20,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CSharpCheckUnrecommendedPropertySet, Category.QAction)]
-    public class CSharpCheckUnrecommendedPropertySet : IValidate /*, ICodeFix, ICompare*/
+    internal class CSharpCheckUnrecommendedPropertySet : IValidate /*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

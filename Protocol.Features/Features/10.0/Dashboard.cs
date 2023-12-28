@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.11.0-8649")]
-    public class Dashboard : IFeatureCheck
+    internal class Dashboard : IFeatureCheck
     {
         public string Title => "Dashboard";
 

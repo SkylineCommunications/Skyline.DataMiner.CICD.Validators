@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckGroupTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckGroupTag, Category.ParameterGroup)]
-    public class CheckGroupTag : IValidate, ICompare
+    internal class CheckGroupTag : IValidate, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

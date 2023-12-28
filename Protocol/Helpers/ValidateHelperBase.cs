@@ -7,7 +7,7 @@
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public class ValidateHelperBase
+    internal class ValidateHelperBase
     {
         protected readonly IValidate test;
         protected readonly ValidatorContext context;

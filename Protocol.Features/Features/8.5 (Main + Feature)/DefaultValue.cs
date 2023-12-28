@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("9.0-7282", "8.5.3.7-3052")]
-    public class DefaultValue : IFeatureCheck
+    internal class DefaultValue : IFeatureCheck
     {
         public string Title => "Default Parameter Value";
 

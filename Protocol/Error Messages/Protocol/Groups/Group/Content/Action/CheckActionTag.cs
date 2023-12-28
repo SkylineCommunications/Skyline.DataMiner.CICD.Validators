@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Action.CheckAction
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId, string groupId)
+        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Action.CheckAction
             };
         }
 
-        public static IValidationResult EmptyActionTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult EmptyActionTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Action.CheckAction
             };
         }
 
-        public static IValidationResult InvalidActionTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
+        internal static IValidationResult InvalidActionTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Action.CheckAction
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint NonExistingId = 1;
         public const uint EmptyActionTag = 2;

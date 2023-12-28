@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.CheckLoadSequenceAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckLoadSequenceAttribute, Category.Param)]
-    public class CheckLoadSequenceAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckLoadSequenceAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

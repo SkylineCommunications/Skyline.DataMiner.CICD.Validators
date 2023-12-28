@@ -18,7 +18,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayK
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.ArrayOptionsOptions;
 
     [Test(CheckId.CheckDisplayKey, Category.Param)]
-    public class CheckDisplayKey : IValidate, ICodeFix, ICompare
+    internal class CheckDisplayKey : IValidate, ICodeFix, ICompare
     {
         internal const string SyntaxTitleForNaming = "ArrayOptions@options:naming";
         internal const string SyntaxTitleForNamingFormat = "ArrayOptions/NamingFormat";

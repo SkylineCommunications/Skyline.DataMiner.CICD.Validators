@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public partial class ProtocolChecks
+    internal partial class ProtocolChecks
     {
         private const string _Uri = "http://www.skyline.be/protocol";
 

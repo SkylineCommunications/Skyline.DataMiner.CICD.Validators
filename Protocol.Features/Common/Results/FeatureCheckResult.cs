@@ -8,7 +8,7 @@
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    public class FeatureCheckResult : IFeatureCheckResult
+    internal class FeatureCheckResult : IFeatureCheckResult
     {
         internal FeatureCheckResult()
         {

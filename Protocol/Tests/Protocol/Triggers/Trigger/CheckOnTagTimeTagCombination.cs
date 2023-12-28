@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Triggers.Trigger.CheckOnTagTimeTagCombi
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckOnTagTimeTagCombination, Category.Trigger)]
-    public class CheckOnTagTimeTagCombination : IValidate
+    internal class CheckOnTagTimeTagCombination : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

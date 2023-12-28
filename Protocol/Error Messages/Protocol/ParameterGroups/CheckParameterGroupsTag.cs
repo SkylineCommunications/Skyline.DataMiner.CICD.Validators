@@ -6,9 +6,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.CheckParameterGroupsTag
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult DcfAdded(IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult DcfAdded(IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -34,7 +34,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.CheckParameterGroupsTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DcfAdded = 1;
     }

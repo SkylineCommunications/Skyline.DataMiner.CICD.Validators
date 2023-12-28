@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult UnknownHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
+        internal static IValidationResult UnknownHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
             };
         }
 
-        public static IValidationResult UntrimmedHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
+        internal static IValidationResult UntrimmedHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
             };
         }
 
-        public static IValidationResult MissingKeyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string connectionId)
+        internal static IValidationResult MissingKeyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
             };
         }
 
-        public static IValidationResult EmptyKeyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string connectionId)
+        internal static IValidationResult EmptyKeyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
             };
         }
 
-        public static IValidationResult InvalidHeaderKeyForVerb(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string verb, string sessionId, string connectionId)
+        internal static IValidationResult InvalidHeaderKeyForVerb(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string verb, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
             };
         }
 
-        public static IValidationResult RedundantHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
+        internal static IValidationResult RedundantHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
             };
         }
 
-        public static IValidationResult UnsupportedHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, Certainty certainty, string headerKey, string sessionId, string connectionId)
+        internal static IValidationResult UnsupportedHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, Certainty certainty, string headerKey, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -187,7 +187,7 @@ namespace SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Headers
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UnknownHeaderKey = 1;
         public const uint UntrimmedHeaderKey = 2;

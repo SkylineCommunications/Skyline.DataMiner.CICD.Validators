@@ -12,7 +12,7 @@ namespace SLDisValidator2.Tests.Protocol.Display.CheckDisplayTag
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDisplayTag, Category.Protocol)]
-    public class CheckDisplayTag : IValidate /*, ICodeFix, ICompare*/
+    internal class CheckDisplayTag : IValidate /*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

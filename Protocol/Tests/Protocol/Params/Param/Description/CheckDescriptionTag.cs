@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckDescriptionTag, Category.Param)]
-    public class CheckDescriptionTag : ICompare, IValidate, ICodeFix
+    internal class CheckDescriptionTag : ICompare, IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

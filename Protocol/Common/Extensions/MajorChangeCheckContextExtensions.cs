@@ -4,7 +4,7 @@
     using System.Linq;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    public static class MajorChangeCheckContextExtensions
+    internal static class MajorChangeCheckContextExtensions
     {
         /// <summary>
         /// Iterates all parameters from the old protocols and returns the old and matching new param, matching on the Id.

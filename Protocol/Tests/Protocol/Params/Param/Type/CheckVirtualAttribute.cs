@@ -15,7 +15,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckVirtualAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckVirtualAttribute, Category.Param)]
-    public class CheckVirtualAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckVirtualAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

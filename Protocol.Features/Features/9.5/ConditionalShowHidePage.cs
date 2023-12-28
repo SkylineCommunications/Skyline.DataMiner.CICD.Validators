@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("9.5.0.0-8480", "9.0.3.5-4937")]
-    public class ConditionalShowHidePage : IFeatureCheck
+    internal class ConditionalShowHidePage : IFeatureCheck
     {
         public string Title => "Conditional Show/Hide Pages";
 

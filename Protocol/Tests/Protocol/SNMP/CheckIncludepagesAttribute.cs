@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.SNMP.CheckIncludepagesAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckIncludepagesAttribute, Category.Protocol)]
-    public class CheckIncludepagesAttribute : IValidate, ICodeFix
+    internal class CheckIncludepagesAttribute : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

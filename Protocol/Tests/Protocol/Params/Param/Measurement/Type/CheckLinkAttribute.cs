@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckLink
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckLinkAttribute, Category.Param)]
-    public class CheckLinkAttribute : IValidate, ICodeFix
+    internal class CheckLinkAttribute : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

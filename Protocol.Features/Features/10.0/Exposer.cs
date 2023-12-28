@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.5.0-8250")]
-    public class Exposer : IFeatureCheck
+    internal class Exposer : IFeatureCheck
     {
         public string Title => "Exposer";
 

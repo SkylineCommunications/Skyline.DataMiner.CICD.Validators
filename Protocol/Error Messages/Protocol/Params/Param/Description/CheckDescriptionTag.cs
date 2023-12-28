@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
+        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
             };
         }
 
-        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
             };
         }
 
-        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
             };
         }
 
-        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateDescription, string paramId)
+        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateDescription, string paramId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
             };
         }
 
-        public static IValidationResult WrongCasing_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue, string expectedValue, string pid)
+        internal static IValidationResult WrongCasing_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue, string expectedValue, string pid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
             };
         }
 
-        public static IValidationResult WrongCasing(IValidate test, IReadable referenceNode, IReadable positionNode)
+        internal static IValidationResult WrongCasing(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -162,9 +162,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string paramId, string previousDescription, string newDescription)
+        internal static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string paramId, string previousDescription, string newDescription)
         {
             return new ValidationResult
             {
@@ -189,7 +189,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
             };
         }
 
-        public static IValidationResult RemovedItem(IReadable referenceNode, IReadable positionNode, string descriptionValue, string paramId)
+        internal static IValidationResult RemovedItem(IReadable referenceNode, IReadable positionNode, string descriptionValue, string paramId)
         {
             return new ValidationResult
             {
@@ -215,7 +215,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Description.CheckDescripti
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UpdatedValue = 1;
         public const uint RemovedItem = 2;

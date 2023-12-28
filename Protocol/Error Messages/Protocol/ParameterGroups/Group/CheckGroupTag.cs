@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckGroupTag
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult IncompatibleParamReferences(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId)
+        internal static IValidationResult IncompatibleParamReferences(IValidate test, IReadable referenceNode, IReadable positionNode, string parameterGroupId)
         {
             return new ValidationResult
             {
@@ -37,9 +37,9 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckGroupTag
         }
     }
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult DcfParameterGroupRemoved(IReadable referenceNode, IReadable positionNode, string groupId)
+        internal static IValidationResult DcfParameterGroupRemoved(IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -65,7 +65,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckGroupTag
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DcfParameterGroupRemoved = 1;
         public const uint IncompatibleParamReferences = 3;

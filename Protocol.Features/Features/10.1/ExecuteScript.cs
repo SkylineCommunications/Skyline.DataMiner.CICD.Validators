@@ -15,7 +15,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.5.0-9164")]
-    public class ExecuteScript : IFeatureCheck
+    internal class ExecuteScript : IFeatureCheck
     {
         public string Title => "ExecuteScript";
 

@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.DefaultValue.Ch
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult UnsupportedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult UnsupportedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.DefaultValue.Ch
             };
         }
 
-        public static IValidationResult NotYetSupportedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
+        internal static IValidationResult NotYetSupportedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.DefaultValue.Ch
             };
         }
 
-        public static IValidationResult ValueIncompatibleWithInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string defaultValue, string interpreteType, string pid)
+        internal static IValidationResult ValueIncompatibleWithInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string defaultValue, string interpreteType, string pid)
         {
             return new ValidationResult
             {
@@ -87,7 +87,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.DefaultValue.Ch
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint UnsupportedTag = 1;
         public const uint NotYetSupportedTag = 2;

@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.OverrideIconCo
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckOverrideIconColumnsTag, Category.TreeControl)]
-    public class CheckOverrideIconColumnsTag : IValidate, ICodeFix
+    internal class CheckOverrideIconColumnsTag : IValidate, ICodeFix
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

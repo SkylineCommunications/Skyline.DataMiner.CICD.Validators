@@ -13,7 +13,7 @@
     /// </summary>
     /// <seealso cref="IValidationResult" />
     [DataContract]
-    public class ValidationResult : IValidationResult
+    internal class ValidationResult : IValidationResult
     {
         public List<IValidationResult> SubResults { get; set; }
 

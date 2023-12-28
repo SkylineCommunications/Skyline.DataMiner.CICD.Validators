@@ -16,7 +16,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckConnections
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckConnections, Category.Protocol)]
-    public class CheckConnections : IValidate, ICodeFix, ICompare
+    internal class CheckConnections : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.CheckXMLDeclaration
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult InvalidDeclaration(IValidate test, IReadable referenceNode, IReadable positionNode, string currentEncoding, string possibleValues)
+        internal static IValidationResult InvalidDeclaration(IValidate test, IReadable referenceNode, IReadable positionNode, string currentEncoding, string possibleValues)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.CheckXMLDeclaration
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint InvalidDeclaration = 1;
     }

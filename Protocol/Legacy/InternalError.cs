@@ -13,7 +13,7 @@
     /// </summary>
     /// <seealso cref="IValidationResult" />
     [DataContract]
-    public class InternalError : IValidationResult
+    internal class InternalError : IValidationResult
     {
         public List<IValidationResult> SubResults { get; set; }
 

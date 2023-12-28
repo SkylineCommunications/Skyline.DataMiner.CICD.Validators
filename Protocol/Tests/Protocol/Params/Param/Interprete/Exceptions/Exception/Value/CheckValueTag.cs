@@ -17,7 +17,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckValueTag, Category.Param)]
-    public class CheckValueTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckValueTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

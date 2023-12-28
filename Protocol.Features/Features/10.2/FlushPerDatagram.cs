@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     [MinDataMinerVersions("10.2.0.0-11517", "10.1.4.0-10077")]
-    public class FlushPerDatagram : IFeatureCheck
+    internal class FlushPerDatagram : IFeatureCheck
     {
         public string Title => "Flush Per Datagram";
 

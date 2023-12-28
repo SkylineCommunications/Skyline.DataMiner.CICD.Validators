@@ -8,7 +8,7 @@
 
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    public class TitleCasing
+    internal class TitleCasing
     {
 	    private readonly FixedCasing fixedCasing;
 

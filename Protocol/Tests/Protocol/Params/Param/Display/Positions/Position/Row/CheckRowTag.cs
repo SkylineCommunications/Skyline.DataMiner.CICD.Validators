@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckRowTag, Category.Param)]
-    public class CheckRowTag : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckRowTag : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

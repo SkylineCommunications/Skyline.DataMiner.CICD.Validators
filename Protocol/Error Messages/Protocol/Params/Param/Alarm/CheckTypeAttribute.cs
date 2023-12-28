@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckTypeAttribute
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult RemovedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string alarmType, string paramId)
+        internal static IValidationResult RemovedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string alarmType, string paramId)
         {
             return new ValidationResult
             {
@@ -35,7 +35,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckTypeAttribute
             };
         }
 
-        public static IValidationResult UpdatedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string alarmType, string paramId, string newAlarmType)
+        internal static IValidationResult UpdatedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string alarmType, string paramId, string newAlarmType)
         {
             return new ValidationResult
             {
@@ -60,7 +60,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckTypeAttribute
             };
         }
 
-        public static IValidationResult AddedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string normalizationType, string pid)
+        internal static IValidationResult AddedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string normalizationType, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckTypeAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint RemovedNormalizationAlarmType = 1;
         public const uint UpdatedNormalizationAlarmType = 2;

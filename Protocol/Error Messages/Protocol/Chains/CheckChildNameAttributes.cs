@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Chains.CheckChildNameAttributes
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string chainName)
+        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string chainName)
         {
             return new ValidationResult
             {
@@ -37,7 +37,7 @@ namespace SLDisValidator2.Tests.Protocol.Chains.CheckChildNameAttributes
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint DuplicatedValue = 1;
     }

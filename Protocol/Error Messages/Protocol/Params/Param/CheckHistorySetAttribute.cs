@@ -8,9 +8,9 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckHistorySetAttribute
 
     using SLDisValidator2.Common;
 
-    public static class ErrorCompare
+    internal static class ErrorCompare
     {
-        public static IValidationResult EnabledHistorySet(IReadable referenceNode, IReadable positionNode, string paramId)
+        internal static IValidationResult EnabledHistorySet(IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckHistorySetAttribute
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint EnabledHistorySet = 1;
     }

@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.ExportRules.ExportRule.CheckWhereValueA
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckWhereValueAttribute, Category.ExportRule)]
-    public class CheckWhereValueAttribute : IValidate/*, ICodeFix, ICompare*/
+    internal class CheckWhereValueAttribute : IValidate/*, ICodeFix, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

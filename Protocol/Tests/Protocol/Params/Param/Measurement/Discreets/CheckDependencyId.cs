@@ -18,7 +18,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Chec
 
 
     [Test(CheckId.CheckDependencyId, Category.Param)]
-    public class CheckDependencyId : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckDependencyId : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

@@ -14,7 +14,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.8.0-9300")]
-    public class ProfileHelper : IFeatureCheck
+    internal class ProfileHelper : IFeatureCheck
     {
         public string Title => "ProfileHelper";
 

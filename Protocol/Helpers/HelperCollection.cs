@@ -3,7 +3,7 @@
 	using Skyline.DataMiner.CICD.Validators.Common.Model;
 	using SLDisValidator2.Tests;
 
-	public class HelperCollection
+	internal class HelperCollection
 	{
 		public HelperCollection(ValidatorSettings settings)
 		{

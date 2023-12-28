@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckIdAttribute
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckIdAttribute, Category.Timer)]
-    public class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
+    internal class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

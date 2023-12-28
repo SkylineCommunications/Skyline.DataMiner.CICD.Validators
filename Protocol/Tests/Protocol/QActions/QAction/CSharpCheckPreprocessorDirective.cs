@@ -19,7 +19,7 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckPreprocesso
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CSharpCheckPreprocessorDirective, Category.QAction)]
-    public class CSharpCheckPreprocessorDirective : IValidate
+    internal class CSharpCheckPreprocessorDirective : IValidate
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

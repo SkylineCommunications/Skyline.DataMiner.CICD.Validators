@@ -14,7 +14,7 @@
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTypeTag, Category.Protocol)]
-    public class CheckTypeTag : IValidate/*, ICompare*/
+    internal class CheckTypeTag : IValidate/*, ICompare*/
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

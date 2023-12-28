@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    public class FeatureCheckContext
+    internal class FeatureCheckContext
     {
         public FeatureCheckContext(IProtocolInputData input, IReadOnlyDictionary<ProjectId, CompiledQActionProject> compiledQActions, bool isSolutionBased)
         {

@@ -7,7 +7,7 @@
     using Skyline.DataMiner.CICD.CSharpAnalysis.Interfaces;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    public class CSharpFeatureCheckResultItem : FeatureCheckResultItem
+    internal class CSharpFeatureCheckResultItem : FeatureCheckResultItem
     {
         public ICSharpObject<SyntaxNode> CSharp { get; }
 

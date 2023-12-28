@@ -7,7 +7,7 @@
     using SLDisValidator2.Common.Attributes;
     using SLDisValidator2.Interfaces;
 
-    public static class TestCollector
+    internal static class TestCollector
     {
         private static readonly Lazy<TestCollection<IValidate>> _cacheValidateTestsCollection;
         private static readonly Lazy<TestCollection<ICompare>> _cacheCompareTestsCollection;

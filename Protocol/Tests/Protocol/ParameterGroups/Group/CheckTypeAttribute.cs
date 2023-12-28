@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckTypeAttribut
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTypeAttribute, Category.Protocol)]
-    public class CheckTypeAttribute : ICompare
+    internal class CheckTypeAttribute : ICompare
     {
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {

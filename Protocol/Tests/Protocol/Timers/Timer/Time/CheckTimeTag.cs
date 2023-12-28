@@ -14,7 +14,7 @@ namespace SLDisValidator2.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [Test(CheckId.CheckTimeTag, Category.Timer)]
-    public class CheckTimeTag : IValidate, ICodeFix
+    internal class CheckTimeTag : IValidate, ICodeFix
     {
         private const uint maxAllowedTimerTimeValue = 2073600000; // +- 24 Days
 

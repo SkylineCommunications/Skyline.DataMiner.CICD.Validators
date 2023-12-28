@@ -13,7 +13,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.CheckTrendingAttribute
     using SLDisValidator2.Interfaces;
 
     [Test(CheckId.CheckTrendingAttribute, Category.Param)]
-    public class CheckTrendingAttribute : IValidate, ICodeFix, ICompare
+    internal class CheckTrendingAttribute : IValidate, ICodeFix, ICompare
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {

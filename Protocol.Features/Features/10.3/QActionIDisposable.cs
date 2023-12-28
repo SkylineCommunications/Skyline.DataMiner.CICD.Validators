@@ -16,7 +16,7 @@
     using SLDisDmFeatureCheck.Common.Results;
 
     [MinDataMinerVersions("10.3.0.0-12752", "10.2.9.0-12190")]
-    public class QActionIDisposable : IFeatureCheck
+    internal class QActionIDisposable : IFeatureCheck
     {
         public string Title => "IDisposable interface";
 

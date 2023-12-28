@@ -9,9 +9,9 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
     using SLDisValidator2.Common;
     using SLDisValidator2.Interfaces;
 
-    public static class Error
+    internal static class Error
     {
-        public static IValidationResult IncompatibleTypeVsOnTag(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        internal static IValidationResult IncompatibleTypeVsOnTag(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult MissingOnIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        internal static IValidationResult MissingOnIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult MissingTypeIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        internal static IValidationResult MissingTypeIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult MissingOnNrAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        internal static IValidationResult MissingOnNrAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult NonExistingParamRefInTypeIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string actionId)
+        internal static IValidationResult NonExistingParamRefInTypeIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string actionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult MissingTypeIdOrTypeValueAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        internal static IValidationResult MissingTypeIdOrTypeValueAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult ExcessiveTypeIdOrTypeValueAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        internal static IValidationResult ExcessiveTypeIdOrTypeValueAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult NonExistingRefToPairOnTimeoutSetNext(IValidate test, IReadable referenceNode, IReadable positionNode, string pairPosition, string groupId, string actionId, string triggerId)
+        internal static IValidationResult NonExistingRefToPairOnTimeoutSetNext(IValidate test, IReadable referenceNode, IReadable positionNode, string pairPosition, string groupId, string actionId, string triggerId)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult NonExistingConnectionRefInTypeNrAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string actionId)
+        internal static IValidationResult NonExistingConnectionRefInTypeNrAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string actionId)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult UnsupportedConnectionTypeDueTo(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string connectionId, string connectionType, string actionId, string optionalPrefix)
+        internal static IValidationResult UnsupportedConnectionTypeDueTo(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string connectionId, string connectionType, string actionId, string optionalPrefix)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult UnsupportedGroupContentDueTo(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string actionId)
+        internal static IValidationResult UnsupportedGroupContentDueTo(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string actionId)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult UnsupportedGroupParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string paramId, string paramType, string actionId)
+        internal static IValidationResult UnsupportedGroupParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string paramId, string paramType, string actionId)
         {
             return new ValidationResult
             {
@@ -311,7 +311,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult UnsupportedGroupParamWithoutSnmp(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string paramId, string snmpEnabledValue, string actionId)
+        internal static IValidationResult UnsupportedGroupParamWithoutSnmp(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string paramId, string snmpEnabledValue, string actionId)
         {
             return new ValidationResult
             {
@@ -336,7 +336,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
             };
         }
 
-        public static IValidationResult UnsupportedAttributeOnNr(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        internal static IValidationResult UnsupportedAttributeOnNr(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -362,7 +362,7 @@ namespace SLDisValidator2.Tests.Protocol.Actions.Action.CheckActionTypes
         }
     }
 
-    public static class ErrorIds
+    internal static class ErrorIds
     {
         public const uint IncompatibleTypeVsOnTag = 1;
         public const uint MissingOnIdAttribute = 2;
