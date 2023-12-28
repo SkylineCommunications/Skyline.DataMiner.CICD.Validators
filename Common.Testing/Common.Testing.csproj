@@ -15,4 +15,10 @@
 		</Reference>
 	</ItemGroup>
 
+	<ItemGroup>
+		<SonarQubeSetting Include="sonar.exclusions">
+			<Value>QActionHelper/**</Value>
+		</SonarQubeSetting>
+	</ItemGroup>
+
 </Project>
