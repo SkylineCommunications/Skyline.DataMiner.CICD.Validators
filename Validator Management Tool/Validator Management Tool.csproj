@@ -1,20 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{82F5E0F7-A112-489E-9480-D4ECD9FACB4E}</ProjectGuid>
+    <TargetFramework>net472</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Validator_Management_Tool</RootNamespace>
-    <AssemblyName>Validator Management Tool</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,144 +17,40 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-	<SonarQubeExclude>true</SonarQubeExclude>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SonarQubeExclude>true</SonarQubeExclude>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="BindableBase.cs" />
-    <Compile Include="Common\ExportManager.cs" />
-    <Compile Include="Common\Settings.cs" />
-    <Compile Include="Common\TestGenerator.cs" />
-    <Compile Include="Interfaces\MyCommand.cs" />
-    <Compile Include="Interfaces\MyTCommand.cs" />
-    <Compile Include="Serialization\Serializer.cs" />
-    <Compile Include="Serialization\XmlClasses.cs" />
-    <Compile Include="Common\XMLParser.cs" />
     <Resource Include="Resources\skyline.ico" />
     <Content Include="Templates\Error Messages\ErrorMessagesClass.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ErrorMessagesClass.cs</LastGenOutput>
     </Content>
-    <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Templates\Error Messages\ErrorMessagesClass.cs">
+    <Compile Update="Templates\Error Messages\ErrorMessagesClass.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorMessagesClass.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\Error Messages\ErrorMessagesClassCode.cs" />
-    <Compile Include="Templates\TemplateHelper.cs" />
-    <Compile Include="Templates\Tests\TestsClass.cs">
+    <Compile Update="Templates\Tests\TestsClass.cs">
       <DependentUpon>TestsClass.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Templates\Tests\TestsClassCode.cs" />
-    <Compile Include="Templates\Unit Tests\UnitTestClass.cs">
+    <Compile Update="Templates\Unit Tests\UnitTestClass.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UnitTestClass.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\Unit Tests\UnitTestClassCode.cs" />
-    <Compile Include="Tools\Converters.cs" />
-    <Compile Include="ViewModel\AddCheckViewModel.cs" />
-    <Compile Include="ViewModel\CheckEditViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowModel.cs" />
-    <Compile Include="ViewModel\CheckViewModel.cs" />
-    <Compile Include="ViewModel\NewCheckViewModel.cs">
+    <Compile Update="ViewModel\NewCheckViewModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="ViewModel\NewNamespaceViewModel.cs" />
-    <Compile Include="ViewModel\SettingsViewModel.cs" />
-    <Compile Include="Views\AddCheckView.xaml.cs">
-      <DependentUpon>AddCheckView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CheckEditView.xaml.cs">
-      <DependentUpon>CheckEditView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CheckView.xaml.cs">
-      <DependentUpon>CheckView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewCheckView.xaml.cs">
-      <DependentUpon>NewCheckView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewNamespaceView.xaml.cs">
-      <DependentUpon>NewNamespaceView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SettingsView.xaml.cs">
-      <DependentUpon>SettingsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="VML\ViewModelLocator.cs" />
     <Content Include="Templates\Unit Tests\UnitTestClass.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UnitTestClass.cs</LastGenOutput>
     </Content>
-    <Page Include="Views\AddCheckView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CheckEditView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Views\CheckView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewCheckView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewNamespaceView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SettingsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Model\CheckModel.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -191,14 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NPOI">
@@ -212,10 +88,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{6c83f73e-1130-46ef-bb3c-67573f987afe}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,20 +8,20 @@
     public static class Settings
     {
         // The default paths
-        public const string DefaultErrorMessagesPath = "../../../Protocol/";
-        public const string DefaultTestPath = "../../../Protocol/";
-        public const string DefaultUnitTestPath = "../../../ProtocolTests/";
-        public const string DefaultXmlPath = "../../../Protocol/ErrorMessages.xml";
+        public const string DefaultErrorMessagesPath = "../../../../Protocol/";
+        public const string DefaultTestPath = "../../../../Protocol/";
+        public const string DefaultUnitTestPath = "../../../../ProtocolTests/";
+        public const string DefaultXmlPath = "../../../../Protocol/ErrorMessages.xml";
         public const string DefaultExportPath = "";
         public const string DefaultExportFile = "Validator Error Messages";
 
         public const bool DefaultErrorClassesInOneFile = false;
 
         // The path specified in the settings menu
-        public static string ErrorMessagesPath = "../../../Protocol/";
-        public static string TestPath = "../../../Protocol/";
-        public static string UnitTestPath = "../../../ProtocolTests/";
-        public static string XmlPath = "../../../Protocol/ErrorMessages.xml";
+        public static string ErrorMessagesPath = "../../../../Protocol/";
+        public static string TestPath = "../../../../Protocol/";
+        public static string UnitTestPath = "../../../../ProtocolTests/";
+        public static string XmlPath = "../../../../Protocol/ErrorMessages.xml";
         public static string ExportPath = "";
         public static string ExportFile = "Validator Error Messages";
 
