@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Params
                                ?.Where(param => param?.Mediation?.Any(linkto => linkto?.Any(valueMapping => valueMapping != null) == true) == true)
-                               ?.Select(param => (IReadable)param)
-                               ?.ToList();
+                               .Select(param => (IReadable)param)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

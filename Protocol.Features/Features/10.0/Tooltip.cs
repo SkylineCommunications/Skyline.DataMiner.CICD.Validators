@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Params
                                ?.Where(param => param?.Measurement?.Discreets?.Any(discreet => discreet.Tooltip != null) == true)
-                               ?.Select(param => (IReadable)param)
-                               ?.ToList();
+                               .Select(param => (IReadable)param)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

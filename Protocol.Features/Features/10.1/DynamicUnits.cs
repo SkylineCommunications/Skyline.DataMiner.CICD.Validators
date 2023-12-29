@@ -22,8 +22,8 @@
         {
             var items = context?.Model?.Protocol?.Params
                                ?.Where(param => param?.Display?.DynamicUnits != null)
-                               ?.Select(param => (IReadable)param)
-                               ?.ToList();
+                               .Select(param => (IReadable)param)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

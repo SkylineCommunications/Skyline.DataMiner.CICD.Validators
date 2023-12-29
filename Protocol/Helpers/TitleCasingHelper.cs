@@ -355,7 +355,7 @@
             return false;
         }
 
-        private class FixedCasing
+        private sealed class FixedCasing
         {
             public FixedCasing(ValidatorSettings settings)
             {

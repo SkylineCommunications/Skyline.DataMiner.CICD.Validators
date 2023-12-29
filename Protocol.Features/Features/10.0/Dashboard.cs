@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Params
                                ?.Where(param => param?.Dashboard != null)
-                               ?.Select(param => (IReadable)param)
-                               ?.ToList();
+                               .Select(param => (IReadable)param)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

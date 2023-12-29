@@ -26,7 +26,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
 
             foreach (var command in context.ProtocolModel.Protocol.Commands)
             {
-                (GenericStatus status, string rawId, uint? id) = GenericTests.CheckBasics(command.Id, isRequired: true);
+                (GenericStatus status, string rawId, uint? _) = GenericTests.CheckBasics(command.Id, isRequired: true);
 
                 // Missing
                 if (status.HasFlag(GenericStatus.Missing))
@@ -53,7 +53,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
                 if (status.HasFlag(GenericStatus.Untrimmed))
                 {
                     results.Add(Error.UntrimmedAttribute(this, command, command, rawId));
-                    continue;
                 }
             }
 

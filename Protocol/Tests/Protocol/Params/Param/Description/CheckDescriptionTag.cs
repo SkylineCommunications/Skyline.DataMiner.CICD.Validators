@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -121,15 +121,15 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                string newPid = newParam?.Id?.RawValue;
+                string newPid = newParam.Id?.RawValue;
 
-                string oldDescriptionValue = oldParam?.Description?.Value;
+                string oldDescriptionValue = oldParam.Description?.Value;
                 if (String.IsNullOrWhiteSpace(oldDescriptionValue))
                 {
                     continue;
                 }
 
-                string newDescriptionValue = newParam?.Description?.Value;
+                string newDescriptionValue = newParam.Description?.Value;
                 if (newDescriptionValue == null)
                 {
                     if (!newParam.IsTitleEnd() && !newParam.IsTreeControl(context.NewProtocolModel.RelationManager))
@@ -150,7 +150,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
                 if (!oldDescriptionValue.Equals(newDescriptionValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    results.Add(ErrorCompare.UpdatedValue(newParam, newParam, newPid, oldParam?.Description?.RawValue, newParam?.Description?.RawValue));
+                    results.Add(ErrorCompare.UpdatedValue(newParam, newParam, newPid, oldParam.Description?.RawValue, newParam?.Description?.RawValue));
                 }
             }
 

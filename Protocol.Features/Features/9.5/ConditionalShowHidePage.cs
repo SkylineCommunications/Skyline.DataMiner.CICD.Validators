@@ -21,7 +21,7 @@
         {
             var items = context?.Model?.Protocol?.Display?.Pages
                 ?.Select(x => (IReadable)x)
-                ?.ToList();
+                .ToList();
 
             return new FeatureCheckResult(items);
         }

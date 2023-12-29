@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Params
                                ?.Where(param => param?.SNMP?.InvalidResponseHandling?.InfiniteLoop != null)
-                               ?.Select(param => (IReadable)param)
-                               ?.ToList();
+                               .Select(param => (IReadable)param)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

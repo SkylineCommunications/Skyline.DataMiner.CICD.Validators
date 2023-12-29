@@ -16,6 +16,9 @@
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
+    /// <summary>
+    /// Checks which features are being used in the provided protocol.
+    /// </summary>
     public static class VersionChecker
     {
 	    private static IEnumerable<(IFeatureCheck feature, MinDataMinerVersionsAttribute minVersion, MaxDataMinerVersionsAttribute maxVersion)> allFeatures;

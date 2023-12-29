@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Params
                                ?.Where(param => param?.Replication?.Element?.Dynamic != null || param?.Replication?.Parameter?.Dynamic != null)
-                               ?.Select(param => (IReadable)param)
-                               ?.ToList();
+                               .Select(param => (IReadable)param)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

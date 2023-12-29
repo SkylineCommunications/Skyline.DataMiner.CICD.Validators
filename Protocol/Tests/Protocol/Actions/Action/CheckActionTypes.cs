@@ -82,6 +82,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
         private bool isAttributeOnNrAllowed;
 
         // Action/Type attributes
+#pragma warning disable CS0649
         private bool isAttributeTypeAllowedAllowed;
         private bool isAttributeTypeArgumentsAllowed;
         private bool isAttributeTypeEndOffsetAllowed;
@@ -96,6 +97,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
         private bool isAttributeTypeSequenceAllowed;
         private bool isAttributeTypeStartOffsetAllowed;
         private bool isAttributeTypeValueAllowed;
+#pragma warning restore CS0649
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IActionsAction action, EnumActionType typeValue, EnumActionOn onValue)
         {

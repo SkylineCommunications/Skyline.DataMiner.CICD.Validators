@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -40,10 +40,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {
             List<IValidationResult> results = new List<IValidationResult>();
-            
+
             foreach ((IParamsParam oldParam, IParamsParam newParam) in context.EachMatchingParam())
             {
-                string tablePid = newParam?.Id?.RawValue;
+                string tablePid = newParam.Id?.RawValue;
 
                 bool oldRtDisplay = oldParam.GetRTDisplay();
                 bool newRtDisplay = newParam.GetRTDisplay();
@@ -58,14 +58,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                var oldSLProtocolColumns = CompareHelper.GetSlProtocolColumns(oldParam);
-                var newSLProtocolColumns = CompareHelper.GetSlProtocolColumns(newParam);
+                var oldSlProtocolColumns = CompareHelper.GetSlProtocolColumns(oldParam);
+                var newSlProtocolColumns = CompareHelper.GetSlProtocolColumns(newParam);
 
                 List<IValidationResult> subResults = new List<IValidationResult>();
 
-                foreach ((uint pos, uint pid, string rawPid) in oldSLProtocolColumns)
+                foreach ((uint pos, uint pid, string rawPid) in oldSlProtocolColumns)
                 {
-                    var newColumn = newSLProtocolColumns.FirstOrDefault(c => c.pid == pid);
+                    var newColumn = newSlProtocolColumns.FirstOrDefault(c => c.pid == pid);
                     if (String.IsNullOrEmpty(newColumn.rawPid))
                     {
                         continue;

@@ -24,8 +24,8 @@
         {
             var items = context?.Model?.Protocol?.ExportRules
                                ?.Where(rule => rule.WhereAttribute != null)
-                               ?.Select(rule => (IReadable)rule)
-                               ?.ToList();
+                               .Select(rule => (IReadable)rule)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

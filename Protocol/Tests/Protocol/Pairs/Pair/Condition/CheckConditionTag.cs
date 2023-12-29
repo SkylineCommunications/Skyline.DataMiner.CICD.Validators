@@ -7,8 +7,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers.Conditions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -37,13 +37,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
 
                 var addInvalidConditionError = new Action<string>(message => conditionValidationResults.Add(Error.InvalidCondition(this, pair, pair.Condition, pair.Condition.Value, message, pair.Id.RawValue)));
                 var addInvalidParamIdError = new Action<string>(paramId => conditionValidationResults.Add(Error.NonExistingId(this, pair, pair.Condition, paramId, pair.Id.RawValue)));
-                var addConditionCanBeSimpliefiedWarning = new Action(() => { if (!conditionValidationResults.Any(r => r.FullId == "9.7.3")) { conditionValidationResults.Add(Error.ConditionCanBeSimplified(this, pair, pair.Condition, pair.Condition.Value, pair.Id.RawValue)); }});
+                var conditionCanBeSimplifiedWarning = new Action(() => { if (conditionValidationResults.All(r => r.FullId != "9.7.3")) { conditionValidationResults.Add(Error.ConditionCanBeSimplified(this, pair, pair.Condition, pair.Condition.Value, pair.Id.RawValue)); } });
 
-                Conditional conditional = new Conditional(addInvalidConditionError, addInvalidParamIdError, addConditionCanBeSimpliefiedWarning);
+                Conditional conditional = new Conditional(addInvalidConditionError, addInvalidParamIdError, conditionCanBeSimplifiedWarning);
 
                 conditional.ParseConditional(pair.Condition.Value);
 
-                if (conditionValidationResults.Count == 0 || !conditionValidationResults.Any(result => (result.Severity == Skyline.DataMiner.CICD.Validators.Common.Model.Severity.Major || result.Severity == Skyline.DataMiner.CICD.Validators.Common.Model.Severity.Critical)))
+                if (!conditionValidationResults.Any(result => result.Severity == Severity.Major || result.Severity == Severity.Critical))
                 {
                     conditional.CheckConditional(context.ProtocolModel);
                 }

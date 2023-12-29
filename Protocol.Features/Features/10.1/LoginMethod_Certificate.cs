@@ -23,8 +23,8 @@
         {
             var items = context?.Model?.Protocol?.HTTP
                                ?.Where(session => session?.LoginMethod?.Value == EnumHttpLoginMethod.Certificate)
-                               ?.Select(session => (IReadable)session)
-                               ?.ToList();
+                               .Select(session => (IReadable)session)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

@@ -28,7 +28,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
 
                 foreach (var paramInCommand in command.Content)
                 {
-                    (GenericStatus status, string rawValue, uint? value) = GenericTests.CheckBasics(paramInCommand, false);
+                    (GenericStatus status, string rawValue, uint? _) = GenericTests.CheckBasics(paramInCommand, false);
 
                     if (status.HasFlag(GenericStatus.Empty))
                     {

@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Chains
                                ?.Where(c => c is IChainsChain chain && chain.GroupingName != null)
-                               ?.Select(c => (IReadable)c)
-                               ?.ToList();
+                               .Select(c => (IReadable)c)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

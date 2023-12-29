@@ -42,7 +42,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             return results;
         }
 
-        private class LoopInfo
+        private sealed class LoopInfo
         {
             #region Fields
 
@@ -395,22 +395,22 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             {
                 int counter = 0;
 
-                List<ITriggersTrigger> triggersBefore;
-                List<ITriggersTrigger> triggersAfter;
-                FindTriggersOnId(EnumTriggerOn.Group, id, out triggersBefore, out triggersAfter);
+                FindTriggersOnId(EnumTriggerOn.Group, id, out List<ITriggersTrigger> triggersBefore, out List<ITriggersTrigger> triggersAfter);
 
                 string condition = group.Condition?.Value;
                 if (!String.IsNullOrWhiteSpace(condition))
                 {
                     pathClass.HasCondition = true;
                 }
+
                 if (group.Id?.Value != null)
                 {
                     pathClass.Path.Add(new Info(group.Id.Value.Value, ItemTypes.Group));
                 }
+
                 var startPath = new PathClass(pathClass.Path, pathClass.HasCondition);
 
-                if (triggersBefore != null && triggersBefore.Count > 0)
+                if (triggersBefore.Count > 0)
                 {
                     // Flow with before trigger, content, after trigger.
                     for (int i = 0; i < triggersBefore.Count; i++)
@@ -511,7 +511,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
                         }
                     }
                 }
-                else if ((group.Content == null || group.Content.Count == 0) && triggersAfter != null && triggersAfter.Count > 0)
+                else if ((group.Content == null || group.Content.Count == 0) && triggersAfter.Count > 0)
                 {
                     // The flow when only after Trigger is present.
                     pathClass.IsActionSet = false;
@@ -1396,7 +1396,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             #endregion Methods
         }
 
-        private class PathClass
+        private sealed class PathClass
         {
             #region Constructor
 
@@ -1457,7 +1457,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             #endregion Methods
         }
 
-        private class Info : ICloneable
+        private sealed class Info : ICloneable
         {
             public Info(uint id, ItemTypes type)
             {

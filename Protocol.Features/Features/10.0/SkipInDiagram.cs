@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Chains
                                ?.Where(IsChainAndHasOptionInField)
-                               ?.Select(x => (IReadable)x)
-                               ?.ToList();
+                               .Select(x => (IReadable)x)
+                               .ToList();
 
             return new FeatureCheckResult(items);
             

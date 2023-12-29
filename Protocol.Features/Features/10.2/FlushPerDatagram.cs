@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Ports
                                ?.Where(settings => settings.FlushPerDatagram != null)
-                               ?.Select(settings => (IReadable)settings)
-                               ?.ToList() ?? new List<IReadable>();
+                               .Select(settings => (IReadable)settings)
+                               .ToList() ?? new List<IReadable>();
 
             if (context?.Model?.Protocol?.PortSettings?.FlushPerDatagram != null)
             {

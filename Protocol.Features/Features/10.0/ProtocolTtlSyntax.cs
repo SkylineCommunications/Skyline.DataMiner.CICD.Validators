@@ -24,8 +24,8 @@
 
             var items = context?.Model?.Protocol?.Params
                             ?.Where(param => param?.Database?.Partition?.Value == EnumDatabasePartition.Infinite)
-                            ?.Select(x => (IReadable)x)
-                            ?.ToList();
+                            .Select(x => (IReadable)x)
+                            .ToList();
 
             return new FeatureCheckResult(items);
         }

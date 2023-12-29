@@ -21,8 +21,8 @@
         {
             var items = context?.Model?.Protocol?.Topologies
                                ?.Where(topology => topology?.Any(cell => cell?.Exposer != null) == true)
-                               ?.Select(x => (IReadable)x)
-                               ?.ToList();
+                               .Select(x => (IReadable)x)
+                               .ToList();
 
             return new FeatureCheckResult(items);
         }

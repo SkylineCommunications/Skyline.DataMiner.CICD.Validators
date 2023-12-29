@@ -24,7 +24,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 return results;
             }
 
-            foreach (var pg in context.ProtocolModel?.Protocol?.ParameterGroups)
+            foreach (var pg in context.ProtocolModel.Protocol.ParameterGroups)
             {
                 (GenericStatus status, string rawId, uint? id) = GenericTests.CheckBasics(pg.Id, isRequired: true);
 

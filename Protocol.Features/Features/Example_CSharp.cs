@@ -26,7 +26,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Features
 
         public IFeatureCheckResult CheckIfUsed(FeatureCheckContext context)
         {
-            if (context?.Model?.Protocol?.QActions == null || context?.CompiledQActions == null)
+            if (context?.Model?.Protocol?.QActions == null || context.CompiledQActions == null)
             {
                 return new FeatureCheckResult();
             }

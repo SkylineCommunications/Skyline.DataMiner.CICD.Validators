@@ -9,23 +9,17 @@
 
     internal static class TestCollector
     {
-        private static readonly Lazy<TestCollection<IValidate>> _cacheValidateTestsCollection;
-        private static readonly Lazy<TestCollection<ICompare>> _cacheCompareTestsCollection;
-
-        static TestCollector()
-        {
-            _cacheValidateTestsCollection = new Lazy<TestCollection<IValidate>>(GetAllTests<IValidate>, true);
-            _cacheCompareTestsCollection = new Lazy<TestCollection<ICompare>>(GetAllTests<ICompare>, true);
-        }
+        private static readonly Lazy<TestCollection<IValidate>> CacheValidateTestsCollection = new Lazy<TestCollection<IValidate>>(GetAllTests<IValidate>, true);
+        private static readonly Lazy<TestCollection<ICompare>> CacheCompareTestsCollection= new Lazy<TestCollection<ICompare>>(GetAllTests<ICompare>, true);
 
         public static TestCollection<IValidate> GetAllValidateTests()
         {
-            return _cacheValidateTestsCollection.Value;
+            return CacheValidateTestsCollection.Value;
         }
 
         public static TestCollection<ICompare> GetAllCompareTests()
         {
-            return _cacheCompareTestsCollection.Value;
+            return CacheCompareTestsCollection.Value;
         }
 
         private static TestCollection<T> GetAllTests<T>() where T : IRoot
