@@ -4,6 +4,7 @@
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Threading;
+	using Common.Testing;
 	using FluentAssertions;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using Skyline.DataMiner.CICD.Models.Protocol;
@@ -14,7 +15,6 @@
 	using Skyline.DataMiner.CICD.Validators.Common.Model;
 	using Skyline.DataMiner.CICD.Validators.Protocol;
 	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using SLDisUnitTestsShared;
 
 	[TestClass]
     public class ValidatorTests

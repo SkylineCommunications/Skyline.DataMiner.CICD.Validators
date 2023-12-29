@@ -1,14 +1,13 @@
-﻿namespace SLDisQActionHelper
+﻿namespace Common.Testing.QActionHelper
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Xml.Linq;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.Xml.Linq;
+	using Skyline.DataMiner.Scripting;
 
-    using Skyline.DataMiner.Scripting;
-
-    /// <summary>
+	/// <summary>
     /// QActionHelper without the logging to a log file.
     /// </summary>
     public static class InternalQActionHelper

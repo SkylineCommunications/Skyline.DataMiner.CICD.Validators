@@ -29,8 +29,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                var oldInterprete = oldParam?.Interprete;
-                var newInterprete = newParam?.Interprete;
+                var oldInterprete = oldParam.Interprete;
+                var newInterprete = newParam.Interprete;
 
                 EnumParamInterpretType? oldType = oldInterprete?.Type?.Value;
                 EnumParamInterpretType? newType = newInterprete?.Type?.Value;

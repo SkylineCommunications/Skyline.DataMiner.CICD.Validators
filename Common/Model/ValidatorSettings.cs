@@ -48,6 +48,9 @@
         /// </summary>
         public DataMinerVersion MinimumSupportedDataMinerVersion { get; }
 
+        /// <summary>
+        /// Gets or sets the unit list.
+        /// </summary>
         public IUnitList UnitList { get; set; }
 
         /// <summary>

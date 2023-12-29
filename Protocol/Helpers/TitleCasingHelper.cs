@@ -82,6 +82,8 @@
         ///     - Prepositions (at, by, to...) with less than 4 chars
         /// </summary>
         /// <param name="value">String that needs to be checked.</param>
+        /// <param name="expectedValue">Expected value.</param>
+        /// <param name="exceptions">Exception when return false.</param>
         /// <returns></returns>
         public bool IsTitleCase(string value, out string expectedValue, string[] exceptions = null)
         {
@@ -100,6 +102,7 @@
         ///     - Prepositions (at, by, to...) with less than 4 chars
         /// </summary>
         /// <param name="inputValue">String that needs to be title cased.</param>
+        /// <param name="exceptions">Exception when return false.</param>
         /// <returns></returns>
         public string ToTitleCase(string inputValue, string[] exceptions = null)
         {
@@ -229,6 +232,7 @@
         ///     - Prepositions (at, by, to...) with less than 4 chars
         /// </summary>
         /// <param name="word">Word to be title cased.</param>
+        /// <param name="capitalizeIfFirstOrLastWord">Capitalize if first or last word.</param>
         /// <returns></returns>
         private string ToTitleCaseSingleWord(string word, out bool capitalizeIfFirstOrLastWord)
         {

@@ -7,6 +7,7 @@
 	using System.Runtime.CompilerServices;
 	using System.Text;
 	using System.Threading;
+	using Common.Testing;
 	using FluentAssertions;
 	using FluentAssertions.Equivalency;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -20,7 +21,6 @@
 	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
 	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
 	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using SLDisUnitTestsShared;
 
 	internal static class Generic
     {

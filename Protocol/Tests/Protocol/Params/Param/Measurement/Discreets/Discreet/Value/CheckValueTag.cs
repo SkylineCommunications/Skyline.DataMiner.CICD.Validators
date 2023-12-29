@@ -27,7 +27,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                foreach (IParamsParamMeasurementDiscreetsDiscreet oldDiscreet in oldParam.Measurement?.Discreets)
+                foreach (IParamsParamMeasurementDiscreetsDiscreet oldDiscreet in discreets)
                 {
                     IValidationResult result = CompareHelper.CompareToOldDiscreet(newParam, oldDiscreet);
                     if (result == null)
@@ -85,10 +85,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
 
                 string oldDisplay = previousDiscreet.Display?.Value;
-                string paramID = newParam.Id?.RawValue;
+                string paramId = newParam.Id?.RawValue;
                 string oldValue = previousDiscreet.ValueElement?.Value;
                 string newValue = newDiscreet.ValueElement?.Value;
-                invalidResult = ErrorCompare.UpdatedValue(newDiscreet, newDiscreet, oldDisplay, paramID, oldValue, newValue);
+                invalidResult = ErrorCompare.UpdatedValue(newDiscreet, newDiscreet, oldDisplay, paramId, oldValue, newValue);
             }
 
             return invalidResult;

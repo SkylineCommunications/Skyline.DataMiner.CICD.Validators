@@ -68,60 +68,60 @@
                 }
 
                 // Not sure if this one is properly supported (would need to go inside the wrapper method to check)
-                // CheckFillArrayWrapper(callingMethod);
+                //// CheckFillArrayWrapper(callingMethod);
             }
 
-            private void CheckFillArrayWrapper(CallingMethodClass callingMethod)
-            {
-                if (!callingMethod.IsSLProtocol(semanticModel) || !String.Equals(callingMethod.Name, "FillArray"))
-                {
-                    return;
-                }
+            ////private void CheckFillArrayWrapper(CallingMethodClass callingMethod)
+            ////{
+            ////    if (!callingMethod.IsSLProtocol(semanticModel) || !String.Equals(callingMethod.Name, "FillArray"))
+            ////    {
+            ////        return;
+            ////    }
 
-                if (callingMethod.Arguments.Count < 2)
-                {
-                    return;
-                }
+            ////    if (callingMethod.Arguments.Count < 2)
+            ////    {
+            ////        return;
+            ////    }
 
-                var tableContent = callingMethod.Arguments[1];
-                if (!tableContent.TryParseToValue(semanticModel, solution, out Value content) ||
-                    content.Type != Value.ValueType.Array)
-                {
-                    return;
-                }
+            ////    var tableContent = callingMethod.Arguments[1];
+            ////    if (!tableContent.TryParseToValue(semanticModel, solution, out Value content) ||
+            ////        content.Type != Value.ValueType.Array)
+            ////    {
+            ////        return;
+            ////    }
                 
-                if (content.IsMethodArgument)
-                {
-                    // No array that could be parsed.
-                    return;
-                }
+            ////    if (content.IsMethodArgument)
+            ////    {
+            ////        // No array that could be parsed.
+            ////        return;
+            ////    }
 
-                if (content.Array.Count < 2)
-                {
-                    return;
-                }
+            ////    if (content.Array.Count < 2)
+            ////    {
+            ////        return;
+            ////    }
 
-                var column2 = content.Array[1];
-                if (column2 == null || column2.Type != Value.ValueType.Array || column2.IsMethodArgument)
-                {
-                    return;
-                }
+            ////    var column2 = content.Array[1];
+            ////    if (column2 == null || column2.Type != Value.ValueType.Array || column2.IsMethodArgument)
+            ////    {
+            ////        return;
+            ////    }
 
-                foreach (Value value in column2.Array)
-                {
-                    if (value.Type != Value.ValueType.Array || value.Array.Count < 2)
-                    {
-                        continue;
-                    }
+            ////    foreach (Value value in column2.Array)
+            ////    {
+            ////        if (value.Type != Value.ValueType.Array || value.Array.Count < 2)
+            ////        {
+            ////            continue;
+            ////        }
 
-                    if (String.Equals(value.Array[1].Object, "System.DateTime"))
-                    {
-                        items.Add(new CSharpFeatureCheckResultItem(qAction, callingMethod));
-                        Cancel();
-                        return;
-                    }
-                }
-            }
+            ////        if (String.Equals(value.Array[1].Object, "System.DateTime"))
+            ////        {
+            ////            items.Add(new CSharpFeatureCheckResultItem(qAction, callingMethod));
+            ////            Cancel();
+            ////            return;
+            ////        }
+            ////    }
+            ////}
 
             private bool CheckNotifyProtocol(CallingMethodClass callingMethod)
             {
