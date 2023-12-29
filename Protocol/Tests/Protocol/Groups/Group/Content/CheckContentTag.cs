@@ -218,9 +218,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
                     continue;
                 }
 
-                foreach (ITimersTimerContentGroup group in timer.Content)
+                foreach (ITimersTimerContentGroup contentGroup in timer.Content)
                 {
-                    result.Add(group.RawValue);
+                    result.Add(contentGroup.RawValue);
                 }
             }
 
