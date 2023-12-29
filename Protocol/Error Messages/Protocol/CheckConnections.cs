@@ -1,18 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnections
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
-
     internal static class Error
     {
-        internal static IValidationResult MismatchingNames(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string names, bool hasCodeFix)
+        public static IValidationResult MismatchingNames(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string names, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -37,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult InvalidConnectionName(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionName, string connectionType, string connectionId)
+        public static IValidationResult InvalidConnectionName(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionName, string connectionType, string connectionId)
         {
             return new ValidationResult
             {
@@ -62,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult DuplicateConnectionName(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName)
+        public static IValidationResult DuplicateConnectionName(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName)
         {
             return new ValidationResult
             {
@@ -87,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult DuplicateConnectionName_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string connectionIds)
+        public static IValidationResult DuplicateConnectionName_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateName, string connectionIds)
         {
             return new ValidationResult
             {
@@ -112,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult InvalidConnectionCount(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionCount, string portSettingCount)
+        public static IValidationResult InvalidConnectionCount(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionCount, string portSettingCount)
         {
             return new ValidationResult
             {
@@ -137,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult InvalidCombinationOfSyntax1And2(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult InvalidCombinationOfSyntax1And2(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -162,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult UnrecommendedSyntax2(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult UnrecommendedSyntax2(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -190,7 +189,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult ConnectionsOrderChanged(IReadable referenceNode, IReadable positionNode, string oldOrder, string newOrder)
+        public static IValidationResult ConnectionsOrderChanged(IReadable referenceNode, IReadable positionNode, string oldOrder, string newOrder)
         {
             return new ValidationResult
             {
@@ -215,7 +214,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult ConnectionTypeChanged(IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId, string connectionName, string newConnectionType)
+        public static IValidationResult ConnectionTypeChanged(IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId, string connectionName, string newConnectionType)
         {
             return new ValidationResult
             {
@@ -240,7 +239,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult ConnectionAdded(IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId, string connectionName)
+        public static IValidationResult ConnectionAdded(IReadable referenceNode, IReadable positionNode, string connectionType, string connectionId, string connectionName)
         {
             return new ValidationResult
             {
@@ -280,8 +279,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
         public const uint ConnectionAdded = 10;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckConnections = 23;
     }
 }

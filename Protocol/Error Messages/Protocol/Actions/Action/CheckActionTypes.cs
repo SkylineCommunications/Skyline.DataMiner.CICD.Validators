@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Action.CheckActionTypes
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult IncompatibleTypeVsOnTag(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        public static IValidationResult IncompatibleTypeVsOnTag(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult MissingOnIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        public static IValidationResult MissingOnIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult MissingTypeIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        public static IValidationResult MissingTypeIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult MissingOnNrAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        public static IValidationResult MissingOnNrAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult NonExistingParamRefInTypeIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string actionId)
+        public static IValidationResult NonExistingParamRefInTypeIdAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string actionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult MissingTypeIdOrTypeValueAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        public static IValidationResult MissingTypeIdOrTypeValueAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult ExcessiveTypeIdOrTypeValueAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        public static IValidationResult ExcessiveTypeIdOrTypeValueAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult NonExistingRefToPairOnTimeoutSetNext(IValidate test, IReadable referenceNode, IReadable positionNode, string pairPosition, string groupId, string actionId, string triggerId)
+        public static IValidationResult NonExistingRefToPairOnTimeoutSetNext(IValidate test, IReadable referenceNode, IReadable positionNode, string pairPosition, string groupId, string actionId, string triggerId)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult NonExistingConnectionRefInTypeNrAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string actionId)
+        public static IValidationResult NonExistingConnectionRefInTypeNrAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string actionId)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult UnsupportedConnectionTypeDueTo(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string connectionId, string connectionType, string actionId, string optionalPrefix)
+        public static IValidationResult UnsupportedConnectionTypeDueTo(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string connectionId, string connectionType, string actionId, string optionalPrefix)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult UnsupportedGroupContentDueTo(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string actionId)
+        public static IValidationResult UnsupportedGroupContentDueTo(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string actionId)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult UnsupportedGroupParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string paramId, string paramType, string actionId)
+        public static IValidationResult UnsupportedGroupParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string paramId, string paramType, string actionId)
         {
             return new ValidationResult
             {
@@ -311,7 +311,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult UnsupportedGroupParamWithoutSnmp(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string paramId, string snmpEnabledValue, string actionId)
+        public static IValidationResult UnsupportedGroupParamWithoutSnmp(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string groupId, string paramId, string snmpEnabledValue, string actionId)
         {
             return new ValidationResult
             {
@@ -336,7 +336,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
             };
         }
 
-        internal static IValidationResult UnsupportedAttributeOnNr(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
+        public static IValidationResult UnsupportedAttributeOnNr(IValidate test, IReadable referenceNode, IReadable positionNode, string actionType, string actionOn, string actionId)
         {
             return new ValidationResult
             {
@@ -380,8 +380,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
         public const uint UnsupportedAttributeOnNr = 100;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckActionTypes = 7;
     }
 }

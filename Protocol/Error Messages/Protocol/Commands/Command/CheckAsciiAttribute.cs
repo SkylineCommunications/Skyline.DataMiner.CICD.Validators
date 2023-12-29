@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Command.CheckAsciiAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string commandId)
+        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string commandId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
             };
         }
 
-        internal static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string asciiValue, string commandId)
+        public static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string asciiValue, string commandId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
             };
         }
 
-        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string commandId)
+        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string commandId)
         {
             return new ValidationResult
             {
@@ -94,8 +94,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
         public const uint NonExistingId = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckAsciiAttribute = 4;
     }
 }

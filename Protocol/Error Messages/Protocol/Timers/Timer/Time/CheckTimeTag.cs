@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer.Time.CheckTimeTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string untrimmedValue)
+        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidTagValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string allowedValues)
+        public static IValidationResult InvalidTagValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string allowedValues)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult TimerTimeCannotBeLargerThan24Days(IValidate test, IReadable referenceNode, IReadable positionNode, string timeValue, string timerId)
+        public static IValidationResult TimerTimeCannotBeLargerThan24Days(IValidate test, IReadable referenceNode, IReadable positionNode, string timeValue, string timerId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult DuplicateTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string timerTime, string timerIDs)
+        public static IValidationResult DuplicateTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string timerTime, string timerIDs)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult TooFastTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string timerTime, string timerId)
+        public static IValidationResult TooFastTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string timerTime, string timerId)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult TooSimilarTimers(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string timerTime)
+        public static IValidationResult TooSimilarTimers(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string timerTime)
         {
             return new ValidationResult
             {
@@ -224,8 +224,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
         public const uint TooSimilarTimers = 8;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckTimeTag = 1;
     }
 }

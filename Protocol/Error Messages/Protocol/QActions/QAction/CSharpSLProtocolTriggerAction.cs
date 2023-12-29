@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolTriggerAction
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult NonExistingActionId(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId, string qactionId)
+        public static IValidationResult NonExistingActionId(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId, string qactionId)
         {
             return new ValidationResult
             {
@@ -42,8 +42,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         public const uint NonExistingActionId = 1;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CSharpSLProtocolTriggerAction = 5;
     }
 }

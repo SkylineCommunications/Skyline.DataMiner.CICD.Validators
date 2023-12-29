@@ -1,15 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Name.CheckColumnNames
 {
     using System;
+    using System.Collections.Generic;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingTableNameAsPrefixes(IValidate test, IReadable referenceNode, IReadable positionNode, string tableName, string tablePid)
+        public static IValidationResult MissingTableNameAsPrefixes(IValidate test, IReadable referenceNode, IReadable positionNode, string tableName, string tablePid)
         {
             return new ValidationResult
             {
@@ -34,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingTableNameAsPrefix(IValidate test, IReadable referenceNode, IReadable positionNode, string tableName, string columnName, string columnPid)
+        public static IValidationResult MissingTableNameAsPrefix(IValidate test, IReadable referenceNode, IReadable positionNode, string tableName, string columnName, string columnPid)
         {
             return new ValidationResult
             {
@@ -66,8 +68,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint MissingTableNameAsPrefix = 2;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckColumnNames = 53;
     }
 }

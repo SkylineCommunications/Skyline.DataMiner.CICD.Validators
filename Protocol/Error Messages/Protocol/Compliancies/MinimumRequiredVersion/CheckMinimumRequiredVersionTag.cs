@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimumRequiredVersionTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MinVersionTooLow(IValidate test, IReadable referenceNode, IReadable positionNode, string currentMinDmVersion, string expectedMinDmVersion)
+        public static IValidationResult MinVersionTooLow(IValidate test, IReadable referenceNode, IReadable positionNode, string currentMinDmVersion, string expectedMinDmVersion)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             };
         }
 
-        internal static IValidationResult MinVersionTooLow_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string requiredDmVersion, string usedFeature)
+        public static IValidationResult MinVersionTooLow_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string requiredDmVersion, string usedFeature)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             };
         }
 
-        internal static IValidationResult MinVersionFeatureUsedInItemWithId_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string itemKind, string identifierType, string itemId)
+        public static IValidationResult MinVersionFeatureUsedInItemWithId_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string itemKind, string identifierType, string itemId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             };
         }
 
-        internal static IValidationResult MinVersionFeatureUsedInItem_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string itemKind)
+        public static IValidationResult MinVersionFeatureUsedInItem_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string itemKind)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             };
         }
 
-        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
+        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
         {
             return new ValidationResult
             {
@@ -139,7 +139,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult MinVersionIncreased(IReadable referenceNode, IReadable positionNode, string oldMinDmVersion, string newMinDmVersion)
+        public static IValidationResult MinVersionIncreased(IReadable referenceNode, IReadable positionNode, string oldMinDmVersion, string newMinDmVersion)
         {
             return new ValidationResult
             {
@@ -175,8 +175,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
         public const uint MinVersionIncreased = 6;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckMinimumRequiredVersionTag = 25;
     }
 }

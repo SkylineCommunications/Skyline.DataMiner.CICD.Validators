@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult NonExistingIdInGroup(IValidate test, IReadable referenceNode, IReadable positionNode, string referenceKind, string referenceId, string timerId)
+        public static IValidationResult NonExistingIdInGroup(IValidate test, IReadable referenceNode, IReadable positionNode, string referenceKind, string referenceId, string timerId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult EmptyGroupTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        public static IValidationResult EmptyGroupTag(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidGroupTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string timerId)
+        public static IValidationResult InvalidGroupTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string timerId)
         {
             return new ValidationResult
             {
@@ -94,8 +94,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
         public const uint InvalidGroupTag = 4;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckGroupTag = 5;
     }
 }

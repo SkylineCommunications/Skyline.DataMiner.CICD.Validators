@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Chains.CheckChildNameAttributes
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string chainName)
+        public static IValidationResult DuplicatedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string chainName)
         {
             return new ValidationResult
             {
@@ -42,8 +42,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Chains.Check
         public const uint DuplicatedValue = 1;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckChildNameAttributes = 1;
     }
 }

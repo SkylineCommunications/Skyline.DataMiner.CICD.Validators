@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.Content.CheckContentTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingClearResponseRoutine(IValidate test, IReadable referenceNode, IReadable positionNode, string pairId)
+        public static IValidationResult MissingClearResponseRoutine(IValidate test, IReadable referenceNode, IReadable positionNode, string pairId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
             };
         }
 
-        internal static IValidationResult MissingClearResponseRoutine_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string responseIdToClear, string responseIdOnWhichToTrigger)
+        public static IValidationResult MissingClearResponseRoutine_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string responseIdToClear, string responseIdOnWhichToTrigger)
         {
             return new ValidationResult
             {
@@ -68,8 +68,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
         public const uint MissingClearResponseRoutine_Sub = 2;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckContentTag = 2;
     }
 }

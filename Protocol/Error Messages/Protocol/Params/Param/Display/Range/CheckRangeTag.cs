@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.CheckRangeTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramDisplayType, string paramPid)
+        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramDisplayType, string paramPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult UnsupportedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramDisplayType, string paramPid)
+        public static IValidationResult UnsupportedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramDisplayType, string paramPid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult LowShouldBeSmallerThanHigh(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLow, string rangeHigh, string paramId)
+        public static IValidationResult LowShouldBeSmallerThanHigh(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLow, string rangeHigh, string paramId)
         {
             return new ValidationResult
             {
@@ -120,8 +120,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint LowShouldBeSmallerThanHigh = 4;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckRangeTag = 11;
     }
 }

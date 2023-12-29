@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Type.CheckWidthAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult EmptyWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        public static IValidationResult EmptyWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult UntrimmedWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedWidth, string pid)
+        public static IValidationResult UntrimmedWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedWidth, string pid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidWidth, string pid)
+        public static IValidationResult InvalidWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidWidth, string pid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InconsistentWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName, string paramIDs, string widthValues, bool hasCodeFix)
+        public static IValidationResult InconsistentWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string pageName, string paramIDs, string widthValues, bool hasCodeFix)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult UnsupportedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string measurementType, string pid)
+        public static IValidationResult UnsupportedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string measurementType, string pid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult UnrecommendedWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string widthValue, string pid)
+        public static IValidationResult UnrecommendedWidth(IValidate test, IReadable referenceNode, IReadable positionNode, string widthValue, string pid)
         {
             return new ValidationResult
             {
@@ -198,8 +198,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint UnrecommendedWidth = 7;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckWidthAttribute = 10;
     }
 }

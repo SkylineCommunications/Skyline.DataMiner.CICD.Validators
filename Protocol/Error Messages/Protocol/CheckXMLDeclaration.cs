@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckXMLDeclaration
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult InvalidDeclaration(IValidate test, IReadable referenceNode, IReadable positionNode, string currentEncoding, string possibleValues)
+        public static IValidationResult InvalidDeclaration(IValidate test, IReadable referenceNode, IReadable positionNode, string currentEncoding, string possibleValues)
         {
             return new ValidationResult
             {
@@ -42,8 +42,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckXMLDecl
         public const uint InvalidDeclaration = 1;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckXMLDeclaration = 18;
     }
 }

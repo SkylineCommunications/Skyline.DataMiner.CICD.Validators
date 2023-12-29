@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Interprete.Exceptions.Exception.CheckValueAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ValueIncompatibleWithInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string exceptionValue, string interpreteType, string pid)
+        public static IValidationResult ValueIncompatibleWithInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string exceptionValue, string interpreteType, string pid)
         {
             return new ValidationResult
             {
@@ -68,8 +68,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint ValueIncompatibleWithInterpreteType = 2;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckValueAttribute = 70;
     }
 }

@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOptionsAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue)
+        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string currentValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult ReferencedParamWrongType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
+        public static IValidationResult ReferencedParamWrongType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string dveTablePid)
+        public static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string dveTablePid)
         {
             return new ValidationResult
             {
@@ -139,7 +139,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult UpdatedDveExportProtocolName(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId, string newDveProtocolName)
+        public static IValidationResult UpdatedDveExportProtocolName(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId, string newDveProtocolName)
         {
             return new ValidationResult
             {
@@ -164,7 +164,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult RemovedDveExportProtocolName(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        public static IValidationResult RemovedDveExportProtocolName(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -189,7 +189,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult AddedNoElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        public static IValidationResult AddedNoElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -214,7 +214,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult RemovedNoElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        public static IValidationResult RemovedNoElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -239,7 +239,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult AddedUnicode(IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult AddedUnicode(IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -264,7 +264,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
             };
         }
 
-        internal static IValidationResult RemovedUnicode(IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult RemovedUnicode(IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -305,8 +305,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
         public const uint ReferencedParamExpectingRTDisplay = 13;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckOptionsAttribute = 9;
     }
 }

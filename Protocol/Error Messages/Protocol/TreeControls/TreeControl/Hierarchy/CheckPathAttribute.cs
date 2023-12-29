@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
+        public static IValidationResult EmptyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             };
         }
 
-        internal static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid, string untrimmedValue)
+        public static IValidationResult UntrimmedAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             };
         }
 
-        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pathValue, string treeControlPid)
+        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string pathValue, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             };
         }
 
-        internal static IValidationResult NonExistingIdsInAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
+        public static IValidationResult NonExistingIdsInAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             };
         }
 
-        internal static IValidationResult NonExistingIdsInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string treeControlPid)
+        public static IValidationResult NonExistingIdsInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string treeControlPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             };
         }
 
-        internal static IValidationResult DuplicateId(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId, string treeControlId)
+        public static IValidationResult DuplicateId(IValidate test, IReadable referenceNode, IReadable positionNode, string duplicateId, string treeControlId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             };
         }
 
-        internal static IValidationResult UntrimmedValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
+        public static IValidationResult UntrimmedValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             };
         }
 
-        internal static IValidationResult InvalidValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidPart)
+        public static IValidationResult InvalidValueInAttribute_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidPart)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             };
         }
 
-        internal static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        public static IValidationResult ReferencedParamExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -250,8 +250,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
         public const uint ReferencedParamExpectingRTDisplay = 9;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckPathAttribute = 2;
     }
 }

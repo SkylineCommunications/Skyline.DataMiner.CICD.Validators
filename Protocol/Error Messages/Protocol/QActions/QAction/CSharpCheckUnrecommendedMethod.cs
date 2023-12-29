@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult UnrecommendedThreadAbort(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedThreadAbort(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedSlProtocolGetParameterIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedSlProtocolGetParameterIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedSlProtocolSetParameterIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedSlProtocolSetParameterIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedSlProtocolSetParametersIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedSlProtocolSetParametersIndex(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyDataMinerNTGetRemoteTrend(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyDataMinerNTGetRemoteTrend(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyDataMinerNTGetRemoteTrendAvg(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyDataMinerNTGetRemoteTrendAvg(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNTDeleteRow(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNTDeleteRow(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNTAddRow(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNTAddRow(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_CHECK_TRIGGER(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_CHECK_TRIGGER(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_KEY_POSITION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_KEY_POSITION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -311,7 +311,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_BY_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_BY_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -336,7 +336,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_BY_NAME(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_BY_NAME(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -361,7 +361,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_DESCRIPTION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_DESCRIPTION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -386,7 +386,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_INDEX(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_PARAMETER_INDEX(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -411,7 +411,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_ITEM_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_ITEM_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -436,7 +436,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_GET_ROW(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_GET_ROW(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -461,7 +461,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_ARRAY_ROW_COUNT(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_ARRAY_ROW_COUNT(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -486,7 +486,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_NOTIFY_DISPLAY(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_NOTIFY_DISPLAY(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -511,7 +511,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_WITH_HISTORY(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_WITH_HISTORY(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -536,7 +536,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_BY_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_BY_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -561,7 +561,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_BY_NAME(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_PARAMETER_BY_NAME(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -586,7 +586,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_DESCRIPTION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_DESCRIPTION(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -611,7 +611,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_ITEM_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_ITEM_DATA(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -636,7 +636,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedNotifyProtocolNT_SET_ROW(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedNotifyProtocolNT_SET_ROW(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -692,8 +692,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         public const uint UnrecommendedNotifyProtocolNT_SET_ROW = 26;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CSharpCheckUnrecommendedMethod = 15;
     }
 }

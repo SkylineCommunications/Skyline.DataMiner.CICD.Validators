@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArrayWithColumn
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult UnexpectedImplementation(IValidate test, IReadable referenceNode, IReadable positionNode, string arguments, string qactionId)
+        public static IValidationResult UnexpectedImplementation(IValidate test, IReadable referenceNode, IReadable positionNode, string arguments, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult NonExistingTable(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string qactionId)
+        public static IValidationResult NonExistingTable(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult NonExistingColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string qactionId)
+        public static IValidationResult NonExistingColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string qactionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult ColumnMissingHistorySet(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
+        public static IValidationResult ColumnMissingHistorySet(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult HardCodedTablePid(IValidate test, IReadable referenceNode, IReadable positionNode, string hardCodedTablePid, string qactionId)
+        public static IValidationResult HardCodedTablePid(IValidate test, IReadable referenceNode, IReadable positionNode, string hardCodedTablePid, string qactionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult HardCodedColumnPid(IValidate test, IReadable referenceNode, IReadable positionNode, string hardCodedColumnPid, string qactionId)
+        public static IValidationResult HardCodedColumnPid(IValidate test, IReadable referenceNode, IReadable positionNode, string hardCodedColumnPid, string qactionId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult ColumnManagedByDataMiner(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string optionLocation, string optionName)
+        public static IValidationResult ColumnManagedByDataMiner(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string optionLocation, string optionName)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult ColumnManagedByProtocolItem(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string managedByItemKind, string managedByItemId, string optionLocation, string optionName)
+        public static IValidationResult ColumnManagedByProtocolItem(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string managedByItemKind, string managedByItemId, string optionLocation, string optionName)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedSetOnSnmpParam(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
+        public static IValidationResult UnrecommendedSetOnSnmpParam(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid)
         {
             return new ValidationResult
             {
@@ -250,8 +250,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         public const uint UnrecommendedSetOnSnmpParam = 9;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CSharpNotifyProtocolNtFillArrayWithColumn = 34;
     }
 }

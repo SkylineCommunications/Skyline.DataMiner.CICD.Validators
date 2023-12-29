@@ -1,17 +1,18 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckColumnOptionTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult RemovedColumnOptionTag(IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
+        public static IValidationResult RemovedColumnOptionTag(IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
         {
             return new ValidationResult
             {
@@ -42,8 +43,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint RemovedColumnOptionTag = 1;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckColumnOptionTag = 35;
     }
 }

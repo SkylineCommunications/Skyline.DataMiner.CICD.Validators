@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnectionPingGroups
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult InvalidPingGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string groupId)
+        public static IValidationResult InvalidPingGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult PingSerialPairHasNoResponse(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string pairId)
+        public static IValidationResult PingSerialPairHasNoResponse(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionType, string pairId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult MultiplePingPairsForConnection(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionName, string connectionType, string connectionId)
+        public static IValidationResult MultiplePingPairsForConnection(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionName, string connectionType, string connectionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             };
         }
 
-        internal static IValidationResult MultiplePingPairsForConnection_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string pairId)
+        public static IValidationResult MultiplePingPairsForConnection_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string pairId)
         {
             return new ValidationResult
             {
@@ -120,8 +120,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
         public const uint MultiplePingPairsForConnection_Sub = 4;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckConnectionPingGroups = 26;
     }
 }

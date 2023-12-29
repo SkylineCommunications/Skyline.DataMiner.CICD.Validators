@@ -7,7 +7,7 @@
         xmlns:tools="clr-namespace:Validator_Management_Tool.Tools"
         mc:Ignorable="d"
         KeyboardNavigation.TabNavigation="Cycle"
-        Title="Edit Error Message" Height="800" Width="800" Icon="/DIS Validator Management Tool;component/Resources/skyline.ico">
+        Title="Edit Error Message" Height="800" Width="800" Icon="/Validator Management Tool;component/Resources/skyline.ico">
     <Window.Resources>
         <!--Converter to convert the certainty as a uint to the Enum-->
         <tools:CertaintyConverter x:Key="certaintyConverter" />

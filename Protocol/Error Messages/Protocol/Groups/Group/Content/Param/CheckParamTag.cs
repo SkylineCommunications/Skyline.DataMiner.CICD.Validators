@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Param.CheckParamTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string groupId)
+        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pid, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult EmptyParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        public static IValidationResult EmptyParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult InvalidParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
+        public static IValidationResult InvalidParamTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult InvalidParamSuffix(IValidate test, IReadable referenceNode, IReadable positionNode, string suffix, string groupId)
+        public static IValidationResult InvalidParamSuffix(IValidate test, IReadable referenceNode, IReadable positionNode, string suffix, string groupId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult ObsoleteSuffixTable(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        public static IValidationResult ObsoleteSuffixTable(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult SuffixRequiresMultiThreadedTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string suffix, string groupId)
+        public static IValidationResult SuffixRequiresMultiThreadedTimer(IValidate test, IReadable referenceNode, IReadable positionNode, string suffix, string groupId)
         {
             return new ValidationResult
             {
@@ -172,8 +172,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
         public const uint SuffixRequiresMultiThreadedTimer = 6;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckParamTag = 2;
     }
 }

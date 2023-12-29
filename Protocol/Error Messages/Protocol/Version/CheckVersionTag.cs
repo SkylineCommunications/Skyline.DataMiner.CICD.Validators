@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Version.CheckVersionTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Version.Chec
             };
         }
 
-        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Version.Chec
             };
         }
 
-        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
+        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
         {
             return new ValidationResult
             {
@@ -94,8 +94,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Version.Chec
         public const uint UntrimmedTag = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckVersionTag = 6;
     }
 }

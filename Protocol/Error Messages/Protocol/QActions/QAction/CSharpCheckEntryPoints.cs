@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckEntryPoints
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingEntryPoint(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string qactionId)
+        public static IValidationResult MissingEntryPoint(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnexpectedAccessModifierForEntryPointMethod(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string currentAccessModifier, string qactionId)
+        public static IValidationResult UnexpectedAccessModifierForEntryPointMethod(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string currentAccessModifier, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnexpectedAccessModifierForEntryPointClass(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string currentAccessModifier, string qactionId)
+        public static IValidationResult UnexpectedAccessModifierForEntryPointClass(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string currentAccessModifier, string qactionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnexpectedArg0TypeForEntryPointMethod(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string arg0Type, string qactionId)
+        public static IValidationResult UnexpectedArg0TypeForEntryPointMethod(IValidate test, IReadable referenceNode, IReadable positionNode, string entryPointClass, string entryPointMethod, string arg0Type, string qactionId)
         {
             return new ValidationResult
             {
@@ -120,8 +120,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         public const uint UnexpectedArg0TypeForEntryPointMethod = 4;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CSharpCheckEntryPoints = 12;
     }
 }

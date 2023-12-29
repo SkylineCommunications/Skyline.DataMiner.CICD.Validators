@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNameTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
             };
         }
 
-        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
             };
         }
 
-        internal static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
+        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
             };
         }
 
-        internal static IValidationResult InvalidChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidCharacters)
+        public static IValidationResult InvalidChars(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidCharacters)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
             };
         }
 
-        internal static IValidationResult InvalidPrefix(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidPrefix)
+        public static IValidationResult InvalidPrefix(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string invalidPrefix)
         {
             return new ValidationResult
             {
@@ -139,7 +139,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string oldProtocolName, string newProtocolName)
+        public static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string oldProtocolName, string newProtocolName)
         {
             return new ValidationResult
             {
@@ -175,8 +175,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
         public const uint UpdatedValue = 6;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckNameTag = 2;
     }
 }

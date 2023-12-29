@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.CheckMatrixDiscreets
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult InvalidDiscreetCount(IValidate test, IReadable referenceNode, IReadable positionNode, string discreetCount, string expectedDiscreetCount, string matrixPid)
+        public static IValidationResult InvalidDiscreetCount(IValidate test, IReadable referenceNode, IReadable positionNode, string discreetCount, string expectedDiscreetCount, string matrixPid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingDiscreetValue(IValidate test, IReadable referenceNode, IReadable positionNode, string missingValues, string matrixPid)
+        public static IValidationResult MissingDiscreetValue(IValidate test, IReadable referenceNode, IReadable positionNode, string missingValues, string matrixPid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult DiscreetsNotOneBased(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        public static IValidationResult DiscreetsNotOneBased(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -94,8 +94,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint DiscreetsNotOneBased = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckMatrixDiscreets = 41;
     }
 }

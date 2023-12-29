@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedPropertySet
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult UnrecommendedCultureInfoDefaultThreadCurrentCulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedCultureInfoDefaultThreadCurrentCulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedThreadCurrentThreadCurrentCulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedThreadCurrentThreadCurrentCulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult UnrecommendedThreadCurrentThreadCurrentUICulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult UnrecommendedThreadCurrentThreadCurrentUICulture(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -94,8 +94,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         public const uint UnrecommendedThreadCurrentThreadCurrentUICulture = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CSharpCheckUnrecommendedPropertySet = 37;
     }
 }

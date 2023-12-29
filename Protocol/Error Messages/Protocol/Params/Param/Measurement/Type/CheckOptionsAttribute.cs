@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Type.CheckOptionsAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingPriorityForSortedColumns(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
+        public static IValidationResult MissingPriorityForSortedColumns(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidConnectedMatrixPoints(IValidate test, IReadable referenceNode, IReadable positionNode, string badValue, string minOrMax, string inputOrOutput, string matrixPid)
+        public static IValidationResult InvalidConnectedMatrixPoints(IValidate test, IReadable referenceNode, IReadable positionNode, string badValue, string minOrMax, string inputOrOutput, string matrixPid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidColumnDimensionsToOutputCount(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid, string measurementOutputCount, string dimensionColumnCount)
+        public static IValidationResult InvalidColumnDimensionsToOutputCount(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid, string measurementOutputCount, string dimensionColumnCount)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidMatrixDimensionsToInputCount(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid, string measurementInputCount, string dimensionRowCount)
+        public static IValidationResult InvalidMatrixDimensionsToInputCount(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid, string measurementInputCount, string dimensionRowCount)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
+        public static IValidationResult InvalidMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
+        public static IValidationResult MissingMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingSortingOnDateTimeColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string columnPids)
+        public static IValidationResult MissingSortingOnDateTimeColumn(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string columnPids)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
+        public static IValidationResult ReferencedParamRTDisplayExpected(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string tablePid)
         {
             return new ValidationResult
             {
@@ -239,7 +239,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult ColumnOrderChanged(IReadable referenceNode, IReadable positionNode, string oldColumnOrder, string tablePid, string newColumnOrder)
+        public static IValidationResult ColumnOrderChanged(IReadable referenceNode, IReadable positionNode, string oldColumnOrder, string tablePid, string newColumnOrder)
         {
             return new ValidationResult
             {
@@ -279,8 +279,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint ReferencedParamRTDisplayExpected = 10;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckOptionsAttribute = 31;
     }
 }

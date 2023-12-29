@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Pair.CheckPairTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pairId, string groupId)
+        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string pairId, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult EmptyPairTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        public static IValidationResult EmptyPairTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult InvalidPairTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
+        public static IValidationResult InvalidPairTag(IValidate test, IReadable referenceNode, IReadable positionNode, string value, string groupId)
         {
             return new ValidationResult
             {
@@ -94,8 +94,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
         public const uint InvalidPairTag = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckPairTag = 4;
     }
 }

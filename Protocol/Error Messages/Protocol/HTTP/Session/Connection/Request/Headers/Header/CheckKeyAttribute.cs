@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.Connection.Request.Headers.Header.CheckKeyAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult UnknownHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
+        public static IValidationResult UnknownHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
             };
         }
 
-        internal static IValidationResult UntrimmedHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
+        public static IValidationResult UntrimmedHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
             };
         }
 
-        internal static IValidationResult MissingKeyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string connectionId)
+        public static IValidationResult MissingKeyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
             };
         }
 
-        internal static IValidationResult EmptyKeyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string connectionId)
+        public static IValidationResult EmptyKeyAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
             };
         }
 
-        internal static IValidationResult InvalidHeaderKeyForVerb(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string verb, string sessionId, string connectionId)
+        public static IValidationResult InvalidHeaderKeyForVerb(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string verb, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
             };
         }
 
-        internal static IValidationResult RedundantHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
+        public static IValidationResult RedundantHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, string headerKey, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
             };
         }
 
-        internal static IValidationResult UnsupportedHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, Certainty certainty, string headerKey, string sessionId, string connectionId)
+        public static IValidationResult UnsupportedHeaderKey(IValidate test, IReadable referenceNode, IReadable positionNode, Certainty certainty, string headerKey, string sessionId, string connectionId)
         {
             return new ValidationResult
             {
@@ -198,8 +198,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
         public const uint UnsupportedHeaderKey = 7;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckKeyAttribute = 3;
     }
 }

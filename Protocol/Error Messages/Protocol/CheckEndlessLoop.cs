@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndlessLoop
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult EndlessLoop(IValidate test, IReadable referenceNode, IReadable positionNode, string involvedItems)
+        public static IValidationResult EndlessLoop(IValidate test, IReadable referenceNode, IReadable positionNode, string involvedItems)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             };
         }
 
-        internal static IValidationResult PotentialEndlessLoop(IValidate test, IReadable referenceNode, IReadable positionNode, string involvedItems)
+        public static IValidationResult PotentialEndlessLoop(IValidate test, IReadable referenceNode, IReadable positionNode, string involvedItems)
         {
             return new ValidationResult
             {
@@ -68,8 +68,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
         public const uint PotentialEndlessLoop = 2;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckEndlessLoop = 24;
     }
 }

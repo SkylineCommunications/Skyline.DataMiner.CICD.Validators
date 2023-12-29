@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer.Condition.CheckConditionTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult InvalidCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string conditionString, string invalidityReason, string timerId)
+        public static IValidationResult InvalidCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string conditionString, string invalidityReason, string timerId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string timerId)
+        public static IValidationResult NonExistingId(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string timerId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult UnrecommendedCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        public static IValidationResult UnrecommendedCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult ConditionCanBeSimplified(IValidate test, IReadable referenceNode, IReadable positionNode, string conditionString, string timerId)
+        public static IValidationResult ConditionCanBeSimplified(IValidate test, IReadable referenceNode, IReadable positionNode, string conditionString, string timerId)
         {
             return new ValidationResult
             {
@@ -120,8 +120,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
         public const uint ConditionCanBeSimplified = 4;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckConditionTag = 4;
     }
 }

@@ -1,15 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.OID.CheckOidTagIdAttrCombo
 {
     using System;
+    using System.Collections.Generic;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult ExcessiveAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        public static IValidationResult ExcessiveAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -34,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidCombo(IValidate test, IReadable referenceNode, IReadable positionNode, string oidValue, string idValue, string pid)
+        public static IValidationResult InvalidCombo(IValidate test, IReadable referenceNode, IReadable positionNode, string oidValue, string idValue, string pid)
         {
             return new ValidationResult
             {
@@ -66,8 +68,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint InvalidCombo = 2;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckOidTagIdAttrCombo = 47;
     }
 }

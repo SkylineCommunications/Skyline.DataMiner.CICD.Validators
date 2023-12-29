@@ -1,15 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Type.CheckOptionsAttribute
 {
     using System;
+    using System.Collections.Generic;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult MissingHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
+        public static IValidationResult MissingHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
         {
             return new ValidationResult
             {
@@ -34,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
+        public static IValidationResult InvalidHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
         {
             return new ValidationResult
             {
@@ -59,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ExcessiveHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        public static IValidationResult ExcessiveHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -84,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult DuplicateHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string linkId, string headerOrTrailer, string paramPids)
+        public static IValidationResult DuplicateHeaderTrailerLinkOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string linkId, string headerOrTrailer, string paramPids)
         {
             return new ValidationResult
             {
@@ -109,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InconsistentColumnTypeDimensions(IValidate test, IReadable referenceNode, IReadable positionNode, string columnTypes, string dimensions, string matrixPid)
+        public static IValidationResult InconsistentColumnTypeDimensions(IValidate test, IReadable referenceNode, IReadable positionNode, string columnTypes, string dimensions, string matrixPid)
         {
             return new ValidationResult
             {
@@ -134,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidColumnTypeParamRawType(IValidate test, IReadable referenceNode, IReadable positionNode, string rawType, string columnTypePid, string matrixPid)
+        public static IValidationResult InvalidColumnTypeParamRawType(IValidate test, IReadable referenceNode, IReadable positionNode, string rawType, string columnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -159,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingMatrixOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
+        public static IValidationResult MissingMatrixOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
         {
             return new ValidationResult
             {
@@ -184,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingAttributeForMatrix(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
+        public static IValidationResult MissingAttributeForMatrix(IValidate test, IReadable referenceNode, IReadable positionNode, string matrixPid)
         {
             return new ValidationResult
             {
@@ -209,7 +211,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidMatrixParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string matrixPid)
+        public static IValidationResult InvalidMatrixParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string matrixPid)
         {
             return new ValidationResult
             {
@@ -234,7 +236,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
+        public static IValidationResult InvalidMatrixOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string matrixPid)
         {
             return new ValidationResult
             {
@@ -259,7 +261,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidColumnTypeParamLengthType(IValidate test, IReadable referenceNode, IReadable positionNode, string lengthType, string columnTypePid, string matrixPid)
+        public static IValidationResult InvalidColumnTypeParamLengthType(IValidate test, IReadable referenceNode, IReadable positionNode, string lengthType, string columnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -284,7 +286,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidColumnTypeParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string type, string columnTypePid, string matrixPid)
+        public static IValidationResult InvalidColumnTypeParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string type, string columnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -309,7 +311,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingColumnTypeParam(IValidate test, IReadable referenceNode, IReadable positionNode, string missingColumnTypePid, string matrixPid)
+        public static IValidationResult MissingColumnTypeParam(IValidate test, IReadable referenceNode, IReadable positionNode, string missingColumnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -334,7 +336,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MissingColumnTypeParamInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string missingColumnTypePid, string matrixPid)
+        public static IValidationResult MissingColumnTypeParamInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string missingColumnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -359,7 +361,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidColumnTypeParamInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string columnTypePid, string matrixPid)
+        public static IValidationResult InvalidColumnTypeParamInterprete(IValidate test, IReadable referenceNode, IReadable positionNode, string columnTypePid, string matrixPid)
         {
             return new ValidationResult
             {
@@ -384,7 +386,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult UnrecommendedSshOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string option, string pid)
+        public static IValidationResult UnrecommendedSshOptions(IValidate test, IReadable referenceNode, IReadable positionNode, string option, string pid)
         {
             return new ValidationResult
             {
@@ -409,7 +411,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidMixOfSshOptionsAndPortSettings(IValidate test, IReadable referenceNode, IReadable positionNode, string option, string pid)
+        public static IValidationResult InvalidMixOfSshOptionsAndPortSettings(IValidate test, IReadable referenceNode, IReadable positionNode, string option, string pid)
         {
             return new ValidationResult
             {
@@ -437,7 +439,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult MatrixDimensionsChanged(IReadable referenceNode, IReadable positionNode, string matrixPid, string oldDimensions, string newDimensions)
+        public static IValidationResult MatrixDimensionsChanged(IReadable referenceNode, IReadable positionNode, string matrixPid, string oldDimensions, string newDimensions)
         {
             return new ValidationResult
             {
@@ -462,7 +464,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult MatrixDimensionsRemoved(IReadable referenceNode, IReadable positionNode, string matrixDimensions, string matrixPid)
+        public static IValidationResult MatrixDimensionsRemoved(IReadable referenceNode, IReadable positionNode, string matrixDimensions, string matrixPid)
         {
             return new ValidationResult
             {
@@ -511,8 +513,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint InvalidMixOfSshOptionsAndPortSettings = 21;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckOptionsAttribute = 21;
     }
 }

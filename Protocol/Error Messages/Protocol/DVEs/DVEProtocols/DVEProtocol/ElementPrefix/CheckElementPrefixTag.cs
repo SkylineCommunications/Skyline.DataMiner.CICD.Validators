@@ -1,16 +1,18 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.ElementPrefix.CheckElementPrefixTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult AddedElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        public static IValidationResult AddedElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -35,7 +37,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.DVEs.DVEProt
             };
         }
 
-        internal static IValidationResult RemovedElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
+        public static IValidationResult RemovedElementPrefix(IReadable referenceNode, IReadable positionNode, string dveProtocolName, string tableId)
         {
             return new ValidationResult
             {
@@ -67,8 +69,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.DVEs.DVEProt
         public const uint RemovedElementPrefix = 2;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckElementPrefixTag = 16;
     }
 }

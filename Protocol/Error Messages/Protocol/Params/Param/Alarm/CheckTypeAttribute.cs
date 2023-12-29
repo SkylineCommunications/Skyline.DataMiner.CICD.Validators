@@ -1,16 +1,18 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.CheckTypeAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult RemovedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string alarmType, string paramId)
+        public static IValidationResult RemovedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string alarmType, string paramId)
         {
             return new ValidationResult
             {
@@ -35,7 +37,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult UpdatedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string alarmType, string paramId, string newAlarmType)
+        public static IValidationResult UpdatedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string alarmType, string paramId, string newAlarmType)
         {
             return new ValidationResult
             {
@@ -60,7 +62,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult AddedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string normalizationType, string pid)
+        public static IValidationResult AddedNormalizationAlarmType(IReadable referenceNode, IReadable positionNode, string normalizationType, string pid)
         {
             return new ValidationResult
             {
@@ -93,8 +95,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint AddedNormalizationAlarmType = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckTypeAttribute = 23;
     }
 }

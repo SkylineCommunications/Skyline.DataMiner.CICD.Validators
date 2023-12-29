@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:Validator_Management_Tool.Views"
         vml:ViewModelLocator.AutoHookedUpViewModel = "True"
         mc:Ignorable="d"
-        Title="DIS Validator Management Tool" Height="900" Width="950" Icon="/DIS Validator Management Tool;component/Resources/skyline.ico">
+        Title="Validator Management Tool" Height="900" Width="950" Icon="/Validator Management Tool;component/Resources/skyline.ico">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type ViewModels:CheckViewModel}">

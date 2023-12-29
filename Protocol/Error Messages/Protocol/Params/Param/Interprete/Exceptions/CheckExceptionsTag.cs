@@ -1,16 +1,18 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Interprete.Exceptions.CheckExceptionsTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult UpdatedExceptionValueTag(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid, string previousExceptionValue, string newExceptionValue)
+        public static IValidationResult UpdatedExceptionValueTag(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid, string previousExceptionValue, string newExceptionValue)
         {
             return new ValidationResult
             {
@@ -35,7 +37,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult RemovedException(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid)
+        public static IValidationResult RemovedException(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid)
         {
             return new ValidationResult
             {
@@ -60,7 +62,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult AddedException(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid)
+        public static IValidationResult AddedException(IReadable referenceNode, IReadable positionNode, string exceptionId, string paramPid)
         {
             return new ValidationResult
             {
@@ -93,8 +95,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint AddedException = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckExceptionsTag = 36;
     }
 }

@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckOptionsAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult ViewInvalidSyntax(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIdx, string viewTablePid)
+        public static IValidationResult ViewInvalidSyntax(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIdx, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ViewInvalidColumnReference(IValidate test, IReadable referenceNode, IReadable positionNode, Severity severity, string viewOption, string viewTablePid)
+        public static IValidationResult ViewInvalidColumnReference(IValidate test, IReadable referenceNode, IReadable positionNode, Severity severity, string viewOption, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ViewInvalidCombinationFilterChange(IValidate test, IReadable referenceNode, IReadable positionNode, string viewTablePid)
+        public static IValidationResult ViewInvalidCombinationFilterChange(IValidate test, IReadable referenceNode, IReadable positionNode, string viewTablePid)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ForeignKeyMissingRelation(IValidate test, IReadable referenceNode, IReadable positionNode, string fkToTablePid, string fkFromTablePid, string fkColumnPid)
+        public static IValidationResult ForeignKeyMissingRelation(IValidate test, IReadable referenceNode, IReadable positionNode, string fkToTablePid, string fkFromTablePid, string fkColumnPid)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ColumnOptionExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string option, string tablePid)
+        public static IValidationResult ColumnOptionExpectingRTDisplay(IValidate test, IReadable referenceNode, IReadable positionNode, string columnPid, string option, string tablePid)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ForeignKeyTargetExpectingRTDisplayOnPK(IValidate test, IReadable referenceNode, IReadable positionNode, string pkColumnPid, string foreignKeyOption, string tablePid)
+        public static IValidationResult ForeignKeyTargetExpectingRTDisplayOnPK(IValidate test, IReadable referenceNode, IReadable positionNode, string pkColumnPid, string foreignKeyOption, string tablePid)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ForeignKeyColumnInvalidInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIntrepeteType, string fkColumnPid)
+        public static IValidationResult ForeignKeyColumnInvalidInterpreteType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnIntrepeteType, string fkColumnPid)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ForeignKeyColumnInvalidMeasurementType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnMeasurementType, string fkColumnPid)
+        public static IValidationResult ForeignKeyColumnInvalidMeasurementType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnMeasurementType, string fkColumnPid)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult ForeignKeyColumnInvalidType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string fkColumnPid)
+        public static IValidationResult ForeignKeyColumnInvalidType(IValidate test, IReadable referenceNode, IReadable positionNode, string columnType, string fkColumnPid)
         {
             return new ValidationResult
             {
@@ -250,8 +250,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint ForeignKeyColumnInvalidType = 9;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckOptionsAttribute = 38;
     }
 }

@@ -1,17 +1,18 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Interprete.Type.CheckTypeTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string paramId, string oldTypeValue, string newTypeValue)
+        public static IValidationResult UpdatedValue(IReadable referenceNode, IReadable positionNode, string paramId, string oldTypeValue, string newTypeValue)
         {
             return new ValidationResult
             {
@@ -36,7 +37,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult RemovedTag(IReadable referenceNode, IReadable positionNode, string paramId)
+        public static IValidationResult RemovedTag(IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -61,7 +62,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult AddedTag(IReadable referenceNode, IReadable positionNode, string typeValue, string paramId)
+        public static IValidationResult AddedTag(IReadable referenceNode, IReadable positionNode, string typeValue, string paramId)
         {
             return new ValidationResult
             {
@@ -94,8 +95,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint AddedTag = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckTypeTag = 20;
     }
 }

@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpQActionCompilation
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult CompilationFailure(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
+        public static IValidationResult CompilationFailure(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult CompilationFailure_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string errorMessage)
+        public static IValidationResult CompilationFailure_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string errorMessage)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             };
         }
 
-        internal static IValidationResult NoCSharpCodeAnalysisPerformed(IValidate test, IReadable referenceNode, IReadable positionNode, string cSharpVersion, string visualStudioVersion)
+        public static IValidationResult NoCSharpCodeAnalysisPerformed(IValidate test, IReadable referenceNode, IReadable positionNode, string cSharpVersion, string visualStudioVersion)
         {
             return new ValidationResult
             {
@@ -94,8 +94,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         public const uint NoCSharpCodeAnalysisPerformed = 3;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CSharpQActionCompilation = 4;
     }
 }

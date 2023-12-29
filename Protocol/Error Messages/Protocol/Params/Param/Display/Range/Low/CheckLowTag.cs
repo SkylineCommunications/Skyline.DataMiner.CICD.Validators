@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string paramId)
+        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue, string paramId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult UntrimmedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string untrimmedValue)
+        public static IValidationResult UntrimmedValue(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string untrimmedValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult LogarithmicLowerOrEqualToZero(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLow, string paramId)
+        public static IValidationResult LogarithmicLowerOrEqualToZero(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLow, string paramId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult WriteDifferentThanRead(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLowOnWrite, string rangeLowOnRead, string writePid)
+        public static IValidationResult WriteDifferentThanRead(IValidate test, IReadable referenceNode, IReadable positionNode, string rangeLowOnWrite, string rangeLowOnRead, string writePid)
         {
             return new ValidationResult
             {
@@ -139,7 +139,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult UpdatedLowRange(IReadable referenceNode, IReadable positionNode, string previousValue, string paramPid, string newValue)
+        public static IValidationResult UpdatedLowRange(IReadable referenceNode, IReadable positionNode, string previousValue, string paramPid, string newValue)
         {
             return new ValidationResult
             {
@@ -164,7 +164,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult AddedLowRange(IReadable referenceNode, IReadable positionNode, string newValue, string paramPid)
+        public static IValidationResult AddedLowRange(IReadable referenceNode, IReadable positionNode, string newValue, string paramPid)
         {
             return new ValidationResult
             {
@@ -201,8 +201,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint WriteDifferentThanRead = 7;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckLowTag = 32;
     }
 }

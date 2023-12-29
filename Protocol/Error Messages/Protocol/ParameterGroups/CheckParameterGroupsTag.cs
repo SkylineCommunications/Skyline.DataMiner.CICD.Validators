@@ -1,14 +1,18 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGroups.CheckParameterGroupsTag
 {
+    using System;
+    using System.Collections.Generic;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult DcfAdded(IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult DcfAdded(IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -39,8 +43,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
         public const uint DcfAdded = 1;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckParameterGroupsTag = 2;
     }
 }

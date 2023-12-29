@@ -1,17 +1,18 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckIdxAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
 
     internal static class ErrorCompare
     {
-        internal static IValidationResult UpdatedIdxValue(IReadable referenceNode, IReadable positionNode, string columnPid, string oldSLProtocolPosition, string newSLProtocolPosition, string tablePid)
+        public static IValidationResult UpdatedIdxValue(IReadable referenceNode, IReadable positionNode, string columnPid, string oldSLProtocolPosition, string newSLProtocolPosition, string tablePid)
         {
             return new ValidationResult
             {
@@ -36,7 +37,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        internal static IValidationResult UpdatedIdxValue_Parent(IReadable referenceNode, IReadable positionNode, string tablePid)
+        public static IValidationResult UpdatedIdxValue_Parent(IReadable referenceNode, IReadable positionNode, string tablePid)
         {
             return new ValidationResult
             {
@@ -68,8 +69,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint UpdatedIdxValue_Parent = 2;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckIdxAttribute = 25;
     }
 }

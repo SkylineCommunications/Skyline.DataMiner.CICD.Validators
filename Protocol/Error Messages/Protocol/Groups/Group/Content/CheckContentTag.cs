@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.CheckContentTag
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult IncompatibleContentWithGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string groupType, string contentChildTagName, string groupId)
+        public static IValidationResult IncompatibleContentWithGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string groupType, string contentChildTagName, string groupId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult MixedTypes(IValidate test, IReadable referenceNode, IReadable positionNode, string contentTypes, string groupId)
+        public static IValidationResult MixedTypes(IValidate test, IReadable referenceNode, IReadable positionNode, string contentTypes, string groupId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult MaxItemsMultipleGet(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        public static IValidationResult MaxItemsMultipleGet(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult MaxItems(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        public static IValidationResult MaxItems(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             };
         }
 
-        internal static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -146,8 +146,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
         public const uint MissingTag = 5;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckContentTag = 10;
     }
 }

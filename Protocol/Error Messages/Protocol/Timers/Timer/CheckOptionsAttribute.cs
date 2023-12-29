@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer.CheckOptionsAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult NonExistingIdInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string referItemType, string referItemId)
+        public static IValidationResult NonExistingIdInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string referItemType, string referItemId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidValueInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string optionValue)
+        public static IValidationResult InvalidValueInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string optionValue)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string attributeValue)
+        public static IValidationResult InvalidAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId, string attributeValue)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult MissingIpOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
+        public static IValidationResult MissingIpOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidIgnoreIfOption(IValidate test, IReadable referenceNode, IReadable positionNode, string ignoreIfValue)
+        public static IValidationResult InvalidIgnoreIfOption(IValidate test, IReadable referenceNode, IReadable positionNode, string ignoreIfValue)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidEachOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidEachOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -161,7 +161,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidDynamicThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidDynamicThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -186,7 +186,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidInstanceOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidInstanceOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -211,7 +211,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidIpOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidIpOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -236,7 +236,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidPollingRateOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidPollingRateOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -261,7 +261,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidQActionOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidQActionOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -286,7 +286,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidQActionBeforeOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidQActionBeforeOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -311,7 +311,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidQActionAfterOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidQActionAfterOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -336,7 +336,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -361,7 +361,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult MissingEachOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
+        public static IValidationResult MissingEachOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
         {
             return new ValidationResult
             {
@@ -386,7 +386,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult MissingThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
+        public static IValidationResult MissingThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string timerId)
         {
             return new ValidationResult
             {
@@ -411,7 +411,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult NonExistingIdInDynamicThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
+        public static IValidationResult NonExistingIdInDynamicThreadPoolOption(IValidate test, IReadable referenceNode, IReadable positionNode, string pid)
         {
             return new ValidationResult
             {
@@ -436,7 +436,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult MissingValueInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string placeholderName)
+        public static IValidationResult MissingValueInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string placeholderName)
         {
             return new ValidationResult
             {
@@ -461,7 +461,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult InvalidPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
+        public static IValidationResult InvalidPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionValue)
         {
             return new ValidationResult
             {
@@ -486,7 +486,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult UnknownOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
+        public static IValidationResult UnknownOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
         {
             return new ValidationResult
             {
@@ -511,7 +511,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult DuplicateOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
+        public static IValidationResult DuplicateOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
         {
             return new ValidationResult
             {
@@ -536,7 +536,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult UnknownOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
+        public static IValidationResult UnknownOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
         {
             return new ValidationResult
             {
@@ -561,7 +561,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult DuplicateOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
+        public static IValidationResult DuplicateOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName)
         {
             return new ValidationResult
             {
@@ -586,7 +586,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult ThreadPoolCalculationIntervalDefined(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
+        public static IValidationResult ThreadPoolCalculationIntervalDefined(IValidate test, IReadable referenceNode, IReadable positionNode, string timerId)
         {
             return new ValidationResult
             {
@@ -611,7 +611,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult UseOfObsoleteTimeoutPidOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult UseOfObsoleteTimeoutPidOptionInPingOption(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -636,7 +636,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult UseOfObsoleteQActionOption(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult UseOfObsoleteQActionOption(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -661,7 +661,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult NonExistingColumnIdxInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string columnIdx, string tablePid)
+        public static IValidationResult NonExistingColumnIdxInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string columnIdx, string tablePid)
         {
             return new ValidationResult
             {
@@ -686,7 +686,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             };
         }
 
-        internal static IValidationResult NonExistingColumnPositionInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string columnPosition, string tablePid)
+        public static IValidationResult NonExistingColumnPositionInOption(IValidate test, IReadable referenceNode, IReadable positionNode, string timerOption, string columnPosition, string tablePid)
         {
             return new ValidationResult
             {
@@ -744,8 +744,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
         public const uint NonExistingColumnPositionInOption = 30;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckOptionsAttribute = 3;
     }
 }

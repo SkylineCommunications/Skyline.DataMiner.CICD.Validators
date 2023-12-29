@@ -1,17 +1,17 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Trigger.CheckAfterStartupFlow
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {
-        internal static IValidationResult InvalidAfterStartupTriggerCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
+        public static IValidationResult InvalidAfterStartupTriggerCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
         {
             return new ValidationResult
             {
@@ -36,7 +36,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
             };
         }
 
-        internal static IValidationResult InvalidAfterStartupActionCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
+        public static IValidationResult InvalidAfterStartupActionCondition(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
         {
             return new ValidationResult
             {
@@ -61,7 +61,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
             };
         }
 
-        internal static IValidationResult InvalidAfterStartupTriggerType(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
+        public static IValidationResult InvalidAfterStartupTriggerType(IValidate test, IReadable referenceNode, IReadable positionNode, string triggerId)
         {
             return new ValidationResult
             {
@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
             };
         }
 
-        internal static IValidationResult InvalidAfterStartupActionOn(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
+        public static IValidationResult InvalidAfterStartupActionOn(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
         {
             return new ValidationResult
             {
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
             };
         }
 
-        internal static IValidationResult InvalidAfterStartupActionType(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
+        public static IValidationResult InvalidAfterStartupActionType(IValidate test, IReadable referenceNode, IReadable positionNode, string actionId)
         {
             return new ValidationResult
             {
@@ -136,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
             };
         }
 
-        internal static IValidationResult InvalidAfterStartupGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
+        public static IValidationResult InvalidAfterStartupGroupType(IValidate test, IReadable referenceNode, IReadable positionNode, string groupId)
         {
             return new ValidationResult
             {
@@ -172,8 +172,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
         public const uint InvalidAfterStartupGroupType = 6;
     }
 
+    /// <summary>
+    /// Contains the identifiers of the checks.
+    /// </summary>
     public static class CheckId
     {
+        /// <summary>
+        /// The check identifier.
+        /// </summary>
         public const uint CheckAfterStartupFlow = 7;
     }
 }
