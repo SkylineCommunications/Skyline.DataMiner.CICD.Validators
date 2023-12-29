@@ -84,9 +84,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             /// <summary>
             /// The loop to go through all flows.
             /// </summary>
-            /// <param name="currentItemType"></param>
-            /// <param name="currentItemId"></param>
-            /// <param name="pathClass"></param>
+            /// <param name="currentItemType">Current item type.</param>
+            /// <param name="currentItemId">Current item ID.</param>
+            /// <param name="pathClass">Path Class.</param>
             public void CreatePath(ItemTypes currentItemType, uint currentItemId, PathClass pathClass)
             {
                 var currentItem = GetItem(currentItemType, currentItemId);
@@ -119,11 +119,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
                 switch (currentItemType)
                 {
                     case ItemTypes.Trigger:
-                        TriggerFlow(currentItemId, pathClass, currentItem as ITriggersTrigger);
+                        TriggerFlow(pathClass, currentItem as ITriggersTrigger);
                         break;
 
                     case ItemTypes.Action:
-                        ActionFlow(currentItemId, pathClass, currentItem as IActionsAction);
+                        ActionFlow(pathClass, currentItem as IActionsAction);
                         break;
 
                     case ItemTypes.Group:
@@ -165,11 +165,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to an action
+            /// The flow when the check comes to an action.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
-            private void ActionFlow(uint id, PathClass pathClass, IActionsAction action)
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="action">The action.</param>
+            private void ActionFlow(PathClass pathClass, IActionsAction action)
             {
                 ItemTypes nextType = ItemTypes.Action;
 
@@ -325,11 +325,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to a trigger
+            /// The flow when the check comes to a trigger.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
-            private void TriggerFlow(uint id, PathClass pathClass, ITriggersTrigger trigger)
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="trigger">The trigger.</param>
+            private void TriggerFlow(PathClass pathClass, ITriggersTrigger trigger)
             {
                 // Add new trigger to the flow
                 if (trigger.Id?.Value != null)
@@ -387,10 +387,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to a group
+            /// The flow when the check comes to a group.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
+            /// <param name="id">Trigger id.</param>
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="group">The group.</param>
             private void GroupFlow(uint id, PathClass pathClass, IGroupsGroup group)
             {
                 int counter = 0;
@@ -640,10 +641,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to a command
+            /// The flow when the check comes to a command.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
+            /// <param name="id">Trigger id.</param>
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="command">The command.</param>
             private void CommandFlow(uint id, PathClass pathClass, ICommandsCommand command)
             {
                 List<ITriggersTrigger> triggersBefore;
@@ -714,10 +716,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to a response
+            /// The flow when the check comes to a response.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
+            /// <param name="id">Trigger id.</param>
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="response">The response.</param>
             private void ResponseFlow(uint id, PathClass pathClass, IResponsesResponse response)
             {
                 int counter = 0;
@@ -854,10 +857,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to a pair
+            /// The flow when the check comes to a pair.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
+            /// <param name="id">Trigger id.</param>
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="pair">The pair.</param>
             private void PairFlow(uint id, PathClass pathClass, IPairsPair pair)
             {
                 var triggersAfter = _triggers.Where(x =>
@@ -950,10 +954,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to a Timer
+            /// The flow when the check comes to a Timer.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
+            /// <param name="id">Trigger id.</param>
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="timer">The timer.</param>
             private void TimerFlow(uint id, PathClass pathClass, ITimersTimer timer)
             {
                 int counter = 0;
@@ -1026,10 +1031,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to a parameter
+            /// The flow when the check comes to a parameter.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
+            /// <param name="id">Trigger id.</param>
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="parameter">The parameter.</param>
             private void ParameterFlow(uint id, PathClass pathClass, IParamsParam parameter)
             {
                 List<EnumTriggerTime?> allowedTriggerTimes = new List<EnumTriggerTime?>
@@ -1116,20 +1122,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
             }
 
             /// <summary>
-            /// The flow when the check comes to a parameter
+            /// The flow when the check comes to a parameter.
             /// </summary>
-            /// <param name="id">QAction Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
+            /// <param name="id">QAction Trigger id.</param>
+            /// <param name="pathClass">TriggerPath object of current path.</param>
             private void QActionFlow(uint id, PathClass pathClass)
             {
                 pathClass.Path.Add(new Info(id, ItemTypes.QAction));
             }
 
             /// <summary>
-            /// The flow when the check comes to a session
+            /// The flow when the check comes to a session.
             /// </summary>
-            /// <param name="id">Trigger id</param>
-            /// <param name="pathClass">TriggerPath object of current path</param>
+            /// <param name="id">Trigger id.</param>
+            /// <param name="pathClass">TriggerPath object of current path.</param>
+            /// <param name="session">The session.</param>
             private void SessionFlow(uint id, PathClass pathClass, IHTTPSession session)
             {
                 var triggersAfter = _triggers.Where(t =>

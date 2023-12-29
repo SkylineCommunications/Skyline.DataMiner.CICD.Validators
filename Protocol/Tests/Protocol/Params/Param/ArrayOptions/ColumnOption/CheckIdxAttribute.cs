@@ -128,7 +128,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             foreach (var columnOption in columnOptions)
             {
-                if (columnOption?.Idx?.Value == null || columnOption?.Pid?.Value == null)
+                if (columnOption?.Idx?.Value == null || columnOption.Pid?.Value == null)
                 {
                     continue;
                 }

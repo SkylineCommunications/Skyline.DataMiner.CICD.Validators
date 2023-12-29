@@ -89,20 +89,15 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             foreach ((IParamsParam oldParam, IParamsParam newParam) in context.EachMatchingParam())
             {
-                if (newParam == null)
-                {
-                    continue;
-                }
-
-                string newPid = newParam?.Id?.RawValue;
+                string newPid = newParam.Id?.RawValue;
 
                 if (!newParam.GetRTDisplay())
                 {
                     continue;
                 }
 
-                bool oldTrending = oldParam?.Trending?.Value ?? true;
-                bool newTrending = newParam?.Trending?.Value ?? true;
+                bool oldTrending = oldParam.Trending?.Value ?? true;
+                bool newTrending = newParam.Trending?.Value ?? true;
                 if (oldTrending && !newTrending)
                 {
                     results.Add(ErrorCompare.DisabledTrending(newParam, newParam, newPid));

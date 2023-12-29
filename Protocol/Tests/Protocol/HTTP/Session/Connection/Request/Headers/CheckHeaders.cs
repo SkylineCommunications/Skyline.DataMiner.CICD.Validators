@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -52,7 +52,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                         list.Add(header);
                     }
 
-                    var verb = request?.Verb?.Value;
+                    var verb = request.Verb?.Value;
                     helper.ValidateHeaders(session, connection, verb, headers, request.Headers);
                 }
             }
@@ -147,8 +147,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
 
         public void ValidateHeaders(IHTTPSession session, IHTTPSessionConnection connection, EnumHttpRequestVerb? verb, Dictionary<string, List<IHttpRequestHeadersHeader>> headers, IHttpRequestHeaders headersNode)
         {
-            uint connectionId = connection.Id.Value.Value;
-            uint sessionId = session.Id.Value.Value;
+            string connectionId = connection.Id.RawValue;
+            string sessionId = session.Id.RawValue;
 
             if (verb != null && (verb.Value == EnumHttpRequestVerb.POST || verb.Value == EnumHttpRequestVerb.PUT) && !headers.ContainsKey("Content-Type"))
             {
@@ -162,7 +162,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                     continue;
                 }
 
-                
+
                 IValidationResult duplicateHeaderKeys = Error.DuplicateHeaderKeys(test, headersNode, headersNode, headerKey, sessionId.ToString(), connectionId.ToString(), hasCodeFix: true);
 
                 foreach (var header in headers[headerKey])

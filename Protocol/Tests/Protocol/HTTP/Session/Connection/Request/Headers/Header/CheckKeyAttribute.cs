@@ -11,6 +11,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckKeyAttribute, Category.HTTP)]
@@ -20,7 +21,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
-            ValidateHelper helper = new ValidateHelper(this);
+            ValidateHelper helper = new ValidateHelper(this, context, results);
             foreach (IHTTPSession session in context.EachHttpSessionWithValidId())
             {
                 foreach (IHTTPSessionConnection connection in context.EachHttpConnectionWithValidId(session))
@@ -34,7 +35,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
 
                     foreach (var header in request.Headers)
                     {
-                        helper.ValidateHeader(session, connection, request.Verb?.Value, header, results);
+                        helper.ValidateHeader(session, connection, request.Verb?.Value, header);
                     }
                 }
             }
@@ -88,16 +89,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
         Connection
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-
-        public ValidateHelper(IValidate test)
+	    public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results) : base(test, context, results)
         {
-            this.test = test;
         }
 
-        public void ValidateHeader(IHTTPSession session, IHTTPSessionConnection connection, EnumHttpRequestVerb? verb, IHttpRequestHeadersHeader header, List<IValidationResult> results)
+        public void ValidateHeader(IHTTPSession session, IHTTPSessionConnection connection, EnumHttpRequestVerb? verb, IHttpRequestHeadersHeader header)
         {
             var headerKey = header.Key;
             (GenericStatus status, string _, string _) = GenericTests.CheckBasics(headerKey, isRequired: true);
@@ -168,30 +166,27 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
             {
                 results.Add(Error.RedundantHeaderKey(test, header, header, "Connection", session.Id.RawValue, connection.Id.RawValue));
             }
-            else if (headerKey.Value.Equals("Accept-Encoding", StringComparison.OrdinalIgnoreCase))
+            else if (headerKey.Value.Equals("Accept-Encoding", StringComparison.OrdinalIgnoreCase) && header.Value != null)
             {
-                if (header.Value != null)
-                {
-                    string[] acceptedEncodings = header.Value.Split(',');
-                    bool unsupportedEncodingFound = false;
+	            string[] acceptedEncodings = header.Value.Split(',');
+	            bool unsupportedEncodingFound = false;
 
-                    foreach (string acceptedEncoding in acceptedEncodings)
-                    {
-                        if (!acceptedEncoding.Equals("identity") && !acceptedEncoding.Equals("gzip") && !acceptedEncoding.Equals("deflate"))
-                        {
-                            unsupportedEncodingFound = true;
-                            break;
-                        }
-                    }
+	            foreach (string acceptedEncoding in acceptedEncodings)
+	            {
+		            if (!acceptedEncoding.Equals("identity") && !acceptedEncoding.Equals("gzip") && !acceptedEncoding.Equals("deflate"))
+		            {
+			            unsupportedEncodingFound = true;
+			            break;
+		            }
+	            }
 
-                    if (unsupportedEncodingFound)
-                    {
-                        IValidationResult unsupportedHeaderKey = Error.UnsupportedHeaderKey(test, header, header, Certainty.Uncertain, "Accept-Encoding", session.Id.RawValue, connection.Id.RawValue);
-                        unsupportedHeaderKey.WithExtraData(ExtraData.Session, session)
-                                            .WithExtraData(ExtraData.Connection, connection);
-                        results.Add(unsupportedHeaderKey);
-                    }
-                }
+	            if (unsupportedEncodingFound)
+	            {
+		            IValidationResult unsupportedHeaderKey = Error.UnsupportedHeaderKey(test, header, header, Certainty.Uncertain, "Accept-Encoding", session.Id.RawValue, connection.Id.RawValue);
+		            unsupportedHeaderKey.WithExtraData(ExtraData.Session, session)
+		                                .WithExtraData(ExtraData.Connection, connection);
+		            results.Add(unsupportedHeaderKey);
+	            }
             }
 
             // Untrimmed

@@ -8,13 +8,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Edit;
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.MeasurementTypeOptions.TableClass;
@@ -128,7 +128,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
 
                 // Old order
-                MeasurementTypeOptions oldOptions = oldParam?.Measurement?.Type?.GetOptions();
+                MeasurementTypeOptions oldOptions = oldParam.Measurement?.Type?.GetOptions();
                 IEnumerable<uint?> oldOrderedPIDs = oldOptions?.Table?.ColumnsFull?.OrderBy(p => p.DisplayedIndex)?.Select(p => p.Pid);
                 if (oldOrderedPIDs == null)
                 {
@@ -164,8 +164,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             LinkToTest = linkToTest;
             Pid = pid;
             Param = param;
-            ParamType = param?.Measurement?.Type;
-            Options = param?.Measurement?.Type?.GetOptions()?.Matrix;
+            ParamType = param.Measurement?.Type;
+            Options = param.Measurement?.Type?.GetOptions()?.Matrix;
         }
 
         public CheckOptionsAttribute LinkToTest { get; }
@@ -273,7 +273,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return null;
             }
 
-            uint? typeColumns = Param?.Type?.GetOptions()?.Dimensions?.Columns;
+            uint? typeColumns = Param.Type?.GetOptions()?.Dimensions?.Columns;
             if (typeColumns == null)
             {
                 return null;
@@ -302,7 +302,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return null;
             }
 
-            var typeOptions = Param?.Type?.GetOptions();
+            var typeOptions = Param.Type?.GetOptions();
             if (typeOptions == null)
             {
                 return null;
@@ -356,7 +356,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return null;
             }
 
-            uint? typeRows = Param?.Type?.GetOptions()?.Dimensions?.Rows;
+            uint? typeRows = Param.Type?.GetOptions()?.Dimensions?.Rows;
             if (typeRows == null)
             {
                 return null;
@@ -419,29 +419,22 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         }
     }
 
-    internal class TableValidator
+    internal class TableValidator : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
-        private readonly IProtocolModel model;
         private readonly RelationManager relationManager;
-        private readonly List<IValidationResult> results;
 
         private readonly IParamsParam tableParam;
         private readonly MeasurementTypeOptions.TableClass tableOptions;
         private readonly IEnumerable<(uint? idx, string pid, IParamsParam columnParam)> tableColumns;
 
         public TableValidator(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam tableParam, MeasurementTypeOptions.TableClass tableOptions)
+            : base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-            this.model = context.ProtocolModel;
-            this.relationManager = model.RelationManager;
-            this.results = results;
+            relationManager = context.ProtocolModel.RelationManager;
 
             this.tableParam = tableParam;
             this.tableOptions = tableOptions;
-            this.tableColumns = tableParam.GetColumns(relationManager, returnBaseColumnsIfDuplicateAs: true);
+            tableColumns = tableParam.GetColumns(relationManager, returnBaseColumnsIfDuplicateAs: true);
         }
 
         public void CheckColumnParams()

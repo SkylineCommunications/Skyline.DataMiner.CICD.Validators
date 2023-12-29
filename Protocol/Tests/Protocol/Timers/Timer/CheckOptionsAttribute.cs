@@ -8,9 +8,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.TimerOptions;
@@ -98,12 +99,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
         ////}
     }
 
-    internal class ValidateTimerHelper
+    internal class ValidateTimerHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
         private readonly ITimersTimer timer;
-        private readonly List<IValidationResult> results;
         private readonly List<IValidationResult> subResults;
         private readonly TimerOptions options;
 
@@ -119,12 +117,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             ITimersTimer timer,
             List<IValidationResult> results,
             List<IValidationResult> subResults,
-            TimerOptions options)
+            TimerOptions options) 
+			: base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
             this.timer = timer;
-            this.results = results;
             this.subResults = subResults;
             this.options = options;
 
@@ -173,7 +169,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             var model = context.ProtocolModel;
 
             // Verify whether the specified value is correct.
-            if (model.TryGetObjectByKey(Mappings.ParamsById, referencedParameterId, out IParamsParam standaloneParam))
+            if (model.TryGetObjectByKey(Mappings.ParamsById, referencedParameterId, out IParamsParam _))
             {
                 // TODO: Verify whether the specified parameter is a standalone parameter.
                 // This could result in a new error message "InvalidIdInDynamicThreadPoolOption.
@@ -861,7 +857,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             {
                 return false;
             }
-            
+
             return param.ArrayOptions.Any(columnOption => columnOption.Idx?.Value == columnIdx);
         }
 

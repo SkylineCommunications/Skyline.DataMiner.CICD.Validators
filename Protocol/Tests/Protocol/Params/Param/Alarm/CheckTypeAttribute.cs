@@ -68,10 +68,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return null;
             }
 
-            string oldAlarmType = oldParam?.Alarm?.Type?.Value;
-            string newAlarmType = newParam?.Alarm?.Type?.Value;
+            string oldAlarmType = oldParam.Alarm?.Type?.Value;
+            string newAlarmType = newParam.Alarm?.Type?.Value;
 
-            uint? id = newParam?.Id?.Value;
+            uint? id = newParam.Id?.Value;
             if (id == null)
             {
                 return null;
@@ -109,15 +109,15 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public static IValidationResult CheckAddedNormalization(IParamsParam oldParam, IParamsParam newParam)
         {
             // Check if in old version the parameter is monitored already.
-            bool? oldMonitoringState = oldParam?.Alarm?.Monitored?.Value;
+            bool? oldMonitoringState = oldParam.Alarm?.Monitored?.Value;
 
             if (oldMonitoringState == null || !oldMonitoringState.Value)
             {
                 return null;
             }
 
-            string oldTypeValue = oldParam?.Alarm?.Type?.Value;
-            string newTypeValue = newParam?.Alarm?.Type?.Value;
+            string oldTypeValue = oldParam.Alarm?.Type?.Value;
+            string newTypeValue = newParam.Alarm?.Type?.Value;
 
             if (!String.IsNullOrWhiteSpace(oldTypeValue) && oldTypeValue.Contains(":"))
             {

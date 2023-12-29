@@ -12,6 +12,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckOptionsAttribute, Category.Protocol)]
@@ -28,7 +29,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 return results;
             }
 
-            (GenericStatus status, string optionsRawValue, string optionsValue) = GenericTests.CheckBasics(optionsAttribute, isRequired: false);
+            (GenericStatus status, string optionsRawValue, string _) = GenericTests.CheckBasics(optionsAttribute, isRequired: false);
 
             // Empty
             if (status.HasFlag(GenericStatus.Empty))
@@ -107,27 +108,22 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
         }
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
         private readonly IProtocolModel model;
-        private readonly List<IValidationResult> results;
 
         private readonly IProtocolType protocolTypeTag;
         private readonly IValueTag<string> optionsAttribute;
         private readonly ProtocolTypeOptions options;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IProtocolType protocolTypeTag)
+			: base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-            this.model = context.ProtocolModel;
-            this.results = results;
+            model = context.ProtocolModel;
 
             this.protocolTypeTag = protocolTypeTag;
-            this.optionsAttribute = protocolTypeTag.Options;
-            this.options = protocolTypeTag.GetOptions();
+            optionsAttribute = protocolTypeTag.Options;
+            options = protocolTypeTag.GetOptions();
         }
 
         public void ValidateExportProtocol()

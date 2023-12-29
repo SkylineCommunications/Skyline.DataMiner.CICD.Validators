@@ -4,8 +4,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckDa
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckDatabaseOptionsAttribute, Category.Protocol)]
@@ -36,8 +36,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckDa
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
-            var oldDatabaseOptions = context?.PreviousProtocolModel?.Protocol?.Type?.DatabaseOptions?.Value;
-            var newProtocolType = context?.NewProtocolModel?.Protocol?.Type;
+            var oldDatabaseOptions = context.PreviousProtocolModel?.Protocol?.Type?.DatabaseOptions?.Value;
+            var newProtocolType = context.NewProtocolModel?.Protocol?.Type;
             var newDatabaseOptions = newProtocolType?.DatabaseOptions?.Value;
 
             if (oldDatabaseOptions == null || !oldDatabaseOptions.ToLower().Contains("partitionedtrending"))

@@ -5,8 +5,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -45,10 +45,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                string newPid = newParam?.Id?.RawValue;
+                string newPid = newParam.Id?.RawValue;
 
-                string oldPartial = oldParam?.ArrayOptions?.Partial?.Value;
-                string newPartial = newParam?.ArrayOptions?.Partial?.Value;
+                string oldPartial = oldParam.ArrayOptions?.Partial?.Value;
+                string newPartial = newParam.ArrayOptions?.Partial?.Value;
 
                 bool hasOldPartial = !(oldPartial == null || oldPartial.Contains("false"));
                 bool hasNewPartial = !(newPartial == null || newPartial.Contains("false"));

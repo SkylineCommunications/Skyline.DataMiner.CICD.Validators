@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
@@ -116,14 +116,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
         private static readonly string[] AllowedSuffixes = { "single", "instance", "tablev2", "getnext" };
         private static readonly Dictionary<string, string> ObsoleteSuffixes = new Dictionary<string, string>
         {
-            { "table", "tablev2"},
+            { "table", "tablev2" },
         };
 
         private readonly IGroupsGroup group;
         private readonly IGroupsGroupContentParam param;
 
         private readonly string groupId;
-        private string rawValue;
+        private readonly string rawValue;
         private string[] valueParts;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IGroupsGroup group, IGroupsGroupContentParam param)
@@ -132,13 +132,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             this.group = group;
             this.param = param;
 
+            rawValue = param.RawValue;
             groupId = group.Id.RawValue;
         }
 
         internal bool CheckBasics()
         {
-            (GenericStatus status, string rawValue, string value) = GenericTests.CheckBasics(param, false);
-            this.rawValue = rawValue;
+            (GenericStatus status, _, string value) = GenericTests.CheckBasics(param, false);
 
             if (status.HasFlag(GenericStatus.Empty))
             {

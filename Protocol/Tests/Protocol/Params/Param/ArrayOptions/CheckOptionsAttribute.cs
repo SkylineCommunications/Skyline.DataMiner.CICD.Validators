@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
@@ -210,13 +210,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             }
 
             string viewId = Convert.ToString(options.View.Pid);
-            if (!model.TryGetObjectByKey(Mappings.ParamsById, viewId, out IParamsParam tableParam))
+            if (!model.TryGetObjectByKey(Mappings.ParamsById, viewId, out IParamsParam param))
             {
-                results.Add(Error.ViewTableInvalidReference(test, this.tableParam, this.tableParam.ArrayOptions, Severity.Major, viewId, this.tableParam.Id?.RawValue));
+                results.Add(Error.ViewTableInvalidReference(test, tableParam, tableParam.ArrayOptions, Severity.Major, viewId, tableParam.Id?.RawValue));
             }
-            else if (Equals(tableParam, this.tableParam))
+            else if (Equals(param, tableParam))
             {
-                results.Add(Error.ViewTableInvalidReference(test, this.tableParam, this.tableParam.ArrayOptions, Severity.Critical, viewId, this.tableParam.Id?.RawValue));
+                results.Add(Error.ViewTableInvalidReference(test, tableParam, tableParam.ArrayOptions, Severity.Critical, viewId, tableParam.Id?.RawValue));
             }
         }
 

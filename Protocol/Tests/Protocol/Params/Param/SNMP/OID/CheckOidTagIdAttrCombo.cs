@@ -6,8 +6,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -28,7 +28,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                var snmpOidIdAttr = snmpOidElem?.Id;
+                var snmpOidIdAttr = snmpOidElem.Id;
 
                 bool hasIdAttribute = snmpOidIdAttr != null;
 
@@ -43,12 +43,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 else
                 {
                     // Standalone or column parameter.
-                    bool hasWildcard = snmpOidElem?.Value?.Contains('*') == true;
+                    bool hasWildcard = snmpOidElem.Value?.Contains('*') == true;
 
                     if (hasWildcard != hasIdAttribute)
                     {
                         string oidIdRawValue = snmpOidIdAttr?.ReadNode?.GetAttributeValue("id");
-                        results.Add(Error.InvalidCombo(this, snmpOidElem, snmpOidElem, snmpOidElem?.Value, oidIdRawValue, param.Id.RawValue));
+                        results.Add(Error.InvalidCombo(this, snmpOidElem, snmpOidElem, snmpOidElem.Value, oidIdRawValue, param.Id.RawValue));
                         continue;
                     }
                 }

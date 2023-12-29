@@ -2,11 +2,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.PortSettings
 {
     using System.Collections.Generic;
 
+    using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -23,11 +24,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.PortSettings
                 return results;
             }
 
-            bool isRequired = context.ProtocolModel.Protocol.Type.Value != Skyline.DataMiner.CICD.Models.Protocol.Enums.EnumProtocolType.Virtual;
+            bool isRequired = context.ProtocolModel.Protocol.Type.Value != EnumProtocolType.Virtual;
 
-            var portSettings = context?.ProtocolModel?.Protocol?.PortSettings;
+            var portSettings = context.ProtocolModel?.Protocol?.PortSettings;
             var name = portSettings?.Name;
-            (GenericStatus status, string rawValue, string value) = GenericTests.CheckBasics(name, isRequired);
+            (GenericStatus status, string rawValue, string _) = GenericTests.CheckBasics(name, isRequired);
 
             if (status.HasFlag(GenericStatus.Missing))
             {

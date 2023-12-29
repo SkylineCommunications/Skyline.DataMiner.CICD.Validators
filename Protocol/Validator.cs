@@ -12,7 +12,8 @@
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-    
+
+    /// <inheritdoc cref="IValidator"/>
     public class Validator : IValidator
     {
         /// <inheritdoc cref="IValidator.RunValidate"/>

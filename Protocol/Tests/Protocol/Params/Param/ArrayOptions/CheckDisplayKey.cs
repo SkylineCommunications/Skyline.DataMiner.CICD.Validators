@@ -9,8 +9,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -181,7 +181,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         private readonly IEnumerable<(uint? idx, string pid, IParamsParam columnParam)> columns;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam tableParam, IParamsParamArrayOptions arrayOptions)
-			: base(test, context, results)
+            : base(test, context, results)
         {
             relationManager = context.ProtocolModel.RelationManager;
 
@@ -474,7 +474,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Format = namingOption.OriginalValue.Replace("naming=", null),
             };
 
-            if (namingOption?.Columns == null || namingOption.Columns.Count <= 0)
+            if (namingOption.Columns == null || namingOption.Columns.Count <= 0)
             {
                 displayKey.FormatSegments = Array.Empty<string>();
                 return displayKey;

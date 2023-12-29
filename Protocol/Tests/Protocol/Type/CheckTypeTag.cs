@@ -7,8 +7,8 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -33,7 +33,7 @@
             if (status.HasFlag(GenericStatus.Missing))
             {
                 // Tag can be left out if Connections are defined via another Syntax
-                if (protocol?.ReadNode.Element["Connections"] != null)
+                if (protocol.ReadNode.Element["Connections"] != null)
                 {
                     return results;
                 }

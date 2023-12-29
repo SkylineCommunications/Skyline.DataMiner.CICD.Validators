@@ -7,8 +7,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -110,14 +110,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
 
             foreach ((IParameterGroupsGroup oldGroup, IParameterGroupsGroup newGroup) in context.EachMatchingParameterGroup())
             {
-                uint? groupId = newGroup?.Id?.Value;
+                uint? groupId = newGroup.Id?.Value;
                 if (groupId == null)
                 {
                     continue;
                 }
 
-                string oldName = oldGroup?.Name?.Value;
-                string newName = newGroup?.Name?.Value;
+                string oldName = oldGroup.Name?.Value;
+                string newName = newGroup.Name?.Value;
 
                 if (oldName != newName)
                 {

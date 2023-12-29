@@ -58,8 +58,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.DVEs.DVEProt
                 return;
             }
 
-            var oldElementPrefix = oldDve?.ElementPrefix?.Value;
-            var newElementPrefix = newDve?.ElementPrefix?.Value;
+            var oldElementPrefix = oldDve.ElementPrefix?.Value;
+            var newElementPrefix = newDve.ElementPrefix?.Value;
 
             bool oldElementHasPrefix = oldElementPrefix.GetValueOrDefault(true);
             bool newElementHasPrefix = newElementPrefix.GetValueOrDefault(true);

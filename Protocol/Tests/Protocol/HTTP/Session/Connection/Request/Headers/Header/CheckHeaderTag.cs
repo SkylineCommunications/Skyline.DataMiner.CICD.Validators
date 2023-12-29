@@ -1,15 +1,15 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.Connection.Request.Headers.Header.CheckHeaderTag
 {
-    using System;
     using System.Collections.Generic;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckHeaderTag, Category.HTTP)]
     internal class CheckHeaderTag : IValidate, ICodeFix/*, ICompare*/
@@ -62,7 +62,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                         var connection = (IHTTPSessionConnection)extraData[ExtraData.Connection];
                         var header = (IHttpRequestHeadersHeader)context.Result.ReferenceNode;
 
-                        Skyline.DataMiner.CICD.Models.Protocol.Edit.HTTPSession editSession = context?.Protocol.HTTP.Get(session);
+                        Skyline.DataMiner.CICD.Models.Protocol.Edit.HTTPSession editSession = context.Protocol.HTTP.Get(session);
                         var editConnection = editSession.Get(connection);
                         var editHeader = editConnection.Request.Headers.Get(header);
 
