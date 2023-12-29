@@ -30,7 +30,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 {
                     var row = position.Row;
 
-                    (GenericStatus status, string rawValue, uint? columnValue) = GenericTests.CheckBasics(row, isRequired: true);
+                    (GenericStatus status, string rawValue, uint? _) = GenericTests.CheckBasics(row, isRequired: true);
 
                     // Missing
                     if (status.HasFlag(GenericStatus.Missing))

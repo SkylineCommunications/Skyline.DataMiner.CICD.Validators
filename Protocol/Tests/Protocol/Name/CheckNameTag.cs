@@ -28,7 +28,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
 
             var name = model.Protocol.Name;
 
-            (GenericStatus status, string rawValue, string _) = GenericTests.CheckBasics(name, true);
+            (GenericStatus status, _, _) = GenericTests.CheckBasics(name, true);
 
             // Check if Tag is there
             if (status.HasFlag(GenericStatus.Missing))
@@ -47,7 +47,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
             // Check if Tag starts/ends with whitespace
             if (status.HasFlag(GenericStatus.Untrimmed))
             {
-                results.Add(Error.UntrimmedTag(this, name, name, rawValue));
+                results.Add(Error.UntrimmedTag(this, name, name, name.RawValue));
                 return results;
             }
 
@@ -55,7 +55,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
             IList<char> invalidCharacters = Helper.CheckInvalidChars(name.Value, ProtocolHelper.RestrictedProtocolNameChars).ToList();
             if (invalidCharacters.Any())
             {
-                results.Add(Error.InvalidChars(this, name, name, rawValue, String.Join(" ", invalidCharacters)));
+                results.Add(Error.InvalidChars(this, name, name, name.RawValue, String.Join(" ", invalidCharacters)));
                 return results;
             }
 
@@ -63,7 +63,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
             string invalidPrefix = ProtocolHelper.GetProtocolNameInvalidPrefix(name.Value);
             if (invalidPrefix != null)
             {
-                results.Add(Error.InvalidPrefix(this, name, name, rawValue, invalidPrefix));
+                results.Add(Error.InvalidPrefix(this, name, name, name.RawValue, invalidPrefix));
                 return results;
             }
 

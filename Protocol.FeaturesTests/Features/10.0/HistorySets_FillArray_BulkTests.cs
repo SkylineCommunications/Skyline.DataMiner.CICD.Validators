@@ -13,12 +13,12 @@
 	[TestClass]
     public class HistorySets_FillArray_BulkTests
     {
-        private static HistorySets_FillArray_Bulk check;
+        private static HistorySetsFillArrayBulk check;
 
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            check = new HistorySets_FillArray_Bulk();
+            check = new HistorySetsFillArrayBulk();
         }
 
         [TestMethod]

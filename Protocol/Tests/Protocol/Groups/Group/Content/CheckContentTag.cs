@@ -66,7 +66,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
         private readonly EnumGroupType groupType;
         private readonly string groupTypeString;
 
-        private string[] multithreadedGroups;
+        private string[] multiThreadedGroups;
 
         private static readonly string[] ValidActionGroupContent = { "Action" };
         private static readonly string[] ValidTriggerGroupContent = { "Trigger" };
@@ -194,19 +194,19 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             }
 
             // Make sure we load multi-threaded groups only once
-            if (multithreadedGroups == null)
+            if (multiThreadedGroups == null)
             {
-                LoadMultithreadedGroups();
+                multiThreadedGroups = LoadMultiThreadedGroups(context);
             }
 
             // Missing tag
-            if (!multithreadedGroups.Contains(group.Id.RawValue))
+            if (!multiThreadedGroups.Contains(group.Id.RawValue))
             {
                 results.Add(Error.MissingTag(test, group, group, group.Id.RawValue));
             }
         }
 
-        private void LoadMultithreadedGroups()
+        private static string[] LoadMultiThreadedGroups(ValidatorContext context)
         {
             List<string> result = new List<string>();
             foreach (ITimersTimer timer in context.EachTimerWithValidId())
@@ -224,7 +224,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
                 }
             }
 
-            multithreadedGroups = result.ToArray();
+            return result.ToArray();
         }
 
         private IEnumerable<IValidationResult> CheckAllowedTypes(IReadOnlyCollection<string> allowedContentTypes)

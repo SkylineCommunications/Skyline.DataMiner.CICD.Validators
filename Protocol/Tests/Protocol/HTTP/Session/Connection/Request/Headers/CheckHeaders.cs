@@ -73,7 +73,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                         var connection = (IHTTPSessionConnection)extraData[ExtraData.Connection];
                         var headerKey = (string)extraData[ExtraData.HeaderKey];
 
-                        Skyline.DataMiner.CICD.Models.Protocol.Edit.HTTPSession editSession = context?.Protocol.HTTP.Get(session);
+                        Skyline.DataMiner.CICD.Models.Protocol.Edit.HTTPSession editSession = context.Protocol.HTTP.Get(session);
                         var editConnection = editSession.Get(connection);
                         Skyline.DataMiner.CICD.Models.Protocol.Edit.HttpRequestHeaders editHeaders = editConnection.Request.Headers;
 

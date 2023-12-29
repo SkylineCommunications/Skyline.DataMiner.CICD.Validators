@@ -16,7 +16,7 @@
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     // [MinDataMinerVersions("10.0.0.0-9118", "9.6.13.0-8820")]
-    internal class HistorySets_FillArray_Single/* : IFeatureCheck*/
+    internal class HistorySetsFillArraySingle/* : IFeatureCheck*/
     {
         public string Title => "History Sets - FillArray - Single";
 
@@ -45,7 +45,7 @@
             return new FeatureCheckResult(items);
         }
 
-        private class QActionAnalyzer : CSharpAnalyzerBase
+        private sealed class QActionAnalyzer : CSharpAnalyzerBase
         {
             private readonly List<CSharpFeatureCheckResultItem> items;
             private readonly IQActionsQAction qAction;

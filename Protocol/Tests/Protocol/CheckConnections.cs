@@ -8,10 +8,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckConnections, Category.Protocol)]
@@ -59,7 +60,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
 
             results.AddRange(resultsForDuplicateNames);
 
-            ValidateHelper helper = new ValidateHelper(this, results, protocol);
+            ValidateHelper helper = new ValidateHelper(this, context, results, protocol);
 
             int connectionsCount = helper.CheckInvalidCount(connections);
 
@@ -159,16 +160,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
         }
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly List<IValidationResult> results;
         private readonly IProtocol protocol;
 
-        internal ValidateHelper(IValidate test, List<IValidationResult> results, IProtocol protocol)
+        internal ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IProtocol protocol)
+			: base(test, context, results)
         {
-            this.test = test;
-            this.results = results;
             this.protocol = protocol;
         }
 
@@ -246,7 +244,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
             }
 
             string connNumber = Convert.ToString(conn.Number);
-            
+
             string names = $"'{String.Join("' vs '", conn.AdvancedName, conn.PortSettingsName)}'";
             IValidationResult mismatchingNames = Error.MismatchingNames(test, conn.PortSettings, null, connNumber, names, true);
             mismatchingNames.WithSubResults(

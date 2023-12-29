@@ -11,12 +11,12 @@
 	[TestClass]
     public class ExportRule_whereAttributeTests
     {
-        private static ExportRule_whereAttribute check;
+        private static ExportRuleWhereAttribute check;
 
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            check = new ExportRule_whereAttribute();
+            check = new ExportRuleWhereAttribute();
         }
 
         [TestMethod]

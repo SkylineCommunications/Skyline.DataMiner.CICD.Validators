@@ -15,7 +15,7 @@
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.3.0-8964")]
-    internal class DeleteFolder_RecycleOption : IFeatureCheck
+    internal class DeleteFolderRecycleOption : IFeatureCheck
     {
         public string Title => "Delete Folder - Recycle Option";
 
@@ -44,7 +44,7 @@
             return new FeatureCheckResult(items);
         }
 
-        private class QActionAnalyzer : CSharpAnalyzerBase
+        private sealed class QActionAnalyzer : CSharpAnalyzerBase
         {
             private readonly IList<CSharpFeatureCheckResultItem> items;
             private readonly IQActionsQAction qAction;

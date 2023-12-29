@@ -11,7 +11,7 @@
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.5.0-9164")]
-    internal class LoginMethod_Certificate : IFeatureCheck
+    internal class LoginMethodCertificate : IFeatureCheck
     {
         public string Title => "Login Method - Certificate";
 

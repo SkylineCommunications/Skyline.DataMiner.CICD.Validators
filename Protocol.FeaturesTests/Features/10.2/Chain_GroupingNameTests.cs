@@ -11,12 +11,12 @@
 	[TestClass]
     public class Chain_GroupingNameTests
     {
-        private static Chain_GroupingName check;
+        private static ChainGroupingName check;
 
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            check = new Chain_GroupingName();
+            check = new ChainGroupingName();
         }
 
         [TestMethod]

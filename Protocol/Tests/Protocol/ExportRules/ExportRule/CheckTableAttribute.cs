@@ -47,7 +47,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                     continue;
                 }
 
-                if (!UInt32.TryParse(value, out uint tableId))
+                if (!UInt32.TryParse(value, out uint _))
                 {
                     results.Add(Error.InvalidAttribute(this, exportRule, exportRule, value));
                     continue;

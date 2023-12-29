@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
@@ -137,8 +137,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
         private bool ValidateValue()
         {
+	        if (interpreteType == null)
+	        {
+		        return true;
+	        }
+
             // Any value is allowed if type is not double
-            if (interpreteType?.Value != EnumParamInterpretType.Double)
+            if (interpreteType.Value != EnumParamInterpretType.Double)
             {
                 return true;
             }
@@ -146,7 +151,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             // Value incompatible with type
             if (!Double.TryParse(exception.ValueElement.Value, NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture, out _))
             {
-                results.Add(Error.ValueIncompatibleWithInterpreteType(test, param, exception, exception.ValueElement.RawValue, interpreteType?.RawValue, param.Id?.RawValue));
+                results.Add(Error.ValueIncompatibleWithInterpreteType(test, param, exception, exception.ValueElement.RawValue, interpreteType.RawValue, param.Id?.RawValue));
                 return false;
             }
 

@@ -97,6 +97,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="items">The collection of items potentially containing duplicates.</param>
         /// <param name="getDuplicationIdentifier">The way of getting the identifier that needs to be compared in order to consider two items duplicated.</param>
+        /// <param name="getName">The way of getting the name.</param>
         /// <param name="generateSubResult">The way of generating the subResults.</param>
         /// <param name="generateSummaryResult">The way of generating the summary result containing all subResults.</param>
         /// <returns>The summary result.</returns>
@@ -163,6 +164,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="items">The collection of items potentially containing duplicates.</param>
         /// <param name="getDuplicationIdentifier">The way of getting the identifier that needs to be compared in order to consider two items duplicated.</param>
+        /// <param name="getId">The way of getting the identifier.</param>
         /// <param name="generateSubResult">The way of generating the subResults.</param>
         /// <param name="generateSummaryResult">The way of generating the summary result containing all subResults.</param>
         /// <param name="isValidDuplicate">Can be used if duplicate values are allowed in some cases (ex: read/write param names and descriptions).</param>
@@ -193,6 +195,25 @@
             }
 
             return CheckDuplicatesIterator(items, getDuplicationIdentifier, getId, generateSubResult, generateSummaryResult, isValidDuplicate);
+        }
+
+        /// <summary>
+        /// Checking for duplicate items in a provided collection. (Items without an Id)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items">The collection of items potentially containing duplicates.</param>
+        /// <param name="getDuplicationIdentifier">The way of getting the identifier that needs to be compared in order to consider two items duplicated.</param>
+        /// <param name="generateSubResult">The way of generating the subResults.</param>
+        /// <param name="generateSummaryResult">The way of generating the summary result containing all subResults.</param>
+        /// <returns>The summary result.</returns>
+        /// <exception cref="System.ArgumentNullException">items OR getItemIdentifier OR generateResult</exception>
+        public static IEnumerable<IValidationResult> CheckDuplicates<T>(IEnumerable<T> items,
+	        Func<T, string> getDuplicationIdentifier,
+	        Func<(T item, string duplicateValue), IValidationResult> generateSubResult,
+	        Func<(string duplicateValue, IValidationResult[] subResults), IValidationResult> generateSummaryResult)
+	        where T : IReadable
+        {
+	        return CheckDuplicatesNonModel(items, getDuplicationIdentifier, generateSubResult, generateSummaryResult);
         }
 
         private static IEnumerable<IValidationResult> CheckDuplicatesIterator<T>(IEnumerable<T> items, Func<T, string> getDuplicationIdentifier, Func<T, string> getId, Func<(T item, string id, string duplicateValue), IValidationResult> generateSubResult,
@@ -231,26 +252,7 @@
 		        yield return generateSummaryResult((ids, duplicateValue, subResults.ToArray()));
 	        }
         }
-
-        /// <summary>
-        /// Checking for duplicate items in a provided collection. (Items without an Id)
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="items">The collection of items potentially containing duplicates.</param>
-        /// <param name="getDuplicationIdentifier">The way of getting the identifier that needs to be compared in order to consider two items duplicated.</param>
-        /// <param name="generateSubResult">The way of generating the subResults.</param>
-        /// <param name="generateSummaryResult">The way of generating the summary result containing all subResults.</param>
-        /// <returns>The summary result.</returns>
-        /// <exception cref="System.ArgumentNullException">items OR getItemIdentifier OR generateResult</exception>
-        public static IEnumerable<IValidationResult> CheckDuplicates<T>(IEnumerable<T> items,
-            Func<T, string> getDuplicationIdentifier,
-            Func<(T item, string duplicateValue), IValidationResult> generateSubResult,
-            Func<(string duplicateValue, IValidationResult[] subResults), IValidationResult> generateSummaryResult)
-            where T : IReadable
-        {
-            return CheckDuplicatesNonModel(items, getDuplicationIdentifier, generateSubResult, generateSummaryResult);
-        }
-
+        
         /// <summary>
         /// Checking for duplicate items in a provided collection. (Items without an Id)
         /// DUPLICATE as sometimes it's a collection of multiple different names (Example: Connections)

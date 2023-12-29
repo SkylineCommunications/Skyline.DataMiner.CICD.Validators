@@ -35,7 +35,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                         continue;
                     }
 
-                    (GenericStatus status, string rawId, uint? id) = GenericTests.CheckBasics(response, isRequired: false);
+                    (GenericStatus status, _, uint? id) = GenericTests.CheckBasics(response, isRequired: false);
 
                     // Empty
                     if (status.HasFlag(GenericStatus.Empty))
@@ -45,23 +45,23 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                     }
 
                     // Invalid
-                    if (status.HasFlag(GenericStatus.Invalid) || !GenericTests.IsPlainNumbers(rawId))
+                    if (status.HasFlag(GenericStatus.Invalid) || !GenericTests.IsPlainNumbers(response.RawValue))
                     {
-                        results.Add(Error.InvalidValue(this, response, response, rawId, pair.Id.RawValue));
+                        results.Add(Error.InvalidValue(this, response, response, response.RawValue, pair.Id.RawValue));
                         continue;
                     }
 
                     // Non-Existing Response
                     if (!context.ProtocolModel.TryGetObjectByKey<IResponsesResponse>(Mappings.ResponsesById, Convert.ToString(id), out _))
                     {
-                        results.Add(Error.NonExistingId(this, response, response, rawId, pair.Id.RawValue));
+                        results.Add(Error.NonExistingId(this, response, response, response.RawValue, pair.Id.RawValue));
                         continue;
                     }
 
                     // Untrimmed
                     if (status.HasFlag(GenericStatus.Untrimmed))
                     {
-                        results.Add(Error.UntrimmedTag(this, response, response, pair.Id.RawValue, rawId));
+                        results.Add(Error.UntrimmedTag(this, response, response, pair.Id.RawValue, response.RawValue));
                         continue;
                     }
                 }

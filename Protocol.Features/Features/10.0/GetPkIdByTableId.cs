@@ -44,7 +44,7 @@
             return new FeatureCheckResult(items);
         }
 
-        private class QActionAnalyzer : CSharpAnalyzerBase
+        private sealed class QActionAnalyzer : CSharpAnalyzerBase
         {
             private readonly IList<CSharpFeatureCheckResultItem> items;
             private readonly IQActionsQAction qAction;

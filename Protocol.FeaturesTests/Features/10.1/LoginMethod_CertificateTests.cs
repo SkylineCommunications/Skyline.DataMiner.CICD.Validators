@@ -11,12 +11,12 @@
 	[TestClass]
     public class LoginMethod_CertificateTests
     {
-        private static LoginMethod_Certificate check;
+        private static LoginMethodCertificate check;
 
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            check = new LoginMethod_Certificate();
+            check = new LoginMethodCertificate();
         }
         
         [TestMethod]

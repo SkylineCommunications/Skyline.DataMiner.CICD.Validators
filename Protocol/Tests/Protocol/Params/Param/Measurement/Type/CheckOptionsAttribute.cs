@@ -129,7 +129,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
                 // Old order
                 MeasurementTypeOptions oldOptions = oldParam.Measurement?.Type?.GetOptions();
-                IEnumerable<uint?> oldOrderedPIDs = oldOptions?.Table?.ColumnsFull?.OrderBy(p => p.DisplayedIndex)?.Select(p => p.Pid);
+                IEnumerable<uint?> oldOrderedPIDs = oldOptions?.Table?.ColumnsFull?.OrderBy(p => p.DisplayedIndex).Select(p => p.Pid);
                 if (oldOrderedPIDs == null)
                 {
                     continue;
@@ -139,7 +139,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
                 // New order
                 MeasurementTypeOptions newOptions = newParam.Measurement?.Type?.GetOptions();
-                IEnumerable<uint?> newOrderedPIDs = newOptions?.Table?.ColumnsFull?.OrderBy(p => p.DisplayedIndex)?.Select(p => p.Pid);
+                IEnumerable<uint?> newOrderedPIDs = newOptions?.Table?.ColumnsFull?.OrderBy(p => p.DisplayedIndex).Select(p => p.Pid);
                 string newColumnOrder = String.Empty;
                 if (newOrderedPIDs != null)
                 {
@@ -308,8 +308,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return null;
             }
 
-            uint? maxAllowedInputs = typeOptions?.Dimensions?.Rows;
-            uint? maxAllowedOutputs = typeOptions?.Dimensions?.Columns;
+            uint? maxAllowedInputs = typeOptions.Dimensions?.Rows;
+            uint? maxAllowedOutputs = typeOptions.Dimensions?.Columns;
 
             if (maxAllowedInputs == null || maxAllowedOutputs == null)
             {

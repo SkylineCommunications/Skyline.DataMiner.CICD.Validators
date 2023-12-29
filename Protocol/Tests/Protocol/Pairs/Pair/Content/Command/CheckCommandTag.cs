@@ -30,7 +30,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
 
                 var command = pair.Content.Command;
 
-                (GenericStatus status, string rawId, uint? id) = GenericTests.CheckBasics(command, isRequired: true);
+                (GenericStatus status, _, uint? id) = GenericTests.CheckBasics(command, isRequired: true);
 
                 // Missing
                 if (status.HasFlag(GenericStatus.Missing))
@@ -47,23 +47,23 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 }
 
                 // Invalid
-                if (status.HasFlag(GenericStatus.Invalid) || !GenericTests.IsPlainNumbers(rawId))
+                if (status.HasFlag(GenericStatus.Invalid) || !GenericTests.IsPlainNumbers(command.RawValue))
                 {
-                    results.Add(Error.InvalidValue(this, command, command, rawId, pair.Id.RawValue));
+                    results.Add(Error.InvalidValue(this, command, command, command.RawValue, pair.Id.RawValue));
                     continue;
                 }
 
                 // Non-Existing Command
                 if (!context.ProtocolModel.TryGetObjectByKey<ICommandsCommand>(Mappings.CommandsById, Convert.ToString(id), out _))
                 {
-                    results.Add(Error.NonExistingId(this, command, command, rawId, pair.Id.RawValue));
+                    results.Add(Error.NonExistingId(this, command, command, command.RawValue, pair.Id.RawValue));
                     continue;
                 }
 
                 // Untrimmed
                 if (status.HasFlag(GenericStatus.Untrimmed))
                 {
-                    results.Add(Error.UntrimmedTag(this, command, command, pair.Id.RawValue, rawId));
+                    results.Add(Error.UntrimmedTag(this, command, command, pair.Id.RawValue, command.RawValue));
                     continue;
                 }
             }

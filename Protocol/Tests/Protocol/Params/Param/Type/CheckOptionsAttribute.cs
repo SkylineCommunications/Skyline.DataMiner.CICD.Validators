@@ -13,6 +13,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckOptionsAttribute, Category.Param)]
@@ -29,8 +30,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return results;
             }
 
-            ValidateHeaderTrailerLink validateHeaderTrailerLink = new ValidateHeaderTrailerLink(this, model, results);
-            ValidateSshOptionsHelper validateSshOptionsHelper = new ValidateSshOptionsHelper(this, model, results);
+            ValidateHeaderTrailerLink validateHeaderTrailerLink = new ValidateHeaderTrailerLink(this, context, model, results);
+            ValidateSshOptionsHelper validateSshOptionsHelper = new ValidateSshOptionsHelper(this, context, model, results);
 
             foreach (IParamsParam param in context.EachParamWithValidId())
             {
@@ -140,8 +141,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             foreach ((IParamsParam oldParam, IParamsParam newParam) in context.EachMatchingParam())
             {
-                var oldType = oldParam?.Type;
-                var newType = newParam?.Type;
+                var oldType = oldParam.Type;
+                var newType = newParam.Type;
                 if (oldType == null || newType == null)
                 {
                     continue;
@@ -175,16 +176,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         }
     }
 
-    internal class ValidateSshOptionsHelper
+    internal class ValidateSshOptionsHelper : ValidateHelperBase
     {
-        private readonly IValidate validate;
-        private readonly List<IValidationResult> results;
         private readonly bool hasSshPortSettings;
 
-        public ValidateSshOptionsHelper(IValidate validate, IProtocolModel model, List<IValidationResult> results)
+        public ValidateSshOptionsHelper(IValidate test, ValidatorContext context, IProtocolModel model, List<IValidationResult> results)
+			: base(test, context, results)
         {
-            this.validate = validate;
-            this.results = results;
             hasSshPortSettings = HasSshPortSettings(model.Protocol);
         }
 
@@ -193,17 +191,17 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             ParamTypeOptions paramTypeOptions = param.Type?.GetOptions();
             if (paramTypeOptions?.HasSshUsername == true)
             {
-                results.Add(Error.UnrecommendedSshOptions(validate, param, param.Type.Options, "SSH Username", param.Id?.RawValue));
+                results.Add(Error.UnrecommendedSshOptions(test, param, param.Type.Options, "SSH Username", param.Id?.RawValue));
             }
 
             if (paramTypeOptions?.HasSshPwd == true)
             {
-                results.Add(Error.UnrecommendedSshOptions(validate, param, param.Type.Options, "SSH PWD", param.Id?.RawValue));
+                results.Add(Error.UnrecommendedSshOptions(test, param, param.Type.Options, "SSH PWD", param.Id?.RawValue));
             }
 
             if (paramTypeOptions?.HasSshOptions == true)
             {
-                results.Add(Error.UnrecommendedSshOptions(validate, param, param.Type.Options, "SSH Options", param.Id?.RawValue));
+                results.Add(Error.UnrecommendedSshOptions(test, param, param.Type.Options, "SSH Options", param.Id?.RawValue));
             }
         }
 
@@ -218,17 +216,17 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             if (paramTypeOptions?.HasSshUsername == true)
             {
-                results.Add(Error.InvalidMixOfSshOptionsAndPortSettings(validate, param, param.Type.Options, "SSH Username", param.Id?.RawValue));
+                results.Add(Error.InvalidMixOfSshOptionsAndPortSettings(test, param, param.Type.Options, "SSH Username", param.Id?.RawValue));
             }
 
             if (paramTypeOptions?.HasSshPwd == true)
             {
-                results.Add(Error.InvalidMixOfSshOptionsAndPortSettings(validate, param, param.Type.Options, "SSH PWD", param.Id?.RawValue));
+                results.Add(Error.InvalidMixOfSshOptionsAndPortSettings(test, param, param.Type.Options, "SSH PWD", param.Id?.RawValue));
             }
 
             if (paramTypeOptions?.HasSshOptions == true)
             {
-                results.Add(Error.InvalidMixOfSshOptionsAndPortSettings(validate, param, param.Type.Options, "SSH Options", param.Id?.RawValue));
+                results.Add(Error.InvalidMixOfSshOptionsAndPortSettings(test, param, param.Type.Options, "SSH Options", param.Id?.RawValue));
             }
         }
 
@@ -240,14 +238,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         }
     }
 
-    internal class ValidateHeaderTrailerLink
+    internal class ValidateHeaderTrailerLink : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly List<IValidationResult> results;
         private readonly bool protocolTypeRequiresHeaderTrailerLinkOption;
         private readonly Dictionary<uint, HashSet<IParamsParam>> headerAndTrailerParamsPerHeaderTrailerLinkOptionId;
 
-        public ValidateHeaderTrailerLink(IValidate test, IProtocolModel model, List<IValidationResult> results)
+        public ValidateHeaderTrailerLink(IValidate test, ValidatorContext context, IProtocolModel model, List<IValidationResult> results)
+			: base(test, context, results)
         {
             headerAndTrailerParamsPerHeaderTrailerLinkOptionId = new Dictionary<uint, HashSet<IParamsParam>>();
             if (model.Protocol.GetConnections().Any(connection => connection.Type == EnumProtocolType.SmartSerialSingle || connection.Type == EnumProtocolType.SmartSerial))
@@ -258,9 +255,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             {
                 protocolTypeRequiresHeaderTrailerLinkOption = false;
             }
-
-            this.test = test;
-            this.results = results;
         }
 
         public static void RemoveHeaderTrailerLinkOption(ParamsParam param)
@@ -443,7 +437,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return;
             }
 
-            string matrixName = readParam?.Name?.Value ?? "Matrix";
+            string matrixName = readParam.Name?.Value ?? "Matrix";
 
             ParamsParam newParam = new ParamsParam
             {
@@ -510,8 +504,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return null;
             }
 
-            bool hasColumnTypes = options?.ColumnTypes != null;
-            bool hasDimensions = options?.Dimensions != null;
+            bool hasColumnTypes = options.ColumnTypes != null;
+            bool hasDimensions = options.Dimensions != null;
             if (!hasColumnTypes && !hasDimensions)
             {
                 return Error.MissingMatrixOptions(test, param, paramType, "dimensions and columntypes", matrixPid);

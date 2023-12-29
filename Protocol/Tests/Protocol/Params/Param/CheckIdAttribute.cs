@@ -61,7 +61,7 @@
                 if (pid == 0 ||
                     (pid >= 64300 && pid < 70000) ||      // DataMiner Params
                     (pid >= 100000 && pid < 1000000) ||   // DataMiner Params
-                    (pid >= 10000000))                               // Out of range
+                    pid >= 10000000)                               // Out of range
                 {
                     results.Add(Error.OutOfRangeId(this, param, param.Id, rawPid));
                     continue;
@@ -115,41 +115,33 @@
                 }
 
                 // Enhanced Service Driver Exceptions
-                if (isEnhancedServiceDriver)
+                if (isEnhancedServiceDriver && pid >= 1 && pid < 1000)
                 {
-                    if (pid >= 1 && pid < 1000)
-                    {
-                        // Check that the param has the expected name/description based on the ID
-                        if (!ParamHelper.IsCorrectEnhancedServiceParam(param))
-                        {
-                            results.Add(Error.InvalidUseOfEnhancedServiceIdRange(this, param, param.Id, rawPid));
-                            continue;
-                        }
-                    }
+	                // Check that the param has the expected name/description based on the ID
+	                if (!ParamHelper.IsCorrectEnhancedServiceParam(param))
+	                {
+		                results.Add(Error.InvalidUseOfEnhancedServiceIdRange(this, param, param.Id, rawPid));
+		                continue;
+	                }
                 }
 
                 // Spectrum Driver Exceptions
-                if (isSpectrumDriver)
+                // For spectrum elements parameter 60000 might not be handled correctly when defined in the driver
+                if (isSpectrumDriver && pid >= 50000 && pid <= 60000)
                 {
-                    if (pid >= 50000 && pid <= 60000)     // For spectrum elements parameter 60000 might not be handled correctly when defined in the driver
-                    {
-                        results.Add(Error.InvalidUseOfSpectrumIdRange(this, param, param.Id, rawPid));
-                        continue;
-                    }
+	                results.Add(Error.InvalidUseOfSpectrumIdRange(this, param, param.Id, rawPid));
+	                continue;
                 }
 
                 // SLA Driver Exceptions
-                if (isSlaDriver)
+                if (isSlaDriver && pid >= 1 && pid < 3000)
                 {
-                    if (pid >= 1 && pid < 3000)
-                    {
-                        // Check that the param has the expected name/description based on the ID
-                        if (!ParamHelper.IsCorrectSlaParam(param))
-                        {
-                            results.Add(Error.InvalidUseOfSlaIdRange(this, param, param.Id, rawPid));
-                            continue;
-                        }
-                    }
+	                // Check that the param has the expected name/description based on the ID
+	                if (!ParamHelper.IsCorrectSlaParam(param))
+	                {
+		                results.Add(Error.InvalidUseOfSlaIdRange(this, param, param.Id, rawPid));
+		                continue;
+	                }
                 }
 
                 // Aggregation Drivers can be ignored.
@@ -242,25 +234,14 @@
                 return results;
             }
 
-            foreach (IParamsParam previousParam in previousProtocol.Params)
+            foreach (IParamsParam previousParam in context.PreviousProtocolModel.EachParamWithValidId())
             {
-                uint? previousId = previousParam.Id?.Value;
-                if (previousId == null)
+	            // Find corresponding parameter with the same name id.
+                IParamsParam newParam = newProtocol.Params?.FirstOrDefault(param => param?.Id?.Value == previousParam.Id.Value);
+
+                if (newParam == null && previousParam.GetRTDisplay())
                 {
-                    continue;
-                }
-
-                // Find corresponding parameter with the same name id.
-                IParamsParam newParam = newProtocol?.Params?.FirstOrDefault(param => param?.Id?.Value == previousId);
-
-                if (newParam == null)
-                {
-                    if (previousParam.GetRTDisplay())
-                    {
-                        results.Add(ErrorCompare.MissingParam(null, newProtocol.Params, previousParam.Name?.Value, previousParam.Type.ReadNode.InnerText, Convert.ToString(previousId)));
-                    }
-
-                    continue;
+	                results.Add(ErrorCompare.MissingParam(null, newProtocol.Params, previousParam.Name?.Value, previousParam.Type.ReadNode.InnerText, previousParam.Id.RawValue));
                 }
             }
 

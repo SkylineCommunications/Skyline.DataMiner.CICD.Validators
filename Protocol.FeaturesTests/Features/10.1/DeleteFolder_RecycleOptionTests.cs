@@ -13,12 +13,12 @@
 	[TestClass]
     public class DeleteFolder_RecycleOptionTests
     {
-        private static DeleteFolder_RecycleOption check;
+        private static DeleteFolderRecycleOption check;
 
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            check = new DeleteFolder_RecycleOption();
+            check = new DeleteFolderRecycleOption();
         }
         
         [TestMethod]

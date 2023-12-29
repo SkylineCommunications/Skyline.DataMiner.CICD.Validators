@@ -51,7 +51,7 @@
         }
     }
 
-    internal class QActionAnalyzer : CSharpAnalyzerBase
+    internal sealed class QActionAnalyzer : CSharpAnalyzerBase
     {
         private readonly IList<IReadable> results;
 

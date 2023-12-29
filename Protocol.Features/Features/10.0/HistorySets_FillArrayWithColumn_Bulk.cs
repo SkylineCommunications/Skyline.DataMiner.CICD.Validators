@@ -17,7 +17,7 @@
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.6.0-8270")]
-    internal class HistorySets_FillArrayWithColumn_Bulk : IFeatureCheck
+    internal class HistorySetsFillArrayWithColumnBulk : IFeatureCheck
     {
         public string Title => "History Sets - FillArrayWithColumn - Bulk";
 
@@ -46,7 +46,7 @@
             return new FeatureCheckResult(items);
         }
 
-        private class QActionAnalyzer : CSharpAnalyzerBase
+        private sealed class QActionAnalyzer : CSharpAnalyzerBase
         {
             private readonly List<CSharpFeatureCheckResultItem> items;
             private readonly IQActionsQAction qAction;

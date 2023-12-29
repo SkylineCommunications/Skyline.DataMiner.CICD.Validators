@@ -11,12 +11,12 @@
 	[TestClass]
     public class Chain_DefaultSelectionFieldTests
     {
-        private static Chain_DefaultSelectionField check;
+        private static ChainDefaultSelectionField check;
 
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            check = new Chain_DefaultSelectionField();
+            check = new ChainDefaultSelectionField();
         }
 
         [TestMethod]

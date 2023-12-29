@@ -249,13 +249,10 @@
             // Small upper case words
             // For small words, we expect a lot of conflicts between upper case abbreviation and fixedCasingWords so we are more flexible here
             // For bigger words, the same logic is executed but after the different fixed casing words checks
-            if (word.Length < 4)
+            if (word.Length < 4 && IsUpperCase(word, wordUpperCased))
             {
-                if (IsUpperCase(word, wordUpperCased))
-                {
-                    capitalizeIfFirstOrLastWord = false;
-                    return word;
-                }
+	            capitalizeIfFirstOrLastWord = false;
+	            return word;
             }
 
             // Words with multiple possible known casing

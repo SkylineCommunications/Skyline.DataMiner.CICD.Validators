@@ -150,7 +150,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
                 if (!oldDescriptionValue.Equals(newDescriptionValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    results.Add(ErrorCompare.UpdatedValue(newParam, newParam, newPid, oldParam.Description?.RawValue, newParam?.Description?.RawValue));
+                    results.Add(ErrorCompare.UpdatedValue(newParam, newParam, newPid, oldParam.Description?.RawValue, newParam.Description?.RawValue));
                 }
             }
 
