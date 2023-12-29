@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Testing", "Common.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProtocolTests.SchemaGenerator", "ProtocolTests.SchemaGenerator\ProtocolTests.SchemaGenerator.csproj", "{A3278AF2-05A5-4953-9746-2821B4D07740}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validator Management Tool", "Validator Management Tool\Validator Management Tool.csproj", "{82F5E0F7-A112-489E-9480-D4ECD9FACB4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{A3278AF2-05A5-4953-9746-2821B4D07740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3278AF2-05A5-4953-9746-2821B4D07740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3278AF2-05A5-4953-9746-2821B4D07740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F5E0F7-A112-489E-9480-D4ECD9FACB4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F5E0F7-A112-489E-9480-D4ECD9FACB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F5E0F7-A112-489E-9480-D4ECD9FACB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F5E0F7-A112-489E-9480-D4ECD9FACB4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
