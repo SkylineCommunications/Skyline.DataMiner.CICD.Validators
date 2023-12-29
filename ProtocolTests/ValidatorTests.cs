@@ -1,27 +1,22 @@
-﻿namespace SLDisValidatorUnitTests
+﻿namespace ProtocolTests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Threading;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Models.Protocol;
+	using Skyline.DataMiner.CICD.Models.Protocol.Read;
+	using Skyline.DataMiner.CICD.Parsers.Common.Xml;
+	using Skyline.DataMiner.CICD.Validators.Common.Data;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using SLDisUnitTestsShared;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Models.Protocol;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Parsers.Common.Xml;
-    using Skyline.DataMiner.CICD.Validators.Common.Data;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisUnitTestsShared;
-
-    using SLDisValidator2;
-    using SLDisValidator2.Common;
-
-    [TestClass]
+	[TestClass]
     public class ValidatorTests
     {
         #region Old Run Validate

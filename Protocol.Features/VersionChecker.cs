@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features
 {
     using System;
     using System.Collections.Generic;
@@ -10,11 +10,11 @@
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Attributes;
-    using SLDisDmFeatureCheck.Common.Exceptions;
-    using SLDisDmFeatureCheck.Common.Interfaces;
-    using SLDisDmFeatureCheck.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Exceptions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     public static class VersionChecker
     {

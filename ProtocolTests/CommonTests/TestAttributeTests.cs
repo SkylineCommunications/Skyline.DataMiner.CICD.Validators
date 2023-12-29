@@ -1,16 +1,14 @@
-﻿namespace SLDisValidatorUnitTests.CommonTests
+﻿namespace ProtocolTests.CommonTests
 {
-    using System;
-    using FluentAssertions;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Enums;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.CheckProtocolTag;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using CheckId = SLDisValidator2.Tests.Protocol.CheckProtocolTag.CheckId;
+	using System;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Enums;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckProtocolTag;
+	using CheckId = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckProtocolTag.CheckId;
 
 
     [TestClass]

@@ -1,15 +1,14 @@
-namespace SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIndexAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGroups.Group.CheckDynamicIndexAttribute
 {
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckDynamicIndexAttribute, Category.ParameterGroup)]
     internal class CheckDynamicIndexAttribute : IValidate/*, ICodeFix, ICompare*/

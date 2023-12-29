@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Tests.Protocol.Type.CheckTypeTag
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckTypeTag
 {
     using System;
     using System.Collections.Generic;
@@ -7,11 +7,10 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Generic;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckTypeTag, Category.Protocol)]
     internal class CheckTypeTag : IValidate/*, ICompare*/

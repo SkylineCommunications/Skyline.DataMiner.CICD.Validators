@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimumRequiredVersionTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimumRequiredVersionTag
 {
     using System.Collections.Generic;
     using System.Threading;
@@ -7,16 +7,15 @@ namespace SLDisValidator2.Tests.Protocol.Compliancies.MinimumRequiredVersion.Che
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
-    using SLDisDmFeatureCheck;
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Interfaces;
-    using SLDisDmFeatureCheck.Common.Results;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckMinimumRequiredVersionTag, Category.Protocol)]
     internal class CheckMinimumRequiredVersionTag : IValidate, ICodeFix, ICompare

@@ -1,10 +1,10 @@
-﻿namespace SLDisValidator2.Interfaces
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Interfaces
 {
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    using SLDisValidator2.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
 
     internal interface ICompare : IRoot
     {

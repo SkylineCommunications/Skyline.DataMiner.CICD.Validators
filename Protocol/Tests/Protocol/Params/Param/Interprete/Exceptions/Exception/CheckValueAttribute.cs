@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exception.CheckValueAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Interprete.Exceptions.Exception.CheckValueAttribute
 {
     using System;
     using System.Collections.Generic;
@@ -8,13 +8,12 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.Exce
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Generic;
-    using SLDisValidator2.Helpers;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckValueAttribute, Category.Param)]
     internal class CheckValueAttribute : IValidate/*, ICodeFix, ICompare*/

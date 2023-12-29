@@ -1,14 +1,14 @@
-namespace SLDisValidatorUnitTests.Protocol.QActions.QAction.CheckNameAttribute
+namespace ProtocolTests.Protocol.QActions.QAction.CheckNameAttribute
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.QActions.QAction.CheckNameAttribute;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using SLDisValidator2.Common.Extensions;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CheckNameAttribute;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckNameAttribute();

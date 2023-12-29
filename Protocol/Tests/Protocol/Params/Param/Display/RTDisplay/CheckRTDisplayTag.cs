@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -7,13 +7,12 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTD
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Enums;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Generic;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Enums;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckRTDisplayTag, Category.Param, TestOrder.Post1)]
     internal class CheckRTDisplayTag : IValidate, ICodeFix/*, ICompare*/
@@ -137,7 +136,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTD
             }
 
             // RTDisplay Expected
-            var paramsAllowingRtDisplay = context.CrossData.RtDisplay.ParamsAllowingRtDisplay;
+            var paramsAllowingRtDisplay = context.CrossData.RtDisplay.GetParamsAllowingRtDisplay();
             foreach ((IParamsParam paramExpectingRtDisplay, List<IValidationResult> subResults) in paramsAllowingRtDisplay)
             {
                 // RTDisplay already there

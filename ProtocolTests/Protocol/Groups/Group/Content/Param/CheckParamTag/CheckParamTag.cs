@@ -1,13 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.Groups.Group.Content.Param.CheckParamTag
+namespace ProtocolTests.Protocol.Groups.Group.Content.Param.CheckParamTag
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Groups.Group.Content.Param.CheckParamTag;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Param.CheckParamTag;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckParamTag();

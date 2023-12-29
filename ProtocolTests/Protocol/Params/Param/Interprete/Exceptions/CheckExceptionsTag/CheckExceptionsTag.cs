@@ -1,16 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.Interprete.Exceptions.CheckExceptionsTag
+namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.CheckExceptionsTag
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Interprete.Exceptions.CheckExceptionsTag;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.Interprete.Exceptions.CheckExceptionsTag;
-
-    [TestClass]
+	[TestClass]
     public class Compare
     {
         private readonly ICompare compare = new CheckExceptionsTag();

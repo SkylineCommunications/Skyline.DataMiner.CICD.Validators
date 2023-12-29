@@ -1,19 +1,15 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.Interprete.LengthType.CheckLengthTypeTag
+namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckLengthTypeTag
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Interprete.LengthType.CheckLengthTypeTag;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.Interprete.LengthType.CheckLengthTypeTag;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckLengthTypeTag();

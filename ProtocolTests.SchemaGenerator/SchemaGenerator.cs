@@ -1,23 +1,23 @@
-﻿namespace SLDisValidatorUnitTestsSchemaGenerator
+﻿namespace ProtocolTests.SchemaGenerator
 {
-    using System;
-    using System.Reflection;
-    using System.Xml;
+	using System;
+	using System.Reflection;
+	using System.Xml;
 
-    public class SchemaGenerator
+	public class SchemaGenerator
     {
         private const string TargetNamespace = "http://www.skyline.be/validatorProtocolUnitTest";
 
-        private readonly string inputFile = "";
+        private readonly string inputFile;
 
         private XmlDocument doc;
         private XmlNamespaceManager nsmgr;
 
         public SchemaGenerator(string inputFile)
         {
-            if (string.IsNullOrEmpty(inputFile))
+            if (String.IsNullOrEmpty(inputFile))
             {
-                throw new ArgumentException("Input file parameter must not be null or empty.", "inputFile");
+                throw new ArgumentException("Input file parameter must not be null or empty.", nameof(inputFile));
             }
 
             this.inputFile = inputFile;
@@ -26,8 +26,6 @@
         /// <summary>
         /// Creates XML Schema to be used for creating unit tests for the protocol validator.
         /// </summary>
-        /// <param name="inputFile">The complete XSD.</param>
-        /// <param name="outputFile">The loosened XSD.</param>
         public string CreateSchema()
         {
             try

@@ -1,10 +1,10 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Name.CheckNameTag
 {
     using System;
     using System.Collections.Generic;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 

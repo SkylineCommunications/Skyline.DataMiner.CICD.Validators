@@ -1,15 +1,12 @@
-﻿namespace SLDisValidatorUnitTests.CommonTests
+﻿namespace ProtocolTests.CommonTests
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-
-    [TestClass]
+	[TestClass]
     public class ValidationResultTests
     {
         [TestMethod]

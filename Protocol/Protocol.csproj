@@ -39,9 +39,12 @@
 	<ItemGroup>
 		<InternalsVisibleTo Include="ProtocolTests" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Legacy\" />
-	</ItemGroup>
 	
+	<ItemGroup>
+		<SonarQubeSetting Include="sonar.exclusions">
+			<Value>Legacy/**</Value>
+		</SonarQubeSetting>
+	</ItemGroup>
+
+
 </Project>

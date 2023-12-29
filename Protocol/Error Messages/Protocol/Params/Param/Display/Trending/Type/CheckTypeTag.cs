@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Trending.Type.CheckTypeTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Trending.Type.CheckTypeTag
 {
     using System;
 
@@ -6,7 +6,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Trending.Type.Chec
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    using SLDisValidator2.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
 
     internal static class ErrorCompare
     {

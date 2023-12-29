@@ -1,20 +1,16 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
+namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
 {
-    using System;
-    using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.Low.CheckLowTag;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.Low.CheckLowTag;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckLowTag();

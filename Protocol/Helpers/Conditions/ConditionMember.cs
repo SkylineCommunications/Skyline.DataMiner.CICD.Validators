@@ -2,7 +2,7 @@
 // Do not change. Treat this as auto-generated code as this is converted from code in DataMiner.
 // If there are software changes this allows easier comparison.
 // </auto-generated>
-namespace SLDisValidator2.Helpers.Conditions
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Helpers.Conditions
 {
     using System;
     using System.Collections.Generic;

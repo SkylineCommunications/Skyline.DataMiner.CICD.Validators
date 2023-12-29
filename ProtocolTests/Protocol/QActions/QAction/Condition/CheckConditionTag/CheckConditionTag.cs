@@ -1,17 +1,16 @@
-namespace SLDisValidatorUnitTests.Protocol.QActions.QAction.Condition.CheckConditionTag
+namespace ProtocolTests.Protocol.QActions.QAction.Condition.CheckConditionTag
 {
-    using System;
-    using System.Collections.Generic;
-    using FluentAssertions;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.Condition.CheckConditionTag;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.QActions.QAction.Condition.CheckConditionTag;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckConditionTag();

@@ -1,46 +1,41 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag
+namespace ProtocolTests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag
 {
-    using System;
-    using System.Collections.Generic;
-
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag;
-
-    using PageOrderError = SLDisValidator2.Tests.Protocol.Display.CheckPageOrderAttribute.Error;
-    using PageVisibilityError = SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidAttribute.Error;
-    using ParamAlarmingDisabledIfError = SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAttribute.Error;
-    using ParamAlarmingError = SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonitoredTag.Error;
-    using ParamAlarmOptionsError = SLDisValidator2.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribute.Error;
-    using ParamColumnOptionsError = SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckOptionsAttribute.Error;
-    using ParamDependenciesError = SLDisValidator2.Tests.Protocol.Params.Param.Dependencies.Id.CheckIdTag.Error;
-    using ParamDiscreetDependencyValuesError = SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckDependencyValuesAttribute.Error;
-    using ParamDiscreetsDependencyIdError = SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.CheckDependencyId.Error;
-    using ParamIdError = SLDisValidator2.Tests.Protocol.Params.Param.CheckIdAttribute.Error;
-    using ParamMeasTypeOptionsError = SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOptionsAttribute.Error;
-    using ParamNameError = SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag.Error;
-    using ParamPositionsError = SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.CheckPositionsTag.Error;
-    using ParamsLoadSequenceError = SLDisValidator2.Tests.Protocol.Params.CheckLoadSequenceAttribute.Error;
-    using ParamTrendingError = SLDisValidator2.Tests.Protocol.Params.Param.CheckTrendingAttribute.Error;
-    using ParamVirtualIdError = SLDisValidator2.Tests.Protocol.Params.Param.Type.CheckVirtualAttribute.Error;
-    using ProtocolTypeOptionsError = SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute.Error;
-    using RelationsError = SLDisValidator2.Tests.Protocol.Relations.Relation.CheckPathAttribute.Error;
-    using TrapMapAlarmError = SLDisValidator2.Tests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribute.Error;
-    using TreeControlExtraDetailsColumnIdError = SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDetails.CheckDiscreetColumnIdAttribute.Error;
-    using TreeControlExtraDetailsTableIdError = SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDetails.CheckDetailsTableIdAttribute.Error;
-    using TreeControlExtraTabParameterError = SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.CheckParameterAttribute.Error;
-    using TreeControlHierarchyPathError = SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAttribute.Error;
-    using TreeControlHierarchyTableConditionError = SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckConditionAttribute.Error;
-    using TreeControlHierarchyTableIdError = SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckIdAttribute.Error;
-    using TreeControlParameterIdError = SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.CheckParameterIdAttribute.Error;
+	using System;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag;
+	using PageOrderError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.CheckPageOrderAttribute.Error;
+    using PageVisibilityError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidAttribute.Error;
+    using ParamAlarmingDisabledIfError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAttribute.Error;
+    using ParamAlarmingError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.Monitored.CheckMonitoredTag.Error;
+    using ParamAlarmOptionsError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribute.Error;
+    using ParamColumnOptionsError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckOptionsAttribute.Error;
+    using ParamDependenciesError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Dependencies.Id.CheckIdTag.Error;
+    using ParamDiscreetDependencyValuesError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckDependencyValuesAttribute.Error;
+    using ParamDiscreetsDependencyIdError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.CheckDependencyId.Error;
+    using ParamIdError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.CheckIdAttribute.Error;
+    using ParamMeasTypeOptionsError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Type.CheckOptionsAttribute.Error;
+    using ParamNameError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Name.CheckNameTag.Error;
+    using ParamPositionsError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Positions.CheckPositionsTag.Error;
+    using ParamsLoadSequenceError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.CheckLoadSequenceAttribute.Error;
+    using ParamTrendingError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.CheckTrendingAttribute.Error;
+    using ParamVirtualIdError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Type.CheckVirtualAttribute.Error;
+    using ProtocolTypeOptionsError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOptionsAttribute.Error;
+    using RelationsError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Relations.Relation.CheckPathAttribute.Error;
+    using TrapMapAlarmError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribute.Error;
+    using TreeControlExtraDetailsColumnIdError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDetails.CheckDiscreetColumnIdAttribute.Error;
+    using TreeControlExtraDetailsTableIdError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDetails.CheckDetailsTableIdAttribute.Error;
+    using TreeControlExtraTabParameterError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.CheckParameterAttribute.Error;
+    using TreeControlHierarchyPathError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAttribute.Error;
+    using TreeControlHierarchyTableConditionError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckConditionAttribute.Error;
+    using TreeControlHierarchyTableIdError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckIdAttribute.Error;
+    using TreeControlParameterIdError = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.CheckParameterIdAttribute.Error;
 
     [TestClass]
     public class Validate

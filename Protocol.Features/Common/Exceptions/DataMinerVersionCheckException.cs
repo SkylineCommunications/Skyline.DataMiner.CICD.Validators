@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck.Common.Exceptions
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Exceptions
 {
     using System;
     using System.Runtime.Serialization;

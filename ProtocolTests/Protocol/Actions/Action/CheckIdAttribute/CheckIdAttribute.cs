@@ -1,21 +1,17 @@
-namespace SLDisValidatorUnitTests.Protocol.Actions.Action.CheckIdAttribute
+namespace ProtocolTests.Protocol.Actions.Action.CheckIdAttribute
 {
-    using System;
-    using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Action.CheckIdAttribute;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Actions.Action.CheckIdAttribute;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckIdAttribute();

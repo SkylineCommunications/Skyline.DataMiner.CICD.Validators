@@ -1,13 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.PortSettings.CheckNameAttribute
+namespace ProtocolTests.Protocol.PortSettings.CheckNameAttribute
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.PortSettings.CheckNameAttribute;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.PortSettings.CheckNameAttribute;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckNameAttribute();

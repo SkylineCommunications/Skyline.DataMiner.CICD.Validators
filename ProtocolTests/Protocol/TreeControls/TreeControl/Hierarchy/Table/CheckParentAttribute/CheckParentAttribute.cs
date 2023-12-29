@@ -1,13 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckParentAttribute
+namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckParentAttribute
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckParentAttribute;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckParentAttribute;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckParentAttribute();

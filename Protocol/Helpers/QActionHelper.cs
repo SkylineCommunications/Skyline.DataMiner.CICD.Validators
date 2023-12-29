@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Helpers
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Helpers
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -9,7 +9,7 @@
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
 
-    using SLDisValidator2.Tests;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
 
     internal static class QActionHelper
     {
@@ -211,56 +211,61 @@
             Dictionary<string, IReadOnlyList<string>> optionsByTimerId = new Dictionary<string, IReadOnlyList<string>>();
             foreach (ITimersTimer timer in protocolModel.EachTimerWithValidId())
             {
-                TimerOptions timerOptions = timer.GetOptions();
-
-                if (timerOptions == null || table.ArrayOptions == null)
-                {
-                    continue;
-                }
-
-                if (timerOptions.IPAddress?.TableParameterId?.Value != table.Id?.Value)
-                {
-                    continue;
-                }
-
-                List<string> failingOptions = new List<string>();
-                
-                var ping = timerOptions.Ping;
-                (int index, string optionName)[] optionsToCheck =
-                {
-                    (GetZeroBasedIndex(ping?.RttColumnPosition?.Value), "ping/rttColumn"),
-                    (GetZeroBasedIndex(ping?.TimeStampColumnPosition?.Value), "ping/timestampColumn"),
-                    (GetZeroBasedIndex(ping?.JitterColumnPosition?.Value), "ping/jitterColumn"),
-                    (GetZeroBasedIndex(ping?.LatencyColumnPosition?.Value), "ping/latencyColumn"),
-                    (GetZeroBasedIndex(ping?.PacketLossRateColumnPosition?.Value), "ping/packetLossRateColumn")
-                };
-
-                foreach ((int index, string optionName) in optionsToCheck)
-                {
-                    if (index == -1)
-                    {
-                        continue;
-                    }
-
-                    if (table.ArrayOptions.TryGetColumnOption(index, out ITypeColumnOption columnOption) && columnOption.Pid?.Value == columnPid)
-                    {
-                        failingOptions.Add(optionName);
-                    }
-                }
-
-                if (failingOptions.Count > 0)
-                {
-                    optionsByTimerId.Add(timer.Id.RawValue, failingOptions);
-                }
-
-                int GetZeroBasedIndex(uint? value)
-                {
-                    return value == null ? -1 : (int)value.Value - 1;
-                }
+	            ColumnCanBeSetBasedOnTimerOptionsForTimer(table, timer, columnPid, optionsByTimerId);
             }
 
             failingOptionsByTimerId = optionsByTimerId;
             return failingOptionsByTimerId.Count == 0;
+        }
+
+        private static void ColumnCanBeSetBasedOnTimerOptionsForTimer(IParamsParam table, ITimersTimer timer, uint? columnPid, Dictionary<string, IReadOnlyList<string>> optionsByTimerId)
+        {
+	        TimerOptions timerOptions = timer.GetOptions();
+
+	        if (timerOptions == null || table.ArrayOptions == null)
+	        {
+		        return;
+	        }
+
+	        if (timerOptions.IPAddress?.TableParameterId?.Value != table.Id?.Value)
+	        {
+		        return;
+	        }
+
+	        List<string> failingOptions = new List<string>();
+
+	        var ping = timerOptions.Ping;
+	        (int index, string optionName)[] optionsToCheck =
+	        {
+		        (GetZeroBasedIndex(ping?.RttColumnPosition?.Value), "ping/rttColumn"),
+		        (GetZeroBasedIndex(ping?.TimeStampColumnPosition?.Value), "ping/timestampColumn"),
+		        (GetZeroBasedIndex(ping?.JitterColumnPosition?.Value), "ping/jitterColumn"),
+		        (GetZeroBasedIndex(ping?.LatencyColumnPosition?.Value), "ping/latencyColumn"),
+		        (GetZeroBasedIndex(ping?.PacketLossRateColumnPosition?.Value), "ping/packetLossRateColumn")
+	        };
+
+	        foreach ((int index, string optionName) in optionsToCheck)
+	        {
+		        if (index == -1)
+		        {
+			        continue;
+		        }
+
+		        if (table.ArrayOptions.TryGetColumnOption(index, out ITypeColumnOption columnOption) && columnOption.Pid?.Value == columnPid)
+		        {
+			        failingOptions.Add(optionName);
+		        }
+	        }
+
+	        if (failingOptions.Count > 0)
+	        {
+		        optionsByTimerId.Add(timer.Id.RawValue, failingOptions);
+	        }
+
+	        int GetZeroBasedIndex(uint? value)
+	        {
+		        return value == null ? -1 : (int)value.Value - 1;
+	        }
         }
 
         /// <summary>

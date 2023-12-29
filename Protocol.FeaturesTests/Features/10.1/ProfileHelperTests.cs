@@ -1,21 +1,16 @@
-﻿namespace SLDisDmFeatureCheckUnitTests.Features
+﻿namespace Protocol.FeaturesTests.Features._10._1
 {
-    using System.Linq;
+	using System.Linq;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Models.Protocol.Read;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+	using SLDisUnitTestsShared;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Interfaces;
-    using SLDisDmFeatureCheck.Common.Results;
-    using SLDisDmFeatureCheck.Features;
-    
-    using Skyline.DataMiner.CICD.Models.Protocol.Read;
-
-    using SLDisUnitTestsShared;
-
-    [TestClass]
+	[TestClass]
     public class ProfileHelperTests
     {
         private static ProfileHelper check;

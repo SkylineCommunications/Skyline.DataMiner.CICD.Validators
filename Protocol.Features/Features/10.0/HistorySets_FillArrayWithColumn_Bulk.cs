@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck.Features
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Features
 {
     using System;
     using System.Collections.Generic;
@@ -12,9 +12,9 @@
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Interfaces;
-    using SLDisDmFeatureCheck.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.6.0-8270")]
     internal class HistorySets_FillArrayWithColumn_Bulk : IFeatureCheck

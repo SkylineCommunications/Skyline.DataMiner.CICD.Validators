@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck.Common.Attributes
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,7 @@
 
     using Skyline.DataMiner.CICD.Common;
 
-    using SLDisDmFeatureCheck.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
 
     /// <summary>
     /// This attribute exists so that we can later on pre-filter on the releases so that we don't run all the features if not needed.

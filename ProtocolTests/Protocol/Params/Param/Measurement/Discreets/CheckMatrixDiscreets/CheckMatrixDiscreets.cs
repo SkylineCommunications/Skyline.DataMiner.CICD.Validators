@@ -1,13 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.Measurement.Discreets.CheckMatrixDiscreets
+namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckMatrixDiscreets
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.CheckMatrixDiscreets;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.CheckMatrixDiscreets;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckMatrixDiscreets();

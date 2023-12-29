@@ -1,13 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.ParameterGroups.Group.CheckDynamicIdAttribute
+namespace ProtocolTests.Protocol.ParameterGroups.Group.CheckDynamicIdAttribute
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.ParameterGroups.Group.CheckDynamicIdAttribute;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGroups.Group.CheckDynamicIdAttribute;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckDynamicIdAttribute();

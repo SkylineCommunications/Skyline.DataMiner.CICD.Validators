@@ -1,9 +1,9 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribute
 {
     using System;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 

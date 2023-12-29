@@ -1,12 +1,10 @@
-﻿namespace SLDisValidatorUnitTests.Helpers
+﻿namespace ProtocolTests.Helpers
 {
-    using FluentAssertions;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using SLDisValidator2.Tests;
-
-    [TestClass]
+	[TestClass]
     public class ProtocolHelperTests
     {
         [TestMethod]

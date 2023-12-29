@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Tests
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests
 {
     internal static class DcfHelper
     {

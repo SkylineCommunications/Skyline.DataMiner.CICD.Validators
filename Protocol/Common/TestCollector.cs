@@ -1,11 +1,11 @@
-﻿namespace SLDisValidator2.Common
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class TestCollector
     {

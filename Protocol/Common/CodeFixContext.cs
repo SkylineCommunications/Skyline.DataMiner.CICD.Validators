@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Common
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common
 {
     using Skyline.DataMiner.CICD.Models.Protocol.Edit;
     using Skyline.DataMiner.CICD.Parsers.Common.XmlEdit;

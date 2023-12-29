@@ -1,14 +1,12 @@
-﻿namespace SLDisValidator2.Common.Attributes
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes
 {
-    using System;
-    using System.Reflection;
+	using System;
+	using System.Reflection;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Enums;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common.Enums;
-    using SLDisValidator2.Interfaces;
-
-    /// <summary>
+	/// <summary>
     /// Indicates that the class is a validator check.
     /// </summary>
     /// <seealso cref="System.Attribute" />

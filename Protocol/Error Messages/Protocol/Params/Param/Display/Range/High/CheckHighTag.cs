@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.High.CheckHighTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.High.CheckHighTag
 {
     using System;
 
@@ -6,8 +6,8 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Range.High.CheckHi
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {

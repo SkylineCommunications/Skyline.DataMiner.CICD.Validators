@@ -1,13 +1,13 @@
-﻿namespace SLDisValidatorUnitTests
+﻿namespace ProtocolTests
 {
-    using System;
-    using System.Linq;
-    using System.Reflection;
-    using Microsoft.Build.Locator;
-    using Microsoft.CodeAnalysis.Host.Mef;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System;
+	using System.Linq;
+	using System.Reflection;
+	using Microsoft.Build.Locator;
+	using Microsoft.CodeAnalysis.Host.Mef;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    [TestClass]
+	[TestClass]
     public class Initialize
     {
         [AssemblyInitialize]

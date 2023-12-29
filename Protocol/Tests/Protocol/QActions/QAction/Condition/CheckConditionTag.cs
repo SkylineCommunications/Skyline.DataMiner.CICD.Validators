@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.QActions.QAction.Condition.CheckConditionTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.Condition.CheckConditionTag
 {
     using System;
     using System.Collections.Generic;
@@ -7,12 +7,11 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.Condition.CheckConditi
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Helpers.Conditions;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers.Conditions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckConditionTag, Category.QAction)]
     internal class CheckConditionTag : IValidate

@@ -1,17 +1,14 @@
-﻿namespace SLDisValidatorUnitTests.Helpers.SoftwareParameters
+﻿namespace ProtocolTests.Helpers.Software_Parameters
 {
-    using System;
-    using System.IO;
-    using System.Reflection;
-    using System.Text;
+	using System;
+	using System.IO;
+	using System.Reflection;
+	using System.Text;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Parsers.Common.Xml;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Parsers.Common.Xml;
-
-    using SLDisValidator2.Tests;
-
-    [TestClass]
+	[TestClass]
     public class SoftwareParameters
     {
         [TestMethod]

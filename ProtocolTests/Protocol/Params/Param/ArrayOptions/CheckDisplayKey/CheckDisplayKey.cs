@@ -1,13 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.ArrayOptions.CheckDisplayKey
+namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckDisplayKey
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayKey;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayKey;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckDisplayKey();

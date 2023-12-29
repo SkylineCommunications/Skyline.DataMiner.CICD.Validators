@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckOptionsAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckOptionsAttribute
 {
     using System;
 
@@ -6,8 +6,8 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {

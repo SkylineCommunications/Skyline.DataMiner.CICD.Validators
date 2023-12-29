@@ -38,7 +38,6 @@
             XmlNodeList xnlParams = xDoc.SelectNodes("slc:Protocol/slc:Params/slc:Param[slc:Measurement/slc:Discreets/slc:Discreet/@dependencyValues]", xmlNsm);
             foreach (XmlNode xnParam in xnlParams)
             {
-                string sParamId = xnParam.Attributes?["id"].InnerXml;
                 LineNum = xnParam.Attributes?["QA_LNx"].InnerXml;
 
                 // Check Parameter Type (only write parameters)
@@ -64,56 +63,53 @@
 
                 if (!String.IsNullOrWhiteSpace(sParamName) && sParamName.EndsWith("_ContextMenu"))
                 {
-                    // Context Menu Parameter => Only ParameterId with placeholders. (1005;1005?;1005:default;1005?:default;1005:[value:1005];1005?:[value:1005])
-                    // All transfered to new validator already
+                    continue;
                 }
-                else
-                {
-                    // No ContextMenu
-                    // Check if Discreets has dependencyId attribute
-                    XmlNode xnDiscreets = xnParam.SelectSingleNode("./slc:Measurement/slc:Discreets", xmlNsm);
-                    string sDependencyId = xnDiscreets?.Attributes["dependencyId"]?.InnerXml;
-                    if (xnDiscreets == null || sDependencyId == null)
-                    {
-                        string sLineNum = xnDiscreets?.Attributes?["QA_LNx"].InnerXml ?? LineNum;
 
+                // No ContextMenu
+                // Check if Discreets has dependencyId attribute
+                XmlNode xnDiscreets = xnParam.SelectSingleNode("./slc:Measurement/slc:Discreets", xmlNsm);
+                string sDependencyId = xnDiscreets?.Attributes["dependencyId"]?.InnerXml;
+                if (xnDiscreets == null || sDependencyId == null)
+                {
+                    string sLineNum = xnDiscreets?.Attributes?["QA_LNx"].InnerXml ?? LineNum;
+
+                    resultMsg.Add(new ValidationResult
+                    {
+                        Line = Convert.ToInt32(sLineNum),
+                        ErrorId = 5301,
+                        DescriptionFormat = "Required attribute '{0}' is missing.",
+                        DescriptionParameters = new object[] { "dependencyId" },
+                        TestName = "RtdCheckDependencyValues",
+                        Severity = Severity.Major
+                    });
+                }
+
+                // Check if all discreets have the dependencyValues attribute
+                XmlNodeList xnDiscreetList = xnDiscreets?.ChildNodes;
+                foreach (XmlNode xnDiscreet in xnDiscreetList)
+                {
+                    string sLineNum = xnDiscreet?.Attributes?["QA_LNx"].InnerXml ?? LineNum;
+
+                    // Get dependencyValues attribute
+                    string sDependencyValues = xnDiscreet?.Attributes?["dependencyValues"]?.InnerXml;
+
+                    if (String.IsNullOrWhiteSpace(sDependencyValues))
+                    {
                         resultMsg.Add(new ValidationResult
                         {
                             Line = Convert.ToInt32(sLineNum),
                             ErrorId = 5301,
                             DescriptionFormat = "Required attribute '{0}' is missing.",
-                            DescriptionParameters = new object[] { "dependencyId" },
+                            DescriptionParameters = new object[] { "dependencyValues" },
                             TestName = "RtdCheckDependencyValues",
                             Severity = Severity.Major
                         });
                     }
-
-                    // Check if all discreets have the dependencyValues attribute
-                    XmlNodeList xnDiscreetList = xnDiscreets?.ChildNodes;
-                    foreach (XmlNode xnDiscreet in xnDiscreetList)
-                    {
-                        string sLineNum = xnDiscreet?.Attributes?["QA_LNx"].InnerXml ?? LineNum;
-
-                        // Get dependencyValues attribute
-                        string sDependencyValues = xnDiscreet?.Attributes?["dependencyValues"]?.InnerXml;
-
-                        if (String.IsNullOrWhiteSpace(sDependencyValues))
-                        {
-                            resultMsg.Add(new ValidationResult
-                            {
-                                Line = Convert.ToInt32(sLineNum),
-                                ErrorId = 5301,
-                                DescriptionFormat = "Required attribute '{0}' is missing.",
-                                DescriptionParameters = new object[] { "dependencyValues" },
-                                TestName = "RtdCheckDependencyValues",
-                                Severity = Severity.Major
-                            });
-                        }
-                    }
-
-                    // No need to check the value from the DependencyValues attribute as it can contain anything.
-                    // Maybe later => If DependencyId refers to Discreet parameter => Check if dependencyValues match with one of the discreets?
                 }
+
+                // No need to check the value from the DependencyValues attribute as it can contain anything.
+                // Maybe later => If DependencyId refers to Discreet parameter => Check if dependencyValues match with one of the discreets?
             }
         }
     }

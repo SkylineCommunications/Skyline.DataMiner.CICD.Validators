@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck.Common.Results
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results
 {
     using System;
     using System.Collections.Generic;

@@ -1,10 +1,10 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Display.Positions.Position.Column.CheckColumnTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Positions.Position.Column.CheckColumnTag
 {
     using System;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 

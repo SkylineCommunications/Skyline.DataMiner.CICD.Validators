@@ -1,12 +1,12 @@
-﻿namespace SLDisDmFeatureCheck.Features
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Features
 {
     using System.Collections.Generic;
     using System.Linq;
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Interfaces;
-    using SLDisDmFeatureCheck.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using SLDisDmFeatureCheck.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.4.0-8151")]
     internal class SkipInDiagram : IFeatureCheck

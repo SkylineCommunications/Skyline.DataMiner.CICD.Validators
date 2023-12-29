@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithColumn
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithColumn
 {
     using System;
     using System.Collections.Generic;
@@ -14,12 +14,11 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillAr
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Helpers;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CSharpSLProtocolFillArrayWithColumn, Category.QAction)]
     internal class CSharpSLProtocolFillArrayWithColumn : IValidate, ICodeFix

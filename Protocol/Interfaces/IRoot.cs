@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Interfaces
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Interfaces
 {
     internal interface IRoot
     {

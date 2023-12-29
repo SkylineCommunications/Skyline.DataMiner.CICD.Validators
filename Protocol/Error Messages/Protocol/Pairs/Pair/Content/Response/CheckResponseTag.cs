@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.Response.CheckResponseTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.Content.Response.CheckResponseTag
 {
     using System;
 
@@ -6,8 +6,8 @@ namespace SLDisValidator2.Tests.Protocol.Pairs.Pair.Content.Response.CheckRespon
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {

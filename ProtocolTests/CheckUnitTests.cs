@@ -1,4 +1,4 @@
-﻿namespace SLDisValidatorUnitTests
+﻿namespace ProtocolTests
 {
     using System;
     using System.Collections.Generic;
@@ -25,11 +25,10 @@
     using Skyline.DataMiner.CICD.CSharpAnalysis.Enums;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2;
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [TestClass]
     [Ignore("TODO: Fix")]
@@ -57,11 +56,11 @@
                 // Get test name
                 Type temp = test.GetType();
 
-                string newNamespace = temp.Namespace?.Replace("SLDisValidator2.Tests", "SLDisValidatorUnitTests");
+                string newNamespace = temp.Namespace?.Replace("Skyline.DataMiner.CICD.Validators.Protocol.Tests", "ProtocolTests");
 
                 if (!namespaces.Contains(newNamespace))
                 {
-                    testNamespaces.Add(newNamespace?.Remove(0, "SLDisValidatorUnitTests.".Length));
+                    testNamespaces.Add(newNamespace?.Remove(0, "ProtocolTests.".Length));
                 }
             }
 
@@ -91,11 +90,11 @@
                 // Get test name
                 Type temp = test.GetType();
 
-                string newNamespace = temp.Namespace?.Replace("SLDisValidator2.Tests", "SLDisValidatorUnitTests");
+                string newNamespace = temp.Namespace?.Replace("Skyline.DataMiner.CICD.Validators.Protocol.Tests", "ProtocolTests");
 
                 if (!namespaces.Contains(newNamespace))
                 {
-                    testNamespaces.Add(newNamespace?.Remove(0, "SLDisValidatorUnitTests.".Length));
+                    testNamespaces.Add(newNamespace?.Remove(0, "ProtocolTests.".Length));
                 }
             }
 
@@ -110,7 +109,7 @@
             var namespaces = Assembly
                 .GetAssembly(typeof(CheckTests))
                 .GetTypes()
-                .Select(x => x.Namespace.Replace("SLDisValidatorUnitTests.", String.Empty));
+                .Select(x => x.Namespace.Replace("ProtocolTests.", String.Empty));
 
             // Get all Files
             var currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -185,8 +184,8 @@
             var namespaces = Assembly
                 .GetAssembly(typeof(Validator))
                 .GetTypes()
-                .Where(x => !String.IsNullOrWhiteSpace(x.Namespace) && x.Namespace.StartsWith("SLDisValidator2.Tests"))
-                .Select(x => x.Namespace.Replace("SLDisValidator2.Tests.", String.Empty));
+                .Where(x => !String.IsNullOrWhiteSpace(x.Namespace) && x.Namespace.StartsWith("Skyline.DataMiner.CICD.Validators.Protocol.Tests"))
+                .Select(x => x.Namespace.Replace("Skyline.DataMiner.CICD.Validators.Protocol.Tests.", String.Empty));
 
             var currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string solutiondir = Directory.GetParent(currentDirectory).Parent.Parent.Parent.FullName;
@@ -256,7 +255,7 @@
         [TestMethod]
         public void CheckQActionCompilation()
         {
-            var test = new SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpQActionCompilation.CSharpQActionCompilation();
+            var test = new Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpQActionCompilation.CSharpQActionCompilation();
 
             // Search for Protocol directory which is the root folder of all unit tests
             if (!Files.TryGetProtocolDirectory(out DirectoryInfo protocolDirectory))
@@ -293,7 +292,7 @@
                 }
                 catch (AssertFailedException /*afEx*/)
                 {
-                    Regex r = new Regex(@".*\\[SLDisValidatorUnitTests]+\\(.*)");
+                    Regex r = new Regex(@".*\\[ProtocolTests]+\\(.*)");
 
                     var location = r.Match(fileLocation).Groups[1].Value;
 
@@ -493,7 +492,7 @@
 
             foreach (var tree in compilationVal2.SyntaxTrees)
             {
-                if (!tree.FilePath.Contains(Path.Combine("SLDisValidator2", "Tests")))
+                if (!tree.FilePath.Contains(Path.Combine("Skyline.DataMiner.CICD.Validators.Protocol", "Tests")))
                 {
                     continue;
                 }
@@ -597,7 +596,7 @@
 
             foreach (var tree in compilationUnitTest.SyntaxTrees)
             {
-                if (!tree.FilePath.Contains(Path.Combine("SLDisValidatorUnitTests", "Protocol")))
+                if (!tree.FilePath.Contains(Path.Combine("ProtocolTests", "Protocol")))
                 {
                     continue;
                 }
@@ -609,7 +608,7 @@
                 string ns = Roslyn.GetNamespace(rootSyntaxNode);
 
                 // Remove the first and second part of the namespace
-                ns = ns.Replace("SLDisValidatorUnitTests.", String.Empty);
+                ns = ns.Replace("ProtocolTests.", String.Empty);
 
                 // Find Validate/Compare/CodeFix Class
                 foreach (ClassDeclarationSyntax @class in rootSyntaxNode.GetClasses("Validate", "Compare", "CodeFix"))
@@ -730,7 +729,7 @@
 
             foreach (var tree in compilationVal2.SyntaxTrees)
             {
-                if (!tree.FilePath.Contains(Path.Combine("SLDisValidator2", "Error Messages")))
+                if (!tree.FilePath.Contains(Path.Combine("Skyline.DataMiner.CICD.Validators.Protocol", "Error Messages")))
                 {
                     continue;
                 }
@@ -745,7 +744,7 @@
                 string ns = Roslyn.GetNamespace(rootSyntaxNode);
 
                 // Remove the first and second part of the namespace (So it starts with Protocol.)
-                ns = ns.Replace("SLDisValidator2.Tests.", String.Empty);
+                ns = ns.Replace("Skyline.DataMiner.CICD.Validators.Protocol.Tests.", String.Empty);
 
                 string expectedClassName = ns.Substring(ns.LastIndexOf('.') + 1);
 
@@ -888,7 +887,7 @@
                 string ns = Roslyn.GetNamespace(rootSyntaxNode);
 
                 // Remove the first and second part of the namespace (So it starts with Protocol.)
-                ns = ns.Replace("SLDisValidator2.Tests.", String.Empty);
+                ns = ns.Replace("Skyline.DataMiner.CICD.Validators.Protocol.Tests.", String.Empty);
 
                 string expectedClassName = ns.Substring(ns.LastIndexOf('.') + 1);
 
@@ -999,7 +998,7 @@
                 string ns = Roslyn.GetNamespace(rootSyntaxNode);
 
                 // Remove the first and second part of the namespace
-                ns = ns.Replace("SLDisValidator2.Tests.", String.Empty);
+                ns = ns.Replace("Skyline.DataMiner.CICD.Validators.Protocol.Tests.", String.Empty);
 
                 // Find Error Class
                 foreach (ClassDeclarationSyntax @class in rootSyntaxNode.GetClasses("Error"))
@@ -1211,7 +1210,7 @@
                 string ns = Roslyn.GetNamespace(rootSyntaxNode);
 
                 // Remove the first part of the namespace
-                ns = ns.Replace("SLDisValidatorUnitTests.", String.Empty);
+                ns = ns.Replace("ProtocolTests.", String.Empty);
                 string nsFolder = ns.Replace('.', '\\');
 
                 // Find Validate/Compare/CodeFix Class

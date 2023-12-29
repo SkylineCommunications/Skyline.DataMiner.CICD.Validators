@@ -1,10 +1,10 @@
-﻿namespace SLDisValidatorUnitTestsSchemaGenerator
+﻿namespace ProtocolTests.SchemaGenerator
 {
-    using System;
-    using System.IO;
-    using System.Reflection;
+	using System;
+	using System.IO;
+	using System.Reflection;
 
-    internal class Program
+	internal class Program
     {
         private static void Main(string[] args)
         {

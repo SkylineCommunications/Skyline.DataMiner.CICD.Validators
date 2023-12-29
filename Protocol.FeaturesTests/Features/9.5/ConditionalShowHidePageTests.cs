@@ -1,17 +1,14 @@
-﻿namespace SLDisDmFeatureCheckUnitTests.Features
+﻿namespace Protocol.FeaturesTests.Features._9._5
 {
-    using System.Linq;
+	using System.Linq;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+	using SLDisUnitTestsShared;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Results;
-    using SLDisDmFeatureCheck.Features;
-    using SLDisUnitTestsShared;
-
-    [TestClass]
+	[TestClass]
     public class ConditionalShowHidePageTests
     {
         private static ConditionalShowHidePage check;

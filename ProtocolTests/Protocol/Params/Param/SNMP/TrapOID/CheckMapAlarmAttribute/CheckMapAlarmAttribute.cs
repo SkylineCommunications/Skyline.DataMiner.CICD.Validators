@@ -1,16 +1,16 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribute
+namespace ProtocolTests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribute
 {
-    using System;
-    using System.Collections.Generic;
-    using FluentAssertions;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribute;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribute;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckMapAlarmAttribute();

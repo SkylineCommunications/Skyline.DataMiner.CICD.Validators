@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Session.CheckSessionTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Session.CheckSessionTag
 {
     using System;
 
@@ -6,8 +6,8 @@ namespace SLDisValidator2.Tests.Protocol.Groups.Group.Content.Session.CheckSessi
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal static class Error
     {

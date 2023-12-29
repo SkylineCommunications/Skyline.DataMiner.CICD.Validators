@@ -1,16 +1,15 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
+namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
 {
-    using System;
-    using System.Collections.Generic;
-    using FluentAssertions;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.Dependencies.Id.CheckIdTag;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Dependencies.Id.CheckIdTag;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckIdTag();

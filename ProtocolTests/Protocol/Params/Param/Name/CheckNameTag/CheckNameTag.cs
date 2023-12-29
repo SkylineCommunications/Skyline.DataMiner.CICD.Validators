@@ -1,18 +1,16 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.Name.CheckNameTag
+namespace ProtocolTests.Protocol.Params.Param.Name.CheckNameTag
 {
-    using System.Collections.Generic;
-    using FluentAssertions;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Name.CheckNameTag;
 
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.Name.CheckNameTag;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Extensions;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckNameTag();

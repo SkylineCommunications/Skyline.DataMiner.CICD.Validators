@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Common.CrossData
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common.CrossData
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -7,13 +7,13 @@
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
     /// <summary>
-    /// Holds the data needed for <see cref="SLDisValidator2.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag.CheckRTDisplayTag"/>.
+    /// Holds the data needed for <see cref="Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTag.CheckRTDisplayTag"/>.
     /// </summary>
-    public class RtDisplayData
+    internal class RtDisplayData
     {
         private readonly Dictionary<int, (IParamsParam param, List<IValidationResult> results)> parameters = new Dictionary<int, (IParamsParam, List<IValidationResult>)>();
 
-        public IReadOnlyList<(IParamsParam param, List<IValidationResult> expectedRTDisplayResults)> ParamsAllowingRtDisplay => parameters.Values.ToList();
+        public IReadOnlyList<(IParamsParam param, List<IValidationResult> expectedRTDisplayResults)> GetParamsAllowingRtDisplay() => parameters.Values.ToList();
 
         /// <summary>
         /// Add parameter for which RTDisplay tag is allowed or required to be true.

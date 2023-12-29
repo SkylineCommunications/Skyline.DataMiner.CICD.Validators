@@ -1,17 +1,17 @@
-namespace SLDisValidator2.Tests.Protocol.Timers.Timer.CheckIdAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer.CheckIdAttribute
 {
     using System;
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Generic;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
 
     [Test(CheckId.CheckIdAttribute, Category.Timer)]
     internal class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/

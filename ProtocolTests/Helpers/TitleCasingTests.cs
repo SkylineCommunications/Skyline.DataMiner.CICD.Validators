@@ -1,12 +1,11 @@
-﻿namespace SLDisValidatorUnitTests.Helpers
+﻿namespace ProtocolTests.Helpers
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using SLDisValidator2.Tests;
-
-    [TestClass]
+	[TestClass]
     public class TitleCasingTests
     {
         private static IEnumerable<object[]> ReusableTestData => new List<object[]>

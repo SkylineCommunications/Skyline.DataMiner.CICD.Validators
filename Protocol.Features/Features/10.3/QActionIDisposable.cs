@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck.Features
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Features
 {
     using System;
     using System.Collections.Generic;
@@ -10,10 +10,10 @@
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Attributes;
-    using SLDisDmFeatureCheck.Common.Interfaces;
-    using SLDisDmFeatureCheck.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     [MinDataMinerVersions("10.3.0.0-12752", "10.2.9.0-12190")]
     internal class QActionIDisposable : IFeatureCheck

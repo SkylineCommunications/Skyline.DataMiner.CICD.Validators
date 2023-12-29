@@ -1,13 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.ParameterGroups.CheckParameterGroupsTag
+namespace ProtocolTests.Protocol.ParameterGroups.CheckParameterGroupsTag
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.ParameterGroups.CheckParameterGroupsTag;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGroups.CheckParameterGroupsTag;
 
-    [TestClass]
+	[TestClass]
     public class Compare
     {
         private readonly ICompare compare = new CheckParameterGroupsTag();

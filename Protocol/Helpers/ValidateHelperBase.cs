@@ -1,11 +1,11 @@
-﻿namespace SLDisValidator2.Helpers
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Helpers
 {
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     internal class ValidateHelperBase
     {

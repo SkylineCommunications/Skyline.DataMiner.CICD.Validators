@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck.Common
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Common
 {
     using System.Collections.Generic;
 

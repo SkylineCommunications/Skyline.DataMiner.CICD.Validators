@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
 {
     using System;
     using System.Collections.Generic;
@@ -14,11 +14,10 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolSetPar
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CSharpSLProtocolSetParameter, Category.QAction)]
     internal class CSharpSLProtocolSetParameter : IValidate, ICodeFix/*, ICompare*/

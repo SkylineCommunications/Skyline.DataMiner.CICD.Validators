@@ -1,20 +1,15 @@
-namespace SLDisValidatorUnitTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidAttribute
+namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidAttribute
 {
-    using System;
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidAttribute;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidAttribute;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckOverridePidAttribute();

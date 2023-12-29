@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolTriggerAction
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolTriggerAction
 {
     using System;
     using System.Collections.Generic;
@@ -13,13 +13,13 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpSLProtocolTrigge
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
 
     [Test(CheckId.CSharpSLProtocolTriggerAction, Category.QAction)]
     internal class CSharpSLProtocolTriggerAction : IValidate/*, ICodeFix, ICompare*/

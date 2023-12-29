@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAttribute
 {
     using System.Collections.Generic;
 
@@ -7,13 +7,13 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisab
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Generic;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
 
     [Test(CheckId.CheckDisabledIfAttribute, Category.Param)]
     internal class CheckDisabledIfAttribute : IValidate, ICodeFix/*, ICompare*/

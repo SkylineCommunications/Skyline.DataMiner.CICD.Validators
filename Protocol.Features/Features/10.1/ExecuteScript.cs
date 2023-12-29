@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck.Features
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Features
 {
     using System;
     using System.Collections.Generic;
@@ -10,9 +10,9 @@
     using Skyline.DataMiner.CICD.CSharpAnalysis.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Interfaces;
-    using SLDisDmFeatureCheck.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     //[MinDataMinerVersions("10.1.0.0-9966", "10.0.5.0-9164")]
     internal class ExecuteScript : IFeatureCheck

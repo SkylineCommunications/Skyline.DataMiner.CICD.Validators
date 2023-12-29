@@ -1,4 +1,4 @@
-﻿namespace SLDisDmFeatureCheck.Common.Interfaces
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces
 {
     internal interface IFeatureCheck : IFeature
     {

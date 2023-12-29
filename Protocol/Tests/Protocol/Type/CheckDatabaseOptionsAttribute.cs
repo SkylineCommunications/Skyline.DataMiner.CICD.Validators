@@ -1,13 +1,12 @@
-namespace SLDisValidator2.Tests.Protocol.Type.CheckDatabaseOptionsAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckDatabaseOptionsAttribute
 {
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckDatabaseOptionsAttribute, Category.Protocol)]
     internal class CheckDatabaseOptionsAttribute : /*IValidate, ICodeFix, */ICompare

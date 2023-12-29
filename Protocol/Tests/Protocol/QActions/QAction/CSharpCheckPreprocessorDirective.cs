@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckPreprocessorDirective
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckPreprocessorDirective
 {
     using System;
     using System.Collections.Generic;
@@ -10,13 +10,13 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckPreprocesso
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
 
     [Test(CheckId.CSharpCheckPreprocessorDirective, Category.QAction)]
     internal class CSharpCheckPreprocessorDirective : IValidate

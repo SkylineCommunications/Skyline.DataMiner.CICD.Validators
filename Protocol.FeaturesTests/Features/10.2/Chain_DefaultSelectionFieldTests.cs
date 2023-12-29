@@ -1,20 +1,14 @@
-﻿namespace SLDisDmFeatureCheckUnitTests.Features
+﻿namespace Protocol.FeaturesTests.Features._10._2
 {
-    using System.Linq;
+	using System.Linq;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Data;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Data;
-
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Results;
-    using SLDisDmFeatureCheck.Features;
-
-
-
-    [TestClass]
+	[TestClass]
     public class Chain_DefaultSelectionFieldTests
     {
         private static Chain_DefaultSelectionField check;

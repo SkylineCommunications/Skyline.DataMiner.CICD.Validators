@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Common.Enums
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common.Enums
 {
     /// <summary>
     /// Order of how the checks will be executed.

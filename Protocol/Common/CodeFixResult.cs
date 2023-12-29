@@ -1,8 +1,8 @@
-﻿namespace SLDisValidator2.Common
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common
 {
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    public class CodeFixResult : ICodeFixResult
+    internal class CodeFixResult : ICodeFixResult
     {
         public bool Success { get; set; }
 

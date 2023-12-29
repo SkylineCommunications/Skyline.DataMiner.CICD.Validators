@@ -1,17 +1,14 @@
-namespace SLDisValidatorUnitTests.Protocol.ParameterGroups.Group.Params.Param.CheckIdAttribute
+namespace ProtocolTests.Protocol.ParameterGroups.Group.Params.Param.CheckIdAttribute
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGroups.Group.Params.Param.CheckIdAttribute;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.ParameterGroups.Group.Params.Param.CheckIdAttribute;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckIdAttribute();

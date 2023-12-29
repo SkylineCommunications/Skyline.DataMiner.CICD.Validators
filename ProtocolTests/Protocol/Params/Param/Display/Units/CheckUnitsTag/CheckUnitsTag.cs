@@ -1,16 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.Params.Param.Display.Units.CheckUnitsTag
+namespace ProtocolTests.Protocol.Params.Param.Display.Units.CheckUnitsTag
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTag;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Params.Param.Display.Units.CheckUnitsTag;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckUnitsTag();

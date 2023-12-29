@@ -1,13 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.ElementType.CheckElementTypeTag
+namespace ProtocolTests.Protocol.ElementType.CheckElementTypeTag
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.ElementType.CheckElementTypeTag;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ElementType.CheckElementTypeTag;
 
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckElementTypeTag();

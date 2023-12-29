@@ -1,16 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.Provider.CheckProviderTag
+namespace ProtocolTests.Protocol.Provider.CheckProviderTag
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Provider.CheckProviderTag;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.Provider.CheckProviderTag;
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckProviderTag();

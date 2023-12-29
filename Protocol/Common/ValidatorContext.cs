@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Common
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common
 {
     using System;
     using System.Collections.Generic;

@@ -1,10 +1,10 @@
-﻿namespace SLDisValidator2
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol
 {
     using System;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
-    using SLDisValidator2.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
 
     internal static class ValidationResultExtensions
     {

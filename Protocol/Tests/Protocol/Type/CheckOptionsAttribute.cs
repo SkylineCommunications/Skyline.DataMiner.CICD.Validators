@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOptionsAttribute
 {
     using System;
     using System.Collections.Generic;
@@ -9,11 +9,10 @@ namespace SLDisValidator2.Tests.Protocol.Type.CheckOptionsAttribute
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Generic;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckOptionsAttribute, Category.Protocol)]
     internal class CheckOptionsAttribute : IValidate, ICodeFix, ICompare

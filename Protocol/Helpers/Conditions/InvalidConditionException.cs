@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2.Helpers.Conditions
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Helpers.Conditions
 {
     using System;
     using System.Runtime.Serialization;

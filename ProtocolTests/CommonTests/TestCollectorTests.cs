@@ -1,19 +1,15 @@
-﻿namespace SLDisValidatorUnitTests.CommonTests
+﻿namespace ProtocolTests.CommonTests
 {
-    using System;
-    using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Interfaces;
-
-    [TestClass]
+	[TestClass]
     public class TestCollectorTests
     {
         [TestMethod]

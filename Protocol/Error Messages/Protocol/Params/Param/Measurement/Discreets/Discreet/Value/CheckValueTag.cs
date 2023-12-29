@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.Value.CheckValueTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.Value.CheckValueTag
 {
     using System;
 
@@ -6,7 +6,7 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Discreets.Disc
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    using SLDisValidator2.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
 
 
     internal static class ErrorCompare

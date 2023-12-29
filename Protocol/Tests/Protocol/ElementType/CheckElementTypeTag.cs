@@ -1,14 +1,13 @@
-namespace SLDisValidator2.Tests.Protocol.ElementType.CheckElementTypeTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ElementType.CheckElementTypeTag
 {
     using System;
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckElementTypeTag, Category.Protocol)]
     internal class CheckElementTypeTag : IValidate

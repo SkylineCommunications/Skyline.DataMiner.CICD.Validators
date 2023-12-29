@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedConstructor
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedConstructor
 {
     using System.Collections.Generic;
     using System.Text;
@@ -10,13 +10,13 @@ namespace SLDisValidator2.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommend
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
 
     [Test(CheckId.CSharpCheckUnrecommendedConstructor, Category.QAction)]
     internal class CSharpCheckUnrecommendedConstructor : IValidate /*, ICodeFix, ICompare*/

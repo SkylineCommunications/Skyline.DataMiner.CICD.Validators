@@ -1,15 +1,16 @@
-﻿namespace SLDisDmFeatureCheck.Features
+﻿/*
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Features
 {
     using System.Collections.Generic;
     using System.Linq;
-    using SLDisDmFeatureCheck.Common;
-    using SLDisDmFeatureCheck.Common.Interfaces;
-    using SLDisDmFeatureCheck.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    //using SLDisDmFeatureCheck.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
 
     // https://intranet.skyline.be/DataMiner/Lists/Released%20Versions/AllItems.aspx
-    //[MinDataMinerVersions("9101.9102.9103.9104", "9001.9002.9003.9004")]
+    [MinDataMinerVersions("9101.9102.9103.9104", "9001.9002.9003.9004")]
     internal class ItsOver9000 : IFeatureCheck
     {
         public string Title => "It's over 9000!";
@@ -34,3 +35,4 @@
         }
     }
 }
+*/

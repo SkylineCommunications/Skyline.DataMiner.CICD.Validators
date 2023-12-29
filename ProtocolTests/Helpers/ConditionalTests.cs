@@ -1,23 +1,16 @@
-﻿namespace SLDisValidatorUnitTests.Helpers
+﻿namespace ProtocolTests.Helpers
 {
-    using System;
+	using System;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Moq;
+	using Skyline.DataMiner.CICD.Models.Protocol.Read;
+	using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
+	using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Helpers.Conditions;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Condition.CheckConditionTag;
 
-    using FluentAssertions;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Moq;
-
-    using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
-
-    using SLDisValidator2.Helpers.Conditions;
-    using SLDisValidator2.Tests.Protocol.Groups.Group.Condition.CheckConditionTag;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-
-    [TestClass]
+	[TestClass]
     public class ConditionalTests
     {
         [TestMethod]

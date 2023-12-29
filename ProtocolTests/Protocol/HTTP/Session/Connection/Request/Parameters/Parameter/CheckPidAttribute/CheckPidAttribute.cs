@@ -1,15 +1,12 @@
-namespace SLDisValidatorUnitTests.Protocol.HTTP.Session.Connection.Request.Parameters.Parameter.CheckPidAttribute
+namespace ProtocolTests.Protocol.HTTP.Session.Connection.Request.Parameters.Parameter.CheckPidAttribute
 {
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.Connection.Request.Parameters.Parameter.CheckPidAttribute;
 
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.HTTP.Session.Connection.Request.Parameters.Parameter.CheckPidAttribute;
-
-
-    [TestClass]
+	[TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckPidAttribute();

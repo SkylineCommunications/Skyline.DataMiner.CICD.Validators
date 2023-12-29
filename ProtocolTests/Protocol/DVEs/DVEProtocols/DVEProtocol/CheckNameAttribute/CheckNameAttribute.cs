@@ -1,16 +1,13 @@
-namespace SLDisValidatorUnitTests.Protocol.DVEs.DVEProtocols.DVEProtocol.CheckNameAttribute
+namespace ProtocolTests.Protocol.DVEs.DVEProtocols.DVEProtocol.CheckNameAttribute
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Common.Model;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.CheckNameAttribute;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Interfaces;
-    using SLDisValidator2.Tests.Protocol.DVEs.DVEProtocols.DVEProtocol.CheckNameAttribute;
-
-    [TestClass]
+	[TestClass]
     public class Compare
     {
         private readonly ICompare compare = new CheckNameAttribute();

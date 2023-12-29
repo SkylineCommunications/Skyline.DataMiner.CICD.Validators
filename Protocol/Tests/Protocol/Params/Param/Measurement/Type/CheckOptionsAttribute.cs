@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOptionsAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Type.CheckOptionsAttribute
 {
     using System;
     using System.Collections.Generic;
@@ -12,11 +12,10 @@ namespace SLDisValidator2.Tests.Protocol.Params.Param.Measurement.Type.CheckOpti
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.MeasurementTypeOptions.TableClass;
 

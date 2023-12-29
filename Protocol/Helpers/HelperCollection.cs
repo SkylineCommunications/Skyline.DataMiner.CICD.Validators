@@ -1,7 +1,7 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Helpers
 {
 	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using SLDisValidator2.Tests;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
 
 	internal class HelperCollection
 	{

@@ -1,4 +1,4 @@
-namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Command.CheckAsciiAttribute
 {
     using System;
     using System.Collections.Generic;
@@ -7,12 +7,12 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Common.Extensions;
-    using SLDisValidator2.Generic;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckAsciiAttribute, Category.Command)]
     internal class CheckAsciiAttribute : IValidate/*, ICodeFix, ICompare*/
@@ -21,6 +21,7 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
+            ValidateHelper helper = new ValidateHelper(this, context, results);
             foreach (ICommandsCommand command in context.EachCommandWithValidId())
             {
                 if (command.Ascii == null)
@@ -28,52 +29,7 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
                     continue;
                 }
 
-                (GenericStatus status, string rawValue, string _) = GenericTests.CheckBasics(command.Ascii, isRequired: false);
-
-                if (status.HasFlag(GenericStatus.Empty))
-                {
-                    results.Add(Error.EmptyAttribute(this, command, command, command.Id.RawValue));
-                    continue;
-                }
-
-                if (Boolean.TryParse(command.Ascii.Value, out _))
-                {
-                    continue;
-                }
-
-                List<IValidationResult> asciiParameterResults = new List<IValidationResult>();
-
-                string[] asciiParameters = rawValue.Split(';');
-                foreach (string asciiParameter in asciiParameters)
-                {
-                    (GenericStatus valueStatus, uint _) = GenericTests.CheckBasics<uint>(asciiParameter);
-
-                    if (valueStatus.HasFlag(GenericStatus.Invalid))
-                    {
-                        asciiParameterResults.Add(Error.InvalidAttribute(this, command, command, asciiParameter, command.Id.RawValue));
-                        continue;
-                    }
-
-                    if (!context.ProtocolModel.TryGetObjectByKey<IParamsParam>(Mappings.ParamsById, asciiParameter, out _))
-                    {
-                        asciiParameterResults.Add(Error.NonExistingId(this, command, command, asciiParameter, command.Id.RawValue));
-                        continue;
-                    }
-                }
-
-                if (asciiParameterResults.Count > 0)
-                {
-                    if (asciiParameterResults.Count > 1 || asciiParameters.Length > 1)
-                    {
-                        IValidationResult invalidAttribute = Error.InvalidAttribute(this, command, command, command.Ascii.Value, command.Id.RawValue);
-                        invalidAttribute.WithSubResults(asciiParameterResults.ToArray());
-                        results.Add(invalidAttribute);
-                    }
-                    else
-                    {
-                        results.Add(asciiParameterResults[0]);
-                    }
-                }
+                helper.ValidateAttribute(command);
             }
 
             return results;
@@ -100,5 +56,69 @@ namespace SLDisValidator2.Tests.Protocol.Commands.Command.CheckAsciiAttribute
 
         ////    return results;
         ////}
+    }
+
+    internal class ValidateHelper : ValidateHelperBase
+    {
+	    public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results) : base(test, context, results)
+	    {
+	    }
+
+	    public void ValidateAttribute(ICommandsCommand command)
+	    {
+		    (GenericStatus status, string rawValue, string _) = GenericTests.CheckBasics(command.Ascii, isRequired: false);
+
+            if (status.HasFlag(GenericStatus.Empty))
+            {
+                results.Add(Error.EmptyAttribute(test, command, command, command.Id.RawValue));
+                return;
+            }
+
+            if (Boolean.TryParse(command.Ascii.Value, out _))
+            {
+                return;
+            }
+
+            ValidatePartsOfAttribute(command, rawValue);
+	    }
+
+	    private void ValidatePartsOfAttribute(ICommandsCommand command, string rawValue)
+	    {
+		    List<IValidationResult> asciiParameterResults = new List<IValidationResult>();
+
+		    string[] asciiParameters = rawValue.Split(';');
+		    foreach (string asciiParameter in asciiParameters)
+		    {
+			    (GenericStatus valueStatus, uint _) = GenericTests.CheckBasics<uint>(asciiParameter);
+
+			    if (valueStatus.HasFlag(GenericStatus.Invalid))
+			    {
+				    asciiParameterResults.Add(Error.InvalidAttribute(test, command, command, asciiParameter, command.Id.RawValue));
+				    continue;
+			    }
+
+			    if (!context.ProtocolModel.TryGetObjectByKey<IParamsParam>(Mappings.ParamsById, asciiParameter, out _))
+			    {
+				    asciiParameterResults.Add(Error.NonExistingId(test, command, command, asciiParameter, command.Id.RawValue));
+				    continue;
+			    }
+		    }
+
+		    if (asciiParameterResults.Count <= 0)
+		    {
+			    return;
+		    }
+
+		    if (asciiParameterResults.Count > 1 || asciiParameters.Length > 1)
+		    {
+			    IValidationResult invalidAttribute = Error.InvalidAttribute(test, command, command, command.Ascii.Value, command.Id.RawValue);
+			    invalidAttribute.WithSubResults(asciiParameterResults.ToArray());
+			    results.Add(invalidAttribute);
+		    }
+		    else
+		    {
+			    results.Add(asciiParameterResults[0]);
+		    }
+	    }
     }
 }

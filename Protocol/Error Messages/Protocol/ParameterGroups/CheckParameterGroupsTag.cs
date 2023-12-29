@@ -1,10 +1,10 @@
-namespace SLDisValidator2.Tests.Protocol.ParameterGroups.CheckParameterGroupsTag
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGroups.CheckParameterGroupsTag
 {
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    using SLDisValidator2.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
 
     internal static class ErrorCompare
     {

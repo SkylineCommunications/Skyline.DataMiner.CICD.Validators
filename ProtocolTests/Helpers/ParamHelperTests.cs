@@ -1,13 +1,12 @@
-﻿namespace SLDisValidatorUnitTests.Helpers
+﻿namespace ProtocolTests.Helpers
 {
-    using System.Collections.Generic;
-    using System.Linq;
+	using System.Collections.Generic;
+	using System.Linq;
+	using FluentAssertions;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
 
-    using FluentAssertions;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SLDisValidator2.Tests;
-
-    [TestClass]
+	[TestClass]
     public class ParamHelperTests
     {
         [TestMethod]

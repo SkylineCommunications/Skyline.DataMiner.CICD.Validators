@@ -1,4 +1,4 @@
-﻿namespace SLDisValidator2
+﻿namespace Skyline.DataMiner.CICD.Validators.Protocol
 {
     using System;
     using System.Collections.Generic;
@@ -9,10 +9,9 @@
     using Skyline.DataMiner.CICD.Validators.Common.Data;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    
-    using SLDisValidator2.Common;
-    using SLDisValidator2.Common.Attributes;
-    using SLDisValidator2.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     
     public class Validator : IValidator
     {
