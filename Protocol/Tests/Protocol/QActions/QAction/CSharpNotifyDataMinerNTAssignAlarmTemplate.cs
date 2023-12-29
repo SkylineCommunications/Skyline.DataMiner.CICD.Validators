@@ -11,8 +11,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -27,7 +27,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             foreach ((IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData) in context.EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas())
             {
                 Solution solution = projectData.Project.Solution;
-                QActionAnalyzer analyzer = new QActionAnalyzer(this, context, results, qaction, semanticModel, solution);
+                QActionAnalyzer analyzer = new QActionAnalyzer(this, results, qaction, semanticModel, solution);
                 RoslynVisitor parser = new RoslynVisitor(analyzer);
 
                 parser.Visit(syntaxTree.GetRoot());
@@ -39,8 +39,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
     internal class QActionAnalyzer : QActionAnalyzerBase
     {
-        public QActionAnalyzer(IValidate test, ValidatorContext context, List<IValidationResult> results, IQActionsQAction qAction, SemanticModel semanticModel, Solution solution)
-            : base(test, context, results, qAction, semanticModel, solution)
+        public QActionAnalyzer(IValidate test, List<IValidationResult> results, IQActionsQAction qAction, SemanticModel semanticModel, Solution solution)
+            : base(test, results, qAction, semanticModel, solution)
         {
         }
 

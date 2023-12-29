@@ -12,6 +12,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckParamTag, Category.Group)]
@@ -101,16 +102,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             this.newSuffix = newSuffix;
         }
 
-        public override void VisitGroupsGroupContentParam(GroupsGroupContentParam p)
+        public override void VisitGroupsGroupContentParam(GroupsGroupContentParam obj)
         {
-            if (p.Read == paramToFix)
+            if (obj.Read == paramToFix)
             {
-                p.Value = p.Value.Replace(oldSuffix, newSuffix);
+                obj.Value = obj.Value.Replace(oldSuffix, newSuffix);
             }
         }
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
         private static readonly string[] AllowedSuffixes = { "single", "instance", "tablev2", "getnext" };
         private static readonly Dictionary<string, string> ObsoleteSuffixes = new Dictionary<string, string>
@@ -118,9 +119,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
             { "table", "tablev2"},
         };
 
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
-        private readonly List<IValidationResult> results;
         private readonly IGroupsGroup group;
         private readonly IGroupsGroupContentParam param;
 
@@ -129,10 +127,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
         private string[] valueParts;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IGroupsGroup group, IGroupsGroupContentParam param)
+            : base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-            this.results = results;
             this.group = group;
             this.param = param;
 

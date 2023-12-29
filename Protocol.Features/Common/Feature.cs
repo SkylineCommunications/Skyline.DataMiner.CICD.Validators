@@ -2,16 +2,16 @@
 {
     using System.Collections.Generic;
 
-    using Attributes;
-
-    using Interfaces;
-
-    using Results;
-
     using Skyline.DataMiner.CICD.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
-    // Inherits IFeature so it always will have the info if we add extra.
-    internal class Feature : IFeature
+    /// <summary>
+    /// Represents a feature with additional info and which items are using the feature.
+    /// </summary>
+    /// <seealso cref="IFeature" />
+    public class Feature : IFeature
     {
         private readonly IFeatureCheck featureCheck;
         private readonly MinDataMinerVersionsAttribute minDmaVersionAttribute;
@@ -26,32 +26,44 @@
             maxDmaVersionAttribute = maxAttr;
         }
 
+        /// <summary>
+        /// Gets the title.
+        /// </summary>
         public string Title => featureCheck.Title;
 
+        /// <summary>
+        /// Gets the description.
+        /// </summary>
         public string Description => featureCheck.Description;
 
+        /// <summary>
+        /// Gets the release notes.
+        /// </summary>
         public IReadOnlyCollection<uint> ReleaseNotes => featureCheck.ReleaseNotes;
 
+        /// <summary>
+        /// Gets the minimum main release.
+        /// </summary>
         public DataMinerVersion MinMainRelease => minDmaVersionAttribute.MainRelease;
 
+        /// <summary>
+        /// Gets the minimum feature release.
+        /// </summary>
         public DataMinerVersion MinFeatureRelease => minDmaVersionAttribute.FeatureRelease;
 
         /// <summary>
         /// Gets the maximum main release. Will be null when there isn't a maximum defined.
         /// </summary>
-        /// <value>
-        /// The maximum main release.
-        /// </value>
         public DataMinerVersion MaxMainRelease => maxDmaVersionAttribute?.MainRelease;
 
         /// <summary>
         /// Gets the maximum feature release. Will be null when there isn't a maximum defined.
         /// </summary>
-        /// <value>
-        /// The maximum feature release.
-        /// </value>
         public DataMinerVersion MaxFeatureRelease => maxDmaVersionAttribute?.FeatureRelease;
 
+        /// <summary>
+        /// Gets the feature items.
+        /// </summary>
         public IReadOnlyCollection<FeatureCheckResultItem> FeatureItems => featureCheckResult.FeatureItems;
     }
 }

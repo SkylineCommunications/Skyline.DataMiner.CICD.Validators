@@ -10,6 +10,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckColumns, Category.Param)]
@@ -56,21 +57,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         ////}
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
         private readonly RelationManager relationManager;
-        private readonly List<IValidationResult> results;
 
         private readonly IParamsParam tableParam;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam tableParam)
+            : base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-            this.relationManager = context.ProtocolModel.RelationManager;
-            this.results = results;
+            relationManager = context.ProtocolModel.RelationManager;
 
             this.tableParam = tableParam;
         }
@@ -84,7 +80,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             }
         }
 
-        public void ValidateColumn((uint? idx, string pid, IParamsParam columnParam) column)
+        private void ValidateColumn((uint? idx, string pid, IParamsParam columnParam) column)
         {
             (_, string pid, IParamsParam columnParam) = column;
             if (columnParam == null)

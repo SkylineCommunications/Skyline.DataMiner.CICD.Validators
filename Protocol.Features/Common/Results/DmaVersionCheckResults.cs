@@ -10,6 +10,6 @@
             Features = new List<Feature>();
         }
 
-        public IReadOnlyCollection<IFeature> Features { get; internal set; }
+        public IReadOnlyCollection<Feature> Features { get; internal set; }
     }
 }

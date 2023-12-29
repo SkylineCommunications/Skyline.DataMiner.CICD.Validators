@@ -12,14 +12,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
-
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CSharpSLProtocolSetRow, Category.QAction)]
     internal class CSharpSLProtocolSetRow : IValidate, ICodeFix
@@ -58,7 +57,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                     break;
 
                 default:
-                    result.Message = String.Format("This error ({0}) isn't implemented.", context.Result.ErrorId.ToString());
+                    result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
                     break;
             }
 
@@ -66,23 +65,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         }
     }
 
-    internal class QActionAnalyzer : CSharpAnalyzerBase
+    internal class QActionAnalyzer : QActionAnalyzerBase
     {
-        private readonly List<IValidationResult> results;
-        private readonly IValidate test;
-        private readonly IQActionsQAction qAction;
         private readonly IProtocolModel protocolModel;
-        private readonly SemanticModel semanticModel;
-        private readonly Solution solution;
 
         public QActionAnalyzer(IValidate test, IQActionsQAction qAction, List<IValidationResult> results, IProtocolModel protocolModel, SemanticModel semanticModel, Solution solution)
+            : base(test, results, qAction, semanticModel, solution)
         {
-            this.test = test;
-            this.qAction = qAction;
-            this.results = results;
             this.protocolModel = protocolModel;
-            this.semanticModel = semanticModel;
-            this.solution = solution;
         }
 
         public override void CheckCallingMethod(CallingMethodClass callingMethod)

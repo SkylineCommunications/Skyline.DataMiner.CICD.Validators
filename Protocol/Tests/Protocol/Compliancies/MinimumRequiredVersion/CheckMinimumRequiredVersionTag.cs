@@ -15,6 +15,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
 
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckMinimumRequiredVersionTag, Category.Protocol)]
@@ -164,7 +165,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
 
             foreach (Feature feature in versionCheckResults.Features)
             {
-                if (feature.MinMainRelease <= minRequiredVersion || feature.MinFeatureRelease <= minRequiredVersion)
+	            if (feature.MinMainRelease <= minRequiredVersion || feature.MinFeatureRelease <= minRequiredVersion)
                 {
                     continue;
                 }

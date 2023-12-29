@@ -12,6 +12,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     using static Skyline.DataMiner.CICD.Models.Protocol.Read.ArrayOptionsOptions;
@@ -167,11 +168,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public string Format { get; set; }
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
-        private readonly List<IValidationResult> results;
         private readonly RelationManager relationManager;
 
         private readonly IParamsParam tableParam;
@@ -183,10 +181,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         private readonly IEnumerable<(uint? idx, string pid, IParamsParam columnParam)> columns;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam tableParam, IParamsParamArrayOptions arrayOptions)
+			: base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-            this.results = results;
             relationManager = context.ProtocolModel.RelationManager;
 
             this.tableParam = tableParam;
@@ -480,7 +476,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             if (namingOption?.Columns == null || namingOption.Columns.Count <= 0)
             {
-                displayKey.FormatSegments = new string[0];
+                displayKey.FormatSegments = Array.Empty<string>();
                 return displayKey;
             }
 
@@ -504,7 +500,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         {
             string options = arrayOptions?.Options?.Value;
 
-            if (options == null || options.Length == 0)
+            if (String.IsNullOrEmpty(options))
             {
                 return null;
             }

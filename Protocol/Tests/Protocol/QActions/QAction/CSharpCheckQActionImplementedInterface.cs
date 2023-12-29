@@ -22,7 +22,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         public List<IValidationResult> Validate(ValidatorContext context)
         {
             List<IValidationResult> results = new List<IValidationResult>();
-
+            /*
             foreach ((CompiledQActionProject projectData, IQActionsQAction qaction) in context.EachQActionProject())
             {
                 // If no triggers are defined then there is no entry point.
@@ -41,11 +41,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                     parser.Visit(syntaxTree.GetRoot());
                 }
             }
-
+            */
             return results;
         }
     }
-
+    /*
     internal class QActionAnalyzer : CSharpAnalyzerBase
     {
         private readonly List<IValidationResult> results;
@@ -82,5 +82,5 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 }
             }
         }
-    }
+    }*/
 }

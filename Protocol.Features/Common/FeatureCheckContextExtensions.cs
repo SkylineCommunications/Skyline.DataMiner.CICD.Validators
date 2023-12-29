@@ -1,6 +1,7 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Common
 {
     using System.Collections.Generic;
+
     using Microsoft.CodeAnalysis;
 
     using Skyline.DataMiner.CICD.Models.Protocol;

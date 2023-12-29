@@ -12,6 +12,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckOptionsAttribute, Category.Param)]
@@ -62,7 +63,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                         result.Success = true;
                         break;
                     }
-                    
+
                     paramEditNode.ArrayOptions.Options = null;
                     result.Success = true;
                     break;
@@ -111,25 +112,20 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         }
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
         private readonly IProtocolModel model;
-        private readonly List<IValidationResult> results;
 
         private readonly IParamsParam tableParam;
         private readonly ArrayOptionsOptions options;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam tableParam)
+            : base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-            this.model = context.ProtocolModel;
-            this.results = results;
+            model = context.ProtocolModel;
 
             this.tableParam = tableParam;
-            this.options = tableParam.ArrayOptions.GetOptions();
+            options = tableParam.ArrayOptions.GetOptions();
         }
 
         public void Validate()
@@ -187,7 +183,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
             }
         }
-        
+
         private void ValidatePreserveStateOption()
         {
             if (options.HasPreserveState)

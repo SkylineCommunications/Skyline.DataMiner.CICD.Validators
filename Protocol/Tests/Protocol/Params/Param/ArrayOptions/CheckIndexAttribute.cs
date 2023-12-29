@@ -1,6 +1,5 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.CheckIndexAttribute
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -9,10 +8,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckIndexAttribute, Category.Param)]
@@ -69,7 +69,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     }
 
                 default:
-                    result.Message = String.Format("This error ({0}) isn't implemented.", context.Result.ErrorId.ToString());
+                    result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
                     break;
             }
 
@@ -84,23 +84,17 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         ////}
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
         private readonly RelationManager relationManager;
-        private readonly List<IValidationResult> results;
 
         private readonly IParamsParam tableParam;
         private readonly IValueTag<uint?> indexAttribute;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam tableParam, IParamsParamArrayOptions arrayOptions)
+			: base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-            this.results = results;
-
-            this.tableParam = tableParam;
+	        this.tableParam = tableParam;
             this.relationManager = context.ProtocolModel.RelationManager;
             this.indexAttribute = arrayOptions.Index;
         }
@@ -142,7 +136,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             {
                 return;
             }
-            
+
             // Untrimmed
             if (status.HasFlag(GenericStatus.Untrimmed))
             {
@@ -195,7 +189,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             {
                 results.Add(Error.InvalidColumnInterpreteType(test, pkColumnParam, interpretType, interpretType.RawValue, pkColumnParam.Id.RawValue));
             }
-            
+
             // PK Measurement/Type
             if (tableParam.GetRTDisplay() || tableParam.WillBeExported())
             {

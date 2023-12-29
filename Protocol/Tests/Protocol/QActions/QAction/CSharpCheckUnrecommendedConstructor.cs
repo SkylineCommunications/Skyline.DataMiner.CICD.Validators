@@ -9,14 +9,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.CSharpAnalysis.Classes;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CSharpCheckUnrecommendedConstructor, Category.QAction)]
     internal class CSharpCheckUnrecommendedConstructor : IValidate /*, ICodeFix, ICompare*/
@@ -58,91 +57,81 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
         ////    return results;
         ////}
+    }
 
-        internal class QActionAnalyzer : CSharpAnalyzerBase
+    internal class QActionAnalyzer : QActionAnalyzerBase
+    {
+        public QActionAnalyzer(IValidate test, IQActionsQAction qAction, List<IValidationResult> results, SemanticModel semanticModel, Solution solution)
+            : base(test, results, qAction, semanticModel, solution)
         {
-            private readonly List<IValidationResult> results;
-            private readonly IValidate test;
-            private readonly IQActionsQAction qAction;
-            private readonly SemanticModel semanticModel;
-            private readonly Solution solution;
+        }
 
-            public QActionAnalyzer(IValidate test, IQActionsQAction qAction, List<IValidationResult> results, SemanticModel semanticModel, Solution solution)
+        public override void CheckObjectCreation(ObjectCreationClass objectCreation)
+        {
+            CheckXmlSerializerConstructor(objectCreation);
+        }
+
+        private void CheckXmlSerializerConstructor(ObjectCreationClass objectCreation)
+        {
+            if (objectCreation.Name != "XmlSerializer")
             {
-                this.test = test;
-                this.qAction = qAction;
-                this.results = results;
-                this.semanticModel = semanticModel;
-                this.solution = solution;
+                return;
             }
 
-            public override void CheckObjectCreation(ObjectCreationClass objectCreation)
+            var symbol = RoslynHelper.GetSymbol(objectCreation.SyntaxNode.Type, semanticModel);
+
+            if (!RoslynHelper.CheckIfCertainClass(symbol, semanticModel, solution, "System.Xml", "System.Xml.Serialization"))
             {
-                CheckXmlSerializerConstructor(objectCreation);
+                return;
             }
 
-            private void CheckXmlSerializerConstructor(ObjectCreationClass objectCreation)
+            // Check if new XmlSerializer(Type) is called.
+            if (objectCreation.Arguments.Count == 1 && objectCreation.Arguments[0].GetFullyQualifiedName(semanticModel).Equals("System.Type"))
             {
-                if (objectCreation.Name != "XmlSerializer")
-                {
-                    return;
-                }
-
-                var symbol = RoslynHelper.GetSymbol(objectCreation.SyntaxNode.Type, semanticModel);
-                
-                if (!RoslynHelper.CheckIfCertainClass(symbol, semanticModel, solution, "System.Xml", "System.Xml.Serialization"))
-                {
-                    return;
-                }
-
-                // Check if new XmlSerializer(Type) is called.
-                if (objectCreation.Arguments.Count == 1 && objectCreation.Arguments[0].GetFullyQualifiedName(semanticModel).Equals("System.Type"))
-                {
-                    return;
-                }
-
-                // Check if new XmlSerializer(Type, String) is called.
-                if (objectCreation.Arguments.Count == 2 &&
-                    objectCreation.Arguments[0].GetFullyQualifiedName(semanticModel).Equals("System.Type") &&
-                    objectCreation.Arguments[1].GetFullyQualifiedName(semanticModel).Equals("System.String"))
-                {
-                    return;
-                }
-                
-                string constructor = GetConstructorDisplayValue(objectCreation.Arguments);
-
-                results.Add(Error.UnrecommendedXmlSerializerConstructor(test, qAction, qAction, "System.Xml.Serialization", constructor, qAction.Id.RawValue).WithCSharp(objectCreation));
+                return;
             }
 
-            private string GetConstructorDisplayValue(IList<Argument> arguments)
+            // Check if new XmlSerializer(Type, String) is called.
+            if (objectCreation.Arguments.Count == 2 &&
+                objectCreation.Arguments[0].GetFullyQualifiedName(semanticModel).Equals("System.Type") &&
+                objectCreation.Arguments[1].GetFullyQualifiedName(semanticModel).Equals("System.String"))
             {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("XmlSerializer(");
+                return;
+            }
 
-                for (int i = 0; i < arguments.Count; i++)
+            string constructor = GetConstructorDisplayValue(objectCreation.Arguments);
+
+            results.Add(Error.UnrecommendedXmlSerializerConstructor(test, qAction, qAction, "System.Xml.Serialization", constructor, qAction.Id.RawValue).WithCSharp(objectCreation));
+        }
+
+        private string GetConstructorDisplayValue(IList<Argument> arguments)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("XmlSerializer(");
+
+            for (int i = 0; i < arguments.Count; i++)
+            {
+                string fqn = arguments[i].GetFullyQualifiedName(semanticModel);
+                int idx = fqn.LastIndexOf('.');
+
+                if (idx > -1)
                 {
-                    string fqn = arguments[i].GetFullyQualifiedName(semanticModel);
-                    int idx = fqn.LastIndexOf('.');
-
-                    if (idx > -1)
-                    {
-                        sb.Append(fqn.Substring(idx + 1));
-                    }
-                    else
-                    {
-                        sb.Append(fqn);
-                    }
-
-                    if (i < arguments.Count - 1)
-                    {
-                        sb.Append(", ");
-                    }
+                    sb.Append(fqn.Substring(idx + 1));
+                }
+                else
+                {
+                    sb.Append(fqn);
                 }
 
-                sb.Append(")");
-
-                return sb.ToString();
+                if (i < arguments.Count - 1)
+                {
+                    sb.Append(", ");
+                }
             }
+
+            sb.Append(")");
+
+            return sb.ToString();
         }
     }
 }

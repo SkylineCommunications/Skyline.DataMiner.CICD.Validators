@@ -20,7 +20,7 @@
 
         public FeatureCheckContext(IProtocolInputData input, bool isSolutionBased)
         {
-            InputData  = input ?? throw new ArgumentNullException(nameof(input));
+            InputData = input ?? throw new ArgumentNullException(nameof(input));
             IsSolution = isSolutionBased;
 
             if (input.QActionCompilationModel != null)

@@ -10,6 +10,6 @@
         /// <summary>
         /// Gets the features that are used.
         /// </summary>
-        IReadOnlyCollection<IFeature> Features { get; }
+        IReadOnlyCollection<Feature> Features { get; }
     }
 }

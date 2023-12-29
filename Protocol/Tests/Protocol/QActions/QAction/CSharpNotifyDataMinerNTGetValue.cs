@@ -9,12 +9,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.CSharpAnalysis.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CSharpNotifyDataMinerNTGetValue, Category.QAction)]
@@ -27,7 +27,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             foreach ((IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData) in context.EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas())
             {
                 Solution solution = projectData.Project.Solution;
-                QActionAnalyzer analyzer = new QActionAnalyzer(this, qaction, results, context.ProtocolModel, semanticModel, solution);
+                QActionAnalyzer analyzer = new QActionAnalyzer(this, qaction, results, semanticModel, solution);
                 RoslynVisitor parser = new RoslynVisitor(analyzer);
 
                 parser.Visit(syntaxTree.GetRoot());
@@ -37,23 +37,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         }
     }
 
-    internal class QActionAnalyzer : CSharpAnalyzerBase
+    internal class QActionAnalyzer : QActionAnalyzerBase
     {
-        private readonly List<IValidationResult> results;
-        private readonly IValidate test;
-        private readonly IQActionsQAction qAction;
-        private readonly IProtocolModel protocolModel;
-        private readonly SemanticModel semanticModel;
-        private readonly Solution solution;
-
-        public QActionAnalyzer(IValidate test, IQActionsQAction qAction, List<IValidationResult> results, IProtocolModel protocolModel, SemanticModel semanticModel, Solution solution)
+        public QActionAnalyzer(IValidate test, IQActionsQAction qAction, List<IValidationResult> results, SemanticModel semanticModel, Solution solution)
+            : base(test, results, qAction, semanticModel, solution)
         {
-            this.test = test;
-            this.qAction = qAction;
-            this.results = results;
-            this.protocolModel = protocolModel;
-            this.semanticModel = semanticModel;
-            this.solution = solution;
         }
 
         public override void CheckCallingMethod(CallingMethodClass callingMethod)

@@ -4,13 +4,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckVirtualAttribute, Category.Param)]
@@ -47,7 +47,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 {
                     results.Add(Error.UntrimmedAttribute(this, param, virtualAttribute, param.Id.RawValue, optionsRawValue));
                 }
-
             }
 
             return results;
@@ -94,7 +93,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             return result;
         }
-        
+
         ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
         ////{
         ////    List<IValidationResult> results = new List<IValidationResult>();
@@ -103,25 +102,15 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         ////}
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
-        private readonly IProtocolModel model;
-        private readonly List<IValidationResult> results;
-
         private readonly IParamsParam param;
         private readonly IValueTag<string> virtualAttribute;
 
-        public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam param)
+        public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam param) : base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-            this.model = context.ProtocolModel;
-            this.results = results;
-
             this.param = param;
-            this.virtualAttribute = param.Type.Virtual;
+            virtualAttribute = param.Type.Virtual;
         }
 
         public void Validate()
