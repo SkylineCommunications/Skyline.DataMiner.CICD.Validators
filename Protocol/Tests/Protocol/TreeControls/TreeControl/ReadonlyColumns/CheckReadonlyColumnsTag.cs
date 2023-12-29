@@ -35,7 +35,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                     continue;
                 }
 
-                (GenericStatus status, string rawValue, string value) = GenericTests.CheckBasics(treeControl.ReadonlyColumns, false);
+                (GenericStatus status, string rawValue, _) = GenericTests.CheckBasics(treeControl.ReadonlyColumns, false);
 
                 if (status.HasFlag(GenericStatus.Empty))
                 {

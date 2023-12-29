@@ -24,7 +24,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             foreach (IParamsParam param in context.EachParamWithValidId())
             {
                 var paramName = param.Name;
-                (GenericStatus status, string nameRaw, string nameValue) = GenericTests.CheckBasics(paramName, isRequired: true);
+                (GenericStatus status, _, string nameValue) = GenericTests.CheckBasics(paramName, isRequired: true);
 
                 // Missing
                 if (status.HasFlag(GenericStatus.Missing))

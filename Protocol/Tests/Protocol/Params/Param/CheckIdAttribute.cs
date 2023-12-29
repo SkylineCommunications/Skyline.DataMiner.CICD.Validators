@@ -117,52 +117,50 @@
                 // Enhanced Service Driver Exceptions
                 if (isEnhancedServiceDriver && pid >= 1 && pid < 1000)
                 {
-	                // Check that the param has the expected name/description based on the ID
-	                if (!ParamHelper.IsCorrectEnhancedServiceParam(param))
-	                {
-		                results.Add(Error.InvalidUseOfEnhancedServiceIdRange(this, param, param.Id, rawPid));
-		                continue;
-	                }
+                    // Check that the param has the expected name/description based on the ID
+                    if (!ParamHelper.IsCorrectEnhancedServiceParam(param))
+                    {
+                        results.Add(Error.InvalidUseOfEnhancedServiceIdRange(this, param, param.Id, rawPid));
+                        continue;
+                    }
                 }
 
                 // Spectrum Driver Exceptions
                 // For spectrum elements parameter 60000 might not be handled correctly when defined in the driver
                 if (isSpectrumDriver && pid >= 50000 && pid <= 60000)
                 {
-	                results.Add(Error.InvalidUseOfSpectrumIdRange(this, param, param.Id, rawPid));
-	                continue;
+                    results.Add(Error.InvalidUseOfSpectrumIdRange(this, param, param.Id, rawPid));
+                    continue;
                 }
 
                 // SLA Driver Exceptions
                 if (isSlaDriver && pid >= 1 && pid < 3000)
                 {
-	                // Check that the param has the expected name/description based on the ID
-	                if (!ParamHelper.IsCorrectSlaParam(param))
-	                {
-		                results.Add(Error.InvalidUseOfSlaIdRange(this, param, param.Id, rawPid));
-		                continue;
-	                }
+                    // Check that the param has the expected name/description based on the ID
+                    if (!ParamHelper.IsCorrectSlaParam(param))
+                    {
+                        results.Add(Error.InvalidUseOfSlaIdRange(this, param, param.Id, rawPid));
+                        continue;
+                    }
                 }
 
                 // Aggregation Drivers can be ignored.
                 // We are not allowed to work on such drivers, this driver is provided together with the software package and is a hidden driver used by the software to perform aggregation actions.
                 // The driver can be found in "C:\Skyline DataMiner\Protocols\Skyline Generic Aggregator"
-                {
-                    // Aggregation Driver Exceptions
-                    ////if (isAggregationDriver)
-                    ////{
-                    ////    if (id >= 1 && id < 5000)
-                    ////    {
-                    ////        // Check that the param has the expected name/description based on the ID
-                    ////        bool isOk = true;
-                    ////        if (!isOk)
-                    ////        {
-                    ////            Results.Add(Error.InvalidUseOfAggregationIdRange(this, param, param.Id, rawId));
-                    ////            continue;
-                    ////        }
-                    ////    }
-                    ////}
-                }
+                // Aggregation Driver Exceptions
+                ////if (isAggregationDriver)
+                ////{
+                ////    if (id >= 1 && id < 5000)
+                ////    {
+                ////        // Check that the param has the expected name/description based on the ID
+                ////        bool isOk = true;
+                ////        if (!isOk)
+                ////        {
+                ////            Results.Add(Error.InvalidUseOfAggregationIdRange(this, param, param.Id, rawId));
+                ////            continue;
+                ////        }
+                ////    }
+                ////}
 
                 // Untrimmed
                 if (status.HasFlag(GenericStatus.Untrimmed))
@@ -236,12 +234,12 @@
 
             foreach (IParamsParam previousParam in context.PreviousProtocolModel.EachParamWithValidId())
             {
-	            // Find corresponding parameter with the same name id.
+                // Find corresponding parameter with the same name id.
                 IParamsParam newParam = newProtocol.Params?.FirstOrDefault(param => param?.Id?.Value == previousParam.Id.Value);
 
                 if (newParam == null && previousParam.GetRTDisplay())
                 {
-	                results.Add(ErrorCompare.MissingParam(null, newProtocol.Params, previousParam.Name?.Value, previousParam.Type.ReadNode.InnerText, previousParam.Id.RawValue));
+                    results.Add(ErrorCompare.MissingParam(null, newProtocol.Params, previousParam.Name?.Value, previousParam.Type.ReadNode.InnerText, previousParam.Id.RawValue));
                 }
             }
 

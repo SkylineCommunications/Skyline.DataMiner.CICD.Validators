@@ -4,14 +4,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
 
     [Test(CheckId.CheckIdAttribute, Category.QAction)]
     internal class CheckIdAttribute : IValidate, ICodeFix/*, ICompare*/
@@ -27,7 +26,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
             foreach (var qaction in context.ProtocolModel.Protocol.QActions)
             {
-                (GenericStatus status, string rawId, uint? id) = GenericTests.CheckBasics(qaction.Id, isRequired: true);
+                (GenericStatus status, _, _) = GenericTests.CheckBasics(qaction.Id, isRequired: true);
 
                 // Missing
                 if (status.HasFlag(GenericStatus.Missing))
@@ -44,16 +43,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 }
 
                 // Invalid
-                if (status.HasFlag(GenericStatus.Invalid) || !GenericTests.IsPlainNumbers(rawId))
+                if (status.HasFlag(GenericStatus.Invalid) || !GenericTests.IsPlainNumbers(qaction.Id.RawValue))
                 {
-                    results.Add(Error.InvalidValue(this, qaction, qaction, rawId, qaction.Name?.RawValue));
+                    results.Add(Error.InvalidValue(this, qaction, qaction, qaction.Id.RawValue, qaction.Name?.RawValue));
                     continue;
                 }
 
                 // Untrimmed
                 if (status.HasFlag(GenericStatus.Untrimmed))
                 {
-                    results.Add(Error.UntrimmedAttribute(this, qaction, qaction, rawId));
+                    results.Add(Error.UntrimmedAttribute(this, qaction, qaction, qaction.Id.RawValue));
                     continue;
                 }
             }

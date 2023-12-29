@@ -6,8 +6,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -53,11 +53,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                {
-                    string oldTypeStringified = EnumParamInterpretTypeConverter.ConvertBack(oldType.Value);
-                    string newTypeStringified = EnumParamInterpretTypeConverter.ConvertBack(newType.Value);
-                    results.Add(ErrorCompare.UpdatedValue(newInterprete, newInterprete, newParam.Id?.RawValue, oldTypeStringified, newTypeStringified));
-                }
+                string oldTypeString = EnumParamInterpretTypeConverter.ConvertBack(oldType.Value);
+                string newTypeString = EnumParamInterpretTypeConverter.ConvertBack(newType.Value);
+                results.Add(ErrorCompare.UpdatedValue(newInterprete, newInterprete, newParam.Id?.RawValue, oldTypeString, newTypeString));
             }
 
             return results;

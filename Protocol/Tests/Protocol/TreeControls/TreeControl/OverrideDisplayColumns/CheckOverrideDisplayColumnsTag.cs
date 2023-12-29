@@ -321,7 +321,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             public bool HasSortId { get; set; }
         }
 
-        private class Data
+        private sealed class Data
         {
             public List<IValidationResult> SubResultsUntrimmed { get; set; }
 

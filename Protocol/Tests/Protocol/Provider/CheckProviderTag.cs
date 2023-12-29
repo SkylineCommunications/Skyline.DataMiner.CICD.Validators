@@ -27,7 +27,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Provider.Che
 
             var provider = model.Protocol.Provider;
 
-            (GenericStatus status, string rawValue, string value) = GenericTests.CheckBasics(provider, true);
+            (GenericStatus status, _, _) = GenericTests.CheckBasics(provider, true);
 
             if (status.HasFlag(GenericStatus.Missing))
             {

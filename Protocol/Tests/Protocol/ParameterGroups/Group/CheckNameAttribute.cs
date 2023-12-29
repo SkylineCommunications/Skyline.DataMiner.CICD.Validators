@@ -71,7 +71,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 getId: x => x.Id?.RawValue,
                 generateSubResult: x => Error.DuplicatedValue(this, x.item, x.item.Name, x.duplicateValue, x.id),
                 generateSummaryResult: x => Error.DuplicatedValue(this, parameterGroupsTag, parameterGroupsTag, x.duplicateValue, String.Join(", ", x.ids)).WithSubResults(x.subResults)
-                )); ;
+                ));
 
             return results;
         }
