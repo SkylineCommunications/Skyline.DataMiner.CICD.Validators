@@ -1,17 +1,17 @@
 //#define DebugValidator
-namespace Skyline.DataMiner.ProtocolValidator
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
 {
     using System;
     using System.Collections.Generic;
     using System.Threading;
-    using System.Xml;
 
     using Skyline.DataMiner.CICD.Validators.Common.Data;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    
+
+    using XmlDocument = System.Xml.XmlDocument;
     using XmlEdit = Skyline.DataMiner.CICD.Parsers.Common.XmlEdit;
-    
+
     /// <summary>
     /// Methods for validating a DataMiner Protocol.
     /// </summary>

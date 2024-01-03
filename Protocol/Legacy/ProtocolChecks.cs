@@ -1,4 +1,4 @@
-namespace Skyline.DataMiner.ProtocolValidator
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
 {
     using System;
     using System.Collections.Generic;
