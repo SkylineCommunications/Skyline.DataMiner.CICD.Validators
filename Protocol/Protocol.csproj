@@ -10,7 +10,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<PackageIcon>Icon.png</PackageIcon>
+		<PackageIcon>icon.png</PackageIcon>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Authors>SkylineCommunications</Authors>
@@ -22,8 +22,8 @@
 
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="" />
-		<None Include="LICENSE.txt" Pack="true" PackagePath="" />
 		<None Include="..\_NuGetItems\icon.png" Pack="true" PackagePath="" />
+		<None Include="..\_NuGetItems\LICENSE.txt" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 	<ItemGroup>
