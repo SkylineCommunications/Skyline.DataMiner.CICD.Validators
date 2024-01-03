@@ -14,7 +14,7 @@ using System.Windows;
 #endif
 [assembly: AssemblyCompany("Skyline Communications")]
 [assembly: AssemblyProduct("DataMiner Integration Studio")]
-[assembly: AssemblyCopyright("Copyright © 2023 Skyline Communications")]
+[assembly: AssemblyCopyright("Copyright © 2024 Skyline Communications")]
 [assembly: AssemblyTrademark("Skyline Communications")]
 [assembly: AssemblyCulture("")]
 

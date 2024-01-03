@@ -31,7 +31,6 @@
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [TestClass]
-    [Ignore("TODO: Fix")]
     public class CheckTests
     {
         /// <summary>
@@ -109,6 +108,7 @@
             var namespaces = Assembly
                 .GetAssembly(typeof(CheckTests))
                 .GetTypes()
+                .Where(x => x.Namespace != null)
                 .Select(x => x.Namespace.Replace("ProtocolTests.", String.Empty));
 
             // Get all Files
@@ -444,7 +444,6 @@
     }
 
     [TestClass]
-    [Ignore("TODO: Fix")]
     public class RoslynUnitTests
     {
         private static Solution solution;
@@ -457,9 +456,14 @@
         public static void ClassInit(TestContext context)
         {
             solution = Roslyn.GetSolution();
-            
+
             valProject = solution.Projects.Single(x => x.Name == "Protocol");
-            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net472)");
+
+#if NETFRAMEWORK
+            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests");
+#elif NET
+            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net6.0)");
+#endif
 
             // SDK style projects don't have each file mentioned in the csproj anymore
             valProject = valProject.WithAllSourceFiles();
@@ -1415,9 +1419,17 @@
             }
 
             var settings = new XmlReaderSettings();
-            settings.Schemas.Add("http://www.skyline.be/validatorProtocolUnitTest", xsds.First().FullName);
+            
+            XmlSchemaSet schemaSet = new XmlSchemaSet
+            {
+	            XmlResolver = new XmlUrlResolver()
+            };
+            schemaSet.Add(NAMESPACE, xsds.First().FullName);
+            settings.Schemas.Add(schemaSet);
+
             settings.ValidationType = ValidationType.Schema;
             settings.ValidationEventHandler += Settings_ValidationEventHandler;
+           
 
             foreach (var filePath in allFiles)
             {
