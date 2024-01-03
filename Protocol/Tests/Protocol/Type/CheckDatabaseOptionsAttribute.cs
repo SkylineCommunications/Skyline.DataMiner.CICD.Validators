@@ -40,12 +40,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckDa
             var newProtocolType = context.NewProtocolModel?.Protocol?.Type;
             var newDatabaseOptions = newProtocolType?.DatabaseOptions?.Value;
 
-            if (oldDatabaseOptions == null || !oldDatabaseOptions.ToLower().Contains("partitionedtrending"))
+            if ((oldDatabaseOptions == null || !oldDatabaseOptions.ToLower().Contains("partitionedtrending")) &&
+                newDatabaseOptions != null && newDatabaseOptions.ToLower().Contains("partitionedtrending"))
             {
-                if (newDatabaseOptions != null && newDatabaseOptions.ToLower().Contains("partitionedtrending"))
-                {
-                    results.Add(ErrorCompare.EnabledPartitionedTrending(newProtocolType, newProtocolType));
-                }
+	            results.Add(ErrorCompare.EnabledPartitionedTrending(newProtocolType, newProtocolType));
             }
 
             return results;

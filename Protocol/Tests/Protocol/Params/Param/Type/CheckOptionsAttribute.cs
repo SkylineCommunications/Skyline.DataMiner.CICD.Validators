@@ -430,8 +430,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public static void FixMissingColumnTypeParameter(CodeFixContext context)
         {
             IParamsParam readParam = (IParamsParam)context.Result.ReferenceNode;
-            var options = readParam?.Type?.GetOptions();
-            uint? pid = options?.ColumnTypes?.ColumnTypes?[0].pid;
+            uint? pid = readParam?.Type?.GetOptions()?.ColumnTypes?.ColumnTypes?[0].pid;
             if (pid == null)
             {
                 return;

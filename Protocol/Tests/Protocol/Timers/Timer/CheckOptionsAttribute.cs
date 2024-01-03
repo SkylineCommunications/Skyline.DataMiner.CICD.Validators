@@ -460,20 +460,20 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 subSubResults.Add(Error.UseOfObsoleteTimeoutPidOptionInPingOption(test, timer, timer));
             }
 
-            CheckUIntValue(ping.TimeToLive, subSubResults, "ttl", true, ping.DuplicateOptions);
-            CheckUIntValue(ping.Timeout, subSubResults, "timeout", true, ping.DuplicateOptions);
+            subSubResults.AddIfNotNull(CheckUIntValue(ping.TimeToLive, "ttl", true, duplicateOptions: ping.DuplicateOptions));
+            subSubResults.AddIfNotNull(CheckUIntValue(ping.Timeout, "timeout", true, duplicateOptions: ping.DuplicateOptions));
             CheckColumnReferenceValue(ipOptionTableParam, ping.TimeStampColumnPosition, subSubResults, "timestampColumn", 1, ping.DuplicateOptions);
             CheckDiscreteValue(ping.PingType, subSubResults, "type", true, new string[] { "ICMP", "WINSOCK" }, ping.DuplicateOptions);
-            CheckUIntValue(ping.PayloadSize, subSubResults, "size", true, ping.DuplicateOptions);
+            subSubResults.AddIfNotNull(CheckUIntValue(ping.PayloadSize, "size", true, duplicateOptions: ping.DuplicateOptions));
             CheckDiscreteValue(ping.ContinueSnmpOnTimeout, subSubResults, "continueSnmpOnTimeout", true, new string[] { "TRUE", "FALSE" }, ping.DuplicateOptions);
             CheckColumnReferenceValue(ipOptionTableParam, ping.JitterColumnPosition, subSubResults, "jitterColumn", 1, ping.DuplicateOptions);
             CheckColumnReferenceValue(ipOptionTableParam, ping.LatencyColumnPosition, subSubResults, "latencyColumn", 1, ping.DuplicateOptions);
             CheckColumnReferenceValue(ipOptionTableParam, ping.PacketLossRateColumnPosition, subSubResults, "packetLossRateColumn", 1, ping.DuplicateOptions);
-            CheckUIntValue(ping.AmountPackets, subSubResults, "amountPackets", true, ping.DuplicateOptions);
+            subSubResults.AddIfNotNull(CheckUIntValue(ping.AmountPackets, "amountPackets", true, duplicateOptions: ping.DuplicateOptions));
             CheckParameterIdValue(ping.AmountPacketsPid, subSubResults, "amountPacketsPid", null, true, ping.DuplicateOptions);
-            CheckUIntValue(ping.AmountPacketsMeasurements, subSubResults, "amountPacketsMeasurements", true, ping.DuplicateOptions);
+            subSubResults.AddIfNotNull(CheckUIntValue(ping.AmountPacketsMeasurements, "amountPacketsMeasurements", true, duplicateOptions: ping.DuplicateOptions));
             CheckParameterIdValue(ping.AmountPacketsMeasurementsPid, subSubResults, "amountPacketsMeasurementsPid", null, true, ping.DuplicateOptions);
-            CheckUIntValue(ping.ExcludeWorstResults, subSubResults, "excludeWorstResults", true, ping.DuplicateOptions, 0, 100);
+            subSubResults.AddIfNotNull(CheckUIntValue(ping.ExcludeWorstResults, "excludeWorstResults", true, duplicateOptions: ping.DuplicateOptions, lowLimit: 0, highLimit: 100));
             CheckParameterIdValue(ping.ExcludeWorstResultsParameterId, subSubResults, "excludeWorstResultsPid", null, true, ping.DuplicateOptions);
 
             if (subSubResults.Count > 0)
@@ -503,9 +503,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
             List<IValidationResult> subSubErrors = new List<IValidationResult>();
 
-            CheckUIntValue(pollingRateOption.Interval, subSubErrors, "<interval>", false);
-            CheckUIntValue(pollingRateOption.MaxCount, subSubErrors, "<maxCount>", false);
-            CheckUIntValue(pollingRateOption.ReleaseCount, subSubErrors, "<releaseCount>", false);
+            subSubErrors.AddIfNotNull(CheckUIntValue(pollingRateOption.Interval, "<interval>", false));
+            subSubErrors.AddIfNotNull(CheckUIntValue(pollingRateOption.MaxCount, "<maxCount>", false));
+            subSubErrors.AddIfNotNull(CheckUIntValue(pollingRateOption.ReleaseCount, "<releaseCount>", false));
 
             if (subSubErrors.Count > 0)
             {
@@ -641,7 +641,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
             var allowedOtherValues = new List<string> { "-1" };
 
-            CheckUIntValue(threadPool.Size, subSubResults, "<size>", false);
+            subSubResults.AddIfNotNull(CheckUIntValue(threadPool.Size, "<size>", false));
 
             if (threadPool.CalculationInteral?.Value != null)
             {
@@ -661,9 +661,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 optionalValue = "-1";
             }
 
-            CheckUIntValue(threadPool.CalculationInteral, subSubResults, "<calculationInterval>", true, optionalValue);
-
-            CheckUIntValue(threadPool.QueueSize, subSubResults, "<queueSize>", true);
+            subSubResults.AddIfNotNull(CheckUIntValue(threadPool.CalculationInteral, "<calculationInterval>", true, optionalValue));
+            subSubResults.AddIfNotNull(CheckUIntValue(threadPool.QueueSize, "<queueSize>", true));
 
             if (subSubResults.Count > 0)
             {
@@ -684,54 +683,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                    threadPool.CounterParameterId != null;
         }
 
-        private void CheckUIntValue(WrappedNullableUInt32 optionDenotingNumericValue, ICollection<IValidationResult> subSubResults, string optionName, bool isOptional, ICollection<string> duplicateOptions = null, uint? lowLimit = null, uint? highLimit = null)
+        private IValidationResult CheckUIntValue(WrappedNullableUInt32 optionDenotingNumericValue, string optionName, bool isOptional, string exceptionValue = null, ICollection<string> duplicateOptions = null, uint? lowLimit = null, uint? highLimit = null)
         {
-            if (optionDenotingNumericValue == null) // No value specified for this component.
+	        if (optionDenotingNumericValue == null) // No value specified for this component.
             {
                 if (!isOptional)
                 {
-                    subSubResults.Add(Error.MissingValueInOption(test, timer, timer, optionName));
+                    return Error.MissingValueInOption(test, timer, timer, optionName);
                 }
 
-                return;
+                return null;
             }
 
             if (duplicateOptions?.Contains(optionName) == true)
             {
-                return;
-            }
-
-            // A value was specified.
-            if (optionDenotingNumericValue.Value == null)
-            {
-                // This means an invalid value was provided (which could not be parsed into an unsigned integer).
-                subSubResults.Add(Error.InvalidValueInOption(test, timer, timer, optionName, optionDenotingNumericValue.OriginalValue));
-                return;
-            }
-
-            uint value = optionDenotingNumericValue.Value.Value;
-
-            if (value < lowLimit || value > highLimit)
-            {
-                subSubResults.Add(Error.InvalidValueInOption(test, timer, timer, optionName, optionDenotingNumericValue.OriginalValue));
-            }
-        }
-
-        private void CheckUIntValue(WrappedNullableUInt32 optionDenotingNumericValue, ICollection<IValidationResult> subSubResults, string optionName, bool isOptional, string exceptionValue, ICollection<string> duplicateOptions = null, uint? lowLimit = null, uint? highLimit = null)
-        {
-            if (optionDenotingNumericValue == null) // No value specified for this component.
-            {
-                if (!isOptional)
-                {
-                    subSubResults.Add(Error.MissingValueInOption(test, timer, timer, optionName));
-                }
-
-                return;
-            }
-
-            if (duplicateOptions?.Contains(optionName) == true)
-            {
-                return;
+                return null;
             }
 
             // A value was specified.
@@ -740,7 +706,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 if (exceptionValue == null || !optionDenotingNumericValue.OriginalValue.Equals(exceptionValue))
                 {
                     // This means an invalid value was provided (which could not be parsed into an unsigned integer).
-                    subSubResults.Add(Error.InvalidValueInOption(test, timer, timer, optionName, optionDenotingNumericValue.OriginalValue));
+	                return Error.InvalidValueInOption(test, timer, timer, optionName, optionDenotingNumericValue.OriginalValue);
                 }
             }
             else
@@ -749,9 +715,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
                 if (value < lowLimit || value > highLimit)
                 {
-                    subSubResults.Add(Error.InvalidValueInOption(test, timer, timer, optionName, optionDenotingNumericValue.OriginalValue));
+                    return Error.InvalidValueInOption(test, timer, timer, optionName, optionDenotingNumericValue.OriginalValue);
                 }
             }
+
+            return null;
         }
 
         private void CheckDiscreteValue(string optionValue, ICollection<IValidationResult> subSubResults, string optionName, bool isOptional, IEnumerable<string> possibleValues, ICollection<string> duplicateOptions = null)
