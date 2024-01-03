@@ -1,48 +1,53 @@
 ﻿namespace Validator_Management_Tool.Common
 {
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Linq;
-	using System.Reflection;
-	using System.Windows;
-	using Microsoft.Win32;
-	using NPOI.SS.UserModel;
-	using NPOI.SS.Util;
-	using NPOI.XSSF.UserModel;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Validator_Management_Tool.Model;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Windows;
 
-	/// <summary>
+    using Microsoft.Win32;
+
+    using NPOI.SS.UserModel;
+    using NPOI.SS.Util;
+    using NPOI.XSSF.UserModel;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using Validator_Management_Tool.Model;
+
+    /// <summary>
     /// Static class that has methods to export the error messages.
     /// </summary>
     public static class ExportManager
     {
         /// <summary>
-        /// Used in Jenkins pipeline (exportErrorMessages.ps1).
+        /// Used in pipeline.
         /// </summary>
-        public static void ExportToExcelJenkins(Version version)
+        public static void ExportToExcelPipeline(string version)
         {
-            try
-            {
-                // Retrieve checks
-                var checks = new List<Check>();
-                string directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                Serialization.Serializer.ReadXml(Path.Combine(directory, Settings.XmlPath));
+	        try
+	        {
+		        // Retrieve checks
+		        var checks = new List<Check>();
+		        string directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+		        Serialization.Serializer.ReadXml(Path.Combine(directory, Settings.XmlPath));
 
-                foreach (var check in Serialization.Serializer.GetChecks())
-                {
-                    checks.Add(check);
-                }
+		        foreach (var check in Serialization.Serializer.GetChecks())
+		        {
+			        checks.Add(check);
+		        }
 
-                string fileName = Settings.ExportFile + " - " + version.ToString().Replace('.', '_');
-                CreateWorksheet(checks, Path.Combine(directory, fileName));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+		        string fileName = Settings.ExportFile + " - " + version.Replace('.', '_');
+		        string filePath = Path.Combine(directory, fileName);
+		        CreateWorksheet(checks, filePath);
+	        }
+	        catch (Exception e)
+	        {
+		        Console.WriteLine(e);
+		        throw;
+	        }
         }
 
         /// <summary>
@@ -77,21 +82,21 @@
         /// Creates a Excel Worksheet in the specified location with all the error messages from the list.
         /// </summary>
         /// <param name="checks">List of checks that has to be written to the file.</param>
-        /// <param name="filename">Path of the file that has to be created.</param>
-        private static void CreateWorksheet(ICollection<Check> checks, string filename)
+        /// <param name="filePath">Path of the file that has to be created.</param>
+        private static void CreateWorksheet(ICollection<Check> checks, string filePath)
         {
-            if (!Path.HasExtension(filename))
+            if (!Path.HasExtension(filePath))
             {
-                filename = filename + ".xlsx";
+                filePath += ".xlsx";
             }
 
             IWorkbook workbook = new XSSFWorkbook();
-
+            
             CreateWorksheetSplit(workbook, checks, "All Error Messages");
             CreateWorksheetSplit(workbook, checks.Where(x => x.Source == Source.Validator).ToList(), "Validator");
             CreateWorksheetSplit(workbook, checks.Where(x => x.Source == Source.MajorChangeChecker).ToList(), "Major Change Checker");
-
-            using (var fs = new FileStream(filename, FileMode.Create, FileAccess.Write))
+            
+            using (var fs = File.Create(filePath))
             {
                 workbook.Write(fs, false);
             }
@@ -103,101 +108,102 @@
         {
             try
             {
-                ISheet excelWorkSheet = workbook.CreateSheet(sheetName);
+	            ISheet excelWorkSheet = workbook.CreateSheet(sheetName);
+                
+	            IRow headerRow = excelWorkSheet.CreateRow(0);
+                
+	            // Add table headers going cell by cell.
+	            headerRow.CreateCell(0).SetCellValue("Full ID");
+	            headerRow.CreateCell(1).SetCellValue("Category");
+	            headerRow.CreateCell(2).SetCellValue("Namespace");
+	            headerRow.CreateCell(3).SetCellValue("Check Name");
+	            headerRow.CreateCell(4).SetCellValue("Error Message Name");
+	            headerRow.CreateCell(5).SetCellValue("Description");
+	            headerRow.CreateCell(6).SetCellValue("Severity");
+	            headerRow.CreateCell(7).SetCellValue("Certainty");
+	            headerRow.CreateCell(8).SetCellValue("Fix Impact");
+	            headerRow.CreateCell(9).SetCellValue("Has Code Fix");
+	            headerRow.CreateCell(10).SetCellValue("Source");
+	            headerRow.CreateCell(11).SetCellValue("Details");
+	            headerRow.CreateCell(12).SetCellValue("Example Code");
+	            headerRow.CreateCell(13).SetCellValue("How To Fix");
 
-                IRow headerRow = excelWorkSheet.CreateRow(0);
+	            int rowCount = 2;
 
-                // Add table headers going cell by cell.
-                headerRow.CreateCell(0).SetCellValue("Full ID");
-                headerRow.CreateCell(1).SetCellValue("Category");
-                headerRow.CreateCell(2).SetCellValue("Namespace");
-                headerRow.CreateCell(3).SetCellValue("Check Name");
-                headerRow.CreateCell(4).SetCellValue("Error Message Name");
-                headerRow.CreateCell(5).SetCellValue("Description");
-                headerRow.CreateCell(6).SetCellValue("Severity");
-                headerRow.CreateCell(7).SetCellValue("Certainty");
-                headerRow.CreateCell(8).SetCellValue("Fix Impact");
-                headerRow.CreateCell(9).SetCellValue("Has Code Fix");
-                headerRow.CreateCell(10).SetCellValue("Source");
-                headerRow.CreateCell(11).SetCellValue("Details");
-                headerRow.CreateCell(12).SetCellValue("Example Code");
-                headerRow.CreateCell(13).SetCellValue("How To Fix");
+	            var sortedChecks = checks.OrderBy(c => c.CategoryId).ThenBy(c => c.CheckId).ThenBy(c => c.ErrorId);
+	            foreach (var check in sortedChecks)
+	            {
+		            IRow row = excelWorkSheet.CreateRow(rowCount);
 
-                int rowCount = 2;
+		            row.CreateCell(0).SetCellValue(check.FullId);
+		            row.CreateCell(1).SetCellValue(check.Category.ToString());
+		            row.CreateCell(2).SetCellValue(SimplifyNamespace(check));
+		            row.CreateCell(3).SetCellValue(check.CheckName);
+		            row.CreateCell(4).SetCellValue(check.Name);
 
-                var sortedChecks = checks.OrderBy(c => c.CategoryId).ThenBy(c => c.CheckId).ThenBy(c => c.ErrorId);
-                foreach (var check in sortedChecks)
-                {
-                    IRow row = excelWorkSheet.CreateRow(rowCount);
+		            string description;
+		            try
+		            {
+			            description = check.Description;
+			            for (int i = 0; i < check.Parameters.Count; i++)
+			            {
+				            var param = check.Parameters[i];
+				            string oldValue = String.Format("{{{0}}}", i);
 
-                    row.CreateCell(0).SetCellValue(check.FullId);
-                    row.CreateCell(1).SetCellValue(check.Category.ToString());
-                    row.CreateCell(2).SetCellValue(SimplifyNamespace(check));
-                    row.CreateCell(3).SetCellValue(check.CheckName);
-                    row.CreateCell(4).SetCellValue(check.Name);
+				            string newValue;
+				            if (String.IsNullOrWhiteSpace(param.Value))
+				            {
+					            newValue = String.Format("{{{0}}}", param.Text);
+				            }
+				            else
+				            {
+					            // No need to add the braces as it's a hard-coded value anyway.
+					            newValue = String.Format("{0}", param.Value);
+				            }
 
-                    string description;
-                    try
-                    {
-                        description = check.Description;
-                        for (int i = 0; i < check.Parameters.Count; i++)
-                        {
-                            var param = check.Parameters[i];
-                            string oldValue = String.Format("{{{0}}}", i);
+				            description = description.Replace(oldValue, newValue);
+			            }
+		            }
+		            catch (IndexOutOfRangeException)
+		            {
+			            description = check.Description;
+		            }
 
-                            string newValue;
-                            if (String.IsNullOrWhiteSpace(param.Value))
-                            {
-                                newValue = String.Format("{{{0}}}", param.Text);
-                            }
-                            else
-                            {
-                                // No need to add the braces as it's a hard-coded value anyway.
-                                newValue = String.Format("{0}", param.Value);
-                            }
+		            row.CreateCell(5).SetCellValue(description);
+		            row.CreateCell(6).SetCellValue(check.Severity.ToString());
+		            row.CreateCell(7).SetCellValue(check.Certainty.ToString());
+		            row.CreateCell(8).SetCellValue(check.FixImpact.ToString());
+		            row.CreateCell(9).SetCellValue(check.HasCodeFix);
+		            row.CreateCell(10).SetCellValue(check.Source.ToString());
+		            row.CreateCell(11).SetCellValue(check.Details);
+		            row.CreateCell(12).SetCellValue(check.ExampleCode);
+		            row.CreateCell(13).SetCellValue(check.HowToFix);
 
-                            description = description.Replace(oldValue, newValue);
-                        }
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        description = check.Description;
-                    }
-
-                    row.CreateCell(5).SetCellValue(description);
-                    row.CreateCell(6).SetCellValue(check.Severity.ToString());
-                    row.CreateCell(7).SetCellValue(check.Certainty.ToString());
-                    row.CreateCell(8).SetCellValue(check.FixImpact.ToString());
-                    row.CreateCell(9).SetCellValue(check.HasCodeFix);
-                    row.CreateCell(10).SetCellValue(check.Source.ToString());
-                    row.CreateCell(11).SetCellValue(check.Details);
-                    row.CreateCell(12).SetCellValue(check.ExampleCode);
-                    row.CreateCell(13).SetCellValue(check.HowToFix);
-
-                    rowCount++;
-                }
-
-                excelWorkSheet.AutoSizeColumn(0);
-                excelWorkSheet.AutoSizeColumn(1);
-                excelWorkSheet.AutoSizeColumn(2);
-                excelWorkSheet.AutoSizeColumn(3);
-                excelWorkSheet.AutoSizeColumn(4);
-                excelWorkSheet.AutoSizeColumn(5);
-                excelWorkSheet.AutoSizeColumn(6);
-                excelWorkSheet.AutoSizeColumn(7);
-                excelWorkSheet.AutoSizeColumn(8);
-                excelWorkSheet.AutoSizeColumn(9);
-                excelWorkSheet.AutoSizeColumn(10);
-                excelWorkSheet.AutoSizeColumn(11);
-                excelWorkSheet.AutoSizeColumn(12);
-                excelWorkSheet.AutoSizeColumn(13);
-
-                excelWorkSheet.SetAutoFilter(new CellRangeAddress(0, rowCount, 0, 13));
+		            rowCount++;
+	            }
+                
+                // Disabled autosizing as it somehow breaks on GitHub and just stops the program fully.
+	            //excelWorkSheet.AutoSizeColumn(0);
+	            //excelWorkSheet.AutoSizeColumn(1);
+	            //excelWorkSheet.AutoSizeColumn(2);
+	            //excelWorkSheet.AutoSizeColumn(3);
+	            //excelWorkSheet.AutoSizeColumn(4);
+	            //excelWorkSheet.AutoSizeColumn(5);
+	            //excelWorkSheet.AutoSizeColumn(6);
+	            //excelWorkSheet.AutoSizeColumn(7);
+	            //excelWorkSheet.AutoSizeColumn(8);
+	            //excelWorkSheet.AutoSizeColumn(9);
+	            //excelWorkSheet.AutoSizeColumn(10);
+	            //excelWorkSheet.AutoSizeColumn(11);
+	            //excelWorkSheet.AutoSizeColumn(12);
+	            //excelWorkSheet.AutoSizeColumn(13);
+                
+	            excelWorkSheet.SetAutoFilter(new CellRangeAddress(0, rowCount, 0, 13));
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
-                Console.Error.WriteLine(e.StackTrace);
+	            Console.WriteLine(e.Message);
+	            Console.WriteLine(e.StackTrace);
             }
         }
 
