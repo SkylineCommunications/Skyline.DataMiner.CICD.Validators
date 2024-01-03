@@ -4,6 +4,7 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using System.Text.RegularExpressions;
 
     using Skyline.DataMiner.CICD.Validators.Common.Model;
@@ -178,7 +179,16 @@
                             bool isFirstOrLastWord = startIndex == 0 || isPrecededByBracket || isLastChar || isFollowedByBracket;
                             if (isFirstOrLastWord && capitalizeIfFirstOrLastWord)
                             {
-                                resultWord = Char.ToUpperInvariant(resultWord[0]) + resultWord.Substring(1);
+	                            if (resultWord[0] == 181 && !RuntimeInformation.FrameworkDescription.StartsWith(".NET Framework"))
+	                            {
+                                    // When micro is the first character and we're not in the .NET Framework environment, don't change it.
+                                    // In .NET it doesn't differentiate between micro and the Greek letter mu.
+	                            }
+	                            else
+	                            {
+
+		                            resultWord = Char.ToUpperInvariant(resultWord[0]) + resultWord.Substring(1);
+                                }
                             }
 
                             resultParts.Add(resultWord);
@@ -309,7 +319,17 @@
             }
 
             // All other words
-            word = Char.ToUpperInvariant(word[0]) + workLowerCased.Substring(1);
+            if (word[0] == 181 && !RuntimeInformation.FrameworkDescription.StartsWith(".NET Framework"))
+            {
+	            word = word[0] + workLowerCased.Substring(1);
+
+	            // When micro is the first character and we're not in the .NET Framework environment, don't change it.
+	            // In .NET it doesn't differentiate between micro and the Greek letter mu.
+            }
+            else
+            {
+	            word = Char.ToUpperInvariant(word[0]) + workLowerCased.Substring(1);
+            }
 
             capitalizeIfFirstOrLastWord = true;
             return word;

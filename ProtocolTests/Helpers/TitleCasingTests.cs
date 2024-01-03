@@ -1,11 +1,13 @@
 ﻿namespace ProtocolTests.Helpers
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
+
+    [TestClass]
     public class TitleCasingTests
     {
         private static IEnumerable<object[]> ReusableTestData => new List<object[]>
@@ -158,13 +160,11 @@
             new []{ "(On Air) On Air on Air (On Air)",      "(On Air) On Air on Air (On Air)"},
 
             // Words with non-ASCII chars
-            /* TODO-MOD: This fails in .NET
             new []{ "500 µs",    "500 µs"},         // Micro Symbol µ (hex C2B5)
             new []{ "500µs",    "500µs"},           // Micro Symbol µ (hex C2B5)
             //new []{ "µ",    "µ"},                 // Micro Symbol µ (hex C2B5)
             //new []{ "\u00B5",    "µ"},            // Micro Symbol µ (hex C2B5)
             //new []{ "" + (char)0xC2B5,    "µ"},   // Micro Symbol µ (hex C2B5)
-            */
 
             new []{ "500 μs",    "500 Μs"},         // Greek letter μ (hex CEBC)
             new []{ "500μs",    "500Μs"},           // Greek letter μ (hex CEBC)
