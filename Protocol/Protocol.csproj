@@ -38,6 +38,7 @@
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="ProtocolTests" />
+		<InternalsVisibleTo Include="Skyline.SysDev.CiCd.ValidatorHelper" />
 	</ItemGroup>
 	
 	<ItemGroup>
