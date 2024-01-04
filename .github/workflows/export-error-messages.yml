@@ -17,7 +17,7 @@ on:
 jobs:
   export:
     name: Export Error Message
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       
@@ -26,20 +26,22 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu'
-          
-      - name: Find .sln file
-        id: findSlnFile        
-        run: |
-          echo solutionFilePath=$(find . -type f -name '*.sln') >> $GITHUB_OUTPUT
-        shell: bash  
-      
+
+      - name: Install NuGetToggleOnBuild
+        run: dotnet tool install Skyline.DataMiner.CICD.Tools.NuGetToggleOnBuild --global
+                
+      - name: Disable NuGet Creation on Subsequent Builds
+        run: NuGetToggleOnBuild --setToActive false --workspace ${{ github.workspace }} --onlyOnConfiguredNuGet false
+
       - name: Building
-        run: dotnet build "${{ steps.findSlnFile.outputs.solutionFilePath }}" --configuration Release -nodeReuse:false
+        run: dotnet build "./Validator Management Tool/Validator Management Tool.csproj" --configuration Release -nodeReuse:false
 
       - name: Run export logic
-        run: ./ExportErrorMessages.ps1 -version ${{ github.ref_name }} -outputDir "${{ github.workspace }}/Error Messages"
+        run: | 
+          .\Validator_Management_Tool.exe ${{ github.ref_name }}
+        working-directory: ${{ github.workspace }}\Validator Management Tool\bin\Release\net472
 
       - uses: actions/upload-artifact@v4
         with:
           name: Error Messages
-          path: "${{ github.workspace }}/Error Messages"
+          path: ${{ github.workspace }}\Validator Management Tool\bin\Release\net472\*.xlsx
