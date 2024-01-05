@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.Groups.Group.Content.Trigger.CheckTriggerTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Trigger.CheckTriggerTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Trigger.CheckTriggerTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckTriggerTag();
@@ -129,7 +131,7 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.Trigger.CheckTriggerTag
         {
             // Create ErrorMessage
             var message = Error.InvalidTriggerTag(null, null, null, "test", "1");
-            
+
             string description = "Invalid value 'test' in tag 'Content/Trigger'. Group ID '1'.";
 
             // Assert

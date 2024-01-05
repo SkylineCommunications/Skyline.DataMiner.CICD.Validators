@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.High.CheckHighTag;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.High.CheckHighTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckHighTag();
@@ -141,15 +144,15 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
         }
     }
 
-	[TestClass]
-	public class Compare
-	{
-		private readonly ICompare check = new CheckHighTag();
+    [TestClass]
+    public class Compare
+    {
+        private readonly ICompare check = new CheckHighTag();
 
-		#region Valid Checks
+        #region Valid Checks
 
-		[TestMethod]
-		public void Param_CheckHighTag_Valid()
+        [TestMethod]
+        public void Param_CheckHighTag_Valid()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -161,12 +164,12 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
             Generic.Compare(check, data);
         }
 
-		#endregion
+        #endregion
 
-		#region Invalid Checks
+        #region Invalid Checks
 
-		[TestMethod]
-		public void Param_CheckHighTag_UpdatedHighRange()
+        [TestMethod]
+        public void Param_CheckHighTag_UpdatedHighRange()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -181,8 +184,8 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
             Generic.Compare(check, data);
         }
 
-		[TestMethod]
-		public void Param_CheckHighTag_AddedHighRange()
+        [TestMethod]
+        public void Param_CheckHighTag_AddedHighRange()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -198,8 +201,8 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
             Generic.Compare(check, data);
         }
 
-		#endregion
-	}
+        #endregion
+    }
 
     [TestClass]
     public class ErrorMessages
@@ -209,7 +212,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
         {
             // Create ErrorMessage
             var message = Error.EmptyTag(null, null, null, "2");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Minor,
@@ -230,7 +233,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "1", "2");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Minor,
@@ -251,7 +254,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
         {
             // Create ErrorMessage
             var message = Error.UntrimmedValue(null, null, null, "1", "2");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Warning,
@@ -272,7 +275,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
         {
             // Create ErrorMessage
             var message = Error.LogarithmicLowerOrEqualToZero(null, null, null, "rangeHigh", "paramId");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -289,15 +292,15 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
         }
     }
 
-	[TestClass]
-	public class Attribute
-	{
-		private readonly IRoot root = new CheckHighTag();
+    [TestClass]
+    public class Attribute
+    {
+        private readonly IRoot root = new CheckHighTag();
 
-		[TestMethod]
-		public void Param_CheckHighTag_CheckCategory() => Generic.CheckCategory(root, Category.Param);
+        [TestMethod]
+        public void Param_CheckHighTag_CheckCategory() => Generic.CheckCategory(root, Category.Param);
 
-		[TestMethod]
-		public void Param_CheckHighTag_CheckId() => Generic.CheckId(root, CheckId.CheckHighTag);
-	}
+        [TestMethod]
+        public void Param_CheckHighTag_CheckId() => Generic.CheckId(root, CheckId.CheckHighTag);
+    }
 }

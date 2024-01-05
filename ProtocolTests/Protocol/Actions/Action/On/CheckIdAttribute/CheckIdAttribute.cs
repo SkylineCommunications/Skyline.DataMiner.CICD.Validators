@@ -1,17 +1,20 @@
 namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Action.On.CheckIdAttribute;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Action.On.CheckIdAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckIdAttribute();
@@ -206,7 +209,7 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.EmptyAttibute(null, null, null, "2");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,
@@ -233,7 +236,7 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 4,
@@ -260,7 +263,7 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "2", "3", "4");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 5,
@@ -287,7 +290,7 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.UntrimmedValueInAttribute(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,

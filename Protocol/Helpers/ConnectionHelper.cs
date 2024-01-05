@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
 

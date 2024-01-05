@@ -1,8 +1,8 @@
 ﻿namespace Validator_Management_Tool.Templates.Tests
 {
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-	public partial class TestsClass
+    public partial class TestsClass
     {
         private string className;
         private string @namespace;

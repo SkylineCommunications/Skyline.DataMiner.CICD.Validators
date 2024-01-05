@@ -7,8 +7,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
@@ -91,7 +91,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
 
     internal class ValidateHelper : ValidateHelperBase
     {
-	    public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results) : base(test, context, results)
+        public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results) : base(test, context, results)
         {
         }
 
@@ -168,25 +168,25 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
             }
             else if (headerKey.Value.Equals("Accept-Encoding", StringComparison.OrdinalIgnoreCase) && header.Value != null)
             {
-	            string[] acceptedEncodings = header.Value.Split(',');
-	            bool unsupportedEncodingFound = false;
+                string[] acceptedEncodings = header.Value.Split(',');
+                bool unsupportedEncodingFound = false;
 
-	            foreach (string acceptedEncoding in acceptedEncodings)
-	            {
-		            if (!acceptedEncoding.Equals("identity") && !acceptedEncoding.Equals("gzip") && !acceptedEncoding.Equals("deflate"))
-		            {
-			            unsupportedEncodingFound = true;
-			            break;
-		            }
-	            }
+                foreach (string acceptedEncoding in acceptedEncodings)
+                {
+                    if (!acceptedEncoding.Equals("identity") && !acceptedEncoding.Equals("gzip") && !acceptedEncoding.Equals("deflate"))
+                    {
+                        unsupportedEncodingFound = true;
+                        break;
+                    }
+                }
 
-	            if (unsupportedEncodingFound)
-	            {
-		            IValidationResult unsupportedHeaderKey = Error.UnsupportedHeaderKey(test, header, header, Certainty.Uncertain, "Accept-Encoding", session.Id.RawValue, connection.Id.RawValue);
-		            unsupportedHeaderKey.WithExtraData(ExtraData.Session, session)
-		                                .WithExtraData(ExtraData.Connection, connection);
-		            results.Add(unsupportedHeaderKey);
-	            }
+                if (unsupportedEncodingFound)
+                {
+                    IValidationResult unsupportedHeaderKey = Error.UnsupportedHeaderKey(test, header, header, Certainty.Uncertain, "Accept-Encoding", session.Id.RawValue, connection.Id.RawValue);
+                    unsupportedHeaderKey.WithExtraData(ExtraData.Session, session)
+                                        .WithExtraData(ExtraData.Connection, connection);
+                    results.Add(unsupportedHeaderKey);
+                }
             }
 
             // Untrimmed

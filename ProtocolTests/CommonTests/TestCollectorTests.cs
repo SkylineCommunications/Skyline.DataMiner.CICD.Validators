@@ -1,15 +1,18 @@
 ﻿namespace ProtocolTests.CommonTests
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+
+    [TestClass]
     public class TestCollectorTests
     {
         [TestMethod]

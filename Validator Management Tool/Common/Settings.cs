@@ -1,8 +1,8 @@
 ﻿namespace Validator_Management_Tool.Common
 {
-	using System.Collections.Immutable;
+    using System.Collections.Immutable;
 
-	/// <summary>
+    /// <summary>
     /// Static class that holds the settings.
     /// </summary>
     public static class Settings
@@ -174,6 +174,6 @@
             "ICodeFix",
             "ITest",
             "IValidationResult",
-            "IValidator" );
+            "IValidator");
     }
 }

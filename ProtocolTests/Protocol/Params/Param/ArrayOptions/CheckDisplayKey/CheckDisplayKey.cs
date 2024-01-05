@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckDisplayKey
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayKey;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.CheckDisplayKey;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckDisplayKey();
@@ -249,7 +251,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckDisplayKey
 
                     Error.UnexpectedIdxSuffix(null, null, null, "1201"),
                     Error.UnexpectedIdxSuffix(null, null, null, "1202"),
-                    
+
                     Error.UnexpectedIdxSuffix(null, null, null, "1301"),
                     Error.UnexpectedIdxSuffix(null, null, null, "1302"),
                     Error.UnexpectedIdxSuffix(null, null, null, "1303"),

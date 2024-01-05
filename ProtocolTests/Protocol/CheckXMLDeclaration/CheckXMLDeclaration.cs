@@ -1,24 +1,27 @@
 namespace ProtocolTests.Protocol.CheckXMLDeclaration
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckXMLDeclaration;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
-	public class Validate
-	{
-		private readonly IValidate test = new CheckXMLDeclaration();
+    using FluentAssertions;
 
-		#region Valid Checks
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-		[TestMethod]
-		public void Protocol_CheckXMLDeclaration_ValidUtf8Declaration()
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckXMLDeclaration;
+
+    [TestClass]
+    public class Validate
+    {
+        private readonly IValidate test = new CheckXMLDeclaration();
+
+        #region Valid Checks
+
+        [TestMethod]
+        public void Protocol_CheckXMLDeclaration_ValidUtf8Declaration()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -30,8 +33,8 @@ namespace ProtocolTests.Protocol.CheckXMLDeclaration
             Generic.Validate(test, data);
         }
 
-		[TestMethod]
-		public void Protocol_CheckXMLDeclaration_ValidNoDeclaration()
+        [TestMethod]
+        public void Protocol_CheckXMLDeclaration_ValidNoDeclaration()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -57,7 +60,7 @@ namespace ProtocolTests.Protocol.CheckXMLDeclaration
         }
 
         [TestMethod]
-		public void Protocol_CheckXMLDeclaration_ValidDeclarationWithoutEncoding()
+        public void Protocol_CheckXMLDeclaration_ValidDeclarationWithoutEncoding()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -69,12 +72,12 @@ namespace ProtocolTests.Protocol.CheckXMLDeclaration
             Generic.Validate(test, data);
         }
 
-		#endregion
+        #endregion
 
-		#region Invalid Checks
+        #region Invalid Checks
 
-		[TestMethod]
-		public void Protocol_CheckXMLDeclaration_InvalidDeclaration()
+        [TestMethod]
+        public void Protocol_CheckXMLDeclaration_InvalidDeclaration()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -89,13 +92,13 @@ namespace ProtocolTests.Protocol.CheckXMLDeclaration
             Generic.Validate(test, data);
         }
 
-		#endregion
-	}
+        #endregion
+    }
 
-	[TestClass]
-	public class CodeFix
-	{
-		private readonly ICodeFix codeFix = new CheckXMLDeclaration();
+    [TestClass]
+    public class CodeFix
+    {
+        private readonly ICodeFix codeFix = new CheckXMLDeclaration();
 
         [TestMethod]
         public void Protocol_CheckXMLDeclaration_InvalidDeclaration()
@@ -107,7 +110,7 @@ namespace ProtocolTests.Protocol.CheckXMLDeclaration
 
             Generic.Fix(codeFix, data);
         }
-	}
+    }
 
     [TestClass]
     public class ErrorMessages
@@ -140,15 +143,15 @@ namespace ProtocolTests.Protocol.CheckXMLDeclaration
         }
     }
 
-	[TestClass]
-	public class Attribute
-	{
-		private readonly IRoot root = new CheckXMLDeclaration();
+    [TestClass]
+    public class Attribute
+    {
+        private readonly IRoot root = new CheckXMLDeclaration();
 
-		[TestMethod]
-		public void Protocol_CheckXMLDeclaration_CheckCategory() => Generic.CheckCategory(root, Category.Protocol);
+        [TestMethod]
+        public void Protocol_CheckXMLDeclaration_CheckCategory() => Generic.CheckCategory(root, Category.Protocol);
 
-		[TestMethod]
-		public void Protocol_CheckXMLDeclaration_CheckId() => Generic.CheckId(root, CheckId.CheckXMLDeclaration);
-	}
+        [TestMethod]
+        public void Protocol_CheckXMLDeclaration_CheckId() => Generic.CheckId(root, CheckId.CheckXMLDeclaration);
+    }
 }

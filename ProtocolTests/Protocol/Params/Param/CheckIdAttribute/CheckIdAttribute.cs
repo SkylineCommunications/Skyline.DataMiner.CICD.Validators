@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.CheckIdAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.CheckIdAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckIdAttribute();
@@ -402,7 +404,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.MissingAttribute(null, null, null);
-            
+
             string description = "Missing attribute 'Param@id'.";
 
             // Assert
@@ -414,7 +416,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null);
-            
+
             string description = "Empty attribute 'Param@id'.";
 
             // Assert
@@ -426,7 +428,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "0", "MyName");
-            
+
             string description = "Invalid value '0' in attribute 'Param@id'. Param name 'MyName'.";
 
             // Assert
@@ -438,7 +440,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.OutOfRangeId(null, null, null, "0");
-            
+
             string description = "Out of range Param ID '0'.";
 
             // Assert
@@ -450,7 +452,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidUseOfSpectrumIdRange(null, null, null, "0");
-            
+
             string description = "Invalid use of Spectrum ID range for Param with ID '0'.";
 
             // Assert
@@ -462,7 +464,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidUseOfMediationIdRange(null, null, null, "0");
-            
+
             string description = "Invalid use of Mediation ID range for Param with ID '0'.";
 
             // Assert
@@ -474,7 +476,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidUseOfDataMinerModulesIdRange(null, null, null, "0");
-            
+
             string description = "Invalid use of DataMiner Modules ID range for Param with ID '0'.";
 
             // Assert
@@ -486,7 +488,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidUseOfEnhancedServiceIdRange(null, null, null, "0");
-            
+
             string description = "Invalid use of Enhanced Service ID range for Param with ID '0'.";
 
             // Assert
@@ -498,7 +500,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidUseOfSlaIdRange(null, null, null, "0");
-            
+
             string description = "Invalid use of SLA ID range for Param with ID '0'.";
 
             // Assert
@@ -510,7 +512,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = Error.DuplicatedId(null, null, null, "0", "MyParam1, MyParam2");
-            
+
             string description = "More than one Param with same ID '0'. Param Names 'MyParam1, MyParam2'.";
 
             // Assert
@@ -522,7 +524,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckIdAttribute
         {
             // Create ErrorMessage
             var message = ErrorCompare.MissingParam(null, null, "0", "1", "2");
-            
+
             string description = "Missing displayed Param. Param Name '0'. Param Type '1'. Param ID '2'.";
 
             // Assert

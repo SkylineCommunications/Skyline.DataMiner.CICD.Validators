@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer.Content.Group.CheckGroupTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer.Content.Group.CheckGroupTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckGroupTag();

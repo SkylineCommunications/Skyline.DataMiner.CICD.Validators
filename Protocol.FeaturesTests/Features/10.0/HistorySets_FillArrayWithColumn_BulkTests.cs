@@ -1,16 +1,20 @@
 ﻿namespace Protocol.FeaturesTests.Features._10._0
 {
-	using System.Linq;
-	using Common.Testing;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Models.Protocol.Read;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+    using System.Linq;
 
-	[TestClass]
+    using Common.Testing;
+
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+
+    [TestClass]
     public class HistorySets_FillArrayWithColumn_BulkTests
     {
         private static HistorySetsFillArrayWithColumnBulk check;

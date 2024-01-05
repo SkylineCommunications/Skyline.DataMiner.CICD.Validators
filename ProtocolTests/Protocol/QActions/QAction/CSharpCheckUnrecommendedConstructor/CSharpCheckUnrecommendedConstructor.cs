@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedConstructor
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedConstructor;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedConstructor;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpCheckUnrecommendedConstructor();
@@ -67,7 +70,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedConstr
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedXmlSerializerConstructor(null, null, null, "unrecommendedConstructor", "constructorNamespace", "qactionId");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Critical,

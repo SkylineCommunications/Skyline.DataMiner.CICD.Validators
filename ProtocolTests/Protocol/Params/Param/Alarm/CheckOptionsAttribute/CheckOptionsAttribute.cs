@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.Params.Param.Alarm.CheckOptionsAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.CheckOptionsAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckOptionsAttribute();
@@ -135,7 +137,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.CheckOptionsAttribute
     public class Compare
     {
         private readonly ICompare compare = new CheckOptionsAttribute();
-        
+
         #region Valid Checks
 
         [TestMethod]

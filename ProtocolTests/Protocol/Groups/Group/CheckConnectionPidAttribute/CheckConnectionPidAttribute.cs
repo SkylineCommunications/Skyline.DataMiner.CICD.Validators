@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.Groups.Group.CheckConnectionPidAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.CheckConnectionPidAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.CheckConnectionPidAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckConnectionPidAttribute();
@@ -106,7 +108,7 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckConnectionPidAttribute
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "0");
-            
+
             string description = "Empty attribute 'connectionPid' in Group '0'.";
 
             // Assert
@@ -118,7 +120,7 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckConnectionPidAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidAttribute(null, null, null, "0", "1");
-            
+
             string description = "Invalid value '0' in attribute 'connectionPid'. Group ID '1'.";
 
             // Assert
@@ -130,7 +132,7 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckConnectionPidAttribute
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "0", "1");
-            
+
             string description = "Attribute 'connectionPid' references a non-existing 'Param' with ID '0'. Group ID '1'.";
 
             // Assert

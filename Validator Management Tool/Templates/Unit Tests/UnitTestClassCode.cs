@@ -1,14 +1,16 @@
 ﻿namespace Validator_Management_Tool.Templates.Unit_Tests
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Validator_Management_Tool.Common;
-	using Validator_Management_Tool.Model;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
-	partial class UnitTestClass
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using Validator_Management_Tool.Common;
+    using Validator_Management_Tool.Model;
+
+    partial class UnitTestClass
     {
         // Properties to be excluded from the error messages unit tests.
         private static readonly List<string> ExcludedProperties = new List<string>
@@ -33,7 +35,7 @@
 
         private readonly List<(bool hasArguments, string args, Dictionary<string, object> props, Check check)> validateChecks = new List<(bool hasArguments, string args, Dictionary<string, object> props, Check check)>();
         private readonly List<(bool hasArguments, string args, Dictionary<string, object> props, Check check)> compareChecks = new List<(bool hasArguments, string args, Dictionary<string, object> props, Check check)>();
-        
+
         public UnitTestClass(List<Check> checks, string className)
         {
             this.allChecks = checks;
@@ -73,7 +75,7 @@
                             {
                                 if (String.IsNullOrWhiteSpace(parameter.Value))
                                 {
-									string argName = parameter.Text;
+                                    string argName = parameter.Text;
                                     args.Add($"\"{argName}\"");
                                     desc = desc.Replace($"{{{argCount}}}", $"{argName}");
                                 }

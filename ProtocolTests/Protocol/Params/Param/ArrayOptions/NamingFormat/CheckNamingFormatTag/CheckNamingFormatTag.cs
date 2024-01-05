@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNamingFormatTag
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNamingFormatTag;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNamingFormatTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckNamingFormatTag();
@@ -144,7 +147,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
         {
             // Create ErrorMessage
             var message = Error.EmptyTag(null, null, null, "tablePid");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -171,7 +174,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
         {
             // Create ErrorMessage
             var message = Error.NonExistingParam(null, null, null, "referencedPid", "tablePid");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,
@@ -198,7 +201,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
         {
             // Create ErrorMessage
             var message = Error.UntrimmedTag(null, null, null, "tablePid", "untrimmedValue");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,

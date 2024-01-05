@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Commands.Command.Content.Param.CheckParamTag
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Command.Content.Param.CheckParamTag;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Command.Content.Param.CheckParamTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckParamTag();
@@ -117,7 +120,7 @@ namespace ProtocolTests.Protocol.Commands.Command.Content.Param.CheckParamTag
         {
             // Create ErrorMessage
             var message = Error.EmptyParamTag(null, null, null, "0");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,
@@ -144,7 +147,7 @@ namespace ProtocolTests.Protocol.Commands.Command.Content.Param.CheckParamTag
         {
             // Create ErrorMessage
             var message = Error.InvalidParamTag(null, null, null, "test", "1");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,
@@ -171,7 +174,7 @@ namespace ProtocolTests.Protocol.Commands.Command.Content.Param.CheckParamTag
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "0", "1");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,

@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -102,28 +102,28 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
             switch (context.Result.ErrorId)
             {
                 case ErrorIds.UntrimmedAttribute:
-                {
-                    var readNode = (ITreeControlsTreeControlHierarchyTable)context.Result.ReferenceNode;
-
-                    TreeControlsTreeControlHierarchyTable editNode = null;
-                    foreach (var treeControl in context.Protocol.TreeControls)
                     {
-                        editNode = treeControl.Hierarchy?.Get(readNode);
+                        var readNode = (ITreeControlsTreeControlHierarchyTable)context.Result.ReferenceNode;
+
+                        TreeControlsTreeControlHierarchyTable editNode = null;
+                        foreach (var treeControl in context.Protocol.TreeControls)
+                        {
+                            editNode = treeControl.Hierarchy?.Get(readNode);
+
+                            if (editNode != null)
+                            {
+                                break;
+                            }
+                        }
 
                         if (editNode != null)
                         {
-                            break;
+                            editNode.ParentAttribute.Value = readNode.ParentAttribute.Value;
+                            result.Success = true;
                         }
-                    }
 
-                    if (editNode != null)
-                    {
-                        editNode.ParentAttribute.Value = readNode.ParentAttribute.Value;
-                        result.Success = true;
+                        break;
                     }
-
-                    break;
-                }
 
                 default:
                     result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";

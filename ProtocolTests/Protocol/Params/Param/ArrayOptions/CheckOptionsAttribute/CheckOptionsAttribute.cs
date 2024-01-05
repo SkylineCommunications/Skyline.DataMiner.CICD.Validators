@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckOptionsAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.CheckOptionsAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckOptionsAttribute();
@@ -143,7 +145,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckOptionsAttribute
                 {
                     Error.UntrimmedAttribute(null, null, null, "1000", " ;naming=/1002"),
                     Error.UntrimmedAttribute(null, null, null, "1100", ";naming=/1101,1102 "),
-                    
+
                     Error.UntrimmedAttribute(null, null, null, "10000", " ;volatile;view=1000;naming=/10001,10002 "),
                 }
             };

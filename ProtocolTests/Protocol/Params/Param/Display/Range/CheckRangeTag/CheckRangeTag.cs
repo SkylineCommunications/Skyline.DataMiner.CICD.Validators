@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Params.Param.Display.Range.CheckRangeTag
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using FluentAssertions.Equivalency;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.CheckRangeTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+    using FluentAssertions.Equivalency;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.CheckRangeTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckRangeTag();
@@ -191,7 +194,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.CheckRangeTag
 
             // Assert
             message.Should().BeEquivalentTo(expected, ExcludePropertiesForErrorMessagesIncludingExtra);
-            
+
             EquivalencyAssertionOptions<ValidationResult> ExcludePropertiesForErrorMessagesIncludingExtra(EquivalencyAssertionOptions<ValidationResult> options)
             {
                 Generic.ExcludePropertiesForErrorMessages(options);

@@ -1,11 +1,12 @@
 ﻿namespace Validator_Management_Tool.Views
 {
-	using System;
-	using System.Windows;
-	using Validator_Management_Tool.Model;
-	using Validator_Management_Tool.ViewModel;
+    using System;
+    using System.Windows;
 
-	/// <summary>
+    using Validator_Management_Tool.Model;
+    using Validator_Management_Tool.ViewModel;
+
+    /// <summary>
     /// Interaction logic for CheckEditView.xaml
     /// </summary>
     public partial class CheckEditView : Window

@@ -1,10 +1,11 @@
 ﻿namespace Validator_Management_Tool.Common
 {
-	using System;
-	using System.Collections.Generic;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using System;
+    using System.Collections.Generic;
 
-	/// <summary>
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    /// <summary>
     /// The old implementation to convert the XML file into check objects.
     /// This class could only read them and not write them back to the XML file.
     /// It is not used in the current application.

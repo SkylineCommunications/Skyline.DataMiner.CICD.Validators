@@ -1,36 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<AssemblyName>Skyline.DataMiner.CICD.Validators.Common</AssemblyName>
-		<RootNamespace>Skyline.DataMiner.CICD.Validators.Common</RootNamespace>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Authors>SkylineCommunications</Authors>
-		<Company>Skyline Communications</Company>
-		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<PackageIcon>icon.png</PackageIcon>
-		<PackageProjectUrl>https://skyline.be/</PackageProjectUrl>
-		<PackageTags>Skyline;DataMiner;CICD</PackageTags>
-		<Description>Library containing common validator-related logic.</Description>
-		<RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Validators.git</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Skyline.DataMiner.CICD.Validators.Common</AssemblyName>
+    <RootNamespace>Skyline.DataMiner.CICD.Validators.Common</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>SkylineCommunications</Authors>
+    <Company>Skyline Communications</Company>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://skyline.be/</PackageProjectUrl>
+    <PackageTags>Skyline;DataMiner;CICD</PackageTags>
+    <Description>Library containing common validator-related logic.</Description>
+    <RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Validators.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="1.0.8-b" />
-		<PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1-b" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="1.0.8-b" />
+    <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1-b" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<None Include="..\_NuGetItems\icon.png" Pack="true" PackagePath="" />
-		<None Include="..\_NuGetItems\LICENSE.txt" Pack="true" PackagePath="" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="..\_NuGetItems\icon.png" Pack="true" PackagePath="" />
+    <None Include="..\_NuGetItems\LICENSE.txt" Pack="true" PackagePath="" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<InternalsVisibleTo Include="CommonTests" />
-		<InternalsVisibleTo Include="ProtocolTests" />
-		<InternalsVisibleTo Include="Skyline.DataMiner.CICD.Validators.Protocol" />
-	</ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="CommonTests" />
+    <InternalsVisibleTo Include="ProtocolTests" />
+    <InternalsVisibleTo Include="Skyline.DataMiner.CICD.Validators.Protocol" />
+  </ItemGroup>
 
 </Project>

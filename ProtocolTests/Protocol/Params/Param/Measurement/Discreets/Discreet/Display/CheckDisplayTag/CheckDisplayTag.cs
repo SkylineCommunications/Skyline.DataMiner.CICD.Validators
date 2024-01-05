@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Display.CheckDisplayTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.Display.CheckDisplayTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.Display.CheckDisplayTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckDisplayTag();
@@ -232,7 +234,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Dis
 
         #endregion
     }
-    
+
     [TestClass]
     public class ErrorMessages
     {

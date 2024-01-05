@@ -14,8 +14,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -33,9 +33,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 {
                     continue;
                 }
-                
+
                 var entryPoints = qaction.GetEntryPoints().EntryPoints;
-                
+
                 QActionAnalyzer analyzer = new QActionAnalyzer(this, qaction, results, entryPoints);
                 foreach ((SyntaxTree syntaxTree, SemanticModel semanticModel) in projectData.EachQActionSyntaxTreesAndModels())
                 {
@@ -43,7 +43,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                     RoslynVisitor parser = new RoslynVisitor(analyzer);
                     parser.Visit(syntaxTree.GetRoot());
                 }
-                
+
                 analyzer.CheckRemainingEntryPoints();
                 analyzer.CheckAccessModifiersEntryPoints();
                 analyzer.CheckArg0TypeEntryPoints();

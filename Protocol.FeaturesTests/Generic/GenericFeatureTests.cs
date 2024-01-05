@@ -1,14 +1,16 @@
 ﻿namespace Protocol.FeaturesTests.Generic
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+
+    [TestClass]
     public class GenericFeatureTests
     {
         private static List<(IFeatureCheck feature, MinDataMinerVersionsAttribute minVersion, MaxDataMinerVersionsAttribute maxVersion)> features;

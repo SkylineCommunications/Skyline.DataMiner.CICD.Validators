@@ -104,7 +104,7 @@
                 {
                     return false;
                 }
-                
+
                 // DateTime is always on position 4
                 if (callingMethod.Arguments.Count < 5)
                 {
@@ -145,7 +145,7 @@
                     // No array that could be parsed.
                     return false;
                 }
-                
+
                 // Get last item as it the call can be for multiple columns
                 var extra = columnInfo.Array.LastOrDefault();
                 if (extra == null || extra.Type != Value.ValueType.Array || extra.Array == null || extra.Array.Count != 2)

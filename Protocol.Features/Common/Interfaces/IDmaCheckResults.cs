@@ -5,7 +5,7 @@
     /// <summary>
     /// Holds the features that are used.
     /// </summary>
-    public interface IDmaVersionCheckResults
+    public interface IDmVersionCheckResults
     {
         /// <summary>
         /// Gets the features that are used.

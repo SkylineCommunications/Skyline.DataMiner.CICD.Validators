@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpSLProtocolSetParameter();
@@ -48,7 +51,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
                     Error.HardCodedPid(null, null, null, "100", "100"),
                     Error.HardCodedPid(null, null, null, "200", "100"),
                     Error.HardCodedPid(null, null, null, "201", "100"),
-                    
+
                     Error.HardCodedPid(null, null, null, "100", "100"),
 
                     Error.HardCodedPid(null, null, null, "100", "100"),
@@ -255,7 +258,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
         {
             // Create ErrorMessage
             var message = Error.NonExistingParam(null, null, null, "1", "2");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 1,
@@ -309,7 +312,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
         {
             // Create ErrorMessage
             var message = Error.ParamMissingHistorySet(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 3,

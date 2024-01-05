@@ -1,11 +1,12 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results
 {
     using System.Collections.Generic;
+
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
 
-    internal class DmaVersionCheckResults : IDmaVersionCheckResults
+    internal class DmVersionCheckResults : IDmVersionCheckResults
     {
-        internal DmaVersionCheckResults()
+        internal DmVersionCheckResults()
         {
             Features = new List<Feature>();
         }

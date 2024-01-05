@@ -178,8 +178,8 @@
         [DynamicData(nameof(ReusableTestData))]
         public void ToTitleCase_Valid(string inputValue, string expectedOutput)
         {
-	        TitleCasing titleCasing = new TitleCasing(new ValidatorSettings());
-	        string output = titleCasing.ToTitleCase(inputValue);
+            TitleCasing titleCasing = new TitleCasing(new ValidatorSettings());
+            string output = titleCasing.ToTitleCase(inputValue);
 
             Assert.AreEqual(expectedOutput, output);
         }
@@ -191,7 +191,7 @@
         [DataRow("(On Air) On Air on Air (On Air)", "(On Air) On Air on Air (On Air)")]
         public void ToTitleCase_Valid_ForQuickDebugging(string inputValue, string expectedOutput)
         {
-	        TitleCasing titleCasing = new TitleCasing(new ValidatorSettings());
+            TitleCasing titleCasing = new TitleCasing(new ValidatorSettings());
             string output = titleCasing.ToTitleCase(inputValue);
 
             Assert.AreEqual(expectedOutput, output);

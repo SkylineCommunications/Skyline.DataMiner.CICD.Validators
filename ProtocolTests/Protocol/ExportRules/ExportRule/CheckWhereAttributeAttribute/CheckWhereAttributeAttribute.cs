@@ -1,15 +1,18 @@
 namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereAttributeAttribute
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.ExportRule.CheckWhereAttributeAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.ExportRule.CheckWhereAttributeAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckWhereAttributeAttribute();
@@ -76,7 +79,7 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereAttributeAttri
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null);
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -97,7 +100,7 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereAttributeAttri
         {
             // Create ErrorMessage
             var message = Error.UntrimmedAttribute(null, null, null, "untrimmedValue");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Warning,

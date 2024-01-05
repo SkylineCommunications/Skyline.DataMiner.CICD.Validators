@@ -165,7 +165,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
         private readonly IProtocol protocol;
 
         internal ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IProtocol protocol)
-			: base(test, context, results)
+            : base(test, context, results)
         {
             this.protocol = protocol;
         }

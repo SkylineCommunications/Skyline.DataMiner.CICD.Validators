@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckDiscreetTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckDiscreetTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckDiscreetTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckDiscreetTag();
@@ -58,7 +60,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
         {
             // Create ErrorMessage
             var message = Error.MissingTag(null, null, null, "1");
-            
+
             string description = "Missing 'Discreet' tag(s) in 'Measurement/Discreets' tag. Param ID '1'.";
 
             // Assert

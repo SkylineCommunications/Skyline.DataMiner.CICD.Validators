@@ -9,8 +9,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -117,7 +117,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
         private readonly ProtocolTypeOptions options;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IProtocolType protocolTypeTag)
-			: base(test, context, results)
+            : base(test, context, results)
         {
             model = context.ProtocolModel;
 
@@ -135,7 +135,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                     // TODO: Invalid exportProtocol option
                     continue;
                 }
-                
+
                 ValidateDveProtocolName(exportProtocol.Name);
                 ValidateDveTable(exportProtocol.TablePid.Value);
             }

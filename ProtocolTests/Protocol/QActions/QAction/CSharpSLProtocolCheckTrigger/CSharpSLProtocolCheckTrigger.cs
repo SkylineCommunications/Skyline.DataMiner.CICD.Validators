@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolCheckTrigger
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolCheckTrigger;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolCheckTrigger;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpSLProtocolCheckTrigger();
@@ -63,7 +65,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolCheckTrigger
         {
             // Create ErrorMessage
             var message = Error.NonExistingTrigger(null, null, null, "10", "100");
-            
+
             string description = "Method 'SLProtocol.CheckTrigger' references a non-existing 'Trigger' with ID '10'. QAction ID '100'.";
 
             // Assert

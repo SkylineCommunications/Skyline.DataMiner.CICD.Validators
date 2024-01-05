@@ -1,21 +1,22 @@
 ﻿namespace Validator_Management_Tool.ViewModel
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
-	using System.Collections.Specialized;
-	using System.ComponentModel;
-	using System.Linq;
-	using System.Text;
-	using System.Windows;
-	using System.Windows.Data;
-	using System.Windows.Threading;
-	using Validator_Management_Tool.Common;
-	using Validator_Management_Tool.Interfaces;
-	using Validator_Management_Tool.Model;
-	using Validator_Management_Tool.Views;
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Collections.Specialized;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Text;
+    using System.Windows;
+    using System.Windows.Data;
+    using System.Windows.Threading;
 
-	/// <summary>
+    using Validator_Management_Tool.Common;
+    using Validator_Management_Tool.Interfaces;
+    using Validator_Management_Tool.Model;
+    using Validator_Management_Tool.Views;
+
+    /// <summary>
     /// The Viewmodel for the main check overview.
     /// </summary>
     public class CheckViewModel : BindableBase
@@ -507,7 +508,7 @@
             {
                 ExportManager.ExportToExcel(Checks);
                 MessageBox.Show("Exporting Done!", "Export Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
-            }  
+            }
         }
 
         /// <summary>

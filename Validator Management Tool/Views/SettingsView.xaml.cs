@@ -1,15 +1,15 @@
 ﻿namespace Validator_Management_Tool.Views
 {
-	using System.Windows.Controls;
+    using System.Windows.Controls;
 
-	/// <summary>
+    /// <summary>
     /// Interaction logic for SettingsView.xaml
     /// </summary>
     public partial class SettingsView : UserControl
-	{
-		public SettingsView()
-		{
-			InitializeComponent();
-		}
-	}
+    {
+        public SettingsView()
+        {
+            InitializeComponent();
+        }
+    }
 }

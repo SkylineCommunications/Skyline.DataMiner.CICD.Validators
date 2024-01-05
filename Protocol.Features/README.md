@@ -2,7 +2,7 @@
 
 ## About
 
-TODO
+This NuGet package holds the code to identify which features are being used inside the connector. Do note that this is not a full list of all the features.
 
 ### About DataMiner
 
@@ -19,5 +19,30 @@ A unique catalog of 7000+ connectors already exist. In addition, you can leverag
 
 At Skyline Communications, we deal in world-class solutions that are deployed by leading companies around the globe. Check out [our proven track record](https://aka.dataminer.services/about-skyline) and see how we make our customers' lives easier by empowering them to take their operations to the next level.
 
-<!-- Uncomment below and add more info to provide more information about how to use this package. -->
-<!-- ## Getting Started -->
+## Getting Started
+
+### Creation of ProtocolInputData
+
+```csharp
+string protocolXml = ...;
+Microsoft.CodeAnalysis.Solution solution = ...;
+
+Parser parser = new Parser(protocolXml);
+XmlDocument document = parser.Document;
+ProtocolModel model = new ProtocolModel(document);
+
+QActionCompilationModel qactionCompilationModel = new QActionCompilationModel(model, solution);
+
+var protocolInputData = new ProtocolInputData(model, document, qactionCompilationModel);
+
+```
+
+### Run VersionChecker
+
+```csharp
+CancellationToken cancellationToken = ...;
+var protocolInputData = ...;
+
+var result = VersionChecker.GetUsedFeatures(protocolInputData, cancellationToken);
+
+```

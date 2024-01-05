@@ -1,15 +1,18 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedPropertySet
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedPropertySet;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedPropertySet;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpCheckUnrecommendedPropertySet();
@@ -97,7 +100,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedProper
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedCultureInfoDefaultThreadCurrentCulture(null, null, null, "qactionId");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,

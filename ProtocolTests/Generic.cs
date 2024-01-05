@@ -1,28 +1,32 @@
 ﻿namespace ProtocolTests
 {
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Linq;
-	using System.Runtime.CompilerServices;
-	using System.Text;
-	using System.Threading;
-	using Common.Testing;
-	using FluentAssertions;
-	using FluentAssertions.Equivalency;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Models.Protocol.Read;
-	using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
-	using Skyline.DataMiner.CICD.Parsers.Common.Xml;
-	using Skyline.DataMiner.CICD.Validators.Common.Data;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Runtime.CompilerServices;
+    using System.Text;
+    using System.Threading;
 
-	internal static class Generic
+    using Common.Testing;
+
+    using FluentAssertions;
+    using FluentAssertions.Equivalency;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
+    using Skyline.DataMiner.CICD.Parsers.Common.Xml;
+    using Skyline.DataMiner.CICD.Validators.Common.Data;
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+
+    internal static class Generic
     {
         #region Actual Check Methods
 
@@ -189,7 +193,7 @@
         internal static void Fix(IRoot test, FixData data, [CallerFilePath] string pathToClassFile = "")
         {
             // Execute Validate first to receive the results.
-            
+
             var (model, document, code) = GetValidatorContextData(data, pathToClassFile);
 
             var qactionCompilationModel = ProtocolTestsHelper.GetQActionCompilationModel(model, code);
@@ -545,7 +549,7 @@
 
             try
             {
-	            var inputOld = new ProtocolInputData(oldP);
+                var inputOld = new ProtocolInputData(oldP);
                 var inputNew = new ProtocolInputData(newP);
 
                 context = new MajorChangeCheckContext(inputNew, inputOld, GetValidatorSettingsFromEnvironmentData(data.IsSkylineUser));
@@ -593,7 +597,7 @@
         {
             ValidatorSettings validatorSettings = new ValidatorSettings
             {
-	            ExpectedProvider = isSkylineUser ? "Skyline Communications" : String.Empty
+                ExpectedProvider = isSkylineUser ? "Skyline Communications" : String.Empty
             };
 
             return validatorSettings;

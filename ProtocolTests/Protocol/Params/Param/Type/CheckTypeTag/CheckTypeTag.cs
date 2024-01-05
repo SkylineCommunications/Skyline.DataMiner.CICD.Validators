@@ -1,15 +1,18 @@
 namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Type.CheckTypeTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Type.CheckTypeTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckTypeTag();
@@ -129,7 +132,7 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
         {
             // Create ErrorMessage
             var message = Error.EmptyTag(null, null, null, "2");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,
@@ -156,7 +159,7 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 4,
@@ -183,7 +186,7 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
         {
             // Create ErrorMessage
             var message = Error.MissingTag(null, null, null, "2");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -210,7 +213,7 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
         {
             // Create ErrorMessage
             var message = Error.UntrimmedTag(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,

@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTGetParameter
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTGetParameter;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTGetParameter;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpNotifyDataMinerNTGetParameter();
@@ -90,7 +93,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTGetPara
         {
             // Create ErrorMessage
             var message = Error.DeltIncompatible(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 1,

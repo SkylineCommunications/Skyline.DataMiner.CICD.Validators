@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -30,7 +30,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
 
                 ValidateHelper helper = new ValidateHelper(this, context, results, param, defaultValue);
-                helper.Validate();         
+                helper.Validate();
             }
 
             return results;
@@ -93,7 +93,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             {
                 results.Add(Error.ValueIncompatibleWithInterpreteType(test, param, defaultValue, defaultValue.RawValue, param.Interprete.Type.RawValue, param.Id?.RawValue));
                 return;
-            }                  
+            }
         }
     }
 }

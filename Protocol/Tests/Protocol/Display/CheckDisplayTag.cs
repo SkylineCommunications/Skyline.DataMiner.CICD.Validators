@@ -5,8 +5,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -37,7 +37,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
 
         ////    return result;
         ////}
-        
+
         ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
         ////{
         ////    List<IValidationResult> results = new List<IValidationResult>();
@@ -53,7 +53,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results)
             : base(test, context, results)
         {
-            protocol = context.ProtocolModel.Protocol;          
+            protocol = context.ProtocolModel.Protocol;
         }
 
         public void Validate()
@@ -68,7 +68,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
             // Missing
             if (display == null)
             {
-                results.Add(Error.MissingTag(test, protocol, protocol));              
+                results.Add(Error.MissingTag(test, protocol, protocol));
             }
         }
     }

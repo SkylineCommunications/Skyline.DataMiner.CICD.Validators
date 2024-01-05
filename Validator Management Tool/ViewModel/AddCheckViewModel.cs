@@ -1,15 +1,17 @@
 ﻿namespace Validator_Management_Tool.ViewModel
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
-	using System.Linq;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Validator_Management_Tool.Interfaces;
-	using Validator_Management_Tool.Model;
-	using Validator_Management_Tool.Views;
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
 
-	/// <summary>
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using Validator_Management_Tool.Interfaces;
+    using Validator_Management_Tool.Model;
+    using Validator_Management_Tool.Views;
+
+    /// <summary>
     /// The Viewmodel for the Add Error Message window.
     /// </summary>
     public class AddCheckViewModel : BindableBase

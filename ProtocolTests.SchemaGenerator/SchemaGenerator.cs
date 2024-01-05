@@ -1,10 +1,10 @@
 ﻿namespace ProtocolTests.SchemaGenerator
 {
-	using System;
-	using System.Reflection;
-	using System.Xml;
+    using System;
+    using System.Reflection;
+    using System.Xml;
 
-	public class SchemaGenerator
+    public class SchemaGenerator
     {
         private const string TargetNamespace = "http://www.skyline.be/validatorProtocolUnitTest";
 

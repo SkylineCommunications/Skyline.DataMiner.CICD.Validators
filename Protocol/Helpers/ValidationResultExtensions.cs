@@ -25,7 +25,7 @@
                     {
                         // Apply recursively to sub results.
                         sr.WithDveExport(tablePid, name);
-                    } 
+                    }
                 }
             }
 

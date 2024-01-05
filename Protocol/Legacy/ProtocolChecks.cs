@@ -18,7 +18,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
         /// Generic line number, used for lineNum estimates in case a ProtocolChecks test fails.
         /// </summary>
         public string LineNum { get; set; } = "-1";
-        
+
         /// <summary>
         /// List of all duplicated parameters.
         /// Key = Duplicate parameter Id.

@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.HTTP.Session.Connection.Response.CheckStatusCodeAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.Connection.Response.CheckStatusCodeAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.Connection.Response.CheckStatusCodeAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckStatusCodeAttribute();
@@ -118,7 +120,7 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.Response.CheckStatusCod
         {
             // Create ErrorMessage
             var message = Error.InvalidAttribute(null, null, null, "0", "1", "11");
-            
+
             string description = "Invalid value '0' in attribute 'Response@statusCode'. HTTP Session ID '1'. Connection ID '11'.";
 
             // Assert

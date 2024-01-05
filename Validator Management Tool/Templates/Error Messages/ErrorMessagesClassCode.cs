@@ -1,10 +1,11 @@
 ﻿namespace Validator_Management_Tool.Templates.Error_Messages
 {
-	using System.Collections.Generic;
-	using System.Linq;
-	using Validator_Management_Tool.Model;
+    using System.Collections.Generic;
+    using System.Linq;
 
-	public partial class ErrorMessagesClass
+    using Validator_Management_Tool.Model;
+
+    public partial class ErrorMessagesClass
     {
         private List<Check> allChecks;
 
@@ -22,7 +23,7 @@
         /// The value is another dictionary whose keys are the property names and the values are the property values (string).
         /// </summary>
         private Dictionary<string, Dictionary<string, object>> propertyLists;
-        
+
         /// <summary>
         /// Contains a key for each check name (string) in the checklist.
         /// The value is another dictionary whose keys are the property names and the values are the property values (string).
@@ -34,7 +35,7 @@
         public ErrorMessagesClass(List<Check> checks)
         {
             this.allChecks = checks;
-            
+
             this.checks = checks.Where(x => x.Source != Skyline.DataMiner.CICD.Validators.Common.Model.Source.MajorChangeChecker).ToList();
             this.compares = checks.Where(x => x.Source == Skyline.DataMiner.CICD.Validators.Common.Model.Source.MajorChangeChecker).ToList();
 

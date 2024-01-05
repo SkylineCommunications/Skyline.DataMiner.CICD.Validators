@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckDependencyValuesAttribute
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckDependencyValuesAttribute;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.Discreet.CheckDependencyValuesAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckDependencyValuesAttribute();
@@ -146,7 +149,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "2");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -173,7 +176,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,
@@ -200,7 +203,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
         {
             // Create ErrorMessage
             var message = Error.ReferencedParamExpectingRTDisplay(null, null, null, "1002", "999");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 4,
@@ -227,7 +230,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
         {
             // Create ErrorMessage
             var message = Error.UntrimmedAttribute(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,

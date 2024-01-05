@@ -128,34 +128,34 @@
         }
 
         private static IEnumerable<IValidationResult> CheckDuplicateIdsIterator<T>(IEnumerable<T> items, Func<T, uint?> getDuplicationIdentifier, Func<T, string> getName, Func<(T item, string name, string id), IValidationResult> generateSubResult,
-	        Func<(ICollection<string> names, string id, IValidationResult[] subResults), IValidationResult> generateSummaryResult) where T : IReadable
+            Func<(ICollection<string> names, string id, IValidationResult[] subResults), IValidationResult> generateSummaryResult) where T : IReadable
         {
-	        var groups = items.GroupBy(getDuplicationIdentifier);
+            var groups = items.GroupBy(getDuplicationIdentifier);
 
-	        foreach (var group in groups.Where(g => g.Count() > 1))
-	        {
-		        if (!group.Key.HasValue)
-		        {
-			        // Ignore all tags without or with an invalid id
-			        continue;
-		        }
+            foreach (var group in groups.Where(g => g.Count() > 1))
+            {
+                if (!group.Key.HasValue)
+                {
+                    // Ignore all tags without or with an invalid id
+                    continue;
+                }
 
-		        string id = Convert.ToString(group.Key.Value);
+                string id = Convert.ToString(group.Key.Value);
 
-		        var names = new List<string>();
-		        var subResults = new List<IValidationResult>();
+                var names = new List<string>();
+                var subResults = new List<IValidationResult>();
 
-		        foreach (T item in group)
-		        {
-			        string name = getName(item);
-			        var result = generateSubResult((item, name, id));
+                foreach (T item in group)
+                {
+                    string name = getName(item);
+                    var result = generateSubResult((item, name, id));
 
-			        names.Add(name);
-			        subResults.Add(result);
-		        }
+                    names.Add(name);
+                    subResults.Add(result);
+                }
 
-		        yield return generateSummaryResult((names, id, subResults.ToArray()));
-	        }
+                yield return generateSummaryResult((names, id, subResults.ToArray()));
+            }
         }
 
         /// <summary>
@@ -208,51 +208,51 @@
         /// <returns>The summary result.</returns>
         /// <exception cref="System.ArgumentNullException">items OR getItemIdentifier OR generateResult</exception>
         public static IEnumerable<IValidationResult> CheckDuplicates<T>(IEnumerable<T> items,
-	        Func<T, string> getDuplicationIdentifier,
-	        Func<(T item, string duplicateValue), IValidationResult> generateSubResult,
-	        Func<(string duplicateValue, IValidationResult[] subResults), IValidationResult> generateSummaryResult)
-	        where T : IReadable
+            Func<T, string> getDuplicationIdentifier,
+            Func<(T item, string duplicateValue), IValidationResult> generateSubResult,
+            Func<(string duplicateValue, IValidationResult[] subResults), IValidationResult> generateSummaryResult)
+            where T : IReadable
         {
-	        return CheckDuplicatesNonModel(items, getDuplicationIdentifier, generateSubResult, generateSummaryResult);
+            return CheckDuplicatesNonModel(items, getDuplicationIdentifier, generateSubResult, generateSummaryResult);
         }
 
         private static IEnumerable<IValidationResult> CheckDuplicatesIterator<T>(IEnumerable<T> items, Func<T, string> getDuplicationIdentifier, Func<T, string> getId, Func<(T item, string id, string duplicateValue), IValidationResult> generateSubResult,
-	        Func<(ICollection<string> ids, string duplicateValue, IValidationResult[] subResults), IValidationResult> generateSummaryResult, Func<IList<T>, bool> isValidDuplicate) where T : IReadable
+            Func<(ICollection<string> ids, string duplicateValue, IValidationResult[] subResults), IValidationResult> generateSummaryResult, Func<IList<T>, bool> isValidDuplicate) where T : IReadable
         {
-	        var groups = items.GroupBy(getDuplicationIdentifier, StringComparer.OrdinalIgnoreCase);
+            var groups = items.GroupBy(getDuplicationIdentifier, StringComparer.OrdinalIgnoreCase);
 
-	        foreach (var group in groups.Where(g => g.Count() > 1))
-	        {
-		        string duplicateValue = group.Key;
+            foreach (var group in groups.Where(g => g.Count() > 1))
+            {
+                string duplicateValue = group.Key;
 
-		        if (String.IsNullOrWhiteSpace(duplicateValue))
-		        {
-			        // Ignore all tags without or with an empty value
-			        continue;
-		        }
+                if (String.IsNullOrWhiteSpace(duplicateValue))
+                {
+                    // Ignore all tags without or with an empty value
+                    continue;
+                }
 
-		        if (isValidDuplicate != null && isValidDuplicate(group.Select(x => x).ToList()))
-		        {
-			        // Used if duplicate values are allowed in some cases (ex: read/write param names and descriptions)
-			        continue;
-		        }
+                if (isValidDuplicate != null && isValidDuplicate(group.Select(x => x).ToList()))
+                {
+                    // Used if duplicate values are allowed in some cases (ex: read/write param names and descriptions)
+                    continue;
+                }
 
-		        var ids = new List<string>();
-		        var subResults = new List<IValidationResult>();
+                var ids = new List<string>();
+                var subResults = new List<IValidationResult>();
 
-		        foreach (T item in group)
-		        {
-			        string id = getId(item);
-			        var result = generateSubResult((item, id, getDuplicationIdentifier(item)));
+                foreach (T item in group)
+                {
+                    string id = getId(item);
+                    var result = generateSubResult((item, id, getDuplicationIdentifier(item)));
 
-			        ids.Add(id);
-			        subResults.Add(result);
-		        }
+                    ids.Add(id);
+                    subResults.Add(result);
+                }
 
-		        yield return generateSummaryResult((ids, duplicateValue, subResults.ToArray()));
-	        }
+                yield return generateSummaryResult((ids, duplicateValue, subResults.ToArray()));
+            }
         }
-        
+
         /// <summary>
         /// Checking for duplicate items in a provided collection. (Items without an Id)
         /// DUPLICATE as sometimes it's a collection of multiple different names (Example: Connections)
@@ -288,30 +288,30 @@
         }
 
         private static IEnumerable<IValidationResult> CheckDuplicatesNonModelIterator<T>(IEnumerable<T> items, Func<T, string> getDuplicationIdentifier, Func<(T item, string duplicateValue), IValidationResult> generateSubResult,
-	        Func<(string duplicateValue, IValidationResult[] subResults), IValidationResult> generateSummaryResult)
+            Func<(string duplicateValue, IValidationResult[] subResults), IValidationResult> generateSummaryResult)
         {
-	        var groups = items.GroupBy(getDuplicationIdentifier, StringComparer.InvariantCultureIgnoreCase);
+            var groups = items.GroupBy(getDuplicationIdentifier, StringComparer.InvariantCultureIgnoreCase);
 
-	        foreach (var group in groups.Where(g => g.Count() > 1))
-	        {
-		        string duplicateValue = group.Key;
+            foreach (var group in groups.Where(g => g.Count() > 1))
+            {
+                string duplicateValue = group.Key;
 
-		        if (String.IsNullOrWhiteSpace(duplicateValue))
-		        {
-			        // Ignore all tags without or with an empty value
-			        continue;
-		        }
+                if (String.IsNullOrWhiteSpace(duplicateValue))
+                {
+                    // Ignore all tags without or with an empty value
+                    continue;
+                }
 
-		        var subResults = new List<IValidationResult>();
+                var subResults = new List<IValidationResult>();
 
-		        foreach (T item in group)
-		        {
-			        var result = generateSubResult((item, duplicateValue));
-			        subResults.Add(result);
-		        }
+                foreach (T item in group)
+                {
+                    var result = generateSubResult((item, duplicateValue));
+                    subResults.Add(result);
+                }
 
-		        yield return generateSummaryResult((duplicateValue, subResults.ToArray()));
-	        }
+                yield return generateSummaryResult((duplicateValue, subResults.ToArray()));
+            }
         }
 
         public static bool IsPlainNumbers(string value)

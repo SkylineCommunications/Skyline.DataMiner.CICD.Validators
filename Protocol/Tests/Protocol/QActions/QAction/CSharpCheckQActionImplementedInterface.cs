@@ -1,20 +1,10 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckQActionImplementedInterface
 {
-    using System;
     using System.Collections.Generic;
 
-    using Microsoft.CodeAnalysis;
-
-    using Skyline.DataMiner.CICD.CSharpAnalysis;
-    using Skyline.DataMiner.CICD.CSharpAnalysis.Classes;
-    using Skyline.DataMiner.CICD.Models.Protocol;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read;
-
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     //[Test(CheckId.CSharpCheckQActionImplementedInterface, Category.QAction)]
     internal class CSharpCheckQActionImplementedInterface : IValidate

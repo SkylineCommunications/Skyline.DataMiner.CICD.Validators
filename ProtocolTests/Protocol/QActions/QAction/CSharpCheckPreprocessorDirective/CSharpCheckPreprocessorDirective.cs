@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckPreprocessorDirective
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckPreprocessorDirective;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckPreprocessorDirective;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpCheckPreprocessorDirective();
@@ -70,7 +73,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckPreprocessorDirecti
         {
             // Create ErrorMessage
             var message = Error.ObsoleteDcfV1(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 1,

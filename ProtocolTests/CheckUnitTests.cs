@@ -1419,17 +1419,17 @@
             }
 
             var settings = new XmlReaderSettings();
-            
+
             XmlSchemaSet schemaSet = new XmlSchemaSet
             {
-	            XmlResolver = new XmlUrlResolver()
+                XmlResolver = new XmlUrlResolver()
             };
             schemaSet.Add(NAMESPACE, xsds.First().FullName);
             settings.Schemas.Add(schemaSet);
 
             settings.ValidationType = ValidationType.Schema;
             settings.ValidationEventHandler += Settings_ValidationEventHandler;
-           
+
 
             foreach (var filePath in allFiles)
             {

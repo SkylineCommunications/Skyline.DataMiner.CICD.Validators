@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.TreeControls.TreeControl.OverrideIconColumns.CheckOverrideIconColumnsTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.OverrideIconColumns.CheckOverrideIconColumnsTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.OverrideIconColumns.CheckOverrideIconColumnsTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckOverrideIconColumnsTag();
@@ -224,7 +226,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.OverrideIconColumns.Ch
         {
             // Create ErrorMessage
             var message = Error.EmptyTag(null, null, null, "0");
-            
+
             string description = "Empty tag 'OverrideIconColumns' in TreeControl '0'.";
 
             // Assert
@@ -236,7 +238,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.OverrideIconColumns.Ch
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "A,B", "1");
-            
+
             string description = "Invalid value 'A,B' in tag 'OverrideIconColumns'. TreeControl ID '1'.";
 
             // Assert
@@ -260,7 +262,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.OverrideIconColumns.Ch
         {
             // Create ErrorMessage
             var message = Error.NonExistingIds(null, null, null, "0");
-            
+
             string description = "Tag 'OverrideIconColumns' references non-existing IDs. TreeControl ID '0'.";
 
             // Assert
@@ -272,7 +274,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.OverrideIconColumns.Ch
         {
             // Create ErrorMessage
             var message = Error.NonExistingIds_Sub(null, null, null, "0", "1");
-            
+
             string description = "Tag 'OverrideIconColumns' references a non-existing 'Column' with PID '0'. TreeControl ID '1'.";
 
             // Assert

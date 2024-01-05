@@ -1,17 +1,20 @@
 namespace ProtocolTests.Protocol.Commands.Command.CheckAsciiAttribute
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Command.CheckAsciiAttribute;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Command.CheckAsciiAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckAsciiAttribute();
@@ -129,7 +132,7 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckAsciiAttribute
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "0");
-            
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -161,7 +164,7 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckAsciiAttribute
         {
             // Create ErrorMessage
             var message = Error.InvalidAttribute(null, null, null, "0", "1");
-            
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,
@@ -193,7 +196,7 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckAsciiAttribute
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "0", "1");
-            
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,

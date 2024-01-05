@@ -1,20 +1,23 @@
 namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.CheckPageOrderAttribute;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
-	public class Validate
-	{
-		private readonly IValidate test = new CheckPageOrderAttribute();
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.CheckPageOrderAttribute;
+
+    [TestClass]
+    public class Validate
+    {
+        private readonly IValidate test = new CheckPageOrderAttribute();
 
         #region Valid Checks
 
@@ -58,7 +61,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
         }
 
         [TestMethod]
-		public void Protocol_CheckPageOrderAttribute_ValidWithoutWebPage()
+        public void Protocol_CheckPageOrderAttribute_ValidWithoutWebPage()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -120,7 +123,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
         }
 
         [TestMethod]
-		public void Protocol_CheckPageOrderAttribute_MissingAttribute()
+        public void Protocol_CheckPageOrderAttribute_MissingAttribute()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -136,7 +139,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
         }
 
         [TestMethod]
-		public void Protocol_CheckPageOrderAttribute_MissingPage()
+        public void Protocol_CheckPageOrderAttribute_MissingPage()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -153,8 +156,8 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             Generic.Validate(test, data);
         }
 
-		[TestMethod]
-		public void Protocol_CheckPageOrderAttribute_MissingWebPage()
+        [TestMethod]
+        public void Protocol_CheckPageOrderAttribute_MissingWebPage()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -203,7 +206,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
         }
 
         [TestMethod]
-		public void Protocol_CheckPageOrderAttribute_UnexistingPage()
+        public void Protocol_CheckPageOrderAttribute_UnexistingPage()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -270,12 +273,12 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
     }
 
     [TestClass]
-	public class CodeFix
-	{
-		private readonly ICodeFix codeFix = new CheckPageOrderAttribute();
+    public class CodeFix
+    {
+        private readonly ICodeFix codeFix = new CheckPageOrderAttribute();
 
-		[TestMethod]
-		public void Protocol_CheckPageOrderAttribute_DuplicateEntries()
+        [TestMethod]
+        public void Protocol_CheckPageOrderAttribute_DuplicateEntries()
         {
             Generic.FixData data = new Generic.FixData
             {
@@ -286,7 +289,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
         }
 
         [TestMethod]
-		public void Protocol_CheckPageOrderAttribute_UnsupportedPage()
+        public void Protocol_CheckPageOrderAttribute_UnsupportedPage()
         {
             Generic.FixData data = new Generic.FixData
             {
@@ -297,7 +300,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
         }
 
         [TestMethod]
-		public void Protocol_CheckPageOrderAttribute_UntrimmedAttribute()
+        public void Protocol_CheckPageOrderAttribute_UntrimmedAttribute()
         {
             Generic.FixData data = new Generic.FixData
             {
@@ -337,7 +340,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_EmptyAttribute()
         {
@@ -364,7 +367,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_UntrimmedAttribute()
         {
@@ -391,7 +394,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_UnsupportedPage()
         {
@@ -418,7 +421,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_MissingPage()
         {
@@ -445,7 +448,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_MissingWebPage()
         {
@@ -472,7 +475,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_WrongWebPagePosition()
         {
@@ -499,7 +502,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_UnexistingPage()
         {
@@ -526,7 +529,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_DuplicateEntries()
         {
@@ -553,7 +556,7 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void Protocol_CheckPageOrderAttribute_MissingPage_Sub()
         {
@@ -583,14 +586,14 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
     }
 
     [TestClass]
-	public class Attribute
-	{
-		private readonly IRoot root = new CheckPageOrderAttribute();
+    public class Attribute
+    {
+        private readonly IRoot root = new CheckPageOrderAttribute();
 
-		[TestMethod]
-		public void Protocol_CheckPageOrderAttribute_CheckCategory() => Generic.CheckCategory(root, Category.Protocol);
+        [TestMethod]
+        public void Protocol_CheckPageOrderAttribute_CheckCategory() => Generic.CheckCategory(root, Category.Protocol);
 
-		[TestMethod]
-		public void Protocol_CheckPageOrderAttribute_CheckId() => Generic.CheckId(root, CheckId.CheckPageOrderAttribute);
-	}
+        [TestMethod]
+        public void Protocol_CheckPageOrderAttribute_CheckId() => Generic.CheckId(root, CheckId.CheckPageOrderAttribute);
+    }
 }

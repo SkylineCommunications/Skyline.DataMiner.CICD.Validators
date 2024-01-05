@@ -1,10 +1,10 @@
 ﻿namespace Validator_Management_Tool.Views
 {
-	using System.Windows;
-	using System.Windows.Controls;
-	using System.Windows.Media.Imaging;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Media.Imaging;
 
-	/// <summary>
+    /// <summary>
     /// Interaction logic for CheckView.xaml
     /// </summary>
     public partial class CheckView : UserControl

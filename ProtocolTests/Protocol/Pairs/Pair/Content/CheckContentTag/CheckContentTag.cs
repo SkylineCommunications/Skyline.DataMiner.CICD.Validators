@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.Pairs.Pair.Content.CheckContentTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.Content.CheckContentTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.Content.CheckContentTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckContentTag();
@@ -124,7 +126,7 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.CheckContentTag
         {
             // Create ErrorMessage
             var message = Error.MissingClearResponseRoutine(null, null, null, "0");
-            
+
             string description = "Missing clear response routine for pair '0'.";
 
             // Assert

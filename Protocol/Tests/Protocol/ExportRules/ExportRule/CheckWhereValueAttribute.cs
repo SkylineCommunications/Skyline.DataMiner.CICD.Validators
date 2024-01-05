@@ -4,14 +4,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
     using System.Linq;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckWhereValueAttribute, Category.ExportRule)]
     internal class CheckWhereValueAttribute : IValidate/*, ICodeFix, ICompare*/
@@ -56,7 +54,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
 
         ////    return result;
         ////}
-        
+
         ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
         ////{
         ////    List<IValidationResult> results = new List<IValidationResult>();

@@ -1,19 +1,20 @@
 ﻿namespace Common.Testing.QActionHelper
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Xml.Linq;
-	using Skyline.DataMiner.Scripting;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Xml.Linq;
 
-	/// <summary>
+    using Skyline.DataMiner.Scripting;
+
+    /// <summary>
     /// QActionHelper without the logging to a log file.
     /// </summary>
     public static class InternalQActionHelper
     {
         #region "Public Methods"
-        
+
         /// <summary>
         /// Helper method for DIS.
         /// </summary>

@@ -1,35 +1,38 @@
 ﻿namespace ProtocolTests.Helpers
 {
-	using System.Collections.Generic;
-	using System.Linq;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
+    using System.Collections.Generic;
+    using System.Linq;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
+
+    [TestClass]
     public class ParamHelperTests
     {
         [TestMethod]
         [DoNotParallelize]
-        [DataRow("ABC<ABC", new[] { '<'})]
-        [DataRow("ABC>ABC", new[] { '>'})]
-        [DataRow("ABC:ABC", new[] { ':'})]
+        [DataRow("ABC<ABC", new[] { '<' })]
+        [DataRow("ABC>ABC", new[] { '>' })]
+        [DataRow("ABC:ABC", new[] { ':' })]
         [DataRow("ABC-ABC", new[] { '-' })]
         [DataRow("ABC\"ABC", new[] { '"' })]
         [DataRow("ABC/ABC", new[] { '/' })]
         [DataRow("ABC\\ABC", new[] { '\\' })]
-        [DataRow("ABC|ABC", new[] { '|'})]
-        [DataRow("ABC?ABC", new[] { '?'})]
-        [DataRow("ABC*ABC", new[] { '*'})]
-        [DataRow("ABC;ABC", new[] { ';'})]
+        [DataRow("ABC|ABC", new[] { '|' })]
+        [DataRow("ABC?ABC", new[] { '?' })]
+        [DataRow("ABC*ABC", new[] { '*' })]
+        [DataRow("ABC;ABC", new[] { ';' })]
         [DataRow("ABC°ABC", new[] { '°' })]
         [DataRow("A<B>C*ABC", new[] { '<', '>', '*' })]
         [DataRow("ABCABC", null)]
         [DataRow("ABC_ABC", null)]
         public void CheckParamNameUnrecommendedChars(string text, IReadOnlyList<char> invalidChars)
         {
-           // ToArray() is required to make the fluentAssertions thread safe when having multiple DataRows
-           object[] unrecommendedCharacters = ParamHelper.GetParamNameUnrecommendedChars(text).ToArray();
+            // ToArray() is required to make the fluentAssertions thread safe when having multiple DataRows
+            object[] unrecommendedCharacters = ParamHelper.GetParamNameUnrecommendedChars(text).ToArray();
 
             if (invalidChars == null)
             {

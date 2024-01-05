@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.ParameterGroups.Group.CheckDynamicIndexAttribute
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGroups.Group.CheckDynamicIndexAttribute;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGroups.Group.CheckDynamicIndexAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckDynamicIndexAttribute();
@@ -61,7 +64,7 @@ namespace ProtocolTests.Protocol.ParameterGroups.Group.CheckDynamicIndexAttribut
         {
             // Create ErrorMessage
             var message = Error.MissingDynamicIdAttribute(null, null, null, "2");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 1,

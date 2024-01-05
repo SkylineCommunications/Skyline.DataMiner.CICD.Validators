@@ -1,10 +1,12 @@
 ﻿namespace ProtocolTests.Helpers
 {
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
+    using FluentAssertions;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
+
+    [TestClass]
     public class ProtocolHelperTests
     {
         [TestMethod]

@@ -1,10 +1,11 @@
 ﻿namespace Validator_Management_Tool.ViewModel
 {
-	using System.Windows.Forms;
-	using Validator_Management_Tool.Common;
-	using Validator_Management_Tool.Interfaces;
+    using System.Windows.Forms;
 
-	/// <summary>
+    using Validator_Management_Tool.Common;
+    using Validator_Management_Tool.Interfaces;
+
+    /// <summary>
     /// The Viewmodel for the settings view.
     /// </summary>
     public class SettingsViewModel : BindableBase

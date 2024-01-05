@@ -1,15 +1,18 @@
 namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.CheckRowTag
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Positions.Position.Row.CheckRowTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Positions.Position.Row.CheckRowTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckRowTag();
@@ -126,7 +129,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
         {
             // Create ErrorMessage
             var message = Error.EmptyTag(null, null, null, "2");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,
@@ -153,7 +156,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
         {
             // Create ErrorMessage
             var message = Error.InvalidTag(null, null, null, "abc", "100");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,
@@ -180,7 +183,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
         {
             // Create ErrorMessage
             var message = Error.MissingTag(null, null, null, "2");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -207,7 +210,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
         {
             // Create ErrorMessage
             var message = Error.UntrimmedTag(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 4,

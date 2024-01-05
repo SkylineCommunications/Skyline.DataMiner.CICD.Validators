@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckIdAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckIdAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckIdAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckIdAttribute();
@@ -156,7 +158,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckI
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "0");
-            
+
             string description = "Empty attribute 'Table@id' in TreeControl '0'.";
 
             // Assert
@@ -192,7 +194,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.Table.CheckI
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "1000");
-            
+
             string description = @"Attribute 'Hierarchy/Table@id' references a non-existing 'Table' with PID '1000'.";
 
             // Assert

@@ -20,7 +20,7 @@
         {
             InputData = input ?? throw new ArgumentNullException(nameof(input));
             ValidatorSettings = validatorSettings ?? throw new ArgumentNullException(nameof(validatorSettings));
-            
+
             compiledQActions = new Lazy<IReadOnlyDictionary<ProjectId, CompiledQActionProject>>(() => InputData.QActionCompilationModel?.Build() ?? new Dictionary<ProjectId, CompiledQActionProject>(0));
 
             Helpers = new HelperCollection(validatorSettings);
@@ -35,8 +35,6 @@
         public ValidatorSettings ValidatorSettings { get; }
 
         public IReadOnlyDictionary<ProjectId, CompiledQActionProject> CompiledQActions => compiledQActions.Value;
-
-        public bool IsSolutionBased => InputData.QActionCompilationModel?.IsSolutionBased ?? false;
 
         public CrossData.CrossData CrossData { get; } = new CrossData.CrossData();
 

@@ -1,15 +1,18 @@
 namespace ProtocolTests.Protocol.Params.Param.Information.Includes.CheckIncludesTag
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Information.Includes.CheckIncludesTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Information.Includes.CheckIncludesTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckIncludesTag();
@@ -78,7 +81,7 @@ namespace ProtocolTests.Protocol.Params.Param.Information.Includes.CheckIncludes
         {
             // Create ErrorMessage
             var message = Error.ObsoleteTag(null, null, null, "pid");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,

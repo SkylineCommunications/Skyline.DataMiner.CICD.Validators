@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.HTTP.Session.CheckPasswordAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.CheckPasswordAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.CheckPasswordAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckPasswordAttribute();
@@ -74,7 +76,7 @@ namespace ProtocolTests.Protocol.HTTP.Session.CheckPasswordAttribute
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "0", "1");
-            
+
             string description = "Attribute 'password' references a non-existing 'Param' with ID '0'. HTTP Session ID '1'.";
 
             // Assert

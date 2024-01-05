@@ -7,15 +7,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
-
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckMinimumRequiredVersionTag, Category.Protocol)]
@@ -157,15 +155,15 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 minRequiredVersion = context.ValidatorSettings.MinimumSupportedDataMinerVersion;
             }
 
-            IDmaVersionCheckResults versionCheckResults = VersionChecker.GetUsedFeatures(context.InputData,
-		            context.CompiledQActions, context.IsSolutionBased, CancellationToken.None);
+            IDmVersionCheckResults versionCheckResults = VersionChecker.GetUsedFeatures(context.InputData,
+                    context.CompiledQActions, context.InputData.QActionCompilationModel?.IsSolutionBased ?? false, CancellationToken.None);
 
             DataMinerVersion expectedVersion = minRequiredVersion;
             List<IValidationResult> subResults = new List<IValidationResult>();
 
             foreach (Feature feature in versionCheckResults.Features)
             {
-	            if (feature.MinMainRelease <= minRequiredVersion || feature.MinFeatureRelease <= minRequiredVersion)
+                if (feature.MinMainRelease <= minRequiredVersion || feature.MinFeatureRelease <= minRequiredVersion)
                 {
                     continue;
                 }

@@ -1,15 +1,19 @@
 ﻿namespace Protocol.FeaturesTests.Features._10._3
 {
-	using System.Linq;
-	using Common.Testing;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Data;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+    using System.Linq;
 
-	[TestClass]
+    using Common.Testing;
+
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Data;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+
+    [TestClass]
     public class QActionDisposableTests
     {
         private static QActionIDisposable check;
@@ -35,7 +39,7 @@ public class QAction : IDisposable
 }
 ]]>
 		</QAction></QActions></Protocol>";
-            
+
             var qactionCompilationModel = ProtocolTestsHelper.GetQActionCompilationModel(code);
             var input = new ProtocolInputData(code, qactionCompilationModel);
 
@@ -46,7 +50,7 @@ public class QAction : IDisposable
             var expected = new FeatureCheckResultItem(qaction);
 
             Assert.IsTrue(result.IsUsed);
-            
+
             result.FeatureItems.Should().HaveCount(1);
             result.FeatureItems.First().Should().BeEquivalentTo(expected, option => option.IgnoringCyclicReferences());
         }

@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAttribute
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAttribute;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckDisabledIfAttribute();
@@ -164,7 +167,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "pid");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -185,7 +188,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "attributeValue", "pid");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -206,7 +209,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "referencedPid", "pid");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -227,7 +230,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
         {
             // Create ErrorMessage
             var message = Error.ReferencedParamRTDisplayExpected(null, null, null, "referencedPid", "referencingPid");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -248,7 +251,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
         {
             // Create ErrorMessage
             var message = Error.ReferencedParamWrongType(null, null, null, "referencedParamType", "referencedPid");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -269,7 +272,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
         {
             // Create ErrorMessage
             var message = Error.UntrimmedAttribute(null, null, null, "pid", "untrimmedValue");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Warning,

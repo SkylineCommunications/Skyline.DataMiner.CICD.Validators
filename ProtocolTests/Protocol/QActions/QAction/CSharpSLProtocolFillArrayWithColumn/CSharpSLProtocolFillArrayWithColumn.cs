@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithColumn
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithColumn;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithColumn;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpSLProtocolFillArrayWithColumn();
@@ -402,7 +405,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithC
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
-        
+
         [TestMethod]
         public void QAction_CSharpSLProtocolFillArrayWithColumn_UnrecommendedSetOnSnmpParam()
         {

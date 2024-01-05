@@ -1,22 +1,25 @@
 namespace ProtocolTests.Protocol.Display.CheckDisplayTag
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.CheckDisplayTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.CheckDisplayTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckDisplayTag();
 
         #region Valid Checks
 
-        [TestMethod]      
+        [TestMethod]
         public void Protocol_CheckDisplayTag_Valid()
         {
             Generic.ValidateData data = new Generic.ValidateData
@@ -60,7 +63,7 @@ namespace ProtocolTests.Protocol.Display.CheckDisplayTag
         {
             // Create ErrorMessage
             var message = Error.MissingTag(null, null, null);
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,

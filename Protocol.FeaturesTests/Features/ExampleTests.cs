@@ -1,18 +1,22 @@
 ﻿namespace Protocol.FeaturesTests.Features
 {
-	using System.Collections.Generic;
-	using System.Linq;
-	using Common.Testing;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Models.Protocol.Read;
-	using Skyline.DataMiner.CICD.Validators.Common.Data;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+    using System.Collections.Generic;
+    using System.Linq;
 
-	//[TestClass]
+    using Common.Testing;
+
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Validators.Common.Data;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+
+    //[TestClass]
     public class ExampleTests
     {
         private static ParameterDateTime check;

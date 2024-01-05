@@ -117,8 +117,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             ITimersTimer timer,
             List<IValidationResult> results,
             List<IValidationResult> subResults,
-            TimerOptions options) 
-			: base(test, context, results)
+            TimerOptions options)
+            : base(test, context, results)
         {
             this.timer = timer;
             this.subResults = subResults;
@@ -685,7 +685,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
         private IValidationResult CheckUIntValue(WrappedNullableUInt32 optionDenotingNumericValue, string optionName, bool isOptional, string exceptionValue = null, ICollection<string> duplicateOptions = null, uint? lowLimit = null, uint? highLimit = null)
         {
-	        if (optionDenotingNumericValue == null) // No value specified for this component.
+            if (optionDenotingNumericValue == null) // No value specified for this component.
             {
                 if (!isOptional)
                 {
@@ -706,7 +706,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 if (exceptionValue == null || !optionDenotingNumericValue.OriginalValue.Equals(exceptionValue))
                 {
                     // This means an invalid value was provided (which could not be parsed into an unsigned integer).
-	                return Error.InvalidValueInOption(test, timer, timer, optionName, optionDenotingNumericValue.OriginalValue);
+                    return Error.InvalidValueInOption(test, timer, timer, optionName, optionDenotingNumericValue.OriginalValue);
                 }
             }
             else

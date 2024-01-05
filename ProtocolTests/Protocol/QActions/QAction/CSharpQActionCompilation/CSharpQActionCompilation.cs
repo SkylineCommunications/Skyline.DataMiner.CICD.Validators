@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpQActionCompilation
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpQActionCompilation;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpQActionCompilation;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpQActionCompilation();
@@ -26,39 +28,39 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpQActionCompilation
             };
 
             Generic.Validate(check, data);
-		}
+        }
 
-		[TestMethod]
-		public void QAction_CSharpQActionCompilation_Valid_CSharp4()
-		{
-			Generic.ValidateData data = new Generic.ValidateData
-			{
-				TestType = Generic.TestType.Valid,
-				FileName = "Valid_CSharp4",
-				ExpectedResults = new List<IValidationResult>()
-			};
+        [TestMethod]
+        public void QAction_CSharpQActionCompilation_Valid_CSharp4()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid_CSharp4",
+                ExpectedResults = new List<IValidationResult>()
+            };
 
-			Generic.Validate(check, data);
-		}
+            Generic.Validate(check, data);
+        }
 
-		[TestMethod]
-		public void QAction_CSharpQActionCompilation_Valid_CSharp7_3()
-		{
-			Generic.ValidateData data = new Generic.ValidateData
-			{
-				TestType = Generic.TestType.Valid,
-				FileName = "Valid_CSharp7_3",
-				ExpectedResults = new List<IValidationResult>()
-			};
+        [TestMethod]
+        public void QAction_CSharpQActionCompilation_Valid_CSharp7_3()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid_CSharp7_3",
+                ExpectedResults = new List<IValidationResult>()
+            };
 
-			Generic.Validate(check, data);
-		}
+            Generic.Validate(check, data);
+        }
 
-		#endregion
+        #endregion
 
-		#region Invalid Checks
+        #region Invalid Checks
 
-		[TestMethod]
+        [TestMethod]
         public void QAction_CSharpQActionCompilation_CompilationFailure()
         {
             // List of expected results

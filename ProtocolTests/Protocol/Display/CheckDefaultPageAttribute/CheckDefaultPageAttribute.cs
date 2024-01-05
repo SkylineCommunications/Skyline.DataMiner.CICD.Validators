@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.CheckDefaultPageAttribute;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.CheckDefaultPageAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckDefaultPageAttribute();
@@ -137,7 +140,7 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
     public class CodeFix
     {
         private readonly ICodeFix codeFix = new CheckDefaultPageAttribute();
-        
+
         [TestMethod]
         public void Protocol_CheckDefaultPageAttribute_UntrimmedAttribute()
         {

@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.TreeControls.TreeControl.CheckParameterIdAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.CheckParameterIdAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.CheckParameterIdAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckParameterIdAttribute();
@@ -158,7 +160,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.CheckParameterIdAttrib
     public class CodeFix
     {
         private readonly ICodeFix codeFix = new CheckParameterIdAttribute();
-        
+
         [TestMethod]
         public void TreeControl_CheckParameterIdAttribute_UntrimmedAttribute()
         {
@@ -203,7 +205,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.CheckParameterIdAttrib
         {
             // Create ErrorMessage
             var message = Error.MissingAttribute(null, null, null);
-            
+
             string description = "Missing attribute 'TreeControl@parameterId'.";
 
             // Assert
@@ -227,7 +229,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.CheckParameterIdAttrib
         {
             // Create ErrorMessage
             var message = Error.UntrimmedAttribute(null, null, null, " 1 ");
-            
+
             string description = "Untrimmed attribute 'TreeControl@parameterId'. Current value ' 1 '.";
 
             // Assert

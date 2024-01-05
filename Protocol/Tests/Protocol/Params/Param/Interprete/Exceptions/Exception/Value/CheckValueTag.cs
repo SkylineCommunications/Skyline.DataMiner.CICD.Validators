@@ -137,10 +137,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
         private bool ValidateValue()
         {
-	        if (interpreteType == null)
-	        {
-		        return true;
-	        }
+            if (interpreteType == null)
+            {
+                return true;
+            }
 
             // Any value is allowed if type is not double
             if (interpreteType.Value != EnumParamInterpretType.Double)

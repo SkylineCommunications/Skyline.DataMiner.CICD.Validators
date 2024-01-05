@@ -1,14 +1,16 @@
 ﻿namespace Validator_Management_Tool.Tools
 {
-	using System;
-	using System.Collections.ObjectModel;
-	using System.Globalization;
-	using System.Text;
-	using System.Windows.Data;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Validator_Management_Tool.Model;
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Globalization;
+    using System.Text;
+    using System.Windows.Data;
 
-	[ValueConversion(typeof(string), typeof(bool))]
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using Validator_Management_Tool.Model;
+
+    [ValueConversion(typeof(string), typeof(bool))]
     public class EmptyStringToBooleanConvert : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

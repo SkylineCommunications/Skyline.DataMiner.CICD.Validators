@@ -1,12 +1,13 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes
 {
-	using System;
-	using System.Reflection;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Enums;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using System;
+    using System.Reflection;
 
-	/// <summary>
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Enums;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+
+    /// <summary>
     /// Indicates that the class is a validator check.
     /// </summary>
     /// <seealso cref="System.Attribute" />

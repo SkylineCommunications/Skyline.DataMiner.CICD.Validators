@@ -1,21 +1,23 @@
 namespace ProtocolTests.Protocol.Params.Param.Alarm.CheckTypeAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.CheckTypeAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
-	public class Compare
-	{
-		private readonly ICompare compare = new CheckTypeAttribute();
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-		#region Valid Checks
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Alarm.CheckTypeAttribute;
 
-		[TestMethod]
-		public void Param_CheckTypeAttribute_Valid()
+    [TestClass]
+    public class Compare
+    {
+        private readonly ICompare compare = new CheckTypeAttribute();
+
+        #region Valid Checks
+
+        [TestMethod]
+        public void Param_CheckTypeAttribute_Valid()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -32,7 +34,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.CheckTypeAttribute
         #region Invalid Checks
 
         [TestMethod]
-		public void Param_CheckTypeAttribute_RemovedNormalizationAlarmType()
+        public void Param_CheckTypeAttribute_RemovedNormalizationAlarmType()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -53,7 +55,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.CheckTypeAttribute
         }
 
         [TestMethod]
-		public void Param_CheckTypeAttribute_UpdatedNormalizationAlarmType()
+        public void Param_CheckTypeAttribute_UpdatedNormalizationAlarmType()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -76,7 +78,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.CheckTypeAttribute
         }
 
         [TestMethod]
-		public void Param_CheckTypeAttribute_AddedNormalizationAlarmType()
+        public void Param_CheckTypeAttribute_AddedNormalizationAlarmType()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -95,15 +97,15 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.CheckTypeAttribute
         #endregion
     }
 
-	[TestClass]
-	public class Attribute
-	{
-		private readonly IRoot root = new CheckTypeAttribute();
+    [TestClass]
+    public class Attribute
+    {
+        private readonly IRoot root = new CheckTypeAttribute();
 
-		[TestMethod]
-		public void Param_CheckTypeAttribute_CheckCategory() => Generic.CheckCategory(root, Category.Param);
+        [TestMethod]
+        public void Param_CheckTypeAttribute_CheckCategory() => Generic.CheckCategory(root, Category.Param);
 
-		[TestMethod]
-		public void Param_CheckTypeAttribute_CheckId() => Generic.CheckId(root, CheckId.CheckTypeAttribute);
-	}
+        [TestMethod]
+        public void Param_CheckTypeAttribute_CheckId() => Generic.CheckId(root, CheckId.CheckTypeAttribute);
+    }
 }

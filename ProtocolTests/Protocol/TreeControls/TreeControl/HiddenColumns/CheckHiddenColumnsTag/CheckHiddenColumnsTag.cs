@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.TreeControls.TreeControl.HiddenColumns.CheckHiddenColumnsTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.HiddenColumns.CheckHiddenColumnsTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.HiddenColumns.CheckHiddenColumnsTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckHiddenColumnsTag();
@@ -186,7 +188,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.HiddenColumns.CheckHid
         {
             // Create ErrorMessage
             var message = Error.EmptyTag(null, null, null, "0");
-            
+
             string description = "Empty tag 'HiddenColumns' in TreeControl '0'.";
 
             // Assert
@@ -198,7 +200,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.HiddenColumns.CheckHid
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "A", "1");
-            
+
             string description = "Invalid value 'A' in tag 'HiddenColumns'. TreeControl ID '1'.";
 
             // Assert
@@ -216,13 +218,13 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.HiddenColumns.CheckHid
             // Assert
             Assert.AreEqual(description, message.Description);
         }
-        
+
         [TestMethod]
         public void TreeControl_CheckHiddenColumnsTag_NonExistingIds()
         {
             // Create ErrorMessage
             var message = Error.NonExistingIds(null, null, null, "0");
-            
+
             string description = "Tag 'HiddenColumns' references non-existing IDs. TreeControl ID '0'.";
 
             // Assert
@@ -234,7 +236,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.HiddenColumns.CheckHid
         {
             // Create ErrorMessage
             var message = Error.NonExistingIds_Sub(null, null, null, "0", "1");
-            
+
             string description = "Tag 'HiddenColumns' references a non-existing 'Column' with PID '0'. TreeControl ID '1'.";
 
             // Assert

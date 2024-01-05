@@ -21,23 +21,43 @@
     /// </summary>
     public static class VersionChecker
     {
-	    private static IEnumerable<(IFeatureCheck feature, MinDataMinerVersionsAttribute minVersion, MaxDataMinerVersionsAttribute maxVersion)> allFeatures;
-        
+        private static IEnumerable<(IFeatureCheck feature, MinDataMinerVersionsAttribute minVersion, MaxDataMinerVersionsAttribute maxVersion)> allFeatures;
+
         /// <summary>
         /// Gets the used features.
         /// </summary>
         /// <param name="input">The protocol input data.</param>
-        /// <param name="compiledQActions"></param>
+        /// <param name="compiledQActions">The result of the QActionCompilationModel.Build() method.</param>
         /// <param name="isSolutionBased">Boolean indicating if solution based.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns></returns>
+        /// <returns>The result.</returns>
         /// <exception cref="ArgumentNullException">
         /// model
         /// or
         /// data
         /// </exception>
         /// <exception cref="DataMinerVersionCheckException">Internal error, see internal exception for more details.</exception>
-        public static IDmaVersionCheckResults GetUsedFeatures(IProtocolInputData input, IReadOnlyDictionary<ProjectId, CompiledQActionProject> compiledQActions, bool isSolutionBased, CancellationToken cancellationToken)
+        public static IDmVersionCheckResults GetUsedFeatures(IProtocolInputData input, CancellationToken cancellationToken)
+        {
+            return GetUsedFeatures(input, input.QActionCompilationModel?.Build(), input.QActionCompilationModel?.IsSolutionBased == true, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the used features.
+        /// Available for the Validator for performance.
+        /// </summary>
+        /// <param name="input">The protocol input data.</param>
+        /// <param name="compiledQActions">The result of the QActionCompilationModel.Build() method.</param>
+        /// <param name="isSolutionBased">Boolean indicating if solution based.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The result.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// model
+        /// or
+        /// data
+        /// </exception>
+        /// <exception cref="DataMinerVersionCheckException">Internal error, see internal exception for more details.</exception>
+        internal static IDmVersionCheckResults GetUsedFeatures(IProtocolInputData input, IReadOnlyDictionary<ProjectId, CompiledQActionProject> compiledQActions, bool isSolutionBased, CancellationToken cancellationToken)
         {
             if (input == null)
             {
@@ -46,10 +66,10 @@
 
             if (input.Model.Protocol == null)
             {
-                return new DmaVersionCheckResults();
+                return new DmVersionCheckResults();
             }
 
-            DmaVersionCheckResults result = new DmaVersionCheckResults();
+            DmVersionCheckResults result = new DmVersionCheckResults();
 
             List<Feature> usedFeatures = new List<Feature>();
 

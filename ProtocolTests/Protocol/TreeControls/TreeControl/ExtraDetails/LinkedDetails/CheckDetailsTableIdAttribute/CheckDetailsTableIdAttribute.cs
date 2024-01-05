@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDetails.CheckDetailsTableIdAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDetails.CheckDetailsTableIdAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDetails.CheckDetailsTableIdAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckDetailsTableIdAttribute();
@@ -184,7 +186,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDet
         {
             // Create ErrorMessage
             var message = Error.MissingAttribute(null, null, null, "0");
-            
+
             string description = "Missing attribute 'LinkedDetails@detailsTableId' in TreeControl '0'.";
 
             // Assert
@@ -196,7 +198,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.ExtraDetails.LinkedDet
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "1000");
-            
+
             string description = @"Attribute 'ExtraDetails/LinkedDetails@detailsTableId' references a non-existing 'Table' with PID '1000'.";
 
             // Assert

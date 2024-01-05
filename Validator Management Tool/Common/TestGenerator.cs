@@ -1,16 +1,17 @@
 ﻿namespace Validator_Management_Tool.Common
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
-	using System.IO;
-	using System.Text;
-	using Validator_Management_Tool.Model;
-	using Validator_Management_Tool.Templates.Error_Messages;
-	using Validator_Management_Tool.Templates.Tests;
-	using Validator_Management_Tool.Templates.Unit_Tests;
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.IO;
+    using System.Text;
 
-	/// <summary>
+    using Validator_Management_Tool.Model;
+    using Validator_Management_Tool.Templates.Error_Messages;
+    using Validator_Management_Tool.Templates.Tests;
+    using Validator_Management_Tool.Templates.Unit_Tests;
+
+    /// <summary>
     /// Static class that contains all the methods to generate the classes and write them to files.
     /// </summary>
     public static class TestGenerator
@@ -74,7 +75,7 @@
 
             Directory.Delete(Settings.ErrorMessagesPath + "Error Messages/", true);
         }
-        
+
         /// <summary>
         /// Creates a .cs file and makes the correct folder structure.
         /// </summary>
@@ -112,11 +113,11 @@
                 var codefixDir = Directory.CreateDirectory(directoryPath.ToString() + "Samples/Codefix/");
 
                 var invalidCompareDir = Directory.CreateDirectory(directoryPath.ToString() + "Samples/Compare/Invalid/");
-               var validCompareDir = Directory.CreateDirectory(directoryPath.ToString() + "Samples/Compare/Valid/");
-                
+                var validCompareDir = Directory.CreateDirectory(directoryPath.ToString() + "Samples/Compare/Valid/");
+
                 var invalidValidateDir = Directory.CreateDirectory(directoryPath.ToString() + "Samples/Validate/Invalid/");
                 var validValidateDir = Directory.CreateDirectory(directoryPath.ToString() + "Samples/Validate/Valid/");
-                
+
                 if (checks != null)
                 {
                     // Create default xml file

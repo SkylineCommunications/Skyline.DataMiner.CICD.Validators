@@ -9,8 +9,8 @@
     using Skyline.DataMiner.CICD.Validators.Common.Data;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     /// <inheritdoc cref="IValidator"/>
@@ -30,7 +30,7 @@
 
             // validate main protocol
             results.AddRange(ValidateProtocol(input, cancellationToken, validatorSettings, allTests));
-            
+
             // validate exported protocols, if any
             foreach (var ep in input.Model.GetAllExportedProtocols())
             {
@@ -41,7 +41,7 @@
                 // indicate for which DVE these results were created
                 foreach (IValidationResult exportResult in exportResults)
                 {
-	                exportResult.WithDveExport(ep.TablePid, ep.Name);
+                    exportResult.WithDveExport(ep.TablePid, ep.Name);
                 }
 
                 results.AddRange(exportResults);

@@ -2,11 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("8.5-2859", "8.0.8.4-2556")]
     internal class ParameterDateTime : IFeatureCheck

@@ -1,13 +1,15 @@
 ﻿namespace Validator_Management_Tool.ViewModel
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Validator_Management_Tool.Common;
-	using Validator_Management_Tool.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
-	/// <summary>
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using Validator_Management_Tool.Common;
+    using Validator_Management_Tool.Interfaces;
+
+    /// <summary>
     /// The Viewmodel for the Create new check window.
     /// </summary>
     public class NewCheckViewModel : BindableBase

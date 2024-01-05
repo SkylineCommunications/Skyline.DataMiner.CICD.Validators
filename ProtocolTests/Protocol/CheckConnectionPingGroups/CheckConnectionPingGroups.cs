@@ -1,17 +1,20 @@
 namespace ProtocolTests.Protocol.CheckConnectionPingGroups
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnectionPingGroups;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnectionPingGroups;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckConnectionPingGroups();
@@ -249,7 +252,7 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
         {
             // Create ErrorMessage
             var message = Error.InvalidPingGroupType(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -276,7 +279,7 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
         {
             // Create ErrorMessage
             var message = Error.MultiplePingPairsForConnection(null, null, null, "2", "3", "4");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,
@@ -303,7 +306,7 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
         {
             // Create ErrorMessage
             var message = Error.MultiplePingPairsForConnection_Sub(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 4,

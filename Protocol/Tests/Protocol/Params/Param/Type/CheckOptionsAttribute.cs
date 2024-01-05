@@ -10,8 +10,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
@@ -181,7 +181,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         private readonly bool hasSshPortSettings;
 
         public ValidateSshOptionsHelper(IValidate test, ValidatorContext context, IProtocolModel model, List<IValidationResult> results)
-			: base(test, context, results)
+            : base(test, context, results)
         {
             hasSshPortSettings = HasSshPortSettings(model.Protocol);
         }
@@ -244,7 +244,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         private readonly Dictionary<uint, HashSet<IParamsParam>> headerAndTrailerParamsPerHeaderTrailerLinkOptionId;
 
         public ValidateHeaderTrailerLink(IValidate test, ValidatorContext context, IProtocolModel model, List<IValidationResult> results)
-			: base(test, context, results)
+            : base(test, context, results)
         {
             headerAndTrailerParamsPerHeaderTrailerLinkOptionId = new Dictionary<uint, HashSet<IParamsParam>>();
             if (model.Protocol.GetConnections().Any(connection => connection.Type == EnumProtocolType.SmartSerialSingle || connection.Type == EnumProtocolType.SmartSerial))

@@ -5,9 +5,9 @@
     using System.Linq;
     using System.Text.RegularExpressions;
 
-    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Extensions;
-    
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+
     internal static class Helper
     {
         public static readonly string[] CriticalActions =
@@ -67,7 +67,7 @@
             {
                 return false;
             }
-            
+
             return CriticalActions.Any(criticalAction => actionCaption.Contains(criticalAction, StringComparison.OrdinalIgnoreCase));
         }
     }

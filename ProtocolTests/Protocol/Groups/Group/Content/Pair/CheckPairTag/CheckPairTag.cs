@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.Groups.Group.Content.Pair.CheckPairTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Pair.CheckPairTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Pair.CheckPairTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckPairTag();
@@ -141,13 +143,13 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.Pair.CheckPairTag
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "0", "1");
-            
+
             string description = "Tag 'Content/Pair' references a non-existing 'Pair' with ID '0'. Group ID '1'.";
 
             // Assert
             Assert.AreEqual(description, message.Description);
         }
-}
+    }
 
     [TestClass]
     public class Attribute

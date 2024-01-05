@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArray
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillArray;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpSLProtocolFillArray;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpSLProtocolFillArray();
@@ -71,7 +74,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArray
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.NonExistingParam(null, null, null, "1000", "103"),
-                    Error.NonExistingParam(null, null, null, "1100", "103"), 
+                    Error.NonExistingParam(null, null, null, "1100", "103"),
                     Error.NonExistingParam(null, null, null, "1200", "103"),
                     Error.HardCodedPid(null, null, null, "1000", "103"),
                     Error.HardCodedPid(null, null, null, "1100", "103"),

@@ -6,8 +6,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -23,7 +23,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
             {
                 return results;
             }
-            
+
             foreach (IExportRulesExportRule exportRule in exportRules)
             {
                 (GenericStatus status, string rawValue, _) = GenericTests.CheckBasics(exportRule.WhereAttribute, isRequired: false);
@@ -39,7 +39,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                     results.Add(Error.UntrimmedAttribute(this, exportRule, exportRule.WhereAttribute, rawValue));
                 }
             }
-            
+
             return results;
         }
 
@@ -57,7 +57,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
 
         ////    return result;
         ////}
-        
+
         ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
         ////{
         ////    List<IValidationResult> results = new List<IValidationResult>();

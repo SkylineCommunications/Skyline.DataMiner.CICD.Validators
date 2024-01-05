@@ -1,14 +1,16 @@
 ﻿namespace ProtocolTests.Helpers.Software_Parameters
 {
-	using System;
-	using System.IO;
-	using System.Reflection;
-	using System.Text;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Parsers.Common.Xml;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
+    using System;
+    using System.IO;
+    using System.Reflection;
+    using System.Text;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Parsers.Common.Xml;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests;
+
+    [TestClass]
     public class SoftwareParameters
     {
         [TestMethod]

@@ -19,10 +19,10 @@
         /// </summary>
         internal ValidatorSettings()
         {
-	        testsToExecute = new List<(Category catergory, uint checkId)>();
-	        UnitList = new UnitList();
-	        MinimumSupportedDataMinerVersion = new DataMinerVersion(new Version(10, 1, 0, 0), 9966);
-	        ExpectedProvider = "Skyline Communications";
+            testsToExecute = new List<(Category catergory, uint checkId)>();
+            UnitList = new UnitList();
+            MinimumSupportedDataMinerVersion = new DataMinerVersion(new Version(10, 1, 0, 0), 9966);
+            ExpectedProvider = "Skyline Communications";
         }
 
         /// <summary>
@@ -37,9 +37,9 @@
         /// </exception>
         public ValidatorSettings(DataMinerVersion minimumSupportedDataMinerVersion, IUnitList unitList)
         {
-	        testsToExecute = new List<(Category catergory, uint checkId)>();
-	        UnitList = unitList ?? throw new ArgumentNullException(nameof(unitList));
-	        MinimumSupportedDataMinerVersion = minimumSupportedDataMinerVersion ?? throw new ArgumentNullException(nameof(minimumSupportedDataMinerVersion));
+            testsToExecute = new List<(Category catergory, uint checkId)>();
+            UnitList = unitList ?? throw new ArgumentNullException(nameof(unitList));
+            MinimumSupportedDataMinerVersion = minimumSupportedDataMinerVersion ?? throw new ArgumentNullException(nameof(minimumSupportedDataMinerVersion));
         }
 
         /// <summary>

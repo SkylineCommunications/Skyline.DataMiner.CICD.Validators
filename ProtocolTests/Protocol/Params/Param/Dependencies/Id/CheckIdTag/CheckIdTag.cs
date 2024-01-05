@@ -1,15 +1,18 @@
 namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Dependencies.Id.CheckIdTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Dependencies.Id.CheckIdTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckIdTag();
@@ -162,7 +165,7 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
         {
             // Create ErrorMessage
             var message = Error.EmptyTag(null, null, null, "pid");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -189,7 +192,7 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "referencedPid", "pid");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,
@@ -243,7 +246,7 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
         {
             // Create ErrorMessage
             var message = Error.RTDisplayExpectedOnReferencedParam(null, null, null, "referencedPid", "referencingPid");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 5,
@@ -270,7 +273,7 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
         {
             // Create ErrorMessage
             var message = Error.UntrimmedTag(null, null, null, "pid", "untrimmedValue");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,

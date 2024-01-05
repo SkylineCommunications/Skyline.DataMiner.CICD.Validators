@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CSharpCheckUnrecommendedMethod();
@@ -722,7 +725,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedNotifyDataMinerNTGetRemoteTrend(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 5,
@@ -749,7 +752,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedNotifyDataMinerNTGetRemoteTrendAvg(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 6,
@@ -776,7 +779,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedSlProtocolGetParameterIndex(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 2,
@@ -803,7 +806,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedSlProtocolSetParameterIndex(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 3,
@@ -830,7 +833,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedSlProtocolSetParametersIndex(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 4,
@@ -857,7 +860,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedThreadAbort(null, null, null, "1");
-                        
+
             var expected = new ValidationResult()
             {
                 ErrorId = 1,

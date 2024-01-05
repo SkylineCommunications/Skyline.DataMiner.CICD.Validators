@@ -1,22 +1,26 @@
 ﻿namespace ProtocolTests
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Threading;
-	using Common.Testing;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Models.Protocol;
-	using Skyline.DataMiner.CICD.Models.Protocol.Read;
-	using Skyline.DataMiner.CICD.Parsers.Common.Xml;
-	using Skyline.DataMiner.CICD.Validators.Common.Data;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading;
 
-	[TestClass]
+    using Common.Testing;
+
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Models.Protocol;
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Parsers.Common.Xml;
+    using Skyline.DataMiner.CICD.Validators.Common.Data;
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+
+    [TestClass]
     public class ValidatorTests
     {
         #region Old Run Validate
@@ -102,7 +106,7 @@
             var model = new ProtocolModel(parser.Document);
 
             var list = new List<(Category Category, uint CheckId)>();
-            
+
             var semanticModel = ProtocolTestsHelper.GetQActionCompilationModel(model, protocolCode);
 
             var input = new ProtocolInputData(model, parser.Document, semanticModel);
@@ -125,7 +129,7 @@
                 // Shouldn't give an error message
                 (Category.Undefined, 0),
             };
-            
+
             var semanticModel = ProtocolTestsHelper.GetQActionCompilationModel(model, protocolCode);
 
             var input = new ProtocolInputData(model, parser.Document, semanticModel);

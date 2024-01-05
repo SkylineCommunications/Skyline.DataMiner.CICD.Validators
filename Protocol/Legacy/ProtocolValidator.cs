@@ -37,7 +37,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                 // indicate for which DVE these results were created
                 foreach (IValidationResult exportResult in exportResults)
                 {
-	                exportResult.WithDveExport(ep.TablePid, ep.Name);
+                    exportResult.WithDveExport(ep.TablePid, ep.Name);
                 }
 
                 results.AddRange(exportResults);

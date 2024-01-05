@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.HTTP.Session.Connection.Response.Content.CheckPidAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.Connection.Response.Content.CheckPidAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.Connection.Response.Content.CheckPidAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckPidAttribute();
@@ -130,7 +132,7 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.Response.Content.CheckP
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "0", "1", "11");
-            
+
             string description = "Attribute 'Response/Content@pid' references a non-existing 'Param' with ID '0'. HTTP Session ID '1'. Connection ID '11'.";
 
             // Assert

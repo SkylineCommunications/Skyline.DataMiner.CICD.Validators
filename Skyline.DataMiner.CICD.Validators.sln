@@ -19,7 +19,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Testing", "Common.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProtocolTests.SchemaGenerator", "ProtocolTests.SchemaGenerator\ProtocolTests.SchemaGenerator.csproj", "{A3278AF2-05A5-4953-9746-2821B4D07740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validator Management Tool", "Validator Management Tool\Validator Management Tool.csproj", "{82F5E0F7-A112-489E-9480-D4ECD9FACB4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validator Management Tool", "Validator Management Tool\Validator Management Tool.csproj", "{82F5E0F7-A112-489E-9480-D4ECD9FACB4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{05CEF32A-43AD-4D8F-8FA8-AC1A61900AD5}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

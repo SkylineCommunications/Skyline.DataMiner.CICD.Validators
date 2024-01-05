@@ -2,11 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.4.0-8151")]
     internal class SkipInDiagram : IFeatureCheck
@@ -25,7 +25,7 @@
                                .ToList();
 
             return new FeatureCheckResult(items);
-            
+
             bool IsChainAndHasOptionInField(IChainsItem c)
             {
                 // TODO: Use a GetOptions method (to be made)?

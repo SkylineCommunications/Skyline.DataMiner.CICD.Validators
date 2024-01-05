@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.Low.CheckLowTag;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Display.Range.Low.CheckLowTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate test = new CheckLowTag();
@@ -141,15 +144,15 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
         }
     }
 
-	[TestClass]
-	public class Compare
-	{
-		private readonly ICompare compare = new CheckLowTag();
+    [TestClass]
+    public class Compare
+    {
+        private readonly ICompare compare = new CheckLowTag();
 
-		#region Valid Checks
+        #region Valid Checks
 
-		[TestMethod]
-		public void Param_CheckLowTag_Valid()
+        [TestMethod]
+        public void Param_CheckLowTag_Valid()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -166,7 +169,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
         #region Invalid Checks
 
         [TestMethod]
-		public void Param_CheckLowTag_UpdatedLowRange()
+        public void Param_CheckLowTag_UpdatedLowRange()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -182,7 +185,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
         }
 
         [TestMethod]
-		public void Param_CheckLowTag_AddedLowRange()
+        public void Param_CheckLowTag_AddedLowRange()
         {
             Generic.CompareData data = new Generic.CompareData
             {
@@ -200,7 +203,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
 
         #endregion
     }
-    
+
     [TestClass]
     public class ErrorMessages
     {
@@ -209,7 +212,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
         {
             // Create ErrorMessage
             var message = Error.EmptyTag(null, null, null, "2");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Minor,
@@ -230,7 +233,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "1", "2");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Minor,
@@ -251,7 +254,7 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
         {
             // Create ErrorMessage
             var message = Error.UntrimmedValue(null, null, null, "1", "2");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Warning,
@@ -289,15 +292,15 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.Low.CheckLowTag
         }
     }
 
-	[TestClass]
-	public class Attribute
-	{
-		private readonly IRoot root = new CheckLowTag();
+    [TestClass]
+    public class Attribute
+    {
+        private readonly IRoot root = new CheckLowTag();
 
-		[TestMethod]
-		public void Param_CheckLowTag_CheckCategory() => Generic.CheckCategory(root, Category.Param);
+        [TestMethod]
+        public void Param_CheckLowTag_CheckCategory() => Generic.CheckCategory(root, Category.Param);
 
-		[TestMethod]
-		public void Param_CheckLowTag_CheckId() => Generic.CheckId(root, CheckId.CheckLowTag);
-	}
+        [TestMethod]
+        public void Param_CheckLowTag_CheckId() => Generic.CheckId(root, CheckId.CheckLowTag);
+    }
 }

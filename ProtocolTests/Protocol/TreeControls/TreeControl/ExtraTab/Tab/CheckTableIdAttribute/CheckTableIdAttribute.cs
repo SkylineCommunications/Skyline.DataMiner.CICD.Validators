@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.CheckTableIdAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.CheckTableIdAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.CheckTableIdAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckTableIdAttribute();
@@ -139,7 +141,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.CheckTabl
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "0");
-            
+
             string description = "Empty attribute 'Tab@tableId' in TreeControl '0'.";
 
             // Assert
@@ -151,7 +153,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.CheckTabl
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "A", "1");
-            
+
             string description = "Invalid value 'A' in attribute 'Tab@tableId'. TreeControl ID '1'.";
 
             // Assert
@@ -175,7 +177,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.ExtraTab.Tab.CheckTabl
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "1000");
-            
+
             string description = @"Attribute 'ExtraTabs/Tab@tableId' references a non-existing 'Table' with PID '1000'.";
 
             // Assert

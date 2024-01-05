@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.Groups.Group.Content.Param.CheckParamTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Param.CheckParamTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Param.CheckParamTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckParamTag();
@@ -190,7 +192,7 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.Param.CheckParamTag
         {
             // Create ErrorMessage
             var message = Error.EmptyParamTag(null, null, null, "0");
-            
+
             string description = "Empty tag 'Content/Param' in Group '0'.";
 
             // Assert
@@ -202,7 +204,7 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.Param.CheckParamTag
         {
             // Create ErrorMessage
             var message = Error.InvalidParamTag(null, null, null, "test", "1");
-            
+
             string description = "Invalid value 'test' in tag 'Content/Param'. Group ID '1'.";
 
             // Assert

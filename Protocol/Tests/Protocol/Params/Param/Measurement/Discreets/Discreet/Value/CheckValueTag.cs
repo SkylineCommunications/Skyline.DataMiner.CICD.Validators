@@ -7,8 +7,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -59,7 +59,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
         private static IValidationResult CompareDiscreetRemoved(IParamsParam newParam, IParamsParamMeasurementDiscreetsDiscreet previousDiscreet)
         {
-            var newDiscreetWithValue = newParam.Measurement?.Discreets?.FirstOrDefault(p => String.Equals(p.ValueElement?.Value,previousDiscreet.ValueElement?.Value, StringComparison.OrdinalIgnoreCase));
+            var newDiscreetWithValue = newParam.Measurement?.Discreets?.FirstOrDefault(p => String.Equals(p.ValueElement?.Value, previousDiscreet.ValueElement?.Value, StringComparison.OrdinalIgnoreCase));
             if (newDiscreetWithValue == null)
             {
                 return ErrorCompare.RemovedItem(previousDiscreet, previousDiscreet, previousDiscreet.ValueElement?.Value, newParam.Id?.RawValue);

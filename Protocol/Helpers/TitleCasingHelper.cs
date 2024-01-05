@@ -11,7 +11,7 @@
 
     internal class TitleCasing
     {
-	    private readonly FixedCasing fixedCasing;
+        private readonly FixedCasing fixedCasing;
 
         // lowerCaseWords are not combined with FixedCasing.LoadFixedCaseWords because
         // - FixedCasing.LoadFixedCaseWords are fixed in all case
@@ -69,7 +69,7 @@
 
         public TitleCasing(ValidatorSettings settings)
         {
-	        fixedCasing = new FixedCasing(settings);
+            fixedCasing = new FixedCasing(settings);
         }
 
         /// <summary>
@@ -179,15 +179,15 @@
                             bool isFirstOrLastWord = startIndex == 0 || isPrecededByBracket || isLastChar || isFollowedByBracket;
                             if (isFirstOrLastWord && capitalizeIfFirstOrLastWord)
                             {
-	                            if (resultWord[0] == 181 && !RuntimeInformation.FrameworkDescription.StartsWith(".NET Framework"))
-	                            {
+                                if (resultWord[0] == 181 && !RuntimeInformation.FrameworkDescription.StartsWith(".NET Framework"))
+                                {
                                     // When micro is the first character and we're not in the .NET Framework environment, don't change it.
                                     // In .NET it doesn't differentiate between micro and the Greek letter mu.
-	                            }
-	                            else
-	                            {
+                                }
+                                else
+                                {
 
-		                            resultWord = Char.ToUpperInvariant(resultWord[0]) + resultWord.Substring(1);
+                                    resultWord = Char.ToUpperInvariant(resultWord[0]) + resultWord.Substring(1);
                                 }
                             }
 
@@ -261,8 +261,8 @@
             // For bigger words, the same logic is executed but after the different fixed casing words checks
             if (word.Length < 4 && IsUpperCase(word, wordUpperCased))
             {
-	            capitalizeIfFirstOrLastWord = false;
-	            return word;
+                capitalizeIfFirstOrLastWord = false;
+                return word;
             }
 
             // Words with multiple possible known casing
@@ -321,14 +321,14 @@
             // All other words
             if (word[0] == 181 && !RuntimeInformation.FrameworkDescription.StartsWith(".NET Framework"))
             {
-	            word = word[0] + workLowerCased.Substring(1);
+                word = word[0] + workLowerCased.Substring(1);
 
-	            // When micro is the first character and we're not in the .NET Framework environment, don't change it.
-	            // In .NET it doesn't differentiate between micro and the Greek letter mu.
+                // When micro is the first character and we're not in the .NET Framework environment, don't change it.
+                // In .NET it doesn't differentiate between micro and the Greek letter mu.
             }
             else
             {
-	            word = Char.ToUpperInvariant(word[0]) + workLowerCased.Substring(1);
+                word = Char.ToUpperInvariant(word[0]) + workLowerCased.Substring(1);
             }
 
             capitalizeIfFirstOrLastWord = true;
@@ -380,7 +380,7 @@
         {
             public FixedCasing(ValidatorSettings settings)
             {
-	            LoadFixedCaseWords(settings);
+                LoadFixedCaseWords(settings);
             }
 
             public string[] FixedCaseWords { get; private set; }

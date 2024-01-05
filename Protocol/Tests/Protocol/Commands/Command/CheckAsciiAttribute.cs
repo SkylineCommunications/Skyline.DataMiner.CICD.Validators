@@ -7,8 +7,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
@@ -60,13 +60,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
 
     internal class ValidateHelper : ValidateHelperBase
     {
-	    public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results) : base(test, context, results)
-	    {
-	    }
+        public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results) : base(test, context, results)
+        {
+        }
 
-	    public void ValidateAttribute(ICommandsCommand command)
-	    {
-		    (GenericStatus status, string rawValue, string _) = GenericTests.CheckBasics(command.Ascii, isRequired: false);
+        public void ValidateAttribute(ICommandsCommand command)
+        {
+            (GenericStatus status, string rawValue, string _) = GenericTests.CheckBasics(command.Ascii, isRequired: false);
 
             if (status.HasFlag(GenericStatus.Empty))
             {
@@ -80,45 +80,45 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
             }
 
             ValidatePartsOfAttribute(command, rawValue);
-	    }
+        }
 
-	    private void ValidatePartsOfAttribute(ICommandsCommand command, string rawValue)
-	    {
-		    List<IValidationResult> asciiParameterResults = new List<IValidationResult>();
+        private void ValidatePartsOfAttribute(ICommandsCommand command, string rawValue)
+        {
+            List<IValidationResult> asciiParameterResults = new List<IValidationResult>();
 
-		    string[] asciiParameters = rawValue.Split(';');
-		    foreach (string asciiParameter in asciiParameters)
-		    {
-			    (GenericStatus valueStatus, uint _) = GenericTests.CheckBasics<uint>(asciiParameter);
+            string[] asciiParameters = rawValue.Split(';');
+            foreach (string asciiParameter in asciiParameters)
+            {
+                (GenericStatus valueStatus, uint _) = GenericTests.CheckBasics<uint>(asciiParameter);
 
-			    if (valueStatus.HasFlag(GenericStatus.Invalid))
-			    {
-				    asciiParameterResults.Add(Error.InvalidAttribute(test, command, command, asciiParameter, command.Id.RawValue));
-				    continue;
-			    }
+                if (valueStatus.HasFlag(GenericStatus.Invalid))
+                {
+                    asciiParameterResults.Add(Error.InvalidAttribute(test, command, command, asciiParameter, command.Id.RawValue));
+                    continue;
+                }
 
-			    if (!context.ProtocolModel.TryGetObjectByKey<IParamsParam>(Mappings.ParamsById, asciiParameter, out _))
-			    {
-				    asciiParameterResults.Add(Error.NonExistingId(test, command, command, asciiParameter, command.Id.RawValue));
-				    continue;
-			    }
-		    }
+                if (!context.ProtocolModel.TryGetObjectByKey<IParamsParam>(Mappings.ParamsById, asciiParameter, out _))
+                {
+                    asciiParameterResults.Add(Error.NonExistingId(test, command, command, asciiParameter, command.Id.RawValue));
+                    continue;
+                }
+            }
 
-		    if (asciiParameterResults.Count <= 0)
-		    {
-			    return;
-		    }
+            if (asciiParameterResults.Count <= 0)
+            {
+                return;
+            }
 
-		    if (asciiParameterResults.Count > 1 || asciiParameters.Length > 1)
-		    {
-			    IValidationResult invalidAttribute = Error.InvalidAttribute(test, command, command, command.Ascii.Value, command.Id.RawValue);
-			    invalidAttribute.WithSubResults(asciiParameterResults.ToArray());
-			    results.Add(invalidAttribute);
-		    }
-		    else
-		    {
-			    results.Add(asciiParameterResults[0]);
-		    }
-	    }
+            if (asciiParameterResults.Count > 1 || asciiParameters.Length > 1)
+            {
+                IValidationResult invalidAttribute = Error.InvalidAttribute(test, command, command, command.Ascii.Value, command.Id.RawValue);
+                invalidAttribute.WithSubResults(asciiParameterResults.ToArray());
+                results.Add(invalidAttribute);
+            }
+            else
+            {
+                results.Add(asciiParameterResults[0]);
+            }
+        }
     }
 }

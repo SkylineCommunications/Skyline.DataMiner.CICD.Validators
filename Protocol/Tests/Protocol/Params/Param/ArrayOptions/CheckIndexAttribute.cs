@@ -92,9 +92,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         private readonly IValueTag<uint?> indexAttribute;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam tableParam, IParamsParamArrayOptions arrayOptions)
-			: base(test, context, results)
+            : base(test, context, results)
         {
-	        this.tableParam = tableParam;
+            this.tableParam = tableParam;
             this.relationManager = context.ProtocolModel.RelationManager;
             this.indexAttribute = arrayOptions.Index;
         }

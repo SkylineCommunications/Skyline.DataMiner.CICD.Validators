@@ -7,8 +7,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -119,7 +119,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
             foreach (ITriggersTrigger trigger in model.Protocol.Triggers)
             {
                 EnumTriggerTime? triggerTime = EnumTriggerTimeConverter.Convert(trigger.Time?.Value);
-                if (trigger.On?.Value == EnumTriggerOn.Response && trigger.On.GetId().Each&& triggerTime == EnumTriggerTime.Before)
+                if (trigger.On?.Value == EnumTriggerOn.Response && trigger.On.GetId().Each && triggerTime == EnumTriggerTime.Before)
                 {
                     beforeEachResponseTriggers.Add(trigger);
                 }

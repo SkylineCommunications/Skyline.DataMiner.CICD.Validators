@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CheckTriggersAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CheckTriggersAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CheckTriggersAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckTriggersAttribute();
@@ -188,7 +190,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckTriggersAttribute
         {
             // Create ErrorMessage
             var message = Error.MissingAttribute(null, null, null, "0");
-            
+
             string description = "Missing attribute 'triggers' in QAction '0'.";
 
             // Assert
@@ -200,7 +202,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckTriggersAttribute
         {
             // Create ErrorMessage
             var message = Error.NonExistingGroup(null, null, null, "0", "1");
-            
+
             string description = "Attribute 'triggers' references a non-existing 'Group' with ID '0'. QAction ID '1'.";
 
             // Assert

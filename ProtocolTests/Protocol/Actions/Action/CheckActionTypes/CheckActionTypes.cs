@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Actions.Action.CheckActionTypes
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Action.CheckActionTypes;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Action.CheckActionTypes;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckActionTypes();
@@ -460,7 +463,7 @@ namespace ProtocolTests.Protocol.Actions.Action.CheckActionTypes
         {
             // Create ErrorMessage
             var message = Error.IncompatibleTypeVsOnTag(null, null, null, "actionType", "actionOn", "actionId");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,

@@ -1,8 +1,8 @@
 ﻿namespace Validator_Management_Tool.ViewModel
 {
-	using Validator_Management_Tool.Interfaces;
+    using Validator_Management_Tool.Interfaces;
 
-	/// <summary>
+    /// <summary>
     /// The main window view model.
     /// This window contains the menu buttons to switch between the check overview and the settings view.
     /// </summary>

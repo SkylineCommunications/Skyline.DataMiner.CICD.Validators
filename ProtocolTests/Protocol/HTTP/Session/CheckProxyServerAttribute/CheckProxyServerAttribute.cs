@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.HTTP.Session.CheckProxyServerAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.CheckProxyServerAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session.CheckProxyServerAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckProxyServerAttribute();
@@ -74,7 +76,7 @@ namespace ProtocolTests.Protocol.HTTP.Session.CheckProxyServerAttribute
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "0", "1");
-            
+
             string description = "Attribute 'proxyServer' references a non-existing 'Param' with ID '0'. HTTP Session ID '1'.";
 
             // Assert

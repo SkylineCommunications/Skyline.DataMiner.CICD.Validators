@@ -1,16 +1,20 @@
 ﻿namespace ProtocolTests.Helpers
 {
-	using System;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Moq;
-	using Skyline.DataMiner.CICD.Models.Protocol.Read;
-	using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
-	using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Helpers.Conditions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Condition.CheckConditionTag;
+    using System;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Moq;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
+    using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers.Conditions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Condition.CheckConditionTag;
+
+    [TestClass]
     public class ConditionalTests
     {
         [TestMethod]
@@ -77,8 +81,8 @@
 
         [TestMethod]
         [DoNotParallelize]
-        [DataRow("(id:10 + 10) > 20"                 , "Tag 'Group/Condition' references a non-existing 'Param' with PID '10'. Group ID '1'.")]
-        [DataRow("((id:10 * 10) * id:11) > 20"       , "Tag 'Group/Condition' references a non-existing 'Param' with PID '10'. Group ID '1'.")]
+        [DataRow("(id:10 + 10) > 20", "Tag 'Group/Condition' references a non-existing 'Param' with PID '10'. Group ID '1'.")]
+        [DataRow("((id:10 * 10) * id:11) > 20", "Tag 'Group/Condition' references a non-existing 'Param' with PID '10'. Group ID '1'.")]
         [DataRow("(id:12 + \"efg\") == \"defefgabc\"", "Tag 'Group/Condition' references a non-existing 'Param' with PID '12'. Group ID '1'.")]
         public void ConditionsReferencingNonexistingParametersFail(string inputValue, string expectedOutput)
         {
@@ -160,7 +164,7 @@
             // Act
             conditional.ParseConditional(inputValue);
 
-            if(result == String.Empty)
+            if (result == String.Empty)
             {
                 conditional.CheckConditional(protocolModel.Object);
             }

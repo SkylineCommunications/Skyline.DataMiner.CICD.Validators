@@ -1,14 +1,18 @@
 ﻿namespace ProtocolTests.CommonTests
 {
-	using System;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Enums;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckProtocolTag;
-	using CheckId = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckProtocolTag.CheckId;
+    using System;
+
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Enums;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckProtocolTag;
+
+    using CheckId = Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckProtocolTag.CheckId;
 
 
     [TestClass]

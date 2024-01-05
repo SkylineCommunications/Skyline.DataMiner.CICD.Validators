@@ -1202,7 +1202,7 @@
             return param1.Type?.Value == validComboType1 && param2.Type?.Value == validComboType2 ||
                    param1.Type?.Value == validComboType2 && param2.Type?.Value == validComboType1;
         }
-        
+
         /// <summary>
         /// Check if the provided column is of type SNMP.
         /// In case there is no table specified, it will be retrieved.

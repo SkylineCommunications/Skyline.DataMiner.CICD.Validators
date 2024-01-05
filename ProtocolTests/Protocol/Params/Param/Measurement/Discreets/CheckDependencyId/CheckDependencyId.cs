@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDependencyId
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.CheckDependencyId;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.Measurement.Discreets.CheckDependencyId;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckDependencyId();
@@ -95,7 +98,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 FileName = "ReferencedParamRTDisplayExpected",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    
+
                 }
             };
 
@@ -184,7 +187,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "100");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -211,7 +214,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "aaa", "100");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,
@@ -238,7 +241,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "100", "1000");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 4,
@@ -265,7 +268,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
         {
             // Create ErrorMessage
             var message = Error.ReferencedParamRTDisplayExpected(null, null, null, "100", "1000");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 6,
@@ -292,7 +295,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
         {
             // Create ErrorMessage
             var message = Error.ReferencedParamWrongType(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 5,
@@ -319,7 +322,7 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
         {
             // Create ErrorMessage
             var message = Error.UntrimmedAttribute(null, null, null, "100", " untrimmed ");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,

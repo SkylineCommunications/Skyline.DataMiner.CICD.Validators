@@ -1,13 +1,15 @@
 ﻿namespace Validator_Management_Tool.ViewModel
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Validator_Management_Tool.Common;
-	using Validator_Management_Tool.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
-	public class NewNamespaceViewModel : BindableBase
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using Validator_Management_Tool.Common;
+    using Validator_Management_Tool.Interfaces;
+
+    public class NewNamespaceViewModel : BindableBase
     {
         private readonly Category category;
         private readonly List<string> existingNamespaces;

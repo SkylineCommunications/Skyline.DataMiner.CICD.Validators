@@ -1,17 +1,18 @@
 ﻿namespace Validator_Management_Tool.Serialization
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
-	using System.IO;
-	using System.Linq;
-	using System.Text;
-	using System.Windows;
-	using System.Xml;
-	using System.Xml.Serialization;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Windows;
+    using System.Xml;
+    using System.Xml.Serialization;
 
-	/// <summary>
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    /// <summary>
     /// Static class that contains all the methods to read and write to and from the XML file.
     /// Also the methods to convert the XML class hierarchy to a list of check objects, is located in here.
     /// </summary>
@@ -282,7 +283,7 @@
                                     }
                                 }
                             }
-                            
+
                             check.ErrorMessages.ErrorMessage.Add(newError);
                         }
                     }

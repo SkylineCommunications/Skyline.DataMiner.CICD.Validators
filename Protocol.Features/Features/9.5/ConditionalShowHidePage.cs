@@ -2,11 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     //[MinDataMinerVersions("9.5.0.0-8480", "9.0.3.5-4937")]
     internal class ConditionalShowHidePage : IFeatureCheck

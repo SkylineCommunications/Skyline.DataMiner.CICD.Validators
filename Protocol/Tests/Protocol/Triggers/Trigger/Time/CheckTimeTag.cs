@@ -8,8 +8,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -49,7 +49,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
 
             var firstPairValue = afterStartupPairs.First();
             IValidationResult error = Error.MultipleAfterStartup(this, firstPairValue.Value, firstPairValue.Value.Time, String.Join(", ", afterStartupPairs.Keys.ToArray()));
-            
+
             foreach (KeyValuePair<string, ITriggersTrigger> triggerKvp in afterStartupPairs)
             {
                 IValidationResult subResult = Error.MultipleAfterStartup(this, triggerKvp.Value, triggerKvp.Value.Time, triggerKvp.Key);

@@ -1,11 +1,11 @@
 ﻿namespace Validator_Management_Tool.Serialization
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Xml;
-	using System.Xml.Serialization;
+    using System;
+    using System.Collections.Generic;
+    using System.Xml;
+    using System.Xml.Serialization;
 
-	[XmlRoot(ElementName = "InputParameter")]
+    [XmlRoot(ElementName = "InputParameter")]
     public class InputParameter : BindableBase
     {
         private string id;
@@ -238,7 +238,7 @@
         }
         [XmlAttribute(AttributeName = "id")]
         public string Id { get; set; }
-        
+
         [XmlElement(ElementName = "AutoFixWarnings")]
         public AutoFixWarnings AutoFixWarnings { get; set; }
     }

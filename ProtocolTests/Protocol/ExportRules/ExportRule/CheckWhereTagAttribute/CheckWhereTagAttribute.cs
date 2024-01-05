@@ -1,15 +1,18 @@
 namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute
 {
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckWhereTagAttribute();
@@ -93,7 +96,7 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null);
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -114,7 +117,7 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute
         {
             // Create ErrorMessage
             var message = Error.MissingAttribute(null, null, null);
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
@@ -135,7 +138,7 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute
         {
             // Create ErrorMessage
             var message = Error.UntrimmedAttribute(null, null, null, "untrimmedValue");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Warning,

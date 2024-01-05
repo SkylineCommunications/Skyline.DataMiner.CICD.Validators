@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.Groups.Group.Content.Action.CheckActionTag
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Action.CheckActionTag;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group.Content.Action.CheckActionTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckActionTag();
@@ -129,7 +131,7 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.Action.CheckActionTag
         {
             // Create ErrorMessage
             var message = Error.InvalidActionTag(null, null, null, "test", "1");
-            
+
             string description = "Invalid value 'test' in tag 'Content/Action'. Group ID '1'.";
 
             // Assert

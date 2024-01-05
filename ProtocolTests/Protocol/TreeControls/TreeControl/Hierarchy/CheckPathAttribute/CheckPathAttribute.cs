@@ -1,14 +1,16 @@
 namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckPathAttribute();
@@ -179,7 +181,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAtt
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "0");
-            
+
             string description = "Empty attribute 'Hierarchy@path' in TreeControl '0'.";
 
             // Assert
@@ -191,7 +193,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAtt
         {
             // Create ErrorMessage
             var message = Error.InvalidValue(null, null, null, "A,B,C", "1");
-            
+
             string description = "Invalid value 'A,B,C' in attribute 'Hierarchy@path'. TreeControl ID '1'.";
 
             // Assert
@@ -215,7 +217,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAtt
         {
             // Create ErrorMessage
             var message = Error.NonExistingIdsInAttribute(null, null, null, "0");
-            
+
             string description = "Attribute 'Hierarchy@path' references non-existing IDs. TreeControl ID '0'.";
 
             // Assert
@@ -227,7 +229,7 @@ namespace ProtocolTests.Protocol.TreeControls.TreeControl.Hierarchy.CheckPathAtt
         {
             // Create ErrorMessage
             var message = Error.NonExistingIdsInAttribute_Sub(null, null, null, "0", "1");
-            
+
             string description = "Attribute 'Hierarchy@path' references a non-existing 'Table' with PID '0'. TreeControl ID '1'.";
 
             // Assert

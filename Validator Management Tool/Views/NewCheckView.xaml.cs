@@ -1,12 +1,14 @@
 ﻿namespace Validator_Management_Tool.Views
 {
-	using System;
-	using System.Windows;
-	using System.Windows.Input;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Validator_Management_Tool.ViewModel;
+    using System;
+    using System.Windows;
+    using System.Windows.Input;
 
-	/// <summary>
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+    using Validator_Management_Tool.ViewModel;
+
+    /// <summary>
     /// Interaction logic for NewCheckView.xaml
     /// </summary>
     public partial class NewCheckView : Window

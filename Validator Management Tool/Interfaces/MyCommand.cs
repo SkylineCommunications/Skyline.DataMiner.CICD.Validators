@@ -1,9 +1,9 @@
 ﻿namespace Validator_Management_Tool.Interfaces
 {
-	using System;
-	using System.Windows.Input;
+    using System;
+    using System.Windows.Input;
 
-	public class MyCommand : ICommand
+    public class MyCommand : ICommand
     {
         private readonly Action _TargetExecuteMethod;
         private readonly Func<bool> _TargetCanExecuteMethod;

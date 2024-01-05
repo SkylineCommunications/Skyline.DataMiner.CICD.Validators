@@ -1,17 +1,20 @@
 namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimumRequiredVersionTag
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimumRequiredVersionTag;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimumRequiredVersionTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckMinimumRequiredVersionTag();
@@ -327,7 +330,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
         {
             // Create ErrorMessage
             var message = Error.MinVersionFeatureUsedInItem_Sub(null, null, null, "Protocol");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 4,
@@ -354,7 +357,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
         {
             // Create ErrorMessage
             var message = Error.MinVersionFeatureUsedInItemWithId_Sub(null, null, null, "Param", "ID", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 3,
@@ -381,7 +384,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
         {
             // Create ErrorMessage
             var message = Error.MinVersionTooLow(null, null, null, "9.5.0.0 - 1234", "10.0.0.0 - 1234");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -410,7 +413,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
         {
             // Create ErrorMessage
             var message = Error.MinVersionTooLow_Sub(null, null, null, "10.0.0.0 - 1234", "Test Feature");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,
@@ -437,7 +440,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
         {
             // Create ErrorMessage
             var message = Error.UntrimmedTag(null, null, null, " 10.0.0.0 - 1234 ");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 5,

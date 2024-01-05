@@ -2,12 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
 
     //[MinDataMinerVersions("10.0.0.0-9118", "9.6.3.0-8092")]
     internal class ProtocolTtlSyntax : IFeatureCheck

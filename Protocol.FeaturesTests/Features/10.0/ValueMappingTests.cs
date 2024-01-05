@@ -1,14 +1,17 @@
 ﻿namespace Protocol.FeaturesTests.Features._10._0
 {
-	using System.Linq;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Data;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+    using System.Linq;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Data;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
+
+    [TestClass]
     public class ValueMappingTests
     {
         private static ValueMapping check;

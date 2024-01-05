@@ -1,13 +1,15 @@
 namespace ProtocolTests.Protocol.PortSettings.CheckNameAttribute
 {
-	using System.Collections.Generic;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.PortSettings.CheckNameAttribute;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.PortSettings.CheckNameAttribute;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckNameAttribute();
@@ -171,7 +173,7 @@ namespace ProtocolTests.Protocol.PortSettings.CheckNameAttribute
         {
             // Create ErrorMessage
             var message = Error.EmptyAttribute(null, null, null, "0");
-            
+
             string description = "Empty attribute 'PortSettings@name' in Connection '0'.";
 
             // Assert
@@ -183,7 +185,7 @@ namespace ProtocolTests.Protocol.PortSettings.CheckNameAttribute
         {
             // Create ErrorMessage
             var message = Error.MissingAttribute(null, null, null, "0");
-            
+
             string description = "Missing attribute 'PortSettings@name' in Connection '0'.";
 
             // Assert
@@ -195,7 +197,7 @@ namespace ProtocolTests.Protocol.PortSettings.CheckNameAttribute
         {
             // Create ErrorMessage
             var message = Error.UntrimmedAttribute(null, null, null, "0", " myConnection ");
-            
+
             string description = "Untrimmed attribute 'PortSettings@name' in Connection '0'. Current value ' myConnection '.";
 
             // Assert

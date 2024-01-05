@@ -1,16 +1,19 @@
 namespace ProtocolTests.Protocol.Triggers.Trigger.Condition.CheckConditionTag
 {
-	using System;
-	using System.Collections.Generic;
-	using FluentAssertions;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Common.Model;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-	using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Trigger.Condition.CheckConditionTag;
+    using System;
+    using System.Collections.Generic;
 
-	[TestClass]
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Trigger.Condition.CheckConditionTag;
+
+    [TestClass]
     public class Validate
     {
         private readonly IValidate check = new CheckConditionTag();
@@ -93,7 +96,7 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Condition.CheckConditionTag
         {
             // Create ErrorMessage
             var message = Error.InvalidCondition(null, null, null, "currentCondition", "reason", "100");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 1,
@@ -120,7 +123,7 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Condition.CheckConditionTag
         {
             // Create ErrorMessage
             var message = Error.NonExistingId(null, null, null, "2", "3");
-                        
+
             var expected = new ValidationResult
             {
                 ErrorId = 2,
