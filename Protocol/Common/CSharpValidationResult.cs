@@ -6,6 +6,7 @@
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
+    [DataContract]
     internal class CSharpValidationResult : ValidationResult, ICSharpValidationResult
     {
         [IgnoreDataMember]
