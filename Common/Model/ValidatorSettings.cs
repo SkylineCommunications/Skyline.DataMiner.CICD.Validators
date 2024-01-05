@@ -1,7 +1,7 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Common.Model
 {
-	using System;
-	using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Common;
     using Skyline.DataMiner.XmlSchemas.Protocol;
@@ -15,26 +15,31 @@
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidatorSettings"/> class.
-        /// Used for unit tests
+        /// Used for unit tests.
         /// </summary>
         internal ValidatorSettings()
         {
 	        testsToExecute = new List<(Category catergory, uint checkId)>();
 	        UnitList = new UnitList();
 	        MinimumSupportedDataMinerVersion = new DataMinerVersion(new Version(10, 1, 0, 0), 9966);
+	        ExpectedProvider = "Skyline Communications";
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidatorSettings"/> class.
         /// </summary>
-        public ValidatorSettings(DataMinerVersion minimumSupportedDataMinerVersion)
+        /// <param name="minimumSupportedDataMinerVersion">The minimum supported DataMiner version.</param>
+        /// <param name="unitList">The unit list.</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// unitList
+        /// or
+        /// minimumSupportedDataMinerVersion
+        /// </exception>
+        public ValidatorSettings(DataMinerVersion minimumSupportedDataMinerVersion, IUnitList unitList)
         {
 	        testsToExecute = new List<(Category catergory, uint checkId)>();
-
-            // TODO-MOD: Probably don't initialize it here just in case an error happens? Maybe only on the get of the property if the field is null still?
-	        UnitList = new UnitList();
-
-            MinimumSupportedDataMinerVersion = minimumSupportedDataMinerVersion;
+	        UnitList = unitList ?? throw new ArgumentNullException(nameof(unitList));
+	        MinimumSupportedDataMinerVersion = minimumSupportedDataMinerVersion ?? throw new ArgumentNullException(nameof(minimumSupportedDataMinerVersion));
         }
 
         /// <summary>
@@ -44,14 +49,14 @@
         public string ExpectedProvider { get; set; }
 
         /// <summary>
-        /// Gets or sets the minimum supported DataMiner version.
+        /// Gets the minimum supported DataMiner version.
         /// </summary>
         public DataMinerVersion MinimumSupportedDataMinerVersion { get; }
 
         /// <summary>
-        /// Gets or sets the unit list.
+        /// Gets the unit list.
         /// </summary>
-        public IUnitList UnitList { get; set; }
+        public IUnitList UnitList { get; }
 
         /// <summary>
         /// Gets or sets the tests to execute. If this list is empty, all test will be executed.

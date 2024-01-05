@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<AssemblyName>Skyline.DataMiner.CICD.Validators.Common</AssemblyName>
@@ -19,7 +19,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="1.0.8-b" />
-		<PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1-a" />
+		<PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1-b" />
 	</ItemGroup>
 
 	<ItemGroup>

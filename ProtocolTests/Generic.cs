@@ -591,12 +591,10 @@
 
         private static ValidatorSettings GetValidatorSettingsFromEnvironmentData(bool isSkylineUser)
         {
-            ValidatorSettings validatorSettings = new ValidatorSettings();
-
-            if (isSkylineUser)
+            ValidatorSettings validatorSettings = new ValidatorSettings
             {
-                validatorSettings.ExpectedProvider = "Skyline Communications";
-            }
+	            ExpectedProvider = isSkylineUser ? "Skyline Communications" : String.Empty
+            };
 
             return validatorSettings;
         }

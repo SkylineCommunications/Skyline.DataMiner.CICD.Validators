@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1-a" />
+        <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1-b" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
