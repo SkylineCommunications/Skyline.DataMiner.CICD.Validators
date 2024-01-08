@@ -57,6 +57,32 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckOptionsAttribute
         }
 
         [TestMethod]
+        public void Param_CheckOptionsAttribute_HeaderTrailerLink_SingleConnection()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidHeaderTrailerLinkSingleConnection.xml",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckOptionsAttribute_HeaderTrailerLink_MultipleConnections()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidHeaderTrailerLinkMultipleConnections.xml",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
         public void Param_CheckOptionsAttribute_Matrix()
         {
             Generic.ValidateData data = new Generic.ValidateData
@@ -171,6 +197,40 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckOptionsAttribute
                 {
                     Error.MissingHeaderTrailerLinkOptions(null, null, null, "header", "1"),
                     Error.MissingHeaderTrailerLinkOptions(null, null, null, "trailer", "2")
+                }
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckOptionsAttribute_HeaderTrailerLink_Connection_Missing()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "HeaderTrailerLinkShouldHaveConnection.xml",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.HeaderTrailerLinkShouldHaveConnection(null, null, null, "header", "1"),
+                    Error.HeaderTrailerLinkShouldHaveConnection(null, null, null, "trailer", "2"),
+                }
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckOptionsAttribute_HeaderTrailerLink_Connection_Wrong()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "HeaderTrailerConnectionShouldBeValid.xml",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.HeaderTrailerConnectionShouldBeValid(null, null, null, "0", "header", "1"),
+                    Error.HeaderTrailerConnectionShouldBeValid(null, null, null, "0", "trailer", "2"),
                 }
             };
 

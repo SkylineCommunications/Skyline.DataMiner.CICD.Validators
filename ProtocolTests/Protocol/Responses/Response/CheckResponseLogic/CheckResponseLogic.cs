@@ -42,6 +42,32 @@ namespace ProtocolTests.Protocol.Responses.Response.CheckResponseLogic
             Generic.Validate(test, data);
         }
 
+        [TestMethod]
+        public void Response_CheckResponseLogic_ValidResponseContainsHeaderTrailer()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidResponseContainsHeaderTrailer",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
+        public void Response_CheckResponseLogic_ValidResponseNoHeaderTrailerDefined()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidResponseNoHeaderTrailerDefined",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(test, data);
+        }
+
         #endregion
 
         #region Invalid Checks
@@ -75,6 +101,38 @@ namespace ProtocolTests.Protocol.Responses.Response.CheckResponseLogic
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.MissingCrcResponseAction(null, null, null, "2", "2"),
+                }
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
+        public void Response_CheckResponseLogic_MissingSmartSerialHeaderTrailerResponse()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "SmartSerialResponseShouldContainHeaderTrailer",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.SmartSerialResponseShouldContainHeaderTrailer(null, null, null, "1", "2"),
+                }
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
+        public void Response_CheckResponseLogic_MissingSmartSerialTrailerResponse()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "SmartSerialResponseShouldContainTrailer",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.SmartSerialResponseShouldContainHeaderTrailer(null, null, null, "1", "2"),
                 }
             };
 

@@ -436,6 +436,56 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 ReferenceNode = referenceNode,
             };
         }
+
+        public static IValidationResult HeaderTrailerLinkShouldHaveConnection(IValidate test, IReadable referenceNode, IReadable positionNode, string headerOrTrailer, string paramId)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckOptionsAttribute,
+                ErrorId = ErrorIds.HeaderTrailerLinkShouldHaveConnection,
+                FullId = "2.21.22",
+                Category = Category.Param,
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Connection option should be defined on {0} with PID '{1}'.", headerOrTrailer, paramId),
+                HowToFix = "Add a connection",
+                ExampleCode = "<Type options=\"headerTrailerLink=1;connection=0\">",
+                Details = "When a connection is not specified, then ALL connections will listen for this header/trailer. Even though a connection could have a response without a trailer, it will still be listening for that trailer to appear." + Environment.NewLine + "When SLPort is listening for a trailer, it will reject the data when the trailer is not present." + Environment.NewLine + "Rejected data by SLPort will not appear in the StreamViewer and is therefore harder to investigate." + Environment.NewLine + "It is strongly recommended to always use headerTrailerLink option in combination with a specified intended connection, even when there would be only one connection present as it could quickly result into issues when another connection is added in the future.",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult HeaderTrailerConnectionShouldBeValid(IValidate test, IReadable referenceNode, IReadable positionNode, string connectionId, string headerOrTrailer, string paramId)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckOptionsAttribute,
+                ErrorId = ErrorIds.HeaderTrailerConnectionShouldBeValid,
+                FullId = "2.21.23",
+                Category = Category.Param,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("The connection '{0}' needs to be a valid connection type when used on a {1} with PID '{2}'.", connectionId, headerOrTrailer, paramId),
+                HowToFix = "Assign the connection to an ID of a valid connection type",
+                ExampleCode = "<Type options=\"headerTrailerLink=1;connection=0\">",
+                Details = "When a connection is specified then this header/trailer parameter will only be taken into account when the connection ID matches." + Environment.NewLine + "If the connection id is being specified on a different connection type, like SNMP, then it makes no sense to specify the parameter as header/trailer type on such a connection type.",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
     }
 
     internal static class ErrorCompare
@@ -512,6 +562,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint InvalidColumnTypeParamInterprete = 19;
         public const uint UnrecommendedSshOptions = 20;
         public const uint InvalidMixOfSshOptionsAndPortSettings = 21;
+        public const uint HeaderTrailerLinkShouldHaveConnection = 22;
+        public const uint HeaderTrailerConnectionShouldBeValid = 23;
     }
 
     /// <summary>

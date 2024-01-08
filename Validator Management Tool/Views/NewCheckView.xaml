@@ -6,7 +6,7 @@
         xmlns:tools="clr-namespace:Validator_Management_Tool.Tools"
         mc:Ignorable="d"
         KeyboardNavigation.TabNavigation="Cycle"
-        Title="Create new Check" Height="200" Width="400" Icon="/Validator Management Tool;component/Resources/skyline.ico">
+        Title="Create new Check" Height="200" Width="400" Icon="/Validator_Management_Tool;component/Resources/skyline.ico">
 
     <Window.Resources>
         <!--Converter to convert a boolean to the opposite-->

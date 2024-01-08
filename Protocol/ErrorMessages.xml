@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Validator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Validator xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ValidationChecks>
 		<DescriptionTemplates>
 			<DescriptionTemplate id="1">
@@ -5076,6 +5076,45 @@
 								<HowToFix><![CDATA[Remove the option from the parameter.[NewLine]Reference the parameter in the PortSettings.]]></HowToFix>
 								<ExampleCode><![CDATA[<PortSettings name="SSH Connection">[NewLine]    <IPport>[NewLine]        <DefaultValue>22</DefaultValue>[NewLine]    </IPport>[NewLine]    <BusAddress>[NewLine]        <Disabled>true</Disabled>[NewLine]    </BusAddress>[NewLine]    <PortTypeSerial>[NewLine]        <Disabled>true</Disabled>[NewLine]    </PortTypeSerial>[NewLine]    <PortTypeUDP>[NewLine]        <Disabled>true</Disabled>[NewLine]    </PortTypeUDP>[NewLine]    <SSH>[NewLine]        <Credentials>[NewLine]            <Username pid="1100"/>[NewLine]            <Password pid="1101"/>[NewLine]        </Credentials>[NewLine]    </SSH>[NewLine]</PortSettings>]]></ExampleCode>
 								<Details><![CDATA[Conflicting SSH configurations detected.[NewLine]You're using both SSH Username, SSH Password, SSH Options and 'PortSettings/SSH'.[NewLine]SSH Username, SSH Password, SSH Options are restricted to one SSH connection on port 22 only and shouldn't be mixed with 'PortSettings/SSH'.[NewLine]Use only one of these configurations.[NewLine]'PortSettings/SSH' is generally better as it supports multiple SSH connections and use any port number.[NewLine]]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="22">
+								<Name>HeaderTrailerLinkShouldHaveConnection</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Connection option should be defined on {0} with PID '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">headerOrTrailer</InputParameter>
+										<InputParameter id="1">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Add a connection]]></HowToFix>
+								<ExampleCode><![CDATA[<Type options="headerTrailerLink=1;connection=0">]]></ExampleCode>
+								<Details><![CDATA[When a connection is not specified, then ALL connections will listen for this header/trailer. Even though a connection could have a response without a trailer, it will still be listening for that trailer to appear.[NewLine]When SLPort is listening for a trailer, it will reject the data when the trailer is not present.[NewLine]Rejected data by SLPort will not appear in the StreamViewer and is therefore harder to investigate.[NewLine]It is strongly recommended to always use headerTrailerLink option in combination with a specified intended connection, even when there would be only one connection present as it could quickly result into issues when another connection is added in the future.]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="23">
+								<Name>HeaderTrailerConnectionShouldBeValid</Name>
+								<GroupDescription />
+								<Description>
+									<Format>The connection '{0}' needs to be a valid connection type when used on a {1} with PID '{2}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">connectionId</InputParameter>
+										<InputParameter id="1">headerOrTrailer</InputParameter>
+										<InputParameter id="2">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Assign the connection to an ID of a valid connection type]]></HowToFix>
+								<ExampleCode><![CDATA[<Type options="headerTrailerLink=1;connection=0">]]></ExampleCode>
+								<Details><![CDATA[When a connection is specified then this header/trailer parameter will only be taken into account when the connection ID matches.[NewLine]If the connection id is being specified on a different connection type, like SNMP, then it makes no sense to specify the parameter as header/trailer type on such a connection type.]]></Details>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
@@ -17089,6 +17128,25 @@
 								<HowToFix><![CDATA[Make sure a CRC action is triggered after response.]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>SmartSerialResponseShouldContainHeaderTrailer</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Defined headers and trailers linked to smart-serial connection '{0}' should be used in response '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">connectionId</InputParameter>
+										<InputParameter id="1">responseId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Use a header and matching trailer parameter in the response.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[If there is a header/trailer parameter defined with a headerTrailerLink on a specific connection that is smart-serial, or when there is no connection specified it will automatically apply to the smart-serial connection, then SLPort will be filtering on this header/trailer pairs regardless on how the response definition looks like.[NewLine]This means if there is e.g. a response defined for the smart-serial connection that consists of one next param type parameter without header/trailer with the intention to receive ALL data that is entering on the socket then this will not work as expected as SLPort will be filtering on the header/trailer pairs and will only foward that data to SLProtocol. Data that does not match the header/trailer will be dropped in the background by SLPort and will also not be shown in the StreamViewer. When there are headerTrailerLink parameters defined for a smart-serial connection then these parameters should also be used on the response for the smart-serial connection.]]></Details>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>

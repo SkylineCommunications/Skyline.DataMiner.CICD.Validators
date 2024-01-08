@@ -241,20 +241,44 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     internal class ValidateHeaderTrailerLink : ValidateHelperBase
     {
         private readonly bool protocolTypeRequiresHeaderTrailerLinkOption;
+        private readonly bool hasMultipleSerialConnections;
         private readonly Dictionary<uint, HashSet<IParamsParam>> headerAndTrailerParamsPerHeaderTrailerLinkOptionId;
+        private readonly HashSet<uint> invalidConnectionIds;
 
         public ValidateHeaderTrailerLink(IValidate test, ValidatorContext context, IProtocolModel model, List<IValidationResult> results)
             : base(test, context, results)
         {
             headerAndTrailerParamsPerHeaderTrailerLinkOptionId = new Dictionary<uint, HashSet<IParamsParam>>();
-            if (model.Protocol.GetConnections().Any(connection => connection.Type == EnumProtocolType.SmartSerialSingle || connection.Type == EnumProtocolType.SmartSerial))
+            invalidConnectionIds = new HashSet<uint>();
+
+            int serialConnectionCount = 0;
+            protocolTypeRequiresHeaderTrailerLinkOption = false;
+
+            foreach (var connection in model.Protocol.GetConnections())
             {
-                protocolTypeRequiresHeaderTrailerLinkOption = true;
+                switch (connection.Type)
+                {
+                    case EnumProtocolType.SmartSerial:
+                    case EnumProtocolType.SmartSerialSingle:
+                        serialConnectionCount++;
+                        protocolTypeRequiresHeaderTrailerLinkOption = true;
+                        break;
+                    case EnumProtocolType.Serial:
+                    case EnumProtocolType.SerialSingle:
+                        serialConnectionCount++;
+                        break;
+                    case EnumProtocolType.Snmp:
+                    case EnumProtocolType.Snmpv2:
+                    case EnumProtocolType.Snmpv3:
+                        invalidConnectionIds.Add(connection.Number);
+                        break;
+                    default:
+                        // do nothing.
+                        break;
+                }
             }
-            else
-            {
-                protocolTypeRequiresHeaderTrailerLinkOption = false;
-            }
+
+            hasMultipleSerialConnections = serialConnectionCount > 1;
         }
 
         public static void RemoveHeaderTrailerLinkOption(ParamsParam param)
@@ -363,6 +387,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             }
 
             headerOrTrailerParams.Add(param);
+            ValidateIfHeaderTrailerLinkOptionHasValidConnection(paramTypeOptions, param, paramId, headerOrTrailer);
         }
 
         private void ValidateIfHeaderTrailerLinkOptionIsNotDefined(IParamsParam param)
@@ -375,6 +400,19 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             if (param.Type.Options.Value.Split(';').Any(o => o.StartsWith("headerTrailerLink", StringComparison.OrdinalIgnoreCase)))
             {
                 results.Add(Error.ExcessiveHeaderTrailerLinkOptions(test, param, param, param.Id?.RawValue));
+            }
+        }
+
+        private void ValidateIfHeaderTrailerLinkOptionHasValidConnection(ParamTypeOptions paramTypeOptions, IParamsParam param, string paramId, string headerOrTrailer)
+        {
+            if (hasMultipleSerialConnections && paramTypeOptions.Connection == null)
+            {
+                results.Add(Error.HeaderTrailerLinkShouldHaveConnection(test, param, param, headerOrTrailer, paramId));
+            }
+
+            if (paramTypeOptions.Connection != null && invalidConnectionIds.Contains(paramTypeOptions.Connection.Value))
+            {
+                results.Add(Error.HeaderTrailerConnectionShouldBeValid(test, param, param, Convert.ToString(paramTypeOptions.Connection.Value), headerOrTrailer, paramId));
             }
         }
     }
