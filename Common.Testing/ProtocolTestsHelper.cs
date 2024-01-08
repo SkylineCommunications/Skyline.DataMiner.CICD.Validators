@@ -69,9 +69,9 @@
             return new ProtocolInputData(model, document, qactionCompilationModel);
         }
 
-        public static EditModel.Protocol GetEditProtocol(IProtocolModel model, EditXml.XmlElement xmlElement)
+        public static EditModel.Protocol GetEditProtocol(IProtocolModel model, EditXml.XmlDocument xmlDocument)
         {
-            return new EditModel.Protocol(model.Protocol, xmlElement);
+            return new EditModel.ProtocolDocumentEdit(model, xmlDocument).Protocol;
         }
     }
 }

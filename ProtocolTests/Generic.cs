@@ -565,8 +565,7 @@
         private static (Skyline.DataMiner.CICD.Parsers.Common.XmlEdit.XmlDocument editDocument, Skyline.DataMiner.CICD.Models.Protocol.Edit.Protocol editProtocol) GetCodeFixContextData(XmlDocument document, IProtocolModel model)
         {
             var editDocument = new Skyline.DataMiner.CICD.Parsers.Common.XmlEdit.XmlDocument(document);
-            var xmlElement = editDocument.Element["protocol"];
-            var editProtocol = ProtocolTestsHelper.GetEditProtocol(model, xmlElement);
+            var editProtocol = ProtocolTestsHelper.GetEditProtocol(model, editDocument);
 
             return (editDocument, editProtocol);
         }
