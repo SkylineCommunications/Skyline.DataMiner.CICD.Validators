@@ -19,8 +19,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="1.0.8-b" />
-    <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1-b" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="1.0.8" />
+    <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
