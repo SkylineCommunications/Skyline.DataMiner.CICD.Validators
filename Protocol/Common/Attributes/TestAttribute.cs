@@ -47,7 +47,7 @@
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>The attribute.</returns>
-        /// <exception cref="System.ArgumentNullException">type</exception>
+        /// <exception cref="System.ArgumentNullException"><paramref name="type"/> is <see langword="null"/>.</exception>
         internal static TestAttribute GetAttribute(Type type)
         {
             if (type == null)
