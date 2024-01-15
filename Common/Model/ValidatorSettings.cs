@@ -31,9 +31,7 @@
         /// <param name="minimumSupportedDataMinerVersion">The minimum supported DataMiner version.</param>
         /// <param name="unitList">The unit list.</param>
         /// <exception cref="System.ArgumentNullException">
-        /// unitList
-        /// or
-        /// minimumSupportedDataMinerVersion
+        /// <paramref name="minimumSupportedDataMinerVersion"/> or <paramref name="unitList"/> is <see langword="null"/>.
         /// </exception>
         public ValidatorSettings(DataMinerVersion minimumSupportedDataMinerVersion, IUnitList unitList)
         {
