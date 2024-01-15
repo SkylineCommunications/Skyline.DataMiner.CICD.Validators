@@ -10,8 +10,6 @@
 
     internal static class ValidatorContextExtensions
     {
-        // TODO-MOD: Remove the nonQAction ones and let the checks make use of the protocolmodel (this way, the each can be used in other projects as well)
-
         public static IEnumerable<IParameterGroupsGroup> EachParameterGroupWithValidId(this ValidatorContext context)
         {
             return context?.ProtocolModel?.EachParameterGroupWithValidId() ?? Enumerable.Empty<IParameterGroupsGroup>();
@@ -77,11 +75,6 @@
             return context?.ProtocolModel?.EachTreeControlWithValidParameterId() ?? Enumerable.Empty<ITreeControlsTreeControl>();
         }
 
-        public static IEnumerable<ITreeControlsTreeControl> EachTreeControlWithValidParameterIdThatExists(this ValidatorContext context)
-        {
-            return context?.ProtocolModel?.EachTreeControlWithValidParameterId() ?? Enumerable.Empty<ITreeControlsTreeControl>();
-        }
-
         public static IEnumerable<(CompiledQActionProject projectData, IQActionsQAction qaction)> EachQActionProject(this ValidatorContext context)
         {
             var model = context.ProtocolModel;
@@ -97,7 +90,6 @@
 
             foreach (KeyValuePair<ProjectId, CompiledQActionProject> kvp in context.CompiledQActions)
             {
-                //var projectId = kvp.Key;
                 var projectData = kvp.Value;
 
                 var projectName = projectData.Project.Name;
@@ -107,6 +99,7 @@
                 }
 
                 var qaction = projectData.QAction;
+
                 // Don't consider old generated class library projects 
                 if (qaction.Name?.RawValue == "** Auto-generated Class Library **")
                 {
@@ -145,18 +138,7 @@
                 yield return (syntaxTree, semanticModel);
             }
         }
-
-        public static IEnumerable<(IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel)> EachQActionProjectsAndSyntaxTreesAndModels(this ValidatorContext context)
-        {
-            foreach ((var projectData, var qaction) in context.EachQActionProject())
-            {
-                foreach ((var syntaxTree, var semanticModel) in projectData.EachQActionSyntaxTreesAndModels())
-                {
-                    yield return (qaction, syntaxTree, semanticModel);
-                }
-            }
-        }
-
+        
         public static IEnumerable<(IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData)> EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas(this ValidatorContext context)
         {
             foreach ((var projectData, var qaction) in context.EachQActionProject())
