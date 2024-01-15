@@ -2,7 +2,7 @@
 
 ## About
 
-This NuGet package holds the common code needed for validation. 
+This NuGet package holds the common code needed for validation.
 
 ### About DataMiner
 

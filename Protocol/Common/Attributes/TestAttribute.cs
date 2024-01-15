@@ -63,7 +63,7 @@
         /// </summary>
         /// <param name="test">The test.</param>
         /// <returns>The attribute.</returns>
-        /// <exception cref="System.ArgumentNullException">test</exception>
+        /// <exception cref="System.ArgumentNullException"><paramref name="test"/> is <see langword="null"/>.</exception>
         internal static TestAttribute GetAttribute(IValidate test)
         {
             if (test == null)

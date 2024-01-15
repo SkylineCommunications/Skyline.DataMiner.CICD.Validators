@@ -20,7 +20,6 @@
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <StartupObject>Validator_Management_Tool.EntryPoint</StartupObject>
     <AssemblyName>Validator_Management_Tool</AssemblyName>
   </PropertyGroup>
   <ItemGroup>

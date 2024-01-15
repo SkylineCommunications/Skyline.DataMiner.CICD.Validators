@@ -59,7 +59,7 @@
         /// <summary>
         /// Gets or sets the tests to execute. If this list is empty, all test will be executed.
         /// </summary>
-        public IReadOnlyList<(Category catergory, uint checkId)> TestsToExecute => testsToExecute.AsReadOnly();
+        public IReadOnlyList<(Category category, uint checkId)> TestsToExecute => testsToExecute.AsReadOnly();
 
         /// <summary>
         /// Add a test to be executed.

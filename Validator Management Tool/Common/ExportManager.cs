@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Reflection;
     using System.Windows;
 
     using Microsoft.Win32;
@@ -22,34 +21,6 @@
     /// </summary>
     public static class ExportManager
     {
-        /// <summary>
-        /// Used in pipeline.
-        /// </summary>
-        public static void ExportToExcelPipeline(string version)
-        {
-            try
-            {
-                // Retrieve checks
-                var checks = new List<Check>();
-                string directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                Serialization.Serializer.ReadXml(Path.Combine(directory, Settings.XmlPath));
-
-                foreach (var check in Serialization.Serializer.GetChecks())
-                {
-                    checks.Add(check);
-                }
-
-                string fileName = Settings.ExportFile + " - " + version.Replace('.', '_');
-                string filePath = Path.Combine(directory, fileName);
-                CreateWorksheet(checks, filePath);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-
         /// <summary>
         /// Creates a chosen file with all the error messages in,
         ///  after it asked the location of the file with a save file dialog.
