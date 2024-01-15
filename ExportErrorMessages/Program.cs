@@ -1,7 +1,6 @@
 ﻿namespace ExportErrorMessages
 {
     using System.Collections.Generic;
-    using System.Reflection;
 
     using ExportErrorMessages.Serialization;
 
@@ -19,33 +18,16 @@
         {
             if (args.Length > 2)
             {
-                ExportToExcelPipeline(args[0], args[1]);
+                ExportToExcelPipeline(args[0], args[1], args[2]);
             }
         }
 
-        private static void ExportToExcelPipeline(string xmlFilePath, string version)
+        private static void ExportToExcelPipeline(string xmlFilePath, string version, string outputDirectory)
         {
             try
             {
                 // Retrieve errorMessages
                 var validator = Serializer.ReadXml(xmlFilePath);
-
-                //List<FullErrorMessage> allErrorMessages = new List<FullErrorMessage>();
-                //foreach (var category in validator.ValidationChecks.Categories.Category)
-                //{
-                //    foreach (var check in category.Checks.Check)
-                //    {
-                //        foreach (var errorMessage in check.ErrorMessages.ErrorMessage)
-                //        {
-                //            allErrorMessages.Add(new FullErrorMessage
-                //            {
-                //                Category = category,
-                //                ErrorMessage = errorMessage,
-                //                Check = check,
-                //            });
-                //        }
-                //    }
-                //}
 
                 var allErrorMessages = validator.ValidationChecks.Categories.Category.SelectMany(category =>
                     category.Checks.Check.SelectMany(check =>
@@ -53,7 +35,7 @@
                             new FullErrorMessage { Category = category, Check = check, ErrorMessage = errorMessage }))).ToList();
 
                 string fileName = $"Validator Error Messages - {version}";
-                string outputDirectory = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Program)).Location);
+                Directory.CreateDirectory(outputDirectory);
                 string filePath = Path.Combine(outputDirectory, fileName);
                 CreateWorksheet(allErrorMessages, filePath, validator);
             }
@@ -61,6 +43,10 @@
             {
                 Console.WriteLine(e);
                 throw;
+            }
+            finally
+            {
+                Console.WriteLine("Finished");
             }
         }
 

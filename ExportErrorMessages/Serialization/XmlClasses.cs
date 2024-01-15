@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Xml;
     using System.Xml.Serialization;
+
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     [XmlRoot(ElementName = "InputParameter")]
@@ -13,30 +14,30 @@
         public int Id { get; set; }
 
         [XmlAttribute(AttributeName = "value")]
-        public string Value { get; set; }
+        public string Value { get; set; } = null!;
 
         [XmlText]
-        public string Text { get; set; }
+        public string Text { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "InputParameters")]
     public class InputParameters
     {
         [XmlElement(ElementName = "InputParameter")]
-        public List<InputParameter> InputParameter { get; set; }
+        public List<InputParameter> InputParameter { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "DescriptionTemplate")]
     public class DescriptionTemplate
     {
         [XmlElement(ElementName = "Name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [XmlElement(ElementName = "Format")]
-        public string Format { get; set; }
+        public string Format { get; set; } = null!;
 
         [XmlElement(ElementName = "InputParameters")]
-        public InputParameters TemplateInputParameters { get; set; }
+        public InputParameters TemplateInputParameters { get; set; } = null!;
 
         [XmlAttribute(AttributeName = "id")]
         public uint Id { get; set; }
@@ -46,24 +47,41 @@
     public class DescriptionTemplates
     {
         [XmlElement(ElementName = "DescriptionTemplate")]
-        public List<DescriptionTemplate> DescriptionTemplate { get; set; }
+        public List<DescriptionTemplate> DescriptionTemplate { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "Name")]
     public class Name
     {
         [XmlAttribute(AttributeName = "namespace")]
-        public string Namespace { get; set; }
+        public string Namespace { get; set; } = null!;
 
         [XmlText]
-        public string Text { get; set; }
+        public string Text { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "Description")]
     public class Description
     {
-        [XmlAttribute(AttributeName = "templateId")]
+        [XmlIgnore]
         public int? TemplateId { get; set; }
+
+        [XmlAttribute(AttributeName = "templateId")]
+        public string? TemplateIdAsString
+        {
+            get => TemplateId?.ToString();
+            set
+            {
+                if (Int32.TryParse(value, out int temp))
+                {
+                    TemplateId = temp;
+                }
+                else
+                {
+                    TemplateId = null;
+                }
+            }
+        }
 
         [XmlElement(ElementName = "Format")]
         public string? Format { get; set; }
@@ -75,23 +93,23 @@
     [XmlRoot(ElementName = "ErrorMessage")]
     public class ErrorMessage
     {
-        private string? _howToFix;
-        private string? _exampleCode;
-        private string? _details;
-        private string? _groupDescription = String.Empty;
+        private string? howToFix;
+        private string? exampleCode;
+        private string? details;
+        private string? groupDescription = String.Empty;
 
         [XmlElement(ElementName = "Name")]
-        public Name Name { get; set; }
+        public Name Name { get; set; } = null!;
 
         [XmlElement(ElementName = "GroupDescription", IsNullable = false)]
         public string? GroupDescription
         {
-            get => _groupDescription ?? String.Empty;
-            set => _groupDescription = value ?? String.Empty;
+            get => groupDescription ?? String.Empty;
+            set => groupDescription = value ?? String.Empty;
         }
 
         [XmlElement(ElementName = "Description")]
-        public Description Description { get; set; }
+        public Description Description { get; set; } = null!;
 
         [XmlElement(ElementName = "Severity")]
         public Severity? Severity { get; set; }
@@ -105,28 +123,44 @@
         [XmlElement(ElementName = "FixImpact")]
         public FixImpact? FixImpact { get; set; }
 
-        [XmlElement(ElementName = "HasCodeFix")]
+        [XmlIgnore]
         public bool? HasCodeFix { get; set; }
+
+        [XmlElement(ElementName = "HasCodeFix")]
+        public string? HasCodeFixAsString
+        {
+            get => HasCodeFix?.ToString();
+            set
+            {
+                if (value == null)
+                {
+                    HasCodeFix = null;
+                    return;
+                }
+
+                HasCodeFix = value.ToUpperInvariant() == "TRUE";
+            }
+        }
 
         [XmlElement(ElementName = "HowToFix")]
         public XmlCDataSection? HowToFix
         {
             get
             {
-                if (_howToFix == null)
+                if (howToFix == null)
                 {
                     return null;
                 }
 
                 XmlDocument doc = new XmlDocument();
-                return doc.CreateCDataSection(_howToFix);
+                return doc.CreateCDataSection(howToFix);
             }
 
             set
             {
                 if (value != null)
                 {
-                    _howToFix = value.Value;
+                    howToFix = value.Value;
                 }
             }
         }
@@ -136,20 +170,20 @@
         {
             get
             {
-                if (_exampleCode == null)
+                if (exampleCode == null)
                 {
                     return null;
                 }
 
                 XmlDocument doc = new XmlDocument();
-                return doc.CreateCDataSection(_exampleCode);
+                return doc.CreateCDataSection(exampleCode);
             }
 
             set
             {
                 if (value != null)
                 {
-                    _exampleCode = value.Value;
+                    exampleCode = value.Value;
                 }
             }
         }
@@ -159,23 +193,24 @@
         {
             get
             {
-                if (_details == null)
+                if (details == null)
                 {
                     return null;
                 }
 
                 XmlDocument doc = new XmlDocument();
-                return doc.CreateCDataSection(_details);
+                return doc.CreateCDataSection(details);
             }
 
             set
             {
                 if (value != null)
                 {
-                    _details = value.Value;
+                    details = value.Value;
                 }
             }
         }
+
         [XmlAttribute(AttributeName = "id")]
         public int Id { get; set; }
 
@@ -186,35 +221,51 @@
     [XmlRoot(ElementName = "AutoFixWarning")]
     public class AutoFixWarning
     {
+        [XmlIgnore]
+        public bool? AutoFixPopup { get; set; }
+
         [XmlAttribute(AttributeName = "autoFixPopup")]
-        public bool AutoFixPopup { get; set; }
+        public string? AutoFixPopupAsString
+        {
+            get => AutoFixPopup?.ToString();
+            set
+            {
+                if (value == null)
+                {
+                    AutoFixPopup = null;
+                    return;
+                }
+
+                AutoFixPopup = value.ToUpperInvariant() == "TRUE";
+            }
+        }
 
         [XmlText]
-        public string Text { get; set; }
+        public string? Text { get; set; }
     }
 
     [XmlRoot(ElementName = "AutoFixWarnings")]
     public class AutoFixWarnings
     {
         [XmlElement(ElementName = "AutoFixWarning")]
-        public List<AutoFixWarning> AutoFixWarning { get; set; }
+        public List<AutoFixWarning> AutoFixWarning { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "ErrorMessages")]
     public class ErrorMessages
     {
         [XmlElement(ElementName = "ErrorMessage")]
-        public List<ErrorMessage> ErrorMessage { get; set; }
+        public List<ErrorMessage> ErrorMessage { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "Check")]
     public class Check
     {
         [XmlElement(ElementName = "Name")]
-        public Name Name { get; set; }
+        public Name Name { get; set; } = null!;
 
         [XmlElement(ElementName = "ErrorMessages")]
-        public ErrorMessages ErrorMessages { get; set; }
+        public ErrorMessages ErrorMessages { get; set; } = null!;
 
         [XmlAttribute(AttributeName = "id")]
         public int Id { get; set; }
@@ -224,17 +275,17 @@
     public class Checks
     {
         [XmlElement(ElementName = "Check")]
-        public List<Check> Check { get; set; }
+        public List<Check> Check { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "Category")]
     public class Category
     {
         [XmlElement(ElementName = "Name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [XmlElement(ElementName = "Checks")]
-        public Checks Checks { get; set; }
+        public Checks Checks { get; set; } = null!;
 
         [XmlAttribute(AttributeName = "id")]
         public int Id { get; set; }
@@ -244,23 +295,23 @@
     public class Categories
     {
         [XmlElement(ElementName = "Category")]
-        public List<Category> Category { get; set; }
+        public List<Category> Category { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "ValidationChecks")]
     public class ValidationChecks
     {
         [XmlElement(ElementName = "DescriptionTemplates")]
-        public DescriptionTemplates DescriptionTemplates { get; set; }
+        public DescriptionTemplates DescriptionTemplates { get; set; } = null!;
 
         [XmlElement(ElementName = "Categories")]
-        public Categories Categories { get; set; }
+        public Categories Categories { get; set; } = null!;
     }
 
     [XmlRoot(ElementName = "Validator")]
     public class Validator
     {
         [XmlElement(ElementName = "ValidationChecks")]
-        public ValidationChecks ValidationChecks { get; set; }
+        public ValidationChecks ValidationChecks { get; set; } = null!;
     }
 }
