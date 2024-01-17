@@ -1,0 +1,21 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Interprete>
+				<Exceptions>
+					<Exception id="1">
+						<Display>Leading Space</Display>
+					</Exception>
+					<Exception id="2">
+						<Display>Trailing Spaces</Display>
+					</Exception>
+					<Exception id="3">
+						<Display>Leading and Trailing Spaces</Display>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+	</Params>
+
+</Protocol>

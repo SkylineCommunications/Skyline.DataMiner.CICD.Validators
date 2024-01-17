@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>1Separator</Name>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[;]]></NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="200">
+			<Name>1HardCoded</Name>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[,AAA]]></NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="300">
+			<Name>2HardCoded</Name>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[,AAA,BBB,]]></NamingFormat>
+			</ArrayOptions>
+		</Param>
+	</Params>
+
+</Protocol>

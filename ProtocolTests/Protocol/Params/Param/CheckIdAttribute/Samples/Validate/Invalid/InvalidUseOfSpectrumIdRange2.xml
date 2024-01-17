@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="64000">
+			<Name>WrongName1</Name>
+			<Description>Wrong Description 1</Description>
+		</Param>
+		<Param id="64299">
+			<Name>WrongName2</Name>
+			<Description>Wrong Description 2</Description>
+		</Param>
+	</Params>
+</Protocol>

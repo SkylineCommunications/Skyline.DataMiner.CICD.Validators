@@ -1,0 +1,14 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1001"/>
+	</Params>
+	
+	<HTTP>
+		<Session id="1" name="Password Dynamic" password="1001">
+		</Session>
+		<Session id="2" name="Password Hard-coded" password="test">
+		</Session>
+	</HTTP>
+
+</Protocol>

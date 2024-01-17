@@ -1,0 +1,52 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Display wideColumnPages="Wide Page 1;Wide Page 2" />
+
+	<Params>
+		<Param id="100">
+			<Name>NormalPage1</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Normal Page 1</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="200">
+			<Name>NormalPage2</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Normal Page 2</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>WidePage1</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Wide Page 1</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="1100">
+			<Name>WidePage2</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Wide Page 2</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+	
+</Protocol>

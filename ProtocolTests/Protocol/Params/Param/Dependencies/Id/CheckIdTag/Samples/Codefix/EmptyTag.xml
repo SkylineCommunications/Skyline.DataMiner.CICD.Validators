@@ -1,0 +1,13 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="10">
+			<Name>ButtonWithDependencies</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

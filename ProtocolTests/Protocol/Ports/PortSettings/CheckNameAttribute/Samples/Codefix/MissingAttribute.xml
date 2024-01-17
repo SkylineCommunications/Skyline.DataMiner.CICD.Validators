@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type advanced="serial">serial</Type>
+	<Ports>
+		<PortSettings name="IP Connection">
+			<PortTypeSerial>
+				<Disabled>true</Disabled>
+			</PortTypeSerial>
+		</PortSettings>
+	</Ports>
+</Protocol>

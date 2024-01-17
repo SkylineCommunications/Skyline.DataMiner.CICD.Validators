@@ -1,0 +1,74 @@
+﻿<!--
+
+- Noise (1-> 99): Adding all kind of noise items to the different cases
+  ex: Adding multiple actions not causing any loop to a trigger to make sure the one causing a loop is still detected.
+
+-->
+<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckEndlessLoop_ValidMultipleSequences</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="1">
+			<Name>Noise_Param_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2">
+			<Name>Noise_Param_2</Name>
+			<Type>read</Type>
+		</Param>
+
+		<!--<Param id="10">
+			<Name>Condition_Param_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11">
+			<Name>Condition_Param_2</Name>
+			<Type>read</Type>
+		</Param>-->
+
+		
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="Noise_QAction_1" triggers="1" />
+	</QActions>
+
+	<Triggers>
+		<Trigger id="1">
+			<Name>Noise_Trigger_1_AfterStartup</Name>
+			<On>protocol</On>
+			<Time>after startup</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="2">
+			<Name>Noise_Trigger_2_EmptyContent</Name>
+			<On id="2">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="3">
+			<Name>Noise_Trigger_3_NoContent</Name>
+			<On id="2">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+		</Trigger>
+
+		
+	</Triggers>
+
+	<Actions>
+		<Action id="1">
+			<Name>Noise_RunActions_1</Name>
+			<On id="1">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+
+		
+	</Actions>
+	
+</Protocol>

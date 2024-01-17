@@ -1,0 +1,4 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<!--snmp to snmpv2-->
+	<Type>snmpv2</Type>
+</Protocol>

@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Groups>
+		<Group id="1">
+			<Name>MissingTag</Name>
+		</Group>
+
+		<!--Below group is needed to make sure above group causes a validator result as soon as it is not the only group in the protocol (see Valid_Only1EmptyGroup for more info).-->
+		<Group id="102">
+			<Name>GroupPoll_ContentPair</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>1</Pair>
+			</Content>
+		</Group>
+	</Groups>
+
+</Protocol>

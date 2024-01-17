@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Params>
+		<!--2 read params to make sure EmptyTag errors are not hiding DuplicatedValue errors and vice versa-->
+        <Param id="1">
+            <Name></Name>
+			<Type>read</Type>
+        </Param>
+		<Param id="2">
+			<Name></Name>
+			<Type>read</Type>
+		</Param>
+
+		<!--2 read params to make sure EmptyTag errors are not hiding DuplicatedValue errors and vice versa-->
+        <Param id="10">
+            <Name>  </Name>
+			<Type>read</Type>
+        </Param>
+		<Param id="11">
+			<Name>  </Name>
+			<Type>read</Type>
+		</Param>
+    </Params>
+	
+</Protocol>

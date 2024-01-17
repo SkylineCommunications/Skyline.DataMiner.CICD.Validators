@@ -1,0 +1,52 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Normal tables-->
+		<Param id="1100">
+			<Name>TableSyntax2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="" />
+				<ColumnOption idx="1" pid="1102" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1101">
+			<Name>TableSyntax2_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1102">
+			<Name>TableSyntax2_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="1200">
+			<Name>TableSyntax3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1201" />
+				<ColumnOption idx="1" pid=" " />
+			</ArrayOptions>
+		</Param>
+		<Param id="1201">
+			<Name>TableSyntax3_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1202">
+			<Name>TableSyntax3_Column2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+
+</Protocol>

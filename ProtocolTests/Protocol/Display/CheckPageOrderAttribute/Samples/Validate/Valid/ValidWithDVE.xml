@@ -1,0 +1,91 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Display pageOrder="General" />
+
+	<ExportRules>
+		<ExportRule table="*" tag="Protocol/Display" attribute="pageOrder" value="General;DVE Page 1;DVE Page 2;Other Page"/>
+	</ExportRules>
+
+	<Params>
+		<Param id="1" export="true">
+			<Name>GeneralPage_Param1</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		
+		<Param id="101" export="true">
+			<Name>Dve1000_Param1</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>DVE Standalone</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>DVE1000_Table1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved"/>
+				<ColumnOption idx="2" pid="1002" type="retrieved"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0,width:100,sort:STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001" export="true">
+			<Name>DVE1000_Table1_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>DVE Read Column</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="1002" export="true">
+			<Name>DVE1000_Table1_Column2</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>DVE Read Column</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="1052" export="true">
+			<Name>DVE1000_Table1_Column2</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>DVE Write Column</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

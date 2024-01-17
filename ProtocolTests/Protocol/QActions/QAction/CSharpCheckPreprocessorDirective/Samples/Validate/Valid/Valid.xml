@@ -1,0 +1,105 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckPreprocessorDirective_Valid</Name>
+	<Version>0.0.0.0</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile_WithDefine" encoding="csharp" options="precompile">
+			<![CDATA[#define test
+#define DEBUG
+
+#if test
+using Skyline.DataMiner.Scripting;
+#endif
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public class NewClass
+		{
+#if test
+			public static int result;
+			public static void Run(SLProtocol protocol)
+			{
+				int a = 10;
+				result = a;
+#if DEBUG
+				int b = a + 5;
+				result = b;
+#endif
+
+			}
+#endif
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="2" name="PreCompile_WithoutDefine" encoding="csharp" options="precompile">
+			<![CDATA[//#define test
+
+#if test
+using Skyline.DataMiner.Scripting;
+#endif
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public class NewClass
+		{
+#if test
+			public static int result;
+			public static void Run(SLProtocol protocol)
+			{
+				int a = 10;
+				result = a;
+#if DEBUG
+				int b = a + 5;
+				result = b;
+#endif
+
+			}
+#endif
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="100" name="Normal_WithDefine" encoding="csharp" triggers="100">
+			<![CDATA[#define MyValidDirective
+
+#if MyValidDirective
+using Skyline.DataMiner.Scripting;
+#endif
+public class QAction
+{
+#if MyValidDirective
+	public static void Run(SLProtocol protocol)
+	{
+
+	}
+#endif
+}
+]]>
+		</QAction>
+		<QAction id="101" name="Normal_WithoutDefine" encoding="csharp" triggers="101">
+			<![CDATA[//#define MyValidDirective1
+
+#if MyValidDirective1
+using Skyline.DataMiner.Scripting;
+#endif
+
+public class QAction
+{
+#if MyValidDirective1
+	public static void Run(SLProtocol protocol)
+	{
+#if MyValidDirective2
+#endif
+	}
+#endif
+}
+]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

@@ -1,0 +1,35 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--No Range Params-->
+		<Param id="1">
+			<Name>NoRange - AddingOthers</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="2">
+			<Name>NoRange - AddingOther</Name>
+			<Interprete>
+				<Others>
+				</Others>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<!--Adding Withing Range-->
+		<Param id="101">
+			<Name>WithinRange - AddingOthers</Name>
+			<Interprete>
+				<Range>
+					<Low>5</Low>
+					<High>10</High>
+				</Range>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+	</Params>
+</Protocol>

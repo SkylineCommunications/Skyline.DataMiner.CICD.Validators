@@ -1,0 +1,42 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<!--Normal table used as base for directView table-->
+		<Param id="10">
+			<Type>array</Type>
+			<ArrayOptions>
+				<ColumnOption idx="0" pid="11" />
+			</ArrayOptions>
+		</Param>
+		<Param id="11">
+			<Type>read</Type>
+		</Param>
+		
+		<!-- Remote view table (refers to a table of another protocol -> always valid) -->
+		<Param id="100">
+			<ArrayOptions options=";view=100,remoteId">
+			</ArrayOptions>
+		</Param>
+
+		<!--View table based on another view table-->
+		<Param id="200">
+			<ArrayOptions options=";view=100">
+			</ArrayOptions>
+		</Param>
+
+		<!-- Correct filterChanges not in combination with view option on any ColumnOption tag -->
+		<Param id="300">
+			<ArrayOptions options=";filterChange=301-501,302-502">
+				<ColumnOption idx="0" pid="301" />
+				<ColumnOption idx="1" pid="302" />
+			</ArrayOptions>
+		</Param>
+
+        <!-- directView refers to a column of another table -->
+		<Param id="400">
+			<ArrayOptions options=";view=10;directView=11">
+			</ArrayOptions>
+		</Param>
+	</Params>
+	
+</Protocol>

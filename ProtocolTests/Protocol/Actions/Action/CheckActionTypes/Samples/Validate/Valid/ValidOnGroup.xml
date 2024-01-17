@@ -1,0 +1,75 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>snmp</Type>
+
+	<Params>
+		<Param id="1">
+			<Name>SNMP Write Param</Name>
+			<Type>write</Type>
+			<SNMP>
+				<Enabled>true</Enabled>
+			</SNMP>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="1">
+			<Name>Group</Name>
+		</Group>
+		<Group id="2">
+			<Name>SNMP Group</Name>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>
+	</Groups>
+	
+	<Actions>
+		<Action id="2000">
+			<Name>group_add to execute</Name>
+			<On id="1">group</On>
+			<Type>add to execute</Type>
+		</Action>
+		<Action id="2010">
+			<Name>group_execute</Name>
+			<On id="1">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="2020">
+			<Name>group_execute next</Name>
+			<On id="1">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="2030">
+			<Name>group_execute one</Name>
+			<On id="1">group</On>
+			<Type>execute one</Type>
+		</Action>
+		<Action id="2040">
+			<Name>group_execute one top</Name>
+			<On id="1">group</On>
+			<Type>execute one top</Type>
+		</Action>
+		<Action id="2050">
+			<Name>group_execute one now</Name>
+			<On id="1">group</On>
+			<Type>execute one now</Type>
+		</Action>
+		<Action id="2060">
+			<Name>group_force execute</Name>
+			<On id="1">group</On>
+			<Type>force execute</Type>
+		</Action>
+
+		<Action id="2500">
+			<Name>group_Set</Name>
+			<On id="2">group</On>
+			<Type>set</Type>
+		</Action>
+		<Action id="2510">
+			<Name>group_SetWithWait</Name>
+			<On id="2">group</On>
+			<Type nr="0">set with wait</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

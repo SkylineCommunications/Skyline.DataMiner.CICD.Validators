@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Name>ReadWrite_DifferentLow</Name>
+			<Type>read</Type>
+			<Display>
+				<Range>
+					<Low>8</Low>
+				</Range>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>ReadWrite_DifferentLow</Name>
+			<Type>write</Type>
+			<Display>
+				<Range>
+					<Low>9</Low>
+				</Range>
+			</Display>
+		</Param>
+	</Params>
+	
+</Protocol>

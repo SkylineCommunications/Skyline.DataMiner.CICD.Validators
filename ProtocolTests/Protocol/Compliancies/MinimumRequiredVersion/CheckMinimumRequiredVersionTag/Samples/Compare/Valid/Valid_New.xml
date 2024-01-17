@@ -1,0 +1,7 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Compliancies>
+		<MinimumRequiredVersion>10.1.11.0 - 11027</MinimumRequiredVersion>
+	</Compliancies>
+
+</Protocol>

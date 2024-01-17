@@ -1,0 +1,66 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1000">
+			<Name>protocol_close</Name>
+			<On>protocol</On>
+			<Type>close</Type>
+		</Action>
+		<Action id="2000">
+			<Name>protocol_lock</Name>
+			<On>protocol</On>
+			<Type>lock</Type>
+		</Action>
+		<Action id="3000">
+			<Name>protocol_unlock</Name>
+			<On>protocol</On>
+			<Type>unlock</Type>
+		</Action>
+		<Action id="4000">
+			<Name>protocol_merge</Name>
+			<On>protocol</On>
+			<Type>merge</Type>
+		</Action>
+		<Action id="5000">
+			<Name>protocol_open</Name>
+			<On>protocol</On>
+			<Type>open</Type>
+		</Action>
+		<Action id="6000">
+			<Name>protocol_priority lock</Name>
+			<On>protocol</On>
+			<Type>priority lock</Type>
+		</Action>
+		<Action id="7000">
+			<Name>protocol_priority unlock</Name>
+			<On>protocol</On>
+			<Type>priority unlock</Type>
+		</Action>
+		<Action id="8000">
+			<Name>protocol_read file</Name>
+			<On>protocol</On>
+			<Type>read file</Type>
+		</Action>
+		<Action id="9000">
+			<Name>protocol_sleep</Name>
+			<On>protocol</On>
+			<Type>sleep</Type>
+		</Action>
+		<Action id="10000">
+			<Name>protocol_stop current group</Name>
+			<On>protocol</On>
+			<Type>stop current group</Type>
+		</Action>
+		<Action id="11000">
+			<Name>protocol_swap column</Name>
+			<On>protocol</On>
+			<Type>swap column</Type>
+		</Action>
+		<Action id="12000">
+			<Name>protocol_wmi</Name>
+			<On>protocol</On>
+			<Type>wmi</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

@@ -1,0 +1,33 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>snmp</Type>
+
+	<Pairs>
+		<Pair id="1"></Pair>
+	</Pairs>
+
+	<Groups>
+		<Group id="1">
+			<Name>Empty Group</Name>
+		</Group>
+		<Group id="2">
+			<Name>Pair Group</Name>
+			<Content>
+				<Pair>1</Pair>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Actions>
+		<Action id="2500">
+			<Name>group_Set</Name>
+			<On id="1">group</On>
+			<Type>set</Type>
+		</Action>
+		<Action id="2510">
+			<Name>group_SetWithWait</Name>
+			<On id="2">group</On>
+			<Type nr="0">set with wait</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

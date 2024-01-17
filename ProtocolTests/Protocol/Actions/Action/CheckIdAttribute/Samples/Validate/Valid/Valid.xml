@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Actions>
+		<Action id="1"></Action>
+
+		<Action id="1000"></Action>
+	</Actions>
+
+</Protocol>

@@ -1,0 +1,308 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Displayed params-->
+		<Param id="1">
+			<Name>Displayed_SameDescription</Name>
+			<Description>Displayed Same Description</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>Displayed_EmptyDescription</Name>
+			<Description></Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="10">
+			<Name>Displayed_TrimBefore</Name>
+			<Description>Displayed Trim Before</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="11">
+			<Name>Displayed_TrimAfter</Name>
+			<Description>Displayed Trim After</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="12">
+			<Name>Displayed_Trim</Name>
+			<Description>Displayed Trim</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="20">
+			<Name>Displayed_CasingChanges</Name>
+			<Description>Displayed Casing Changes</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="30">
+			<Name>Displayed_IdxSuffixAdded_1</Name>
+			<Description>Displayed IDX Suffix Added_1 [IDX]</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="31">
+			<Name>Displayed_IdxSuffixAdded_3</Name>
+			<Description>Displayed IDX Suffix Added_2[idx]</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="32">
+			<Name>Displayed_IdxSuffixAdded_3</Name>
+			<Description>Displayed IDX Suffix Added_3 [IDX] (Table Description)</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="40">
+			<Name>Displayed_IdxSuffixImproved_1</Name>
+			<Description>Displayed IDX Suffix Improved_1 [IDX] (Table Description)</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="41">
+			<Name>Displayed_IdxSuffixImproved_2</Name>
+			<Description>Displayed IDX Suffix Improved_2 [IDX] (Table Description)</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="42">
+			<Name>Displayed_IdxSuffixImproved_3</Name>
+			<Description>Displayed IDX Suffix Improved_3 [IDX] (Table Description)</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="50">
+			<Name>Displayed_IdxSuffixRemoved_1</Name>
+			<Description>Displayed IDX Suffix Removed_1</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="51">
+			<Name>Displayed_IdxSuffixRemoved_2</Name>
+			<Description>Displayed IDX Suffix Removed_2</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="52">
+			<Name>Displayed_IdxSuffixRemoved_3</Name>
+			<Description>Displayed IDX Suffix Removed_3 (Table Description)</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="53">
+			<Name>Displayed_IdxSuffixRemoved_4</Name>
+			<Description>Displayed IDX Suffix Removed_4 (Table Description)</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="54">
+			<Name>Displayed_IdxSuffixRemoved_5</Name>
+			<Description>Displayed IDX Suffix Removed_5 (Table Description)</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="55">
+			<Name>Displayed_IdxSuffixRemoved_6</Name>
+			<Description>Displayed IDX Suffix Removed_6 (Table Description)</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="100">
+			<Name>Displayed_Adding_FromNoDescription</Name>
+			<Description>Displayed - Adding - From No Description</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="101">
+			<Name>Displayed_Adding_FromEmptyDescription</Name>
+			<Description>Displayed - Adding - From Empty Description</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="500">
+			<Name>DisplayedTable</Name>
+			<Description>My Displayed Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="501" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="502" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="501">
+			<Name>DisplayedTableInstance</Name>
+			<Description>Instance (My Displayed Table)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="502">
+			<Name>DisplayedTable_Column2</Name>
+			<Description>Column 2 (My Displayed Table)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<!--Non Displayed: if params are not available in SLElement, changing the description is allowed-->
+		<Param id="1000">
+			<Name>NonDisplayed_RTDisplay_Default_1</Name>
+			<Description>Changed Description</Description>
+		</Param>
+		<Param id="1001">
+			<Name>NonDisplayed_RTDisplay_Default_2</Name>
+			<Description>Changed Description</Description>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>NonDisplayed_RTDisplay_False</Name>
+			<Description>Changed Description</Description>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1100">
+			<Name>NonDisplayed_Trending_Default</Name>
+			<Description>Changed Description</Description>
+		</Param>
+		<Param id="1101" trending="false">
+			<Name>NonDisplayed_Trending_False</Name>
+			<Description>Changed Description</Description>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="1102" trending="typo">
+			<Name>NonDisplayed_Trending_Typo</Name>
+			<Description>Changed Description</Description>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1200">
+			<Name>NonDisplayed_Alarm_Default_1</Name>
+			<Description>Changed Description</Description>
+		</Param>
+		<Param id="1201">
+			<Name>NonDisplayed_Alarm_Default_2</Name>
+			<Description>Changed Description</Description>
+			<Alarm></Alarm>
+		</Param>
+		<Param id="1202">
+			<Name>NonDisplayed_Alarm_False</Name>
+			<Description>Changed Description</Description>
+			<Display>
+			</Display>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="1203">
+			<Name>NonDisplayed_Alarm_Typo</Name>
+			<Description>Changed Description</Description>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+		</Param>
+
+		<Param id="1300">
+			<Name>NonDisplayed_Export_Default</Name>
+			<Description>Changed Description</Description>
+		</Param>
+		<Param id="1301" export="false">
+			<Name>NonDisplayed_Export_False</Name>
+			<Description>Changed Description</Description>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="1302" export="typo">
+			<Name>NonDisplayed_Export_Typo</Name>
+			<Description>Changed Description</Description>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="10000">
+			<Name>NonDisplayedTable</Name>
+			<Description>Non Displayed Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="10003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="10004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="10005" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10001">
+			<Name>NonDisplayedTable_Instance</Name>
+			<Description>Instance (Non Displayed Table)</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="10002">
+			<Name>NonDisplayedTable_RTDisplayFalse</Name>
+			<Description>RTDisplay False (Non Displayed Table)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="10003" trending="false">
+			<Name>NonDisplayedTable_TrendingFalse</Name>
+			<Description>Trending False (Non Displayed Table)</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="10004">
+			<Name>NonDisplayedTable_MonitoredFalse</Name>
+			<Description>Monitored False (Non Displayed Table)</Description>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="10005" export="false">
+			<Name>NonDisplayedTable_ExportFalse</Name>
+			<Description>Export False (Non Displayed Table)</Description>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+</Protocol>

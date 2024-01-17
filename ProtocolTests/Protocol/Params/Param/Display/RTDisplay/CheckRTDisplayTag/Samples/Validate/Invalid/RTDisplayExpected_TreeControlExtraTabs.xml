@@ -1,0 +1,227 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>Read_RTDisplayTrue</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>Read_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3">
+			<Name>Read_NoRTDisplay</Name>
+			<Type>read</Type>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="4">
+			<Name>Read_NoDisplay</Name>
+			<Type>read</Type>
+		</Param>
+		
+		<Param id="101">
+			<Name>TreeControl_ParameterId</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table_Level1_RTDisplayFalse</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>Table_Level1_RTDisplayFalse_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<!--RTDisplay required on PK due to foreignKey linking to this table-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1100">
+			<Name>Table_Level1.1_RTDisplayFalse</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1102" type="retrieved" options="foreignKey=1000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1101">
+			<Name>Table_Level1.1_RTDisplayFalse_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1102">
+			<Name>Table_Level1.1_RTDisplayFalse_FkTo1000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="2000">
+			<Name>Table_Level2_NoRTDisplay</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options="foreignKey=1000"/>
+			</ArrayOptions>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="2001">
+			<Name>Table_Level2_NoRTDisplay_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<!--RTDisplay required on PK due to foreignKey linking to this table-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2002">
+			<Name>Table_Level2_NoRTDisplay_FkTo1000</Name>
+			<Type>read</Type>
+			<Display>
+				<!--Due to foreignKey option-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="2100">
+			<Name>Table_Level2.1_NoRTDisplay</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2102" type="retrieved" options="foreignKey=2000"/>
+			</ArrayOptions>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="2101">
+			<Name>Table_Level2.1_NoRTDisplay_Instance</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="2102">
+			<Name>Table_Level2.1_NoRTDisplay_FkTo2000</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+
+		<Param id="3000">
+			<Name>Table_Level3_NoDisplay</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="3002" type="retrieved" options="foreignKey=2000" />
+			</ArrayOptions>
+		</Param>
+		<Param id="3001">
+			<Name>Table_Level3_NoDisplay_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<!--RTDisplay required on PK due to foreignKey linking to this table-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3002">
+			<Name>Table_Level3_NoDisplay_FKto2000</Name>
+			<Type>read</Type>
+			<Display>
+				<!--Due to foreignKey option-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="3100">
+			<Name>Table_Level3.1_NoDisplay</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="3102" type="retrieved" options="foreignKey=3000" />
+			</ArrayOptions>
+		</Param>
+		<Param id="3101">
+			<Name>Table_Level3.1_NoDisplay_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3102">
+			<Name>Table_Level3.1_NoDisplay_FKto3000</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+
+		<Param id="4000">
+			<Name>Table_Level4_NoDisplay</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="4002" type="retrieved" options="foreignKey=3000" />
+			</ArrayOptions>
+		</Param>
+		<Param id="4001">
+			<Name>Table_Level4_NoDisplay_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="4002">
+			<Name>Table_Level4_NoDisplay_FKto3000</Name>
+			<Type>read</Type>
+			<Display>
+				<!--Due to foreignKey option-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="101">
+			<Hierarchy path="1000,2000,3000"></Hierarchy>
+			<ExtraTabs>
+				<!-- Tabs on table 1000 level -->
+				<Tab tableId="1000" type="default"/>
+				<Tab tableId="1000" type="relation" parameter="1102"/>
+				<Tab tableId="1000" type="parameters" parameter="1,2"/>
+				<Tab tableId="1000" type="summary" parameter="4000"/>
+
+				<!-- Tabs on table 2000 level -->
+				<Tab tableId="2000" type="default"/>
+				<Tab tableId="2000" type="relation" parameter="2102"/>
+				<Tab tableId="2000" type="parameters" parameter="3,1"/>
+
+				<!-- Tabs on table 3000 level -->
+				<Tab tableId="3000" type="default"/>
+				<Tab tableId="3000" type="relation" parameter="3102"/>
+				<Tab tableId="2000" type="parameters" parameter="4"/>
+			</ExtraTabs>
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>

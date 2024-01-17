@@ -1,0 +1,141 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--2 sorted column - 0 Priority defined-->
+		<Param id="1000">
+			<Name>2Sorted0PrioTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="1002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0-1002|1-1003|2,width:100-100-100,sort:STRING|ASC-STRING|DESC-INT,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>2Sorted0PrioPrimaryKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1002">
+			<Name>2Sorted0PrioColumn2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1003">
+			<Name>2Sorted0PrioColumn3</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<!--2 sorted column - 1 Priority defined-->
+		<Param id="2000">
+			<Name>2Sorted1PrioTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="2002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="2003" type="retrieved" options="" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:2001|0-2002|1-2003|2,width:100-100-100,sort:STRING|ASC-STRING|DESC|0-INT,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2001">
+			<Name>2Sorted1PrioPrimaryKey</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2002">
+			<Name>2Sorted1PrioColumn2</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2003">
+			<Name>2Sorted1PrioColumn3</Name>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

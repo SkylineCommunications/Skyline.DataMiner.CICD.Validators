@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <!--From normal to hard-coded absolute-->
+            <Alarm>
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="2">
+            <!--From normal to hard-coded relative-->
+            <Alarm>
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+    </Params>
+</Protocol>

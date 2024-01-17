@@ -1,0 +1,11 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="5000">
+			<Name>protocol_close</Name>
+			<On>protocol</On>
+			<Type>close</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

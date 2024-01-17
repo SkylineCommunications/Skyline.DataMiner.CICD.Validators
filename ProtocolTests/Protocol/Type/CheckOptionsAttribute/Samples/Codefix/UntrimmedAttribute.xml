@@ -1,0 +1,59 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>DVE Parent</Name>
+	<Type options="unicode;disableViewRefresh;exportProtocol:DVE Parent - Child 1:1000:noElementPrefix;exportProtocol:DVE Parent - Child 2:2000">virtual</Type>
+
+	<Params>
+		<Param id="1000">
+			<Name>DVE_Child1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=";element"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>DVE_Child1_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>DVE_Child1_Element</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="2000">
+			<Name>DVE_Child2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=";element"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2001">
+			<Name>DVE_Child2_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2002">
+			<Name>DVE_Child2_Element</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

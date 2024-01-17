@@ -1,0 +1,27 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type advanced="smart-serial:IP Connection - Events;snmp:SNMP Connection - Traps;serial:IP Connection - Polling;http:HTTP Connection - Smth">snmp</Type>
+	
+	<PortSettings name="SNMP Connection - Polling">
+	</PortSettings>
+	
+	<Ports>
+		<PortSettings name="IP Connection - Events">
+			<PortTypeSerial>
+				<Disabled>true</Disabled>
+			</PortTypeSerial>
+		</PortSettings>
+		<PortSettings name="SNMP Connection - Traps">			
+		</PortSettings>
+		<PortSettings name="IP Connection - Polling">
+			<PortTypeSerial>
+				<Disabled>true</Disabled>
+			</PortTypeSerial>
+		</PortSettings>
+		<PortSettings name="HTTP Connection - Smth">
+			<PortTypeSerial>
+				<Disabled>true</Disabled>
+			</PortTypeSerial>
+		</PortSettings>
+	</Ports>
+
+</Protocol>

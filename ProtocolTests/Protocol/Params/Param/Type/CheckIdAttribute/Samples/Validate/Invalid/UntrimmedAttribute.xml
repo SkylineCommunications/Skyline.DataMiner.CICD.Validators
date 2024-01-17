@@ -1,0 +1,55 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Group & read bit params-->
+		<Param id="10">
+			<Name>GroupRead</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="11">
+			<Name>GroupRead_ReadBit_1</Name>
+			<Type id=" 10">read bit</Type>
+		</Param>
+
+		<!--Group & write bit params-->
+		<Param id="20">
+			<Name>GroupWrite</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="21">
+			<Name>GroupWrite_WriteBit_1</Name>
+			<Type id="20 ">write bit</Type>
+		</Param>
+
+		<!--Response param-->
+		<Param id="100">
+			<Name>ResponseParam</Name>
+			<Type id=" 1 ">response</Type>
+		</Param>
+
+		<!--Normal tables-->
+		<Param id="1000">
+			<Name>TableSyntax1</Name>
+			<Type id=" 1001;1002 ">array</Type>
+			<ArrayOptions index="0"></ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>TableSyntax1_Instance</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="1002">
+			<Name>TableSyntax1_Column2</Name>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+
+	<Responses>
+		<Response id="1">
+		</Response>
+	</Responses>
+
+</Protocol>

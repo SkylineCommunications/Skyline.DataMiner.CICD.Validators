@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="100">
+			<Name>Empty</Name>
+			<ArrayOptions options="">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="200">
+			<Name>Spaces</Name>
+			<ArrayOptions options="  ">
+			</ArrayOptions>
+		</Param>
+
+        <Param id="300">
+            <Name>ColumnOptionsAndAttribute</Name>
+            <ArrayOptions index="0" options="">
+                <ColumnOption idx="0" pid="301" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+        <Param id="301" />
+	</Params>
+</Protocol>

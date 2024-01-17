@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Pairs>
+		<Pair id="1">
+			<Content>
+				<Command>9</Command>
+			</Content>
+		</Pair>
+		<Pair id="2">
+			<Content>
+				<Command>99</Command>
+			</Content>
+		</Pair>
+	</Pairs>
+
+	<Commands>
+		<Command id="1"></Command>
+	</Commands>
+	
+</Protocol>

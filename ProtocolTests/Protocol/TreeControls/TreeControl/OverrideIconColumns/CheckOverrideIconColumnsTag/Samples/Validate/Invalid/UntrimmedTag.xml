@@ -1,0 +1,69 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<Hierarchy>
+				<Table id="1000"/>
+				<Table id="2000" parent="1000"/>
+			</Hierarchy>
+			<OverrideIconColumns> 1002, 2002 </OverrideIconColumns>
+		</TreeControl>
+		<TreeControl parameterId="2">
+			<Hierarchy>
+				<Table id="1000"/>
+				<Table id="2000" parent="1000"/>
+			</Hierarchy>
+			<OverrideIconColumns>1002, 2002</OverrideIconColumns>
+		</TreeControl>
+	</TreeControls>
+
+	<Params>
+		<Param id="1">
+			<Name>TreeControl1_Param</Name>
+		</Param>
+		<Param id="2">
+			<Name>TreeControl2_Param</Name>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>Table1_Instance</Name>
+		</Param>
+		<Param id="1002">
+			<Name>Table1_Column2</Name>
+		</Param>
+		<Param id="1003">
+			<Name>Table1_Column2</Name>
+		</Param>
+
+		<Param id="2000">
+			<Name>Table2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2001">
+			<Name>Table2_Instance</Name>
+		</Param>
+		<Param id="2002">
+			<Name>Table2_Column2</Name>
+		</Param>
+	</Params>
+	
+</Protocol>

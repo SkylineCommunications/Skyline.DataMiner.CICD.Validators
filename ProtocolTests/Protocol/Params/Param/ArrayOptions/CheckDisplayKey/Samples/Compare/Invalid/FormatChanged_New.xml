@@ -1,0 +1,87 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--NamingToNaming-->
+		<Param id="100">
+			<Name>NamingToNaming_SeparatorChange1_2Parts</Name>
+			<ArrayOptions options=";naming=*102,103;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="110">
+			<Name>NamingToNaming_SeparatorChange1_3Parts</Name>
+			<ArrayOptions options=";naming=*102,103,104;blabla">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="150">
+			<Name>NamingToNaming_SeparatorChange2_2Parts</Name>
+			<ArrayOptions options=".naming=*102,103.blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="160">
+			<Name>NamingToNaming_SeparatorChange2_3Parts</Name>
+			<ArrayOptions options=".naming=*102,103,104.blabla">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="200">
+			<Name>NamingToNaming_ContentChange_1Parts</Name>
+			<ArrayOptions options=";naming=/202;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="210">
+			<Name>NamingToNaming_ContentChange_2Parts</Name>
+			<ArrayOptions options=";naming=\212,213;blabla">
+			</ArrayOptions>
+		</Param>
+
+		<!--Naming to NamingFormat-->
+		<Param id="1000">
+			<Name>NamingToNamingFormat_SeparatorChange1_2Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,*,103,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="1010">
+			<Name>NamingToNamingFormat_SeparatorChange1_3Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,102,*,103,\,104,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+
+		<Param id="1050">
+			<Name>NamingToNamingFormat_ContentChange1_1Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,1052,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="1060">
+			<Name>NamingToNamingFormat_ContentChange1_2Parts</Name>
+			<ArrayOptions>
+				<NamingFormat>,1062,\,1063,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+
+		<!--NamingFormat to Naming-->
+		<Param id="2000">
+			<Name>NamingFormatToNaming_SeparatorChange1_2Parts</Name>
+			<ArrayOptions options=";naming=*102,103;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="2010">
+			<Name>NamingFormatToNaming_SeparatorChange1_3Parts</Name>
+			<ArrayOptions options=";naming=*102,103,104;blabla">
+			</ArrayOptions>
+		</Param>
+
+		<Param id="2050">
+			<Name>NamingFormatToNaming_ContentChange1_1Parts</Name>
+			<ArrayOptions options=";naming=/2052;blabla">
+			</ArrayOptions>
+		</Param>
+		<Param id="2060">
+			<Name>NamingFormatToNaming_ContentChange1_2Parts</Name>
+			<ArrayOptions options=";naming=\2062,2063;blabla">
+			</ArrayOptions>
+		</Param>
+	</Params>
+</Protocol>

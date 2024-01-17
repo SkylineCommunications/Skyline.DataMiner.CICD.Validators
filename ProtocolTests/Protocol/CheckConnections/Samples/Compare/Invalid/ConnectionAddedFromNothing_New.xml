@@ -1,0 +1,3 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Type relativeTimers="true" advanced="http:SomeHTTPConnection">serial</Type>
+</Protocol>

@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Display defaultPage="Main" />
+	<Params>
+		<Param id="1" trending="false">
+			<Name>ParamOnGeneralPage</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Main</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+</Protocol>

@@ -1,0 +1,34 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Name>NoRange - RemoveOther</Name>
+			<Interprete>
+				<Others>
+				</Others>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="2">
+			<Name>NoRange - RemoveOthers</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<!--Removing Withing Range-->
+		<Param id="101">
+			<Name>WithinRange - RemovingOthers</Name>
+			<Interprete>
+				<Range>
+					<Low>5</Low>
+					<High>10</High>
+				</Range>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+	</Params>
+</Protocol>

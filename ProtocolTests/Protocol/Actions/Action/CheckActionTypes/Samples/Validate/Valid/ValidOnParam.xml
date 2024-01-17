@@ -1,0 +1,116 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1000">
+			<Name>parameter_aggregate</Name>
+			<On>parameter</On>
+			<Type>aggregate</Type>
+		</Action>
+		<Action id="2000">
+			<Name>parameter_append</Name>
+			<On>parameter</On>
+			<Type>append</Type>
+		</Action>
+		<Action id="3000">
+			<Name>parameter_append data</Name>
+			<On>parameter</On>
+			<Type>append data</Type>
+		</Action>
+		<Action id="4000">
+			<Name>parameter_change length</Name>
+			<On>parameter</On>
+			<Type>change length</Type>
+		</Action>
+		<Action id="5000">
+			<Name>parameter_clear</Name>
+			<On>parameter</On>
+			<Type>clear</Type>
+		</Action>
+		<Action id="6000">
+			<Name>parameter_clear on display</Name>
+			<On>parameter</On>
+			<Type>clear on display</Type>
+		</Action>
+		<Action id="7000">
+			<Name>parameter_copy</Name>
+			<On>parameter</On>
+			<Type>copy</Type>
+		</Action>
+		<Action id="8000">
+			<Name>parameter_copy reverse</Name>
+			<On>parameter</On>
+			<Type>copy reverse</Type>
+		</Action>
+		<Action id="9000">
+			<Name>parameter_go</Name>
+			<On>parameter</On>
+			<Type>go</Type>
+		</Action>
+		<Action id="10000">
+			<Name>parameter_increment</Name>
+			<On>parameter</On>
+			<Type>increment</Type>
+		</Action>
+		<Action id="11000">
+			<Name>parameter_multiply</Name>
+			<On>parameter</On>
+			<Type>multiply</Type>
+		</Action>
+		<Action id="12000">
+			<Name>parameter_normalize</Name>
+			<On>parameter</On>
+			<Type>normalize</Type>
+		</Action>
+		<Action id="13000">
+			<Name>parameter_pow</Name>
+			<On>parameter</On>
+			<Type>pow</Type>
+		</Action>
+		<Action id="14000">
+			<Name>parameter_read</Name>
+			<On>parameter</On>
+			<Type>read</Type>
+		</Action>
+		<Action id="15000">
+			<Name>parameter_replace data</Name>
+			<On>parameter</On>
+			<Type>replace data</Type>
+		</Action>
+		<Action id="16000">
+			<Name>parameter_reverse</Name>
+			<On>parameter</On>
+			<Type>reverse</Type>
+		</Action>
+		<Action id="17000">
+			<Name>parameter_run actions</Name>
+			<On>parameter</On>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="18000">
+			<Name>parameter_save</Name>
+			<On>parameter</On>
+			<Type>save</Type>
+		</Action>
+		<Action id="19000">
+			<Name>parameter_set</Name>
+			<On>parameter</On>
+			<Type>set</Type>
+		</Action>
+		<Action id="20000">
+			<Name>parameter_set and get with wait</Name>
+			<On>parameter</On>
+			<Type>set and get with wait</Type>
+		</Action>
+		<Action id="21000">
+			<Name>parameter_set info</Name>
+			<On>parameter</On>
+			<Type>set info</Type>
+		</Action>
+		<Action id="22000">
+			<Name>parameter_set with wait</Name>
+			<On>parameter</On>
+			<Type>set with wait</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

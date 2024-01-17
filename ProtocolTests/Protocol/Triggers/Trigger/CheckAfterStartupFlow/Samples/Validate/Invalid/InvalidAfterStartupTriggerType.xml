@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Triggers>
+        <Trigger id="1">
+            <Name>After Startup</Name>
+            <On>protocol</On>
+            <Time>after startup</Time>
+        </Trigger>
+    </Triggers>
+</Protocol>

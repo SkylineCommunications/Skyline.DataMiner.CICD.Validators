@@ -1,0 +1,85 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Display pageOrder="General" />
+
+	<ExportRules>
+		<ExportRule table="*" tag="Protocol/Params/Param/Display/RTDisplay" value="true"/>
+		
+		<ExportRule table="1000" tag="Protocol/Display" attribute="pageOrder" value="General;DVE Page 1000;Other Page"/>
+		<ExportRule table="2000" tag="Protocol/Display" attribute="pageOrder" value="General;DVE Page 2000;Other Page"/>
+	</ExportRules>
+
+	<Params>
+		<Param id="1" export="true">
+			<Name>GeneralPage_Param1</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		
+		<Param id="101" export="1000">
+			<Name>Dve1000_Param1</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>DVE Page 1000</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>DVE1000_Table1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0,width:100,sort:STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>DVE1000_Table1_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>DVE1000_Table1_Column2</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1052">
+			<Name>DVE1000_Table1_Column2</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	
+		<Param id="201" export="2000">
+			<Name>Dve2000_Param1</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>DVE Page 2000</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!-- Added logger table option. -->
+        <Param id="100">
+            <ArrayOptions index="0" options=";database:1000">
+            </ArrayOptions>
+        </Param>
+
+        <!-- No Logger table -->
+        <Param id="200">
+            <ArrayOptions index="0">
+            </ArrayOptions>
+        </Param>
+        <Param id="210">
+            <ArrayOptions index="0" options="">
+            </ArrayOptions>
+        </Param>
+
+        <!-- Keep Logger table-->
+        <Param id="300">
+            <ArrayOptions index="0" options=";database:1000">
+            </ArrayOptions>
+        </Param>
+    </Params>
+</Protocol>

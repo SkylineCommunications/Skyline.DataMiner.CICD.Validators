@@ -1,0 +1,27 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckTriggersAttribute_InvalidAttribute</Name>
+	<Version>0.0.0.0</Version>
+
+	<Params>
+		<Param id="1">
+			<Name>MyParam</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2">
+			<Name>MyParam2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3">
+			<Name>MyParam3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+	<QActions>
+		<QAction id="1" triggers="aaa"/>
+		<QAction id="2" triggers="1;bbb"/>
+		<QAction id="3" triggers="ccc;1"/>
+		<QAction id="4" triggers="1;aaa;bbb;ccc;2"/>
+	</QActions>
+	
+</Protocol>

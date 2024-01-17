@@ -1,0 +1,172 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!-- From normal to configurable absolute -->
+        <Param id="1">
+            <Alarm>
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="2">
+            <Alarm type="">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+
+        <!-- From normal to configurable relative -->
+        <Param id="10">
+            <Alarm>
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="11">
+            <Alarm type="">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+
+        <!-- From normal to normal -->
+        <Param id="20">
+            <Alarm type="">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="21">
+            <Alarm type="">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="22">
+            <Alarm>
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="23">
+            <Alarm>
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+
+        <!-- From No alarming to hard-coded relative -->
+        <Param id="30">
+        </Param>
+        <Param id="31">
+            <Alarm>
+            </Alarm>
+        </Param>
+        <Param id="32">
+            <Alarm>
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+
+        <!-- From No alarming to hard-coded absolute -->
+        <Param id="40">
+        </Param>
+        <Param id="41">
+            <Alarm>
+            </Alarm>
+        </Param>
+        <Param id="42">
+            <Alarm>
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+
+        <!--No change-->
+        <Param id="50">
+            <Alarm type="absolute:2214,100">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="51">
+            <Alarm type="relative">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+
+        <!--From hard-coded to configurable (if the Trigger-NormalizeAction workaround is present)-->
+        <Param id="60">
+            <Alarm type="absolute:2214">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="61">
+            <Alarm type="relative:2214,100">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+
+        <!--New Param-->
+        <!--<Param id="70">
+            <Alarm type="absolute">
+            </Alarm>
+        </Param>-->
+
+        <!--Removed Normalization on Params that were not monitored-->
+        <Param id="80">
+            <Alarm type="absolute:2214,100">
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="81">
+            <Alarm type="absolute:2214">
+            </Alarm>
+        </Param>
+        <Param id="82">
+            <Alarm type="relative:2214,100">
+            </Alarm>
+        </Param>
+        <Param id="83">
+            <Alarm type="relative:2214">
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="84">
+            <Alarm type="relative">
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="85">
+            <Alarm type="absolute">
+            </Alarm>
+        </Param>
+
+        <!--Updated Normalization on Params that were not monitored-->
+        <Param id="90">
+            <Alarm type="absolute:2214,100">
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="91">
+            <Alarm type="absolute:2214">
+            </Alarm>
+        </Param>
+        <Param id="92">
+            <Alarm type="absolute">
+            </Alarm>
+        </Param>
+        <Param id="93">
+            <Alarm type="relative">
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="94">
+            <Alarm type="relative:2214,100">
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="95">
+            <Alarm type="relative:2214">
+            </Alarm>
+        </Param>
+        <Param id="96">
+            <Alarm type="relative:2214,100">
+            </Alarm>
+        </Param>
+        <Param id="97">
+            <Alarm type="absolute:2214">
+                <Monitored>false</Monitored>
+            </Alarm>
+        </Param>
+    </Params>
+</Protocol>

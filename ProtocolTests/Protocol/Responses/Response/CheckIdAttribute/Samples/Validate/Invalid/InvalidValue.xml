@@ -1,0 +1,28 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Responses>
+		<Response id="aaa">
+			<Name>String</Name>
+		</Response>
+
+		<Response id="-2">
+			<Name>Number_Negative</Name>
+		</Response>
+		<Response id="1.5">
+			<Name>Number_Double_1</Name>
+		</Response>
+		<Response id="2,6">
+			<Name>Number_Double_2</Name>
+		</Response>
+		<Response id="03">
+			<Name>Number_LeadingZero</Name>
+		</Response>
+		<Response id="+4">
+			<Name>Number_LeadingPlusSign</Name>
+		</Response>
+		<Response id="5x10^1">
+			<Name>Number_ScientificNotation</Name>
+		</Response>
+	</Responses>
+
+</Protocol>

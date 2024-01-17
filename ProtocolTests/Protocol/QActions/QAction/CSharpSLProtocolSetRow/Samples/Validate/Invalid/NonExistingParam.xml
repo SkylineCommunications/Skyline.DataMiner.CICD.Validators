@@ -1,0 +1,102 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>SetRow_NonExistingParam</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>MyParam_100</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1000">
+			<Name>SetRow</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001" historySet="true">
+			<Name>SetRow_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002" historySet="false">
+			<Name>SetRow_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003" historySet="false">
+			<Name>SetRow_Column3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void SetRowWrapper(this SLProtocol protocol, int tablePid, string rowPk, object[] rowValues)
+			{
+				protocol.SetRow(tablePid, rowPk, rowValues);
+			}
+
+			public static void SetRowWrapper(this SLProtocol protocol, int tablePid, string rowPk, object[] rowValues, ValueType timeInfo)
+			{
+				protocol.SetRow(tablePid, rowPk, rowValues, timeInfo);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int MyParam_100 = 100;
+			public const int MyTable_1000 = 1000;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="102" name="SetRow_NonExistingParam" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: Simple_SetRow_NonExistingParam.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		ValueType date_vt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] rowValues = { null, "Column2_Value", "Column3_Value" };
+		bool overRideBehaviour = true;
+
+		protocol.SetRow(100, "PK_1", rowValues);
+		protocol.SetRow(2000, "PK_1", rowValues);
+		protocol.SetRow(2000 + 100, "PK_1", rowValues);
+		protocol.SetRow(2300 - 100, "PK_1", rowValues);
+
+		protocol.SetRow(3000, "PK_1", rowValues, overRideBehaviour);
+		protocol.SetRow(3100, "PK_1", rowValues, null);
+		protocol.SetRow(3200, "PK_1", rowValues, date_dt);
+		protocol.SetRow(3300, "PK_1", rowValues, date_vt);
+		protocol.SetRow(3400, "PK_1", rowValues, date_dt, overRideBehaviour);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

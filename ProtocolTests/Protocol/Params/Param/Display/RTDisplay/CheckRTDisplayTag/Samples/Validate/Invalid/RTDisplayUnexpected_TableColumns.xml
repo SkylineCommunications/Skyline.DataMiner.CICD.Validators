@@ -1,0 +1,84 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>table_RTDisplayTrue</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>table_RTDisplayTrue_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>table_RTDisplayTrue_1002</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1052">
+			<Name>table_RTDisplayTrue_1002</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		
+		<Param id="2000">
+			<Name>table_RTDisplayFalse</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2001">
+			<Name>table_RTDisplayFalse_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2002">
+			<Name>table_RTDisplayFalse_1002</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2052">
+			<Name>table_RTDisplayFalse_1002</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,127 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="100">
+			<Name>ValidDescription_Read</Name>
+			<Description>A Valid Description (Read)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="201">
+			<Name>ValidDescription_Write</Name>
+			<Description>A Valid Description (Write)</Description>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="102">
+			<Name>ValidDuplicate_ReadWrite</Name>
+			<Description>A Valid Duplicate (Read Write)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="202">
+			<Name>ValidDuplicate_ReadWrite</Name>
+			<Description>A Valid Duplicate (Read Write)</Description>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="300">
+			<Name>Casing_InPreposition</Name>
+			<Description>Casing in Preposition</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="301">
+			<Name>Casing_ForPreposition</Name>
+			<Description>Casing for Preposition</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="10000">
+			<Name>NoDescription_Button</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>NoDescription_PageButton</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>pagebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="10002">
+			<Name>NoDescription_EndTitle</Name>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="end">title</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="10010">
+			<Name>NoDescription_NoDisplay</Name>
+			<Type>write</Type>
+		</Param>
+		<Param id="10011">
+			<Name>NoDescription_NoRTDisplay</Name>
+			<Type>write</Type>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="10012">
+			<Name>NoDescription_RTDisplayFalse</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		
+		<Param id="20000">
+			<Name>EmptyDescription_Button</Name>
+			<Description></Description>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+		<Param id="20001">
+			<Name>EmptyDescription_PageButton</Name>
+			<Description></Description>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>pagebutton</Type>
+			</Measurement>
+		</Param>
+	</Params>
+	
+</Protocol>

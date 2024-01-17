@@ -1,0 +1,44 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Display>
+		<Pages>
+			<Page>
+				<Name>RTDisplay_False</Name>
+				<Visibility default="false" overridePID="10" value="1"/>
+			</Page>
+			<Page>
+				<Name>NoRTDisplay</Name>
+				<Visibility default="false" overridePID="11" value="1"/>
+			</Page>
+			<Page>
+				<Name>NoDisplay</Name>
+				<Visibility default="false" overridePID="12" value="1"/>
+			</Page>
+		</Pages>
+	</Display>
+
+	<Params>
+		<Param id="10">
+			<Name>PageVisibility_RTDisplay_False</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="11">
+			<Name>PageVisibility_NoRTDisplay</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="12">
+			<Name>PageVisibility_NoDisplay</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+	</Params>
+
+</Protocol>

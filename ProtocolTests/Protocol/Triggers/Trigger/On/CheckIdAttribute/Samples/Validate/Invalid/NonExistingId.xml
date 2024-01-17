@@ -1,0 +1,45 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--Case with no 'parent' tag at all-->
+	<!--<Commands>
+		<Command id="1"></Command>
+	</Commands>-->
+
+	<!--Case with empty 'parent' tag.-->
+	<Groups>
+	</Groups>
+
+	<!--Case with some items but not the one with the expected ID.-->
+	<Pairs>
+		<Pair id="2"></Pair>
+	</Pairs>
+	
+    <Triggers>
+		<!--No Commands tag-->
+		<Trigger id="11">
+			<Name>Command 1</Name>
+			<On id="1">command</On>
+		</Trigger>
+		<Trigger id="12">
+			<Name>Command each</Name>
+			<On id="each">command</On>
+		</Trigger>
+
+		<!--Empty Groups tag-->
+		<Trigger id="31">
+			<Name>Group 1</Name>
+			<On id="1">group</On>
+		</Trigger>
+		<Trigger id="32">
+			<Name>Group each</Name>
+			<On id="each">group</On>
+		</Trigger>
+
+		<!--Other Pairs-->
+		<Trigger id="41">
+			<Name>Pair 1</Name>
+			<On id="1">pair</On>
+		</Trigger>
+    </Triggers>
+	
+</Protocol>

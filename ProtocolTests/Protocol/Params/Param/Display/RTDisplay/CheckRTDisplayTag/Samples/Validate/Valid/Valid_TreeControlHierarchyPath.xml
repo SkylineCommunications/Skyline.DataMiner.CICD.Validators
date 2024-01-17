@@ -1,0 +1,92 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Relations>
+		<Relation path="1000;2000;3000"/>
+	</Relations>
+	
+	<Params>
+		<Param id="101">
+			<Name>TreeControl_ParameterId</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table_Level1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>Table_Level1_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<!--RTDisplay required on PK due to foreignKey linking to this table-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	
+		<Param id="2000">
+			<Name>Table_Level2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=";foreignKey=1000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2001">
+			<Name>Table_Level2_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<!--RTDisplay required on PK due to foreignKey linking to this table-->
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2002">
+			<Name>Table_Level2_FkTo1000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	
+		<Param id="3000">
+			<Name>Table_Level3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="3002" type="retrieved" options=";foreignKey=2000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3001">
+			<Name>Table_Level3_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3002">
+			<Name>Table_Level3_FkTo2000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="101">
+			<Hierarchy path="1000,2000,3000"></Hierarchy>
+		</TreeControl>
+	</TreeControls>
+	
+</Protocol>

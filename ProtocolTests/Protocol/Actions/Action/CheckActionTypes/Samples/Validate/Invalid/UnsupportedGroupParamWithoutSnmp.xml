@@ -1,0 +1,66 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>snmp</Type>
+
+	<Params>
+		<Param id="150">
+			<Name>SnmpEnabledFalse</Name>
+			<Type>write</Type>
+			<SNMP>
+				<Enabled>false</Enabled>
+			</SNMP>
+		</Param>
+		<Param id="151">
+			<Name>NoSnmpEnabled</Name>
+			<Type>write</Type>
+			<SNMP>
+				<!--<Enabled>true</Enabled>-->
+			</SNMP>
+		</Param>
+
+		<Param id="250">
+			<Name>NoSnmp</Name>
+			<Type>write</Type>
+			<!--<SNMP>
+				<Enabled>true</Enabled>
+			</SNMP>-->
+		</Param>
+		<Param id="251">
+			<Name>SnmpEnabledWithTypo</Name>
+			<Type>write</Type>
+			<SNMP>
+				<Enabled>typo</Enabled>
+			</SNMP>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="1">
+			<Name>SNMP Group 1</Name>
+			<Content>
+				<Param>150</Param>
+				<Param>151</Param>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Name>SNMP Group 2</Name>
+			<Content>
+				<Param>250</Param>
+				<Param>251</Param>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Actions>
+		<Action id="2500">
+			<Name>group_Set</Name>
+			<On id="1">group</On>
+			<Type>set</Type>
+		</Action>
+		<Action id="2510">
+			<Name>group_SetWithWait</Name>
+			<On id="2">group</On>
+			<Type nr="0">set with wait</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

@@ -1,0 +1,33 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1000">
+			<Name>timer_reschedule</Name>
+			<On id="1">timer</On>
+			<Type>reschedule</Type>
+		</Action>
+
+		<Action id="2000">
+			<Name>timer_restart timer</Name>
+			<On id="1">timer</On>
+			<Type>restart timer</Type>
+		</Action>
+
+		<Action id="3000">
+			<Name>timer_start</Name>
+			<On id="1">timer</On>
+			<Type>start</Type>
+		</Action>
+
+		<Action id="4000">
+			<Name>timer_stop</Name>
+			<On id="1">timer</On>
+			<Type>stop</Type>
+		</Action>
+	</Actions>
+
+	<Timers>
+		<Timer id="1"></Timer>
+	</Timers>
+	
+</Protocol>

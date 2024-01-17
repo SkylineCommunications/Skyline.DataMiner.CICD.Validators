@@ -1,0 +1,59 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="10">
+			<Name>ButtonWithDependencies_RTDisplayFalse</Name>
+			<Type>write</Type>
+			<Dependencies>
+				<Id>11</Id>
+			</Dependencies>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="11">
+			<Name>ButtonWithDependencies_RTDisplayFalse_Dependency1</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="20">
+			<Name>ButtonWithDependencies_NoRTDisplay</Name>
+			<Type>write</Type>
+			<Dependencies>
+				<Id>21</Id>
+			</Dependencies>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="21">
+			<Name>ButtonWithDependencies_NoRTDisplay_Dependency1</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="30">
+			<Name>ButtonWithDependencies_NoDisplay</Name>
+			<Type>write</Type>
+			<Dependencies>
+				<Id>31</Id>
+			</Dependencies>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="31">
+			<Name>ButtonWithDependencies_NoDisplay_Dependency1</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

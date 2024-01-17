@@ -1,0 +1,13 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckNameAttribute_Valid</Name>
+	<Version>0.0.0.0</Version>
+	<QActions>
+		<QAction id="1" name="Name1" />
+		<QAction id="2" name="Name2" />
+
+		<QAction id="3" />
+		<QAction id="4" />
+		<QAction id="5" name="" />
+		<QAction id="6" name="" />
+	</QActions>
+</Protocol>

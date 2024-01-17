@@ -1,0 +1,40 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+		</Param>
+		<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="10">
+		</Group>
+	</Groups>
+	
+	<Timers>
+		<Timer id="1" options="threadPool:10;ip:2000,1">
+			<Name>DueTo_threadPool_ip</Name>
+		</Timer>
+		<Timer id="2" options="threadPool:10">
+			<Name>DueTo_threadPool</Name>
+		</Timer>
+		<Timer id="3" options="ip:2000,1">
+			<Name>DueTo_ip</Name>
+			<Content>
+				<Group>col:1:10</Group>
+			</Content>
+		</Timer>
+	</Timers>
+	
+</Protocol>

@@ -1,0 +1,21 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Display>
+		<Pages>
+			<Page>
+				<Name>Empty</Name>
+				<Visibility default="false" overridePID="" value="1"/>
+			</Page>
+			<Page>
+				<Name>Spaces</Name>
+				<Visibility default="false" overridePID="   " value="1"/>
+			</Page>
+			<Page>
+				<Name>Enters</Name>
+				<Visibility default="false" overridePID="
+							" value="1"/>
+			</Page>
+		</Pages>
+	</Display>
+
+</Protocol>

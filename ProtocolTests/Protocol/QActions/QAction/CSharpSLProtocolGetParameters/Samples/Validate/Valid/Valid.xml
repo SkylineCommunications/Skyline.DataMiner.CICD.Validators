@@ -1,0 +1,145 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>GetParameters_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>ReadParam_100</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>WriteParam_200</Name>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="300">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="350">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>write</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static object[] GetParametersWrapper(this SLProtocol protocol, uint[] paramIds)
+			{
+				return (object[])protocol.GetParameters(paramIds);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int MyReadParam_100 = 100;
+			public const int MyWriteParam_200 = 200;
+			public const int MyReadWriteParam_300 = 300;
+			public const int MyReadWriteParam_350 = 350;
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="100" name="GetParameters" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+using System.Linq;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		object[] returnedValues;
+
+		// DM Params are ignored as the don't have to be present in the driver + the Parameter Helper class can't be used.
+		// DM Param range 1: [64 300 -> 69 999]
+		returnedValues = (object[])protocol.GetParameters(new uint[] { 64300, 69999 });
+
+		// DM Param range 2: [100 000 -> 999 999]
+		returnedValues = (object[])protocol.GetParameters(new uint[] { 100000, 999999 });
+
+		// Parameter helper class
+		returnedValues = (object[])protocol.GetParameters(new uint[] { Parameter.readparam_100, Parameter.Write.writeparam_200 });
+
+		// variable: uint[]
+		uint[] pidsToGet = new uint[] { Parameter.readwriteparam_300_350, Parameter.Write.readwriteparam_300_350 };
+		returnedValues = (object[])protocol.GetParameters(pidsToGet);
+
+		// variable: uint[] as object
+		object pidsToGetAsObject = new uint[] { Parameter.readwriteparam_300_350, Parameter.Write.readwriteparam_300_350 };
+		returnedValues = (object[])protocol.GetParameters(pidsToGetAsObject);
+
+		// variable: uint[] as var
+		var pidsToGetAsVar = new uint[] { Parameter.readwriteparam_300_350, Parameter.Write.readwriteparam_300_350 };
+		returnedValues = (object[])protocol.GetParameters(pidsToGetAsVar);
+
+		// variable: implicit uint[] as var
+		var pidsToGetAsImplicitArrayTypeVar = new[] { (uint)Parameter.readwriteparam_300_350, (uint)Parameter.Write.readwriteparam_300_350 };
+		returnedValues = (object[])protocol.GetParameters(pidsToGetAsImplicitArrayTypeVar);
+
+		// variable: List<uint> to array
+		List<uint> pidsToGetAsList = new List<uint> { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		returnedValues = (object[])protocol.GetParameters(pidsToGetAsList.ToArray());
+
+		// variable: IEnumerable<uint> to array
+		IEnumerable<uint> pidsToGetAsIEnumerable = GetPids();
+		returnedValues = (object[])protocol.GetParameters(pidsToGetAsIEnumerable.ToArray());
+	}
+
+	public static IEnumerable<uint> GetPids()
+	{
+		yield return Parameter.readparam_100;
+		yield return Parameter.readwriteparam_300_350;
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="GetParametersViaWrappers" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		object[] returnedValues;
+
+		// DM Params are ignored as the don't have to be present in the driver + the Parameter Helper class can't be used.
+		// DM Param range 1: [64 300 -> 69 999]
+		returnedValues = (object[])protocol.GetParametersWrapper(new uint[] { 64300, 69999 });
+
+		// DM Param range 2: [100 000 -> 999 999]
+		returnedValues = (object[])protocol.GetParametersWrapper(new uint[] { 100000, 999999 });
+
+		// Parameter helper class
+		returnedValues = (object[])protocol.GetParametersWrapper(new uint[] { Parameter.readparam_100, Parameter.Write.writeparam_200 });
+
+		// var: uint[]
+		uint[] pidsToGet = new uint[] { Parameter.readwriteparam_300_350, Parameter.Write.readwriteparam_300_350 };
+		returnedValues = (object[])protocol.GetParametersWrapper(pidsToGet);
+
+		//// var: uint[] as object
+		//object pidsToGetAsObject = new uint[] { Parameter.readwriteparam_300_350, Parameter.Write.readwriteparam_300_350 };
+		//returnedValues = (object[])protocol.GetParametersWrapper(pidsToGetAsObject);
+
+		// var: List<uint> to array
+		List<uint> pidsToGetAsList = new List<uint> { Parameter.readparam_100, Parameter.readwriteparam_300_350 };
+		returnedValues = (object[])protocol.GetParametersWrapper(pidsToGetAsList.ToArray());
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

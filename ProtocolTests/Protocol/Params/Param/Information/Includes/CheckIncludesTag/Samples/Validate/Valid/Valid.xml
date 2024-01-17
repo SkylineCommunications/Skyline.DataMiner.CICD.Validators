@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>With Subtext only</Name>
+			<Information>
+				<Subtext>This is my subtext.</Subtext>
+			</Information>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,39 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Display>
+				<Positions>
+					<Position>
+						<Page>Page2</Page>
+						<Column>2</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Display>
+				<Positions>
+					<Position>
+						<Page>Page2</Page>
+						<Column>2</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+		<!--Wrong value errors should prevail over untrimmed value error-->
+		<Param id="10">
+			<Display>
+				<Positions>
+					<Position>
+						<Page>Page3</Page>
+						<Column>  2  </Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+</Protocol>

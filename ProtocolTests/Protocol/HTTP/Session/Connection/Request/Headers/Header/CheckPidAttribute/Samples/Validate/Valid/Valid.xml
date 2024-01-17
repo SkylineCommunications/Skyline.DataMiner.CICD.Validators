@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1001"/>
+	</Params>
+	
+	<HTTP>
+		<Session id="1">
+			<Connection id="11">
+				<Request>
+					<Headers>
+						<Header pid="1001"/>
+						<Header>test</Header>
+					</Headers>
+				</Request>
+			</Connection>
+		</Session>
+	</HTTP>
+	
+</Protocol>

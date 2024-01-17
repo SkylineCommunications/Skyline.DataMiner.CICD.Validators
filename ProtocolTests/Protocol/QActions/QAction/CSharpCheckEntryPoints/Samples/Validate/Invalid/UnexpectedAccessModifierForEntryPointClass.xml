@@ -1,0 +1,61 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckEntryPoints_UnexpectedAccessModifierForEntryPointClass</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="10" name="DefaultClass_DefaultMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+internal class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+
+	}
+}]]>
+		</QAction>
+		<QAction id="20" name="DefaultClass_MyMethod" entryPoint="MyMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+internal class QAction
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+
+	}
+}]]>
+		</QAction>
+		<QAction id="30" name="MyClass_MyMethod" entryPoint="MyClass.MyMethod" encoding="csharp" triggers="1">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+internal class MyClass
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+
+	}
+}]]>
+		</QAction>
+		
+		<QAction id="100" name="MultipleEntryPoints" entryPoint="MyMethod;MyClass.MyMethod" encoding="csharp" triggers="1;2">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+internal class QAction
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+
+	}
+}
+
+internal class MyClass
+{
+	public static void MyMethod(SLProtocol protocol)
+	{
+
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

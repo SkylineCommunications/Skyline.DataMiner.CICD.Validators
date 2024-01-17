@@ -1,0 +1,48 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+		</Param>
+		<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+		</Param>
+	</Params>
+	
+	<Timers>
+		<!--Empty-->
+		<Timer id="1" options="ip:2000,1;each:1000;threadPool:10;ping" />
+		<Timer id="2" options="ip:2000,1;each:1000;threadPool:10;ping:" />
+
+		<!-- Each ping option individually invalid -->
+		<Timer id="10" options="ip:2000,1;each:1000;threadPool:10;ping:rttColumn=10" />
+		<Timer id="11" options="ip:2000,1;each:1000;threadPool:10;ping:timeoutPid=abc" />
+		<Timer id="12" options="ip:2000,1;each:1000;threadPool:10;ping:ttl=-1" />
+		<Timer id="13" options="ip:2000,1;each:1000;threadPool:10;ping:timeout=-1" />
+		<Timer id="14" options="ip:2000,1;each:1000;threadPool:10;ping:timestampcolumn=-1" />
+		<Timer id="15" options="ip:2000,1;each:1000;threadPool:10;ping:type=abc" />
+		<Timer id="16" options="ip:2000,1;each:1000;threadPool:10;ping:size=-1" />
+		<Timer id="17" options="ip:2000,1;each:1000;threadPool:10;ping:continueSNMPOnTimeout=no" />
+		<Timer id="18" options="ip:2000,1;each:1000;threadPool:10;ping:jitterColumn=20" />
+		<Timer id="19" options="ip:2000,1;each:1000;threadPool:10;ping:latencyColumn=21" />
+		<Timer id="20" options="ip:2000,1;each:1000;threadPool:10;ping:packetLossRateColumn=22" />
+		<Timer id="21" options="ip:2000,1;each:1000;threadPool:10;ping:amountPacketsMeasurements=abc" />
+		<Timer id="22" options="ip:2000,1;each:1000;threadPool:10;ping:amountPacketsMeasurementsPid=10" />
+		<Timer id="23" options="ip:2000,1;each:1000;threadPool:10;ping:amountPackets=abc" />
+		<Timer id="24" options="ip:2000,1;each:1000;threadPool:10;ping:amountPacketsPid=10" />
+		<Timer id="25" options="ip:2000,1;each:1000;threadPool:10;ping:excludeWorstResults=110" />
+		<Timer id="26" options="ip:2000,1;each:1000;threadPool:10;ping:excludeWorstResultsPid=11" />
+
+		<!-- Combinations of invalid ping options -->
+		<Timer id="100" options="ip:2000,1;each:1000;threadPool:10;ping:rttColumn=10,timeoutPid=abc,ttl=-1" />
+	</Timers>
+	
+</Protocol>

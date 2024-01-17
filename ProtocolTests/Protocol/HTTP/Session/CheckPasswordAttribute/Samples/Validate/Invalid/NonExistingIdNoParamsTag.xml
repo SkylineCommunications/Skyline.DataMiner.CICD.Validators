@@ -1,0 +1,8 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<HTTP>
+		<Session id="1" password="1001">
+		</Session>
+	</HTTP>
+	
+</Protocol>

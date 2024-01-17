@@ -1,0 +1,80 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Table 1-->
+		<Param id="199">
+			<Name>Table1_ContextMenu</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<!-- Typical implementation to manage table rows -->
+					<Discreet dependencyValues="1002;1003?">
+						<Display>Add item...</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet options="table:singleSelection" dependencyValues="1002;1003?;1004:[value:1004];1005?:[value:1005]">
+						<Display>Duplicate item...</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet options="separator">
+						<Display>Separator 1</Display>
+						<Value>-1</Value>
+					</Discreet>
+					<Discreet options="table:singleSelection" dependencyValues="1002;1003?;1004:[value:1004];1005?:[value:1005]">
+						<Display>Edit item...</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet options="separator">
+						<Display>Separator 2</Display>
+						<Value>-2</Value>
+					</Discreet>
+					<Discreet options="table:selection;confirm:The selected item(s) will be deleted permanently.">
+						<Display>Delete selected item(s)</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet options="confirm:All rows will be deleted permanently.">
+						<Display>Delete all</Display>
+						<Value>21</Value>
+					</Discreet>
+
+					 <!--Level must be first option in the list of options into the Discreet@options attribute--> 
+					<Discreet options="level:5">
+						<Display>Depends on Level Access</Display>
+						<Value>31</Value>
+					</Discreet>
+
+					 <!--Script must be last option in the list of options into the Discreet@options attribute--> 
+					<Discreet options="script:myScriptName|d1=[this element]|Action=START;Guid=7777777;p1=[value:1002];p2=[property:KPI1]||tooltip|options">
+						<Display>Execute Script</Display>
+						<Value>32</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="200">
+			<Name>Table1</Name>
+			<Description>Table 1</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="201" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:201|0,width:100,sort:STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="201" trending="false">
+			<Name>Table1_PK</Name>
+			<Description>PK (Table 1)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+</Protocol>

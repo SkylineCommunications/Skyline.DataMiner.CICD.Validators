@@ -1,0 +1,109 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>FillArrayNoDelete_NonExistingParam</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>MyParam100</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>RetrievedTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="201" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="202" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="203" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="201">
+			<Name>Retrieved_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="202">
+			<Name>Retrieved_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="203">
+			<Name>Retrieved_Column3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void FillArrayNoDeleteWrapper(this SLProtocol protocol, int tablePid, object[] columns)
+			{
+				protocol.FillArrayNoDelete(tablePid, columns);
+			}
+
+			public static void FillArrayNoDeleteWrapper(this SLProtocol protocol, int tablePid, object[] columns, DateTime timeInfo)
+			{
+				protocol.FillArrayNoDelete(tablePid, columns, timeInfo);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int NonExisting_199 = 199;
+			public const int NonExisting_1299 = 1299;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="103" name="FillArrayNoDelete" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: FillArrayNoDelete.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		int tablePid = 1000;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+
+		object[] columnsArray = new object[] { keys, values };
+		List<object[]> columnsList = new List<object[]> { keys, values };
+
+		protocol.FillArrayNoDelete(1000, columnsArray);
+		protocol.FillArrayNoDelete(1100, columnsArray, null);
+		protocol.FillArrayNoDelete(1200, columnsArray, date_dt);
+
+		protocol.FillArrayNoDelete(2000, columnsList);
+		protocol.FillArrayNoDelete(2100, columnsList, null);
+		protocol.FillArrayNoDelete(2200, columnsList, date_dt);
+
+		// Not considered hard-coded for now even though it essentially is
+		protocol.FillArrayNoDeleteWrapper(4000, columnsArray);
+		protocol.FillArrayNoDeleteWrapper(4200, columnsArray, date_dt);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

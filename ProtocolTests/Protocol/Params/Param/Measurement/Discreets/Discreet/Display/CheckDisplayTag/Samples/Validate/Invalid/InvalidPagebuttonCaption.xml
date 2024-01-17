@@ -1,0 +1,34 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Measurement>
+				<Type>pagebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>AA...A</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Measurement>
+				<Type>pagebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>BBB ...</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="3">
+			<Measurement>
+				<Type>pagebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display> CCC ... </Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

@@ -1,0 +1,47 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Table 1-->
+		<Param id="199">
+			<Name>Table1_ContextMenu</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet options="confirm:">
+						<Display>Random</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet options="confirm:">
+						<Display>Delete all</Display>
+						<Value>20</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="200">
+			<Name>Table1</Name>
+			<Description>Table 1</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="201" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:201|0,width:100,sort:STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="201" trending="false">
+			<Name>Table1_PK</Name>
+			<Description>PK (Table 1)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+</Protocol>

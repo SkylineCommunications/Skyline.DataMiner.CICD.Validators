@@ -1,0 +1,154 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>TreeControlParam1</Name>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>TreeControlParam2</Name>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3">
+			<Name>TreeControlParam3</Name>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>Level1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>Level1_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>Level1_Column2</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="1100">
+			<Name>Level1_ExtraDetails</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1102" type="retrieved" options="foreignKey=1000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1101">
+			<Name>Level1_ExtraDetails_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1102">
+			<Name>Level1_ExtraDetails_Column2</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="2000">
+			<Name>Level2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options="foreignKey=1000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2001">
+			<Name>Level2_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2002">
+			<Name>Level2_Column2_FkTo1000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="2100">
+			<Name>Level2_ExtraDetails</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2102" type="retrieved" options="foreignKey=2000"/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2101">
+			<Name>Level2_ExtraDetails_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2102">
+			<Name>Level2_ExtraDetails_Column2_FkTo1000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<ExtraDetails>
+				<LinkedDetails discreetColumnId="1002" detailsTableId="1100" />
+				<LinkedDetails discreetColumnId="2002" detailsTableId="2102" />
+			</ExtraDetails>
+		</TreeControl>
+
+		<TreeControl parameterId="2">
+			<ExtraDetails>
+			</ExtraDetails>
+		</TreeControl>
+
+		<TreeControl parameterId="3">
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>

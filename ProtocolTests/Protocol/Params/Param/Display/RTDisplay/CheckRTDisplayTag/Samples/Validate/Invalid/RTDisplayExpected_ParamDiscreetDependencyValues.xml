@@ -1,0 +1,93 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Table ContextMenu-->
+		<Param id="999">
+			<Name>MyTable_ContextMenu</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet dependencyValues="1002;1003?;1004:[value:1005];1006?:[value:1007]">
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1000">
+			<Name>MyTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" />
+				<ColumnOption idx="1" pid="1002" />
+				<ColumnOption idx="2" pid="1003" />
+				<ColumnOption idx="3" pid="1004" />
+				<ColumnOption idx="4" pid="1005" />
+				<ColumnOption idx="5" pid="1006" />
+				<ColumnOption idx="6" pid="1007" />
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>MyTable_Instance</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1002">
+			<Name>MyTable_Column2</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1003">
+			<Name>MyTable_Column3</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1004">
+			<Name>MyTable_Column4</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1005">
+			<Name>MyTable_Column5</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1006">
+			<Name>MyTable_Column6</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1007">
+			<Name>MyTable_Column7</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+	</Params>
+
+</Protocol>

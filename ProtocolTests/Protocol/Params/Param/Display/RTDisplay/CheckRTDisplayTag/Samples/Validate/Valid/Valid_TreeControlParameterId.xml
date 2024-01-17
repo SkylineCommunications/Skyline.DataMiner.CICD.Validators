@@ -1,0 +1,36 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="101">
+			<Name>TreeControl_ParameterId_1</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="102">
+			<Name>TreeControl_ParameterId_2</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="103">
+			<Name>TreeControl_ParameterId_3</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="101">
+		</TreeControl>
+		<TreeControl parameterId="102">
+		</TreeControl>
+		<TreeControl parameterId="103">
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>

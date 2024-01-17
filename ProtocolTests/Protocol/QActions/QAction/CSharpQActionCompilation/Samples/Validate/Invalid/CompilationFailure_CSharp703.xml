@@ -1,0 +1,55 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpQActionCompilation_CompilationFailure_CSharp703</Name>
+	<Version>0.0.0.0</Version>
+
+	<!--This unit test is meant to detect if
+		we are using C# version higher than 7.3 when we shouldn't.-->
+
+	<Compliancies>
+		<MinimumRequiredVersion>10.0.0.0</MinimumRequiredVersion>
+	</Compliancies>
+
+	<QActions>
+		<QAction id="100" name="Simple_CSharp703" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: Simple_CSharp703.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		// C#4
+		protocol.MyMistypedMethod();
+
+		// C#6
+		object test = "";
+		if (string.IsNullOrEmpty(test?.ToString()))
+		{
+			protocol.Log("QA" + protocol.QActionID + "|Run|'test' is null or empty.", LogType.DebugInfo, LogLevel.NoLogging);
+		}
+
+		// C#7.3
+		if (test is string test2)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|Run|" + test2, LogType.Error, LogLevel.NoLogging);
+		}
+
+        // C#9
+		if (test is not int)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|Run|It is not int.", LogType.Error, LogLevel.NoLogging);
+		}
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

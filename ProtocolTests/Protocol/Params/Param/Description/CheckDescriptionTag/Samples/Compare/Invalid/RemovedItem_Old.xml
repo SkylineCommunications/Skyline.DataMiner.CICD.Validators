@@ -1,0 +1,83 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Params>
+        <Param id="1">
+			<Name>RTDisplay_True</Name>
+            <Description>RTDisplay True</Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+        </Param>
+		
+        <Param id="100" trending="true">
+			<Name>Trending_True</Name>
+			<Description>Trending True</Description>
+        </Param>
+		
+		<Param id="200">
+			<Name>Monitored_True</Name>
+			<Description>Monitored True</Description>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		
+		<Param id="300" export="true">
+			<Name>Export_True</Name>
+			<Description>Export True</Description>
+		</Param>
+		<Param id="301" export="1000">
+			<Name>Export_1000</Name>
+			<Description>Export 1000</Description>
+		</Param>
+		<Param id="302" export="1000;2000">
+			<Name>Export_1000And2000</Name>
+			<Description>Export 1000 And 2000</Description>
+		</Param>
+
+		<!--If table RTDisplay="true" -> all columns are considered RTDisplay="true"-->
+		<Param id="1000">
+			<Name>MyTable</Name>
+			<Description>My Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="1004" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>MyTable_Instance</Name>
+			<Description>Column1 RTDisplay True (My Table)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>MyTable_RTDisplay_Default_1</Name>
+			<Description>Column2 RTDisplay Default1 (My Table)</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>MyTable_RTDisplay_Default_2</Name>
+			<Description>Column3 RTDisplay Default2 (My Table)</Description>
+			<Type>read</Type>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="1004">
+			<Name>MyTable_RTDisplay_False</Name>
+			<Description>Column4 RTDisplay False (My Table)</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+    </Params>
+	
+</Protocol>

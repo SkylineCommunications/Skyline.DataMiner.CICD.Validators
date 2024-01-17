@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1000">
+			<Name>MyTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>MyTable_Instance</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+	
+</Protocol>

@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Name>InvalidValue</Name>
+			<Display>
+				<RTDisplay>InvalidValue</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>InvalidValue_Untrimmed</Name>
+			<Display>
+				<RTDisplay>  InvalidValue_Untrimmed   </RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

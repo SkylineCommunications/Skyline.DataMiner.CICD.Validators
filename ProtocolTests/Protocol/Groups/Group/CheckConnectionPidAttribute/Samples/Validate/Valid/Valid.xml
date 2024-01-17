@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1"/>
+	</Params>
+	
+	<Groups>
+		<Group id="1" connectionPID="1">
+		</Group>
+	</Groups>
+	
+</Protocol>

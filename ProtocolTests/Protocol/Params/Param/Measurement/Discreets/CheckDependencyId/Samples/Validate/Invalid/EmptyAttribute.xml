@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>DependencyId_Empty</Name>
+			<Measurement>
+				<Discreets dependencyId=""></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>DependencyId_Spaces</Name>
+			<Measurement>
+				<Discreets dependencyId="  "></Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

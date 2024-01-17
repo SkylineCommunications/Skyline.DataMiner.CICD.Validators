@@ -1,0 +1,47 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type advanced="smart-serial;snmp;serial;snmp;snmp;snmp;snmp;snmp:SNMP Connection;serial">snmp</Type>
+
+	<PortSettings name="Polling">
+	</PortSettings>
+
+	<Ports>
+		<PortSettings name="Events">
+			<!--Should be 'SNMP Connection - XXX'-->
+			<PortTypeSerial>
+				<Disabled>true</Disabled>
+			</PortTypeSerial>
+		</PortSettings>
+		<PortSettings name="BLA">
+			<!--Should be 'Serial Connection - XXX'-->
+		</PortSettings>
+		<PortSettings name="SNMP Connection - XXX">
+			<!--Should be 'Serial Connection - XXX'-->
+			<PortTypeSerial>
+				<Disabled>true</Disabled>
+			</PortTypeSerial>
+		</PortSettings>
+		<PortSettings name="IP Connection">
+			<!--Should be 'SNMP Connection - XXX'-->
+		</PortSettings>
+		<PortSettings name="- 0">
+			<!--Should be 'SNMP Connection - XXX'-->
+		</PortSettings>
+		<PortSettings name="XXX - 0">
+			<!--Should be 'SNMP Connection - XXX'-->
+		</PortSettings>
+		<PortSettings name="SNMP Connection - ">
+			<!--Should be 'SNMP Connection - XXX'-->
+		</PortSettings>
+		<PortSettings name="SNMP Connection">
+			<!--Should be 'SNMP Connection - XXX' (because more than 1 SNMP Connection)-->
+		</PortSettings>
+        <PortSettings name="IP Connection - SSH">
+            <SSH>
+                <Credentials>
+                    <Username pid="20"/>
+                </Credentials>
+            </SSH>
+        </PortSettings>
+	</Ports>
+
+</Protocol>

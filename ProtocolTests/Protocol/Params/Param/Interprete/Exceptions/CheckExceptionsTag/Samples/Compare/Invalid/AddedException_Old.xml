@@ -1,0 +1,144 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>NoValueRestriciton_FromNoException</Name>
+			<Interprete>
+				<!--<Exceptions>
+					<Exception id="1" value="-1">
+						<Display>NewException_1</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>-->
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="101">
+			<Name>NoValueRestriciton_FromOneException</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display>ExistingException_1</Display>
+						<Value>-1</Value>
+					</Exception>
+					<!--<Exception id="2" value="-2">
+						<Display>NewException1</Display>
+						<Value>-2</Value>
+					</Exception>-->
+				</Exceptions>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<Param id="200">
+			<Name>WithinRange_FromNoException</Name>
+			<Interprete>
+				<!--<Exceptions>
+					<Exception id="1" value="1">
+						<Display>NewException_1</Display>
+						<Value>1</Value>
+					</Exception>
+				</Exceptions>-->
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>100</High>
+				</Range>
+			</Display>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="201">
+			<Name>WithinRange_FromOneException</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display>ExistingException_1</Display>
+						<Value>-1</Value>
+					</Exception>
+					<!--<Exception id="2" value="2">
+						<Display>NewException1</Display>
+						<Value>2</Value>
+					</Exception>-->
+				</Exceptions>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>100</High>
+				</Range>
+			</Display>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+
+		<Param id="300">
+			<Name>WithinDiscreetValues_FromNoException</Name>
+			<Interprete>
+				<!--<Exceptions>
+					<Exception id="1" value="1">
+						<Display>NewException_1</Display>
+						<Value>1</Value>
+					</Exception>
+				</Exceptions>-->
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Discreet 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Discreet 2</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="301">
+			<Name>WithinDiscreetValues_FromOneException</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display>ExistingException_1</Display>
+						<Value>-1</Value>
+					</Exception>
+					<!--<Exception id="2" value="2">
+						<Display>NewException_2</Display>
+						<Value>2</Value>
+					</Exception>-->
+				</Exceptions>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Discreet 1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Discreet 2</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

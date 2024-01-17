@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Pairs>
+		<Pair id="1">
+			<Name>LeadingOrTrailingSpaces</Name>
+			<Content>
+				<Response>101</Response>
+				<Response>102</Response>
+			</Content>
+		</Pair>
+		<Pair id="3">
+			<Name>LeadingAndTrailingSpaces</Name>
+			<Content>
+				<Response>103</Response>
+			</Content>
+		</Pair>
+	</Pairs>
+
+	<Responses>
+		<Response id="101"></Response>
+		<Response id="102"></Response>
+		<Response id="103"></Response>
+	</Responses>
+
+</Protocol>

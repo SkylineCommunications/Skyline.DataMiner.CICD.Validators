@@ -1,0 +1,29 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<!--Range 1000: On Command-->
+
+		<!--Range 2000: On Group-->
+
+		<!--Range 3000: On Pair-->
+		<Action id="3000">
+			<Name>Pair_SetNext</Name>
+			<On nr="1;2">pair</On>
+			<Type>set next</Type>
+		</Action>
+
+		<!--Range 4000: On Param-->
+		<Action id="4000">
+			<Name>Parameter_Reverse</Name>
+			<On nr="0;1">parameter</On>
+			<Type>reverse</Type>
+		</Action>
+
+		<!--Range 5000: On Protocol-->
+		
+		<!--Range 6000: On Response-->
+
+		<!--Range 7000: On Timer-->
+	</Actions>
+	
+</Protocol>

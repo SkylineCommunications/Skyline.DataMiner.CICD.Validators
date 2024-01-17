@@ -1,0 +1,669 @@
+﻿<Window x:Class="Validator_Management_Tool.Views.AddCheckView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tools="clr-namespace:Validator_Management_Tool.Tools"
+        mc:Ignorable="d"
+        KeyboardNavigation.TabNavigation="Cycle"
+        Title="Create Error Message" Height="800" Width="800" Icon="/Validator_Management_Tool;component/Resources/skyline.ico">
+    
+    <Window.Resources>
+        <!--Converter to convert the certainty as a uint to the Enum-->
+        <tools:CertaintyConverter x:Key="certaintyConverter" />
+        <tools:FixImpactConverter x:Key="fixImpactConverter" />
+    </Window.Resources>
+
+    <!--Main Window Layout-->
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <ListBox KeyboardNavigation.TabNavigation="Local" IsTabStop="False" Grid.Row="0">
+
+            <!--ErrorId-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Conditional Style for Error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[ErrorId], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[ErrorId], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                    <TextBlock Text="ID" Width="140" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[FullId], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBlock Text="{Binding Check.FullId}"/>
+                    </StackPanel>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Category-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Conditional Style for Error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[Category], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[Category], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                    <TextBlock Text="Category" Width="140" VerticalAlignment="Center" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[Category], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ComboBox
+                            Width="400"
+                            HorizontalAlignment="Stretch"
+                            x:Name="CategoryComboBox"
+                            ItemsSource="{Binding Path=Categories}"
+                            SelectedValue="{Binding Check.Category}"
+                            SelectedItem="{Binding SelectedCategory, Mode=OneWayToSource}"/>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Namespace-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Conditional Style for Error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[Namespace], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[Namespace], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                    <TextBlock Text="Namespace" VerticalAlignment="Center" Width="140" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[Namespace], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ComboBox
+                        Width="400"
+                        x:Name="NamespaceComboBox"
+                        ItemsSource="{Binding Path=SelectedNamespaces, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
+                        SelectedValue="{Binding Check.Namespace}"
+                        SelectedItem="{Binding SelectedNamespace, Mode=OneWayToSource}"/>
+                    <Button IsTabStop="False" Content="Add new Namespace..." Command="{Binding AddNewNamespaceCommand}" CommandParameter="{Binding SelectedCategory}" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Check Name-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Conditional Style for Error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[CheckName], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[CheckName], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                    <TextBlock Text="Check Name" VerticalAlignment="Center" Width="140" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[CheckName], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ComboBox
+                        Width="400"
+                        x:Name="CheckNameComboBox"
+                        ItemsSource="{Binding Path=SelectedChecks, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
+                        SelectedValue="{Binding Check.CheckName}"
+                        SelectedValuePath="Name.Text"
+                        SelectedItem="{Binding SelectedCheck, Mode=OneWayToSource}"
+                        DisplayMemberPath="Name.Text"/>
+                    <Button IsTabStop="False" Content="Add new Check..." Command="{Binding AddNewCheckCommand}" CommandParameter="{Binding SelectedNamespace}" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Error Name-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Conditional Style for Error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[Name], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[Name], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                    <TextBlock Text="Error Message Name" Width="140" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[Name], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBox Text="{Binding Check.Name, UpdateSourceTrigger=PropertyChanged}" MinWidth="400"/>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Description-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <!--Default content when a custom description is used-->
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox VerticalAlignment="Center" IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                                        <TextBlock Text="Description" VerticalAlignment="Center" Width="140" FontWeight="Bold">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Check.PropertyHasError[Description], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                            <Setter Property="Foreground" Value="Red"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBox Text="{Binding Check.Description, UpdateSourceTrigger=PropertyChanged}" Width="400"></TextBox>
+                                        <CheckBox IsChecked="{Binding FromTemplate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Margin="10 0 0 0">Use Template</CheckBox>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+
+                            <!--Data trigger for the error notifications-->
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[Description], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[Description], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+
+                            <!--Data trigger when a template is used-->
+                            <DataTrigger Binding="{Binding FromTemplate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox VerticalAlignment="Center" IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                                            <TextBlock Text="Description" VerticalAlignment="Center" Width="140" FontWeight="Bold">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Check.PropertyHasError[Description], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                                <Setter Property="Foreground" Value="Red"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                            <ComboBox
+                                                Width="400"
+                                                x:Name="TemplateComboBox"
+                                                ItemsSource="{Binding Path=Templates}"
+                                                SelectedValue="{Binding Check.TemplateId}"
+                                                SelectedValuePath="Id"
+                                                SelectedItem="{Binding SelectedTemplate, Mode=OneWayToSource}"
+                                                Text="... Select Template ..."
+                                                DisplayMemberPath="Format"/>
+                                            <CheckBox IsChecked="{Binding FromTemplate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Margin="10 0 0 0">Use Template</CheckBox>
+                                        </StackPanel>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+            </ListBoxItem>
+
+            <!--Description Parameters-->
+            <ListBoxItem MinHeight="30" IsTabStop="False" Focusable="False">
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <!--Default content when a custom description is used-->
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                                    <TextBlock Text="Description Parameters" Width="140" FontWeight="Bold">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Check.PropertyHasError[Parameters], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                        <Setter Property="Foreground" Value="Red"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <ListBox ItemsSource="{Binding Check.Parameters, UpdateSourceTrigger=PropertyChanged}" MinWidth="400" MinHeight="70" KeyboardNavigation.TabNavigation="Local" IsTabStop="False">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Path=Id}" Width="15"/>
+                                                    <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}" Width="370"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="ListBoxItem">
+                                                <Setter Property="IsTabStop" Value="False"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                    </ListBox>
+                                    <Button IsTabStop="False" Content="Refresh" Command="{Binding RefreshParametersCommand}" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+
+                            <!--Data trigger for the error notifications-->
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[Parameters], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[Parameters], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+
+                            <!--Data trigger when a template is used-->
+                            <DataTrigger Binding="{Binding FromTemplate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                                            <TextBlock Text="Description Parameters" Width="140" FontWeight="Bold">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Check.PropertyHasError[Parameters], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                                <Setter Property="Foreground" Value="Red"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                            <ListBox ItemsSource="{Binding Check.Parameters, UpdateSourceTrigger=PropertyChanged}" Width="400" MinHeight="70" KeyboardNavigation.TabNavigation="Local" IsTabStop="False">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Path=Id}" Width="15"/>
+                                                            <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}" Width="160" MaxLength="26"/>
+                                                            <TextBox Text="{Binding Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="210" MaxLength="34"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                                <ListBox.ItemContainerStyle>
+                                                    <Style TargetType="ListBoxItem">
+                                                        <Setter Property="IsTabStop" Value="False"/>
+                                                    </Style>
+                                                </ListBox.ItemContainerStyle>
+                                            </ListBox>
+                                            <Button IsTabStop="False" Content="Refresh" Command="{Binding RefreshParametersCommand}" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+            </ListBoxItem>
+
+            <!--Source-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Conditional Style for Error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[Source], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[Source], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsTabStop="False" IsEnabled="False" IsChecked="True" Margin="0 0 10 0"/>
+                    <TextBlock Text="Source" Width="140" VerticalAlignment="Center" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[Source], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ComboBox
+                            Width="400"
+                            HorizontalAlignment="Stretch"
+                            x:Name="SourceComboBox"
+                            ItemsSource="{Binding Path=Sources}"
+                            SelectedValue="{Binding Check.Source}"
+                            SelectedItem="{Binding SelectedSource, Mode=OneWayToSource}"/>
+                </StackPanel>
+            </ListBoxItem>
+            
+            <!--Severity-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Data trigger for the error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[Severity], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[Severity], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsTabStop="False" IsChecked="{Binding Check.SeverityEnabled, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 10 0"/>
+                    <TextBlock Text="Severity" VerticalAlignment="Center" Width="140" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[Severity], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ComboBox
+                        Width="400"
+                        x:Name="SeverityComboBox"
+                        ItemsSource="{Binding Path=Severities}"
+                        SelectedValue="{Binding Check.Severity}"
+                        SelectedItem="{Binding Check.Severity}">
+                        <ComboBox.Style>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="IsEnabled" Value="True"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.SeverityEnabled, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Certainty-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Data trigger for the error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[Certainty], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[Certainty], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsTabStop="False" IsChecked="{Binding Check.CertaintyEnabled, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" Margin="0 0 10 0"/>
+                    <TextBlock Text="Certainty" VerticalAlignment="Center" Width="140" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[Certainty], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ComboBox
+                        Width="400"
+                        x:Name="CertaintyComboBox"
+                        ItemsSource="{Binding Path=Certainties}"
+                        SelectedValue="{Binding Check.Certainty}"
+                        SelectedItem="{Binding Check.Certainty}">
+                        <ComboBox.Style>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="IsEnabled" Value="True"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.CertaintyEnabled, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Fix Impact-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Data trigger for the error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[FixImpact], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[FixImpact], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsTabStop="False" IsChecked="{Binding Check.FixImpactEnabled, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" Margin="0 0 10 0"/>
+                    <TextBlock Text="Fix Impact" VerticalAlignment="Center" Width="140" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[FixImpact], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ComboBox
+                        Width="400"
+                        x:Name="FixImpactComboBox"
+                        ItemsSource="{Binding Path=FixImpacts}"
+                        SelectedValue="{Binding Check.FixImpact}"
+                        SelectedItem="{Binding Check.FixImpact}">
+                        <ComboBox.Style>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="IsEnabled" Value="True"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.FixImpactEnabled, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Has Code Fix-->
+            <ListBoxItem Height="30" IsTabStop="False" Focusable="False">
+
+                <!--Data trigger for the error notifications-->
+                <ListBoxItem.Style>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Check.PropertyHasError[HasCodeFix], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <ToolTip Content="{Binding Check.ErrorMessages[HasCodeFix], UpdateSourceTrigger=Explicit}" ContentStringFormat="ERROR: {0}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBoxItem.Style>
+
+                <!--Content-->
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsTabStop="False" IsChecked="{Binding Check.HasCodeFixEnabled}" Margin="0 0 10 0"/>
+                    <TextBlock Text="Has Code Fix" Width="140" FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Check.PropertyHasError[HasCodeFix], UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <CheckBox IsChecked="{Binding Path=Check.HasCodeFix}" IsEnabled="{Binding Check.HasCodeFixEnabled}"/>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--How To Fix-->
+            <ListBoxItem MinHeight="30" Height="Auto" MaxHeight="150" IsTabStop="False" Focusable="False">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsTabStop="False" IsChecked="{Binding Check.HowToFixEnabled, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 10 0"/>
+                    <TextBlock Width="140" FontWeight="Bold">How To Fix</TextBlock>
+                    <TextBox Height="90" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" SpellCheck.IsEnabled="True" Text="{Binding Check.HowToFix, UpdateSourceTrigger=PropertyChanged}" MinWidth="570" Width="Auto" MaxWidth="1000"/>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Example Code-->
+            <ListBoxItem MinHeight="30" Height="Auto" MaxHeight="150" IsTabStop="False" Focusable="False">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsTabStop="False" IsChecked="{Binding Check.ExampleCodeEnabled, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 10 0"/>
+                    <TextBlock Width="140" FontWeight="Bold">Example Code</TextBlock>
+                    <TextBox Height="90" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" SpellCheck.IsEnabled="True" Text="{Binding Check.ExampleCode, UpdateSourceTrigger=PropertyChanged}" MinWidth="570" Width="Auto" MaxWidth="1000"/>
+                </StackPanel>
+            </ListBoxItem>
+
+            <!--Details-->
+            <ListBoxItem MinHeight="30" Height="Auto" IsTabStop="False" Focusable="False">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsTabStop="False" IsChecked="{Binding Check.DetailsEnabled, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 10 0"/>
+                    <TextBlock Width="140" FontWeight="Bold">Details</TextBlock>
+                    <TextBox Height="Auto" MinHeight="90" MaxHeight="500" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" SpellCheck.IsEnabled="True" Text="{Binding Check.Details, UpdateSourceTrigger=PropertyChanged}" MinWidth="570" Width="Auto" MaxWidth="1000"/>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
+
+        <!--Buttons-->
+        <DockPanel Grid.Row="1">
+            <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" Margin=" 10 0 0 0">
+                <Button TabIndex="2" x:Name="CancelBtn" Content="Cancel" Command="{Binding CancelCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom">
+                <Button TabIndex="1" x:Name="AddBtn" Content="Add" Command="{Binding AddCheckCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

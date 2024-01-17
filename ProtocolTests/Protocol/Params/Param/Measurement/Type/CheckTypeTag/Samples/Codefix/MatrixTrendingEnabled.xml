@@ -1,0 +1,33 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10000">
+			<Name>Matrix trending true</Name>
+			<Description>Matrix trending true</Description>
+			<Type>array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>Matrix trending true</Name>
+			<Description>Matrix trending true</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

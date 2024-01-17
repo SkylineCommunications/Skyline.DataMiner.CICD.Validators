@@ -1,0 +1,1810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+****************************************************************************
+*  Copyright (c) 2023,  Skyline Communications NV  All Rights Reserved.    *
+****************************************************************************
+
+By using this driver, you expressly agree with the usage terms and
+conditions set out below.
+This driver and all related materials are protected by copyrights and
+other intellectual property rights that exclusively belong
+to Skyline Communications.
+
+A user license granted for this driver is strictly for personal use only.
+This driver may not be used in any way by anyone without the prior
+written consent of Skyline Communications. Any sublicensing of this
+driver is forbidden.
+
+Any modifications to this driver by the user are only allowed for
+personal use and within the intended purpose of the driver,
+and will remain the sole responsibility of the user.
+Skyline Communications will not be responsible for any damages or
+malfunctions whatsoever of the driver resulting from a modification
+or adaptation by the user.
+
+The content of this driver is confidential information.
+The user hereby agrees to keep this confidential information strictly
+secret and confidential and not to disclose or reveal it, in whole
+or in part, directly or indirectly to any person, entity, organization
+or administration without the prior written consent of
+Skyline Communications.
+
+Any inquiries can be addressed to:
+
+	Skyline Communications NV
+	Ambachtenstraat 33
+	B-8870 Izegem
+	Belgium
+	Tel.	: +32 51 31 35 69
+	Fax.	: +32 51 31 01 29
+	E-mail	: info@skyline.be
+	Web		: www.skyline.be
+	Contact	: Ben Vandenberghe
+
+ ****************************************************************************
+	Revision History:
+
+	DATE		VERSION		AUTHOR				COMMENT
+	01/05/2012	1.0.0.0		JVH, Skyline		Initial version
+	06/05/2013	1.0.0.1		JVH, Skyline		Monitoring parameters added.
+	11/09/2013	1.0.0.2		JVH, Skyline		Disabled monitoring on service severity (can lead to service update storm)
+	17/03/2016	1.0.0.3		NVE & MLU, SKyline	Added Active Service Alarms List
+	24/10/2016	1.0.0.4		NVC, Skyline		Fixed Source (Active Service Alarms) naming
+													Adjusted Time (Active Service Alarms) column width
+													Made protocol conform with latest Skyline protocol style guide
+	27/02/2017	1.0.0.5		WD, Skyline			Added support for service child elements
+	17/03/2017	1.0.0.6		FCO, Skyline		Review/validation
+	02/01/2018	1.0.0.7		FCO, Skyline		Applied driver QA feedback,
+													Improved Alias resolving
+													Added columns for alarm count, RN:19917
+  Requires DataMiner version 9.0.3 or higher
+
+	See <VersionHistory> at the bottom of this protocol for further history tracking.
+
+ ****************************************************************************
+-->
+
+<Protocol xmlns="http://www.skyline.be/protocol">
+	<Name>Skyline Service Definition Basic</Name>
+	<Description>Skyline Service Definition Basic</Description>
+	<Version>1.0.0.10</Version>
+	<Type relativeTimers="true">service</Type>
+	<Vendor>Skyline Communications</Vendor>
+	<VendorOID>1.3.6.1.4.1.8813.2.48</VendorOID>
+	<DeviceOID>10</DeviceOID>
+	<ElementType>Service Element</ElementType>
+	<Display defaultPage="General" pageOrder="General;Alarms;Elements" wideColumnPages="Elements;Alarms" />
+	<Provider>Skyline Communications</Provider>
+	<SNMP includepages="true">auto</SNMP>
+
+	<Params>
+		<Param id="2" trending="false">
+			<!-- SuppressValidator 2.2.7 No name changes -->
+			<Name>Service Severity</Name>
+			<!-- /SuppressValidator 2.2.7 -->
+			<Description>Service Severity</Description>
+			<Information>
+				<Subtext>Displays the Service Severity.</Subtext>
+			</Information>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Undefined</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Undefined</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Normal</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Warning</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Minor</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Major</Display>
+						<Value>4</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Critical</Display>
+						<Value>5</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Timeout</Display>
+						<Value>7</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="3" trending="false">
+			<!-- SuppressValidator 2.2.7 No name changes -->
+			<Name>Severity Update</Name>
+			<!-- /SuppressValidator 2.2.7 -->
+			<Description>Severity Update</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4" trending="false">
+			<Name>raw_alarm_input</Name>
+			<Description>raw_alarm_input</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="5" trending="false">
+			<Name>subservice_element_update</Name>
+			<Description>Severity Update (Element in Sub Service)</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!-- SuppressValidator 2.53.1 No name changes (for column names) -->
+		<Param id="100" trending="false">
+			<!-- SuppressValidator 2.2.7 No name changes (for table name) -->
+			<Name>Service Element Status</Name>
+			<!-- /SuppressValidator 2.2.7 -->
+			<Description>Service Element Status</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";autoAdd">
+				<ColumnOption idx="0" pid="101" type="custom" options="" />
+				<ColumnOption idx="1" pid="102" type="custom" options=";save" />
+				<ColumnOption idx="2" pid="103" type="custom" options=";save" />
+				<ColumnOption idx="3" pid="104" type="custom" options=";save" />
+				<ColumnOption idx="4" pid="105" type="custom" options=";save" />
+				<ColumnOption idx="5" pid="106" type="custom" options=";save" />
+				<ColumnOption idx="6" pid="107" type="custom" options=";save" />
+				<ColumnOption idx="7" pid="108" type="custom" options=";save" />
+				<ColumnOption idx="8" pid="109" type="custom" options=";save" />
+				<ColumnOption idx="9" pid="110" type="custom" options=";save;enableHeaderSum;enableHistogram;enableHeatmap" />
+				<ColumnOption idx="10" pid="111" type="custom" options=";save;enableHeaderSum;enableHistogram;enableHeatmap" />
+				<ColumnOption idx="11" pid="112" type="custom" options=";save;enableHeaderSum;enableHistogram;enableHeatmap" />
+				<ColumnOption idx="12" pid="113" type="custom" options=";save;enableHeaderSum;enableHistogram;enableHeatmap" />
+				<ColumnOption idx="13" pid="114" type="custom" options=";save;enableHeaderSum;enableHistogram;enableHeatmap" />
+				<ColumnOption idx="14" pid="115" type="custom" options=";save" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>Shows elements included in service and their alarm levels.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Elements</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:101|0-102|1-103|2-109|8-104|3-105|4-106|5-107|6-115|14-108|7-110|9-111|10-112|11-113|12-114|13,width:150-150-0-0-100-100-200-150-0-0-100-100-100-100-100,sort:STRING-STRING-STRING-INT|ASC|1-INT-INT-INT-STRING-STRING-STRING|ASC|0-INT-INT-INT-INT-INT,lines:20,filter:false">table</Type>
+			</Measurement>
+		</Param>
+		<!-- /SuppressValidator 2.53.1 -->
+		<Param id="101" trending="false">
+			<Name>Service_Element_Status_Alias</Name>
+			<Description>Alias [IDX] (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The key of this table, value is element name or the name provided as alias in the service setup.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="102" trending="false">
+			<Name>Service_Element_Status_Element_Name</Name>
+			<Description>Element Name (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The element name if the row represents an element.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="103" trending="false">
+			<Name>Service_Element_Status_Element_ID</Name>
+			<Description>Element ID (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The [DMA ID]/[Element ID] for the element or service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="104">
+			<Name>Service_Element_Status_Severity</Name>
+			<Description>Severity (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The highest severity of the included alarms.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>1</Normal>
+				<WaH>2</WaH>
+				<MiH>3</MiH>
+				<MaH>4</MaH>
+				<CH>5</CH>
+			</Alarm>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Undefined</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Normal</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Warning</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Minor</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Major</Display>
+						<Value>4</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Critical</Display>
+						<Value>5</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Timeout</Display>
+						<Value>7</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="105">
+			<Name>Service_Element_Status_State</Name>
+			<Description>State (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Whether the element is Included, Excluded or Not Used.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>1</Normal>
+				<WaH>0;2;3</WaH>
+			</Alarm>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Undefined</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Included</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Excluded</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Not Used</Display>
+						<Value>3</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="106">
+			<Name>Service_Element_Status_Calculated</Name>
+			<Description>Calculated (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Indicates the calculate alarm level and if the element is included or not.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception id="0" value="0">
+						<Display state="disabled">Unknown</Display>
+						<Value>0</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>11;21;31</Normal>
+				<WaH>12;22;32</WaH>
+				<MiH>13;23;33</MiH>
+				<MaH>14;24;34</MaH>
+				<CH>15;25;35</CH>
+			</Alarm>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Included - Undefined</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Included - Normal</Display>
+						<Value>11</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Included - Warning</Display>
+						<Value>12</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Included - Minor</Display>
+						<Value>13</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Included - Major</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Included - Critical</Display>
+						<Value>15</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Included - Timeout</Display>
+						<Value>17</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Excluded - Undefined</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Excluded - Normal</Display>
+						<Value>21</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Excluded - Warning</Display>
+						<Value>22</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Excluded - Minor</Display>
+						<Value>23</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Excluded - Major</Display>
+						<Value>24</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Excluded - Critical</Display>
+						<Value>25</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Excluded - Timeout</Display>
+						<Value>27</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Not Used - Undefined</Display>
+						<Value>30</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Not Used - Normal</Display>
+						<Value>31</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Not Used - Warning</Display>
+						<Value>32</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Not Used - Minor</Display>
+						<Value>33</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Not Used - Major</Display>
+						<Value>34</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Not Used - Critical</Display>
+						<Value>35</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Not Used - Timeout</Display>
+						<Value>37</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="107" trending="false">
+			<Name>Service_Element_Status_Parent_Service_Name</Name>
+			<Description>Parent Service Name (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The name of the parent service if the element or service is not directly included in this service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="108" trending="false">
+			<Name>Service_Element_Status_Parent_Service_ID</Name>
+			<Description>Parent Service ID (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The ID of the parent service if the element or service is not directly included in this service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="109" trending="false">
+			<Name>Service_Element_Status_Service_Index</Name>
+			<Description>Service Index (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>An index of the included element or service in its parent service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+				<!--<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Undefined</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>-->
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="110" trending="true">
+			<Name>Service_Element_Status_Alarm_Count_Critical</Name>
+			<Description>Critical (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Amount of critical alarms of the element that are active in this service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>double</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>8</Length>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">N/A</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<!-- SuppressValidator 2.9.7 No unit for counter. -->
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>2147483647</High>
+				</Range>
+			</Display>
+			<!-- /SuppressValidator 2.9.7 -->
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>0</Normal>
+				<WaH>1</WaH>
+			</Alarm>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="111" trending="true">
+			<Name>Service_Element_Status_Alarm_Count_Major</Name>
+			<Description>Major (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Amount of major alarms of the element that are active in this service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>double</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>8</Length>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">N/A</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<!-- SuppressValidator 2.9.7 No unit for counter. -->
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>2147483647</High>
+				</Range>
+			</Display>
+			<!-- /SuppressValidator 2.9.7 -->
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>0</Normal>
+				<WaH>1</WaH>
+			</Alarm>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="112" trending="true">
+			<Name>Service_Element_Status_Alarm_Count_Minor</Name>
+			<Description>Minor (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Amount of minor alarms of the element that are active in this service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>double</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>8</Length>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">N/A</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<!-- SuppressValidator 2.9.7 No unit for counter. -->
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>2147483647</High>
+				</Range>
+			</Display>
+			<!-- /SuppressValidator 2.9.7 -->
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>0</Normal>
+				<WaH>1</WaH>
+			</Alarm>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="113" trending="true">
+			<Name>Service_Element_Status_Alarm_Count_Warning</Name>
+			<Description>Warning (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Amount of warning alarms of the element that are active in this service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>double</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>8</Length>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">N/A</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<!-- SuppressValidator 2.9.7 No unit for counter. -->
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>2147483647</High>
+				</Range>
+			</Display>
+			<!-- /SuppressValidator 2.9.7 -->
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>0</Normal>
+				<WaH>1</WaH>
+			</Alarm>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="114" trending="true">
+			<Name>Service_Element_Status_Alarm_Count_Timeout</Name>
+			<Description>Timeout (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Amount of timeout alarms of the element that are active in this service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>double</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>8</Length>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">N/A</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<!-- SuppressValidator 2.9.7 No unit for counter. -->
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Range>
+					<Low>0</Low>
+					<High>2147483647</High>
+				</Range>
+			</Display>
+			<!-- /SuppressValidator 2.9.7 -->
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>0</Normal>
+				<WaH>1</WaH>
+			</Alarm>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="115" trending="false">
+			<Name>Service_Element_Type</Name>
+			<Description>Type (Service Element Status)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>
+					<![CDATA[The type of entity this row represents, possible values are:
+- Element
+- Service: A service, or the service part of an enhanced service.]]>
+				</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>double</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>8</Length>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Element</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Service</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="198" trending="true" save="true">
+			<Name>monitor_active_alarms</Name>
+			<Description>Monitor Active Alarms</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Enables the monitoring of the active alarms on service</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>double</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>4</Length>
+				<Type>double</Type>
+				<DefaultValue>0</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Alarms</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>1</Normal>
+				<WaH>0</WaH>
+			</Alarm>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="199" setter="true">
+			<Name>monitor_active_alarms</Name>
+			<Description>Monitor Active Alarms</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>double</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>4</Length>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Alarms</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="200" trending="false">
+			<Name>active_service_alarms</Name>
+			<Description>Active Service Alarms</Description>
+			<Type>array</Type>
+			<Information>
+				<Subtext>Shows all active alarms in the service.</Subtext>
+			</Information>
+			<ArrayOptions index="0" options=";volatile;autoAdd">
+				<ColumnOption idx="0" pid="201" type="custom" options="" />
+				<ColumnOption idx="1" pid="202" type="custom" options="" />
+				<ColumnOption idx="2" pid="203" type="custom" options="" />
+				<ColumnOption idx="3" pid="204" type="custom" options="" />
+				<ColumnOption idx="4" pid="205" type="custom" options="" />
+				<ColumnOption idx="5" pid="206" type="custom" options="" />
+				<ColumnOption idx="6" pid="207" type="custom" options="" />
+				<ColumnOption idx="7" pid="208" type="custom" options="" />
+				<ColumnOption idx="8" pid="209" type="custom" options="" />
+				<ColumnOption idx="9" pid="210" type="custom" options="" />
+				<ColumnOption idx="10" pid="211" type="custom" options="" />
+				<ColumnOption idx="11" pid="212" type="custom" options="" />
+				<ColumnOption idx="12" pid="213" type="custom" options="" />
+				<!-- EXTENDED ARRAY FOR ALARM PROPERTIES-->
+				<!--<ColumnOption idx="13" pid="214" type="custom" options="" />-->
+			</ArrayOptions>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Alarms</Page>
+						<Row>1</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:201|0-202|1-203|2-204|3-205|4-206|5-207|6-208|7-209|8-210|9-211|10-212|11-213|12,width:146-100-100-120-101-145-101-100-100-136-100-109-100,sort:INT|DESC|0-INT|DESC|1-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:40,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="201" trending="false">
+			<Name>active_service_alarms_root_alarm_ID</Name>
+			<Description>Root Alarm ID [IDX] (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Alarm Root ID of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="202" trending="false">
+			<Name>active_service_alarms_alarm_ID</Name>
+			<Description>Alarm ID (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Alarm ID of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="203" trending="false">
+			<Name>active_service_alarms_severity</Name>
+			<Description>Severity (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Severity of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Critical</Display>
+						<Value>Critical</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Major</Display>
+						<Value>Major</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Minor</Display>
+						<Value>Minor</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Warning</Display>
+						<Value>Warning</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Normal</Display>
+						<Value>Normal</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Information</Display>
+						<Value>Information</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Timeout</Display>
+						<Value>Timeout</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Error</Display>
+						<Value>Error</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Notice</Display>
+						<Value>Notice</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="204" trending="false">
+			<Name>active_service_alarms_time</Name>
+			<Description>Time (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>time of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="205" trending="false">
+			<Name>active_service_alarms_element</Name>
+			<Description>Element Name (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Element of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="206" trending="false">
+			<Name>active_service_alarms_parameter_description</Name>
+			<Description>Parameter Description (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Parameter Description of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="207" trending="false">
+			<Name>active_service_alarms_param_index</Name>
+			<Description>Parameter Key (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Parameter Key</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="208" trending="false">
+			<Name>active_service_alarms_value</Name>
+			<Description>Value (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Value of the alarm active service the Alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="209" trending="false">
+			<Name>active_service_alarms_status</Name>
+			<Description>Status (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Status of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Cleared</Display>
+						<Value>11</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Open</Display>
+						<Value>12</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Masked</Display>
+						<Value>25</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Clearable</Display>
+						<Value>54</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="210" trending="false">
+			<Name>active_service_alarms_alarm_type</Name>
+			<Description>Alarm Type (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Alarm Type of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Escalated</Display>
+						<Value>8</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Dropped</Display>
+						<Value>9</Value>
+					</Discreet>
+					<Discreet>
+						<Display>New alarm</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Cleared</Display>
+						<Value>11</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Acknowledged</Display>
+						<Value>19</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Resolved</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Unresolved</Display>
+						<Value>21</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Comment Added</Display>
+						<Value>22</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Unmask</Display>
+						<Value>27</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Dropped from Critical</Display>
+						<Value>31</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Dropped from Major</Display>
+						<Value>32</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Dropped from Minor</Display>
+						<Value>33</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Dropped from Warning</Display>
+						<Value>34</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Escalated from Warning</Display>
+						<Value>35</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Escalated from Minor</Display>
+						<Value>36</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Escalated from Major</Display>
+						<Value>37</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Flipped</Display>
+						<Value>38</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Service impact changed</Display>
+						<Value>40</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Value changed</Display>
+						<Value>41</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Name changed</Display>
+						<Value>42</Value>
+					</Discreet>
+					<Discreet>
+						<Display>RCA-Level changed</Display>
+						<Value>43</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Properties changed</Display>
+						<Value>50</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Threshold changed</Display>
+						<Value>53</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Interface changed</Display>
+						<Value>55</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="211" trending="false">
+			<Name>active_service_alarms_user_state</Name>
+			<Description>User Status (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>User state of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Not assigned</Display>
+						<Value>18</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Acknowledged</Display>
+						<Value>19</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Resolved</Display>
+						<Value>20</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Unresolved</Display>
+						<Value>21</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="212" trending="false">
+			<Name>active_service_alarms_source</Name>
+			<Description>Source (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Source of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Mobile Gateway</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>DataMiner System</Display>
+						<Value>16</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Correlation Engine</Display>
+						<Value>23</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Watchdog</Display>
+						<Value>29</Value>
+					</Discreet>
+					<Discreet>
+						<Display>External</Display>
+						<Value>30</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Aggregation</Display>
+						<Value>56</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="213" trending="false">
+			<Name>active_service_alarms_category</Name>
+			<Description>Category (Active Service Alarms)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Category of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!-- EXTENDED ARRAY FOR ALARM PROPERTIES:
+		Add an extra column for each of the alarm properties that you want to be displayed,
+		taking into account the alarm property parameter name-->
+		<!--<Param id="214" trending="false">
+			<Name>active_service_alarms_property_SLA_Impact</Name>
+			<Description>Property.SLA Impact</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Property SLA Impact of the active service alarm</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>-->
+	</Params>
+
+	<QActions>
+		<!-- 5: Deals with severity updates from elements in sub-services -->
+		<QAction id="1" encoding="csharp" name="Update Severities" triggers="3;5" entryPoint="ChildElement;SubServiceElement">
+			<![CDATA[
+//#define DEBUG
+using System;
+using Skyline.DataMiner.Scripting;
+using System.Globalization;
+
+public class QAction
+{
+	public static void Run(SLProtocolExt protocol)
+	{
+		protocol.Log(
+			string.Format("QA{0}|Run|Triggered (by {1}) but entryPoint failed.", protocol.QActionID, protocol.GetTriggerParameter()),
+			LogType.DebugInfo,
+			LogLevel.NoLogging);
+	}
+
+	public static void ChildElement(SLProtocolExt protocol)
+	{
+		try
+		{
+			// Format of incoming data (tab-separated)
+			// 
+			// 0 - child element/service alias
+			// 1 - child element/service name
+			// 2 - child element/service dmaid/eid
+			// 3 - child element/service actual severity (1=normal, ..., 5=critical, 7=timeout)
+			// 4 - child element/service included status (1=included, 2=excluded, 3=not used) [taking into account parent states]
+			// 5 - child element/service group path ()
+			// 6 - child element/service included status [direct trigger status]
+			// 7 - child element/service capped severity
+			// 8 - child element/service sub-index
+			// 9 - is service
+
+			var strSeverityInput = Convert.ToString(protocol.SeverityUpdate_3);
+
+			var split = strSeverityInput.Split(new char[] { '\t' }, StringSplitOptions.None);
+
+			if (split.Length <= 7)
+			{
+				protocol.Log(
+					string.Format("QA{0}|ChildElement|Update value was incorrect: insufficient items: {1}", protocol.QActionID, strSeverityInput),
+					LogType.Error,
+					LogLevel.NoLogging);
+
+				return;
+			}
+
+#if DEBUG
+			protocol.Log(
+				string.Format("QA{0}|ChildElement|CHILD ELEMENT STATUS:{1}", protocol.QActionID, strSeverityInput),
+				LogType.DebugInfo,
+				LogLevel.NoLogging);
+#endif
+
+			var alias = ResolveAlias(protocol, split);
+
+			// Take alias value from child name or id if not specified
+			if (String.IsNullOrWhiteSpace(alias))
+			{
+				return;
+			}
+
+			ServiceElementStatusQActionRow row;
+			bool bNewRow = !protocol.serviceElementStatus.Exists(alias);
+
+			if (!bNewRow)
+			{
+				row = new ServiceElementStatusQActionRow
+				{
+					Service_element_status_alias = alias,
+					Service_element_status_element_name = split[1],
+					Service_element_status_element_id = split[2],
+					Service_element_status_severity = split[3],
+					Service_element_status_state = split[4],
+					Service_element_status_parent_service_name = string.Empty,
+					Service_element_status_parent_service_id = string.Empty,
+					Service_element_status_service_index_109 = split.Length > 8 ? split[8] : "-1",
+					Service_element_type_115 = split.Length > 9 && split[9] != "0" ? 2d : 1d,
+				};
+			}
+			else
+			{
+				bool isAlarmsEnabled = Convert.ToInt32(protocol.GetParameter(Parameter.monitor_active_alarms_198)) == 1;
+
+				bool isNotAnElement = split.Length < 9 || String.IsNullOrWhiteSpace(split[8]); //  || split[8] == "-1"
+				double defaultValue = !isNotAnElement && isAlarmsEnabled ? 0.0 : -1.0;
+
+				row = new ServiceElementStatusQActionRow
+				{
+					Service_element_status_alias = alias,
+					Service_element_status_element_name = split[1],
+					Service_element_status_element_id = split[2],
+					Service_element_status_severity = split[3],
+					Service_element_status_state = split[4],
+					Service_element_status_parent_service_name = string.Empty,
+					Service_element_status_parent_service_id = string.Empty,
+					Service_element_status_service_index_109 = split.Length >= 9 ? split[8] : "-1",
+					Service_element_status_alarm_count_critical_110 = defaultValue,
+					Service_element_status_alarm_count_major_111 = defaultValue,
+					Service_element_status_alarm_count_minor_112 = defaultValue,
+					Service_element_status_alarm_count_warning_113 = defaultValue,
+					Service_element_status_alarm_count_timeout_114 = defaultValue,
+					Service_element_type_115 = split.Length > 9 && split[9] != "0" ? 2d : 1d,
+				};
+			}
+
+			row.Service_element_status_calculated = GetServiceElementStatusCalculated(
+				protocol,
+				row.Service_element_status_state,
+				row.Service_element_status_severity,
+				strSeverityInput);
+
+			protocol.serviceElementStatus.SetRow(row, bNewRow);
+		}
+		catch (Exception ex)
+		{
+			protocol.Log(string.Format("QA{0}|ChildElement|{1}", protocol.QActionID, ex), LogType.Error, LogLevel.NoLogging);
+		}
+	}
+
+	public static void SubServiceElement(SLProtocolExt protocol)
+	{
+		try
+		{
+			// Format of incoming data (tab-separated)
+			// 
+			// 00 - child element/service alias
+			// 01 - child element/service name
+			// 02 - child element/service dmaid/eid
+			// 03 - child element/service actual severity (1=normal, ..., 5=critical, 7=timeout)
+			// 04 - child element/service included status (1=included, 2=excluded, 3=not used) [taking into account parent states]
+			// 05 - child element/service group path ()
+			// 06 - child element/service included status [direct trigger status]
+			// 07 - child element/service capped severity
+			// 08 - Direct parent service name
+			// 09 - Direct parent service dmaid/eid
+			// 10 - path to this child element (SUBSERVICE/SUBSUBSERVICE/CHILD)
+			// 11 - child element/service sub-index
+			// 12 - is service
+
+			var severityInput = Convert.ToString(protocol.Subservice_element_update_5);
+
+			var severityInputParts = severityInput.Split('\t');
+
+			if (severityInputParts.Length <= 10)
+			{
+				protocol.Log(
+					string.Format("QA{0}|SubServiceElement|Update value was incorrect: insufficient items:{1}", protocol.QActionID, severityInput),
+					LogType.Error,
+					LogLevel.NoLogging);
+
+				return;
+			}
+
+#if DEBUG
+			protocol.Log(
+				string.Format("QA{0}|SubServiceElement|SUB SERVICE ELEMENT:{1}", protocol.QActionID, severityInput),
+				LogType.DebugInfo,
+				LogLevel.NoLogging);
+#endif
+
+			var alias = severityInputParts[10];
+
+			if (String.IsNullOrWhiteSpace(alias))
+			{
+				// We don't do the fancy key search here because the key is supposed to be a compound of the parent service name, so it should always be provided by the notify.
+				protocol.Log(
+					string.Format("QA{0}|ChildElement|Alias and name were empty for {1}", protocol.QActionID, severityInputParts[2]),
+					LogType.Error,
+					LogLevel.NoLogging);
+
+				return;
+			}
+
+			ServiceElementStatusQActionRow row;
+			var bNewRow = !protocol.serviceElementStatus.Exists(alias);
+
+			if (!bNewRow)
+			{
+				row = new ServiceElementStatusQActionRow
+				{
+					// Set PK to full path
+					Service_element_status_alias = alias,
+					Service_element_status_element_name = severityInputParts[1],
+					Service_element_status_element_id = severityInputParts[2],
+					Service_element_status_severity = severityInputParts[3],
+					Service_element_status_state = severityInputParts[4],
+					Service_element_status_parent_service_id = severityInputParts[9],
+					Service_element_status_parent_service_name = severityInputParts[8],
+					Service_element_status_service_index_109 = severityInputParts.Length > 11 ? severityInputParts[11] : "-1",
+					Service_element_type_115 = severityInputParts.Length > 12 && severityInputParts[12] != "0" ? 2d : 1d,
+				};
+			}
+			else
+			{
+				bool isAlarmsEnabled = Convert.ToInt32(protocol.GetParameter(Parameter.monitor_active_alarms_198)) == 1;
+
+				bool isNotAnElement = severityInputParts.Length < 12 || String.IsNullOrWhiteSpace(severityInputParts[11]); // || split[11] == "-1"
+				double defaultValue = !isNotAnElement && isAlarmsEnabled ? 0.0 : -1.0;
+
+				row = new ServiceElementStatusQActionRow
+				{
+					// Set PK to full path
+					Service_element_status_alias = alias,
+					Service_element_status_element_name = severityInputParts[1],
+					Service_element_status_element_id = severityInputParts[2],
+					Service_element_status_severity = severityInputParts[3],
+					Service_element_status_state = severityInputParts[4],
+					Service_element_status_parent_service_id = severityInputParts[9],
+					Service_element_status_parent_service_name = severityInputParts[8],
+					Service_element_status_service_index_109 = severityInputParts.Length > 11 ? severityInputParts[11] : "-1",
+					Service_element_status_alarm_count_critical_110 = defaultValue,
+					Service_element_status_alarm_count_major_111 = defaultValue,
+					Service_element_status_alarm_count_minor_112 = defaultValue,
+					Service_element_status_alarm_count_warning_113 = defaultValue,
+					Service_element_status_alarm_count_timeout_114 = defaultValue,
+					Service_element_type_115 = severityInputParts.Length > 12 && severityInputParts[12] != "0" ? 2d : 1d,
+				};
+			}
+
+			row.Service_element_status_calculated = GetServiceElementStatusCalculated(
+				protocol,
+				row.Service_element_status_state,
+				row.Service_element_status_severity,
+				severityInput);
+
+			protocol.serviceElementStatus.SetRow(row, bNewRow);
+		}
+		catch (Exception ex)
+		{
+			protocol.Log(string.Format("QA{0}|SubServiceElement|{1}", protocol.QActionID, ex), LogType.Error, LogLevel.NoLogging);
+		}
+	}
+
+	private static double GetServiceElementStatusCalculated(SLProtocolExt protocol, object state, object severity, string source)
+	{
+		double dblElementStatus, dblElementSeverity;
+		if (ToDouble(state, out dblElementStatus) && ToDouble(severity, out dblElementSeverity))
+		{
+			return (dblElementStatus * 10.0) + dblElementSeverity;
+		}
+
+		protocol.Log(
+			string.Format("QA{0}|GetServiceElementStatusCalculated|Could not parse Service_element_status_state '{1}' or Service_element_status_severity '{2}'. from:\r\n{3}",
+				protocol.QActionID,
+				state,
+				severity,
+				source),
+			LogType.Error,
+			LogLevel.NoLogging);
+
+		return 0;
+	}
+
+	private static bool ToDouble(object value, out double result)
+	{
+		var sValue = value as string;
+		if (!string.IsNullOrWhiteSpace(sValue))
+		{
+			return double.TryParse(sValue, NumberStyles.Float, CultureInfo.InvariantCulture, out result);
+		}
+
+		result = 0d;
+		return false;
+	}
+
+	// Do in SLDataMiner before sending string array!
+	private static string ResolveAlias(SLProtocol protocol, string[] inputData)
+	{
+		var alias = inputData[0];
+
+		// Take alias value from child name or id if not specified
+		if (String.IsNullOrWhiteSpace(alias))
+		{
+			if (String.IsNullOrWhiteSpace(inputData[1]))
+			{
+				if (String.IsNullOrWhiteSpace(inputData[2]))
+				{
+					protocol.Log(
+						string.Format("QA{0}|ResolveAlias|Alias, name, and id were empty for {1}", protocol.QActionID, inputData[2]),
+						LogType.Error,
+						LogLevel.NoLogging);
+
+					return null;
+				}
+				else
+				{
+					var splittedID = inputData[2].Split('/');
+
+					if (splittedID.Length != 2)
+					{
+						protocol.Log(
+							string.Format("QA{0}|ResolveAlias|Alias and name were empty, {1} could not be parsed as an DMAID/EID", protocol.QActionID, inputData[2]),
+							LogType.Error,
+							LogLevel.NoLogging);
+
+						return null;
+					}
+
+					var oID = new uint[2];
+
+					oID[0] = Convert.ToUInt32(splittedID[0]);
+					oID[1] = Convert.ToUInt32(splittedID[1]);
+
+					var oName = protocol.NotifyDataMiner(144 /*NT_GET_ELEMENT_NAME*/, oID, null);
+
+					alias = oName as string;
+					if (String.IsNullOrWhiteSpace(alias))
+					{
+						protocol.Log(
+								string.Format("QA{0}|ResolveAlias|Alias and name were empty, could not resolve name from ID {1} and used this ID instead", protocol.QActionID, inputData[2]),
+								LogType.DebugInfo,
+								LogLevel.NoLogging);
+
+						alias = inputData[2];
+					}
+					else
+					{
+						protocol.Log(
+								string.Format("QA{0}|ResolveAlias|Alias and name were empty, resolved ID {1} to {2}", protocol.QActionID, inputData[2], alias),
+								LogType.DebugInfo,
+								LogLevel.NoLogging);
+					}
+				}
+			}
+			else
+			{
+				protocol.Log(
+						string.Format("QA{0}|ResolveAlias|Alias was empty, took element name for {1}:{2}", protocol.QActionID, inputData[2], inputData[1]),
+						LogType.DebugInfo,
+						LogLevel.NoLogging);
+
+				alias = inputData[1];
+			}
+		}
+
+		return alias;
+	}
+}
+]]>
+		</QAction>
+		<!--<QAction id="2" name="AlarmTrigger" encoding="csharp" triggers="4">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Text;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	/// <summary>
+	/// none
+	/// </summary>
+	/// <param name="protocol">Link with Skyline Dataminer</param>
+	public static void Run(SLProtocolExt protocol)
+	{
+		var strInput = Convert.ToString(protocol.Raw_alarm_input_4);
+		protocol.Log(
+			string.Format("QA{0}|Run|Trigger 4:{1}", protocol.QActionID, strInput),
+			LogType.DebugInfo,
+			LogLevel.NoLogging);
+	}
+}
+]]>
+		</QAction>-->
+	</QActions>
+
+	<Compliancies>
+		<MinimumRequiredVersion>9.0.3.0</MinimumRequiredVersion>
+		<CassandraReady>true</CassandraReady>
+	</Compliancies>
+
+	<!-- SuppressValidator 1.23.2 No valid Connection name needed -->
+	<PortSettings name="Service Connection">
+	</PortSettings>
+	<!-- /SuppressValidator 1.23.2 -->
+
+	<VersionHistory>
+		<Branches>
+			<Branch id="1">
+				<Comment />
+				<SystemVersions>
+					<SystemVersion id="0">
+						<MajorVersions>
+							<MajorVersion id="0">
+								<MinorVersions>
+									<MinorVersion id="8" basedOn="1.0.0.7">
+										<Date>2020-07-30</Date>
+										<Provider>
+											<Author>JST</Author>
+											<Company>Skyline Communications</Company>
+										</Provider>
+										<Changes>
+											<Change>Suppressed or Fixed Validator issues.</Change>
+										</Changes>
+									</MinorVersion>
+									<MinorVersion id="9" basedOn="1.0.0.8">
+										<Date>2020-08-05</Date>
+										<Provider>
+											<Author>FCO</Author>
+											<Company>Skyline Communications</Company>
+										</Provider>
+										<Changes>
+											<Change>Fixed type and discreets of Severity (Active Service Alarms), PID=203.</Change>
+										</Changes>
+									</MinorVersion>
+									<MinorVersion id="10" basedOn="1.0.0.9">
+										<Date>2022-03-17</Date>
+										<Provider>
+											<Author>SVD</Author>
+											<Company>Skyline Communications</Company>
+										</Provider>
+										<Changes>
+											<Change>Fixed some validator issues</Change>
+											<Change>Other protocol cleanup</Change>
+										</Changes>
+									</MinorVersion>
+								</MinorVersions>
+							</MajorVersion>
+						</MajorVersions>
+					</SystemVersion>
+				</SystemVersions>
+			</Branch>
+		</Branches>
+	</VersionHistory>
+</Protocol>

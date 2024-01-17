@@ -1,0 +1,7 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Commands>
+		<Command id="1" ascii=""/>
+	</Commands>
+	
+</Protocol>

@@ -1,0 +1,41 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+        <!-- Threshold only. -->
+        <Param id="1">
+            <Alarm options="threshold:102,2206">
+            </Alarm>
+        </Param>
+        
+        <!-- Threshold option moved to last. -->
+        <Param id="10">
+            <Alarm options="threshold:102,2206;propertyNames:Type,Descr;properties:|4|*INT:*303">
+            </Alarm>
+        </Param>
+        <Param id="11">
+            <Alarm options="propertyNames:Type,Descr;threshold:102,2206;properties:|4|*INT:*303">
+            </Alarm>
+        </Param>
+        
+        <!-- Threshold option moved to first. -->
+        <Param id="20">
+            <Alarm options="propertyNames:Type,Descr;properties:|4|*INT:*303;threshold:102,2206">
+            </Alarm>
+        </Param>
+        <Param id="21">
+            <Alarm options="propertyNames:Type,Descr;threshold:102,2206;properties:|4|*INT:*303">
+            </Alarm>
+        </Param>
+        
+        <!-- No threshold set. -->
+        <Param id="30">
+            <Alarm options="">
+            </Alarm>
+        </Param>
+        
+        <!-- No threshold set, but other options present. -->
+        <Param id="40">
+            <Alarm options="propertyNames:Type,Descr;properties:|4|*INT:*303;">
+            </Alarm>
+        </Param>
+	</Params>
+</Protocol>

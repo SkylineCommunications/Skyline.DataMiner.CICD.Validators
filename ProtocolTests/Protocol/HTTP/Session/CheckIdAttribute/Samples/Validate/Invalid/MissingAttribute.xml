@@ -1,0 +1,7 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<HTTP>
+		<Session name="Missing"></Session>
+	</HTTP>
+
+</Protocol>

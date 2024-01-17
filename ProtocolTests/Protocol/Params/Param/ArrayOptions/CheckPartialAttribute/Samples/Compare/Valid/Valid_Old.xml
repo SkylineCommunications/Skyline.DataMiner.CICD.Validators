@@ -1,0 +1,64 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!--Valid actions on RTDisplay="true" tables-->
+        <Param id="1">
+            <!--Keep partial with different value-->
+            <ArrayOptions partial="true:200">
+            </ArrayOptions>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="2">
+            <!--Keep partial-->
+            <ArrayOptions partial="true">
+            </ArrayOptions>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="3">
+            <!--No partial-->
+            <ArrayOptions>
+            </ArrayOptions>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="4">
+            <!--No partial-->
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="5">
+            <!--Removing partial-->
+            <ArrayOptions partial="true:500">
+            </ArrayOptions>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+
+        <!--Any action on RTDisplay="false" tables-->
+        <Param id="100">
+            <ArrayOptions>
+            </ArrayOptions>
+            <Display>
+                <RTDisplay>false</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="101">
+            <ArrayOptions>
+            </ArrayOptions>
+        </Param>
+        <Param id="102">
+            <ArrayOptions>
+            </ArrayOptions>
+        </Param>
+        <Param id="103">
+            <ArrayOptions>
+            </ArrayOptions>
+        </Param>
+    </Params>
+</Protocol>

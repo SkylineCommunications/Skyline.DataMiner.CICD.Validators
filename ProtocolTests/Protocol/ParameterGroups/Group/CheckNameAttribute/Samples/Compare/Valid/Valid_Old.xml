@@ -1,0 +1,6 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <ParameterGroups>
+        <Group id="1" name="Stand Alone Input" type="in"/>
+        <Group id="2" name="Outputs" type="in" dynamicId="100" dynamicIndex="*"/>
+    </ParameterGroups>
+</Protocol>

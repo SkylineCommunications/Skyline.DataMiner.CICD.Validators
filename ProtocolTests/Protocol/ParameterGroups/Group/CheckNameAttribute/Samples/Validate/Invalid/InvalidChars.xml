@@ -1,0 +1,11 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<ParameterGroups>
+		<Group name="Invalid\Char" id="1"></Group>
+
+		<!-- Group without Id won't be checked. -->
+		<Group name="Invalid\Char2"></Group>
+
+		<!-- Make sure untrimmed check is last -->
+		<Group name=" Invalid\Char3 " id="3"></Group>
+	</ParameterGroups>
+</Protocol>

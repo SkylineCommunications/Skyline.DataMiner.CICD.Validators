@@ -1,0 +1,113 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpNotifyDataMinerNTGetParameter_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public const int NT_GET_PARAMETER_GlobalConst = 73;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="Defining_NotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_GET_PARAMETER_Const = 73;
+		int NT_GET_PARAMETER_Int = 73;
+		int NT_GET_PARAMETER_Math = 70;
+
+		uint dmaId = 200;
+		uint elementId = 661;
+		uint pid = 100;
+		uint[] paramDetails = { dmaId, elementId, pid };
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(73, paramDetails, null);
+		protocol.NotifyDataMiner(70 + 10 - 7, paramDetails, null);
+
+		protocol.NotifyDataMiner(NT_GET_PARAMETER_Const, paramDetails, null);
+		protocol.NotifyDataMiner(NT_GET_PARAMETER_Int, paramDetails, null);
+		protocol.NotifyDataMiner(NT_GET_PARAMETER_Math + 3, paramDetails, null);
+		protocol.NotifyDataMiner(MyClass.NT_GET_PARAMETER_GlobalConst, paramDetails, null);
+
+		protocol.NotifyDataMiner((int)NT_GET_PARAMETER_Const, paramDetails, null);
+		protocol.NotifyDataMiner((int)NT_GET_PARAMETER_Int, paramDetails, null);
+		protocol.NotifyDataMiner((int)NT_GET_PARAMETER_Math + 3, paramDetails, null);
+		protocol.NotifyDataMiner((int)MyClass.NT_GET_PARAMETER_GlobalConst, paramDetails, null);
+		protocol.NotifyDataMiner((int)NotifyType.GetParameter, paramDetails, null);
+		
+		protocol.NotifyDataMinerQueued(73, paramDetails, null);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="Defining_Element" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint dmaId = 200;
+		uint elementId = 661;
+		uint pid = 100;
+
+		uint[] paramDetails = { dmaId, elementId, pid };
+		uint[] paramDetails_hardcoded = { 10, 2, 100 };
+
+		uint[] paramDetails_multiline;
+		paramDetails_multiline = new uint[] { 10, 2, 100 };
+
+		// Different ways to define the parameter
+		protocol.NotifyDataMiner(73, new[] { 10, 2, 100 }, null);
+		protocol.NotifyDataMiner(73, new uint[] { 10, 2, 100 }, null);
+
+		protocol.NotifyDataMiner(73, new[] { dmaId, elementId, pid }, null);
+		protocol.NotifyDataMiner(73, new uint[] { dmaId, elementId, pid }, null);
+
+		protocol.NotifyDataMiner(73, paramDetails, null);
+		protocol.NotifyDataMiner(73, paramDetails_hardcoded, null);
+		protocol.NotifyDataMiner(73, paramDetails_multiline, null);
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="Processing_Result" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint dmaId = 200;
+		uint elementId = 661;
+		uint pid = 100;
+		uint[] paramDetails = { dmaId, elementId, pid };
+
+		object[] result = (object[])protocol.NotifyDataMiner(73, paramDetails, null);
+		if (result != null && result.Length > 0)
+		{
+			string paramValue = Convert.ToString(result[0]);
+			protocol.Log("QA" + protocol.QActionID + "|Run|paramValue '" + paramValue + "'", LogType.DebugInfo, LogLevel.NoLogging);
+		}
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

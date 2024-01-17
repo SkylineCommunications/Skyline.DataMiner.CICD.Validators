@@ -1,0 +1,11 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<ParameterGroups>
+		<Group name="RidiculousLongNameThatIsTooLongToHandle" id="1"></Group>
+
+		<!-- Group without Id won't be checked. -->
+		<Group name="RidiculousLongNameThatIsTooLongToHandle2"></Group>
+
+		<!-- Make sure untrimmed error is not throw and untrimmed value is used in error message -->
+		<Group name=" RidiculousLongNameThatIsTooLongToHandle3 " id="3"></Group>
+	</ParameterGroups>
+</Protocol>

@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <DVEs>
+        <DVEProtocols>
+            <DVEProtocol name="Mother - Child" tablePID="100">
+                <ElementPrefix>true</ElementPrefix>
+            </DVEProtocol>
+            <DVEProtocol name="Mother - Child2" tablePID="200">
+                <ElementPrefix>true</ElementPrefix>
+            </DVEProtocol>
+            <DVEProtocol name="MotherChild" tablePID="300">
+            </DVEProtocol>
+            <DVEProtocol name="MotherChild2" tablePID="400">
+                <ElementPrefix>false</ElementPrefix>
+            </DVEProtocol>
+            <DVEProtocol name="MotherChild3" tablePID="500">
+                <ElementPrefix>false</ElementPrefix>
+            </DVEProtocol>
+        </DVEProtocols>
+    </DVEs>
+</Protocol>

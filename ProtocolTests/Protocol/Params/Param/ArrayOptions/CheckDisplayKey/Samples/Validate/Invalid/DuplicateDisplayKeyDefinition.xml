@@ -1,0 +1,31 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--Sticking to only one column in naming and NamingFormat in order to avoid the 'DisplayKeyColumnMissing' check.-->
+
+	<Params>
+		<Param id="1000">
+			<Name>DisplayColumn_And_Naming</Name>
+			<ArrayOptions index="0" displayColumn="1" options=";naming=/1002">
+			</ArrayOptions>
+		</Param>
+		<Param id="2000">
+			<Name>DisplayColumn_And_NamingFormat</Name>
+			<ArrayOptions index="0" displayColumn="1">
+				<NamingFormat><![CDATA[;2002]]></NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="3000">
+			<Name>Naming_And_NamingFormat</Name>
+			<ArrayOptions index="0" options=";naming=/3002">
+				<NamingFormat><![CDATA[;3002]]></NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="4000">
+			<Name>DisplayColumn_And_Naming_And_NamingFormat</Name>
+			<ArrayOptions index="0" displayColumn="1" options=";naming=/4002">
+				<NamingFormat><![CDATA[;4002]]></NamingFormat>
+			</ArrayOptions>
+		</Param>
+	</Params>
+
+</Protocol>

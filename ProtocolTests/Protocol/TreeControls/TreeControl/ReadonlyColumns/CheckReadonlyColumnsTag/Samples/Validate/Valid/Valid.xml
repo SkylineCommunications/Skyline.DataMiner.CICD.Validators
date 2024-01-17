@@ -1,0 +1,152 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<TreeControls>
+		<!--Old Hierarchy Syntax-->
+		<TreeControl parameterId="1">
+			<Hierarchy path="1000,2000,20000,20100" />
+			<ReadonlyColumns>1002,2002,20002,20152</ReadonlyColumns>
+		</TreeControl>
+		<TreeControl parameterId="2">
+			<Hierarchy path="1000;2000" />
+		</TreeControl>
+
+		<!--New Hierarchy Syntax-->
+		<TreeControl parameterId="3">
+			<Hierarchy>
+				<Table id="1000"/>
+				<Table id="2000" parent="1000"/>
+				<Table id="20000" parent="2000"/>
+				<Table id="20100" parent="2000"/>
+			</Hierarchy>
+			<ReadonlyColumns>1002,2002,20002,20152</ReadonlyColumns>
+		</TreeControl>
+	</TreeControls>
+
+	<Params>
+		<Param id="1">
+			<Name>TreeControl_Param_1</Name>
+		</Param>
+		<Param id="2">
+			<Name>TreeControl_Param_2</Name>
+		</Param>
+		<Param id="3">
+			<Name>TreeControl_Param_3</Name>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>Table1_Instance</Name>
+		</Param>
+		<Param id="1002">
+			<Name>Table1_Column2</Name>
+		</Param>
+		<Param id="1003">
+			<Name>Table1_Column2</Name>
+		</Param>
+
+		<Param id="2000">
+			<Name>Table2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2001">
+			<Name>Table2_Instance</Name>
+		</Param>
+		<Param id="2002">
+			<Name>Table2_Column2</Name>
+		</Param>
+
+		<!--View Tables-->
+		<Param id="10000">
+			<Name>ViewTables_Base1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001" duplicateAs="20001,20101">
+			<Name>ViewTables_Base1_Instance</Name>
+		</Param>
+		<Param id="10002" duplicateAs="20002">
+			<Name>ViewTables_Base1_Column2</Name>
+		</Param>
+
+		<Param id="10100">
+			<Name>ViewTables_Base2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10102" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="10101" duplicateAs="20051">
+			<Name>ViewTables_Base2_Instance</Name>
+		</Param>
+		<Param id="10102" duplicateAs="20052,20152">
+			<Name>ViewTables_Base2_Column2</Name>
+		</Param>
+
+		<Param id="20000">
+			<Name>ViewTable1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options="volatile;view=10000">
+				<ColumnOption idx="0" pid="20001" type="retrieved" options=";view=10001"/>
+				<ColumnOption idx="1" pid="20002" type="retrieved" options=";view=10002"/>
+				<ColumnOption idx="2" pid="20051" type="retrieved" options=";view=10002:10101"/>
+				<ColumnOption idx="3" pid="20052" type="retrieved" options=";view=10002:10102"/>
+			</ArrayOptions>
+		</Param>
+
+		<Param id="20100">
+			<Name>ViewTable2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options="volatile;view=10000">
+				<ColumnOption idx="0" pid="20101" type="retrieved" options=";view=10001"/>
+				<ColumnOption idx="2" pid="20152" type="retrieved" options=";view=10002:10102"/>
+			</ArrayOptions>
+		</Param>
+
+		<Param id="5000">
+			<Name>IrrelevantTable1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="5001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="5002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+		<Param id="5001">
+			<Name>IrrelevantTable1_Instance</Name>
+		</Param>
+		<Param id="5002">
+			<Name>IrrelevantTable1_Column2</Name>
+		</Param>
+	</Params>
+	
+</Protocol>

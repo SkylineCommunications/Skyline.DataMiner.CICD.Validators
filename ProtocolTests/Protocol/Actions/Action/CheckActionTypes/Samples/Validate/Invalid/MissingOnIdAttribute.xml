@@ -1,0 +1,94 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1"></Param>
+	</Params>
+
+	<Actions>
+		<!--1000 range: on Command-->
+
+		<!--2000 range: on Group-->
+		<Action id="2000">
+			<Name>group_add to execute</Name>
+			<On>group</On>
+			<Type>add to execute</Type>
+		</Action>
+		<Action id="2010">
+			<Name>group_execute</Name>
+			<On>group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="2020">
+			<Name>group_execute next</Name>
+			<On>group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="2030">
+			<Name>group_execute one</Name>
+			<On>group</On>
+			<Type>execute one</Type>
+		</Action>
+		<Action id="2040">
+			<Name>group_execute one top</Name>
+			<On>group</On>
+			<Type>execute one top</Type>
+		</Action>
+		<Action id="2050">
+			<Name>group_execute one now</Name>
+			<On>group</On>
+			<Type>execute one now</Type>
+		</Action>
+		<Action id="2060">
+			<Name>group_force execute</Name>
+			<On>group</On>
+			<Type>force execute</Type>
+		</Action>
+
+		<Action id="2500">
+			<Name>group_Set</Name>
+			<On>group</On>
+			<Type>set</Type>
+		</Action>
+		<Action id="2510">
+			<Name>group_SetWithWait</Name>
+			<On>group</On>
+			<Type>set with wait</Type>
+		</Action>
+
+		<!--3000 range: on Pair-->
+		<Action id="3010">
+			<Name>Pair_Timeout</Name>
+			<On>pair</On>
+			<Type id="1">timeout</Type>
+		</Action>
+
+		<!--4000 range: on Param-->
+
+		<!--5000 range: on Protocol-->
+
+		<!--6000 range: on Response-->
+
+		<!--7000 range: on Timer-->
+		<Action id="7000">
+			<Name>Timer_Reschedule</Name>
+			<On>timer</On>
+			<Type>reschedule</Type>
+		</Action>
+		<Action id="7001">
+			<Name>Timer_RestartTimer</Name>
+			<On>timer</On>
+			<Type>restart timer</Type>
+		</Action>
+		<Action id="7002">
+			<Name>Timer_Start</Name>
+			<On>timer</On>
+			<Type>start</Type>
+		</Action>
+		<Action id="7003">
+			<Name>Timer_Stop</Name>
+			<On>timer</On>
+			<Type>stop</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

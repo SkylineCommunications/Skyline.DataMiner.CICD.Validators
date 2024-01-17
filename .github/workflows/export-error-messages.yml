@@ -17,16 +17,10 @@ on:
 jobs:
   export:
     name: Export Error Message
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: 17
-          distribution: 'zulu'
-
       - name: Install NuGetToggleOnBuild
         run: dotnet tool install Skyline.DataMiner.CICD.Tools.NuGetToggleOnBuild --global
                 
@@ -34,14 +28,14 @@ jobs:
         run: NuGetToggleOnBuild --setToActive false --workspace ${{ github.workspace }} --onlyOnConfiguredNuGet false
 
       - name: Building
-        run: dotnet build "./Validator Management Tool/Validator Management Tool.csproj" --configuration Release -nodeReuse:false
+        run: dotnet build "./ExportErrorMessages/ExportErrorMessages.csproj" --configuration Release -nodeReuse:false
 
       - name: Run export logic
         run: | 
-          .\Validator_Management_Tool.exe ${{ github.ref_name }}
-        working-directory: ${{ github.workspace }}\Validator Management Tool\bin\Release\net472
+          ./ExportErrorMessages ${{ github.workspace }}/Protocol/ErrorMessages.xml ${{ github.ref_name }} ${{ github.workspace }}/TEMP
+        working-directory: ${{ github.workspace }}/ExportErrorMessages/bin/Release/net8.0
 
       - uses: actions/upload-artifact@v4
         with:
           name: Error Messages
-          path: ${{ github.workspace }}\Validator Management Tool\bin\Release\net472\*.xlsx
+          path: ${{ github.workspace }}/TEMP/Validator Error Messages - ${{ github.ref_name }}.xlsx

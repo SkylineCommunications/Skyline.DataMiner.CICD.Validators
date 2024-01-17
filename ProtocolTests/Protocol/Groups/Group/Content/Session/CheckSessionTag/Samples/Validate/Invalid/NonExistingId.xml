@@ -1,0 +1,30 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<HTTP>
+		<Session id="1"/>
+		<Session id="2"/>
+		<Session id="3"/>
+	</HTTP>
+
+	<Groups>
+		<Group id="1">
+			<Content>
+				<Session>1001</Session>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Content>
+				<Session>1</Session>
+				<Session>1002</Session>
+				<Session>3</Session>
+			</Content>
+		</Group>
+		<Group id="3">
+			<Content>
+				<Session>1003</Session>
+				<Session>1004</Session>
+			</Content>
+		</Group>
+	</Groups>
+
+</Protocol>

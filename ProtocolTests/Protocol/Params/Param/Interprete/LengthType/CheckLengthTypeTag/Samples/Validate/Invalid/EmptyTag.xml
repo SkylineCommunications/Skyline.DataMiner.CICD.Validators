@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="300">
+			<Name>Comparison Value For Power In dbW</Name>
+			<Description>Comparison Value For Power In dbW</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType></LengthType>
+				<Type>string</Type>
+				<Length>4</Length>
+				<Value>AAAA</Value>
+			</Interprete>
+		</Param>		
+	</Params>
+</Protocol>

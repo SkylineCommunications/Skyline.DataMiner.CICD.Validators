@@ -1,0 +1,622 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>NtFillArrayWithColumn_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>SNMP</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="101" type="snmp" options=""/>
+				<ColumnOption idx="1" pid="102" type="snmp" options=""/>
+				<ColumnOption idx="2" pid="103" type="snmp" options=""/>
+				<ColumnOption idx="3" pid="104" type="custom" options=""/>
+				<ColumnOption idx="4" pid="105" type="custom" options=""/>
+				<ColumnOption idx="5" pid="106" type="snmp" options=""/>
+				<ColumnOption idx="6" pid="107" type="retrieved" options=""/>
+				<ColumnOption idx="7" pid="108" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="101">
+			<Name>SNMP_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="102">
+			<Name>SNMP_Column2_SNMP</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="103">
+			<Name>SNMP_Column3_SNMP</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="104">
+			<Name>SNMP_Column4_Custom</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="105">
+			<Name>SNMP_Column5_Custom</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="106">
+			<Name>SNMP_Column6_SNMP</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="107">
+			<Name>SNMP_Column7_Retrieved</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="108">
+			<Name>SNMP_Column8_Retrieved</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1000">
+			<Name>NoHistorySet</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>NoHistorySet_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>NoHistorySet_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>NoHistorySet_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1100">
+			<Name>HistorySetFalse</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1102" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1103" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1101" historySet="false">
+			<Name>HistorySetFalse_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1102" historySet="false">
+			<Name>HistorySetFalse_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1103" historySet="false">
+			<Name>HistorySetFalse_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="2000">
+			<Name>HistorySetTrue</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>HistorySetTrue_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002" historySet="true">
+			<Name>HistorySetTrue_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2003" historySet="true">
+			<Name>HistorySetTrue_Column3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="5000">
+			<Name>MyTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="5001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="5002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="5003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="5004" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="5001">
+			<Name>MyTable_Column1_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5002" historySet="true">
+			<Name>MyTable_Column2_HistorySetTrue</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5003" historySet="false">
+			<Name>MyTable_Column3_HistorySetFalse</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5004">
+			<Name>MyTable_Column4_NoHistorySet</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="9999">
+			<Name>DVEs_DisplayKey</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10000">
+			<Name>DVEs</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="10003" type="retrieved" options=";element"/>
+				<ColumnOption idx="3" pid="10004" type="state" options=""/>
+				<ColumnOption idx="4" pid="10005" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="10006" type="retrieved" options=""/>
+				<ColumnOption idx="6" pid="9999" type="displaykey" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10001">
+			<Name>DVEs_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10002">
+			<Name>DVEs_Column2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10003">
+			<Name>DVEs_Column3_DveElement</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10004">
+			<Name>DVEs_Column4_State</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10005">
+			<Name>DVEs_Column5_DeleteButton</Name>
+			<Type>write</Type>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+		<Param id="10006" historySet="true">
+			<Name>DVEs_Column6_WithHistorySet</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="11000">
+			<Name>MultiThreading</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="11001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="11002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="11003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="11004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="11005" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="11006" type="retrieved" options=""/>
+				<ColumnOption idx="6" pid="11007" type="retrieved" options=""/>
+				<ColumnOption idx="7" pid="11008" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="11001">
+			<Name>MultiThreading_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11002">
+			<Name>MultiThreading_IpAddress</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11003">
+			<Name>MultiThreading_RTT</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11004">
+			<Name>MultiThreading_Timestamp</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11005">
+			<Name>MultiThreading_Jitter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11006">
+			<Name>MultiThreading_Latency</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11007">
+			<Name>MultiThreading_PacketLossRate</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11008" historySet="true">
+			<Name>MultiThreading_ColumnWithHistorySet</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using Skyline.DataMiner.Scripting;
+using SLNetMessages = Skyline.DataMiner.Net.Messages;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void SetColumnsWrapper(this SLProtocol protocol, object[] columnPids, object[] columnValues)
+			{
+				protocol.NotifyProtocol(220, columnPids, columnValues);
+			}
+
+
+			public static void SetColumns(this SLProtocol protocol, Dictionary<object, List<object>> setColumnsData, DateTime dateTime = default(DateTime))
+			{
+				// Requires Main 10.0.0 [CU?] or Feature 9.6.6 [CU?] (see RN 23815)
+				int rowCount = setColumnsData.ElementAt(0).Value.Count;
+				if (rowCount <= 0)
+				{
+					// No rows to update
+					return;
+				}
+
+				object[] setColumnPids = new object[setColumnsData.Count + 1];
+				object[] setColumnOptions = dateTime == default(DateTime) ? new object[] { true } : new object[] { true, dateTime };
+
+				object[] setColumnValues = new object[setColumnsData.Count];
+				for (int i = 0; i < setColumnValues.Length; i++)
+				{
+					// Sanity checks
+					if (setColumnsData.ElementAt(i).Value.Count != rowCount)
+					{
+						protocol.Log("QA" + protocol.QActionID + "|SetColumns|SetColumns on table '" + setColumnsData.Keys.ToArray()[0] + "' failed. " +
+							"Not all columns contain the same number of rows.", LogType.Error, LogLevel.NoLogging);
+
+						return;
+					}
+
+					// Build set columns objects
+					setColumnPids[i] = setColumnsData.ElementAt(i).Key;
+					setColumnValues[i] = setColumnsData.ElementAt(i).Value.ToArray();
+				}
+
+				setColumnPids[setColumnPids.Length - 1] = setColumnOptions;
+				protocol.NotifyProtocol(220, setColumnPids, setColumnValues);
+			}
+
+			public static void ReceivedIssue(SLProtocolExt protocol, int tableId)
+			{
+				List<object> keys = new List<object>();
+				List<object> values = new List<object>();
+				protocol.NotifyProtocol(
+					(int)SLNetMessages.NotifyType.NT_FILL_ARRAY_WITH_COLUMN,
+					new object[] { tableId, tableId + 6 },
+					new object[] { keys.ToArray(), values.ToArray() });
+			}
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="100" name="SNMP" encoding="csharp" triggers="100" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: SNMP.
+/// </summary>
+public static class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] primaryKeys = { "PK_1", "PK_2", "PK_3", "PK_4", "PK_5" };
+		object[] column2Values = { "Value_1", "Value_2", "Value_3", "Value_4", "Value_5" };
+		object[] column3Values = { "Value_1", "Value_2", protocol.Clear, null, protocol.Leave };
+
+		// 1 column
+		protocol.NotifyProtocol(220, new object[] { Parameter.Snmp.tablePid, Parameter.Snmp.Pid.snmp_column7_retrieved }, new object[] { primaryKeys, column2Values });
+
+        // No options
+        protocol.NotifyProtocol(220, new object[] { Parameter.Snmp.tablePid, Parameter.Snmp.Pid.snmp_column8_retrieved }, new object[] { primaryKeys, column2Values });
+
+		// 2 columns
+		protocol.NotifyProtocol(220,
+			new object[3] { Parameter.Snmp.tablePid, Parameter.Snmp.Pid.snmp_column8_retrieved_108, Parameter.Snmp.Pid.snmp_column7_retrieved },
+			new object[3] { primaryKeys, column2Values, column3Values });
+
+		// Nice Wrapper
+		Dictionary<object, List<object>> snmpSetColumns = new Dictionary<object, List<object>>
+		{
+			{Parameter.Snmp.tablePid, new List<object>(primaryKeys)},
+			{Parameter.Snmp.Pid.snmp_column7_retrieved, new List<object>(column2Values)},
+			{Parameter.Snmp.Pid.snmp_column8_retrieved_108, new List<object>(column3Values)},
+		};
+
+		protocol.SetColumns(snmpSetColumns);
+		protocol.SetColumns(snmpSetColumns, date_dt);
+	}
+}]]>
+		</QAction>
+		<QAction id="1000" name="WithoutDateTimes" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: WithoutDateTimes.
+/// </summary>
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] primaryKeys = { "PK_1", "PK_2", "PK_3", "PK_4", "PK_5" };
+		object[] column2Values = { "Value_1", "Value_2", "Value_3", "Value_4", "Value_5" };
+		object[] column3Values = { "Value_1", "Value_2", protocol.Clear, null, protocol.Leave };
+
+		// Random notify type
+		protocol.NotifyProtocol(139, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2 }, new object[] { primaryKeys, column2Values });
+
+		// Without optional field
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2 }, new object[] { primaryKeys, column2Values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, Parameter.Nohistoryset.Pid.nohistoryset_column3 }, new object[] { primaryKeys, column2Values, column3Values });
+
+		// With optional bool field
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, useClearAndLeaveFalse }, new object[] { primaryKeys, column2Values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3, useClearAndLeaveTrue }, new object[] { primaryKeys, column2Values, column3Values });
+
+		// With optional array field {}
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, new object[] { } }, new object[] { primaryKeys, column2Values });
+
+		// With optional array field {bool}
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, new object[] { useClearAndLeaveFalse } }, new object[] { primaryKeys, column2Values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, Parameter.Nohistoryset.Pid.nohistoryset_column3, new object[] { useClearAndLeaveTrue } }, new object[] { primaryKeys, column2Values, column3Values });
+
+		// With optional array field {bool, null}
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, new object[] { useClearAndLeaveFalse, null } }, new object[] { primaryKeys, column2Values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysetfalse.tablePid, Parameter.Historysetfalse.Pid.historysetfalse_column2, Parameter.Historysetfalse.Pid.historysetfalse_column3, new object[] { useClearAndLeaveTrue, null } }, new object[] { primaryKeys, column2Values, column3Values });
+
+		// Wrappers
+		protocol.SetColumnsWrapper(new object[] { Parameter.Nohistoryset.tablePid, Parameter.Nohistoryset.Pid.nohistoryset_column2, false }, new object[] { primaryKeys, column2Values });
+	}
+}]]>
+		</QAction>
+		<QAction id="2000" name="HistorySetOnMethodCallLevel" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: HistorySetOnMethodCallLevel.
+/// </summary>
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] primaryKeys = { "PK_1", "PK_2", "PK_3" };
+		object[] column2Values = { "Value_1", "Value_2", "Value_3" };
+		object[] column3Values = { "Value_1", "Value_2", "Value_3" };
+
+		// History sets on method call level
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { primaryKeys, column2Values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3, new object[] { useClearAndLeaveTrue, date_dt } }, new object[] { primaryKeys, column2Values, column3Values });
+
+		// Wrappers
+		protocol.SetColumnsWrapper(new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { primaryKeys, column2Values });
+		protocol.SetColumnsWrapper(new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3, new object[] { useClearAndLeaveTrue, date_dt } }, new object[] { primaryKeys, column2Values, column3Values });
+	}
+}]]>
+		</QAction>
+		<QAction id="2001" name="HistorySetOnCellLevel" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: HistorySetOnCellLevel.
+/// </summary>
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] primaryKeys = { "PK_1", "PK_2", "PK_3" };
+		object[] column2Values = { "Value_1", "Value_2", "Value_3" };
+		object[] column3ValuesAndDateTimes = new object[] { new object[] { "Column3_Row1", date_dt }, new object[] { "Column3_Row2", date_dt }, "Column3_Row3" };
+
+		// History sets on cell level - no optional field
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue }, new object[] { primaryKeys, column3ValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3 }, new object[] { primaryKeys, column2Values, column3ValuesAndDateTimes });
+
+		protocol.SetColumnsWrapper(new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue }, new object[] { primaryKeys, column3ValuesAndDateTimes });
+		protocol.SetColumnsWrapper(new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3 }, new object[] { primaryKeys, column2Values, column3ValuesAndDateTimes });
+
+		// History sets on cell level - optional bool field
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, useClearAndLeaveFalse }, new object[] { primaryKeys, column3ValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3, useClearAndLeaveTrue }, new object[] { primaryKeys, column2Values, column3ValuesAndDateTimes });
+
+		protocol.SetColumnsWrapper(new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, useClearAndLeaveFalse }, new object[] { primaryKeys, column3ValuesAndDateTimes });
+		protocol.SetColumnsWrapper(new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3, useClearAndLeaveTrue }, new object[] { primaryKeys, column2Values, column3ValuesAndDateTimes });
+
+		// History sets on cell level - optional array field {bool}
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, new object[] { useClearAndLeaveFalse } }, new object[] { primaryKeys, column3ValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3, new object[] { useClearAndLeaveTrue } }, new object[] { primaryKeys, column2Values, column3ValuesAndDateTimes });
+
+		protocol.SetColumnsWrapper(new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, new object[] { useClearAndLeaveFalse } }, new object[] { primaryKeys, column3ValuesAndDateTimes });
+		protocol.SetColumnsWrapper(new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3, new object[] { useClearAndLeaveTrue } }, new object[] { primaryKeys, column2Values, column3ValuesAndDateTimes });
+
+		// History sets on cell level - optional array field {bool, null}
+		protocol.NotifyProtocol(220, new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, new object[] { useClearAndLeaveFalse, null } }, new object[] { primaryKeys, column3ValuesAndDateTimes });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3, new object[] { useClearAndLeaveTrue, null } }, new object[] { primaryKeys, column2Values, column3ValuesAndDateTimes });
+
+		protocol.SetColumnsWrapper(new object[] { Parameter.Mytable.tablePid, Parameter.Mytable.Pid.mytable_column2_historysettrue, new object[] { useClearAndLeaveFalse, null } }, new object[] { primaryKeys, column3ValuesAndDateTimes });
+		protocol.SetColumnsWrapper(new object[] { Parameter.Historysettrue.tablePid, Parameter.Historysettrue.Pid.historysettrue_column2, Parameter.Historysettrue.Pid.historysettrue_column3, new object[] { useClearAndLeaveTrue, null } }, new object[] { primaryKeys, column2Values, column3ValuesAndDateTimes });
+	}
+}]]>
+		</QAction>
+		<QAction id="10000" name="DVEs" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: DVEs.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] keys = { "PK_1", "PK_2", "PK_3", "PK_4", "PK_5" };
+		object[] values = { "Value_1", "Value_2", "Value_3", "Value_4", "Value_5" };
+		object[] ValuesAndDateTimes = new object[] { new object[] { "Column3_Row1", date_dt }, new object[] { "Column3_Row2", date_dt }, "Column3_Row3" };
+
+		// No History Sets
+		protocol.NotifyProtocol(220, new object[] { Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column2 }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column2_10002, useClearAndLeaveFalse }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column2_10002, new object[] { } }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column2_10002, new object[] { useClearAndLeaveFalse } }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column2_10002, new object[] { useClearAndLeaveTrue, null } }, new object[] { keys, values });
+
+		// History sets on method call level
+		protocol.NotifyProtocol(220, new object[] { Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column6_withhistoryset_10006, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { keys, values });
+
+		// History sets on cell level
+		protocol.NotifyProtocol(220, new object[] { Parameter.Dves.tablePid, Parameter.Dves.Pid.dves_column6_withhistoryset_10006 }, new object[] { keys, ValuesAndDateTimes });
+	}
+}]]>
+		</QAction>
+		<QAction id="11000" name="MultiThreading" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: MultiThreading.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		bool useClearAndLeaveTrue = true;
+		bool useClearAndLeaveFalse = false;
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] keys = { "PK_1", "PK_2", "PK_3", "PK_4", "PK_5" };
+		object[] values = { "Value_1", "Value_2", "Value_3", "Value_4", "Value_5" };
+		object[] ValuesAndDateTimes = new object[] { new object[] { "Column3_Row1", date_dt }, new object[] { "Column3_Row2", date_dt }, "Column3_Row3" };
+
+		// No History Sets
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_ipaddress }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_ipaddress_11002, useClearAndLeaveFalse }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_ipaddress_11002, new object[] { } }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_ipaddress_11002, new object[] { useClearAndLeaveFalse } }, new object[] { keys, values });
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_ipaddress_11002, new object[] { useClearAndLeaveTrue, null } }, new object[] { keys, values });
+
+		// History sets on method call level
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_columnwithhistoryset_11008, new object[] { useClearAndLeaveFalse, date_dt } }, new object[] { keys, values });
+
+		// History sets on cell level
+		protocol.NotifyProtocol(220, new object[] { Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_columnwithhistoryset_11008 }, new object[] { keys, ValuesAndDateTimes });
+	}
+}]]>
+		</QAction>
+		<QAction id="9999" name="ReceivedIssues" encoding="csharp">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+using Parameter = Skyline.DataMiner.Scripting.Parameter;
+
+/// <summary>
+/// DataMiner QAction Class: ReceivedIssues.
+/// </summary>
+public static class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		var columnIdx = new uint[]
+		{
+			Parameter.Mytable.Idx.mytable_column1_instance_5001,
+			Parameter.Mytable.Idx.mytable_column2_historysettrue_5002
+		};
+
+		var columns = (object[])protocol.NotifyProtocol((int)NotifyType.NT_GET_TABLE_COLUMNS, Parameter.Mytable.tablePid, columnIdx);
+		var grandMaster = Array.ConvertAll<object, object>((object[])columns[1], x => Convert.ToString(x).Substring(7));
+		int tableID = Parameter.Mytable.tablePid;
+		int columnID = Parameter.Mytable.Pid.mytable_column2_historysettrue_5002;
+		bool allowClearAndLeave = true;
+		DateTime timestamp = DateTime.Now;
+		object[] columnInfo = new object[] { tableID, columnID, new object[] { allowClearAndLeave, timestamp } };
+		object[] primaryKeys = (object[])columns[0];
+		object[] columnValues = grandMaster;
+		object[] values = new object[] { primaryKeys, columnValues };
+		protocol.NotifyProtocol(220 /*NT_FILL_ARRAY_WITH_COLUMN*/, columnInfo, values);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+	<Timers>
+		<Timer id="1" options="ip:11000,1;each:1000;threadPool:10;typo;ping:rttColumn=3,ttl=250,timeout=500,timestampColumn=4,type=icmp,size=100,continueSnmpOnTimeout=true,jitterColumn=5,latencyColumn=6,packetLossRateColumn=7,amountPacketsMeasurements=100">
+			<Name>MultiThreaded Timer</Name>
+		</Timer>
+		<Timer id="2">
+			<Name>RegularTimerWithoutOptions</Name>
+			<Time initial="true">10000</Time>
+			<Interval>75</Interval>
+			<Content>
+			</Content>
+		</Timer>
+	</Timers>
+
+</Protocol>

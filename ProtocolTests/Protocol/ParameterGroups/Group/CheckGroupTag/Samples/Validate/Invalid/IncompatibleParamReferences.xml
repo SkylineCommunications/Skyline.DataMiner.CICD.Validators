@@ -1,0 +1,39 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<ParameterGroups>
+		<!--Using Group/Params-->
+		<Group id="1" name="GroupParamsParam_And_DynamicId" dynamicId="1000">
+			<Params>
+				<Param id="102" />
+			</Params>
+		</Group>
+	</ParameterGroups>
+
+	<Params>
+		<Param id="101">
+			<Name>DCF_Interface_Standalone_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="102">
+			<Name>DCF_Interface_Standalone_2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="103">
+			<Name>DCF_Interface_Standalone_3</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1000">
+			<Name>DCF_Interfaces_Table</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>DCF_Interfaces_TableInstance</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+</Protocol>

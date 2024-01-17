@@ -1,0 +1,54 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>TreeControlParam1</Name>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>Table1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1001">
+			<Name>Table1_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>Table1_Column2_Filter</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<Hierarchy>
+				<Table condition="1002:BLA"/>
+				<Table condition="1002:BLA;filter:fk=1001"/>
+
+				<!--Filtering on empty value or on untrimmed value shouldn't be a problem-->
+				<Table condition="1002:"/>
+				<Table condition="1002: BLA "/>
+
+				<Table />
+			</Hierarchy>
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>

@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<HTTP>
+		<Session id="1">
+			<Connection id="1">
+				<Request verb="GET">
+					<Headers>
+						<Header key="User-Agent">myUser</Header>
+					</Headers>
+				</Request>
+			</Connection>
+		</Session>
+		<Session id="2">
+			<Connection id="1">
+				<Request verb="GET">
+					<!-- No headers, should not throw NullReferenceException -->
+				</Request>
+			</Connection>
+		</Session>
+	</HTTP>
+</Protocol>

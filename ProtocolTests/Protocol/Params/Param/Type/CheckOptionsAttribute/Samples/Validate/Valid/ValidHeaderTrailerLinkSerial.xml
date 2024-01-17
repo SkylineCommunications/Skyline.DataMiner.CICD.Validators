@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Type>serial</Type>
+	<Params>
+        <!--No headerTrailerLink required as the driver only has one connection and it's not of type smart-serial-->
+		<Param id="1">
+			<Type>header</Type>
+		</Param>
+        <Param id="2">
+            <Type>trailer</Type>
+        </Param>
+        <Param id="3">
+            <Type>header</Type>
+        </Param>
+        <Param id="4">
+            <Type>trailer</Type>
+        </Param>
+	</Params>
+</Protocol>

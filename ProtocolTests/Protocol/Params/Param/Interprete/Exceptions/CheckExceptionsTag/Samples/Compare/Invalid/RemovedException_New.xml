@@ -1,0 +1,38 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>FromOneToZero</Name>
+			<!--<Interprete>
+				<Exceptions>
+					<Exception id="1" value="1">
+						<Display state="disabled">N/A</Display>
+						<Value>1</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>-->
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="101">
+			<Name>FromTwoToOne</Name>
+			<Interprete>
+				<Exceptions>
+					<Exception id="1" value="1">
+						<Display state="disabled">N/A</Display>
+						<Value>1</Value>
+					</Exception>
+					<!--<Exception id="2" value="2">
+						<Display state="disabled">N/A</Display>
+						<Value>2</Value>
+					</Exception>-->
+				</Exceptions>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+	</Params>
+
+</Protocol>

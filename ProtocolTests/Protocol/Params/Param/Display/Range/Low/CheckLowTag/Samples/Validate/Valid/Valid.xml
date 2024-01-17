@@ -1,0 +1,54 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>ReadOnly</Name>
+			<Type>read</Type>
+			<Display>
+				<Range>
+					<Low>1</Low>
+				</Range>
+			</Display>
+		</Param>
+		
+		<Param id="100">
+			<Name>WriteOnly</Name>
+			<Type>write</Type>
+			<Display>
+				<Range>
+					<Low>1</Low>
+				</Range>
+			</Display>
+		</Param>
+		
+		<Param id="200">
+			<Name>ReadWrite</Name>
+			<Type>read</Type>
+			<Display>
+				<Range>
+					<Low>1</Low>
+				</Range>
+			</Display>
+		</Param>
+		<Param id="250">
+			<Name>ReadWrite</Name>
+			<Type>write</Type>
+			<Display>
+				<Range>
+					<Low>1</Low>
+				</Range>
+			</Display>
+		</Param>
+        <Param id="300">
+            <Name>ReadOnly_Logarithmic</Name>
+            <Type>read</Type>
+            <Display>
+				<Trending logarithmic="true"/>
+                <Range>
+                    <Low>1</Low>
+                </Range>
+            </Display>
+        </Param>
+	</Params>
+
+</Protocol>

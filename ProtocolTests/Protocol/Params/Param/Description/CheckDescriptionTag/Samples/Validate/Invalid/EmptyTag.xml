@@ -1,0 +1,26 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="100" export="true">
+			<Name>Empty</Name>
+			<Description></Description>
+		</Param>
+		<Param id="101" export="true">
+			<Name>Spaces</Name>
+			<Description>  </Description>
+		</Param>
+		
+		<Param id="200" export="true">
+			<Name>Exported</Name>
+			<Description></Description>
+		</Param>
+		<Param id="201">
+			<Name>RTDisplay_True</Name>
+			<Description></Description>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+	
+</Protocol>

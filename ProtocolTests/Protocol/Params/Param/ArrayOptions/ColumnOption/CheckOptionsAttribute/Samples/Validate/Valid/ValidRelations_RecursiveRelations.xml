@@ -1,0 +1,114 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>TableRecursive</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=";foreignKey=1000"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>TableRecursive_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>TableRecursive_FkRecursive</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="11000">
+			<Name>TableLevel1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="11001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="11001">
+			<Name>TableLevel1_Instance</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="12000">
+			<Name>TableLevel2Recursive</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="12001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="12002" type="retrieved" options=";foreignKey=11000"/>
+				<ColumnOption idx="2" pid="12003" type="retrieved" options=";foreignKey=12000"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="12001">
+			<Name>TableLevel2Recursive_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="12002">
+			<Name>TableLevel2Recursive_FkTo11000</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12003">
+			<Name>TableLevel2Recursive_FkRecursive</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="13000">
+			<Name>TableLevel3</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="13001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="13002" type="retrieved" options=";foreignKey=12000"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="13001">
+			<Name>TableLevel3_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="13002">
+			<Name>TableLevel3_FkTo12000</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+	</Params>
+
+	<Relations>
+		<!--<Relation name="No relation required for TableRecursive" path="" />-->
+		<Relation name="ParentToChildren with 3 levels AND recursion" path="11000;12000;13000" />
+	</Relations>
+
+</Protocol>

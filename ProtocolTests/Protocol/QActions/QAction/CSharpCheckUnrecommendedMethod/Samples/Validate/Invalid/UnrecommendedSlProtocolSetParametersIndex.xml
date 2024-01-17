@@ -1,0 +1,69 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckUnrecommendedMethod_UnrecommendedSetParametersIndex</Name>
+	<Version>0.0.0.0</Version>
+
+	<Params>
+		<Param id="10">
+			<Name>MyStandalone</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="1000">
+			<Name>MyTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" />
+				<ColumnOption idx="1" pid="1002" type="retrieved" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>MyTableInstance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>MyTableColumn2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>MyTableColumn3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="105" name="UnrecommendedMethods" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime myDateTime = new DateTime(2000, 12, 31);
+
+		protocol.SetParametersIndex(new[] { 10 }, new[] { 10 }, new[] { 1 }, new[] { "value 1" });
+		protocol.SetParametersIndex(new[] { 1000 }, new[] { 10 }, new[] { 1 }, new[] { "value 1" }, null);
+
+		protocol.SetParametersIndex(new int[] { 10 }, new int[] { 10 }, new int[] { 1 }, new object[] { "value 1" });
+		protocol.SetParametersIndex(new int[] { 1000 }, new int[] { 10 }, new int[] { 1 }, new object[] { "value 1" }, null);
+
+		protocol.SetParametersIndex(new[] { 10, 1000 }, new[] { 10, 10 }, new[] { 1, 1 }, new[] { "value 1", "value 2" }, new[] { myDateTime, myDateTime });
+
+		int myLocalInt_10 = 10;
+		int[] ids = { 10, 20 };
+		int[] iXs = { 10, 10 };
+		int[] iYs = { 10, 10 };
+		object[] values = { "value 1", "value 2" };
+
+		protocol.SetParametersIndex(ids, iXs, iYs, values);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

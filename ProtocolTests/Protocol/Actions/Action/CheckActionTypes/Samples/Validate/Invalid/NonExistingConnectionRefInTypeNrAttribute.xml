@@ -1,0 +1,40 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>snmp</Type>
+
+	<Params>
+		<Param id="1">
+			<Name>SNMP Write Param</Name>
+			<Type>write</Type>
+			<SNMP>
+				<Enabled>true</Enabled>
+			</SNMP>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="2">
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Actions>
+		<Action id="2500">
+			<Name>group_Set_TypoOnConnectionId</Name>
+			<On id="2">group</On>
+			<Type nr="typo">set</Type>
+		</Action>
+		<Action id="2501">
+			<Name>group_Set_NegativeConnectionId</Name>
+			<On id="2">group</On>
+			<Type nr="-1">set</Type>
+		</Action>
+		<Action id="2510">
+			<Name>group_SetWithWait_TooHighConnectionId</Name>
+			<On id="2">group</On>
+			<Type nr="1">set with wait</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

@@ -1,0 +1,62 @@
+﻿<!--
+Note that same file is used in:
+- Param\ArrayOptions\ColumnOption\CheckOptionsAttribute\Samples\Validate\Valid\ValidRelations_NToMRelation.xml
+- Relation\CheckPathAttribute\Samples\Validate\Valid\Valid_NToMRelation.xml
+-->
+
+<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="10000">
+			<Name>NToMParentTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10001">
+			<Name>NToMParentTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="10100">
+			<Name>NToMIntermediateTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10102" type="retrieved" options=";foreignKey=10000"/>
+				<ColumnOption idx="2" pid="10103" type="retrieved" options=";foreignKey=10200"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10101">
+			<Name>NToMIntermediateTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10102">
+			<Name>NToMIntermediateTable_FkTo10000</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="10103">
+			<Name>NToMIntermediateTable_FkTo10200</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="10200">
+			<Name>NToMChildrenTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="10201" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="10201">
+			<Name>NToMChildrenTable_Instance</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<Relations>
+		<!--N to M Relation-->
+		<Relation name="NToM" path="10000;10100;10200" />
+	</Relations>
+
+</Protocol>

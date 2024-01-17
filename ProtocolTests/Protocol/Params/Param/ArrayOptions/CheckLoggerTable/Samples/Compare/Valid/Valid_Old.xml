@@ -1,0 +1,47 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <!--Unchanged Logger Table-->
+        <Param id="1000">
+            <ArrayOptions options=";database:1000">
+                <ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="1004" type="retrieved" options=""/>
+                <ColumnOption idx="4" pid="1005" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+        
+        <!--Logger Table Non Breaking Changes-->
+        <Param id="2000">
+            <ArrayOptions options=";database:200">
+                <ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="2004" type="retrieved" options=""/>
+                <ColumnOption idx="4" pid="2005" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+
+        <!--Adding Logger Table option-->
+        <Param id="3000">
+            <ArrayOptions>
+                <ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="3002" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="3003" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="3004" type="retrieved" options=""/>
+                <ColumnOption idx="4" pid="3005" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+
+        <!--Changes on Non-Logger tables-->
+        <Param id="10000">
+            <ArrayOptions>
+                <ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="10002" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="10003" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="10004" type="retrieved" options=""/>
+                <ColumnOption idx="4" pid="10005" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+    </Params>
+</Protocol>

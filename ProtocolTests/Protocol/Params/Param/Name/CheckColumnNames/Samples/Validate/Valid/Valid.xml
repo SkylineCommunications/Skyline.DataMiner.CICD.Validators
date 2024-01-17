@@ -1,0 +1,169 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<!--No "Table" postfix on table name: no need generate warning if column name has such postfix-->
+		<Param id="1000">
+			<Name>MyTests</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved"/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" />
+				<ColumnOption idx="3" pid="1004" type="retrieved" />
+				<ColumnOption idx="4" pid="1005" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001" duplicateAs="10001">
+			<Name>MyTestsInstance</Name>
+		</Param>
+		<Param id="1002" duplicateAs="10002">
+			<Name>MyTests Column2</Name>
+		</Param>
+		<Param id="1003" duplicateAs="10003">
+			<Name>MyTests_Column3</Name>
+		</Param>
+		<Param id="1004" duplicateAs="10004">
+			<Name>MyTestsTable Column4</Name>
+		</Param>
+		<Param id="1005" duplicateAs="10005">
+			<Name>MyTestsTable_Column5</Name>
+		</Param>
+
+		<!--"Table" postfix on table name: no need generate warning if column name doesn't have that table name postfix-->
+		<Param id="2000">
+			<Name>MyTestsTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved"/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" />
+				<ColumnOption idx="2" pid="2003" type="retrieved" />
+				<ColumnOption idx="3" pid="2004" type="retrieved" />
+				<ColumnOption idx="4" pid="2005" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001" duplicateAs="10011">
+			<Name>MyTestsInstance</Name>
+		</Param>
+		<Param id="2002" duplicateAs="10012">
+			<Name>MyTests Column2</Name>
+		</Param>
+		<Param id="2003" duplicateAs="10013">
+			<Name>MyTests_Column3</Name>
+		</Param>
+		<Param id="2004" duplicateAs="10014">
+			<Name>MyTestsTable Column4</Name>
+		</Param>
+		<Param id="2005" duplicateAs="10015">
+			<Name>MyTestsTable_Column5</Name>
+		</Param>
+
+		<Param id="3000">
+			<Name>MyTests Table</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3001" type="retrieved"/>
+				<ColumnOption idx="1" pid="3002" type="retrieved" />
+				<ColumnOption idx="2" pid="3003" type="retrieved" />
+				<ColumnOption idx="3" pid="3004" type="retrieved" />
+				<ColumnOption idx="4" pid="3005" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="3001">
+			<Name>MyTestsInstance</Name>
+		</Param>
+		<Param id="3002">
+			<Name>MyTests Column2</Name>
+		</Param>
+		<Param id="3003">
+			<Name>MyTests_Column3</Name>
+		</Param>
+		<Param id="3004">
+			<Name>MyTestsTable Column4</Name>
+		</Param>
+		<Param id="3005">
+			<Name>MyTestsTable_Column5</Name>
+		</Param>
+		
+		<Param id="4000">
+			<Name>My Tests Table</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="4001" type="retrieved"/>
+				<ColumnOption idx="1" pid="4002" type="retrieved" />
+				<ColumnOption idx="2" pid="4003" type="retrieved" />
+				<ColumnOption idx="3" pid="4004" type="retrieved" />
+				<ColumnOption idx="4" pid="4005" type="retrieved" />
+				<ColumnOption idx="5" pid="4006" type="retrieved" />
+				<ColumnOption idx="6" pid="4007" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="4001">
+			<Name>My TestsInstance</Name>
+		</Param>
+		<Param id="4002">
+			<Name>My Tests Column2</Name>
+		</Param>
+		<Param id="4003">
+			<Name>My Tests_Column3</Name>
+		</Param>
+		<Param id="4004">
+			<Name>My TestsTable Column4</Name>
+		</Param>
+		<Param id="4005">
+			<Name>My TestsTable_Column5</Name>
+		</Param>
+		<Param id="4006">
+			<Name>My Tests Table Column6</Name>
+		</Param>
+		<Param id="4007">
+			<Name>My Tests Table_Column7</Name>
+		</Param>
+
+		<Param id="5000">
+			<Name>TableSyntax1</Name>
+			<Type id="5001;5002">array</Type>
+			<ArrayOptions index="0">
+			</ArrayOptions>
+		</Param>
+		<Param id="5001">
+			<Name>TableSyntax1_Instance</Name>
+		</Param>
+		<Param id="5002">
+			<Name>TableSyntax1_Column2</Name>
+		</Param>
+		
+		<Param id="5100">
+			<Name>TableSyntax2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="5101" type="retrieved"/>
+				<ColumnOption idx="1" pid="5102" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="5101">
+			<Name>TableSyntax2_Instance</Name>
+		</Param>
+		<Param id="5102">
+			<Name>TableSyntax2_Column2</Name>
+		</Param>
+
+        <!--View table: for view tables using duplicatedAs column, the check should not generate warnings-->
+		<Param id="10000">
+			<Name>MyViewTable</Name>
+			<ArrayOptions index="0" options=";volatile;view=1000">
+                <ColumnOption idx="0" pid="10001" options=";view=1001" />
+				<ColumnOption idx="1" pid="10002" options=";view=1002" />
+				<ColumnOption idx="2" pid="10003" options=";view=1003" />
+				<ColumnOption idx="3" pid="10004" options=";view=1004" />
+				<ColumnOption idx="4" pid="10005" options=";view=1005" />
+				<ColumnOption idx="5" pid="10011" options=";view=1005:2001" />
+				<ColumnOption idx="6" pid="10012" options=";view=1005:2002" />
+				<ColumnOption idx="7" pid="10013" options=";view=1005:2003" />
+				<ColumnOption idx="8" pid="10014" options=";view=1005:2004" />
+				<ColumnOption idx="9" pid="10015" options=";view=1005:2005" />
+			</ArrayOptions>
+		</Param>
+
+		
+	</Params>
+</Protocol>

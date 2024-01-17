@@ -1,0 +1,28 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Pairs>
+		<Pair id="1"></Pair>
+	</Pairs>
+
+	<Actions>
+		<!--1000 range: on Command-->
+
+		<!--2000 range: on Group-->
+
+		<!--3000 range: on Pair-->
+		<Action id="3010">
+			<Name>Pair_Timeout</Name>
+			<On id="1">pair</On>
+			<Type>timeout</Type>
+		</Action>
+
+		<!--4000 range: on Param-->
+
+		<!--5000 range: on Protocol-->
+
+		<!--6000 range: on Response-->
+
+		<!--7000 range: on Timer-->
+	</Actions>
+
+</Protocol>

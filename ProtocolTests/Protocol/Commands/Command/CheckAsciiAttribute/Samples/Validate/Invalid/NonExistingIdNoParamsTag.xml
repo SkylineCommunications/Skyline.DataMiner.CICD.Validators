@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Commands>
+		<Command id="1" ascii="1001">
+			<Name>1 non-existing Param</Name>
+		</Command>
+		<Command id="2" ascii="1001;1002">
+			<Name>2 non-existing Params</Name>
+		</Command>
+	</Commands>
+	
+</Protocol>

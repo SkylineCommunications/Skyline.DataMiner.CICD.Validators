@@ -1,0 +1,117 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>SimpleParam_1</Name>
+		</Param>
+		<Param id="2">
+			<Name>SimpleParam_2</Name>
+		</Param>
+		<Param id="3">
+			<Name>SimpleParam_3</Name>
+		</Param>
+
+		<Param id="1000">
+			<Name>MultiThread_single</Name>
+			<Type options="loadOID">read</Type>
+		</Param>
+		<Param id="1001">
+			<Name>MultiThread_instance</Name>
+			<Type options="loadOID">read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>MultiThread_tablev2</Name>
+			<Type options="loadOID">read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>MultiThread_getnext</Name>
+			<Type options="loadOID">read</Type>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="1">
+			<Name>1 Param</Name>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Name>3 Params</Name>
+			<Content>
+				<Param>1</Param>
+				<Param>2</Param>
+				<Param>3</Param>
+			</Content>
+		</Group>
+
+		<!--Empty Groups-->
+		<Group id="100">
+			<Name>Content Tag Empty 1</Name>
+			<Content/>
+		</Group>
+		<Group id="101">
+			<Name>Content Tag Empty 2</Name>
+			<Content></Content>
+		</Group>
+		<Group id="102">
+			<Name>Content Tag Not Present</Name>
+		</Group>
+
+		<!--MultiThread options-->
+		<Group id="999">
+			<Name>MultiThread_AllOptions</Name>
+			<Content>
+				<Param>1</Param>
+				<Param>1000:single</Param>
+				<Param>1001:instance</Param>
+				<Param>1002:tablev2</Param>
+				<Param>1003:getnext</Param>
+			</Content>
+		</Group>
+
+		<Group id="1000">
+			<Name>MultiThread_single</Name>
+			<Content>
+				<Param>1</Param>
+				<Param>1000:single</Param>
+			</Content>
+		</Group>
+		<Group id="1001">
+			<Name>MultiThread_instance</Name>
+			<Content>
+				<Param>1</Param>
+				<Param>1001:instance</Param>
+			</Content>
+		</Group>
+		<Group id="1002">
+			<Name>MultiThread_tablev2</Name>
+			<Content>
+				<Param>1</Param>
+				<Param>1002:tablev2</Param>
+			</Content>
+		</Group>
+		<Group id="1003">
+			<Name>MultiThread_getnext</Name>
+			<Content>
+				<Param>1</Param>
+				<Param>1003:getnext</Param>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Timers>
+		<Timer id="1000" options="ip:2000,1;each:1000;threadPool:10">
+			<Name>MultiThread Timer</Name>
+			<Content>
+				<Group>999</Group>
+				
+				<Group>1000</Group>
+				<Group>1001</Group>
+				<Group>1002</Group>
+				<Group>1003</Group>
+			</Content>
+		</Timer>
+	</Timers>
+
+</Protocol>

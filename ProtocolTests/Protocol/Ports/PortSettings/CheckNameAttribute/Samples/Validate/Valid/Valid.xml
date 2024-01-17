@@ -1,0 +1,8 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Ports>
+		<PortSettings name="Name1" />
+		<PortSettings name="Name2" />
+	</Ports>
+	
+</Protocol>

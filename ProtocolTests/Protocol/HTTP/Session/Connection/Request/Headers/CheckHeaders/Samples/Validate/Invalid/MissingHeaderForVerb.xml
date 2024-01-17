@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<HTTP>
+		<Session id="1">
+			<Connection id="1">
+				<Request verb="POST">
+					<Headers>
+					</Headers>
+				</Request>
+			</Connection>
+			<Connection id="2">
+				<Request verb="PUT">
+					<Headers>
+					</Headers>
+				</Request>
+			</Connection>
+		</Session>
+	</HTTP>
+</Protocol>

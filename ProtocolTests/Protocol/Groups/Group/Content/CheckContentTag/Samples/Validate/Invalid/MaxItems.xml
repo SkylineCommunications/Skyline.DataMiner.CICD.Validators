@@ -1,0 +1,42 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Groups>
+		<Group id="102">
+			<Name>GroupPoll_ContentPair</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>1</Pair>
+				<Pair>2</Pair>
+				<Pair>3</Pair>
+				<Pair>4</Pair>
+				<Pair>5</Pair>
+				<Pair>6</Pair>
+				<Pair>7</Pair>
+				<Pair>8</Pair>
+				<Pair>9</Pair>
+				<Pair>10</Pair>
+				<Pair>11</Pair>
+				<Pair>12</Pair>
+			</Content>
+		</Group>
+
+		<Group id="152">
+			<Name>GroupPoll_Implicit_ContentPair</Name>
+			<Content>
+				<Pair>1</Pair>
+				<Pair>2</Pair>
+				<Pair>3</Pair>
+				<Pair>4</Pair>
+				<Pair>5</Pair>
+				<Pair>6</Pair>
+				<Pair>7</Pair>
+				<Pair>8</Pair>
+				<Pair>9</Pair>
+				<Pair>10</Pair>
+				<Pair>11</Pair>
+				<Pair>12</Pair>
+			</Content>
+		</Group>
+	</Groups>
+	
+</Protocol>

@@ -1,0 +1,157 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>        
+        <Param id="1000">
+            <Name>NormalTable</Name>
+            <Type>array</Type>
+            <ArrayOptions index="0">
+                <ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="1004" type="retrieved" options=""/>
+                <ColumnOption idx="4" pid="1005" type="retrieved" options=""/>
+                <ColumnOption idx="5" pid="1006" type="retrieved" options=""/>
+                <ColumnOption idx="6" pid="1007" type="retrieved" options=""/>
+                <ColumnOption idx="7" pid="1008" type="retrieved" options=""/>
+                <ColumnOption idx="8" pid="1009" type="retrieved" options=""/>
+                <ColumnOption idx="9" pid="1010" type="retrieved" options=""/>
+                <ColumnOption idx="10" pid="1012" type="retrieved" options=";indexColumn" />
+            </ArrayOptions>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>table</Type>
+            </Measurement>
+        </Param>
+        <Param id="1001">
+            <Name>NormalStringColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>
+        <Param id="1002">
+            <Name>NormalNumberColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <Param id="1003">
+            <Name>NormalDiscreetColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="1004">
+            <Name>NormalAnalogColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>analog</Type>
+            </Measurement>
+        </Param>
+        <Param id="1005">
+            <Name>NormalProgressColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>progress</Type>
+            </Measurement>
+        </Param>
+        <Param id="1006">
+            <Name>NormalButtonColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>button</Type>
+            </Measurement>
+        </Param>
+        <Param id="1007">
+            <Name>NormalChartColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>chart</Type>
+            </Measurement>
+        </Param>
+        <Param id="1008">
+            <Name>NormalDigitalThresholdColumn</Name>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>digital threshold</Type>
+            </Measurement>
+        </Param>
+        <Param id="1009">
+            <Name>NormalToggleButtonColumn</Name>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>togglebutton</Type>
+            </Measurement>
+        </Param>
+        <Param id="1010">
+            <Name>NormalReadWriteColumn</Name>
+            <Description>ReadWriteColumn</Description>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <Param id="1011">
+            <Name>NormalReadWriteColumn</Name>
+            <Description>ReadWriteColumn</Description>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+        <Param id="1012">
+            <Name>NormalIndexColumByOptions</Name>
+            <Description>NormalIndexColumByOptions</Description>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>number</Type>
+            </Measurement>
+        </Param>
+    </Params>
+</Protocol>

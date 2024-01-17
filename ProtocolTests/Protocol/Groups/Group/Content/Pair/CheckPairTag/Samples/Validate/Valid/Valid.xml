@@ -1,0 +1,39 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Groups>
+		<Group id="1">
+			<Name>1 Pair</Name>
+			<Content>
+				<Pair>1</Pair>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Name>3 Pairs</Name>
+			<Content>
+				<Pair>1</Pair>
+				<Pair>2</Pair>
+				<Pair>3</Pair>
+			</Content>
+		</Group>
+
+		<!--Empty Groups-->
+		<Group id="100">
+			<Name>Content Tag Empty 1</Name>
+			<Content/>
+		</Group>
+		<Group id="101">
+			<Name>Content Tag Empty 2</Name>
+			<Content></Content>
+		</Group>
+		<Group id="102">
+			<Name>Content Tag Not Present</Name>
+		</Group>
+	</Groups>
+	
+	<Pairs>
+		<Pair id="1"/>
+		<Pair id="2"/>
+		<Pair id="3"/>
+	</Pairs>
+	
+</Protocol>

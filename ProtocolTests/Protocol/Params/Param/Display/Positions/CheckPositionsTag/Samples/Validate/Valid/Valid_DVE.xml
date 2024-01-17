@@ -1,0 +1,52 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<ExportRules>
+		<ExportRule name="RTDisplay to true" table="*" tag="Protocol/Params/Param/Display/RTDisplay" value="true" />
+	</ExportRules>
+	
+	<Params>
+		<Param id="1">
+			<Name>Standalone_OnMain_NotOnDVE</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="2" export="true">
+			<Name>Standalone_OnMain_OnDVE</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="3" export="true">
+			<Name>Standalone_NotOnMain_OnDVE</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+	</Params>
+	
+</Protocol>

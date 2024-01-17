@@ -1,0 +1,39 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--First space is replaced by _
+		Other spaces are removed.
+		Start of every word is uppercased (except for the first one if no leading unrecommended char).-->
+
+	<Params>
+		<!--2 read params to make sure UnrecommendedChars errors are not hiding DuplicatedValue errors and vice versa-->
+		<Param id="1">
+			<Name>AAA[AAA</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2">
+			<Name>AAA[AAA</Name>
+			<Type>read</Type>
+		</Param>
+		
+		<Param id="10">
+			<Name>Poll_metaData_%[x]-_|_QATrigger</Name>
+		</Param>
+		
+		<Param id="100">
+			<Name>test with Spaces in The middle</Name>
+		</Param>
+		<Param id="110">
+			<Name> test With leading space</Name>
+		</Param>
+		<Param id="111">
+			<Name>    test With leading spaces</Name>
+		</Param>
+		<Param id="120">
+			<Name>test With trailing space </Name>
+		</Param>
+		<Param id="121">
+			<Name>test With trailing spaces   </Name>
+		</Param>
+	</Params>
+	
+</Protocol>

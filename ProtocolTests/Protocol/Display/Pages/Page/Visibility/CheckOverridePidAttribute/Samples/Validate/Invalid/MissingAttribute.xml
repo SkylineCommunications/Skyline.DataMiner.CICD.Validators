@@ -1,0 +1,12 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Display>
+		<Pages>
+			<Page>
+				<Name>Page1_Missing</Name>
+				<Visibility default="false" value="1"/>
+			</Page>
+		</Pages>
+	</Display>
+
+</Protocol>

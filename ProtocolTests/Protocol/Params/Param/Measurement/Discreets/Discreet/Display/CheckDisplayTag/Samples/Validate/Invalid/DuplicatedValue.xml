@@ -1,0 +1,32 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="100">
+			<Name>SameCasing</Name>
+			<Measurement>
+				<Discreets>
+					<Discreet>
+						<Display>My Discreet</Display>
+					</Discreet>
+					<Discreet>
+						<Display>My Discreet</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="101">
+			<Name>DifferentCasing</Name>
+			<Measurement>
+				<Discreets>
+					<Discreet>
+						<Display>My Discreet</Display>
+					</Discreet>
+					<Discreet>
+						<Display>My discreet</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+	
+</Protocol>

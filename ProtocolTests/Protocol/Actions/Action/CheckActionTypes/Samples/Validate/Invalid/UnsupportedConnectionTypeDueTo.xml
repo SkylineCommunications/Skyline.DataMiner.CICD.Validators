@@ -1,0 +1,46 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type advanced="http;serial">virtual</Type>
+
+	<Params>
+		<Param id="1">
+			<Name>SNMP Write Param</Name>
+			<Type>write</Type>
+			<SNMP>
+				<Enabled>true</Enabled>
+			</SNMP>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="1"></Group>
+		<Group id="2">
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Actions>
+		<Action id="2500">
+			<Name>group_Set_OnDefaultConnection_Virtual</Name>
+			<On id="2">group</On>
+			<Type>set</Type>
+		</Action>
+		<Action id="2501">
+			<Name>group_Set_Http</Name>
+			<On id="2">group</On>
+			<Type nr="1">set</Type>
+		</Action>
+		<Action id="2510">
+			<Name>group_SetWithWait_Virtual</Name>
+			<On id="2">group</On>
+			<Type nr="0">set with wait</Type>
+		</Action>
+		<Action id="2511">
+			<Name>group_SetWithWait_Serial</Name>
+			<On id="2">group</On>
+			<Type nr="2">set with wait</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

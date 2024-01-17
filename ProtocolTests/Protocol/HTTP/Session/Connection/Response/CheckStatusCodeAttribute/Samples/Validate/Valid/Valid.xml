@@ -1,0 +1,22 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1001"/>
+	</Params>
+	
+	<HTTP>
+		<Session id="1" name="Response Status Code Valid">
+			<Connection id="11">
+				<Response statusCode="1001">
+				</Response>
+			</Connection>
+		</Session>
+		<Session id="2" name="Response Status Code Not Present">
+			<Connection id="21">
+				<Response>
+				</Response>
+			</Connection>
+		</Session>
+	</HTTP>
+	
+</Protocol>

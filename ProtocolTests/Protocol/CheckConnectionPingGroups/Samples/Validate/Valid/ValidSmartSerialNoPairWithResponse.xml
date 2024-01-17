@@ -1,0 +1,62 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>smart-serial</Type>
+
+	<!--No ping group needed since snmp connection only there for traps, no polling.-->
+
+	<Params>
+		<Param id="1">
+			<Name>TrapReceiver</Name>
+			<Description>Trap Received</Description>
+			<Type>dummy</Type>
+			<SNMP>
+				<Enabled>true</Enabled>
+				<TrapOID setBindings="allBindingInfo" type="wildcard">*</TrapOID>
+			</SNMP>
+		</Param>
+	</Params>
+
+	<Commands>
+		<Command id="100">
+			<Name>Command 100</Name>
+		</Command>
+	</Commands>
+
+	<Responses>
+		<Response id="100">
+			<Name>Response 100</Name>
+		</Response>
+	</Responses>
+
+	<Pairs>
+		<Pair id="100">
+			<Name>Pair 100</Name>
+			<Content>
+				<Command>100</Command>
+			</Content>
+		</Pair>
+	</Pairs>
+
+	<Groups>
+		<Group id="1">
+			<Name>Other Group</Name>
+			<Type>action</Type>
+			<Content>
+				<Action>1</Action>
+			</Content>
+		</Group>
+		<Group id="100">
+			<Name>Pair 100</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>100</Pair>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Actions>
+		<Action id="1">
+			<Name>Other Action</Name>
+		</Action>
+	</Actions>
+	
+</Protocol>

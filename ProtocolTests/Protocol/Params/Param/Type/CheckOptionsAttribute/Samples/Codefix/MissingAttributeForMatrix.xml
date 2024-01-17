@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Name>Matrix_MissingOptions</Name>
+			<Type options="dimensions={NoOfRows},{NoOfColumns};columntypes={PID}:0-{MaxColumn(0-based)}">array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

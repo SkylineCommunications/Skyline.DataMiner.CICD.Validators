@@ -1,0 +1,32 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="101">
+			<Name>TreeControl_ParameterId_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="102">
+			<Name>TreeControl_ParameterId_RTDisplayMissing</Name>
+			<Type>read</Type>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="103">
+			<Name>TreeControl_ParameterId_DisplayMissing</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="101">
+		</TreeControl>
+		<TreeControl parameterId="102">
+		</TreeControl>
+		<TreeControl parameterId="103">
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>

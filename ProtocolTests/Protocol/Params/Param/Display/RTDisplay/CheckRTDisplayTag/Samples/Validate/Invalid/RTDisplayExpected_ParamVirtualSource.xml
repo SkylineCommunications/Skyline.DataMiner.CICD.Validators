@@ -1,0 +1,35 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!-- Virtual Sources (RTDisplay needed) -->
+		<Param id="100">
+			<Name>Source_NoFilter</Name>
+			<Type virtual="source">read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="110">
+			<Name>Source_ProtocolFilter</Name>
+			<Type virtual="source:protocol=My Protocol Name">read</Type>
+			<Display>
+				<!--<RTDisplay>true</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="120">
+			<Name>Source_ProtocolFilter_ParamFilter</Name>
+			<Type virtual="source:protocol=My Protocol Name:parameterDescription=My Param Description">read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="130">
+			<Name>Source_ParamFilter</Name>
+			<Type virtual="source:parameterDescription=My Param Description">read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

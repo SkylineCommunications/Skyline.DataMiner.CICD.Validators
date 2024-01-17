@@ -1,0 +1,109 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>GetParameters_NonExistingParam</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>ReadParam_100</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>WriteParam_200</Name>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="300">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="350">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>write</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static object[] GetParametersWrapper(this SLProtocol protocol, uint[] paramIds)
+			{
+				return (object[])protocol.GetParameters(paramIds);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int NonExisting_199 = 199;
+			public const int NonExisting_1299 = 1299;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="101" name="GetParameters" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint nonExisting_99 = 99;
+
+		// Hard-coded
+		protocol.GetParameters(new uint[] { 9, Parameter.Write.writeparam_200 });
+
+		// Local var (nonExisting_99)
+		protocol.GetParameters(new uint[] { Parameter.Write.writeparam_200, nonExisting_99, Parameter.readwriteparam_300_350 });
+
+		// Imported var (MyParams)
+		uint[] pidsToGet = new uint[] { Parameter.readparam_100, MyParams.NonExisting_199 };
+		protocol.GetParameters(pidsToGet);
+
+		// var: List<uint> to array (not yet supported)
+		List<uint> pidsToGetAsList = new List<uint> { Parameter.readparam_100, nonExisting_99 + 1000 };
+		protocol.GetParameters(pidsToGetAsList.ToArray());
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="GetParametersWrapper" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System.Collections.Generic;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint nonExisting_99 = 99;
+
+		// Hard-coded
+		protocol.GetParametersWrapper(new uint[] { 9, Parameter.Write.writeparam_200 });
+
+		// Local var (nonExisting_99)
+		protocol.GetParametersWrapper(new uint[] { Parameter.Write.writeparam_200, nonExisting_99, Parameter.readwriteparam_300_350 });
+
+		// Imported var (MyParams)
+		uint[] pidsToGet = new uint[] { Parameter.readparam_100, MyParams.NonExisting_199 };
+		protocol.GetParametersWrapper(pidsToGet);
+
+		// var: List<uint> to array (not yet supported)
+		List<uint> pidsToGetAsList = new List<uint> { Parameter.readparam_100, nonExisting_99 + 1000 };
+		protocol.GetParametersWrapper(pidsToGetAsList.ToArray());
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

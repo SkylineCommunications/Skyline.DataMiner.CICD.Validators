@@ -1,4 +1,4 @@
-﻿namespace Skyline.DataMiner.CICD.Validators.Common.Comparers.Tests
+﻿namespace CommonTests.Comparers
 {
     using System;
     using System.Collections.Generic;

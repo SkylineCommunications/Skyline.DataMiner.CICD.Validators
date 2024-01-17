@@ -1,0 +1,39 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>ParamWithRTDisplay_Read</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="200">
+			<Name>ParamWithRTDisplay_ReadBit</Name>
+			<Type>read bit</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="1000">
+			<Name>LeadingSpaces</Name>
+			<Measurement>
+				<Discreets dependencyId=" 100"></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="2000">
+			<Name>TrailingSpaces</Name>
+			<Measurement>
+				<Discreets dependencyId="200 "></Discreets>
+			</Measurement>
+		</Param>
+		<Param id="2001">
+			<Name>LeadingAndTrailing</Name>
+			<Measurement>
+				<Discreets dependencyId=" 200 "></Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

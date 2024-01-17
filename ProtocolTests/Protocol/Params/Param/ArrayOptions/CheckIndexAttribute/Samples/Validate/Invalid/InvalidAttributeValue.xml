@@ -1,0 +1,21 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1100">
+			<Name>MyTable1</Name>
+			<ArrayOptions index=" 01 ">
+			</ArrayOptions>
+		</Param>
+		<Param id="1200">
+			<Name>MyTable2</Name>
+			<ArrayOptions index="01">
+			</ArrayOptions>
+		</Param>
+		<Param id="1300">
+			<Name>MyTable3</Name>
+			<ArrayOptions index="+1">
+			</ArrayOptions>
+		</Param>
+	</Params>
+	
+</Protocol>

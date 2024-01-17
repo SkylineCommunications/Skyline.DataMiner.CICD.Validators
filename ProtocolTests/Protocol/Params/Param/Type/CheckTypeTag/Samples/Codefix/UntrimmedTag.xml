@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>Leading Space</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2">
+			<Name>Trailing Space</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3">
+			<Name>Leading and Trailing</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Triggers>
+        <!--Invalid combination-->
+        <Trigger id="1">
+            <On>parameter</On>
+            <Time>before</Time>
+        </Trigger>
+    </Triggers>
+</Protocol>

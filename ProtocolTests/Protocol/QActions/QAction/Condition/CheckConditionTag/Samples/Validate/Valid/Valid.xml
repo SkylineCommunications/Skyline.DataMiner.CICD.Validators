@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<!-- Extended tests are performed in Helpers/ConditionalTests.cs -->
+	<Params>
+		<Param id="10" trending="false">
+			<Interprete>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+		<Param id="12" trending="false">
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+	<QActions>
+		<QAction id="1">
+			<Condition><![CDATA[("defefgabc" > id:12) AND ((id:10 * 20) > 100)]]></Condition>
+		</QAction>
+	</QActions>
+</Protocol>

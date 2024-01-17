@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Params>
+        <Param id="100">
+			<Name>UpdatedValueElement</Name>
+            <Interprete>
+                <Exceptions>
+                    <Exception id="1" value="1">
+                        <Display state="disabled">Exception_1</Display>
+                        <Value>2</Value>
+                    </Exception>
+                </Exceptions>
+            </Interprete>
+            <Alarm>
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+    </Params>
+	
+</Protocol>

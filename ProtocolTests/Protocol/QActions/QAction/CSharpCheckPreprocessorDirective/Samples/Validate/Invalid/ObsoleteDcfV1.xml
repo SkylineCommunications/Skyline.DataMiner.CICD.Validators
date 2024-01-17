@@ -1,0 +1,103 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpCheckPreprocessorDirective_ObsoleteDcfv1</Name>
+	<Version>0.0.0.0</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[#define DCFv1
+
+using Skyline.DataMiner.Scripting;
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public class firstClass
+		{
+			public static int result;
+			public static void Run(SLProtocol protocol)
+			{
+#if DCFv1
+				int a = 10;
+				result = a;
+#endif
+#if DEBUG
+				int b = a + 5;
+				result = b;
+#endif
+			}
+		}
+
+		public class SecondClass
+		{
+			public static int result;
+			public static void RunTwo(SLProtocol protocol)
+			{
+#if DCFv1
+				int a = 10;
+				result = a;
+#endif
+			}
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="DCFv1_Uncommented" encoding="csharp" triggers="100">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+public class QAction
+{
+#if DCFv1
+	public static void Run(SLProtocol protocol)
+	{
+
+	}
+#endif
+}
+]]>
+		</QAction>
+		<QAction id="101" name="DCFv1_SimpleComment" encoding="csharp" triggers="100">
+			<![CDATA[//#define DFCv1
+using Skyline.DataMiner.Scripting;
+public class QAction
+{
+//#if DCFv1
+	public static void Run(SLProtocol protocol)
+	{
+
+	}
+//#endif
+}
+]]>
+		</QAction>
+		<QAction id="102" name="DCFv1_InMultiLineComments" encoding="csharp" triggers="100">
+			<![CDATA[
+using Skyline.DataMiner.Scripting;
+public class QAction
+{
+	/* With spaces
+	#if				 DCFv1
+	*/
+
+	public static void Run(SLProtocol protocol)
+	{
+		/*
+			* Some comment before
+		Some more
+		#if     DCFv1
+		Some comment after
+		Some more
+		*/
+	}
+}
+
+/* Some comment before
+Some more
+#if		DCFv1
+Some comment after
+Some more
+*/
+]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

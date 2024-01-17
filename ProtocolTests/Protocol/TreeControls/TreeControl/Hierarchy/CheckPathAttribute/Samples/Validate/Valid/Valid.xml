@@ -1,0 +1,30 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>TreeControl Param</Name>
+		</Param>
+
+		<Param id="1000">
+			<Name>TreeControl Level 1</Name>
+			<Type>array</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2000">
+			<Name>TreeControl Level 2</Name>
+			<Type>array</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="1">
+			<Hierarchy path="1000,2000" />
+		</TreeControl>
+	</TreeControls>
+	
+</Protocol>

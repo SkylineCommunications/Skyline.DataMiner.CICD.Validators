@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<HTTP>
+		<Session id="1" name="Connections with non-numerical IDs">
+			<Connection id="aaa" name="String"></Connection>
+		</Session>
+
+		<Session id="2" name="Connections with unexpected numerical IDs">
+			<Connection id="-2" name="Number_Negative"></Connection>
+			<Connection id="1.5" name="Number_Double_1"></Connection>
+			<Connection id="2,6" name="Number_Double_2"></Connection>
+			<Connection id="03" name="Number_LeadingZero"></Connection>
+			<Connection id="+4" name="Number_LeadingPlusSign"></Connection>
+			<Connection id="5x10^1" name="Number_ScientificNotation"></Connection>
+		</Session>
+	</HTTP>
+
+</Protocol>

@@ -1,0 +1,147 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>SetParameter_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100" historySet="true">
+			<Name>HistorySet_True</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="200" historySet="false">
+			<Name>HistorySet_False</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="201">
+			<Name>HistorySet_NotPresent</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void SetParameterWrapper(this SLProtocol protocol, int paramId, object newValue)
+			{
+				protocol.SetParameter(paramId, newValue);
+			}
+
+			public static void SetParameterWrapper(this SLProtocol protocol, int paramId, object newValue, ValueType timeInfo)
+			{
+				protocol.SetParameter(paramId, newValue, timeInfo);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int HistorySet_True_100 = 100;
+			public const int HistorySet_False_200 = 200;
+			public const int HistorySet_NotPresent_201 = 201;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="SetParameter" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+using System;
+
+/// <summary>
+/// DataMiner QAction Class: SetParameter.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		// DM Params are ignored as the don't have to be present in the driver + the Parameter Helper class can't be used.
+		// DM Param range 1: [64 300 -> 69 999]
+		protocol.SetParameter(64300, "value");           // DM Param Range 1 Low
+		protocol.SetParameter(60000 + 9999, "value");    // DM Param Range 1 High
+
+		// DM Param range 2: [100 000 -> 999 999]
+		protocol.SetParameter(100000, "value");          // DM Param Range 2 Low
+		protocol.SetParameter(900000 + 99999, "value");  // DM Param Range 2 High
+
+		// Parameter helper class
+		protocol.SetParameter(Parameter.historyset_true_100, "value");
+		protocol.SetParameter(Parameter.historyset_false_200, "value");
+		protocol.SetParameter(Parameter.historyset_notpresent_201, "value");
+
+		// Wrappers
+		protocol.SetParameterWrapper(Parameter.historyset_true_100, "value");
+		protocol.SetParameterWrapper(Parameter.historyset_false_200, "value");
+		protocol.SetParameterWrapper(Parameter.historyset_notpresent_201, "value");
+	}
+
+	public static void Run2(SLProtocol protocol)
+	{
+		int iTriggerParam = protocol.GetTriggerParameter();
+
+		string sValue = Convert.ToString(protocol.GetParameter(iTriggerParam));
+
+		string splitter = ":";
+		if (iTriggerParam == 5119)
+			splitter = "/";
+
+		string sResult = sValue.Substring(0, 2) + splitter + sValue.Substring(2, 2) + splitter + sValue.Substring(4, 2);
+
+		protocol.SetParameter(iTriggerParam - 5000, sResult);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="SetParameter_HistorySet" encoding="csharp" triggers="10" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: SetParameter_HistorySet.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		ValueType date_vt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		// Parameter helper class
+		protocol.SetParameter(Parameter.historyset_true, "value", date_dt);
+		protocol.SetParameter(Parameter.historyset_true, "value", date_vt);
+
+		// Wrappers
+		protocol.SetParameterWrapper(Parameter.historyset_true, "value", date_dt);
+		protocol.SetParameterWrapper(Parameter.historyset_true, "value", date_vt);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

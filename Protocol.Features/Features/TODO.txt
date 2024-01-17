@@ -1,0 +1,27 @@
+﻿C#
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=20727 (Because FR)
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=23052
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=23888
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=25892 (C# part)
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=27275
+
+Detect class library version and link it with the min required dm version (check with TomW to see if it can be added to the protocol model or something?)
+
+
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=23815
+(Partially done: Check HistorySets_FillArray_Single. After that the other calls need to done still. Disabled the feature for now.)
+
+
+
+XML
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=25862
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=20462
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=25969
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=19658
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=28448
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=19798 / https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=21401
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=23586
+
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=23565
+
+https://intranet.skyline.be/DataMiner/Lists/Release%20Notes/DispForm.aspx?ID=13552 DDL says 9.6.4, RN says 9.5.0

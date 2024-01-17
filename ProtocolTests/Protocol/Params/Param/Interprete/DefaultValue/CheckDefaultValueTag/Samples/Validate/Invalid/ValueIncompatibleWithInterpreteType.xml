@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+
+		<Param id="100">
+			<Name>DoubleParam_StringValue</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>double</Type>
+				<DefaultValue>abc</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<!--Further investigate what number format is supported. (exponential, logarithmic, leading zeros, etc)-->
+	</Params>
+
+</Protocol>
+

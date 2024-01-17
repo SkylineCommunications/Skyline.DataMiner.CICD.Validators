@@ -1,0 +1,54 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>TableSyntax1</Name>
+			<Type id="101;102;103">array</Type>
+			<ArrayOptions index="0">
+			</ArrayOptions>
+		</Param>
+		<Param id="101">
+			<Name>TableSyntax1Instance_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="102">
+			<Name>TableSyntax1Column2_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="103">
+			<Name>TableSyntax1Column3_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="153">
+			<Name>TableSyntax1Column3_1</Name>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>TableSyntax2</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="201" type="retrieved"/>
+				<ColumnOption idx="1" pid="202" type="retrieved"/>
+				<ColumnOption idx="2" pid="203" type="retrieved"/>
+			</ArrayOptions>
+		</Param>
+		<Param id="201">
+			<Name>TableSyntax2Instance_2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="202">
+			<Name>TableSyntax2Column2_2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="203">
+			<Name>TableSyntax2Column3_2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="253">
+			<Name>TableSyntax2Column3_2</Name>
+			<Type>write</Type>
+		</Param>
+	</Params>
+	
+</Protocol>

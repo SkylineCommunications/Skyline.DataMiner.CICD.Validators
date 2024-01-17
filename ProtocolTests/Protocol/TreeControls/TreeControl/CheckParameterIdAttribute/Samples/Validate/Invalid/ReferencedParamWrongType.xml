@@ -1,0 +1,21 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>Write_Param</Name>
+			<Type>write</Type>
+		</Param>
+		<Param id="2">
+			<Name>ReadBit_Param</Name>
+			<Type>read bit</Type>
+		</Param>
+	</Params>
+
+	<TreeControls>
+		<TreeControl parameterId="1">
+		</TreeControl>
+		<TreeControl parameterId="2">
+		</TreeControl>
+	</TreeControls>
+
+</Protocol>

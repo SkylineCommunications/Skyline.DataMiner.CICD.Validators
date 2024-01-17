@@ -1,0 +1,125 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<!--Command-->
+		<Action id="100">
+			<Name>Command_NoId</Name>
+			<On>command</On>
+		</Action>
+		<Action id="101">
+			<Name>Command_1_Id</Name>
+			<On id="101">command</On>
+		</Action>
+		<Action id="102">
+			<Name>Command_2_Ids</Name>
+			<On id="101;102">command</On>
+		</Action>
+
+		<!--Group-->
+		<Action id="200">
+			<Name>Group_NoId</Name>
+			<On>group</On>
+		</Action>
+		<Action id="201">
+			<Name>Group_1_Id</Name>
+			<On id="201">group</On>
+		</Action>
+		<Action id="202">
+			<Name>Group_2_Ids</Name>
+			<On id="201;202">group</On>
+		</Action>
+
+		<!--Pair-->
+		<Action id="300">
+			<Name>Pair_NoId</Name>
+			<On>pair</On>
+		</Action>
+		<Action id="301">
+			<Name>Pair_1_Id</Name>
+			<On id="301">pair</On>
+		</Action>
+		<Action id="302">
+			<Name>Pair_2_Ids</Name>
+			<On id="301;302">pair</On>
+		</Action>
+
+		<!--Param-->
+		<Action id="400">
+			<Name>Param_NoId</Name>
+			<On>parameter</On>
+		</Action>
+		<Action id="401">
+			<Name>Param_1_Id</Name>
+			<On id="401">parameter</On>
+		</Action>
+		<Action id="402">
+			<Name>Param_2_Ids</Name>
+			<On id="401;402">parameter</On>
+		</Action>
+
+		<!--Protocol-->
+		<Action id="500">
+			<Name>Protocol_NoId</Name>
+			<On>protocol</On>
+		</Action>
+
+		<!--Response-->
+		<Action id="600">
+			<Name>Response_NoId</Name>
+			<On>response</On>
+		</Action>
+		<Action id="601">
+			<Name>Response_1_Id</Name>
+			<On id="601">response</On>
+		</Action>
+		<Action id="602">
+			<Name>Response_2_Ids</Name>
+			<On id="601;602">response</On>
+		</Action>
+
+		<!--Timer-->
+		<Action id="700">
+			<Name>Timer_NoId</Name>
+			<On>timer</On>
+		</Action>
+		<Action id="701">
+			<Name>Timer_1_Id</Name>
+			<On id="701">timer</On>
+		</Action>
+		<Action id="702">
+			<Name>Timer_2_Ids</Name>
+			<On id="701;702">timer</On>
+		</Action>
+	</Actions>
+
+	<Commands>
+		<Command id="101"></Command>
+		<Command id="102"></Command>
+	</Commands>
+
+	<Groups>
+		<Group id="201"></Group>
+		<Group id="202"></Group>
+	</Groups>
+
+	<Pairs>
+		<Pair id="301"></Pair>
+		<Pair id="302"></Pair>
+	</Pairs>
+
+	<Params>
+		<Param id="401"></Param>
+		<Param id="402"></Param>
+	</Params>
+
+	<Responses>
+		<Response id="601"></Response>
+		<Response id="602"></Response>
+	</Responses>
+
+	<Timers>
+		<Timer id="701"></Timer>
+		<Timer id="702"></Timer>
+	</Timers>
+	
+</Protocol>

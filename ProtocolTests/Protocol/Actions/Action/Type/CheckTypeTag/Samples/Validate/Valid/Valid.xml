@@ -1,0 +1,226 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1">
+			<Name>add to execute</Name>
+			<Type>add to execute</Type>
+		</Action>
+		<Action id="2">
+			<Name>aggregate</Name>
+			<Type>aggregate</Type>
+		</Action>
+		<Action id="3">
+			<Name>append</Name>
+			<Type>append</Type>
+		</Action>
+		<Action id="4">
+			<Name>append data</Name>
+			<Type>append data</Type>
+		</Action>
+		<Action id="5">
+			<Name>change length</Name>
+			<Type>change length</Type>
+		</Action>
+		<Action id="6">
+			<Name>clear</Name>
+			<Type>clear</Type>
+		</Action>
+		<Action id="7">
+			<Name>clear length info</Name>
+			<Type>clear length info</Type>
+		</Action>
+		<Action id="8">
+			<Name>clear on display</Name>
+			<Type>clear on display</Type>
+		</Action>
+		<Action id="9">
+			<Name>close</Name>
+			<Type>close</Type>
+		</Action>
+		<Action id="10">
+			<Name>copy</Name>
+			<Type>copy</Type>
+		</Action>
+		<Action id="11">
+			<Name>copy reverse</Name>
+			<Type>copy reverse</Type>
+		</Action>
+		<Action id="12">
+			<Name>crc</Name>
+			<Type>crc</Type>
+		</Action>
+		<Action id="13">
+			<Name>create element</Name>
+			<Type>create element</Type>
+		</Action>
+		<Action id="14">
+			<Name>execute</Name>
+			<Type>execute</Type>
+		</Action>
+		<Action id="15">
+			<Name>execute next</Name>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="16">
+			<Name>execute one</Name>
+			<Type>execute one</Type>
+		</Action>
+		<Action id="17">
+			<Name>execute one top</Name>
+			<Type>execute one top</Type>
+		</Action>
+		<Action id="18">
+			<Name>execute one now</Name>
+			<Type>execute one now</Type>
+		</Action>
+		<Action id="19">
+			<Name>force execute</Name>
+			<Type>force execute</Type>
+		</Action>
+		<Action id="20">
+			<Name>go</Name>
+			<Type>go</Type>
+		</Action>
+		<Action id="21">
+			<Name>increment</Name>
+			<Type>increment</Type>
+		</Action>
+		<Action id="22">
+			<Name>length</Name>
+			<Type>length</Type>
+		</Action>
+		<Action id="23">
+			<Name>lock</Name>
+			<Type>lock</Type>
+		</Action>
+		<Action id="24">
+			<Name>make</Name>
+			<Type>make</Type>
+		</Action>
+		<Action id="25">
+			<Name>merge</Name>
+			<Type>merge</Type>
+		</Action>
+		<Action id="26">
+			<Name>multiply</Name>
+			<Type>multiply</Type>
+		</Action>
+		<Action id="27">
+			<Name>normalize</Name>
+			<Type>normalize</Type>
+		</Action>
+		<Action id="28">
+			<Name>open</Name>
+			<Type>open</Type>
+		</Action>
+		<Action id="29">
+			<Name>pow</Name>
+			<Type>pow</Type>
+		</Action>
+		<Action id="30">
+			<Name>priority lock</Name>
+			<Type>priority lock</Type>
+		</Action>
+		<Action id="31">
+			<Name>priority unlock</Name>
+			<Type>priority unlock</Type>
+		</Action>
+		<Action id="32">
+			<Name>read</Name>
+			<Type>read</Type>
+		</Action>
+		<Action id="33">
+			<Name>read file</Name>
+			<Type>read file</Type>
+		</Action>
+		<Action id="34">
+			<Name>read stuffing</Name>
+			<Type>read stuffing</Type>
+		</Action>
+		<Action id="35">
+			<Name>replace</Name>
+			<Type>replace</Type>
+		</Action>
+		<Action id="36">
+			<Name>replace data</Name>
+			<Type>replace data</Type>
+		</Action>
+		<Action id="37">
+			<Name>reschedule</Name>
+			<Type>reschedule</Type>
+		</Action>
+		<Action id="38">
+			<Name>restart timer</Name>
+			<Type>restart timer</Type>
+		</Action>
+		<Action id="39">
+			<Name>reverse</Name>
+			<Type>reverse</Type>
+		</Action>
+		<Action id="40">
+			<Name>run actions</Name>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="41">
+			<Name>save</Name>
+			<Type>save</Type>
+		</Action>
+		<Action id="42">
+			<Name>set</Name>
+			<Type>set</Type>
+		</Action>
+		<Action id="43">
+			<Name>set and get with wait</Name>
+			<Type>set and get with wait</Type>
+		</Action>
+		<Action id="44">
+			<Name>set info</Name>
+			<Type>set info</Type>
+		</Action>
+		<Action id="45">
+			<Name>set next</Name>
+			<Type>set next</Type>
+		</Action>
+		<Action id="46">
+			<Name>set with wait</Name>
+			<Type>set with wait</Type>
+		</Action>
+		<Action id="47">
+			<Name>sleep</Name>
+			<Type>sleep</Type>
+		</Action>
+		<Action id="48">
+			<Name>start</Name>
+			<Type>start</Type>
+		</Action>
+		<Action id="49">
+			<Name>stop</Name>
+			<Type>stop</Type>
+		</Action>
+		<Action id="50">
+			<Name>stop current group</Name>
+			<Type>stop current group</Type>
+		</Action>
+		<Action id="51">
+			<Name>stuffing</Name>
+			<Type>stuffing</Type>
+		</Action>
+		<Action id="52">
+			<Name>swap column</Name>
+			<Type>swap column</Type>
+		</Action>
+		<Action id="53">
+			<Name>timeout</Name>
+			<Type>timeout</Type>
+		</Action>
+		<Action id="54">
+			<Name>unlock</Name>
+			<Type>unlock</Type>
+		</Action>
+		<Action id="55">
+			<Name>wmi</Name>
+			<Type>wmi</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

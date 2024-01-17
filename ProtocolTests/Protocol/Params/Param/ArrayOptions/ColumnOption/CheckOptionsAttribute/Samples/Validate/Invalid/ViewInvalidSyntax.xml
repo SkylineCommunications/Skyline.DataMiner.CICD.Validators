@@ -1,0 +1,15 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="10">
+			<Type>array</Type>
+			<ArrayOptions >
+				<ColumnOption idx="0" pid="1001" options=";view=abc" />
+				<ColumnOption idx="1" pid="1002" options=";view=1:2:3" />
+				<ColumnOption idx="2" pid="1003" options=";view=:1x:2:3" />
+				<ColumnOption idx="3" pid="1004" options=";view=1:2:3:4" />
+			</ArrayOptions>
+		</Param>
+	</Params>
+
+</Protocol>

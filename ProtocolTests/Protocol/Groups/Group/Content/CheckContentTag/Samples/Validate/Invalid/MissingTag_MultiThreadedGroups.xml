@@ -1,0 +1,41 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Groups>
+		<Group id="1">
+			<Name>MissingTag1</Name>
+			<Type>poll</Type>
+		</Group>
+		<Group id="2">
+			<Name>MissingTag2</Name>
+		</Group>
+
+		<!--Below groups and timers are needed to make sure above groups still cause validator results even when the protocol has multi-threaded timers (see Valid_Only1EmptyGroup for more info).-->
+		<Group id="10001">
+			<Name>Multi-threaded Group 1.1</Name>
+		</Group>
+		<Group id="10002">
+			<Name>Multi-threaded Group 1.2</Name>
+		</Group>
+		<Group id="10010">
+			<Name>Multi-threaded Group 2.1</Name>
+			<Type>poll</Type>
+		</Group>
+	</Groups>
+
+	<Timers>
+		<Timer id="10001" options="ip:2000,1;each:1000;threadPool:10">
+			<Name>MultiThread Timer 1</Name>
+			<Content>
+				<Group>10001</Group>
+				<Group>10002</Group>
+			</Content>
+		</Timer>
+		<Timer id="10010" options="ip:2000,1;each:1000;threadPool:10">
+			<Name>MultiThread Timer 2</Name>
+			<Content>
+				<Group>10010</Group>
+			</Content>
+		</Timer>
+	</Timers>
+
+</Protocol>

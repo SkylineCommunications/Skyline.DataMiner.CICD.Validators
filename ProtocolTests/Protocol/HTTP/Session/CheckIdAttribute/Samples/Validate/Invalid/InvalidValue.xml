@@ -1,0 +1,14 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<HTTP>
+		<Session id="aaa" name="String"></Session>
+
+		<Session id="-2" name="Number_Negative"></Session>
+		<Session id="1.5" name="Number_Double_1"></Session>
+		<Session id="2,6" name="Number_Double_2"></Session>
+		<Session id="03" name="Number_LeadingZero"></Session>
+		<Session id="+4" name="Number_LeadingPlusSign"></Session>
+		<Session id="5x10^1" name="Number_ScientificNotation"></Session>
+	</HTTP>
+
+</Protocol>

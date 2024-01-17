@@ -1,0 +1,17 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Groups>
+		<Group id="1">
+			<Content>
+				<Trigger>1001</Trigger>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Content>
+				<Trigger>1001</Trigger>
+				<Trigger>1002</Trigger>
+			</Content>
+		</Group>
+	</Groups>
+
+</Protocol>

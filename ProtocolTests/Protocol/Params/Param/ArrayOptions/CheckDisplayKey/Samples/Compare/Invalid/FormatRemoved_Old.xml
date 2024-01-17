@@ -1,0 +1,28 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Removed Naming-->
+		<Param id="1000">
+			<Name>RemovedNaming_Basic</Name>
+			<ArrayOptions options=";naming=/1002">
+			</ArrayOptions>
+		</Param>
+		<Param id="1010">
+			<Name>RemovedNaming_OtherOptions</Name>
+			<ArrayOptions options=";blabla;naming=/1002;otherOption">
+			</ArrayOptions>
+		</Param>
+		<Param id="1020">
+			<Name>RemovedNaming_OtherSeparator</Name>
+			<ArrayOptions options="*blabla*naming=/1002,1003*otherOption">
+			</ArrayOptions>
+		</Param>
+
+		<!--Removed NamingFormat-->
+		<Param id="2000">
+			<Name>RemovedNamingFormat</Name>
+			<ArrayOptions>
+				<NamingFormat>,2002,</NamingFormat>
+			</ArrayOptions>
+		</Param>
+	</Params>
+</Protocol>

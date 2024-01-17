@@ -1,0 +1,77 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--RTDisplay=true-->
+		<Param id="1000">
+			<Name>RTDisplay_NoChange</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4-1006|5,width:180-180-180-150-180-100,sort:STRING-INT-INT-INT-INT-INT,lines:30,filter:true">table</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="1100">
+			<Name>RTDisplay_NoChange_FromImplicitIdxToExplicit</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1101-1102-1103-1104-1105-1106,width:180-180-180-150-180-100,sort:STRING-INT-INT-INT-INT-INT,lines:30,filter:true">table</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="2000">
+			<Name>RTDisplay_NoColumn</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="2100">
+			<Name>RTDisplay_NoColumn_OtherOptions</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="time:minute;timeofday">number</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="3000">
+			<Name>RTDisplay_AddingColumns</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4-3006|5,width:180-180-180-150-180-100,sort:STRING-INT-INT-INT-INT-INT,lines:30,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="3100">
+			<Name>RTDisplay_ChangingIdxButSamePID</Name>
+			<!--This should be seen as valid by this check because:
+				- PID changes are already covered by the check on pid vs name.
+				- IDX changes are already covered by the check on ColumnOptions.
+				- IDX changes is allowed when adding column to a table that ends with a displayKey column.-->
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:3101|0-3099|2-3102|1,width:100-100-100,sort:STRING-INT-INT,lines:30,filter:true">table</Type>
+			</Measurement>
+		</Param>
+
+		<!--RTDisplay=false-->
+		<Param id="10000">
+			<Name>NoRTDisplay_OrderChanges</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:10001|0-10002|1-10003|2-10004|3-10005|4-10006|5,width:180-180-180-150-180-100,sort:STRING-INT-INT-INT-INT-INT,lines:30,filter:true">table</Type>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,259 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Standalone ReadOnly Parameters-->
+		<Param id="100">
+			<Name>Standalone ReadOnly Discreet</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="101">
+			<Name>Standalone ReadOnly String</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!--Standalone WriteOnly Parameters-->
+		<Param id="200">
+			<Name>Standalone WriteOnly Button</Name>
+			<Type>write</Type>
+			<Measurement>
+				<Type>button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="201">
+			<Name>Standalone WriteOnly Discreet RandomValues</Name>
+			<Type>write</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>RandomDisplayA</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>RandomDisplayB</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="201">
+			<Name>Standalone WriteOnly Discreet ToggleValues</Name>
+			<Type>write</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disable</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enable</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<!--Standalone ReadWrite Parameters-->
+		<Param id="400">
+			<Name>Standalone ReadWrite ToggleButton</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="500">
+			<Name>Standalone ReadWrite ToggleButton</Name>
+			<Type>write</Type>
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="401">
+			<Name>Standalone ReadWrite Discreet</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>RandomDisplayA</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>RandomDisplayB</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="501">
+			<Name>Standalone ReadWrite Discreet</Name>
+			<Type>write</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>RandomDisplayA</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>RandomDisplayB</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="1000">
+			<Name>Group_Read</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="1001">
+			<Name>Group_Write</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="1010">
+			<Name>Group_ReadWriteBit</Name>
+			<Description>Group_ReadWriteBit</Description>
+			<Type id="1000">read bit</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1011">
+			<Name>Group_ReadWriteBit</Name>
+			<Description>Group_ReadWriteBit</Description>
+			<Type id="1001">write bit</Type>
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		
+	</Param>
+
+		<!--Matrix Parameters-->
+		<Param id="10000">
+			<Name>Matrix NoTrending NoSetter</Name>
+			<Description>Matrix NoTrending NoSetter</Description>
+			<Type>array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>Matrix NoTrending NoSetter</Name>
+			<Description>Matrix NoTrending NoSetter</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="10002" trending="false">
+			<Name>Matrix TrendingFalse SetterFalse</Name>
+			<Description>Matrix TrendingFalse SetterFalse</Description>
+			<Type>array</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10003" setter="false">
+			<Name>Matrix TrendingFalse SetterFalse</Name>
+			<Description>Matrix TrendingFalse SetterFalse</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

@@ -1,0 +1,153 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>Testing</Name>
+	<Version>1.0.0.1</Version>
+    <Params>
+        <Param id="1000">
+			<Name>TestTable</Name>
+			<Description>Test Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Information>
+				<Subtext>Test Table</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0,width:100,sort:STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001" trending="false">
+			<Name>TestTable_Index</Name>
+			<Description>Index (Test Table)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+    </Params>
+    <QActions>
+		<QAction id="1" name="NotifyProtocol" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+using SLNetMessages = Skyline.DataMiner.Net.Messages;
+
+/// <summary>
+/// DataMiner QAction Class: Test.
+/// </summary>
+public static class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		try
+		{
+			DateTime time = new DateTime(2021, 4, 8, 8, 5, 13);
+			protocol.NotifyProtocol((int)SLNetMessages.NotifyType.NT_FILL_ARRAY_WITH_COLUMN, new object[] { 1000, 1, new object[] { true, time } }, new object[] { null, null });
+		}
+		catch (Exception ex)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
+		}
+	}
+}]]>
+		</QAction>
+        <QAction id="2" name="Wrapper" encoding="csharp" options="precompile">
+            <![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: Test.
+/// </summary>
+public static class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		try
+		{
+			DateTime time = new DateTime(2021, 4, 8, 8, 5, 13);
+			protocol.FillArrayWithColumn(1234, 1, new object[0], new object[0], time);
+		}
+		catch (Exception ex)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
+		}
+	}
+}]]>
+        </QAction>
+        <QAction id="3" name="QActionTable" encoding="csharp" options="precompile">
+            <![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: Test.
+/// </summary>
+public static class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		try
+		{
+			DateTime time = new DateTime(2021, 4, 8, 8, 5, 13);
+			new QActionTable(protocol, 1324, "").SetColumn(1, new string[0], new object[0], time);
+		}
+		catch (Exception ex)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
+		}
+	}
+}]]>
+        </QAction>
+        <QAction id="4" name="QActionTable - Specific" encoding="csharp" options="precompile">
+            <![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: Test.
+/// </summary>
+public static class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		try
+		{
+			DateTime time = new DateTime(2021, 4, 8, 8, 5, 13);
+			new TesttableQActionTable(protocol, 1000, "").SetColumn(1, new string[0], new object[0], time);
+		}
+		catch (Exception ex)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
+		}
+	}
+}]]>
+        </QAction>
+    </QActions>
+</Protocol>

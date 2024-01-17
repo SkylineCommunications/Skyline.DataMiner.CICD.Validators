@@ -1,0 +1,97 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpNotifyDataMinerNTAssignAlarmTemplate_Valid</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public const int NT_ASSIGN_ALARM_TEMPLATE_GlobalConst = 117;
+		}
+	}
+}]]>
+		</QAction>
+		
+		<QAction id="100" name="Defining_NotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_ASSIGN_ALARM_TEMPLATE_Const = 117;
+		int NT_ASSIGN_ALARM_TEMPLATE_Int = 117;
+		int NT_ASSIGN_ALARM_TEMPLATE_Math = 100;
+
+		uint elementId = 661;
+		uint dmaId = 200;
+		uint[] elementDetails = { elementId, dmaId };
+
+		string[] alarmTemplate = new string[] { "MyAlarmTemplateName" };
+
+		// Different ways to define NT
+		protocol.NotifyDataMiner(117, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner(110 + 10 - 3, elementDetails, alarmTemplate);
+
+		protocol.NotifyDataMiner(NT_ASSIGN_ALARM_TEMPLATE_Const, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner(NT_ASSIGN_ALARM_TEMPLATE_Int, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner(NT_ASSIGN_ALARM_TEMPLATE_Math + 17, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner(MyClass.NT_ASSIGN_ALARM_TEMPLATE_GlobalConst, elementDetails, alarmTemplate);
+
+		protocol.NotifyDataMiner((int)NT_ASSIGN_ALARM_TEMPLATE_Const, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner((int)NT_ASSIGN_ALARM_TEMPLATE_Int, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner((int)NT_ASSIGN_ALARM_TEMPLATE_Math + 17, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner((int)MyClass.NT_ASSIGN_ALARM_TEMPLATE_GlobalConst, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner((int)NotifyType.AssignAlarmTemplate, elementDetails, alarmTemplate);
+		
+		protocol.NotifyDataMinerQueued(117, elementDetails, alarmTemplate);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="Defining_Element" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		uint elementId = 661;
+		uint dmaId = 200;
+
+		uint[] elementDetails = { elementId, dmaId };
+		uint[] elementDetails_hardcoded = { 10, 2 };
+
+		uint[] elementDetails_multiline;
+		elementDetails_multiline = new uint[] { 10, 2 };
+
+		string[] alarmTemplate = new string[] { "MyAlarmTemplateName" };
+
+		// Different ways to define element
+		protocol.NotifyDataMiner(117, new uint[] { 10, 2 }, alarmTemplate);
+		protocol.NotifyDataMiner(117, new uint[] { elementId, dmaId }, alarmTemplate);
+		protocol.NotifyDataMiner(117, elementDetails, alarmTemplate);
+		protocol.NotifyDataMiner(117, elementDetails_hardcoded, alarmTemplate);
+		protocol.NotifyDataMiner(117, elementDetails_multiline, alarmTemplate);
+
+		AssignAlarmTemplate(protocol, dmaId, elementId, alarmTemplate);
+	}
+
+	private static void AssignAlarmTemplate(SLProtocol protocol, uint dmaId, uint elementId, string[] alarmTemplate)
+	{
+		uint[] elementDetails = { dmaId, elementId };
+
+		protocol.NotifyDataMiner(117, elementDetails, alarmTemplate);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

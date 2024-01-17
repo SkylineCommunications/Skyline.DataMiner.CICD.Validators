@@ -1,0 +1,90 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Name>array</Name>
+			<Type>array</Type>
+		</Param>
+		<Param id="2">
+			<Name>bus</Name>
+			<Type>bus</Type>
+		</Param>
+		<Param id="3">
+			<Name>crc</Name>
+			<Type>crc</Type>
+		</Param>
+		<Param id="4">
+			<Name>dataminer info</Name>
+			<Type>dataminer info</Type>
+		</Param>
+		<Param id="5">
+			<Name>discreet info</Name>
+			<Type>discreet info</Type>
+		</Param>
+		<Param id="6">
+			<Name>dummy</Name>
+			<Type>dummy</Type>
+		</Param>
+		<Param id="7">
+			<Name>elementdmaid</Name>
+			<Type>elementdmaid</Type>
+		</Param>
+		<Param id="8">
+			<Name>elementid</Name>
+			<Type>elementid</Type>
+		</Param>
+		<Param id="9">
+			<Name>elementname</Name>
+			<Type>elementname</Type>
+		</Param>
+		<Param id="10">
+			<Name>fixed</Name>
+			<Type>fixed</Type>
+		</Param>
+		<Param id="11">
+			<Name>group</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="12">
+			<Name>header</Name>
+			<Type>header</Type>
+		</Param>
+		<Param id="13">
+			<Name>ip</Name>
+			<Type>ip</Type>
+		</Param>
+		<Param id="14">
+			<Name>length</Name>
+			<Type>length</Type>
+		</Param>
+		<Param id="15">
+			<Name>pollingip</Name>
+			<Type>pollingip</Type>
+		</Param>
+		<Param id="16">
+			<Name>read</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="17">
+			<Name>read bit</Name>
+			<Type>read bit</Type>
+		</Param>
+		<Param id="18">
+			<Name>response</Name>
+			<Type>response</Type>
+		</Param>
+		<Param id="19">
+			<Name>trailer</Name>
+			<Type>trailer</Type>
+		</Param>
+		<Param id="20">
+			<Name>write</Name>
+			<Type>write</Type>
+		</Param>
+		<Param id="21">
+			<Name>write bit</Name>
+			<Type>write bit</Type>
+		</Param>
+	</Params>
+	
+</Protocol>

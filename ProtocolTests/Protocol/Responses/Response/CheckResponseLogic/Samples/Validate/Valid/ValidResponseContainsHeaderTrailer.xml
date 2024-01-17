@@ -1,0 +1,23 @@
+<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type advanced="smart-serial:mySmartSerial">serial</Type>
+	<Params>
+		<Param id="1">
+			<Type options="headerTrailerLink=1;connection=1">header</Type>
+		</Param>
+		<Param id="2">
+			<Type options="headerTrailerLink=1;connection=1">trailer</Type>
+		</Param>
+		<Param id="3">
+			<Type>read</Type>
+		</Param>
+	</Params>
+	<Responses>
+		<Response id="2" options="Connection:1">
+			<Content>
+				<Param>1</Param>
+				<Param>3</Param>
+				<Param>2</Param>
+			</Content>
+		</Response>
+	</Responses>
+</Protocol>

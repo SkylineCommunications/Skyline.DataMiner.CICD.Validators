@@ -1,0 +1,181 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>table_RTDisplayTrue</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="1004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="1005" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4,width:100-100-100-100-100,sort:STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>table_RTDisplayTrue_1001_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1002">
+			<Name>table_RTDisplayTrue_1002_RTDisplayTrue</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1052">
+			<Name>table_RTDisplayTrue_1002_RTDisplayTrue</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1003">
+			<Name>table_RTDisplayTrue_1003_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1053">
+			<Name>table_RTDisplayTrue_1003_RTDisplayFalse</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1004">
+			<Name>table_RTDisplayTrue_1004_NoRTDisplay</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>false</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="1054">
+			<Name>table_RTDisplayTrue_1004_NoRTDisplay</Name>
+			<Type>write</Type>
+			<Display>
+				<!--<RTDisplay>false</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="1005">
+			<Name>table_RTDisplayTrue_1005_NoDisplay</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1055">
+			<Name>table_RTDisplayTrue_1005_NoDisplay</Name>
+			<Type>write</Type>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+		
+		<Param id="2000" export="true">
+			<Name>table_ExportTrue</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="2004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="2005" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4,width:100-100-100-100-100,sort:STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2001" export="true">
+			<Name>table_ExportTrue_2001_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2002" export="true">
+			<Name>table_ExportTrue_2002_RTDisplayTrue</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2052" export="true">
+			<Name>table_ExportTrue_2002_RTDisplayTrue</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2003" export="true">
+			<Name>table_ExportTrue_2003_RTDisplayFalse</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2053" export="true">
+			<Name>table_ExportTrue_2003_RTDisplayFalse</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2004" export="true">
+			<Name>table_ExportTrue_2004_NoRTDisplay</Name>
+			<Type>read</Type>
+			<Display>
+				<!--<RTDisplay>false</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="2054" export="true">
+			<Name>table_ExportTrue_2004_NoRTDisplay</Name>
+			<Type>write</Type>
+			<Display>
+				<!--<RTDisplay>false</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="2005" export="true">
+			<Name>table_ExportTrue_2005_NoDisplay</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="2055" export="true">
+			<Name>table_ExportTrue_2005_NoDisplay</Name>
+			<Type>write</Type>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+	</Params>
+
+</Protocol>

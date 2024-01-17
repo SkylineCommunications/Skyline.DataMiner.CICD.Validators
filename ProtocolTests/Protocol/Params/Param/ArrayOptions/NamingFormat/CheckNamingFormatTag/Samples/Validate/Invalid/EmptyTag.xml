@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>Empty</Name>
+			<ArrayOptions index="0">
+				<NamingFormat></NamingFormat>
+			</ArrayOptions>
+		</Param>
+		<Param id="200">
+			<Name>EmptyCDATA</Name>
+			<ArrayOptions index="0">
+				<NamingFormat><![CDATA[]]></NamingFormat>
+			</ArrayOptions>
+		</Param>
+	</Params>
+
+</Protocol>

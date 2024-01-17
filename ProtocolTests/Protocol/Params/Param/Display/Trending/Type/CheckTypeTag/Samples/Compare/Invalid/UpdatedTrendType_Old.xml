@@ -1,0 +1,28 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Display>
+				<Trending>
+					<Type>average</Type>
+				</Trending>
+			</Display>
+		</Param>
+        <Param id="2">
+            <Display>
+                <Trending>
+                </Trending>
+            </Display>
+        </Param>
+        <Param id="3">
+            <Display>
+            </Display>
+        </Param>
+        <Param id="4">
+            <Display>
+                <Trending>
+                    <Type>sum</Type>
+                </Trending>
+            </Display>
+        </Param>
+	</Params>
+</Protocol>

@@ -1,0 +1,32 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Type>array</Type>
+			<ArrayOptions></ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Type>array</Type>
+			<ArrayOptions></ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3">
+			<Type>array</Type>
+			<ArrayOptions></ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+	<Relations>
+		<Relation path="1001;1002" />
+		<Relation path="1;1003;2;1004" />
+	</Relations>
+	
+</Protocol>

@@ -1,0 +1,125 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Same Discreets-->
+		<Param id="1">
+			<Name>Same_Strings</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>SomeDisplay1</Display>
+						<Value>SomeValue1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>SomeDisplay2</Display>
+						<Value>SomeValue2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>Same_Numbers</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>SomeDisplay1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>SomeDisplay2</Display>
+						<Value>2</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="3">
+			<Name>Same_NoMeasurement</Name>
+		</Param>
+		<Param id="4">
+			<Name>Same_NoDiscreets</Name>
+			<Measurement>
+			</Measurement>
+		</Param>
+		<Param id="5">
+			<Name>Same_NoDiscreet</Name>
+			<Measurement>
+				<Discreets></Discreets>
+			</Measurement>
+		</Param>
+
+		<!--Adding Discreets-->
+		<Param id="11">
+			<Name>Adding_Strings</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>SomeDisplay1</Display>
+						<Value>SomeValue1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>SomeDisplay2</Display>
+						<Value>SomeValue2</Value>
+					</Discreet>
+					<!--<Discreet>
+						<Display>SomeDisplay3</Display>
+						<Value>SomeValue3</Value>
+					</Discreet>-->
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="12">
+			<Name>Adding_Numbers</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>SomeDisplay1</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>SomeDisplay2</Display>
+						<Value>2</Value>
+					</Discreet>
+					<!--<Discreet>
+						<Display>SomeDisplay3</Display>
+						<Value>3</Value>
+					</Discreet>-->
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<!-- Measurement Type changes-->
+		<Param id="20">
+			<Name>TypeChange_FromStringToDiscreet</Name>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<!--Meaningless Changes-->
+		<Param id="30">
+			<Name>MeaninglessChanges_Casing</Name>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>My first test</Display>
+						<Value>My first test</Value>
+					</Discreet>
+					<Discreet>
+						<Display>my Second test</Display>
+						<Value>my Second test</Value>
+					</Discreet>
+					<Discreet>
+						<Display>MY THIRD TEST</Display>
+						<Value>MY THIRD TEST</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

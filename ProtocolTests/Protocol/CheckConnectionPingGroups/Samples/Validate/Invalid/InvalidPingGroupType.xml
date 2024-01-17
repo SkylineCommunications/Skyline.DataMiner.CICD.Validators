@@ -1,0 +1,37 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>snmp</Type>
+
+	<Params>
+		<Param id="10">
+			<Name>Http Session 1 - Request URL</Name>
+		</Param>
+		<Param id="20">
+			<Name>Http Session 1 - Response Status Code</Name>
+		</Param>
+		<Param id="21">
+			<Name>Http Session 1 - Response Content</Name>
+		</Param>
+	</Params>
+
+	<HTTP>
+		<Session id="1" name="HTTP Session 1">
+			<Connection id="1" name="HTTP Connection 1">
+				<Request verb="GET" pid="10">
+				</Request>
+				<Response statusCode="20">
+					<Content pid="21"></Content>
+				</Response>
+			</Connection>
+		</Session>
+	</HTTP>
+
+	<Groups>
+		<Group id="101">
+			<Name>Ping Group (first group in xml)</Name>
+			<Content>
+				<Session>1</Session>
+			</Content>
+		</Group>
+	</Groups>
+	
+</Protocol>

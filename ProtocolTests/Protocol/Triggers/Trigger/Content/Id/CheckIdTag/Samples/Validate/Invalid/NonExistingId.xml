@@ -1,0 +1,44 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Triggers>
+		<!--Triggers triggering other triggers-->
+		<Trigger id="100">
+			<Name>Trigger_1_ID</Name>
+			<Type>trigger</Type>
+			<Content>
+				<Id>9</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="101">
+			<Name>Trigger_2_IDs</Name>
+			<Type>trigger</Type>
+			<Content>
+				<Id>99</Id>
+				<Id>999</Id>
+			</Content>
+		</Trigger>
+
+		<!--Triggers triggering actions-->
+		<Trigger id="1000">
+			<Name>Action_1_ID</Name>
+			<Type>action</Type>
+			<Content>
+				<Id>8</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="1001">
+			<Name>Action_2_IDs</Name>
+			<Type>action</Type>
+			<Content>
+				<Id>88</Id>
+				<Id>888</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+
+	<Actions>
+		<Action id="1000"></Action>
+		<Action id="1001"></Action>
+	</Actions>
+
+</Protocol>

@@ -1,0 +1,84 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>GetParameter_NonExistingParam</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100">
+			<Name>ReadParam_100</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>WriteParam_200</Name>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="300">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="350">
+			<Name>ReadWriteParam_300_350</Name>
+			<Type>write</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void GetParameterWrapper(this SLProtocol protocol, int paramId)
+			{
+				protocol.GetParameter(paramId);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int NonExisting_199 = 199;
+			public const int NonExisting_1299 = 1299;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="101" name="GetParameter" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: GetParameter.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		protocol.GetParameter(9);
+		protocol.GetParameter(20 - 1);
+		protocol.GetParameter(1 - 30);
+
+		int pid_99 = 99;
+		protocol.GetParameter(pid_99);
+		protocol.GetParameter(MyParams.NonExisting_199);
+
+		int pid_1199 = 1199;
+		protocol.GetParameterWrapper(999);							// Not (yet) covered
+		protocol.GetParameterWrapper(1100 - 1);						// Not (yet) covered
+		protocol.GetParameterWrapper(pid_1199);						// Not (yet) covered
+		protocol.GetParameterWrapper(MyParams.NonExisting_1299);	// Not (yet) covered
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

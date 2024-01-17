@@ -1,0 +1,36 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2000">
+			<Type>array</Type>
+			<ArrayOptions index="0" options="">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+				<ColumnOption idx="2" pid="2003" type="custom" options=";" />
+				<ColumnOption idx="3" pid="2004" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+	</Params>
+	
+	<Timers>
+		<Timer id="1">
+			<!-- Does not have the "ip" option that is required to be able to use the col:x:y value in the group. -->
+			<Content>
+				<Group>col:10:12</Group>
+			</Content>
+		</Timer>
+		<Timer id="2" options="ip:1000:1">
+			<!-- Does have the "ip" option, but refers to a non-existing table. -->
+			<Content>
+				<Group>col:10:12</Group>
+			</Content>
+		</Timer>
+		<Timer id="3" options="ip:2000:1">
+			<!-- Does have the "ip" option, and refers to an existing table, but non-existing columns. -->
+			<Content>
+				<Group>col:3:4</Group>
+			</Content>
+		</Timer>
+	</Timers>
+	
+</Protocol>

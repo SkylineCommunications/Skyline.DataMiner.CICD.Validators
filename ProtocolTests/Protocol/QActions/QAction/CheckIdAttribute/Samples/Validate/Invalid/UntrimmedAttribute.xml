@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<QActions>
+		<QAction id=" 101" name="LeadingSpaces"></QAction>
+		<QAction id="102 " name="TrailingSpaces"></QAction>
+		<QAction id=" 103 " name="LeadingAndTrailingSpaces"></QAction>
+	</QActions>
+
+</Protocol>

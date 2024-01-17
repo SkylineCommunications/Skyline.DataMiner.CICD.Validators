@@ -1,0 +1,94 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="998">
+			<Name>Table1_QActionFeedback</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="999">
+			<Name>Table1_ContextMenu</Name>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<!-- Typical implementation to manage table rows -->
+					<!--<Discreet dependencyValues="1002;1003?">
+						<Display>Add item...</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet options="table:singleSelection" dependencyValues="1002;1003?;1004:[value:1004];1005?:[value:1005]">
+						<Display>Duplicate item...</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet options="separator">
+						<Display>Separator 1</Display>
+						<Value>-1</Value>
+					</Discreet>
+					<Discreet options="table:singleSelection" dependencyValues="1002;1003?;1004:[value:1004];1005?:[value:1005]">
+						<Display>Edit item...</Display>
+						<Value>10</Value>
+					</Discreet>
+					<Discreet options="separator">
+						<Display>Separator 2</Display>
+						<Value>-2</Value>
+					</Discreet>
+					<Discreet options="table:selection;confirm:The selected item(s) will be deleted permanently.">
+						<Display>Delete selected item(s)</Display>
+						<Value>20</Value>
+					</Discreet>-->
+
+					<!-- Level must be first option in the list of options into the Discreet@options attribute -->
+					<!--<Discreet options="level:5">
+						<Display>Depends on Level Access</Display>
+						<Value>31</Value>
+					</Discreet>-->
+
+					<!-- Script must be last option in the list of options into the Discreet@options attribute -->
+					<!--<Discreet options="script:myScriptName|d1=[this element]|Action=START;Guid=7777777;p1=[value:1002];p2=[property:KPI1]||tooltip|options">
+						<Display>Execute Script</Display>
+						<Value>32</Value>
+					</Discreet>-->
+				</Discreets>
+			</Measurement>
+		</Param>
+		<!--<Param id="1000">
+			<Name>Table1</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Row>0</Row>
+						<Column>0</Column>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0,width:100,sort:STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="1001">
+			<Name>Table1_Instance</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>-->
+	</Params>
+
+</Protocol>

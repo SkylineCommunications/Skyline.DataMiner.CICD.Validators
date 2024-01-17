@@ -1,0 +1,110 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2">
+			<Name>CrcParam</Name>
+			<Type>crc</Type>
+		</Param>
+	</Params>
+	
+	<Commands>
+		<Command id="1">
+			<Name>NoTrigger</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Command>
+		<Command id="2">
+			<Name>NoAction</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Command>
+		<Command id="3">
+			<Name>NoCrcAction</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Command>
+		<Command id="4">
+			<Name>TriggerInsteadOfAction</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Command>
+	</Commands>
+	
+	<Triggers>
+		<Trigger id="1">
+			<Name>DummyTrigger</Name>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="2">
+			<Name>BeforeCommand2</Name>
+			<On id="2">command</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="3">
+			<Name>BeforeCommand3</Name>
+			<On id="3">command</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>3</Id>
+				<Id>4</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="4">
+			<Name>BeforeCommand4</Name>
+			<On id="4">command</On>
+			<Time>before</Time>
+			<Type>trigger</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="100">
+			<Name>BeforeResponseEach</Name>
+			<On id="each">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="101">
+			<Name>BeforeResponse2</Name>
+			<On id="1">response</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+	
+	<Actions>
+		<Action id="1">
+			<Name>CalculateCrcCommand</Name>
+			<On>command</On>
+			<Type>crc</Type>
+		</Action>
+		<Action id="3">
+			<Name>CalculateCommandLength</Name>
+			<On>command</On>
+			<Type>length</Type>
+		</Action>
+		<Action id="4">
+			<Name>CalculateCrcResponse</Name>
+			<On>response</On>
+			<Type>crc</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

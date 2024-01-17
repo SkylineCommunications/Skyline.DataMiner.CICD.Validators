@@ -1,0 +1,20 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+        <Param id="100">
+            <Type>array</Type>
+            <ArrayOptions options=";directView=12345">
+            </ArrayOptions>
+        </Param>
+        
+        <Param id="200">
+            <Type>array</Type>
+            <ArrayOptions options=";directView=201">
+                <ColumnOption idx="0" pid="201" />
+            </ArrayOptions>
+        </Param>
+        <Param id="201">
+            <Type>read</Type>
+        </Param>
+        
+	</Params>
+</Protocol>

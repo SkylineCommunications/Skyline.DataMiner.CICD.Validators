@@ -1,0 +1,21 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Display type="spectrum analyzer" />
+    <Params>
+        <Param id="64000">
+            <Name>WrongName1</Name>
+            <Description>Wrong Description 1</Description>
+        </Param>
+        <Param id="64299">
+			<Name>WrongName2</Name>
+            <Description>Wrong Description 2</Description>
+        </Param>
+        <Param id="50000">
+			<Name>InvalidRangeMin</Name>
+            <Description>Invalid Range Min</Description>
+        </Param>
+        <Param id="59999">
+			<Name>InvalidRangeMax</Name>
+            <Description>Invalid Range Max</Description>
+        </Param>
+    </Params>
+</Protocol>

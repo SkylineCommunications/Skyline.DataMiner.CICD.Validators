@@ -1,0 +1,11 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Timers>
+		<Timer id="1">
+			<Time>500</Time>
+		</Timer>
+		<Timer id="2">
+			<!--To be sure we ignore 'too fast' Timers when we check for 'too similar' Timers..-->
+			<Time>1000</Time>
+		</Timer>
+	</Timers>
+</Protocol>

@@ -1,0 +1,45 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+				<ColumnOption idx="2" pid="2003" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+		</Param>
+		<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+		</Param>
+		<Param id="2003">
+			<Name>MultiThreadTable_IgnoreIf</Name>
+		</Param>
+	</Params>
+	
+	<Timers>
+		<Timer id="1" options="ip:2000,1;each:1000;threadPool:10;ignoreIf">
+			<Name>EmptyIgnoreIf_1</Name>
+		</Timer>
+		<Timer id="2" options="ip:2000,1;each:1000;threadPool:10;ignoreIf:">
+			<Name>EmptyIgnoreIf_2</Name>
+		</Timer>
+
+		<Timer id="10" options="ip:2000,1;each:1000;threadPool:10;ignoreIf:abc,2">
+			<Name>WrongPidRef_NonNumericPid</Name>
+		</Timer>
+
+		<Timer id="11" options="ip:2000,1;each:1000;threadPool:10;ignoreIf:8,abc">
+			<Name>WrongPidRef_UnexistingPID</Name>
+		</Timer>
+		
+		<Timer id="20" options="ip:2000,1;each:1000;threadPool:10;ignoreIf:2">
+			<Name>WrongConditionalValue_Missing</Name>
+		</Timer>
+	</Timers>
+	
+</Protocol>

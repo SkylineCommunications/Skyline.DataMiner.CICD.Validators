@@ -1,0 +1,36 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1000">
+			<Name>command_crc</Name>
+			<On>command</On>
+			<Type>crc</Type>
+		</Action>
+		<Action id="1010">
+			<Name>command_length</Name>
+			<On>command</On>
+			<Type>length</Type>
+		</Action>
+		<Action id="1020">
+			<Name>command_make</Name>
+			<On>command</On>
+			<Type>make</Type>
+		</Action>
+		<Action id="1030">
+			<Name>command_replace</Name>
+			<On>command</On>
+			<Type>replace</Type>
+		</Action>
+		<Action id="1040">
+			<Name>command_replace data</Name>
+			<On>command</On>
+			<Type>replace data</Type>
+		</Action>
+		<Action id="1050">
+			<Name>command_stuffing</Name>
+			<On>command</On>
+			<Type>stuffing</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="900">
+			<Type virtual="">read</Type>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,112 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>SetParameter_MissingHistorySet</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="100" historySet="true">
+			<Name>HistorySet_True</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="200" historySet="false">
+			<Name>HistorySet_False</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+		<Param id="201">
+			<Name>HistorySet_NotPresent</Name>
+			<Type>read</Type>
+			<Interprete>
+				<Type>string</Type>
+			</Interprete>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void SetParameterWrapper(this SLProtocol protocol, int paramId, object newValue)
+			{
+				protocol.SetParameter(paramId, newValue);
+			}
+
+			public static void SetParameterWrapper(this SLProtocol protocol, int paramId, object newValue, ValueType timeInfo)
+			{
+				protocol.SetParameter(paramId, newValue, timeInfo);
+			}
+		}
+
+		public static class MyParams
+		{
+			//public const int HistorySet_True_100 = 100;
+			public const int HistorySet_False_200 = 200;
+			public const int HistorySet_NotPresent_201 = 201;
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="SetParameter_HistorySet" encoding="csharp"  dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: SetParameter_HistorySet.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		int historySetFalsePid = 100 + 100;
+		int historySetNotPresentPid = 201;
+		DateTime date_dt = new DateTime(2018, 8, 29, 19, 27, 15);
+		ValueType date_vt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		// Hard-coded
+		protocol.SetParameter(200, "value", date_dt);
+		protocol.SetParameter(200 + 1, "value", date_dt);
+
+		// Variables
+		protocol.SetParameter(historySetFalsePid, "value", date_dt);
+		protocol.SetParameter(historySetNotPresentPid, "value", date_vt);						// Not covered yet
+		protocol.SetParameter(MyParams.HistorySet_False_200, "value", date_dt);
+		protocol.SetParameter(MyParams.HistorySet_NotPresent_201, "value", date_vt);			// Not covered yet
+
+		// Parameter helper class
+		protocol.SetParameter(Parameter.historyset_false, "value", date_dt);
+		protocol.SetParameter(Parameter.historyset_notpresent, "value", date_vt);				// Not covered yet
+		protocol.SetParameter(Parameter.historyset_false_200, "value", date_dt);
+		protocol.SetParameter(Parameter.historyset_notpresent_201, "value", date_vt);			// Not covered yet
+
+		// Wrappers: Not (yet) covered
+		protocol.SetParameterWrapper(200, "value", date_dt);
+		protocol.SetParameterWrapper(200 + 1, "value", date_vt);
+		protocol.SetParameterWrapper(historySetFalsePid, "value", date_dt);
+		protocol.SetParameterWrapper(historySetNotPresentPid, "value", date_vt);
+		protocol.SetParameterWrapper(MyParams.HistorySet_False_200, "value", date_dt);
+		protocol.SetParameterWrapper(MyParams.HistorySet_NotPresent_201, "value", date_vt);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

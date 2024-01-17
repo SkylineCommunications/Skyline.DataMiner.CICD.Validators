@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<TreeControls>
+		<TreeControl>
+			<Hierarchy>
+				<Table>
+				</Table>
+			</Hierarchy>
+		</TreeControl>
+	</TreeControls>
+</Protocol>

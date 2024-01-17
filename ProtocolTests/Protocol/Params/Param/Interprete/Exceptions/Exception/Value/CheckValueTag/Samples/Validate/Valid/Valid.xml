@@ -1,0 +1,63 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Name>StringParam</Name>
+			<Interprete>
+				<Type>string</Type>
+				<Exceptions>
+					<Exception>
+						<Value>abc</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+		
+		<Param id="100">
+			<Name>DoubleParam_Integer</Name>
+			<Interprete>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception>
+						<Value>123</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+		<Param id="101">
+			<Name>DoubleParam_IntegerNegative</Name>
+			<Interprete>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception>
+						<Value>-123</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+		
+		<Param id="150">
+			<Name>DoubleParam_Double</Name>
+			<Interprete>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception>
+						<Value>1.23</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+		<Param id="151">
+			<Name>DoubleParam_DoubleNegative</Name>
+			<Interprete>
+				<Type>double</Type>
+				<Exceptions>
+					<Exception>
+						<Value>-1.23</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+		</Param>
+	</Params>
+	
+</Protocol>

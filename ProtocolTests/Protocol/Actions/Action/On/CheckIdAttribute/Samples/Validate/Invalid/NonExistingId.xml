@@ -1,0 +1,101 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Actions>
+		<!--Command-->
+		<Action id="101">
+			<Name>Command_1_Id</Name>
+			<On id="108">command</On>
+		</Action>
+		<Action id="102">
+			<Name>Command_2_Ids</Name>
+			<On id="108;109">command</On>
+		</Action>
+
+		<!--Group-->
+		<Action id="201">
+			<Name>Group_1_Id</Name>
+			<On id="208">group</On>
+		</Action>
+		<Action id="202">
+			<Name>Group_2_Ids</Name>
+			<On id="208;209">group</On>
+		</Action>
+
+		<!--Pair-->
+		<Action id="301">
+			<Name>Pair_1_Id</Name>
+			<On id="308">pair</On>
+		</Action>
+		<Action id="302">
+			<Name>Pair_2_Ids</Name>
+			<On id="308;309">pair</On>
+		</Action>
+
+		<!--Param-->
+		<Action id="401">
+			<Name>Param_1_Id</Name>
+			<On id="408">parameter</On>
+		</Action>
+		<Action id="402">
+			<Name>Param_2_Ids</Name>
+			<On id="408;409">parameter</On>
+		</Action>
+
+		<!--Protocol-->
+		<!--<Action id="500">
+			<Name>Protocol_NoId</Name>
+			<On>protocol</On>
+		</Action>-->
+
+		<!--Response-->
+		<Action id="601">
+			<Name>Response_1_Id</Name>
+			<On id="608">response</On>
+		</Action>
+		<Action id="602">
+			<Name>Response_2_Ids</Name>
+			<On id="608;609">response</On>
+		</Action>
+
+		<!--Timer-->
+		<Action id="701">
+			<Name>Timer_1_Id</Name>
+			<On id="708">timer</On>
+		</Action>
+		<Action id="702">
+			<Name>Timer_2_Ids</Name>
+			<On id="708;709">timer</On>
+		</Action>
+	</Actions>
+
+	<Commands>
+		<Command id="101"></Command>
+		<Command id="102"></Command>
+	</Commands>
+
+	<Groups>
+		<Group id="201"></Group>
+		<Group id="202"></Group>
+	</Groups>
+
+	<Pairs>
+		<Pair id="301"></Pair>
+		<Pair id="302"></Pair>
+	</Pairs>
+
+	<Params>
+		<Param id="401"></Param>
+		<Param id="402"></Param>
+	</Params>
+
+	<Responses>
+		<Response id="601"></Response>
+		<Response id="602"></Response>
+	</Responses>
+
+	<Timers>
+		<Timer id="701"></Timer>
+		<Timer id="702"></Timer>
+	</Timers>
+
+</Protocol>

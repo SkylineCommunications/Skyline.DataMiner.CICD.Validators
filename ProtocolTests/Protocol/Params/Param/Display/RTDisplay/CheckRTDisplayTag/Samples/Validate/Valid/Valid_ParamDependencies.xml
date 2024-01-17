@@ -1,0 +1,62 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="10">
+			<Name>ButtonWithDependencies</Name>
+			<Type>write</Type>
+			<Dependencies>
+				<Id>11</Id>
+				<Id>22</Id>
+				<Id>13</Id>
+				<Id>24</Id>
+			</Dependencies>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="11">
+			<Name>ButtonWithDependencies_DependencyOnRead</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="22">
+			<Name>ButtonWithDependencies_DependencyOnWrite</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="13">
+			<Name>ButtonWithDependencies_DependencyOnReadWithWrite</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="23">
+			<Name>ButtonWithDependencies_DependencyOnReadWithWrite</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="14">
+			<Name>ButtonWithDependencies_DependencyOnWriteWithRead</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="24">
+			<Name>ButtonWithDependencies_DependencyOnWriteWithRead</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

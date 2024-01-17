@@ -1,0 +1,94 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <Measurement>
+                <Type>discreet</Type>
+                <Discreets>
+                    <Discreet>
+                        <Display>SomeDisplay1</Display>
+                        <Value>SomeValue1</Value>
+                    </Discreet>
+                    <Discreet>
+                        <Display>SomeDisplay2</Display>
+                        <Value>SomeValue2</Value>
+                    </Discreet>
+                </Discreets>
+            </Measurement>
+        </Param>
+        <Param id="2">
+            <Measurement>
+                <Type>discreet</Type>
+                <Discreets>
+                    <Discreet>
+                        <Display>SomeDisplay1</Display>
+                        <Value>1</Value>
+                    </Discreet>
+                    <Discreet>
+                        <Display>SomeDisplay2</Display>
+                        <Value>2</Value>
+                    </Discreet>
+                </Discreets>
+            </Measurement>
+        </Param>
+        <Param id="3">
+            <Measurement>
+                <Type>discreet</Type>
+                <Discreets>
+                    <Discreet>
+                        <Display>SomeDisplay1</Display>
+                        <Value>1</Value>
+                    </Discreet>
+                </Discreets>
+            </Measurement>
+        </Param>
+        <Param id="4">
+            <Measurement>
+                <Type>discreet</Type>
+                <Discreets>
+                    <Discreet>
+                        <Display>SomeDisplay3</Display>
+                        <Value>3</Value>
+                    </Discreet>
+                    <Discreet>
+                        <Display>SomeDisplay2</Display>
+                        <Value>2</Value>
+                    </Discreet>
+                    <Discreet>
+                        <Display>SomeDisplay1</Display>
+                        <Value>1</Value>
+                    </Discreet>
+                </Discreets>
+            </Measurement>
+        </Param>
+        <Param id="5">
+            <Measurement>
+                <Type>discreet</Type>
+                <Discreets>
+                    <Discreet>
+                        <Display>SomeDisplay3</Display>
+                        <Value>3</Value>
+                    </Discreet>
+                    <Discreet>
+                        <Display>SomeDisplay2</Display>
+                        <Value>2</Value>
+                    </Discreet>
+                    <Discreet>
+                        <Display>SomeDisplay1</Display>
+                        <Value>1</Value>
+                    </Discreet>
+                </Discreets>
+            </Measurement>
+        </Param>
+        <Param id="6">
+            <Measurement>
+                <Type>discreet</Type>
+            </Measurement>
+        </Param>
+        <Param id="7">
+            <Measurement>
+            </Measurement>
+        </Param>
+        <Param id="8">
+        </Param>
+    </Params>
+</Protocol>

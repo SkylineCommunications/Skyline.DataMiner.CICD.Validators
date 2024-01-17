@@ -1,0 +1,116 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <TreeControls>
+        <TreeControl parameterId="7"></TreeControl>
+    </TreeControls>
+    <Params>
+        <Param id="1">
+            <Information>
+                <Subtext>  </Subtext>
+            </Information>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>TestPage</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+        <Param id="6">
+            <Information>
+                <Subtext> </Subtext>
+            </Information>
+            <Type>write</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>TestPage</Page>
+                        <Column>0</Column>
+                        <Row>0</Row>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type>button</Type>
+            </Measurement>
+        </Param>
+        <Param id="7">
+            <Information>
+                <Subtext> </Subtext>
+            </Information>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Row>10</Row>
+                        <Column>1</Column>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+        <Param id="8">
+            <Information>
+                <Subtext><![CDATA[ ]]></Subtext>
+            </Information>
+            <Type>read</Type>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Row>11</Row>
+                        <Column>1</Column>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+        <Param id="1000">
+            <Name>tableName</Name>
+            <Description>tableDescription</Description>
+            <Type>array</Type>
+            <ArrayOptions index="0">
+                <ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+            </ArrayOptions>
+            <Information>
+                <Subtext>  </Subtext>
+            </Information>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page</Page>
+                        <Row>0</Row>
+                        <Column>0</Column>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type options="tab=columns:1001|0,width:100,sort:STRING,lines:25,filter:true">table</Type>
+            </Measurement>
+        </Param>
+        <Param id="1001" trending="false">
+            <Name>tableNameInstance</Name>
+            <Description>Instance (tableDescription)</Description>
+            <Information>
+                <Subtext>  </Subtext>
+            </Information>
+            <Type>read</Type>
+            <Interprete>
+                <RawType>other</RawType>
+                <LengthType>next param</LengthType>
+                <Type>string</Type>
+            </Interprete>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+            <Measurement>
+                <Type>string</Type>
+            </Measurement>
+        </Param>
+    </Params>
+</Protocol>

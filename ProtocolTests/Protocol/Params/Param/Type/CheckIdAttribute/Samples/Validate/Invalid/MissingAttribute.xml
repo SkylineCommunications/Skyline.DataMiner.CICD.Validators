@@ -1,0 +1,23 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Group & read bit params-->
+		<Param id="11">
+			<Name>ReadBit</Name>
+			<Type>read bit</Type>
+		</Param>
+
+		<!--Group & write bit params-->
+		<Param id="21">
+			<Name>WriteBit</Name>
+			<Type>write bit</Type>
+		</Param>
+
+		<!--Response param-->
+		<Param id="100">
+			<Name>ResponseParam</Name>
+			<Type>response</Type>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,19 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<HTTP>
+		<Session id="1">
+			<Connection id="1">
+				<Request>
+					<Headers>
+						<Header key="Accept-Language">en</Header>
+						<Header key="Max-Forwards">10</Header>
+						<Header key="Accept-Language">nl</Header>
+						<Header key="Max-Forwards">20</Header>
+						<Header key="Accept-Language">en</Header>
+						<Header key="Max-Forwards">30</Header>
+						<Header key="Accept-Language">en</Header>
+					</Headers>
+				</Request>
+			</Connection>
+		</Session>
+	</HTTP>
+</Protocol>

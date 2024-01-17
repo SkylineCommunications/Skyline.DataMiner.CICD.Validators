@@ -1,0 +1,53 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+		</Param>
+		<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+		</Param>
+	</Params>
+
+	<!--threadPool syntax = comma separated list of
+	- Size: mandatory, the max number of threads available in the tread pool
+	
+	- CalculationInterval: optional, the number of seconds of the interval for refreshing the thread statistis
+			Only makes sense if at least one of the below Pid params is defined. The below PID params will all be used to store the calculated statistics.
+	- UsagePid: 
+	- WaitingPid: 
+	- MaxDurationPid: 
+	- AvgDurationPid: 
+	- CounterPid:
+	
+	- StackSize: The number of items that can be placed in waiting state.
+			When the waiting thread pool has reached the stack size, a notice alarm is generated.
+	-->
+	
+	<Timers>
+		<!-- Empty -->
+		<Timer id="1" options="ip:2000,1;each:1000;threadPool">
+			<Name>Empty 1</Name>
+		</Timer>
+		<Timer id="2" options="ip:2000,1;each:1000;threadPool:">
+			<Name>Empty 2</Name>
+		</Timer>
+
+		<!-- Invalid -->
+		<Timer id="10" options="ip:2000,1;each:1000;threadPool:abc">
+			<Name>Invalid_Size</Name>
+		</Timer>
+		<Timer id="11" options="ip:2000,1;each:1000;threadPool:10,5,-1,-1,-1,-1,abc,def">
+			<Name>Invalid_counterPid_queueSize__Useless_CalculationInterval</Name>
+		</Timer>
+	</Timers>
+
+</Protocol>

@@ -1,0 +1,29 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="100">
+            <ArrayOptions options=";database:1000">
+                <ColumnOption idx="0" pid="101" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="102" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="103" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="104" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+        <Param id="101">
+            <Name>renamedOldNameOfColumn</Name>
+        </Param>
+        <Param id="104">
+            <Name>oldNameofLastColumn</Name>
+        </Param>
+        <Param id="200">
+            <ArrayOptions options=";database:100">
+                <ColumnOption idx="0" pid="201" type="retrieved" options=""/>
+                <ColumnOption idx="1" pid="202" type="retrieved" options=""/>
+                <ColumnOption idx="2" pid="203" type="retrieved" options=""/>
+                <ColumnOption idx="3" pid="204" type="retrieved" options=""/>
+            </ArrayOptions>
+        </Param>
+        <Param id="203">
+            <Name>oldName_ofLastColumn11</Name>
+        </Param>
+    </Params>
+</Protocol>

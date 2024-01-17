@@ -1,0 +1,85 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="100">
+			<Name>ReadWrite_Discreet</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="200">
+			<Name>ReadWrite_Discreet</Name>
+			<Type>write</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="1000">
+			<Name>Group_Read</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="1001">
+			<Name>Group_Write</Name>
+			<Type>group</Type>
+		</Param>
+		<Param id="1010">
+			<Name>Group_ReadWriteBit</Name>
+			<Description>Group_ReadWriteBit</Description>
+			<Type id="1000">read bit</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1011">
+			<Name>Group_ReadWriteBit</Name>
+			<Description>Group_ReadWriteBit</Description>
+			<Type id="1001">write bit</Type>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Off</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>On</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

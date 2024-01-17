@@ -1,0 +1,96 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>FillArrayWithColumns_ColumnManagedByProtocolItem</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="11000">
+			<Name>MultiThreading</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="11001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="11002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="11003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="11004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="11005" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="11006" type="retrieved" options=""/>
+				<ColumnOption idx="6" pid="11007" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="11001">
+			<Name>MultiThreading_Instance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11002">
+			<Name>MultiThreading_IpAddress</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11003">
+			<Name>MultiThreading_RTT</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11004">
+			<Name>MultiThreading_Timestamp</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11005">
+			<Name>MultiThreading_Jitter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11006">
+			<Name>MultiThreading_Latency</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11007">
+			<Name>MultiThreading_PacketLossRate</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="11001" name="MultiThreading" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: MultiThreading.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+
+		// RTT
+		protocol.FillArrayWithColumn(Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_rtt, keys, values);
+		protocol.FillArrayWithColumn(Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_rtt_11003, keys, values, date_dt);
+
+		// Timestamp
+		protocol.FillArrayWithColumn(Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_timestamp_11004, keys, values);
+
+		// Jitter
+		protocol.FillArrayWithColumn(Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_jitter_11005, keys, values);
+
+		// Latency
+		protocol.FillArrayWithColumn(Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_latency_11006, keys, values);
+
+		// PacketLossRateColumn
+		protocol.FillArrayWithColumn(Parameter.Multithreading.tablePid, Parameter.Multithreading.Pid.multithreading_packetlossrate_11007, keys, values);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+	<Timers>
+		<Timer id="1" options="ip:11000,1;each:1000;threadPool:10;typo;ping:rttColumn=3,ttl=250,timeout=500,timestampColumn=4,type=icmp,size=100,continueSnmpOnTimeout=true,jitterColumn=5,latencyColumn=6,packetLossRateColumn=7,amountPacketsMeasurements=100">
+			<Name>MultiThreaded Timer</Name>
+		</Timer>
+	</Timers>
+
+</Protocol>

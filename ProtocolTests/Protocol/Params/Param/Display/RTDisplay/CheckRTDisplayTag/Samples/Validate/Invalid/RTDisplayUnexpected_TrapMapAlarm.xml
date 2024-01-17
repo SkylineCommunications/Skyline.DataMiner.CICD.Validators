@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="200">
+			<Name>TrapReceiver_SLScripting</Name>
+			<Description>Trap Received Via SLScripting</Description>
+			<Type>dummy</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<SNMP>
+				<Enabled>true</Enabled>
+				<TrapOID setBindings="allBindingInfo" type="wildcard">*</TrapOID>
+			</SNMP>
+		</Param>
+	</Params>
+
+</Protocol>

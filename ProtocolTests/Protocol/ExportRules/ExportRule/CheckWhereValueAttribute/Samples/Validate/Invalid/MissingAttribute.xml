@@ -1,0 +1,6 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <ExportRules>
+        <ExportRule whereTag="Protocol/Params/Param" whereAttribute="id" />
+        <ExportRule whereTag="Protocol/Params/Param/Name" />
+    </ExportRules>
+</Protocol>

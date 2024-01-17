@@ -1,0 +1,91 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="9000">
+			<Name>Matrix Missing RawType</Name>
+			<Description>Matrix Missing RawType</Description>
+			<Type>array</Type>
+			<Interprete>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="9001">
+			<Name>Matrix Missing RawType</Name>
+			<Description>Matrix Missing RawType</Description>
+			<Type>write</Type>
+			<Interprete>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="10000">
+			<Name>Matrix RawType NumericText</Name>
+			<Description>Matrix RawType NumericText</Description>
+			<Type>array</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001">
+			<Name>Matrix RawType NumericText</Name>
+			<Description>Matrix RawType NumericText</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="10002">
+			<Name>Matrix RawType Text</Name>
+			<Description>Matrix RawType Text</Description>
+			<Type>array</Type>
+			<Interprete>
+				<RawType>text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10003">
+			<Name>Matrix RawType Text</Name>
+			<Description>Matrix RawType Text</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

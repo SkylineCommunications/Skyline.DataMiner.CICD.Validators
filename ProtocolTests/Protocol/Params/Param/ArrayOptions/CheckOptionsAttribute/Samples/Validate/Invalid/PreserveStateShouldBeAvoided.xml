@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<ArrayOptions options="preserve state">
+			</ArrayOptions>
+		</Param>
+        <Param id="2">
+            <ArrayOptions options=";preserve state">
+            </ArrayOptions>
+        </Param>
+        <Param id="3">
+            <ArrayOptions options=";Preserve State;database">
+            </ArrayOptions>
+        </Param>
+	</Params>
+</Protocol>

@@ -1,0 +1,34 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <Alarm type="absolute:2214,100">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="2">
+            <Alarm type="absolute:2214">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="3">
+            <Alarm type="relative:2214,100">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="4">
+            <Alarm type="relative:2214">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="5">
+            <Alarm type="relative">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+        <Param id="6">
+            <Alarm type="absolute">
+                <Monitored>true</Monitored>
+            </Alarm>
+        </Param>
+    </Params>
+</Protocol>

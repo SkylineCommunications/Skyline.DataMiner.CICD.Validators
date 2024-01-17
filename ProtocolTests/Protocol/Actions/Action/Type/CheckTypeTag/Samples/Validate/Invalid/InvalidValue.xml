@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1">
+			<Name>typo</Name>
+			<Type>typo</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

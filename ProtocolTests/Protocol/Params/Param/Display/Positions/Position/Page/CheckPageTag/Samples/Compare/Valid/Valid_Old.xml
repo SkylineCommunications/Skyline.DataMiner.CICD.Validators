@@ -1,0 +1,219 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+        <!--Matching positions-->
+		<Param id="1">
+			<Name>MatchingPositions_NoPosition</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>MatchingPositions_1Page</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page With Spaces</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+        <Param id="3">
+			<Name>MatchingPositions_2Pages</Name>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page1</Page>
+                    </Position>
+                    <Position>
+                        <Page>Page2</Page>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+
+        <!--Adding positions-->
+		<Param id="100">
+			<Name>AddingPositions_From0To1Page</Name>
+			<Display>
+			</Display>
+		</Param>
+		<Param id="101">
+			<Name>AddingPositions_From1To2Pages</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+        <!--New param-->
+        <!--<Param id="200">
+			<Name>NewParam_NoPosition</Name>
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+		<Param id="201">
+			<Name>NewParam_1Page</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>NewPages</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>-->
+
+		<!--Page Casing-->
+		<Param id="300">
+			<Name>PageCasingChanges_1Page</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>caSing changes</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="301">
+			<Name>PageCasingChanges_2Pages</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>caSing changes</Page>
+					</Position>
+					<Position>
+						<Page>Other casiNg chAnges</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+		<!--Trimmed Pages-->
+		<Param id="400">
+			<Name>TrimmedPages_TrimBefore</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page> Trim Before</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="401">
+			<Name>TrimmedPages_TrimAfter</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Trim After  </Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="402">
+			<Name>TrimmedPages_Trim</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page> Trim Before</Page>
+					</Position>
+					<Position>
+						<Page>Trim After </Page>
+					</Position>
+					<Position>
+						<Page>   Trim Before And After </Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+        <!--RTDisplay="false" params-->
+        <Param id="1000">
+			<Name>RTDisplayFalse_From1To0Position</Name>
+            <Display>
+                <RTDisplay>false</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page1</Page>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+        <Param id="1001">
+			<Name>RTDisplayFalse_From1PageToNoPositions</Name>
+            <Display>
+                <RTDisplay>false</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Page1</Page>
+                    </Position>
+                </Positions>
+            </Display>
+        </Param>
+		<Param id="1002">
+			<Name>RTDisplayFalse_From2To1Page</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+					</Position>
+					<Position>
+						<Page>Page2</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+
+		<!--No RTDisplay params-->
+		<Param id="1100">
+			<Name>NoRTDisplay_From1To0Position</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="1101">
+			<Name>NoRTDisplay_From1PageToNoPositions</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+		<Param id="1102">
+			<Name>NoRTDisplay_From2To1Page</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Page1</Page>
+					</Position>
+					<Position>
+						<Page>Page2</Page>
+					</Position>
+				</Positions>
+			</Display>
+		</Param>
+    </Params>
+	
+</Protocol>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="Validator_Management_Tool.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vml="clr-namespace:Validator_Management_Tool.VML"
+        xmlns:ViewModels="clr-namespace:Validator_Management_Tool.ViewModel"
+        xmlns:views="clr-namespace:Validator_Management_Tool.Views"
+        vml:ViewModelLocator.AutoHookedUpViewModel = "True"
+        mc:Ignorable="d"
+        Title="Validator Management Tool" Height="900" Width="950" Icon="/Resources/skyline.ico">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type ViewModels:CheckViewModel}">
+            <views:CheckView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:SettingsViewModel}">
+            <views:SettingsView />
+        </DataTemplate>
+    </Window.Resources>
+    
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Checks" Command="{Binding NavCommand}" CommandParameter="checks"/>
+            <MenuItem Header="_Settings" Command="{Binding NavCommand}" CommandParameter="settings"/>
+        </Menu>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+        
+    </DockPanel>
+</Window>

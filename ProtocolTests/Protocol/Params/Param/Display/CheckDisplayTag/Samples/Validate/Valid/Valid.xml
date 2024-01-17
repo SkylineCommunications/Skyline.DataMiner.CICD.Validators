@@ -1,0 +1,23 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Name>NoDisplay</Name>
+		</Param>
+
+		<Param id="10">
+			<Name>Display_WithRTDisplay</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="11">
+			<Name>Display_WithUnits</Name>
+			<Display>
+				<!--Sometimes you might want to add Units or so as information for the coder even if the param is not actually displayed.-->
+				<Units>%</Units>
+			</Display>
+		</Param>
+	</Params>
+	
+</Protocol>

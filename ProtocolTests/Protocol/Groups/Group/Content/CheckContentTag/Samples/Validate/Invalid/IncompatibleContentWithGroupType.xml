@@ -1,0 +1,228 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Groups>
+		<!--Group of type 'action'-->
+		<!--<Group id="1">
+			<Name>GroupAction_ContentAction</Name>
+			<Type>action</Type>
+			<Content>
+				<Action>1</Action>
+			</Content>
+		</Group>-->
+		<Group id="2">
+			<Name>GroupAction_ContentPair</Name>
+			<Type>action</Type>
+			<Content>
+				<Pair>1</Pair>
+				<Pair>2</Pair>
+			</Content>
+		</Group>
+		<Group id="3">
+			<Name>GroupAction_ContentParam</Name>
+			<Type>action</Type>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>
+		<Group id="4">
+			<Name>GroupAction_ContentSession</Name>
+			<Type>action</Type>
+			<Content>
+				<Session>1</Session>
+			</Content>
+		</Group>
+		<Group id="5">
+			<Name>GroupAction_ContentTrigger</Name>
+			<Type>action</Type>
+			<Content>
+				<Trigger>1</Trigger>
+			</Content>
+		</Group>
+
+		<!--Group of type 'poll' (explicit)-->
+		<Group id="101">
+			<Name>GroupPoll_ContentAction</Name>
+			<Type>poll</Type>
+			<Content>
+				<Action>1</Action>
+				<Action>2</Action>
+			</Content>
+		</Group>
+		<!--<Group id="102">
+			<Name>GroupPoll_ContentPair</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>1</Pair>
+			</Content>
+		</Group>-->
+		<!--<Group id="103">
+			<Name>GroupPoll_ContentParam</Name>
+			<Type>poll</Type>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>-->
+		<!--<Group id="104">
+			<Name>GroupPoll_ContentSession</Name>
+			<Type>poll</Type>
+			<Content>
+				<Session>1</Session>
+			</Content>
+		</Group>-->
+		<Group id="105">
+			<Name>GroupPoll_ContentTrigger</Name>
+			<Type>poll</Type>
+			<Content>
+				<Trigger>1</Trigger>
+			</Content>
+		</Group>
+
+		<!--Group of type 'poll' (implicit)-->
+		<Group id="151">
+			<Name>GroupPoll_Implicit_ContentAction</Name>
+			<Content>
+				<Action>1</Action>
+				<Action>2</Action>
+			</Content>
+		</Group>
+		<!--<Group id="152">
+			<Name>GroupPoll_Implicit_ContentPair</Name>
+			<Content>
+				<Pair>1</Pair>
+			</Content>
+		</Group>-->
+		<!--<Group id="153">
+			<Name>GroupPoll_Implicit_ContentParam</Name>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>-->
+		<!--<Group id="154">
+			<Name>GroupPoll_Implicit_ContentSession</Name>
+			<Content>
+				<Session>1</Session>
+			</Content>
+		</Group>-->
+		<Group id="155">
+			<Name>GroupPoll_Implicit_ContentTrigger</Name>
+			<Content>
+				<Trigger>1</Trigger>
+			</Content>
+		</Group>
+
+		<!--Group of type 'poll action'-->
+		<!--<Group id="201">
+			<Name>GroupPollAction_ContentAction</Name>
+			<Type>poll action</Type>
+			<Content>
+				<Action>1</Action>
+			</Content>
+		</Group>-->
+		<Group id="202">
+			<Name>GroupPollAction_ContentPair</Name>
+			<Type>poll action</Type>
+			<Content>
+				<Pair>1</Pair>
+				<Pair>2</Pair>
+			</Content>
+		</Group>
+		<Group id="203">
+			<Name>GroupPollAction_ContentParam</Name>
+			<Type>poll action</Type>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>
+		<Group id="204">
+			<Name>GroupPollAction_ContentSession</Name>
+			<Type>poll action</Type>
+			<Content>
+				<Session>1</Session>
+			</Content>
+		</Group>
+		<Group id="205">
+			<Name>GroupPollAction_ContentTrigger</Name>
+			<Type>poll action</Type>
+			<Content>
+				<Trigger>1</Trigger>
+			</Content>
+		</Group>
+
+		<!--Group of type 'poll trigger'-->
+		<Group id="301">
+			<Name>GroupPollTrigger_ContentAction</Name>
+			<Type>poll trigger</Type>
+			<Content>
+				<Action>1</Action>
+				<Action>2</Action>
+			</Content>
+		</Group>
+		<Group id="302">
+			<Name>GroupPollTrigger_ContentPair</Name>
+			<Type>poll trigger</Type>
+			<Content>
+				<Pair>1</Pair>
+			</Content>
+		</Group>
+		<Group id="303">
+			<Name>GroupPollTrigger_ContentParam</Name>
+			<Type>poll trigger</Type>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>
+		<Group id="304">
+			<Name>GroupPollTrigger_ContentSession</Name>
+			<Type>poll trigger</Type>
+			<Content>
+				<Session>1</Session>
+			</Content>
+		</Group>
+		<!--<Group id="305">
+			<Name>GroupPollTrigger_ContentTrigger</Name>
+			<Type>poll trigger</Type>
+			<Content>
+				<Trigger>1</Trigger>
+			</Content>
+		</Group>-->
+
+		<!--Group of type 'poll trigger'-->
+		<Group id="401">
+			<Name>GroupTrigger_ContentAction</Name>
+			<Type>trigger</Type>
+			<Content>
+				<Action>1</Action>
+				<Action>2</Action>
+			</Content>
+		</Group>
+		<Group id="402">
+			<Name>GroupTrigger_ContentPair</Name>
+			<Type>trigger</Type>
+			<Content>
+				<Pair>1</Pair>
+			</Content>
+		</Group>
+		<Group id="403">
+			<Name>GroupTrigger_ContentParam</Name>
+			<Type>trigger</Type>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Group>
+		<Group id="404">
+			<Name>GroupTrigger_ContentSession</Name>
+			<Type>trigger</Type>
+			<Content>
+				<Session>1</Session>
+			</Content>
+		</Group>
+		<!--<Group id="405">
+			<Name>GroupTrigger_ContentTrigger</Name>
+			<Type>trigger</Type>
+			<Content>
+				<Trigger>1</Trigger>
+			</Content>
+		</Group>-->
+	</Groups>
+
+</Protocol>

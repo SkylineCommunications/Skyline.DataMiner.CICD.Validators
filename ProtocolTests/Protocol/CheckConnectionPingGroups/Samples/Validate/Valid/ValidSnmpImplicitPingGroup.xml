@@ -1,0 +1,38 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type>snmp</Type>
+
+	<Params>
+		<Param id="101">
+			<Name>SNMP Param 101</Name>
+			<Type>read</Type>
+			<SNMP>
+				<Enabled>true</Enabled>
+				<OID type="complete">1.3.6.1.2.1.1.1.0</OID>
+				<Type>octetstring</Type>
+			</SNMP>
+		</Param>
+	</Params>
+
+	<Groups>
+		<Group id="101">
+			<Name>Ping Group (first group in xml)</Name>
+			<Content>
+				<Param>101</Param>
+			</Content>
+		</Group>
+		<Group id="1">
+			<Name>Other Group</Name>
+			<Type>action</Type>
+			<Content>
+				<Action>1</Action>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Actions>
+		<Action id="1">
+			<Name>Other Action</Name>
+		</Action>
+	</Actions>
+	
+</Protocol>

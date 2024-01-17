@@ -1,0 +1,414 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--Two ways to handle the clear routine when having more than one response in the same pair:
+		- Recommended way: after response, clear all other responses included in the same pair.
+		    This is the most performance way to implement it.
+		- Alternative way: After response, clear response.
+		    This will work perfectly fine but be less efficient as a lot of processing will happen unecessarily.-->
+
+	<Params>
+		<!--Noise params-->
+		<Param id="1"></Param>
+		<Param id="2"></Param>
+		<Param id="3"></Param>
+
+		<!--1 command / 1 response: not needed as no clear action required if only 1 response-->
+		<!--<Param id="111"></Param>-->
+
+		<!--1 command / 2 responses-->
+		<Param id="121"></Param>
+		<Param id="122"></Param>
+		<Param id="125"></Param>
+		<Param id="126"></Param>
+
+		<!--1 command / 3 responses : Clear others individually-->
+		<Param id="131"></Param>
+		<Param id="132"></Param>
+		<Param id="133"></Param>
+
+		<!--1 command / 3 responses : clear others in bulk-->
+		<Param id="136"></Param>
+		<Param id="137"></Param>
+		<Param id="138"></Param>
+
+		<!--1 command / 3 responses : clear itself-->
+		<Param id="141"></Param>
+		<Param id="142"></Param>
+		<Param id="143"></Param>
+	</Params>
+
+	<Pairs>
+		<!--Clear action needed-->
+		<Pair id="120">
+			<Name>1Command_2Responses</Name>
+			<Description>1 Command - 2 Responses</Description>
+			<Content>
+				<Command>100</Command>
+				<Response>121</Response>
+				<Response>122</Response>
+			</Content>
+		</Pair>
+		<Pair id="125">
+			<Name>1Command_2Responses_With1ResponseOnBadCommand</Name>
+			<Description>1 Command - 2 Responses - With 1 OnBadCommand</Description>
+			<Content>
+				<Command>100</Command>
+				<Response>125</Response>
+				<ResponseOnBadCommand>126</ResponseOnBadCommand>
+			</Content>
+		</Pair>
+		
+		<Pair id="130">
+			<Name>1Command_3Responses_ClearOthersIndividually</Name>
+			<Description>1 Command - 3 Responses - Clear Others Individually</Description>
+			<Content>
+				<Command>100</Command>
+				<Response>131</Response>
+				<Response>132</Response>
+				<Response>133</Response>
+			</Content>
+		</Pair>
+		<Pair id="135">
+			<Name>1Command_3Responses_ClearOthersInBulk</Name>
+			<Description>1 Command - 3 Responses - Clear Others In Bulk</Description>
+			<Content>
+				<Command>100</Command>
+				<Response>136</Response>
+				<Response>137</Response>
+				<Response>138</Response>
+			</Content>
+		</Pair>
+		<Pair id="140">
+			<Name>1Command_3Responses_ClearItself</Name>
+			<Description>1 Command - 3 Responses - Clear Itself</Description>
+			<Content>
+				<Command>100</Command>
+				<Response>141</Response>
+				<Response>142</Response>
+				<Response>143</Response>
+			</Content>
+		</Pair>
+	</Pairs>
+
+	<Commands>
+		<Command id="100" ascii="true">
+			<Name>Command100</Name>
+			<Description>Command 100</Description>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Command>
+	</Commands>
+
+	<Responses>
+		<Response id="121">
+			<Name>1Command_2Responses_1</Name>
+			<Description>1 Command - 2 Responses - 1</Description>
+			<Content>
+				<Param>121</Param>
+			</Content>
+		</Response>
+		<Response id="122">
+			<Name>1Command_2Responses_2</Name>
+			<Description>1 Command - 2 Responses - 2</Description>
+			<Content>
+				<Param>122</Param>
+			</Content>
+		</Response>
+		<Response id="125">
+			<Name>1Command_2Responses_With1ResponseOnBadCommand_Normal1</Name>
+			<Description>1 Command - 2 Responses - With 1 OnBadCommand - Normal 1</Description>
+			<Content>
+				<Param>125</Param>
+			</Content>
+		</Response>
+		<Response id="126">
+			<Name>1Command_2Responses_With1ResponseOnBadCommand_Bad1</Name>
+			<Description>1 Command - 2 Responses - With 1 OnBadCommand - Bad 1</Description>
+			<Content>
+				<Param>126</Param>
+			</Content>
+		</Response>
+
+		<Response id="131">
+			<Name>1Command_3Responses_ClearOthersIndividually_1</Name>
+			<Description>1 Command - 3 Responses - Clear Others Individually - 1</Description>
+			<Content>
+				<Param>131</Param>
+			</Content>
+		</Response>
+		<Response id="132">
+			<Name>1Command_3Responses_ClearOthersIndividually_2</Name>
+			<Description>1 Command - 3 Responses - Clear Others Individually - 2</Description>
+			<Content>
+				<Param>132</Param>
+			</Content>
+		</Response>
+		<Response id="133">
+			<Name>1Command_3Responses_ClearOthersIndividually_3</Name>
+			<Description>1 Command - 3 Responses - Clear Others Individually - 3</Description>
+			<Content>
+				<Param>133</Param>
+			</Content>
+		</Response>
+
+		<Response id="136">
+			<Name>1Command_3Responses_ClearOthersInBulk_1</Name>
+			<Description>1 Command - 3 Responses - Clear Others In Bulk - 1</Description>
+			<Content>
+				<Param>136</Param>
+			</Content>
+		</Response>
+		<Response id="137">
+			<Name>1Command_3Responses_ClearOthersInBulk_2</Name>
+			<Description>1 Command - 3 Responses - Clear Others In Bulk - 2</Description>
+			<Content>
+				<Param>137</Param>
+			</Content>
+		</Response>
+		<Response id="138">
+			<Name>1Command_3Responses_ClearOthersInBulk_3</Name>
+			<Description>1 Command - 3 Responses - Clear Others In Bulk - 3</Description>
+			<Content>
+				<Param>138</Param>
+			</Content>
+		</Response>
+
+		<Response id="141">
+			<Name>1Command_3Responses_ClearItself_1</Name>
+			<Description>1 Command - 3 Responses - Clear Itself - 1</Description>
+			<Content>
+				<Param>141</Param>
+			</Content>
+		</Response>
+		<Response id="142">
+			<Name>1Command_3Responses_ClearItself_2</Name>
+			<Description>1 Command - 3 Responses - Clear Itself - 2</Description>
+			<Content>
+				<Param>142</Param>
+			</Content>
+		</Response>
+		<Response id="143">
+			<Name>1Command_3Responses_ClearItself_3</Name>
+			<Description>1 Command - 3 Responses - Clear Itself - 3</Description>
+			<Content>
+				<Param>143</Param>
+			</Content>
+		</Response>
+	</Responses>
+
+	<Triggers>
+		<Trigger id="121">
+			<Name>1Command_2Responses_1</Name>
+			<On id="121">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>122</Id>
+			</Content>
+		</Trigger>
+		<!--<Trigger id="122">
+			<Name>1Command_2Responses_2</Name>
+			<On id="122">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>121</Id>
+			</Content>
+		</Trigger>-->
+		<Trigger id="125">
+			<Name>1Command_2Responses_With1OnBadCommand_NormalResponse</Name>
+			<On id="125">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>126</Id>
+			</Content>
+		</Trigger>
+		<!--<Trigger id="126">
+			<Name>1Command_2Responses_With1OnBadCommand_BadResponse</Name>
+			<On id="126">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>125</Id>
+			</Content>
+		</Trigger>-->
+
+		<!--<Trigger id="131">
+			<Name>1Command_3Responses_ClearOthersIndividually_1</Name>
+			<On id="131">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>132</Id>
+				<Id>133</Id>
+			</Content>
+		</Trigger>-->
+		<Trigger id="132">
+			<Name>1Command_3Responses_ClearOthersIndividually_2</Name>
+			<On id="132">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>131</Id>
+				<Id>133</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="133">
+			<Name>1Command_3Responses_ClearOthersIndividually_3</Name>
+			<On id="133">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>131</Id>
+				<!--<Id>132</Id>-->
+			</Content>
+		</Trigger>
+
+		<!--<Trigger id="136">
+			<Name>1Command_3Responses_ClearOthersInBulk_1</Name>
+			<On id="136">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>136</Id>
+			</Content>
+		</Trigger>-->
+		<Trigger id="137">
+			<Name>1Command_3Responses_ClearOthersInBulk_2</Name>
+			<On id="137">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>137</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="138">
+			<Name>1Command_3Responses_ClearOthersInBulk_3</Name>
+			<On id="138">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>138</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="141">
+			<Name>1Command_3Responses_ClearItself_1</Name>
+			<On id="141">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+				<!--<Id>141</Id>-->
+			</Content>
+		</Trigger>
+		<Trigger id="142">
+			<Name>1Command_3Responses_ClearItself_2</Name>
+			<On id="142">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>142</Id>
+			</Content>
+		</Trigger>
+		<!--<Trigger id="143">
+			<Name>1Command_3Responses_ClearItself_3</Name>
+			<On id="143">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>143</Id>
+			</Content>
+		</Trigger>-->
+	</Triggers>
+
+	<Actions>
+		<Action id="1">
+			<Name>Noise Action 1</Name>
+			<On id="1">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="2">
+			<Name>Noise Action 2</Name>
+			<On id="2">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="3">
+			<Name>Noise Action 3</Name>
+			<On id="3">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+
+		<!--<Action id="121">
+			<Name>Clear Response 121</Name>
+			<On id="121">response</On>
+			<Type>clear</Type>
+		</Action>-->
+		<Action id="122">
+			<Name>Clear Response 122</Name>
+			<On id="122">response</On>
+			<Type>clear</Type>
+		</Action>
+		<!--<Action id="125">
+			<Name>Clear Response 125</Name>
+			<On id="125">response</On>
+			<Type>clear</Type>
+		</Action>-->
+		<Action id="126">
+			<Name>Clear Response 126</Name>
+			<On id="126">response</On>
+			<Type>clear</Type>
+		</Action>
+
+		<Action id="131">
+			<Name>Clear Response 131</Name>
+			<On id="131">response</On>
+			<Type>clear</Type>
+		</Action>
+		<!--<Action id="132">
+			<Name>Clear Response 132</Name>
+			<On id="132">response</On>
+			<Type>clear</Type>
+		</Action>-->
+		<Action id="133">
+			<Name>Clear Response 133</Name>
+			<On id="133">response</On>
+			<Type>clear</Type>
+		</Action>
+
+		<!--<Action id="136">
+			<Name>Clear Response 137;138</Name>
+			<On id="137;138">response</On>
+			<Type>clear</Type>
+		</Action>-->
+		<Action id="137">
+			<Name>Clear Response 136;138</Name>
+			<On id="136;138">response</On>
+			<Type>clear</Type>
+		</Action>
+		<Action id="138">
+			<Name>Clear Response 136;137</Name>
+			<On id="136;137">response</On>
+			<Type>clear</Type>
+		</Action>
+
+		<Action id="141">
+			<Name>Clear Response 141</Name>
+			<On id="141">response</On>
+			<Type>clear</Type>
+		</Action>
+		<Action id="142">
+			<Name>Clear Response 142</Name>
+			<On id="142">response</On>
+			<Type>clear</Type>
+		</Action>
+		<Action id="143">
+			<Name>Clear Response 143</Name>
+			<On id="143">response</On>
+			<Type>clear</Type>
+		</Action>
+	</Actions>
+
+</Protocol>

@@ -1,0 +1,23 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>DVE Parent</Name>
+	<Type options="unicode;disableViewRefresh;exportProtocol:DVE Parent - Child 1:1000:noElementPrefix;exportProtocol:DVE Parent - Child 2:2000">virtual</Type>
+
+	<Params>
+		<Param id="1000">
+			<Name>Read_1000</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<Param id="2000">
+			<Name>Bus_2000</Name>
+			<Type>bus</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

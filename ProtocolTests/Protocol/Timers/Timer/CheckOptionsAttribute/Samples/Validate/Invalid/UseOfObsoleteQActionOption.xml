@@ -1,0 +1,32 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckOptionsAttribute_UseOfObsoleteQActionOption</Name>
+	<Version>0.0.0.0</Version>
+	
+	<Params>
+		<Param id="2000">
+			<Name>MultiThreadTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
+				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>MultiThreadTable_PK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002">
+			<Name>MultiThreadTable_Ip</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+	<QActions>
+		<QAction id="20" />
+	</QActions>
+	
+	<Timers>
+		<Timer id="1" options="ip:2000,1;each:1000;threadPool:10;qaction:20" />
+	</Timers>
+	
+</Protocol>

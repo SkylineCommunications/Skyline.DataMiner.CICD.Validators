@@ -1,0 +1,110 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpSLProtocolTriggerAction_NonExistingActionId</Name>
+	<Version>1.0.0.1</Version>
+
+	<Actions>
+		<Action id="1">
+			<Name>ActionId_1</Name>
+		</Action>
+		<Action id="2">
+			<Name>ActionId_2</Name>
+		</Action>
+		<Action id="3">
+			<Name>ActionId_3</Name>
+		</Action>
+	</Actions>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void NotifyProtocolWrapper(this SLProtocol protocol, int CheckActionSpecifier, int actionId)
+			{
+				protocol.NotifyProtocol(CheckActionSpecifier, actionId, null);
+			}
+		}
+
+		public static class MyActions
+		{
+			public const int MyAction_50 = 50;
+		}
+
+		public enum myEnums
+		{
+			NT_221 = 221
+		}
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="NotifyProtocol_10" encoding="csharp"  dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+/// <summary>
+/// DataMiner QAction Class: Simple_NotifyProtocol_10.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		int actionId = 20 + 20;
+
+		// Hard-coded (1x)
+		protocol.NotifyProtocol(221, 10, null);
+		protocol.NotifyProtocol((int)NotifyType.NT_RUN_ACTION, 11, null);
+		protocol.NotifyProtocol((int)myEnums.NT_221, 12, null);
+
+		// Hard-coded Subtractions (2x)
+		protocol.NotifyProtocol(221, 22 - 2, null);
+		protocol.NotifyProtocol((int)NotifyType.NT_RUN_ACTION, 23 - 2, null);
+		protocol.NotifyProtocol((int)myEnums.NT_221, 24 - 2, null);
+
+		// Hard-coded additions (3x)
+		protocol.NotifyProtocol((int)myEnums.NT_221, 25 + 5, null);
+		protocol.NotifyProtocol((int)NotifyType.NT_RUN_ACTION, 25 + 6, null);
+		protocol.NotifyProtocol(221, 25 + 7, null);
+
+		// Local variable (4x)
+		protocol.NotifyProtocol(221, actionId, null);
+		protocol.NotifyProtocol((int)NotifyType.NT_RUN_ACTION, actionId + 1, null);
+		protocol.NotifyProtocol((int)myEnums.NT_221, actionId + 2, null);
+
+		// Distant variable (5x)
+		protocol.NotifyProtocol(221, MyActions.MyAction_50, null);
+		protocol.NotifyProtocol((int)NotifyType.NT_RUN_ACTION, MyActions.MyAction_50 + 1, null);
+		protocol.NotifyProtocol((int)myEnums.NT_221, MyActions.MyAction_50 + 2, null);
+
+		// Method wrapper (6x)
+		protocol.NotifyProtocolWrapper(221, 60);                                                // Not yet covered
+		protocol.NotifyProtocolWrapper(221, 60 + 1);                                            // Not yet covered
+		protocol.NotifyProtocolWrapper(221, actionId + 22);                                     // Not yet covered
+		protocol.NotifyProtocolWrapper(221, MyActions.MyAction_50 + 13);                        // Not yet covered
+
+		// Method wrapper (7x)
+		protocol.NotifyProtocolWrapper((int)NotifyType.NT_RUN_ACTION, 70);                          // Not yet covered
+		protocol.NotifyProtocolWrapper((int)NotifyType.NT_RUN_ACTION, 70 + 1);                      // Not yet covered
+		protocol.NotifyProtocolWrapper((int)NotifyType.NT_RUN_ACTION, actionId + 32);               // Not yet covered
+		protocol.NotifyProtocolWrapper((int)NotifyType.NT_RUN_ACTION, MyActions.MyAction_50 + 23);  // Not yet covered
+
+		// Method wrapper (8x)
+		protocol.NotifyProtocolWrapper((int)myEnums.NT_221, 80);                                    // Not yet covered
+		protocol.NotifyProtocolWrapper((int)myEnums.NT_221, 80 + 1);                                // Not yet covered
+		protocol.NotifyProtocolWrapper((int)myEnums.NT_221, actionId + 42);                         // Not yet covered
+		protocol.NotifyProtocolWrapper((int)myEnums.NT_221, MyActions.MyAction_50 + 33);            // Not yet covered
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

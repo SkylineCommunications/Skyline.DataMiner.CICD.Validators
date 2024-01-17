@@ -1,0 +1,6 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Topologies>
+		<Topology name="Name1" />
+		<Topology name="Name1" />
+	</Topologies>
+</Protocol>

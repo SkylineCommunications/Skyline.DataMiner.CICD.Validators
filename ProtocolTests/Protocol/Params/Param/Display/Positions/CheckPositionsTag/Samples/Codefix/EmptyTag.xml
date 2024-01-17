@@ -1,0 +1,15 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1">
+			<Name>RTDisplayFalse</Name>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2">
+			<Name>NoRTDisplay</Name>
+		</Param>
+	</Params>
+
+</Protocol>

@@ -1,0 +1,176 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<!--Dynamic drop-down-->
+		<Param id="100">
+			<Name>DynamicDropDown_Box</Name>
+			<Measurement>
+				<Discreets dependencyId="101">
+					<Discreet dependencyValues="A">
+					</Discreet>
+
+					<Discreet dependencyValues="B">
+					</Discreet>
+
+					<Discreet dependencyValues="A;B">
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="101">
+			<Name>DynamicDropDown_ListOfValues</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
+		<!--Table ContextMenu-->
+		<Param id="999">
+			<Name>MyTable_ContextMenu</Name>
+			<Type>write</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+					</Discreet>
+
+					<!--dependency optional or not and with default value or not-->
+					<Discreet dependencyValues="1002;1003?;1004:[value:1005];1006?:[value:1007]">
+					</Discreet>
+
+					<!--default value made of multiple parts-->
+					<Discreet dependencyValues="2001:1_[value:2002]_2_[value:2003]]">
+					</Discreet>
+
+					<!--placeholder made of 1 part -->
+					<Discreet dependencyValues="3001:1_[this element]_2_[tableIndex]_3_[primaryKeyC]_4_[displayTableIndex]_5_[displayKey]">
+					</Discreet>
+
+					<!--placeholder made of 2 parts -->
+					<Discreet dependencyValues="4001:1_[var:AAA]_2_[cardVar:BBB]_3_[pageVar:CCC]_4_[property:DDD]]">
+					</Discreet>
+
+					<!--placeholder made of 3 parts -->
+					<Discreet dependencyValues="5001:001:1_[param:12/34,1002:DK_1]">
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1000">
+			<Name>MyTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" />
+				<ColumnOption idx="1" pid="1002" />
+				<ColumnOption idx="2" pid="1003" />
+				<ColumnOption idx="3" pid="1004" />
+				<ColumnOption idx="4" pid="1005" />
+				<ColumnOption idx="5" pid="1006" />
+				<ColumnOption idx="6" pid="1007" />
+				<ColumnOption idx="7" pid="2001" />
+				<ColumnOption idx="8" pid="3001" />
+				<ColumnOption idx="9" pid="4001" />
+				<ColumnOption idx="10" pid="5001" />
+			</ArrayOptions>
+			<!--Eventually, we should probably link a table to its context menu and then we can also say that when a table has a context-menu, the table needs RTDisplay(true)-->
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1001">
+			<Name>MyTable_Instance</Name>
+			<Type>read</Type>
+			<!--<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>-->
+		</Param>
+		<Param id="1002">
+			<Name>MyTable_Column1002</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1003">
+			<Name>MyTable_Column1003</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1004">
+			<Name>MyTable_Column1004</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1005">
+			<Name>MyTable_Column1005</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1006">
+			<Name>MyTable_Column1006</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="1007">
+			<Name>MyTable_Column1007</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2001">
+			<Name>MyTable_Column2001</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2002">
+			<Name>MyTable_Column2002</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="2003">
+			<Name>MyTable_Column2003</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="3001">
+			<Name>MyTable_Column3001</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="4001">
+			<Name>MyTable_Column4001</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="5001">
+			<Name>MyTable_Column5001</Name>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+	</Params>
+
+</Protocol>

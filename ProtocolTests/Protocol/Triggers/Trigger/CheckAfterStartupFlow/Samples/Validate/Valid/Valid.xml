@@ -1,0 +1,30 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+    <Groups>
+        <Group id="1">
+            <Name>After Startup</Name>
+            <Description>After Startup</Description>
+        </Group>
+    </Groups>
+	
+    <Triggers>
+        <Trigger id="1">
+            <Name>After Startup</Name>
+            <On>protocol</On>
+            <Time>after startup</Time>
+            <Type>action</Type>
+            <Content>
+                <Id>1</Id>
+            </Content>
+        </Trigger>
+	</Triggers>
+	
+    <Actions>
+        <Action id="1">
+            <Name>After Startup Group</Name>
+            <On id="1">group</On>
+            <Type>execute next</Type>
+        </Action>
+    </Actions>
+	
+</Protocol>

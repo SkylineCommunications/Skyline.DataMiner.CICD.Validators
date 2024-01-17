@@ -1,0 +1,16 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckTriggersAttribute_DuplicatedId</Name>
+	<Version>0.0.0.0</Version>
+	
+	<Params>
+		<Param id="1">
+			<Name>MyParam</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+	<QActions>
+		<QAction id="1" triggers="1;1"/>
+	</QActions>
+	
+</Protocol>

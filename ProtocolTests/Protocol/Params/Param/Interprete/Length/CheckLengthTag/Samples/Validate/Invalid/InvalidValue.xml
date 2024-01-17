@@ -1,0 +1,42 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="300">
+			<Name>Comparison Value For Power In dbW</Name>
+			<Description>Comparison Value For Power In dbW</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>fixed</LengthType>
+				<Type>string</Type>
+				<Length>abcd</Length>
+				<Value>AAAA</Value>
+			</Interprete>
+		</Param>
+		<Param id="6024">
+			<Type>length</Type>
+			<Interprete>
+				<RawType>unsigned number</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>5</Length>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+
+		<Param id="6025">
+			<Type>length</Type>
+			<Interprete>
+				<RawType>signed number</RawType>
+				<LengthType>fixed</LengthType>
+				<Length>8</Length>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+
+        <Param id="6026">
+            <Type>length</Type>
+            <Interprete>
+                <Length>7</Length>
+            </Interprete>
+        </Param>
+	</Params>
+</Protocol>

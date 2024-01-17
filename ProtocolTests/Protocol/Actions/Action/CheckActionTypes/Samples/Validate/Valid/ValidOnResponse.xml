@@ -1,0 +1,51 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1000">
+			<Name>response_clear</Name>
+			<On>response</On>
+			<Type>clear</Type>
+		</Action>
+		<Action id="2000">
+			<Name>response_clear length info</Name>
+			<On>response</On>
+			<Type>clear length info</Type>
+		</Action>
+		<Action id="3000">
+			<Name>response_crc</Name>
+			<On>response</On>
+			<Type>crc</Type>
+		</Action>
+		<Action id="4000">
+			<Name>response_length</Name>
+			<On>response</On>
+			<Type>length</Type>
+		</Action>
+		<Action id="5000">
+			<Name>response_read</Name>
+			<On>response</On>
+			<Type>read</Type>
+		</Action>
+		<Action id="6000">
+			<Name>response_read stuffing</Name>
+			<On>response</On>
+			<Type>read stuffing</Type>
+		</Action>
+		<Action id="7000">
+			<Name>response_replace</Name>
+			<On>response</On>
+			<Type>replace</Type>
+		</Action>
+		<Action id="8000">
+			<Name>response_replace data</Name>
+			<On>response</On>
+			<Type>replace data</Type>
+		</Action>
+		<Action id="9000">
+			<Name>response_stuffing</Name>
+			<On>response</On>
+			<Type>stuffing</Type>
+		</Action>
+	</Actions>
+	
+</Protocol>

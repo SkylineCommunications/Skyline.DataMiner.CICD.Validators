@@ -1,0 +1,105 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>FillArray_HardCodedPid</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="2000">
+			<Name>FillArray</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>FillArrayInstance</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002" historySet="true">
+			<Name>FillArrayColumn2</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2003" historySet="true">
+			<Name>FillArrayColumn3</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using System;
+using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public static void FillArrayWrapper(this SLProtocol protocol, int tablePid, object[] columns)
+			{
+				protocol.FillArray(tablePid, columns);
+			}
+
+			public static void FillArrayWrapper(this SLProtocol protocol, int tablePid, object[] columns, DateTime timeInfo)
+			{
+				protocol.FillArray(tablePid, columns, timeInfo);
+			}
+		}
+
+		public static class MyParams
+		{
+			public const int MyTable_2000 = 2000;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="103" name="FillArray" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using System;
+using System.Collections.Generic;
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class: FillArray.
+/// </summary>
+public class QAction
+{
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		object[] keys = { "PK_1", "PK_2", "PK_3" };
+		object[] values = { "Value_1", "Value_2", "Value_3" };
+		DateTime date_dt = new DateTime(2008, 8, 29, 19, 27, 15);
+
+		object[] columnsArray = new object[] { keys, values };
+		List<object[]> columnsList = new List<object[]> { keys, values };
+		List<object[]> rows = new List<object[]>();
+		for (int i = 0; i < keys.Length; i++)
+		{
+			rows.Add(new object[] { keys[i], values[i] });
+		}
+
+		protocol.FillArray(2000, columnsArray);
+		protocol.FillArray(2000, columnsArray, null);
+		protocol.FillArray(2000, columnsArray, date_dt);
+
+		protocol.FillArray(2000, columnsList);
+		protocol.FillArray(2000, columnsList, null);
+		protocol.FillArray(2000, columnsList, date_dt);
+
+		protocol.FillArray(2000, rows, NotifyProtocol.SaveOption.Full);
+		protocol.FillArray(2000, rows, NotifyProtocol.SaveOption.Partial, null);
+		protocol.FillArray(2000, rows, NotifyProtocol.SaveOption.Full, date_dt);
+		protocol.FillArray(2000, rows, NotifyProtocol.SaveOption.Partial, date_dt);
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

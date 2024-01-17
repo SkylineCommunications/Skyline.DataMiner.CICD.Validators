@@ -1,0 +1,7 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Triggers>
+        <Trigger id="1">
+            <On id="a">parameter</On>
+        </Trigger>
+    </Triggers>
+</Protocol>

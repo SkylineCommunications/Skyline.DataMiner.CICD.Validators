@@ -1,0 +1,22 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1001"/>
+	</Params>
+	
+	<HTTP>
+		<Session id="1" name="URL Dynamic">
+			<Connection id="11">
+				<Request pid="1001">
+				</Request>
+			</Connection>
+		</Session>
+		<Session id="2" name="URL Hardcoded">
+			<Connection id="21">
+				<Request url="myUrl">
+				</Request>
+			</Connection>
+		</Session>
+	</HTTP>
+	
+</Protocol>

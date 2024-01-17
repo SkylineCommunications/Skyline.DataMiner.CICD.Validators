@@ -1,0 +1,33 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="101">
+			<Name>AlarmTrue_RTDisplayFalse</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>
+		</Param>
+		<Param id="102">
+			<Name>AlarmTrue_NoRTDisplay</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Display>
+				<!--<RTDisplay>false</RTDisplay>-->
+			</Display>
+		</Param>
+		<Param id="103">
+			<Name>AlarmTrue_NoDisplay</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<!--<Display>
+				<RTDisplay>false</RTDisplay>
+			</Display>-->
+		</Param>
+	</Params>
+
+</Protocol>

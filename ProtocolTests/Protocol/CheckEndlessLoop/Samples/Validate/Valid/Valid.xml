@@ -1,0 +1,1572 @@
+﻿<!--
+
+- Noise (1-> 99): Adding all kind of noise items to the different cases
+  ex: Adding multiple actions not causing any loop to a trigger to make sure the one causing a loop is still detected.
+
+- Case 1: Trigger X -> Action -> Param -> Trigger Z
+	- Basic cases: with different action types
+	- Nested cases: Trigger X -> Action -> Param -> Trigger Y -> Action -> Param -> Trigger Z
+	- WithPrefixes : ... -> Trigger X -> Action -> Param -> Trigger Z
+	- Aggregation action all possible triggers
+		- default
+		- groupby
+		- return
+
+- Case 2: Trigger X -> Trigger -> Action -> Param -> Trigger Z
+
+- Case 3: Trigger X -> Action -> Group -> Action -> Param -> Trigger Z
+
+- Case 4: Trigger X -> Action -> Group -> Param -> Trigger Z
+
+- Case 5: Trigger X -> Action -> Group -> Trigger Z
+
+- Case 6: Trigger X -> Action -> Group -> Pair -> Response -> Param -> Trigger Z
+
+- Case 7: Trigger X -> Action -> Group -> Pair -> Response -> Trigger Z
+
+- Case 8: Trigger X -> Action -> Group -> Pair -> Trigger Z
+
+- Case 9: Trigger X -> Action -> Group -> Session -> Param -> Trigger Z
+
+- Case 10: Trigger X -> Action -> Group -> Session -> Trigger Z
+
+- Case 11: Trigger X -> Action -> Group -> Action -> Timer -> Trigger Z -> Action -> Param
+
+- Case 12: Trigger X -> Action -> Command -> Trigger Z
+
+-->
+<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckEndlessLoop_ValidMultipleSequences</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="1">
+			<Name>Noise_Param_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2">
+			<Name>Noise_Param_2</Name>
+			<Type>read</Type>
+		</Param>
+
+		<!--<Param id="10">
+			<Name>Condition_Param_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="11">
+			<Name>Condition_Param_2</Name>
+			<Type>read</Type>
+		</Param>-->
+
+		<Param id="100">
+			<Name>Case1_Basic_IncrementAction</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="101">
+			<Name>Case1_Basic_PowAction_TriggerNoiseBefore</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="102">
+			<Name>Case1_Basic_MultiplyAction_TriggerNoiseAfter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="103">
+			<Name>Case1_Basic_MultiplyAction_TriggerNoiseAfterBefore</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="104">
+			<!--Copy action is not causing trigger to go off.-->
+			<Name>Case1_Basic_CopyAction</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="105">
+			<Name>Case1_Basic_AggregateAction</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="106">
+			<Name>Case1_Basic_RunActionsAction</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="141">
+			<Name>Case1_Basic_MultiplyAction_InvalidNoise</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="700">
+			<Name>Case1_Nested_IncrementAction_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="701">
+			<Name>Case1_Nested_IncrementAction_2</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="800">
+			<Name>Case1_WithPrefix_IncrementAction_Prefix</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="801">
+			<Name>Case1_WithPrefix_IncrementAction</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="1000">
+			<Name>Case2_Basic_IncrementAction</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="2000">
+			<Name>Case3_Basic_GroupAction</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002">
+			<Name>Case3_Basic_GroupPollAction</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="2090">
+			<Name>Case3_InvalidNoise</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="3000">
+			<Name>Case4_Basic_Execute_GroupDefault</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3001">
+			<Name>Case4_Basic_Execute_GroupPoll_GroupNoiseBefore</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3002">
+			<Name>Case4_Basic_ExecuteNext_GroupNoiseAfter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3003">
+			<Name>Case4_Basic_AddToExecute_GroupNoiseBeforeAndAfter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="3004">
+			<Name>Case4_Basic_Set_Group</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="5000">
+			<Name>Case6_Basic_Execute_NoNoise</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5001">
+			<Name>Case6_Basic_Execute_ResponseNoiseBefore</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5002">
+			<Name>Case6_Basic_Execute_ResponseNoiseAfter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5003">
+			<Name>Case6_Basic_Execute_ResponseNoiseBeforeAndAfter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5004">
+			<Name>Case6_Basic_Execute_ActionNoiseBefore</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5005">
+			<Name>Case6_Basic_Execute_ActionNoiseAfter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5006">
+			<Name>Case6_Basic_Execute_ActionNoiseBeforeAndAfter</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="5090">
+			<Name>Case6_InvalidNoise</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="8000">
+			<Name>Case9_Basic_Execute_Session</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="8001">
+			<Name>Case9_Basic_Execute_ResponseStatusCodeParam</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="8090">
+			<Name>Case9_InvalidNoise</Name>
+			<Type>read</Type>
+		</Param>
+
+
+
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="Noise_QAction_1" triggers="1" />
+	</QActions>
+
+	<HTTP>
+		<Session id="1" name="Noise_SessionEmpty_1" >
+			<Connection>
+				<Request></Request>
+				<Response></Response>
+			</Connection>
+		</Session>
+		<Session id="8000" name="Case9_Basic_Execute_Session" >
+			<Connection>
+				<Request></Request>
+				<Response>
+					<Content pid="1"></Content>
+				</Response>
+			</Connection>
+		</Session>
+		<Session id="8001" name="Case9_Basic_Execute_ResponseStatusCodeParam" >
+			<Connection>
+				<Request></Request>
+				<Response statusCode="2">
+					<Content></Content>
+				</Response>
+			</Connection>
+		</Session>
+		<Session id="8090" name="Case9_InvalidNoise_NoResponse" >
+			<Connection>
+				<Request></Request>
+			</Connection>
+		</Session>
+		<Session id="8091" name="Case9_InvalidNoise_EmptyResponse" >
+			<Connection>
+				<Request></Request>
+				<Response>
+				</Response>
+			</Connection>
+		</Session>
+		<Session id="8092" name="Case9_InvalidNoise_EmptyResponseStatus" >
+			<Connection>
+				<Request></Request>
+				<Response statusCode="">
+					<Content></Content>
+				</Response>
+			</Connection>
+		</Session>
+		<Session id="8093" name="Case9_InvalidNoise_InvalidResponseStatus" >
+			<Connection>
+				<Request></Request>
+				<Response statusCode="aaa">
+					<Content></Content>
+				</Response>
+			</Connection>
+		</Session>
+		<Session id="8094" name="Case9_InvalidNoise_NoResponseContentPid" >
+			<Connection>
+				<Request></Request>
+				<Response statusCode="2">
+					<Content></Content>
+				</Response>
+			</Connection>
+		</Session>
+		<Session id="8095" name="Case9_InvalidNoise_EmptyResponseContentPid" >
+			<Connection>
+				<Request></Request>
+				<Response statusCode="2">
+					<Content pid=""></Content>
+				</Response>
+			</Connection>
+		</Session>
+		<Session id="8096" name="Case9_InvalidNoise_InvalidResponseContentPid" >
+			<Connection>
+				<Request></Request>
+				<Response statusCode="2">
+					<Content pid="aaa"></Content>
+				</Response>
+			</Connection>
+		</Session>
+
+		<Session id="9000" name="Case10_Basic_Execute_SessionEmpty" >
+			<Connection>
+				<Request></Request>
+				<Response></Response>
+			</Connection>
+		</Session>
+	</HTTP>
+
+	<Commands>
+		<Command id="5000">
+			<Name>Case6_Basic_Execute_NoNoise</Name>
+		</Command>
+
+		<Command id="6000">
+			<Name>Case7_Basic_Execute_Response</Name>
+		</Command>
+
+		<Command id="7000">
+			<Name>Case8_Basic_Execute_PairTimeout_PairOneComandOneResponse</Name>
+		</Command>
+
+		<Command id="11001">
+			<Name>Case12_CommandBeforeX_CommandMakeX</Name>
+		</Command>
+		<Command id="11002">
+			<Name>Case12_CommandBeforeX_CommandCrcX</Name>
+		</Command>
+	</Commands>
+
+	<Responses>
+		<Response id="1">
+			<Name>Response_Noise_1</Name>
+			<Content>
+			</Content>
+		</Response>
+		<Response id="2">
+			<Name>Response_Noise_2</Name>
+			<Content>
+				<Param>2</Param>
+			</Content>
+		</Response>
+		<Response id="5000">
+			<Name>Case6_Basic_Execute_NoNoise</Name>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Response>
+		<Response id="5001">
+			<Name>Case6_Basic_Execute_ResponseNoiseBefore</Name>
+			<Content>
+				<Param>1</Param>
+				<Param>2</Param>
+			</Content>
+		</Response>
+		<!--<Response id="5002">
+			<Name>Case6_Basic_Execute_ResponseNoiseAfter</Name>
+			<Content>
+				<Param>5002</Param>
+			</Content>
+		</Response>
+		<Response id="5003">
+			<Name>Case6_Basic_Execute_ResponseNoiseBeforeAndAfter</Name>
+			<Content>
+				<Param>5003</Param>
+			</Content>
+		</Response>
+		<Response id="5004">
+			<Name>Case6_Basic_Execute_ActionNoiseBefore</Name>
+			<Content>
+				<Param>5004</Param>
+			</Content>
+		</Response>
+		<Response id="5005">
+			<Name>Case6_Basic_Execute_ActionNoiseAfter</Name>
+			<Content>
+				<Param>5005</Param>
+			</Content>
+		</Response>
+		<Response id="5006">
+			<Name>Case6_Basic_Execute_ActionNoiseBeforeAndAfter</Name>
+			<Content>
+				<Param>5006</Param>
+			</Content>
+		</Response>-->
+		<Response id="5090">
+			<Name>Case6_InvalidNoise_NoContent</Name>
+		</Response>
+		<Response id="5091">
+			<Name>Case6_InvalidNoise_EmptyContent</Name>
+			<Content>
+			</Content>
+		</Response>
+		<Response id="5092">
+			<Name>Case6_InvalidNoise_EmptyContentParam</Name>
+			<Content>
+				<Param></Param>
+			</Content>
+		</Response>
+		<Response id="5093">
+			<Name>Case6_InvalidNoise_InvalidContentParam</Name>
+			<Content>
+				<Param>aaa</Param>
+			</Content>
+		</Response>
+
+		<Response id="6000">
+			<Name>Case7_Basic_Execute_AfterResponse</Name>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Response>
+		<Response id="6001">
+			<Name>Case7_Basic_Execute_AfterResponseEmpty</Name>
+			<Content>
+			</Content>
+		</Response>
+
+		<Response id="7000">
+			<Name>Case8_Basic_Execute_PairTimeout_PairOneComandOneResponse</Name>
+			<Content>
+				<Param>1</Param>
+			</Content>
+		</Response>
+	</Responses>
+
+	<Pairs>
+		<Pair id="1">
+			<Name>Noise_Pair_1</Name>
+			<Content>
+				<Response>1</Response>
+			</Content>
+		</Pair>
+
+		<Pair id="5000">
+			<Name>Case6_Basic_Execute</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>5000</Response>
+			</Content>
+		</Pair>
+		<Pair id="5001">
+			<Name>Case6_Basic_Execute_ResponseNoiseBefore</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>5001</Response>
+			</Content>
+		</Pair>
+		<!--<Pair id="5002">
+			<Name>Case6_Basic_Execute_ResponseNoiseAfter</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>1</Response>
+				<Response>5002</Response>
+			</Content>
+		</Pair>
+		<Pair id="5003">
+			<Name>Case6_Basic_Execute_ResponseNoiseBeforeAndAfter</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>1</Response>
+				<Response>5003</Response>
+				<Response>1</Response>
+			</Content>
+		</Pair>
+		<Pair id="5004">
+			<Name>Case6_Basic_Execute_ActionNoiseBefore</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>5004</Response>
+			</Content>
+		</Pair>
+		<Pair id="5005">
+			<Name>Case6_Basic_Execute_ActionNoiseAfter</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>5005</Response>
+			</Content>
+		</Pair>
+		<Pair id="5006">
+			<Name>Case6_Basic_Execute_ActionNoiseBeforeAndAfter</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>5006</Response>
+			</Content>
+		</Pair>-->
+		<Pair id="5090">
+			<Name>Case6_InvalidNoise_Responses</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>5090</Response>
+				<Response>5091</Response>
+				<Response>5092</Response>
+			</Content>
+		</Pair>
+		<Pair id="5091">
+			<Name>Case6_InvalidNoise_NoContent</Name>
+		</Pair>
+		<Pair id="5092">
+			<Name>Case6_InvalidNoise_EmptyContent</Name>
+			<Content>
+			</Content>
+		</Pair>
+		<Pair id="5093">
+			<Name>Case6_InvalidNoise_NoResponse</Name>
+			<Content>
+				<Command>5000</Command>
+			</Content>
+		</Pair>
+		<Pair id="5094">
+			<Name>Case6_InvalidNoise_EmptyResponse</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response></Response>
+			</Content>
+		</Pair>
+		<Pair id="5095">
+			<Name>Case6_InvalidNoise_InvalidResponse</Name>
+			<Content>
+				<Command>5000</Command>
+				<Response>aaa</Response>
+			</Content>
+		</Pair>
+
+		<Pair id="6000">
+			<Name>Case7_Basic_Execute_ResponseWithOneParam</Name>
+			<Content>
+				<Command>6000</Command>
+				<Response>2</Response>
+			</Content>
+		</Pair>
+		<Pair id="6001">
+			<Name>Case7_Basic_Execute_ResponseEmpty</Name>
+			<Content>
+				<Command>6000</Command>
+				<Response>1</Response>
+			</Content>
+		</Pair>
+
+		<Pair id="7000">
+			<Name>Case8_Basic_Execute_PairTimeout_PairOneComandOneResponse</Name>
+			<Content>
+				<Command>7000</Command>
+				<Response>7000</Response>
+			</Content>
+		</Pair>
+		<Pair id="7001">
+			<Name>Case8_Basic_Execute_PairSucceeded_PairEmpty</Name>
+			<Content>
+			</Content>
+		</Pair>
+	</Pairs>
+
+	<Groups>
+		<Group id="1">
+			<Name>Group_Noise_1</Name>
+			<Content>
+			</Content>
+		</Group>
+		<Group id="2">
+			<Name>Group_Noise_2</Name>
+			<Content></Content>
+		</Group>
+
+		<Group id="2000">
+			<Name>Case3_Basic_GroupAction</Name>
+			<Type>action</Type>
+			<Content>
+				<Action>2001</Action>
+			</Content>
+		</Group>
+		<Group id="2002">
+			<Name>Case3_Basic_GroupPollAction</Name>
+			<Type>action</Type>
+			<Content>
+				<Action>2003</Action>
+			</Content>
+		</Group>
+		<Group id="2090">
+			<Name>Case3_InvalidNoise_NoContent</Name>
+			<Type>action</Type>
+		</Group>
+		<Group id="2091">
+			<Name>Case3_InvalidNoise_EmptyContent</Name>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Group>
+		<Group id="2092">
+			<Name>Case3_InvalidNoise_EmptyContentAction</Name>
+			<Type>action</Type>
+			<Content>
+				<Action></Action>
+			</Content>
+		</Group>
+		<Group id="2093">
+			<Name>Case3_InvalidNoise_InvalidContentAction</Name>
+			<Type>action</Type>
+			<Content>
+				<Action>aaa</Action>
+			</Content>
+		</Group>
+
+		<Group id="3000">
+			<Name>Case4_Basic_Execute_GroupDefault</Name>
+			<Content>
+				<!--<Param>3000</Param>-->
+				<Param>1</Param>
+			</Content>
+		</Group>
+		<!--<Group id="3001">
+			<Name>Case4_Basic_Execute_GroupPoll_GroupNoiseBefore</Name>
+			<Type>poll</Type>
+			<Content>
+				<Param>1</Param>
+				<Param>3001</Param>
+			</Content>
+		</Group>
+		<Group id="3002">
+			<Name>Case4_Basic_ExecuteNext_GroupNoiseAfter</Name>
+			<Type>poll</Type>
+			<Content>
+				<Param>3002</Param>
+				<Param>1</Param>
+			</Content>
+		</Group>-->
+		<Group id="3003">
+			<Name>Case4_Basic_AddToExecute_GroupNoiseBeforeAndAfter</Name>
+			<Type>poll</Type>
+			<Content>
+				<Param>1</Param>
+				<!--<Param>3003</Param>-->
+				<Param>2</Param>
+			</Content>
+		</Group>
+		<Group id="3004">
+			<Name>Case4_Basic_Set_Group</Name>
+			<Type>poll</Type>
+			<Content>
+				<Param>3004</Param>
+			</Content>
+		</Group>
+
+		<Group id="4000">
+			<Name>Case5_Basic_Execute_GroupDefaultNoContent</Name>
+		</Group>
+		<Group id="4001">
+			<Name>Case5_Basic_Execute_GroupDefaultEmptyContent</Name>
+			<Content></Content>
+		</Group>
+
+		<Group id="5000">
+			<Name>Case6_Basic_Execute_NoNoise</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>5000</Pair>
+			</Content>
+		</Group>
+		<Group id="5001">
+			<Name>Case6_Basic_Execute_ResponseNoiseBefore</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>5001</Pair>
+			</Content>
+		</Group>
+		<!--<Group id="5002">
+			<Name>Case6_Basic_Execute_ResponseNoiseAfter</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>5002</Pair>
+			</Content>
+		</Group>
+		<Group id="5003">
+			<Name>Case6_Basic_Execute_ResponseNoiseBeforeAndAfter</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>5003</Pair>
+			</Content>
+		</Group>
+		<Group id="5004">
+			<Name>Case6_Basic_Execute_ActionNoiseBefore</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>5004</Pair>
+			</Content>
+		</Group>
+		<Group id="5005">
+			<Name>Case6_Basic_Execute_ActionNoiseAfter</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>5005</Pair>
+			</Content>
+		</Group>
+		<Group id="5006">
+			<Name>Case6_Basic_Execute_ActionNoiseBeforeAndAfter</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>5006</Pair>
+			</Content>
+		</Group>-->
+		<Group id="5090">
+			<Name>Case6_InvalidNoise</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>5091</Pair>
+				<Pair>5092</Pair>
+				<Pair>5093</Pair>
+				<Pair>5094</Pair>
+				<Pair>5095</Pair>
+				<Pair>5090</Pair>
+			</Content>
+		</Group>
+
+		<Group id="6000">
+			<Name>Case7_Basic_Execute_ResponseWithOneParam</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>6000</Pair>
+			</Content>
+		</Group>
+		<Group id="6001">
+			<Name>Case7_Basic_Execute_ResponseEmpty</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>6001</Pair>
+			</Content>
+		</Group>
+
+		<Group id="7000">
+			<Name>Case8_Basic_Execute_PairTimeout_PairOneComandOneResponse</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>7000</Pair>
+			</Content>
+		</Group>
+		<Group id="7001">
+			<Name>Case8_Basic_Execute_PairSucceeded_PairEmpty</Name>
+			<Type>poll</Type>
+			<Content>
+				<Pair>7001</Pair>
+			</Content>
+		</Group>
+
+		<Group id="8000">
+			<Name>Case9_Basic_Execute_ResponseContentParam</Name>
+			<Type>poll</Type>
+			<Content>
+				<Session>8000</Session>
+			</Content>
+		</Group>
+		<Group id="8001">
+			<Name>Case9_Basic_Execute_ResponseStatusCodeParam</Name>
+			<Type>poll</Type>
+			<Content>
+				<Session>8001</Session>
+			</Content>
+		</Group>
+		<Group id="8090">
+			<Name>Case9_InvalidNoise</Name>
+			<Type>poll</Type>
+			<Content>
+				<Session>8090</Session>
+				<Session>8091</Session>
+				<Session>8092</Session>
+				<Session>8093</Session>
+				<Session>8094</Session>
+				<Session>8095</Session>
+				<Session>8096</Session>
+			</Content>
+		</Group>
+
+		<Group id="9000">
+			<Name>Case10_Basic_Execute_SessionEmpty</Name>
+			<Type>poll</Type>
+			<Content>
+				<Session>9000</Session>
+			</Content>
+		</Group>
+
+		<Group id="10000">
+			<Name>Case11_StartTimer</Name>
+			<Type>poll action</Type>
+			<Content>
+				<Action>10001</Action>
+			</Content>
+		</Group>
+		<Group id="10001">
+			<Name>Case11_StartTimers</Name>
+			<Type>poll action</Type>
+			<Content>
+				<Action>10001</Action>
+				<Action next="500">10002</Action>
+			</Content>
+		</Group>
+		<Group id="10002">
+			<Name>Case11_Timer_beforeAction_Copy</Name>
+			<Type>poll</Type>
+			<Content>
+				<Trigger>10002</Trigger>
+			</Content>
+		</Group>
+		<Group id="10003">
+			<Name>Case11_Timer_beforeAction_RunActions</Name>
+			<Type>poll</Type>
+			<Content>
+				<Trigger>10003</Trigger>
+			</Content>
+		</Group>
+	</Groups>
+
+	<Triggers>
+		<Trigger id="1">
+			<Name>Noise_Trigger_1_AfterStartup</Name>
+			<On>protocol</On>
+			<Time>after startup</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="2">
+			<Name>Noise_Trigger_2_EmptyContent</Name>
+			<On id="2">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+			</Content>
+		</Trigger>
+		<Trigger id="3">
+			<Name>Noise_Trigger_3_NoContent</Name>
+			<On id="2">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+		</Trigger>
+
+		<Trigger id="100">
+			<Name>Case1_Basic_IncrementAction</Name>
+			<On id="100">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>100</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="101">
+			<Name>Case1_Basic_PowAction_TriggerNoiseBefore</Name>
+			<On id="101">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<!--Noise Before-->
+				<Id>1</Id>
+				<Id>101</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="102">
+			<Name>Case1_Basic_MultiplyAction_TriggerNoiseAfter</Name>
+			<On id="102">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<!--Noise After-->
+				<Id>102</Id>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="103">
+			<Name>Case1_Basic_MultiplyAction_TriggerNoiseAfterBefore</Name>
+			<On id="103">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<!--Noise Before and After-->
+				<Id>1</Id>
+				<Id>103</Id>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="104">
+			<!--Copy action is apparently not causing trigger to go off-->
+			<Name>Case1_Basic_CopyAction</Name>
+			<On id="104">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>104</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="105">
+			<Name>Case1_Basic_AggregateAction</Name>
+			<On id="105">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>105</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="106">
+			<Name>Case1_Basic_RunActionsAction</Name>
+			<On id="106">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>106</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="141">
+			<Name>Case1_Basic_MultiplyAction_InvalidNoise</Name>
+			<On id="141">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id></Id>
+				<Id>aaa</Id>
+				<Id>141</Id>
+				<Id>142</Id>
+				<Id>143</Id>
+				<Id>bbb</Id>
+				<Id></Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="700">
+			<Name>Case1_Nested_IncrementAction_1</Name>
+			<On id="700">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>700</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="701">
+			<Name>Case1_Nested_IncrementAction_2</Name>
+			<On id="701">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>701</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="800">
+			<Name>Case1_WithPrefix_IncrementAction_Prefix</Name>
+			<On id="800">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>801</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="801">
+			<Name>Case1_WithPrefix_IncrementAction</Name>
+			<On id="801">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="1000">
+			<Name>Case2_Basic_IncrementAction_1</Name>
+			<On id="1000">parameter</On>
+			<Time>change</Time>
+			<Type>trigger</Type>
+			<Content>
+				<Id>1001</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="1001">
+			<Name>Case2_Basic_IncrementAction_2</Name>
+			<Type>action</Type>
+			<Content>
+				<Id>1000</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="2000">
+			<Name>Case3_Basic_GroupAction</Name>
+			<On id="2000">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>2000</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="2002">
+			<Name>Case3_Basic_GroupPollAction</Name>
+			<On id="2002">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>2002</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="2090">
+			<Name>Case3_InvalidNoise</Name>
+			<On id="2090">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>2090</Id>
+				<Id>2091</Id>
+				<Id>2092</Id>
+				<Id>2093</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="3000">
+			<Name>Case4_Basic_Execute_GroupDefault</Name>
+			<On id="3000">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>3000</Id>
+			</Content>
+		</Trigger>
+		<!--<Trigger id="3001">
+			<Name>Case4_Basic_Execute_GroupPoll_GroupNoiseBefore</Name>
+			<On id="3001">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>3001</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="3002">
+			<Name>Case4_Basic_ExecuteNext_GroupNoiseAfter</Name>
+			<On id="3002">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>3002</Id>
+			</Content>
+		</Trigger>-->
+		<Trigger id="3003">
+			<Name>Case4_Basic_AddToExecute_GroupNoiseBeforeAndAfter</Name>
+			<On id="3003">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>3003</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="3004">
+			<Name>Case4_Basic_Set_Group</Name>
+			<On id="3004">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>3004</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="4000">
+			<Name>Case5_Basic_Execute_GroupDefaultNoContent</Name>
+			<On id="1">group</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>4000</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="4001">
+			<Name>Case5_Basic_Execute_GroupDefaultEmptyContent</Name>
+			<On id="2">group</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>4001</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="5000">
+			<Name>Case6_Basic_Execute_NoNoise</Name>
+			<On id="5000">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5000</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="5001">
+			<Name>Case6_Basic_Execute_ResponseNoiseBefore</Name>
+			<On id="5001">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5001</Id>
+			</Content>
+		</Trigger>
+		<!--<Trigger id="5002">
+			<Name>Case6_Basic_Execute_ResponseNoiseAfter</Name>
+			<On id="5002">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5002</Id>				
+			</Content>
+		</Trigger>
+		<Trigger id="5003">
+			<Name>Case6_Basic_Execute_ResponseNoiseBeforeAndAfter</Name>
+			<On id="5003">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5003</Id>
+			</Content>
+		</Trigger>-->
+		<Trigger id="5004">
+			<Name>Case6_Basic_Execute_ActionNoiseBefore</Name>
+			<On id="5004">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5004</Id>
+			</Content>
+		</Trigger>
+		<!--<Trigger id="5005">
+			<Name>Case6_Basic_Execute_ActionNoiseAfter</Name>
+			<On id="5005">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5005</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="5006">
+			<Name>Case6_Basic_Execute_ActionNoiseBeforeAndAfter</Name>
+			<On id="5006">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5006</Id>
+			</Content>
+		</Trigger>-->
+		<Trigger id="5090">
+			<Name>Case6_InvalidNoise</Name>
+			<On id="5090">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>5090</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="6000">
+			<Name>Case7_Basic_Execute_ResponseWithOneParam</Name>
+			<On id="6000">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>6000</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="6001">
+			<Name>Case7_Basic_Execute_ResponseEmpty</Name>
+			<On id="6001">response</On>
+			<Time>after</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>6001</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="7000">
+			<Name>Case8_Basic_Execute_PairTimeout_PairOneComandOneResponse</Name>
+			<On id="1">pair</On>
+			<Time>timeout</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>7000</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="7001">
+			<Name>Case8_Basic_Execute_PairSucceeded_PairEmpty</Name>
+			<On id="1">pair</On>
+			<Time>succeeded</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>7001</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="8000">
+			<Name>Case9_Basic_Execute_ResponseContentParam</Name>
+			<On id="8000">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>8000</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="8001">
+			<Name>Case9_Basic_Execute_ResponseStatusCodeParam</Name>
+			<On id="8001">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>8001</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="8090">
+			<Name>Case9_InvalidNoise</Name>
+			<On id="8090">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>8090</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="9000">
+			<Name>Case10_Basic_Execute_SessionEmpty</Name>
+			<On id="1">session</On>
+			<Time>timeout</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>9000</Id>
+			</Content>
+		</Trigger>
+
+
+		<Trigger id="10000">
+			<Name>Case11_Timer_beforeAction_ExecuteTimer</Name>
+			<Type>action</Type>
+			<Content>
+				<Id>10000</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="10002">
+			<Name>Case11_Timer_beforeAction_MultipleContent</Name>
+			<On id="10000">timer</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>10003</Id>
+				<Id>10004</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="10003">
+			<Name>Case11_Timer_beforeAction_Single</Name>
+			<On id="10001">timer</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>10004</Id>
+			</Content>
+		</Trigger>
+
+		<Trigger id="11000">
+			<Name>Case12_CommandBeforeEach_MakeCommand</Name>
+			<On id="each">command</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>11000</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="11001">
+			<Name>Case12_CommandBeforeX_CommandMakeX</Name>
+			<On id="11001">command</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>11001</Id>
+			</Content>
+		</Trigger>
+		<Trigger id="11002">
+			<Name>Case12_CommandBeforeX_CommandCrcX</Name>
+			<On id="11002">command</On>
+			<Time>before</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>11002</Id>
+			</Content>
+		</Trigger>
+
+	</Triggers>
+
+	<Actions>
+		<Action id="1">
+			<Name>Noise_RunActions_1</Name>
+			<On id="1">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+
+		<Action id="100">
+			<Name>Case1_Basic_IncrementAction</Name>
+			<On id="1">parameter</On>
+			<Type>increment</Type>
+		</Action>
+		<Action id="101">
+			<Name>Case1_Basic_PowAction_TriggerNoiseBefore</Name>
+			<On id="1">parameter</On>
+			<Type>pow</Type>
+		</Action>
+		<Action id="102">
+			<Name>Case1_Basic_MultiplyAction_TriggerNoiseAfter</Name>
+			<On id="1">parameter</On>
+			<Type>multiply</Type>
+		</Action>
+		<Action id="103">
+			<Name>Case1_Basic_MultiplyAction_TriggerNoiseAfterBefore</Name>
+			<On id="1">parameter</On>
+			<Type>multiply</Type>
+		</Action>
+		<Action id="104">
+			<!--Copy action is not causing trigger to go off.-->
+			<Name>Case1_Basic_CopyAction</Name>
+			<On id="104">parameter</On>
+			<Type>copy</Type>
+		</Action>
+		<Action id="105">
+			<!--This unit test is here because for aggregate actions, the Action/On@id param is the source param and not the destination one.
+				while for most of other types of actions, the Action/On@id param is the destination param.-->
+			<Name>Case1_Basic_AggregateAction</Name>
+			<On id="105">parameter</On>
+			<Type>aggregate</Type>
+		</Action>
+		<Action id="106">
+			<!--This unit test is here because for 'run actions' actions, triggers on 'run actions' param won't go off.
+				Only QActions triggered on it will.-->
+			<Name>Case1_Basic_RunActionsAction</Name>
+			<On id="106">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="141">
+			<Name>Case1_Basic_MultiplyAction_InvalidNoise_EmptyId</Name>
+			<On id="">parameter</On>
+			<Type>multiply</Type>
+		</Action>
+		<Action id="142">
+			<Name>Case1_Basic_MultiplyAction_InvalidNoise_MissingId</Name>
+			<On>parameter</On>
+			<Type>multiply</Type>
+		</Action>
+		<Action id="143">
+			<Name>Case1_Basic_MultiplyAction_InvalidNoise_InvalidId</Name>
+			<On id="aaa">parameter</On>
+			<Type>multiply</Type>
+		</Action>
+
+		<Action id="700">
+			<Name>Case1_Nested_IncrementAction_1</Name>
+			<On id="701">parameter</On>
+			<Type>increment</Type>
+		</Action>
+		<Action id="701">
+			<Name>Case1_Nested_IncrementAction_2</Name>
+			<On id="1">parameter</On>
+			<Type>increment</Type>
+		</Action>
+
+		<Action id="801">
+			<Name>Case1_WithPrefix_IncrementAction</Name>
+			<On id="801">parameter</On>
+			<Type>increment</Type>
+		</Action>
+
+		<Action id="1000">
+			<Name>Case2_Basic_IncrementAction</Name>
+			<On id="1">parameter</On>
+			<Type>increment</Type>
+		</Action>
+
+		<Action id="2000">
+			<Name>Case3_Basic_GroupAction_ExecuteGroup</Name>
+			<On id="2000">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="2001">
+			<Name>Case3_Basic_GroupAction_Increment</Name>
+			<On id="1">parameter</On>
+			<Type>increment</Type>
+		</Action>
+		<Action id="2002">
+			<Name>Case3_Basic_GroupPollAction_ExecuteGroup</Name>
+			<On id="2002">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="2003">
+			<Name>Case3_Basic_GroupPollAction_Increment</Name>
+			<On id="1">parameter</On>
+			<Type>increment</Type>
+		</Action>
+		<Action id="2090">
+			<Name>Case3_Basic_InvalidNoise_Group1</Name>
+			<On id="2090">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="2091">
+			<Name>Case3_Basic_InvalidNoise_EmptyId</Name>
+			<On id="">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="2092">
+			<Name>Case3_Basic_InvalidNoise_MissingId</Name>
+			<On>group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="2093">
+			<Name>Case3_Basic_InvalidNoise_InvalidId</Name>
+			<On id="aaa">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="2094">
+			<Name>Case3_Basic_InvalidNoise_Group2</Name>
+			<On id="2091;2092;2093">group</On>
+			<Type>execute</Type>
+		</Action>
+
+		<Action id="3000">
+			<Name>Case4_Basic_Execute_GroupDefault</Name>
+			<On id="3000">group</On>
+			<Type>execute</Type>
+		</Action>
+		<!--<Action id="3001">
+			<Name>Case4_Basic_Execute_GroupPoll_GroupNoiseBefore</Name>
+			<On id="3001">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="3002">
+			<Name>Case4_Basic_ExecuteNext_GroupNoiseAfter</Name>
+			<On id="3002">group</On>
+			<Type>execute next</Type>
+		</Action>-->
+		<Action id="3003">
+			<Name>Case4_Basic_AddToExecute_GroupNoiseBeforeAndAfter</Name>
+			<On id="3003">group</On>
+			<Type>add to execute</Type>
+		</Action>
+		<Action id="3004">
+			<Name>Case4_Basic_Set_Group</Name>
+			<On id="3004">group</On>
+			<Type>set</Type>
+		</Action>
+
+		<Action id="4000">
+			<Name>Case5_Basic_Execute_GroupDefaultNoContent</Name>
+			<On id="4000">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="4001">
+			<Name>Case5_Basic_Execute_GroupDefaultEmptyContent</Name>
+			<On id="4001">group</On>
+			<Type>execute</Type>
+		</Action>
+
+		<Action id="5000">
+			<Name>Case6_Basic_Execute_NoNoise</Name>
+			<On id="5000">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="5001">
+			<Name>Case6_Basic_Execute_ResponseNoiseBefore</Name>
+			<On id="5001">group</On>
+			<Type>execute</Type>
+		</Action>
+		<!--<Action id="5002">
+			<Name>Case6_Basic_Execute_ResponseNoiseAfter</Name>
+			<On id="5002">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="5003">
+			<Name>Case6_Basic_Execute_ResponseNoiseBeforeAndAfter</Name>
+			<On id="5003">group</On>
+			<Type>execute</Type>
+		</Action>-->
+		<Action id="5004">
+			<Name>Case6_Basic_Execute_ActionNoiseBefore</Name>
+			<On id="1;5001">group</On>
+			<Type>execute</Type>
+		</Action>
+		<!--<Action id="5005">
+			<Name>Case6_Basic_Execute_ActionNoiseAfter</Name>
+			<On id="5005;1">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="5006">
+			<Name>Case6_Basic_Execute_ActionNoiseBeforeAndAfter</Name>
+			<On id="1;5006;2">group</On>
+			<Type>execute</Type>
+		</Action>-->
+		<Action id="5090">
+			<Name>Case6_InvalidNoise</Name>
+			<On id="5090">group</On>
+			<Type>execute</Type>
+		</Action>
+
+		<Action id="6000">
+			<Name>Case7_Basic_Execute_ResponseWithOneParam</Name>
+			<On id="6000">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="6001">
+			<Name>Case7_Basic_Execute_ResponseEmpty</Name>
+			<On id="6001">group</On>
+			<Type>execute</Type>
+		</Action>
+
+		<Action id="7000">
+			<Name>Case8_Basic_Execute_PairTimeout_PairOneComandOneResponse</Name>
+			<On id="7000">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="7001">
+			<Name>Case8_Basic_Execute_PairSucceeded_PairEmpty</Name>
+			<On id="7001">group</On>
+			<Type>execute</Type>
+		</Action>
+
+		<Action id="8000">
+			<Name>Case9_Basic_Execute_ResponseContentParam</Name>
+			<On id="8000">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="8001">
+			<Name>Case9_Basic_Execute_ResponseStatusCodeParam</Name>
+			<On id="8001">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="8090">
+			<Name>Case9_InvalidNoise</Name>
+			<On id="8090">group</On>
+			<Type>execute</Type>
+		</Action>
+
+		<Action id="9000">
+			<Name>Case10_Basic_Execute_SessionEmpty</Name>
+			<On id="9000">group</On>
+			<Type>execute</Type>
+		</Action>
+
+		<Action id="10000">
+			<Name>Case11_Timer_beforeAction_ExecuteTimer</Name>
+			<On id="10000">group</On>
+			<Type>execute</Type>
+		</Action>
+		<Action id="10001">
+			<Name>Case11_Timer_beforeAction_Timer1</Name>
+			<On id="10000">timer</On>
+			<Type>start</Type>
+		</Action>
+		<Action id="10002">
+			<Name>Case11_Timer_beforeAction_Timer2</Name>
+			<On id="10001">timer</On>
+			<Type>start</Type>
+		</Action>
+		<Action id="10003">
+			<Name>Case11_Timer_beforeAction_Copy</Name>
+			<On id="1">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+		<Action id="10004">
+			<Name>Case11_Timer_beforeAction_RunActions</Name>
+			<On id="1">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+
+		<Action id="11000">
+			<Name>Case12_CommandBeforeEach_MakeCommand</Name>
+			<On>command</On>
+			<Type>make</Type>
+		</Action>
+		<Action id="11001">
+			<Name>Case12_CommandBeforeX_CommandMakeX</Name>
+			<On id="11001">command</On>
+			<Type>make</Type>
+		</Action>
+		<Action id="11002">
+			<Name>Case12_CommandBeforeX_CommandCrcX</Name>
+			<On id="11002">command</On>
+			<Type>crc</Type>
+		</Action>
+	</Actions>
+
+	<Timers>
+		<Timer id="10000">
+			<Name>Case11_Timer_beforeAction_Copy</Name>
+			<Content>
+				<Group>1</Group>
+			</Content>
+		</Timer>
+		<Timer id="10001">
+			<Name>Case11_Timer_beforeAction</Name>
+			<Content>
+				<Group>2</Group>
+			</Content>
+		</Timer>
+	</Timers>
+	
+</Protocol>

@@ -1,0 +1,71 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!--Wrong Connected Output Min/Max-->
+		<Param id="10001">
+			<Name>MatrixCOMinHigherThanTotalRows</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,17,1,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10002">
+			<Name>MatrixCOMaxLowerThan1</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,0,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10003">
+			<Name>MatrixCOMaxHigherThanTotalRows</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,17,0,31">matrix</Type>
+			</Measurement>
+		</Param>	
+		<Param id="10004">
+			<Name>MatrixCOMinHigherThanCOMax</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,11,10,0,31">matrix</Type>
+			</Measurement>
+		</Param>
+
+		<!--Wrong Connected Input Min/Max-->
+		<Param id="10011">
+			<Name>MatrixCIMinHigherThanTotalColumns</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,1,33,31">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10012">
+			<Name>MatrixCIMaxLowerthan1</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,1,0,0">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10013">
+			<Name>MatrixCIMaxHigherThanTotalColumns</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,1,0,33">matrix</Type>
+			</Measurement>
+		</Param>
+		<Param id="10014">
+			<Name>MatrixCIMinHigherThanCIMax</Name>
+			<Type options="dimensions=16,32;columntypes=400:0-31">array</Type>
+			<Measurement>
+				<!-- matrix=InputCount,OutputCount,COMin,COMax,CIMin,CIMax -->
+				<Type options="matrix=16,32,0,1,22,21">matrix</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

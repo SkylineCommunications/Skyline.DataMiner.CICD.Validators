@@ -1,0 +1,33 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>Moved last to second</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:1001|0-1003|2-1002|1,width:100-100-100,sort:STRING-INT-INT,lines:30,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2000">
+			<Name>Removed last column</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:2001|0-2002|1,width:100-100,sort:STRING-INT,lines:30,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="3000">
+			<Name>Remove all columns</Name>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>table</Type>
+			</Measurement>
+		</Param>
+	</Params>
+
+</Protocol>

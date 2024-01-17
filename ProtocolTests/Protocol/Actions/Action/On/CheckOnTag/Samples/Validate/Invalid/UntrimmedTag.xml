@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Actions>
+		<Action id="1">
+			<Name>Leading</Name>
+			<On>  command</On>
+		</Action>
+		<Action id="2">
+			<Name>Trailing</Name>
+			<On>group </On>
+		</Action>
+		<Action id="3">
+			<Name>Leading_Trailing</Name>
+			<On> pair </On>
+		</Action>
+	</Actions>
+	
+</Protocol>

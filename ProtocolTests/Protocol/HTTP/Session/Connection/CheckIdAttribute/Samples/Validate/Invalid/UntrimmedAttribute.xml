@@ -1,0 +1,15 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<HTTP>
+		<Session id="1">
+			<Connection id=" 101" name="LeadingSpaces"></Connection>
+			<Connection id="102 " name="TrailingSpaces"></Connection>
+		</Session>
+
+		<Session id="2">
+			<Connection id=" 101 " name="LeadingAndTrailingSpaces"></Connection>
+			<Connection id=" 103 " name="LeadingAndTrailingSpaces"></Connection>
+		</Session>
+	</HTTP>
+	
+</Protocol>

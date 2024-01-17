@@ -1,0 +1,53 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!-- Togglebutton is already checked by another error message -->
+
+		<!--Buttons-->
+		<Param id="1">
+			<Name>button_dummy</Name>
+			<Type>dummy</Type>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+		<Param id="2">
+			<Name>button_read</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>button</Type>
+			</Measurement>
+		</Param>
+
+		<!--Page Buttons-->
+		<Param id="51">
+			<Name>pagebutton_dummy</Name>
+			<Type>dummy</Type>
+			<Measurement>
+				<Type>pagebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="52">
+			<Name>pagebutton_read</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>pagebutton</Type>
+			</Measurement>
+		</Param>
+
+		<!--Toggle Buttons-->
+		<Param id="101">
+			<Name>togglebutton_dummy</Name>
+			<Type>dummy</Type>
+			<Measurement>
+				<Type>togglebutton</Type>
+			</Measurement>
+		</Param>
+		<Param id="102">
+			<Name>togglebutton_read</Name>
+			<Type>read</Type>
+			<Measurement>
+				<Type>togglebutton</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>

@@ -1,0 +1,42 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        
+        <!--RTDisplay="true"-->
+        <Param id="1" trending="true">
+            <!--Keep trending-->
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="2">
+            <!--Keep trending (trending=true by default on RTDisplay=true params)-->
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="3">
+            <!--Keep trending (Remove attribute, trending=true by default on RTDisplay=true params)-->
+            <Display>
+                <RTDisplay>true</RTDisplay>
+            </Display>
+        </Param>
+
+        <!--RTDisplay="false"-->
+        <Param id="100" trending="false">
+            <!--Disable trending-->
+            <Display>
+                <RTDisplay>false</RTDisplay>
+            </Display>
+        </Param>
+        <Param id="101" trending="false">
+            <!--No trending-->
+            <Display>
+                <RTDisplay>false</RTDisplay>
+            </Display>
+        </Param>
+
+        <!--New param-->
+        <Param id="200" trending="false">
+        </Param>
+    </Params>
+</Protocol>

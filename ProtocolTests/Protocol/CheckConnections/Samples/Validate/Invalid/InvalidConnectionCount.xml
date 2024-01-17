@@ -1,0 +1,4 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Type advanced="http:HTTP Connection">snmp</Type>
+	<PortSettings name="SNMP Connection"></PortSettings>
+</Protocol>

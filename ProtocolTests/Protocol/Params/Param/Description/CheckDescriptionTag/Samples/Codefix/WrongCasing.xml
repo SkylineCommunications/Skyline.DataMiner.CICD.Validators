@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<!--For extensive unit tests on title casing, go to TitleCasing.ToTitleCase method unit tests-->
+
+	<Params>
+		<Param id="100" export="true">
+			<Name>SeparatorSpace</Name>
+			<Description>Space Separator</Description>
+		</Param>
+		<Param id="101" export="true">
+			<Name>SeparatorUnderscore</Name>
+			<Description>Underscore_Separator_1</Description>
+		</Param>
+
+		<Param id="200" export="true">
+			<Name>PrepositionLeading</Name>
+			<Description>In Starting_With_Preposition</Description>
+		</Param>
+		<Param id="201" export="true">
+			<Name>PrepositionTrailing</Name>
+			<Description>Ending_With_Preposition In</Description>
+		</Param>
+	</Params>
+
+</Protocol>

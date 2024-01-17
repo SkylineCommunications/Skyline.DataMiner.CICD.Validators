@@ -1,0 +1,8 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+        <Param id="20">
+            <ArrayOptions options=";filterChange=1001-501,1002-502">
+            </ArrayOptions>
+        </Param>
+	</Params>
+</Protocol>

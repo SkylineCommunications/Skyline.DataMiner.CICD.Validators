@@ -1,0 +1,24 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <Interprete>
+                <Type>string</Type>
+            </Interprete>
+        </Param>
+        <Param id="2">
+            <Interprete>
+                <Type>high nibble</Type>
+            </Interprete>
+        </Param>
+        <Param id="3">
+            <Interprete>
+                <Type>double</Type>
+            </Interprete>
+        </Param>
+        <Param id="4">
+            <Interprete>
+                <Type>string</Type>
+            </Interprete>
+        </Param>
+    </Params>
+</Protocol>

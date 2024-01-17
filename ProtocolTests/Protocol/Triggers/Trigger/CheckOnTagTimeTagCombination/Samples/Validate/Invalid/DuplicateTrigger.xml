@@ -1,0 +1,65 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Triggers>
+        <!--Identical triggers (no condition -> Certain)-->
+		<Trigger id="1">
+            <On id="1">parameter</On>
+            <Time>change</Time>
+		</Trigger>
+        <Trigger id="2">
+            <On id="1">parameter</On>
+            <Time>change</Time>
+        </Trigger>
+
+        <Trigger id="10">
+            <On>protocol</On>
+            <Time>after startup</Time>
+        </Trigger>
+        <Trigger id="11">
+            <On>protocol</On>
+            <Time>after startup</Time>
+        </Trigger>
+
+        <Trigger id="20">
+            <On id="each">response</On>
+            <Time>before</Time>
+        </Trigger>
+        <Trigger id="21">
+            <On id="each">response</On>
+            <Time>before</Time>
+        </Trigger>
+
+        <!--Identical triggers (some conditions -> Certain)-->
+        <Trigger id="100">
+            <On id="100">parameter</On>
+            <Time>change</Time>
+            <Condition>id=100 == 1</Condition>
+        </Trigger>
+        <Trigger id="101">
+            <On id="100">parameter</On>
+            <Time>change</Time>
+        </Trigger>
+        <Trigger id="102">
+            <On id="100">parameter</On>
+            <Time>change</Time>
+            <Condition>id=100 == 3</Condition>
+        </Trigger>
+
+
+        <!--Identical triggers (all conditions -> Not certain)-->
+        <Trigger id="200">
+            <On id="200">parameter</On>
+            <Time>change</Time>
+            <Condition>id=100 == 1</Condition>
+        </Trigger>
+        <Trigger id="201">
+            <On id="200">parameter</On>
+            <Time>change</Time>
+            <Condition>id=100 == 2</Condition>
+        </Trigger>
+        <Trigger id="202">
+            <On id="200">parameter</On>
+            <Time>change</Time>
+            <Condition>id=100 == 3</Condition>
+        </Trigger>
+	</Triggers>
+</Protocol>

@@ -1,0 +1,17 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1">
+            <Display>
+                <RTDisplay>true</RTDisplay>
+                <Positions>
+                    <Position>
+                        <Page>Interface</Page>
+                    </Position>
+                </Positions>
+            </Display>
+            <Measurement>
+                <Type width=" 110 ">pagebutton</Type>
+            </Measurement>
+        </Param>
+    </Params>
+</Protocol>

@@ -1,0 +1,133 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CSharpNotifyProtocolNTSnmpGet_DeltIncompatible</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="PreCompile" encoding="csharp" options="precompile">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+namespace Skyline.Protocol
+{
+	namespace MyNamespace
+	{
+		public static class MyClass
+		{
+			public const int NT_SNMP_GET_GlobalConst = 295;
+		}
+	}
+}]]>
+		</QAction>
+
+		<QAction id="100" name="Defining_NotifyType" encoding="csharp" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+			<![CDATA[using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.MyNamespace;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		const int NT_SNMP_GET_Const = 295;
+		int NT_SNMP_GET_Int = 295;
+		int NT_SNMP_GET_Math = 290;
+
+		int elementId = 661;
+		int connectionId = 0;
+		string ipPort = "127.0.0.1";
+		string getCommunityString = null;
+		string instance = string.Empty;
+		int multipleGet = 0;
+		bool splitErrors = false;
+		object[] connectionDetails = new object[] { elementId, ipPort, multipleGet, instance, connectionId, getCommunityString, splitErrors };
+
+		string systemContactOid = "1.3.6.1.2.1.1.4.0";
+		string[] oidInfo = new string[] { systemContactOid };
+
+		// Different ways to define NT
+		protocol.NotifyProtocol(295, connectionDetails, oidInfo);
+		protocol.NotifyProtocol(290 + 10 - 5, connectionDetails, oidInfo);
+
+		protocol.NotifyProtocol(NT_SNMP_GET_Const, connectionDetails, oidInfo);
+		protocol.NotifyProtocol(NT_SNMP_GET_Int, connectionDetails, oidInfo);
+		protocol.NotifyProtocol(NT_SNMP_GET_Math + 5, connectionDetails, oidInfo);
+		protocol.NotifyProtocol(MyClass.NT_SNMP_GET_GlobalConst, connectionDetails, oidInfo);
+
+		protocol.NotifyProtocol((int)NT_SNMP_GET_Const, connectionDetails, oidInfo);
+		protocol.NotifyProtocol((int)NT_SNMP_GET_Int, connectionDetails, oidInfo);
+		protocol.NotifyProtocol((int)NT_SNMP_GET_Math + 5, connectionDetails, oidInfo);
+		protocol.NotifyProtocol((int)MyClass.NT_SNMP_GET_GlobalConst, connectionDetails, oidInfo);
+		protocol.NotifyProtocol((int)NotifyType.NT_SNMP_GET, connectionDetails, oidInfo);
+		
+		//protocol.NotifyProtocolQueued(295, connectionDetails, oidInfo);
+	}
+}]]>
+		</QAction>
+		<QAction id="101" name="Defining_Element" encoding="csharp">
+			<![CDATA[using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		int elementId = 661;
+		int connectionId = 0;
+		string ipPort = "127.0.0.1";
+		string getCommunityString = null;
+		string instance = "";
+		int multipleGet = 0;
+		bool splitErrors = false;
+
+		object[] connectionDetails = new object[] { elementId, ipPort, multipleGet, instance, connectionId, getCommunityString, splitErrors };
+		object[] connectionDetails_hardcoded = { 661, "127.0.0.1", 0, "", 0, null, false };
+
+		object[] connectionDetails_multiline;
+		connectionDetails_multiline = new object[] { 661, "127.0.0.1", 0, "", 0, null, false };
+
+		string systemContactOid = "1.3.6.1.2.1.1.4.0";
+		string[] oidInfo = new string[] { systemContactOid };
+
+		// Different ways to define the SNMP element connection
+		//protocol.NotifyProtocol(295, new[] { 661, "127.0.0.1", 0, "", 0, null, false }, systemContactOid);
+		protocol.NotifyProtocol(295, new object[] { 661, "127.0.0.1", 0, "", 0, null, false }, systemContactOid);
+
+		//protocol.NotifyProtocol(295, new[] { elementId, ipPort, multipleGet, instance, connectionId, getCommunityString, splitErrors }, systemContactOid);
+		protocol.NotifyProtocol(295, new object[] { elementId, ipPort, multipleGet, instance, connectionId, getCommunityString, splitErrors }, systemContactOid);
+
+		protocol.NotifyProtocol(295, connectionDetails, systemContactOid);
+		protocol.NotifyProtocol(295, connectionDetails_hardcoded, systemContactOid);
+		//protocol.NotifyProtocol(295, connectionDetails_multiline, systemContactOid);
+	}
+}]]>
+		</QAction>
+		<QAction id="102" name="Processing_Result" encoding="csharp">
+			<![CDATA[using System;
+
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+		int elementId = 661;
+		int connectionId = 0;
+		string ipPort = "127.0.0.1";
+		string getCommunityString = null;
+		string instance = string.Empty;
+		int multipleGet = 0;
+		bool splitErrors = false;
+		object[] connectionDetails = new object[] { elementId, ipPort, multipleGet, instance, connectionId, getCommunityString, splitErrors };
+
+		string systemContactOid = "1.3.6.1.2.1.1.4.0";
+		string[] oidInfo = new string[] { systemContactOid };
+
+		object[] result = (object[])protocol.NotifyProtocol(295, connectionDetails, oidInfo);
+		if (result != null && result.Length > 0)
+		{
+			protocol.Log("result '" + String.Join(";", result) + "'", LogType.DebugInfo, LogLevel.NoLogging);
+		}
+	}
+}]]>
+		</QAction>
+	</QActions>
+
+</Protocol>

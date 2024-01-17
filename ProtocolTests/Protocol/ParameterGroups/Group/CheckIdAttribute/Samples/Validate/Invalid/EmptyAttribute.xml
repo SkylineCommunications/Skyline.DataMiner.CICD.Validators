@@ -1,0 +1,8 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<ParameterGroups>
+		<Group id="" name="Empty" />
+		<Group id="  " name="Spaces" />
+	</ParameterGroups>
+	
+</Protocol>
