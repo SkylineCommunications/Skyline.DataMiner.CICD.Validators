@@ -26,10 +26,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Exception with state \"Enabled\". Param {0}.", paramId),
+                Description = String.Format("Exception with state 'enabled'. Param '{0}'.", paramId),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "Default behavior is that the state attribute of an exception should be Disabled.",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -54,7 +54,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "state", "Param", paramId),
                 HowToFix = "Add missing state attribute",
                 ExampleCode = "",
-                Details = "Default behavior is that the state attribute of an exception should be Disabled.",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -79,7 +79,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "state", "Param", paramId),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -104,7 +104,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Display@state", attributeValue, "Param", pid, "ID"),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -129,7 +129,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "Display@state", "Param", pid, untrimmedValue),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

@@ -9650,7 +9650,7 @@
 								<Name>UnrecommendedEnabledValue</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Exception with state "Enabled". Param {0}.</Format>
+									<Format>Exception with state 'enabled'. Param '{0}'.</Format>
 									<InputParameters>
 										<InputParameter id="0">paramId</InputParameter>
 									</InputParameters>
@@ -9662,7 +9662,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[Default behavior is that the state attribute of an exception should be Disabled.]]></Details>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="2">
 								<Name>MissingAttribute</Name>
@@ -9681,7 +9681,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[Add missing state attribute]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[Default behavior is that the state attribute of an exception should be Disabled.]]></Details>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="3">
 								<Name>EmptyAttribute</Name>
@@ -9700,7 +9700,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[]]></Details>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="4">
 								<Name>InvalidAttributeValue</Name>
@@ -9721,7 +9721,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[]]></Details>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="5">
 								<Name>UntrimmedAttributeValue</Name>
@@ -9741,7 +9741,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[]]></Details>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>

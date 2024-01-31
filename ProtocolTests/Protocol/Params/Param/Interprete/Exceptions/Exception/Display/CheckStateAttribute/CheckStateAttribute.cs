@@ -185,7 +185,7 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Di
     public class ErrorMessages
     {
         [TestMethod]
-        public void Param_CheckStateAttribute_StateAttribute()
+        public void Param_CheckStateAttribute_UnrecommendedEnabledValue()
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedEnabledValue(null, null, null, "paramId");
@@ -196,8 +196,92 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Di
                 Certainty = Certainty.Uncertain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = "Exception with state \"Enabled\". Param paramId.",
-                Details = "Default behavior is that the state attribute of an exception should be Disabled.",
+                Description = "Exception with state 'enabled'. Param 'paramId'.",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
+                HasCodeFix = true,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckStateAttribute_EmptyAttribute()
+        {
+            // Create ErrorMessage
+            var message = Error.EmptyAttribute(null, null, null, "paramId");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Warning,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Empty attribute 'state' in Param 'paramId'.",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
+                HasCodeFix = true,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckStateAttribute_MissingAttribute()
+        {
+            // Create ErrorMessage
+            var message = Error.MissingAttribute(null, null, null, "paramId");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Warning,
+                Certainty = Certainty.Uncertain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Missing attribute 'state' in Param 'paramId'.",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
+                HasCodeFix = true,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckStateAttribute_InvalidAttributeValue()
+        {
+            // Create ErrorMessage
+            var message = Error.InvalidAttributeValue(null, null, null, null, "paramId");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Warning,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Invalid value '' in attribute 'Display@state'. Param ID 'paramId'.",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
+                HasCodeFix = true,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckStateAttribute_UntrimmedAttributeValue()
+        {
+            // Create ErrorMessage
+            var message = Error.UntrimmedAttributeValue(null, null, null, "paramId", null);
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Warning,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Untrimmed attribute 'Display@state' in Param 'paramId'. Current value ''.",
+                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
             };
 
