@@ -14,10 +14,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckStateAttribute, Category.Param)]
-    internal class CheckStateAttribute : IValidate, ICodeFix // , ICompare
+    internal class CheckStateAttribute : IValidate, ICodeFix/*, ICompare*/
     {
-        // Please comment out the interfaces that aren't used together with the respective methods.
-
         public List<IValidationResult> Validate(ValidatorContext context)
         {
             List<IValidationResult> results = new List<IValidationResult>();
@@ -49,27 +47,27 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     // Empty
                     if (status.HasFlag(GenericStatus.Empty))
                     {
-                        results.Add(Error.EmptyAttribute(this, param, exception.Display.State, param.Id?.RawValue).WithExtraData(ExtraData.ExceptionToFix, exception));
+                        results.Add(Error.EmptyAttribute(this, param, state, param.Id?.RawValue).WithExtraData(ExtraData.ExceptionToFix, exception));
                         continue;
                     }
 
                     // Invalid
                     if (status.HasFlag(GenericStatus.Invalid))
                     {
-                        results.Add(Error.InvalidAttributeValue(this, param, exception.Display.State, rawDisplayValue, param.Id?.RawValue).WithExtraData(ExtraData.ExceptionToFix, exception));
+                        results.Add(Error.InvalidAttributeValue(this, param, state, rawDisplayValue, param.Id?.RawValue).WithExtraData(ExtraData.ExceptionToFix, exception));
                         continue;
                     }
 
                     if (stateValue == EnumDisplayState.Enabled)
                     {
-                        results.Add(Error.UnrecommendedEnabledValue(this, param, exception.Display.State, param.Id?.RawValue).WithExtraData(ExtraData.ExceptionToFix, exception));
+                        results.Add(Error.UnrecommendedEnabledValue(this, param, state, param.Id?.RawValue).WithExtraData(ExtraData.ExceptionToFix, exception));
                         continue;
                     }
 
                     // Untrimmed
                     if (status.HasFlag(GenericStatus.Untrimmed))
                     {
-                        results.Add(Error.UntrimmedAttributeValue(this, param, exception.Display.State, param.Id?.RawValue, rawDisplayValue).WithExtraData(ExtraData.ExceptionToFix, exception));
+                        results.Add(Error.UntrimmedAttributeValue(this, param, state, param.Id?.RawValue, rawDisplayValue).WithExtraData(ExtraData.ExceptionToFix, exception));
                         continue;
                     }
                 }
@@ -142,12 +140,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             return result;
         }
 
-        public List<IValidationResult> Compare(MajorChangeCheckContext context)
-        {
-            List<IValidationResult> results = new List<IValidationResult>();
-
-            return results;
-        }
+        ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
+        ////{
+        ////    List<IValidationResult> results = new List<IValidationResult>();
+        ////
+        ////    return results;
+        ////}
     }
 
     internal enum ExtraData
