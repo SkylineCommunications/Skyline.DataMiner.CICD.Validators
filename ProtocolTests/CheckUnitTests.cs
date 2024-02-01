@@ -23,6 +23,7 @@
     using Skyline.DataMiner.CICD.CSharpAnalysis;
     using Skyline.DataMiner.CICD.CSharpAnalysis.Classes;
     using Skyline.DataMiner.CICD.CSharpAnalysis.Enums;
+    using Skyline.DataMiner.CICD.FileSystem;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol;
@@ -460,7 +461,7 @@
             valProject = solution.Projects.Single(x => x.Name == "Protocol");
 
 #if NETFRAMEWORK
-            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests");
+            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests" || x.Name == "ProtocolTests(net472)");
 #elif NET
             testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net6.0)");
 #endif
@@ -1601,32 +1602,26 @@
             }
         }
 
+        private static string FindFirstInDirectoryOrParents(string directory, string searchPattern, int maxDepth = 10)
+        {
+            maxDepth--;
+            if (maxDepth == 0) return String.Empty;
+
+            var foundFile = FileSystem.Instance.Directory.GetFiles(directory, searchPattern, SearchOption.TopDirectoryOnly)?.FirstOrDefault();
+
+            if (foundFile == null)
+            {
+                return FindFirstInDirectoryOrParents(FileSystem.Instance.Directory.GetParentDirectory(directory), searchPattern);
+            }
+            else
+            {
+                return foundFile;
+            }
+        }
+
         private static string GetSolutionPath()
         {
-            string solutionPath = String.Empty;
-            DirectoryInfo a = Directory.GetParent(Assembly.GetExecutingAssembly().Location);
-            while (solutionPath == String.Empty)
-            {
-                var temp = a.GetDirectories("Skyline.DataMiner.CICD.Validators", SearchOption.TopDirectoryOnly);
-                if (temp.Length == 1)
-                {
-                    var files = temp[0].GetFiles("*.sln");
-                    if (files.Length > 0)
-                    {
-                        solutionPath = files[0].FullName;
-                    }
-                    else
-                    {
-                        a = a.Parent;
-                    }
-                }
-                else
-                {
-                    a = a.Parent;
-                }
-            }
-
-            return solutionPath;
+            return FindFirstInDirectoryOrParents(FileSystem.Instance.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "*.sln");
         }
 
         internal static string GetNamespace(SyntaxNode rootSyntaxNode)
