@@ -16,6 +16,8 @@
     {
         private static void Main(string[] args)
         {
+            Console.WriteLine($"#Args: {args.Length}");
+
             if (args.Length > 2)
             {
                 ExportToExcelPipeline(args[0], args[1], args[2]);
@@ -27,12 +29,15 @@
             try
             {
                 // Retrieve errorMessages
+                Console.WriteLine("Reading XML");
                 var validator = Serializer.ReadXml(xmlFilePath);
 
                 var allErrorMessages = validator.ValidationChecks.Categories.Category.SelectMany(category =>
                     category.Checks.Check.SelectMany(check =>
                         check.ErrorMessages.ErrorMessage.Select(errorMessage =>
                             new FullErrorMessage { Category = category, Check = check, ErrorMessage = errorMessage }))).ToList();
+
+                Console.WriteLine($"#Error Messages: {allErrorMessages.Count}");
 
                 string fileName = $"Validator Error Messages - {version}";
                 Directory.CreateDirectory(outputDirectory);
@@ -69,6 +74,7 @@
             CreateWorksheetSplit(workbook, errorMessages.Where(x => x.ErrorMessage.Source == Source.Validator).ToList(), "Validator", validator);
             CreateWorksheetSplit(workbook, errorMessages.Where(x => x.ErrorMessage.Source == Source.MajorChangeChecker).ToList(), "Major Change Checker", validator);
 
+            Console.WriteLine($"Creating file: {filePath}");
             using (var fs = File.Create(filePath))
             {
                 workbook.Write(fs, false);
