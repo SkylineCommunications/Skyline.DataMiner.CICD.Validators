@@ -41,8 +41,28 @@ In the tool, you can add new error messages via the *Add Check...* button. This 
 - *Error Message Name*: This is the name of the error message. This will become a method when generating the code.
 - *Description*: Provide a meaningful description with the necessary placeholders. Similar like `String.Format` you can use `{0}` as placeholders. In case of a more generic error message, you can use the templates. This can be toggled via the checkbox on the right.
 - *Description Parameters*: These are the placeholders from the Description.
+
+    - Left column is the argument name if nothing is filled in in the right column.
+
+    - Right column can be prefilled with fixed values (in case when you are using the templates). These will not show up as arguments then.
+
 - *Source*: Either Validator (Validate) or MajorChangeChecker (Compare)
-- *Certainty*: How sure are we that the error message is correct?
+- *Severity:* Specify the severity level. To choose the right severity, you can follow the following guide:
+
+    - Critical: This type of error will have a critical impact on the system or will fully prevent the driver from working. It may also draw your attention to something that needs to be fixed for administrative reasons.
+
+    - Major: This type of error will prevent part of the driver from workingas expected. Example: A specific driver feature will not work.
+
+    - Minor: This type of error will not prevent the driver from working, but will have some impact. It may draw your attention to something that was not implemented according to the best practice guidelines. Example: Bad performance, Not user-friendly, etc.
+
+    - Warning: This type of error reveals something that will not have any impact.Example: Unused XML elements or attributes.
+
+- *Certainty*: Specify the certainty level.
+
+    - Certain: An error has been detected and needs to be fixed.
+
+    - Uncertain: A possible error has been detected and needs to be fixed once verified.
+
 - *Fix Impact*: Would there be a breaking change when fixing the error?
 - *Has Code Fix*: Is there an automatic fix possible?
 - *How To Fix*: Optional field that can describe the steps needed on how to fix the issue.
