@@ -39,3 +39,4 @@ jobs:
         with:
           name: Error Messages
           path: ${{ github.workspace }}/TEMP/Validator Error Messages - ${{ github.ref_name }}.xlsx
+          if-no-files-found: error
