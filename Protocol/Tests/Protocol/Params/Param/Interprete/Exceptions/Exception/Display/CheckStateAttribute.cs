@@ -127,7 +127,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     break;
 
                 case ErrorIds.UntrimmedAttributeValue:
-                    EnumDisplayState? parsedValue = EnumDisplayStateConverter.Convert(editException.Display.State.RawValue.Trim() == "disabled" ? "Disabled" : "Enabled");
+                    EnumDisplayState? parsedValue = EnumDisplayStateConverter.Convert(editException.Display.State.RawValue.Trim());
+                    if (parsedValue == null)
+                    {
+                        result.Message = "Invalid parsed value.";
+                        return result;
+                    }
+
                     editException.Display.State.Value = parsedValue;
                     result.Success = true;
                     break;
