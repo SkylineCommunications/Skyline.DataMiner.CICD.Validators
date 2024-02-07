@@ -9643,6 +9643,108 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="75">
+						<Name namespace="Protocol.Params.Param.Interprete.Exceptions.Exception.Display">CheckStateAttribute</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>UnrecommendedEnabledValue</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Exception with state 'enabled'. Param '{0}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Warning</Severity>
+								<Certainty>Uncertain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>MissingAttribute</Name>
+								<GroupDescription />
+								<Description templateId="1101">
+									<InputParameters>
+										<InputParameter id="0" value="state">attributeName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2" value="">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Warning</Severity>
+								<Certainty>Uncertain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[Add missing state attribute]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="3">
+								<Name>EmptyAttribute</Name>
+								<GroupDescription />
+								<Description templateId="2101">
+									<InputParameters>
+										<InputParameter id="0" value="state">attributeName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Warning</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="4">
+								<Name>InvalidAttributeValue</Name>
+								<GroupDescription />
+								<Description templateId="4101">
+									<InputParameters>
+										<InputParameter id="0" value="Display@state">attributeName</InputParameter>
+										<InputParameter id="1">attributeValue</InputParameter>
+										<InputParameter id="2" value="Param">itemKind</InputParameter>
+										<InputParameter id="3">pid</InputParameter>
+										<InputParameter id="4" value="ID">idOrPid</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Warning</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="5">
+								<Name>UntrimmedAttributeValue</Name>
+								<GroupDescription />
+								<Description templateId="3101">
+									<InputParameters>
+										<InputParameter id="0" value="Display@state">attributeName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2">pid</InputParameter>
+										<InputParameter id="3">untrimmedValue</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Warning</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Default behavior is that the state attribute of an exception should be 'disabled'.]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="3">
