@@ -39,7 +39,7 @@
 
                 Console.WriteLine($"#Error Messages: {allErrorMessages.Count}");
 
-                string fileName = $"Validator Error Messages - {version}";
+                string fileName = $"Validator Error Messages - {version}.xlsx";
                 Directory.CreateDirectory(outputDirectory);
                 string filePath = Path.Combine(outputDirectory, fileName);
                 CreateWorksheet(allErrorMessages, filePath, validator);
@@ -63,11 +63,6 @@
         /// <param name="validator"></param>
         private static void CreateWorksheet(ICollection<FullErrorMessage> errorMessages, string filePath, Validator validator)
         {
-            if (!Path.HasExtension(filePath))
-            {
-                filePath += ".xlsx";
-            }
-
             IWorkbook workbook = new XSSFWorkbook();
 
             CreateWorksheetSplit(workbook, errorMessages, "All Error Messages", validator);
