@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Skyline.DataMiner.CICD.Tools.Validator": {
+      "commandName": "Project",
+      "commandLineArgs": "validate-protocol-solution --solution-file-path \"D:\\TESTING\\Microsoft PlatformSDKStyleWithSharedProject\\Protocol.sln\" --results-output-directory-path \"D:\\TESTING\""
+    }
+  }
+}
