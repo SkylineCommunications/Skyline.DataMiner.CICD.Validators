@@ -12,7 +12,8 @@
 
 	using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio;
 	using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
-	using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters;
+    using Skyline.DataMiner.CICD.Tools.Reporter;
+    using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters;
 
 	internal class Program
 	{
@@ -174,6 +175,8 @@ getDefaultValue: () => 300000);
 				resultWriters.Add(new ResultWriterHtml(Path.Combine(validatorResultsOutputDirectory, $"{resultsFileName}.html")));
 			}
 
+            await SendMetricAsync("protocol", "solution");
+
 			Console.WriteLine("Writing results...");
 			foreach (var writer in resultWriters)
 			{
@@ -246,5 +249,24 @@ getDefaultValue: () => 300000);
 		{
 			Console.WriteLine(outLine.Data);
 		}
-	}
+
+        private static async Task SendMetricAsync(string artifactType, string type)
+        {
+            try
+            {
+                DevOpsMetrics metrics = new DevOpsMetrics();
+                string message = $"Skyline.DataMiner.CICD.Tools.Validator|{artifactType}";
+                if (type != null)
+                {
+                    message += $"|{type}";
+                }
+
+                await metrics.ReportAsync(message);
+            }
+            catch
+            {
+                // Silently catch as if the request fails due to network issues we don't want the tool to fail.
+            }
+        }
+    }
 }

@@ -36,7 +36,7 @@
 		{
 			string protocolCode = GetProtocolCode(solutionFilePath);
 
-			return await ValidateSolution(solutionFilePath, protocolCode, includeSuppressed);
+			return await ValidateProtocolSolution(solutionFilePath, protocolCode, includeSuppressed);
 		}
 
 		private static string GetProtocolCode(string protocolFolderPath)
@@ -54,7 +54,7 @@
 			return protocolCode;
 		}
 
-		private async Task<ValidatorResults> ValidateSolution(string solutionFilePath, string protocolCode, bool includeSuppressed)
+		private async Task<ValidatorResults> ValidateProtocolSolution(string solutionFilePath, string protocolCode, bool includeSuppressed)
 		{
 			DateTime timestamp = DateTime.Now;
 			XDocument uomDoc;
