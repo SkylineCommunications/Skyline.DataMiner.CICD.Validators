@@ -197,7 +197,7 @@ getDefaultValue: () => 300000);
 			foreach(var p in solution.Projects)
 			{
 				var project = Project.Load(p.AbsolutePath, p.Name);
-				if(project.ProjectType == ProjectType.Legacy)
+				if(project.ProjectStyle == ProjectStyle.Legacy)
 				{
 					isLegacyStyleSolution = true;
 					break;
