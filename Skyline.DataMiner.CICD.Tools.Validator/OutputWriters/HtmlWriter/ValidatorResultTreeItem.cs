@@ -1,16 +1,31 @@
-﻿namespace Skyline.DataMiner.CICD.Tools.Validator
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+
+using Skyline.DataMiner.CICD.Validators.Common.Model;
+
+namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.HtmlWriter
 {
-    using System;
-    using System.Collections.Generic;
-
-     using Skyline.DataMiner.CICD.Validators.Common.Model;
-
-    /// <summary>
-    /// Represents a validator result.
-    /// </summary>
-    [Serializable]
-    public class ValidatorResult
+    internal abstract class ValidatorResultTreeItem
     {
+        public ValidatorResultTreeItem(ValidatorResult validatorResult)
+        {
+            Certainty = validatorResult.Certainty;
+            FixImpact = validatorResult.FixImpact;
+            Category = validatorResult.Category;
+            Id = validatorResult.Id;
+            Severity = validatorResult.Severity;
+            Description = validatorResult.Description;
+            Line = validatorResult.Line;
+            Column = validatorResult.Column;
+            Dve = validatorResult.Dve;
+            Suppressed = validatorResult.Suppressed;
+        }
+
         /// <summary>
         /// Gets or sets the certainty of the validator result.
         /// </summary>
@@ -71,10 +86,20 @@
         /// <value><c>true</c> if the value is suppressed; otherwise, <c>false</c>.</value>
         public bool Suppressed { get; set; }
 
+        public abstract int SuppressedCount { get; }
+
+        public abstract int NonSuppressedCount { get; }
+
         /// <summary>
-        /// Gets or sets the sub results.
+        /// Produces the HTML for this item.
         /// </summary>
-        /// <value>The sub results.</value>
-        public List<ValidatorResult> SubResults { get; set; }
+        /// <param name="stringBuilder">String builder.</param>
+        /// <param name="depth">The current node depth.</param>
+        public abstract void WriteHtml(StringBuilder stringBuilder, int depth = 2);
+
+        protected string GetState()
+        {
+            return Suppressed ? "Suppressed" : "Active";
+        }
     }
 }

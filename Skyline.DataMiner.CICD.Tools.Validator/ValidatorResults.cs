@@ -4,6 +4,9 @@
     using System.Collections.Generic;
     using System.Xml.Serialization;
 
+    /// <summary>
+    /// Represents the validator results.
+    /// </summary>
     [Serializable]
     [XmlRoot("ValidatorResults")]
     public class ValidatorResults
@@ -30,7 +33,7 @@
         /// Gets or sets the validation time stamp.
         /// </summary>
         /// <value>The validation time stamp.</value>
-        public DateTime ValidationTimestamp { get; set; }
+        public DateTime ValidationTimeStamp { get; set; }
 
         /// <summary>
         /// Gets or sets the number of non-suppressed critical issues.

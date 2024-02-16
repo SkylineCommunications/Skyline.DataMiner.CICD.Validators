@@ -3,7 +3,7 @@
     /// <summary>
     /// Results writer interface.
     /// </summary>
-    public interface IResultWriter
+    internal interface IResultWriter
     {
         /// <summary>
         /// Writes the specified validator results to the specified output file.

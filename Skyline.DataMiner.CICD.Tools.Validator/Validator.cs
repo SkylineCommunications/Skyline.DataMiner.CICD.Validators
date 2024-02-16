@@ -25,14 +25,15 @@
         /// <summary>
         /// Gets the minimum DataMiner version with its build number for which support is still given.
         /// </summary>
-        private static string MinimumSupportedDataMinerVersionWithBuildNumber => "10.1.0.0 - 9966";
+        private static string MinimumSupportedDataMinerVersionWithBuildNumber => "10.2.0.0 - 12603";
 
         /// <summary>
         /// Gets the minimum DataMiner version with its build number for which support is still given.
         /// </summary>
+        /// <value>The minimum DataMiner version with its build number for which support is still given.</value>
         private static DataMinerVersion MinSupportedDataMinerVersionWithBuildNumber { get; } = DataMinerVersion.Parse(MinimumSupportedDataMinerVersionWithBuildNumber);
 
-        public async Task<ValidatorResults> ValidateProtocolSolution(string solutionFilePath, bool includeSuppressed)
+        internal async Task<ValidatorResults> ValidateProtocolSolution(string solutionFilePath, bool includeSuppressed)
         {
             string protocolCode = GetProtocolCode(solutionFilePath);
 
@@ -41,7 +42,7 @@
 
         private static string GetProtocolCode(string protocolFolderPath)
         {
-            var solutionDirectoryPath = new FileInfo(protocolFolderPath).Directory.FullName;
+            var solutionDirectoryPath = Path.GetDirectoryName(protocolFolderPath);
 
             string protocolFilePath = Path.GetFullPath(Path.Combine(solutionDirectoryPath, "protocol.xml"));
 
@@ -63,7 +64,7 @@
 
             using CancellationTokenSource cts = new CancellationTokenSource();
 
-            var workspace = Microsoft.CodeAnalysis.MSBuild.MSBuildWorkspace.Create();
+           var workspace = Microsoft.CodeAnalysis.MSBuild.MSBuildWorkspace.Create();
             var solution = await workspace.OpenSolutionAsync(solutionFilePath, cancellationToken: cts.Token);
 
             var parser = new Parser(protocolCode);
@@ -106,7 +107,7 @@
             results.Version = model.Protocol?.Version?.Value;
 
             results.ValidatorVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            results.ValidationTimestamp = timestamp;
+            results.ValidationTimeStamp = timestamp;
 
             return results;
         }
@@ -115,11 +116,32 @@
         {
             foreach (var validatorResult in subResults)
             {
+                //if (validatorResult.Suppressed == false)
+                //{
+                //    if (validatorResult.SubResults?.Count > 0)
+                //    {
+                //        ProcessSubresults(validatorResults, validatorResult.SubResults, includeSuppressed);
+                //    }
+                //    else
+                //    {
+                //        AddIssueToCounter(validatorResults, validatorResult.Severity, false);
+                //    }
+                //}
+                //else
+                //{
+                //    AddIssueToCounter(validatorResults, validatorResult.Severity, true);
+                //}
+
                 if (validatorResult.Suppressed == false)
                 {
                     if (validatorResult.SubResults?.Count > 0)
                     {
                         ProcessSubresults(validatorResults, validatorResult.SubResults, includeSuppressed);
+
+                        if(!validatorResult.SubResults.Any(validatorResult => !validatorResult.Suppressed))
+                        {
+                            validatorResult.Suppressed = true;
+                        }
                     }
                     else
                     {
@@ -130,6 +152,7 @@
                 {
                     AddIssueToCounter(validatorResults, validatorResult.Severity, true);
                 }
+
             }
 
             if (subResults.Count > 0 && !includeSuppressed)

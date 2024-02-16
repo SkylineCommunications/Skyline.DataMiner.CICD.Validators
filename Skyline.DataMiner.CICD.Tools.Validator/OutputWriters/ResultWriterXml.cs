@@ -4,20 +4,24 @@
     using System.IO;
     using System.Xml.Serialization;
 
+    using Microsoft.Extensions.Logging;
+
     internal class ResultWriterXml : IResultWriter
     {
         private readonly string resultsFilePath;
+        private readonly ILogger logger;
 
-        public ResultWriterXml(string resultsFilePath)
+        public ResultWriterXml(string resultsFilePath, ILogger logger)
         {
             this.resultsFilePath = resultsFilePath;
+            this.logger = logger;
         }
 
         public void WriteResults(ValidatorResults validatorResults)
         {
-            Console.WriteLine("  Writing results to " + resultsFilePath + "...");
+            logger.LogInformation("  Writing results to " + resultsFilePath + "...");
 
-            FileStream fs = new FileStream(resultsFilePath, FileMode.OpenOrCreate);
+            FileStream fs = new FileStream(resultsFilePath, FileMode.Create);
             XmlSerializer s = new XmlSerializer(typeof(ValidatorResults));
             s.Serialize(fs, validatorResults);
 

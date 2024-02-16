@@ -2,10 +2,10 @@
 
 ## About
 
-Validates a DataMiner artifact, artifacts to the Skyline DataMiner catalog (https://catalog.dataminer.services).
+Validates a DataMiner artifact.
 
 > **Note**
-> Currently this tool only works for DataMiner protocol Visual Studio solutions.
+> Currently this tool only supports DataMiner protocol Visual Studio solutions.
 > 
 > Protocol packages (.dmprotocol) are not supported yet.
 
@@ -48,4 +48,4 @@ To obtain more information about all the options, the following command can be u
 dataminer-validator validate-protocol-solution -h
 ```
 
-Note: By default, a build operation will be performed. If you do not want this (e.g. because the tool is being used as part of a CI/CD pipeline where one of the previous steps is a build step, you can disable it by setting the --perform-build option to false.
+Note: By default, a build operation will be performed. If you do not want this (e.g. because the tool is being used as part of a CI/CD pipeline where one of the previous steps is a build step, you can disable it by setting the `--perform-build` option to `false`.

@@ -9,6 +9,7 @@
     using System.Threading.Tasks;
 
     using Microsoft.Build.Locator;
+    using Microsoft.Extensions.Logging;
 
     using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio;
     using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
@@ -17,6 +18,16 @@
 
     internal class Program
     {
+        private readonly ILogger logger;
+
+        public Program()
+        {
+            using (ILoggerFactory factory = LoggerFactory.Create(builder => builder.AddSimpleConsole(options => { options.IncludeScopes = true; options.SingleLine = true; })))
+            {
+                logger = factory.CreateLogger("Validator");
+            }
+        }
+
         public static async Task<int> Main(string[] args)
         {
             var rootCommand = new RootCommand("Validates a DataMiner artifact or solution.");
@@ -48,29 +59,37 @@
                 name: "--results-output-format",
                 description:
                 "Specifies the output format. Possible values: JSON, XML, HTML. Specify a space separated list to output multiple formats.",
-                getDefaultValue: () => new[] { "JSON", "XML", "HTML" });
+                getDefaultValue: () => new[] { "JSON", "HTML" })
+            {
+                Arity = ArgumentArity.ZeroOrMore,
+                IsRequired = false,
+                AllowMultipleArgumentsPerToken = true,
+            };
             outputFormatsOption.FromAmong("JSON", "XML", "HTML");
-            outputFormatsOption.Arity = ArgumentArity.ZeroOrMore;
-            outputFormatsOption.IsRequired = false;
-            outputFormatsOption.AllowMultipleArgumentsPerToken = true;
 
             var includeSuppressedOption = new Option<bool>(
                 name: "--include-suppressed",
                 description: "Specifies whether the suppressed results should also be included in the results.",
-                getDefaultValue: () => false);
-            includeSuppressedOption.IsRequired = false;
+                getDefaultValue: () => false)
+            {
+                IsRequired = false
+            };
 
             var performBuildOption = new Option<bool>(
                 name: "--perform-build",
                 description: "Specifies whether to perform a dotnet build operation.",
-                getDefaultValue: () => true);
-            performBuildOption.IsRequired = false;
+                getDefaultValue: () => true)
+            {
+                IsRequired = false
+            };
 
             var buildTimeoutOption = new Option<int>(
                 name: "build-timeout",
                 description: "Specifies the timeout for the build operation (in ms).",
-                getDefaultValue: () => 300000);
-            buildTimeoutOption.IsRequired = false;
+                getDefaultValue: () => 300000)
+            {
+                IsRequired = false
+            };
 
             // output format.
             var validateProtocolSolutionCommand = new Command("validate-protocol-solution", "Validates a protocol solution.")
@@ -86,7 +105,8 @@
 
             rootCommand.Add(validateProtocolSolutionCommand);
 
-            validateProtocolSolutionCommand.SetHandler(ValidateProtocolSolution, solutionFilePathOption, validatorResultsOutputDirectoryOption, validatorResultsFileNameOption, outputFormatsOption, includeSuppressedOption, performBuildOption, buildTimeoutOption);
+            var program = new Program();
+            validateProtocolSolutionCommand.SetHandler(program.ValidateProtocolSolution, solutionFilePathOption, validatorResultsOutputDirectoryOption, validatorResultsFileNameOption, outputFormatsOption, includeSuppressedOption, performBuildOption, buildTimeoutOption);
 
             int value = await rootCommand.InvokeAsync(args);
             return value;
@@ -105,39 +125,47 @@
         /// <returns>Result value 0 indicates success.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="solutionFilePath"/> is <see langword="null"/>.</exception>
         /// <exception cref="ArgumentException">Invalid solution file path.</exception>
-        public static async Task<int> ValidateProtocolSolution(string solutionFilePath, string validatorResultsOutputDirectory, string validatorResultsFileName, string[] outputFormats, bool includeSuppressed, bool performBuild, int buildTimeout)
+        public async Task<int> ValidateProtocolSolution(string solutionFilePath, string validatorResultsOutputDirectory, string validatorResultsFileName, string[] outputFormats, bool includeSuppressed, bool performBuild, int buildTimeout)
         {
-            if (solutionFilePath == null)
-                throw new ArgumentNullException(nameof(solutionFilePath));
+            if (solutionFilePath == null) throw new ArgumentNullException(nameof(solutionFilePath));
 
-            if (String.IsNullOrEmpty(solutionFilePath))
-                throw new ArgumentException("Invalid solution file path.", nameof(solutionFilePath));
+            if (String.IsNullOrEmpty(solutionFilePath)) throw new ArgumentException("Invalid solution file path.", nameof(solutionFilePath));
 
             solutionFilePath = Path.GetFullPath(solutionFilePath);
 
             if (!File.Exists(solutionFilePath)) throw new ArgumentException($"The specified solution file '{solutionFilePath}' does not exist.", nameof(solutionFilePath));
 
+            // Required for both building and loading the solution for validation.
             if (!MSBuildLocator.IsRegistered)
             {
                 MSBuildLocator.RegisterDefaults();
             }
 
-            bool isLegacyStyleSolution = IsLegacyStyleSolution(solutionFilePath);
+            var solution = Solution.Load(solutionFilePath);
+            bool isLegacyStyleSolution = IsLegacyStyleSolution(solution);
 
             if (isLegacyStyleSolution)
             {
-                Console.WriteLine("No validation performed. This tool can only validate solutions that use the SDK-style project format. This solution uses the legacy-style project format. Consider migrating to the SDK-style project format.");
+                logger.LogError("No validation performed. This tool can only validate solutions that use the SDK-style project format. This solution uses the legacy-style project format. Consider migrating to the SDK-style project format.");
+                return 1;
+            }
+
+            bool isTargetingNetFramework48 = IsTargetingNetFramework48(solution);
+
+            if(!isTargetingNetFramework48)
+            {
+                logger.LogError("No validation performed. This tool can only validate solutions that target .NET Framework. The targeted version of .NET Framework must be at least version 4.8. Consider updating your targeted version in the solution project.");
                 return 1;
             }
 
             if (performBuild)
             {
-                Console.WriteLine("Performing 'dotnet build'...");
+                logger.LogInformation("Performing 'dotnet build'...");
                 BuildSolution(solutionFilePath, buildTimeout);
             }
 
             Validator validatorRunner = new Validator();
-            Console.WriteLine("Validating protocol solution...");
+            logger.LogInformation("Validating protocol solution...");
             Stopwatch sw = Stopwatch.StartNew();
             var validatorResults = await validatorRunner.ValidateProtocolSolution(solutionFilePath, includeSuppressed);
 
@@ -147,52 +175,50 @@
             }
 
             sw.Stop();
-            TimeSpan validationDuration = TimeSpan.FromMilliseconds(sw.ElapsedMilliseconds);
 
-            Console.WriteLine("Validation completed.");
+            logger.LogInformation("Validation completed.");
 
-            Console.WriteLine($"  Detected {validatorResults.CriticalIssueCount} critical issue(s).");
-            Console.WriteLine($"  Detected {validatorResults.MajorIssueCount} major issue(s).");
-            Console.WriteLine($"  Detected {validatorResults.MinorIssueCount} minor issue(s).");
+            logger.LogInformation($"  Detected {validatorResults.CriticalIssueCount} critical issue(s).");
+            logger.LogInformation($"  Detected {validatorResults.MajorIssueCount} major issue(s).");
+            logger.LogInformation($"  Detected {validatorResults.MinorIssueCount} minor issue(s).");
+            logger.LogInformation($"  Detected {validatorResults.WarningIssueCount} warning issue(s).");
 
-            Console.WriteLine("\r\n\r\nTime elapsed: " + validationDuration + "\r\n");
+            logger.LogInformation("\r\n\r\nTime elapsed: " + sw.Elapsed + "\r\n");
 
             List<IResultWriter> resultWriters = new List<IResultWriter>();
 
-            if (outputFormats.FirstOrDefault(f => String.Equals(f, "XML", StringComparison.OrdinalIgnoreCase)) != null)
+            if (outputFormats.Any(f => String.Equals(f, "XML", StringComparison.OrdinalIgnoreCase)))
             {
-                resultWriters.Add(new ResultWriterXml(Path.Combine(validatorResultsOutputDirectory, $"{validatorResultsFileName}.xml")));
+                resultWriters.Add(new ResultWriterXml(Path.Combine(validatorResultsOutputDirectory, $"{validatorResultsFileName}.xml"), logger));
             }
 
-            if (outputFormats.FirstOrDefault(f => String.Equals(f, "JSON", StringComparison.OrdinalIgnoreCase)) != null)
+            if (outputFormats.Any(f => String.Equals(f, "JSON", StringComparison.OrdinalIgnoreCase)))
             {
-                resultWriters.Add(new ResultWriterJson(Path.Combine(validatorResultsOutputDirectory, $"{validatorResultsFileName}.json")));
+                resultWriters.Add(new ResultWriterJson(Path.Combine(validatorResultsOutputDirectory, $"{validatorResultsFileName}.json"), logger));
             }
 
-            if (outputFormats.FirstOrDefault(f => String.Equals(f, "HTML", StringComparison.OrdinalIgnoreCase)) != null)
+            if (outputFormats.Any(f => String.Equals(f, "HTML", StringComparison.OrdinalIgnoreCase)))
             {
-                resultWriters.Add(new ResultWriterHtml(Path.Combine(validatorResultsOutputDirectory, $"{validatorResultsFileName}.html")));
+                resultWriters.Add(new ResultWriterHtml(Path.Combine(validatorResultsOutputDirectory, $"{validatorResultsFileName}.html"), logger));
             }
 
             await SendMetricAsync("protocol", "solution");
 
-            Console.WriteLine("Writing results...");
+            logger.LogInformation("Writing results...");
             foreach (var writer in resultWriters)
             {
                 writer.WriteResults(validatorResults);
             }
 
-            Console.WriteLine("Writing results completed");
+            logger.LogInformation("Writing results completed");
 
-            Console.WriteLine("Finished");
+            logger.LogInformation("Finished");
             return 0;
         }
 
-        private static bool IsLegacyStyleSolution(string solutionFilePath)
+        private static bool IsLegacyStyleSolution(Solution solution)
         {
             bool isLegacyStyleSolution = false;
-
-            var solution = Solution.Load(solutionFilePath);
 
             foreach (var p in solution.Projects)
             {
@@ -207,15 +233,31 @@
             return isLegacyStyleSolution;
         }
 
-        private static void BuildSolution(string solutionFilePath, int buildTimeout)
+        private static bool IsTargetingNetFramework48(Solution solution)
+        {
+            bool isTargetingNetFramework48 = true;
+
+            foreach (var p in solution.Projects)
+            {
+                var project = Project.Load(p.AbsolutePath, p.Name);
+                if (!project.TargetFrameworkMoniker.StartsWith(".NETFramework,Version=v4.8"))
+                {
+                    isTargetingNetFramework48 = false;
+                    break;
+                }
+            }
+
+            return isTargetingNetFramework48;
+        }
+
+        private void BuildSolution(string solutionFilePath, int buildTimeout)
         {
             string solutionDirectoryPath = Path.GetDirectoryName(solutionFilePath);
 
             using (Process process = new Process())
             {
-                process.StartInfo.WorkingDirectory = solutionDirectoryPath;
                 process.StartInfo.FileName = "dotnet";
-                process.StartInfo.Arguments = "build";
+                process.StartInfo.Arguments = $"build \"{solutionFilePath}\" -v m";
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.CreateNoWindow = true;
                 process.StartInfo.RedirectStandardOutput = true;
@@ -245,9 +287,9 @@
             }
         }
 
-        private static void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        private void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
         {
-            Console.WriteLine(outLine.Data);
+            logger.LogInformation(outLine.Data);
         }
 
         private static async Task SendMetricAsync(string artifactType, string type)

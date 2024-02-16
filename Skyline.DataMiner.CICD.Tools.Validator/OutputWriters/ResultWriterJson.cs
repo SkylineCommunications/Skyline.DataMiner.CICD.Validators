@@ -3,21 +3,25 @@
     using System;
     using System.IO;
 
+    using Microsoft.Extensions.Logging;
+
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
     internal class ResultWriterJson : IResultWriter
     {
         private readonly string resultsFilePath;
+        private readonly ILogger logger;
 
-        public ResultWriterJson(string resultsFilePath)
+        public ResultWriterJson(string resultsFilePath, ILogger logger)
         {
             this.resultsFilePath = resultsFilePath;
+            this.logger = logger;
         }
 
         public void WriteResults(ValidatorResults validatorResults)
         {
-            Console.WriteLine("  Writing results to " + resultsFilePath + "...");
+            logger.LogInformation("  Writing results to " + resultsFilePath + "...");
 
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Ignore;

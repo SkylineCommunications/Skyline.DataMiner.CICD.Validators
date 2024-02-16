@@ -14,10 +14,10 @@ if ($packageReference)
 
     # Use the extracted version in your pre-build event
 	$sourceFilePath = $nuget_package_installation_directory +"skyline.dataminer.xmlschemas.protocol/$version/content/Skyline/XSD/uom.xsd"
-    $destinationFilePath = "./Resources/.uom.xsd"
+    $destinationFilePath = "./Resources/uom.xsd"
 	Copy-Item -Path $sourceFilePath -Destination $destinationFilePath -Force
-	Set-Content -Path "D:\testing\version.txt" -Value "$value"
-    $VersionOfPackage = "$version"
-} else {
-    Write-Host "PackageReference for YourPackageName not found in $csprojPath"
+}
+else
+{
+    Write-Host "PackageReference for Skyline.DataMiner.XmlSchemas.Protocol not found in $csprojPath"
 }

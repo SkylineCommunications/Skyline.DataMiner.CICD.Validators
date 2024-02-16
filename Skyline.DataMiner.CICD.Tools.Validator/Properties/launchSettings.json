@@ -2,7 +2,7 @@
   "profiles": {
     "Skyline.DataMiner.CICD.Tools.Validator": {
       "commandName": "Project",
-      "commandLineArgs": "validate-protocol-solution --solution-file-path \"D:\\TESTING\\Microsoft PlatformSDKStyleWithSharedProject\\Protocol.sln\" --results-output-directory-path \"D:\\TESTING\""
+      "commandLineArgs": "validate-protocol-solution --solution-file-path \"D:\\TESTING\\Microsoft PlatformSDKStyle\\Protocol.sln\" --results-output-directory-path \"D:\\TESTING\" --results-output-format HTML JSON XML --perform-build true --include-suppressed true"
     }
   }
 }
