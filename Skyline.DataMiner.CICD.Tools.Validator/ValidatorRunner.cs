@@ -116,7 +116,7 @@
 
             if (outputFormats.Any(f => String.Equals(f, "HTML", StringComparison.OrdinalIgnoreCase)))
             {
-                resultWriters.Add(new ResultWriterHtml(Path.Combine(validatorResultsOutputDirectory, $"{validatorResultsFileName}.html"), logger));
+                resultWriters.Add(new ResultWriterHtml(Path.Combine(validatorResultsOutputDirectory, $"{validatorResultsFileName}.html"), logger, includeSuppressed));
             }
 
             await SendMetricAsync("protocol", "solution");

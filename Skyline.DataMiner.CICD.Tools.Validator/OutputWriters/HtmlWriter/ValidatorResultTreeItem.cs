@@ -97,7 +97,8 @@
         /// </summary>
         /// <param name="stringBuilder">String builder.</param>
         /// <param name="depth">The current node depth.</param>
-        public abstract void WriteHtml(StringBuilder stringBuilder, int depth = 2);
+        /// <param name="includeSuppressed">Indicates whether suppressed results are included.</param>
+        public abstract void WriteHtml(StringBuilder stringBuilder, bool includeSuppressed, int depth = 2);
 
         protected string GetState()
         {

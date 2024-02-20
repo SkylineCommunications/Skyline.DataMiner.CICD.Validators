@@ -14,11 +14,13 @@
     {
         private readonly string resultsFilePath;
         private readonly ILogger logger;
+        private readonly bool includeSuppressed;
 
-        public ResultWriterHtml(string resultsFilePath, ILogger logger)
+        public ResultWriterHtml(string resultsFilePath, ILogger logger, bool includeSuppressed)
         {
             this.resultsFilePath = resultsFilePath;
             this.logger = logger;
+            this.includeSuppressed = includeSuppressed;
         }
 
         public void WriteResults(ValidatorResults validatorResults)
@@ -59,19 +61,19 @@
             AddProtocolLine(validatorResults, stringBuilder);
             AddCategoryLine("Critical", criticalIssues.Count, validatorResults.CriticalIssueCount, validatorResults.SuppressedCriticalIssueCount, stringBuilder);
             var convertedCriticalResults = ConvertResults(criticalIssues);
-            WriteItems(convertedCriticalResults, stringBuilder);
+            WriteItems(convertedCriticalResults, stringBuilder, includeSuppressed);
 
             AddCategoryLine("Major", majorIssues.Count, validatorResults.MajorIssueCount, validatorResults.SuppressedMajorIssueCount, stringBuilder);
             var convertedMajorResults = ConvertResults(majorIssues);
-            WriteItems(convertedMajorResults, stringBuilder);
+            WriteItems(convertedMajorResults, stringBuilder, includeSuppressed);
 
             AddCategoryLine("Minor", minorIssues.Count, validatorResults.MinorIssueCount, validatorResults.SuppressedMinorIssueCount, stringBuilder);
             var convertedMinorResults = ConvertResults(minorIssues);
-            WriteItems(convertedMinorResults, stringBuilder);
+            WriteItems(convertedMinorResults, stringBuilder, includeSuppressed);
 
             AddCategoryLine("Warning", warningIssues.Count, validatorResults.WarningIssueCount, validatorResults.SuppressedWarningIssueCount, stringBuilder);
             var convertedWarningResults = ConvertResults(warningIssues);
-            WriteItems(convertedWarningResults, stringBuilder);
+            WriteItems(convertedWarningResults, stringBuilder, includeSuppressed);
 
             var templateEnd = Resources.validatorResultsTemplateEnd;
             stringBuilder.Append(templateEnd);
@@ -81,11 +83,11 @@
             File.WriteAllText(resultsFilePath, stringBuilder.ToString());
         }
 
-        private void WriteItems(List<ValidatorResultTreeItem> convertedResults, StringBuilder stringBuilder)
+        private void WriteItems(List<ValidatorResultTreeItem> convertedResults, StringBuilder stringBuilder, bool includeSuppressed)
         {
             foreach (var item in convertedResults)
             {
-                item.WriteHtml(stringBuilder);
+                item.WriteHtml(stringBuilder, includeSuppressed);
             }
         }
 
@@ -141,17 +143,27 @@
             }
         }
 
-        private static void AddProtocolLine(ValidatorResults validatorResults, StringBuilder stringBuilder)
+        private void AddProtocolLine(ValidatorResults validatorResults, StringBuilder stringBuilder)
         {
             int totalActive = validatorResults.CriticalIssueCount + validatorResults.MajorIssueCount + validatorResults.MinorIssueCount + validatorResults.WarningIssueCount;
             int totalSuppressed = validatorResults.SuppressedCriticalIssueCount + validatorResults.SuppressedMajorIssueCount + validatorResults.SuppressedMinorIssueCount + validatorResults.SuppressedWarningIssueCount;
 
             stringBuilder.AppendFormat("        <tr data-depth=\"0\" class=\"collapse level0\">{0}            <td>", Environment.NewLine);
-            stringBuilder.Append("<span class=\"toggle collapse\"></span>");
-            stringBuilder.AppendFormat("&nbsp;<span>&nbsp;</span>&nbsp;{1} v{2} ({3} active, {4} suppressed)</td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}        </tr>", Environment.NewLine, validatorResults.Protocol, validatorResults.Version, totalActive, totalSuppressed);
+            stringBuilder.AppendFormat("<span class=\"toggle collapse\"></span>&nbsp;<span>&nbsp;</span>&nbsp;{0} v{1} ", validatorResults.Protocol, validatorResults.Version);
+
+            if(includeSuppressed)
+            {
+                stringBuilder.AppendFormat("({0} active, {1} suppressed)", totalActive, totalSuppressed);
+            }
+            else
+            {
+                stringBuilder.AppendFormat("({0} active)", totalActive);
+            }
+
+            stringBuilder.AppendFormat("</td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}        </tr>", Environment.NewLine);
         }
 
-        private static void AddCategoryLine(string category, int childIssueCount, int activeCount, int suppressedCount, StringBuilder stringBuilder)
+        private void AddCategoryLine(string category, int childIssueCount, int activeCount, int suppressedCount, StringBuilder stringBuilder)
         {
             stringBuilder.AppendFormat("        <tr data-depth=\"1\" class=\"collapse level1\">{0}            <td>", Environment.NewLine);
 
@@ -164,7 +176,18 @@
                 stringBuilder.Append("<span class=\"notoggle\"></span>");
             }
 
-            stringBuilder.AppendFormat("&nbsp;<span class=\"{1}\" >&nbsp;</span>&nbsp;{2} ({3} active, {4} suppressed)</td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}        </tr>", Environment.NewLine, category.ToLower(), category, activeCount, suppressedCount);
+            stringBuilder.AppendFormat("&nbsp;<span class=\"{0}\" >&nbsp;</span>&nbsp;{1} ", category.ToLower(), category);
+
+            if (includeSuppressed)
+            {
+                stringBuilder.AppendFormat("({0} active, {1} suppressed)", activeCount, suppressedCount);
+            }
+            else
+            {
+                stringBuilder.AppendFormat("({0} active)", activeCount);
+            }
+
+            stringBuilder.AppendFormat("</td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}        </tr>", Environment.NewLine);
         }
     }
 }

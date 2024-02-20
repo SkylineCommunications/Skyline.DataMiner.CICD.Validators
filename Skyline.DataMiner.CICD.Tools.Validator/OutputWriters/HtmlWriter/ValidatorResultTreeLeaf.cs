@@ -14,7 +14,7 @@
 
         public override int NonSuppressedCount => Suppressed ? 0 : 1;
 
-        public override void WriteHtml(StringBuilder stringBuilder, int depth = 2)
+        public override void WriteHtml(StringBuilder stringBuilder, bool includeSuppressed, int depth = 2)
         {
             stringBuilder.AppendFormat("        <tr data-depth=\"{0}\" class=\"collapse level{0}{2}\">{1}            <td>", depth, Environment.NewLine, Suppressed ? " suppressed" : String.Empty);
             stringBuilder.AppendFormat("<span class=\"notoggle\"></span>");
