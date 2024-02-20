@@ -55,7 +55,7 @@
             return protocolCode;
         }
 
-        private async Task<ValidatorResults> ValidateProtocolSolution(string solutionFilePath, string protocolCode, bool includeSuppressed)
+        private static async Task<ValidatorResults> ValidateProtocolSolution(string solutionFilePath, string protocolCode, bool includeSuppressed)
         {
             DateTime timestamp = DateTime.Now;
 
@@ -109,6 +109,8 @@
             results.ValidatorVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             results.ValidationTimeStamp = timestamp;
 
+            results.SuppressedIssuesIncluded = includeSuppressed;
+
             return results;
         }
 
@@ -116,23 +118,7 @@
         {
             foreach (var validatorResult in subResults)
             {
-                //if (validatorResult.Suppressed == false)
-                //{
-                //    if (validatorResult.SubResults?.Count > 0)
-                //    {
-                //        ProcessSubresults(validatorResults, validatorResult.SubResults, includeSuppressed);
-                //    }
-                //    else
-                //    {
-                //        AddIssueToCounter(validatorResults, validatorResult.Severity, false);
-                //    }
-                //}
-                //else
-                //{
-                //    AddIssueToCounter(validatorResults, validatorResult.Severity, true);
-                //}
-
-                if (validatorResult.Suppressed == false)
+                if (!validatorResult.Suppressed)
                 {
                     if (validatorResult.SubResults?.Count > 0)
                     {
@@ -152,7 +138,6 @@
                 {
                     AddIssueToCounter(validatorResults, validatorResult.Severity, true);
                 }
-
             }
 
             if (subResults.Count > 0 && !includeSuppressed)

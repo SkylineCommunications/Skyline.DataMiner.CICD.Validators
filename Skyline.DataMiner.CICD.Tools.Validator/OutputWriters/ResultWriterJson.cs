@@ -1,6 +1,5 @@
 ﻿namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters
 {
-    using System;
     using System.IO;
 
     using Microsoft.Extensions.Logging;

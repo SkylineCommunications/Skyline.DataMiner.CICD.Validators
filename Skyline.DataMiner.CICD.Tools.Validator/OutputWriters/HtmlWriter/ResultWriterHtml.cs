@@ -83,7 +83,7 @@
 
         private void WriteItems(List<ValidatorResultTreeItem> convertedResults, StringBuilder stringBuilder)
         {
-            foreach(var item in convertedResults)
+            foreach (var item in convertedResults)
             {
                 item.WriteHtml(stringBuilder);
             }
@@ -126,7 +126,7 @@
         {
             foreach (var subresult in result.SubResults)
             {
-                if(subresult.SubResults?.Count > 0)
+                if (subresult.SubResults?.Count > 0)
                 {
                     var node = CreateTreeNode(subresult);
                     validatorResult.SubResults.Add(node);
@@ -165,35 +165,6 @@
             }
 
             stringBuilder.AppendFormat("&nbsp;<span class=\"{1}\" >&nbsp;</span>&nbsp;{2} ({3} active, {4} suppressed)</td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}            <td></td>{0}        </tr>", Environment.NewLine, category.ToLower(), category, activeCount, suppressedCount);
-        }
-
-        private static void AddResults(List<ValidatorResult> results, StringBuilder stringBuilder, int depth = 2)
-        {
-            foreach (var result in results)
-            {
-                stringBuilder.AppendFormat("        <tr data-depth=\"{0}\" class=\"collapse level{0}{2}\">{1}            <td>", depth, Environment.NewLine, result.Suppressed ? " suppressed" : String.Empty);
-
-                if (result.SubResults?.Count > 0)
-                {
-                    stringBuilder.Append("<span class=\"toggle collapse\"></span>");
-                }
-                else
-                {
-                    stringBuilder.AppendFormat("<span class=\"notoggle\"></span>");
-                }
-
-                stringBuilder.AppendFormat("&nbsp;<span class=\"{1}\" >&nbsp;</span>&nbsp;{2}</td>{0}            <td>{3}</td>{0}            <td>{4}</td>{0}            <td>{5}</td>{0}            <td>{6}</td>{0}            <td>{7}</td>{0}            <td>{8}</td>{0}            <td>{9}</td>{0}            <td>{10}</td>{0}        </tr>", Environment.NewLine, result.Severity.ToString().ToLower(), result.Description, GetState(result), result.Certainty, result.FixImpact, result.Category, result.Id, result.Line, result.Column, result.Dve);
-
-                if (result.SubResults?.Count > 0)
-                {
-                    AddResults(result.SubResults, stringBuilder, depth + 1);
-                }
-            }
-        }
-
-        private static string GetState(ValidatorResult result)
-        {
-            return result.Suppressed == false ? "Active" : "Suppressed";
         }
     }
 }

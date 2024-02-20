@@ -84,6 +84,12 @@
         public int SuppressedWarningIssueCount { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether the suppressed issues are included in the issue list.
+        /// </summary>
+        /// <value><c>true</c> if the suppressed issues are included in the issue list; otherwise, <c>false</c>.</value>
+        public bool SuppressedIssuesIncluded { get; set; }
+
+        /// <summary>
         /// Gets or sets the detected issues.
         /// </summary>
         /// <value>The detected issues.</value>

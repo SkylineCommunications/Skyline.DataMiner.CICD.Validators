@@ -23,12 +23,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Resources\MicrosoftEdgeBackups\**" />
-    <EmbeddedResource Remove="Resources\MicrosoftEdgeBackups\**" />
-    <None Remove="Resources\MicrosoftEdgeBackups\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="" />
     <None Include="LICENSE.txt" Pack="true" PackagePath="" />
     <None Include="nuget\Icon.png" Pack="true" PackagePath="" />
@@ -37,12 +31,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Locator" Version="1.5.5" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.7.2" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" IncludeAssets="all" PrivateAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.11.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="3.11.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.8-c" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.8" />
     <PackageReference Include="Skyline.DataMiner.CICD.Tools.Reporter" Version="1.0.1" />
     <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.2" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />

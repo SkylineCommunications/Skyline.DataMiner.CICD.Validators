@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text;
-
-namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.HtmlWriter
+﻿namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.HtmlWriter
 {
+    using System;
+    using System.Text;
+
     internal class ValidatorResultTreeLeaf : ValidatorResultTreeItem
     {
         public ValidatorResultTreeLeaf(ValidatorResult validatorResult) : base(validatorResult)

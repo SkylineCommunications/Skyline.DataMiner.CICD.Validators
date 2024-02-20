@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.HtmlWriter
+﻿namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.HtmlWriter
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     internal class ValidatorResultTreeNode : ValidatorResultTreeItem
     {
         private int suppressedCount;
         private int nonSuppressedCount;
-
 
         public ValidatorResultTreeNode(ValidatorResult validatorResult) : base(validatorResult)
         {
@@ -21,9 +20,9 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.HtmlWriter
         /// <value>The sub results.</value>
         public List<ValidatorResultTreeItem> SubResults { get; }
 
-        public override int SuppressedCount { get { return suppressedCount; } }
+        public override int SuppressedCount => suppressedCount;
 
-        public override int NonSuppressedCount { get { return nonSuppressedCount; } }
+        public override int NonSuppressedCount => nonSuppressedCount;
 
         private void AddSubResults(StringBuilder stringBuilder, int depth = 2)
         {
