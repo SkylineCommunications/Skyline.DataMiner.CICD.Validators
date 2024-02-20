@@ -63,4 +63,10 @@
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="powershell.exe -ExecutionPolicy Bypass -File prebuild.ps1 $(NuGetPackageRoot)" />
   </Target>
+
+  <ItemGroup>
+    <SonarQubeSetting Include="sonar.exclusions">
+      <Value>Resources/**</Value>
+    </SonarQubeSetting>
+  </ItemGroup>
 </Project>

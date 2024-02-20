@@ -50,12 +50,6 @@
 
             if (!File.Exists(solutionFilePath)) throw new ArgumentException($"The specified solution file '{solutionFilePath}' does not exist.", nameof(solutionFilePath));
 
-            // Required for both building solution and for loading the MSBuildWorkspace to perform validation.
-            if (!MSBuildLocator.IsRegistered)
-            {
-                MSBuildLocator.RegisterDefaults();
-            }
-
             var solution = Solution.Load(solutionFilePath);
             bool isLegacyStyleSolution = IsLegacyStyleSolution(solution);
             bool isTargetingNetFramework48 = IsTargetingNetFramework48(solution);
@@ -73,6 +67,12 @@
             if (isLegacyStyleSolution || !isTargetingNetFramework48)
             {
                 return 1;
+            }
+
+            // Required for both building solution and for loading the MSBuildWorkspace to perform validation.
+            if (!MSBuildLocator.IsRegistered)
+            {
+                MSBuildLocator.RegisterDefaults();
             }
 
             if (performBuild)
@@ -180,7 +180,7 @@
                 process.StartInfo.RedirectStandardError = true;
 
                 process.OutputDataReceived += (sender, args) => { if (args.Data != null) logger.LogInformation(args.Data); };
-                process.ErrorDataReceived += (sender, args) => { if (args.Data != null) logger.LogError(args?.Data); };
+                process.ErrorDataReceived += (sender, args) => { if (args.Data != null) logger.LogError(args.Data); };
 
                 process.Start();
                 process.BeginOutputReadLine();
@@ -189,6 +189,7 @@
 
                 if (exited)
                 {
+                    // See https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process.exitcode?view=net-8.0#remarks
                     process.WaitForExit();
                 }
 
@@ -201,11 +202,6 @@
                     throw new InvalidOperationException("Could not build the solution.");
                 }
             }
-        }
-
-        private void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
-        {
-            logger.LogInformation(outLine.Data);
         }
 
         private static async Task SendMetricAsync(string artifactType, string type)

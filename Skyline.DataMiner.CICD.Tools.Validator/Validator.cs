@@ -64,7 +64,7 @@
 
             using CancellationTokenSource cts = new CancellationTokenSource();
 
-           var workspace = Microsoft.CodeAnalysis.MSBuild.MSBuildWorkspace.Create();
+            var workspace = Microsoft.CodeAnalysis.MSBuild.MSBuildWorkspace.Create();
             var solution = await workspace.OpenSolutionAsync(solutionFilePath, cancellationToken: cts.Token);
 
             var parser = new Parser(protocolCode);
@@ -124,7 +124,7 @@
                     {
                         ProcessSubresults(validatorResults, validatorResult.SubResults, includeSuppressed);
 
-                        if(!validatorResult.SubResults.Any(validatorResult => !validatorResult.Suppressed))
+                        if (!validatorResult.SubResults.Any(validatorResult => !validatorResult.Suppressed))
                         {
                             validatorResult.Suppressed = true;
                         }
