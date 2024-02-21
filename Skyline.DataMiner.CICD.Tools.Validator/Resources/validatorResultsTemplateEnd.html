@@ -1,0 +1,60 @@
+    </table>
+<script type="text/javascript">//<![CDATA[
+document.addEventListener('DOMContentLoaded', function() {
+    [].forEach.call(document.querySelectorAll('#resultstable .toggle'), function(el) {
+  el.addEventListener('click', function() {
+    var el = this;
+    var tr = el.closest('tr');
+    var children = findChildren(tr);
+    var subnodes = children.filter(function(element) {
+      return element.matches('.expand');
+    });
+    subnodes.forEach(function(subnode) {
+      var subnodeChildren = findChildren(subnode);
+      children = children.filter(function(element) {
+          return !subnodeChildren.includes(element);
+      });
+            console.log(children);
+      //children = children.not(subnodeChildren);
+    });
+    if (tr.classList.contains('collapse')) {
+      tr.classList.remove('collapse');
+      tr.classList.add('expand');
+      children.forEach(function(child) {
+        child.style.display = 'none';
+      });
+    } else {
+      tr.classList.remove('expand');
+      tr.classList.add('collapse');
+      children.forEach(function(child) {
+        child.style.display = '';
+      });
+    }
+  })
+})
+
+var findChildren = function(tr) {
+  var depth = tr.dataset.depth;
+  var elements = [...document.querySelectorAll('#resultstable tr')].filter(function(element) {
+    return element.dataset.depth <= depth;
+  });
+  var next = nextUntil(tr, elements);
+  return next;
+};
+
+var nextUntil = function(elem, elements, filter) {
+  var siblings = [];
+  elem = elem.nextElementSibling;
+  while (elem) {
+    if (elements.includes(elem)) break;
+    if (filter && !elem.matches(filter)) {
+      elem = elem.nextElementSibling;
+      continue;
+    }
+    siblings.push(elem);
+    elem = elem.nextElementSibling;
+  }
+  return siblings;
+};
+});
+  //]]></script>

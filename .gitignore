@@ -361,3 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+Skyline.DataMiner.CICD.Tools.Validator/Properties/launchSettings.json
