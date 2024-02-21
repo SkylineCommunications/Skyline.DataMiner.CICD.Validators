@@ -112,6 +112,12 @@
             await SendMetricAsync("protocol", "solution");
 
             logger.LogInformation("Writing results...");
+
+            if (!Directory.Exists(validatorResultsOutputDirectory))
+            {
+                Directory.CreateDirectory(validatorResultsOutputDirectory);
+            }
+
             foreach (var writer in resultWriters)
             {
                 writer.WriteResults(validatorResults);
