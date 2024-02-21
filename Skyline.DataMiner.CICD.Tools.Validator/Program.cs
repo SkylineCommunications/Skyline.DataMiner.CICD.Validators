@@ -18,14 +18,14 @@
             solutionFilePathOption.LegalFilePathsOnly();
 
             var validatorResultsOutputDirectoryOption = new Option<string>(
-                name: "--results-output-directory-path",
+                name: "--output-directory",
                 description: "Path to the directory where the validator results should be stored.")
             {
                 IsRequired = true
             };
 
             var validatorResultsFileNameOption = new Option<string>(
-                name: "--results-file-name",
+                name: "--output-file-name",
                 description:
                 "Name of the results file. Note: Do not provide an extension, the extension is automatically added based on the results-output-formats option. Default: 'ValidatorResults_<protocolName>_<protocolVersion>'")
             {
@@ -33,7 +33,7 @@
             };
 
             var outputFormatsOption = new Option<string[]>(
-                name: "--results-output-format",
+                name: "--output-format",
                 description:
                 "Specifies the output format. Possible values: JSON, XML, HTML. Specify a space separated list to output multiple formats.",
                 getDefaultValue: () => new[] { "JSON", "HTML" })
@@ -52,17 +52,17 @@
                 IsRequired = false
             };
 
-            var performBuildOption = new Option<bool>(
-                name: "--perform-build",
-                description: "Specifies whether to perform a dotnet build operation.",
+            var performRestoreOption = new Option<bool>(
+                name: "--perform-restore",
+                description: "Specifies whether to perform a dotnet restore operation.",
                 getDefaultValue: () => true)
             {
                 IsRequired = false
             };
 
-            var buildTimeoutOption = new Option<int>(
-                name: "build-timeout",
-                description: "Specifies the timeout for the build operation (in ms).",
+            var restoreTimeoutOption = new Option<int>(
+                name: "--restore-timeout",
+                description: "Specifies the timeout for the restore operation (in ms).",
                 getDefaultValue: () => 300000)
             {
                 IsRequired = false
@@ -76,14 +76,14 @@
                 validatorResultsFileNameOption,
                 outputFormatsOption,
                 includeSuppressedOption,
-                performBuildOption,
-                buildTimeoutOption
+                performRestoreOption,
+                restoreTimeoutOption
             };
 
             rootCommand.Add(validateProtocolSolutionCommand);
 
             var validatorRunner = new ValidatorRunner();
-            validateProtocolSolutionCommand.SetHandler(validatorRunner.ValidateProtocolSolution, solutionFilePathOption, validatorResultsOutputDirectoryOption, validatorResultsFileNameOption, outputFormatsOption, includeSuppressedOption, performBuildOption, buildTimeoutOption);
+            validateProtocolSolutionCommand.SetHandler(validatorRunner.ValidateProtocolSolution, solutionFilePathOption, validatorResultsOutputDirectoryOption, validatorResultsFileNameOption, outputFormatsOption, includeSuppressedOption, performRestoreOption, restoreTimeoutOption);
 
             int value = await rootCommand.InvokeAsync(args);
             return value;

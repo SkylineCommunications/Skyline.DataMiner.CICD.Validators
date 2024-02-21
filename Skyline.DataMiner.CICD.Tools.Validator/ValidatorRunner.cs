@@ -35,12 +35,12 @@
         /// <param name="validatorResultsFileName">The file name of the results.</param>
         /// <param name="outputFormats">The output formats.</param>
         /// <param name="includeSuppressed"><c>true</c> to include suppressed results; otherwise, <c>false</c>.</param>
-        /// <param name="performBuild"><c>true</c> to perform a build; otherwise, <c>false</c>.</param>
-        /// <param name="buildTimeout">The build timeout.</param>
+        /// <param name="performRestore"><c>true</c> to perform a restore of the NuGet packages; otherwise, <c>false</c>.</param>
+        /// <param name="restoreTimeout">The restore timeout.</param>
         /// <returns>Result value 0 indicates success.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="solutionFilePath"/> is <see langword="null"/>.</exception>
         /// <exception cref="ArgumentException">Invalid solution file path.</exception>
-        public async Task<int> ValidateProtocolSolution(string solutionFilePath, string validatorResultsOutputDirectory, string validatorResultsFileName, string[] outputFormats, bool includeSuppressed, bool performBuild, int buildTimeout)
+        public async Task<int> ValidateProtocolSolution(string solutionFilePath, string validatorResultsOutputDirectory, string validatorResultsFileName, string[] outputFormats, bool includeSuppressed, bool performRestore, int restoreTimeout)
         {
             if (solutionFilePath == null) throw new ArgumentNullException(nameof(solutionFilePath));
 
@@ -50,35 +50,25 @@
 
             if (!File.Exists(solutionFilePath)) throw new ArgumentException($"The specified solution file '{solutionFilePath}' does not exist.", nameof(solutionFilePath));
 
-            var solution = Solution.Load(solutionFilePath);
-            bool isLegacyStyleSolution = IsLegacyStyleSolution(solution);
-            bool isTargetingNetFramework48 = IsTargetingNetFramework48(solution);
-
-            if (isLegacyStyleSolution)
-            {
-                logger.LogError("No validation performed. This tool can only validate solutions that use the SDK-style project format. This solution uses the legacy-style project format. Consider migrating to the SDK-style project format.");
-            }
-
-            if (!isTargetingNetFramework48)
-            {
-                logger.LogError("No validation performed. This tool can only validate solutions that target .NET Framework. The targeted version of .NET Framework must be at least version 4.8. Consider updating your targeted version in the solution project.");
-            }
-
-            if (isLegacyStyleSolution || !isTargetingNetFramework48)
-            {
-                return 1;
-            }
-
             // Required for both building solution and for loading the MSBuildWorkspace to perform validation.
             if (!MSBuildLocator.IsRegistered)
             {
                 MSBuildLocator.RegisterDefaults();
             }
 
-            if (performBuild)
+            var solution = Solution.Load(solutionFilePath);
+            bool isLegacyStyleSolution = IsLegacyStyleSolution(solution);
+
+            if (isLegacyStyleSolution)
             {
-                logger.LogInformation("Performing 'dotnet build'...");
-                BuildSolution(solutionFilePath, buildTimeout);
+                logger.LogError("No validation performed. This tool can only validate solutions that use the SDK-style project format. This solution uses the legacy-style project format. Consider migrating to the SDK-style project format.");
+                return 1;
+            }
+
+            if (performRestore)
+            {
+                logger.LogInformation("Performing 'dotnet restore'...");
+                RestoreSolution(solutionFilePath, restoreTimeout);
             }
 
             Validator validatorRunner = new Validator();
@@ -151,29 +141,12 @@
             return isLegacyStyleSolution;
         }
 
-        private static bool IsTargetingNetFramework48(Solution solution)
-        {
-            bool isTargetingNetFramework48 = true;
-
-            foreach (var p in solution.Projects)
-            {
-                var project = solution.LoadProject(p);
-                if (!project.TargetFrameworkMoniker.StartsWith(".NETFramework,Version=v4.8"))
-                {
-                    isTargetingNetFramework48 = false;
-                    break;
-                }
-            }
-
-            return isTargetingNetFramework48;
-        }
-
-        private void BuildSolution(string solutionFilePath, int buildTimeout)
+        private void RestoreSolution(string solutionFilePath, int buildTimeout)
         {
             using (Process process = new Process())
             {
                 process.StartInfo.FileName = "dotnet";
-                process.StartInfo.Arguments = $"build \"{solutionFilePath}\" /property:WarningLevel=0";
+                process.StartInfo.Arguments = $"restore \"{solutionFilePath}\"";
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.CreateNoWindow = true;
                 process.StartInfo.RedirectStandardOutput = true;
@@ -193,13 +166,13 @@
                     process.WaitForExit();
                 }
 
-                if (!exited) throw new TimeoutException("The build of the solution timed out.");
+                if (!exited) throw new TimeoutException("The restore of the solution timed out.");
 
                 var exitCode = process.ExitCode;
 
                 if (exitCode != 0)
                 {
-                    throw new InvalidOperationException("Could not build the solution.");
+                    throw new InvalidOperationException("Could not restore the solution.");
                 }
             }
         }

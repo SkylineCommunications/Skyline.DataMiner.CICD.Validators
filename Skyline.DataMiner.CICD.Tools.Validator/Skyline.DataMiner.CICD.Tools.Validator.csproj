@@ -27,7 +27,7 @@
     <None Include="LICENSE.txt" Pack="true" PackagePath="" />
     <None Include="nuget\Icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Locator" Version="1.5.5" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.7.2" ExcludeAssets="runtime" />
@@ -39,8 +39,14 @@
     <PackageReference Include="Skyline.DataMiner.CICD.Tools.Reporter" Version="1.0.1" />
     <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.0.2" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="NuGet.Common" Version="6.6.1" ExcludeAssets="runtime" />
+    <PackageReference Include="NuGet.Configuration" Version="6.6.1" ExcludeAssets="runtime" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.6.1" ExcludeAssets="runtime" />
+    <PackageReference Include="NuGet.Packaging" Version="6.6.1" ExcludeAssets="runtime" />
+    <PackageReference Include="NuGet.Protocol" Version="6.6.1" ExcludeAssets="runtime" />
+    <PackageReference Include="NuGet.Versioning" Version="6.6.1" ExcludeAssets="runtime" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\Protocol\Protocol.csproj" />
   </ItemGroup>
