@@ -48,32 +48,7 @@
 
             solutionPath = Path.GetFullPath(solutionPath);
 
-            string solutionFilePath;
-
-            if (File.Exists(solutionPath))
-            {
-                solutionFilePath = solutionPath;
-            }
-            else if (Directory.Exists(solutionPath))
-            {
-                var slnFiles = Directory.GetFiles(solutionPath, "*.sln", SearchOption.TopDirectoryOnly);
-
-                if (slnFiles.Length == 0)
-                {
-                    throw new ArgumentException($"The specified solution path '{solutionPath}' does not contain a .sln file.");
-                }
-
-                if (slnFiles.Length > 1)
-                {
-                    throw new ArgumentException($"The specified solution path '{solutionPath}' contains multiple .sln files. Specify the full path of the solution you want to validate.");
-                }
-
-                solutionFilePath = slnFiles[0];
-            }
-            else
-            {
-                throw new ArgumentException($"The specified solution path '{solutionPath}' does not exist.", nameof(solutionPath));
-            }
+            string solutionFilePath = GetSolutionFilePath(solutionPath);
 
             // Required for both building solution and for loading the MSBuildWorkspace to perform validation.
             if (!MSBuildLocator.IsRegistered)
@@ -152,6 +127,38 @@
 
             logger.LogInformation("Finished");
             return 0;
+        }
+
+        private string GetSolutionFilePath(string solutionPath)
+        {
+            string solutionFilePath;
+
+            if (File.Exists(solutionPath))
+            {
+                solutionFilePath = solutionPath;
+            }
+            else if (Directory.Exists(solutionPath))
+            {
+                var slnFiles = Directory.GetFiles(solutionPath, "*.sln", SearchOption.TopDirectoryOnly);
+
+                if (slnFiles.Length == 0)
+                {
+                    throw new ArgumentException($"The specified solution path '{solutionPath}' does not contain a .sln file.");
+                }
+
+                if (slnFiles.Length > 1)
+                {
+                    throw new ArgumentException($"The specified solution path '{solutionPath}' contains multiple .sln files. Specify the full path of the solution you want to validate.");
+                }
+
+                solutionFilePath = slnFiles[0];
+            }
+            else
+            {
+                throw new ArgumentException($"The specified solution path '{solutionPath}' does not exist.", nameof(solutionPath));
+            }
+
+            return solutionFilePath;
         }
 
         private static bool IsLegacyStyleSolution(Solution solution)
