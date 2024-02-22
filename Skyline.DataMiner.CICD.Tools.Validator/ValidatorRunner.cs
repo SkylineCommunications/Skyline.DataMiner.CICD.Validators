@@ -30,7 +30,7 @@
         /// <summary>
         /// Validates the specified solution.
         /// </summary>
-        /// <param name="solutionFilePath">The solution (.sln) file path.</param>
+        /// <param name="solutionPath">The solution (.sln) file path.</param>
         /// <param name="validatorResultsOutputDirectory">The output directory.</param>
         /// <param name="validatorResultsFileName">The file name of the results.</param>
         /// <param name="outputFormats">The output formats.</param>
@@ -38,17 +38,17 @@
         /// <param name="performRestore"><c>true</c> to perform a restore of the NuGet packages; otherwise, <c>false</c>.</param>
         /// <param name="restoreTimeout">The restore timeout.</param>
         /// <returns>Result value 0 indicates success.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="solutionFilePath"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="solutionPath"/> is <see langword="null"/>.</exception>
         /// <exception cref="ArgumentException">Invalid solution file path.</exception>
-        public async Task<int> ValidateProtocolSolution(string solutionFilePath, string validatorResultsOutputDirectory, string validatorResultsFileName, string[] outputFormats, bool includeSuppressed, bool performRestore, int restoreTimeout)
+        public async Task<int> ValidateProtocolSolution(string solutionPath, string validatorResultsOutputDirectory, string validatorResultsFileName, string[] outputFormats, bool includeSuppressed, bool performRestore, int restoreTimeout)
         {
-            if (solutionFilePath == null) throw new ArgumentNullException(nameof(solutionFilePath));
+            if (solutionPath == null) throw new ArgumentNullException(nameof(solutionPath));
 
-            if (String.IsNullOrEmpty(solutionFilePath)) throw new ArgumentException("Invalid solution file path.", nameof(solutionFilePath));
+            if (String.IsNullOrEmpty(solutionPath)) throw new ArgumentException("Invalid solution path.", nameof(solutionPath));
 
-            solutionFilePath = Path.GetFullPath(solutionFilePath);
+            solutionPath = Path.GetFullPath(solutionPath);
 
-            if (!File.Exists(solutionFilePath)) throw new ArgumentException($"The specified solution file '{solutionFilePath}' does not exist.", nameof(solutionFilePath));
+            string solutionFilePath = GetSolutionFilePath(solutionPath);
 
             // Required for both building solution and for loading the MSBuildWorkspace to perform validation.
             if (!MSBuildLocator.IsRegistered)
@@ -67,12 +67,12 @@
 
             if (performRestore)
             {
-                logger.LogInformation("Performing 'dotnet restore'...");
+                logger.LogInformation($"Performing 'dotnet restore' on '{solutionFilePath}'...");
                 RestoreSolution(solutionFilePath, restoreTimeout);
             }
 
             Validator validatorRunner = new Validator();
-            logger.LogInformation("Validating protocol solution...");
+            logger.LogInformation($"Validating protocol solution '{solutionFilePath}'...");
             Stopwatch sw = Stopwatch.StartNew();
             var validatorResults = await validatorRunner.ValidateProtocolSolution(solutionFilePath, includeSuppressed);
 
@@ -112,6 +112,12 @@
             await SendMetricAsync("protocol", "solution");
 
             logger.LogInformation("Writing results...");
+
+            if (!Directory.Exists(validatorResultsOutputDirectory))
+            {
+                Directory.CreateDirectory(validatorResultsOutputDirectory);
+            }
+
             foreach (var writer in resultWriters)
             {
                 writer.WriteResults(validatorResults);
@@ -121,6 +127,38 @@
 
             logger.LogInformation("Finished");
             return 0;
+        }
+
+        private string GetSolutionFilePath(string solutionPath)
+        {
+            string solutionFilePath;
+
+            if (File.Exists(solutionPath))
+            {
+                solutionFilePath = solutionPath;
+            }
+            else if (Directory.Exists(solutionPath))
+            {
+                var slnFiles = Directory.GetFiles(solutionPath, "*.sln", SearchOption.TopDirectoryOnly);
+
+                if (slnFiles.Length == 0)
+                {
+                    throw new ArgumentException($"The specified solution path '{solutionPath}' does not contain a .sln file.");
+                }
+
+                if (slnFiles.Length > 1)
+                {
+                    throw new ArgumentException($"The specified solution path '{solutionPath}' contains multiple .sln files. Specify the full path of the solution you want to validate.");
+                }
+
+                solutionFilePath = slnFiles[0];
+            }
+            else
+            {
+                throw new ArgumentException($"The specified solution path '{solutionPath}' does not exist.", nameof(solutionPath));
+            }
+
+            return solutionFilePath;
         }
 
         private static bool IsLegacyStyleSolution(Solution solution)

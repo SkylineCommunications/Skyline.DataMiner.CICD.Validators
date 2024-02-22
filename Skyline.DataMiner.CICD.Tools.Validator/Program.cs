@@ -9,13 +9,13 @@
         {
             var rootCommand = new RootCommand("Validates a DataMiner artifact or solution.");
 
-            var solutionFilePathOption = new Option<string>(
-                name: "--solution-file-path",
-                description: "Path to the solution file (.sln) of the protocol solution.")
+            var solutionPathOption = new Option<string>(
+                name: "--solution-path",
+                description: "Path to a solution file (.sln) of a DataMiner protocol or a directory that contains a .sln file. Note: In case the specified directory contains multiple .sln files, you must specify the file path of a specific solution.")
             {
                 IsRequired = true
             };
-            solutionFilePathOption.LegalFilePathsOnly();
+            solutionPathOption.LegalFilePathsOnly();
 
             var validatorResultsOutputDirectoryOption = new Option<string>(
                 name: "--output-directory",
@@ -71,7 +71,7 @@
             // output format.
             var validateProtocolSolutionCommand = new Command("validate-protocol-solution", "Validates a protocol solution.")
             {
-                solutionFilePathOption,
+                solutionPathOption,
                 validatorResultsOutputDirectoryOption,
                 validatorResultsFileNameOption,
                 outputFormatsOption,
@@ -83,7 +83,7 @@
             rootCommand.Add(validateProtocolSolutionCommand);
 
             var validatorRunner = new ValidatorRunner();
-            validateProtocolSolutionCommand.SetHandler(validatorRunner.ValidateProtocolSolution, solutionFilePathOption, validatorResultsOutputDirectoryOption, validatorResultsFileNameOption, outputFormatsOption, includeSuppressedOption, performRestoreOption, restoreTimeoutOption);
+            validateProtocolSolutionCommand.SetHandler(validatorRunner.ValidateProtocolSolution, solutionPathOption, validatorResultsOutputDirectoryOption, validatorResultsFileNameOption, outputFormatsOption, includeSuppressedOption, performRestoreOption, restoreTimeoutOption);
 
             int value = await rootCommand.InvokeAsync(args);
             return value;
