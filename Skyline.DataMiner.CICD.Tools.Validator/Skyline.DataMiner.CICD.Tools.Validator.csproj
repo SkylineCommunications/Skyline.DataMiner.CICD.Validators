@@ -44,7 +44,7 @@
     <PackageReference Include="NuGet.Frameworks" Version="6.6.2" ExcludeAssets="runtime" />
     <PackageReference Include="NuGet.Packaging" Version="6.6.2" ExcludeAssets="runtime" />
     <PackageReference Include="NuGet.Protocol" Version="6.6.2" ExcludeAssets="runtime" />
-    <PackageReference Include="NuGet.Versioning" Version="6.6.2" ExcludeAssets="runtime" />
+    <PackageReference Include="NuGet.Versioning" Version="6.9.1" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <ItemGroup>
