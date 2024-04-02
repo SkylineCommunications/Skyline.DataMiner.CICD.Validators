@@ -98,7 +98,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Test = test,
                 CheckId = CheckId.CheckExceptionsTag,
                 ErrorId = ErrorIds.ExceptionIncompatibleWithParamType,
-                FullId = "2.76.1",
+                FullId = "2.36.4",
                 Category = Category.Param,
                 Severity = Severity.Minor,
                 Certainty = Certainty.Certain,
