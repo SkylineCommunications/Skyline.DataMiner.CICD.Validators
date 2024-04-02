@@ -9753,10 +9753,8 @@
 								<GroupDescription />
 								<Description templateId="9000">
 									<InputParameters>
-										<InputParameter id="0" value="Interprete/Exceptions">item1Title</InputParameter>
-										<InputParameter id="1">item1Value</InputParameter>
-										<InputParameter id="2" value="Param/Type">item2Title</InputParameter>
-										<InputParameter id="3" value="write">item2Value</InputParameter>
+										<InputParameter id="0">paramType</InputParameter>
+										<InputParameter id="1">paramId</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Minor</Severity>

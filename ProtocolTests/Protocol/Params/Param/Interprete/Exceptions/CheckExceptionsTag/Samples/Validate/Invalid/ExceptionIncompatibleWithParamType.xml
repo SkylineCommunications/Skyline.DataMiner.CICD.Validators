@@ -7,5 +7,12 @@
 				</Exceptions>
 			</Interprete>
 		</Param>
+		<Param id="2">
+			<Type>write bit</Type>
+			<Interprete>
+				<Exceptions>
+				</Exceptions>
+			</Interprete>
+		</Param>
 	</Params>
 </Protocol>

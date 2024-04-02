@@ -89,11 +89,40 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         }
     }
 
+    internal static class Error
+    {
+        public static IValidationResult ExceptionIncompatibleWithParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckExceptionsTag,
+                ErrorId = ErrorIds.ExceptionIncompatibleWithParamType,
+                FullId = "2.76.1",
+                Category = Category.Param,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Interprete/Exceptions is incompatible with Param/Type '{0}'. Param ID '{1}'.", paramType, paramId),
+                HowToFix = "Use Measurement.Discreets.Discreet tags.",
+                ExampleCode = "",
+                Details = "Do not use Exception tags to add exceptions to write parameters.",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+    }
+
     internal static class ErrorIds
     {
         public const uint UpdatedExceptionValueTag = 1;
         public const uint RemovedException = 2;
         public const uint AddedException = 3;
+        public const uint ExceptionIncompatibleWithParamType = 4;
     }
 
     /// <summary>
