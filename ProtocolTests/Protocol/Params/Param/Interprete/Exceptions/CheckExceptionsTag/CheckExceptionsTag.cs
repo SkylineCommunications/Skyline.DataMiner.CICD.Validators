@@ -57,31 +57,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.CheckExcepti
     }
 
     [TestClass]
-    public class ErrorMessages
-    {
-        [TestMethod]
-        public void Param_CheckTypeTag_ExceptionIncompatibleWithParamType()
-        {
-            // Create ErrorMessage
-            var message = Error.ExceptionIncompatibleWithParamType(null, null, null, "paramType", "paramId");
-
-            var expected = new ValidationResult
-            {
-                Severity = Severity.Minor,
-                Certainty = Certainty.Certain,
-                FixImpact = FixImpact.NonBreaking,
-                GroupDescription = "",
-                Description = "Interprete/Exceptions is incompatible with Param/Type 'paramType'. Param ID 'paramId'.",
-                Details = "Do not use Exception tags to add exceptions to write parameters.",
-                HasCodeFix = false,
-            };
-
-            // Assert
-            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
-        }
-    }
-
-    [TestClass]
     public class Compare
     {
         private readonly ICompare compare = new CheckExceptionsTag();
@@ -162,6 +137,31 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.CheckExcepti
         }
 
         #endregion
+    }
+
+    [TestClass]
+    public class ErrorMessages
+    {
+        [TestMethod]
+        public void Param_CheckTypeTag_ExceptionIncompatibleWithParamType()
+        {
+            // Create ErrorMessage
+            var message = Error.ExceptionIncompatibleWithParamType(null, null, null, "paramType", "paramId");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Interprete/Exceptions is incompatible with Param/Type 'paramType'. Param ID 'paramId'.",
+                Details = "Do not use Exception tags to add exceptions to write parameters.",
+                HasCodeFix = false,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
     }
 
     [TestClass]
