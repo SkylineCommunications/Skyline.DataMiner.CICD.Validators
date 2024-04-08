@@ -83,7 +83,7 @@
       <Version>1.3.3</Version>
     </PackageReference>
     <PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol">
-      <Version>1.0.9</Version>
+      <Version>1.0.10</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
