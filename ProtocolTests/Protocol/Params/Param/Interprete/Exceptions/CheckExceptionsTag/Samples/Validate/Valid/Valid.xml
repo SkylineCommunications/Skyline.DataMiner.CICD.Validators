@@ -1,0 +1,10 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Type>write</Type>
+		</Param>
+		<Param id="2">
+			<Type>write bit</Type>
+		</Param>
+	</Params>
+</Protocol>

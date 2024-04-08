@@ -13,8 +13,23 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckExceptionsTag, Category.Param)]
-    internal class CheckExceptionsTag : ICompare
+    internal class CheckExceptionsTag : IValidate, ICompare
     {
+        public List<IValidationResult> Validate(ValidatorContext context)
+        {
+            List<IValidationResult> results = new List<IValidationResult>();
+
+            foreach (var param in context.EachParamWithValidId())
+            {
+                if (param.IsWrite() && param.Interprete?.Exceptions != null)
+                {
+                    results.Add(Error.ExceptionIncompatibleWithParamType(this, param, param.Interprete.Exceptions, param.Type.RawValue, param.Id.RawValue));
+                }
+            }
+
+            return results;
+        }
+
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {
             var results = new List<IValidationResult>();

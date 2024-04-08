@@ -6322,6 +6322,25 @@
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[Adding an exception will have impact on existing alarm templates as an exception value is preceded by a '$' sign in the alarm template.]]></Details>
 							</ErrorMessage>
+                            <ErrorMessage id="4">
+                                <Name>ExceptionIncompatibleWithParamType</Name>
+                                <GroupDescription />
+                                <Description>
+                                    <Format>Interprete/Exceptions is incompatible with Param/Type '{0}'. Param ID '{1}'.</Format>
+                                    <InputParameters>
+                                        <InputParameter id="0">paramType</InputParameter>
+                                        <InputParameter id="1">paramId</InputParameter>
+                                    </InputParameters>
+                                </Description>
+                                <Severity>Minor</Severity>
+                                <Certainty>Certain</Certainty>
+                                <Source>Validator</Source>
+                                <FixImpact>NonBreaking</FixImpact>
+                                <HasCodeFix>False</HasCodeFix>
+                                <HowToFix><![CDATA[Use Measurement.Discreets.Discreet tags.]]></HowToFix>
+                                <ExampleCode><![CDATA[]]></ExampleCode>
+                                <Details><![CDATA[Do not use Exception tags to add exceptions to write parameters.]]></Details>
+                            </ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="37">
