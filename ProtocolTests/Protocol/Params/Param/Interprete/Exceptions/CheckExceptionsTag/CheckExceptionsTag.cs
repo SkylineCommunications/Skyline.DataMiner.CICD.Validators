@@ -143,7 +143,7 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.CheckExcepti
     public class ErrorMessages
     {
         [TestMethod]
-        public void Param_CheckTypeTag_ExceptionIncompatibleWithParamType()
+        public void Param_CheckExceptionsTag_ExceptionIncompatibleWithParamType()
         {
             // Create ErrorMessage
             var message = Error.ExceptionIncompatibleWithParamType(null, null, null, "paramType", "paramId");
