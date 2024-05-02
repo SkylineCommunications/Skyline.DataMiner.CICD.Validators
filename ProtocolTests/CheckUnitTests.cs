@@ -110,19 +110,27 @@
                 .GetAssembly(typeof(CheckTests))
                 .GetTypes()
                 .Where(x => x.Namespace != null)
-                .Select(x => x.Namespace.Replace("ProtocolTests.", String.Empty));
+                .Select(x => x.Namespace.Replace("ProtocolTests.", String.Empty))
+                .ToList();
 
             // Get all Files
             var currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            var files = Directory
+            var checkFiles = Directory
                 .GetParent(currentDirectory)
                 .Parent
                 .Parent
-                .GetFiles("*.cs", SearchOption.AllDirectories);
+                .GetFiles("Check*.cs", SearchOption.AllDirectories).ToList();
+            var csharpFiles = Directory
+                              .GetParent(currentDirectory)
+                              .Parent
+                              .Parent
+                              .GetFiles("CSharp*.cs", SearchOption.AllDirectories).ToList();
+
+            List<FileInfo> files = checkFiles.Concat(csharpFiles).ToList();
 
             files.Should().NotBeEmpty();
-
+            
             List<string> lsWrongFiles = new List<string>();
 
             string[] asExcludeDirectories =
@@ -275,7 +283,7 @@
             List<string> failedTests = new List<string>();
             foreach ((string fileName, string fileLocation, Generic.TestType testType) in allFiles)
             {
-                if (fileName == null || fileLocation.Contains("CSharpQActionCompilation"))
+                if (fileName == null || fileLocation.Contains("CSharpQActionCompilation") || fileName == "protocol.xml")
                 {
                     continue;
                 }
@@ -318,7 +326,7 @@
                 Assert.Fail(sb.ToString());
             }
 
-            (string, string, Generic.TestType) GetFileData(FileInfo fileInfo)
+            (string fileName, string directory, Generic.TestType testType) GetFileData(FileInfo fileInfo)
             {
                 Generic.TestType testType = Generic.TestType.Invalid;
                 DirectoryInfo directory = fileInfo.Directory;
@@ -461,9 +469,11 @@
             valProject = solution.Projects.Single(x => x.Name == "Protocol");
 
 #if NETFRAMEWORK
-            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests" || x.Name == "ProtocolTests(net472)");
-#elif NET
+            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests" || x.Name == "ProtocolTests(net48)");
+#elif NET6_0
             testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net6.0)");
+#elif NET8_0
+            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net8.0)");
 #endif
 
             // SDK style projects don't have each file mentioned in the csproj anymore
@@ -588,9 +598,9 @@
 
         /// <summary>
         /// Check if all the unit tests are correct.
-        /// Will fail when an unit test is encountered that doesn't have any ExpectedResults.
-        /// Will fail when an unit test is encountered that has results, but is ignored.
-        /// Will fail when an unit test is encountered without the TestMethod attribute.
+        /// Will fail when a unit test is encountered that doesn't have any ExpectedResults.
+        /// Will fail when a unit test is encountered that has results, but is ignored.
+        /// Will fail when a unit test is encountered without the TestMethod attribute.
         /// </summary>
         [TestMethod]
         public void CheckUnitTests()
@@ -721,8 +731,8 @@
         }
 
         /// <summary>
-        /// Checks if all the error messages are being used in an unit test.
-        /// Will fail when an error message is encountered that has no reference in an unit test.
+        /// Checks if all the error messages are being used in a unit test.
+        /// Will fail when an error message is encountered that has no reference in a unit test.
         /// Will fail when an error message is encountered that has no references at all. (Needs to be improved on)
         /// TODO: Expand so it checks the ErrorMessages class.
         /// </summary>
@@ -975,7 +985,7 @@
         }
 
         /// <summary>
-        /// Checks if there should be a code fix and checks if there is an unit test for it.
+        /// Checks if there should be a code fix and checks if there is a unit test for it.
         /// </summary>
         [TestMethod]
         [Ignore("Currently this one is giving errors (fix is ignored) on CodeFixes that aren't implemented yet.")]
@@ -1177,8 +1187,8 @@
 
         /// <summary>
         /// Checks if the .xml files in the project are used in UnitTests or not.
-        /// Will fail when an unit test is encountered that doesn't have a file.
-        /// Will fail when a file is encountered that doesn't have an unit test.
+        /// Will fail when a unit test is encountered that doesn't have a file.
+        /// Will fail when a file is encountered that doesn't have a unit test.
         /// </summary>
         [TestMethod]
         public void CheckFiles()
@@ -1245,6 +1255,7 @@
                         }
 
                         string fileName = String.Empty;
+                        bool isSolution = false;
                         if (isNewWay)
                         {
                             foreach (var item in method.DescendantNodes().OfType<AssignmentExpressionSyntax>())
@@ -1254,11 +1265,14 @@
                                 if (String.Equals(left, "FileName") || String.Equals(left, "FileNameBase"))
                                 {
                                     fileName = item.Right.ToString().Replace("\"", String.Empty);
-                                    break;
                                 }
                                 else if (String.Equals(left, "TestType"))
                                 {
                                     testCategory = item.Right.ToString().Replace("Generic.TestType.", String.Empty);
+                                }
+                                else if (String.Equals(left, "IsSolution"))
+                                {
+                                    isSolution = item.Right.ToString() == "true";
                                 }
                             }
                         }
@@ -1271,10 +1285,18 @@
                         // Check extension
                         if (isValidate)
                         {
-                            fileName = fileName.EndsWith(".xml") ? fileName : $"{fileName}.xml";
+                            string fullFilePath;
+                            if (isSolution)
+                            {
+                                fullFilePath = Path.Combine(nsFolder, "Samples", @class.Identifier.Text, testCategory, fileName, "protocol.xml");
+                            }
+                            else
+                            {
+                                fileName = fileName.EndsWith(".xml") ? fileName : $"{fileName}.xml";
 
-                            // Create full path
-                            string fullFilePath = Path.Combine(nsFolder, "Samples", @class.Identifier.Text, testCategory, fileName);
+                                // Create full path
+                                fullFilePath = Path.Combine(nsFolder, "Samples", @class.Identifier.Text, testCategory, fileName);
+                            }
 
                             if (allFiles.Contains(fullFilePath))
                             {

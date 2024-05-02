@@ -10,6 +10,33 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
+    internal static class Error
+    {
+        public static IValidationResult ExceptionIncompatibleWithParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckExceptionsTag,
+                ErrorId = ErrorIds.ExceptionIncompatibleWithParamType,
+                FullId = "2.36.4",
+                Category = Category.Param,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Interprete/Exceptions is incompatible with Param/Type '{0}'. Param ID '{1}'.", paramType, paramId),
+                HowToFix = "Use Measurement.Discreets.Discreet tags.",
+                ExampleCode = "",
+                Details = "Do not use Exception tags to add exceptions to write parameters.",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+    }
 
     internal static class ErrorCompare
     {
@@ -81,34 +108,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 HowToFix = "",
                 ExampleCode = "",
                 Details = "Adding an exception will have impact on existing alarm templates as an exception value is preceded by a '$' sign in the alarm template.",
-                HasCodeFix = false,
-
-                PositionNode = positionNode,
-                ReferenceNode = referenceNode,
-            };
-        }
-    }
-
-    internal static class Error
-    {
-        public static IValidationResult ExceptionIncompatibleWithParamType(IValidate test, IReadable referenceNode, IReadable positionNode, string paramType, string paramId)
-        {
-            return new ValidationResult
-            {
-                Test = test,
-                CheckId = CheckId.CheckExceptionsTag,
-                ErrorId = ErrorIds.ExceptionIncompatibleWithParamType,
-                FullId = "2.36.4",
-                Category = Category.Param,
-                Severity = Severity.Minor,
-                Certainty = Certainty.Certain,
-                Source = Source.Validator,
-                FixImpact = FixImpact.NonBreaking,
-                GroupDescription = "",
-                Description = String.Format("Interprete/Exceptions is incompatible with Param/Type '{0}'. Param ID '{1}'.", paramType, paramId),
-                HowToFix = "Use Measurement.Discreets.Discreet tags.",
-                ExampleCode = "",
-                Details = "Do not use Exception tags to add exceptions to write parameters.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

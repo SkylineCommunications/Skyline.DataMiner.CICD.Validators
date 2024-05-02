@@ -18,7 +18,7 @@
 
             try
             {
-                string path = Path.Combine(solutionDir, projectName, "bin", buildConfigurationName, "net472", "Skyline", "XSD", "protocol.xsd");
+                string path = Path.Combine(solutionDir, projectName, "bin", buildConfigurationName, "net48", "Skyline", "XSD", "protocol.xsd");
                 SchemaGenerator generator = new SchemaGenerator(path);
                 schema = generator.CreateSchema();
             }

@@ -6322,25 +6322,25 @@
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[Adding an exception will have impact on existing alarm templates as an exception value is preceded by a '$' sign in the alarm template.]]></Details>
 							</ErrorMessage>
-                            <ErrorMessage id="4">
-                                <Name>ExceptionIncompatibleWithParamType</Name>
-                                <GroupDescription />
-                                <Description>
-                                    <Format>Interprete/Exceptions is incompatible with Param/Type '{0}'. Param ID '{1}'.</Format>
-                                    <InputParameters>
-                                        <InputParameter id="0">paramType</InputParameter>
-                                        <InputParameter id="1">paramId</InputParameter>
-                                    </InputParameters>
-                                </Description>
-                                <Severity>Minor</Severity>
-                                <Certainty>Certain</Certainty>
-                                <Source>Validator</Source>
-                                <FixImpact>NonBreaking</FixImpact>
-                                <HasCodeFix>False</HasCodeFix>
-                                <HowToFix><![CDATA[Use Measurement.Discreets.Discreet tags.]]></HowToFix>
-                                <ExampleCode><![CDATA[]]></ExampleCode>
-                                <Details><![CDATA[Do not use Exception tags to add exceptions to write parameters.]]></Details>
-                            </ErrorMessage>
+							<ErrorMessage id="4">
+								<Name>ExceptionIncompatibleWithParamType</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Interprete/Exceptions is incompatible with Param/Type '{0}'. Param ID '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">paramType</InputParameter>
+										<InputParameter id="1">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Use Measurement.Discreets.Discreet tags.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Do not use Exception tags to add exceptions to write parameters.]]></Details>
+							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="37">
@@ -12034,6 +12034,53 @@
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[As the threads that execute QAction code are part of a thread pool, changing a setting on a thread in a QAction can affect other QActions of other connectors.]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
+					<Check id="38">
+						<Name namespace="Protocol.QActions.QAction">CheckAssemblies</Name>
+						<ErrorMessages />
+					</Check>
+					<Check id="39">
+						<Name namespace="Protocol.QActions">CheckAssemblies</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>UnconsolidatedPackageReference</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Package '{0}' has multiple versions across different QActions.</Format>
+									<InputParameters>
+										<InputParameter id="0">packageId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Consolidate the package references so they have the same version across all projects.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[When 2 or more QActions are using a different version of a NuGet, you can have MissingMethodExceptions.[NewLine]This is why you need to update NuGet packages across a solution.]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>UnconsolidatedPackageReference_Sub</Name>
+								<GroupDescription />
+								<Description>
+									<Format>QAction '{0}' has package '{1}' with version '{2}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">qactionId</InputParameter>
+										<InputParameter id="1">packageId</InputParameter>
+										<InputParameter id="2">packageVersion</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Consolidate the package references so they have the same version across all projects.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[When 2 or more QActions are using a different version of a NuGet, you can have MissingMethodExceptions.[NewLine]This is why you need to update NuGet packages across a solution.]]></Details>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>

@@ -91,7 +91,7 @@
                 var result = node.Attributes["schemaLocation"];
                 if (result != null)
                 {
-                    result.Value = $@".\..\{projectName}\bin\{buildConfigurationName}\net472\Skyline\XSD\" + result.Value;
+                    result.Value = $@".\..\{projectName}\bin\{buildConfigurationName}\net48\Skyline\XSD\" + result.Value;
                 }
             }
         }
