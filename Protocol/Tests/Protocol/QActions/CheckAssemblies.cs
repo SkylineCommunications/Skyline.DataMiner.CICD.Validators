@@ -33,12 +33,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 new Dictionary<string, List<(string Version, IQActionsQAction qAction)>>();
             foreach (CompiledQActionProject compiledQActionProject in context.CompiledQActions.Values)
             {
+                // Load csproj
                 var project = Project.Load(compiledQActionProject.Project.FilePath, compiledQActionProject.Project.Name);
 
-                bool packageReferencesFound = project.PackageReferences.Any();
-
-                if (!packageReferencesFound)
+                if (!project.PackageReferences.Any())
                 {
+                    // No NuGet packages being used
                     continue;
                 }
 
@@ -58,18 +58,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
             {
                 string packageName = packagesWithVersion.Key;
 
-                if (packagesWithVersion.Value.Select(x => x.Version).Distinct().Count() > 1)
+                if (packagesWithVersion.Value.Select(tuple => tuple.Version).Distinct().Count() <= 1)
                 {
-                    IValidationResult mainError = Error.UnconsolidatedPackageReference(this, context.ProtocolModel.Protocol.QActions,
-                        context.ProtocolModel.Protocol.QActions,
-                        packageName);
-                    foreach ((string version, IQActionsQAction qAction) in packagesWithVersion.Value)
-                    {
-                        mainError.WithSubResults(Error.UnconsolidatedPackageReference_Sub(this, qAction, qAction, qAction.Id.RawValue, packageName, version));
-                    }
-
-                    results.Add(mainError);
+                    // No multiple versions found.
+                    continue;
                 }
+
+                IValidationResult mainError = Error.UnconsolidatedPackageReference(this, context.ProtocolModel.Protocol.QActions,
+                    context.ProtocolModel.Protocol.QActions,
+                    packageName);
+                foreach ((string version, IQActionsQAction qAction) in packagesWithVersion.Value)
+                {
+                    mainError.WithSubResults(Error.UnconsolidatedPackageReference_Sub(this, qAction, qAction, qAction.Id.RawValue, packageName, version));
+                }
+
+                results.Add(mainError);
             }
 
             return results;
