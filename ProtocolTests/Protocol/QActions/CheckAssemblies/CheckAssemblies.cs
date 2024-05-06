@@ -104,7 +104,10 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Package 'packageId' has multiple versions across different QActions.",
-                Details = "When 2 or more QActions are using a different version of a NuGet, you can have MissingMethodExceptions." + Environment.NewLine + "This is why you need to update NuGet packages across a solution.",
+                Details = "When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException." + Environment.NewLine +
+                          "To fix these issues, it's important to synchronize NuGet package versions across the entire solution." + Environment.NewLine +
+                          "" + Environment.NewLine +
+                          "However, it's important to note that with 'Skyline.DataMiner.Dev.*' packages (aka DevPacks) this isn't blindly updated. These DevPacks represent the DataMinerVersion that is being developed against.",
                 HasCodeFix = false,
             };
 
@@ -125,7 +128,10 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "QAction 'qactionId' has package 'packageId' with version 'packageVersion'.",
-                Details = "When 2 or more QActions are using a different version of a NuGet, you can have MissingMethodExceptions." + Environment.NewLine + "This is why you need to update NuGet packages across a solution.",
+                Details = "When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException." + Environment.NewLine +
+                          "To fix these issues, it's important to synchronize NuGet package versions across the entire solution." + Environment.NewLine +
+                          "" + Environment.NewLine +
+                          "However, it's important to note that with 'Skyline.DataMiner.Dev.*' packages (aka DevPacks) this isn't blindly updated. These DevPacks represent the DataMinerVersion that is being developed against.",
                 HasCodeFix = false,
             };
 

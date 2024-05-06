@@ -29,8 +29,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 return results;
             }
 
-            Dictionary<string, List<(string Version, IQActionsQAction qAction)>> packagesWithVersions =
-                new Dictionary<string, List<(string Version, IQActionsQAction qAction)>>();
+            Dictionary<string, List<(string Version, IQActionsQAction QAction)>> packagesWithVersions =
+                new Dictionary<string, List<(string Version, IQActionsQAction QAction)>>();
             foreach (CompiledQActionProject compiledQActionProject in context.CompiledQActions.Values)
             {
                 // Load csproj
@@ -46,7 +46,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 {
                     if (!packagesWithVersions.TryGetValue(packageReference.Name, out var list))
                     {
-                        list = new List<(string Version, IQActionsQAction qAction)>();
+                        list = new List<(string Version, IQActionsQAction QAction)>();
                         packagesWithVersions.Add(packageReference.Name, list);
                     }
 
@@ -54,7 +54,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 }
             }
 
-            foreach (KeyValuePair<string, List<(string Version, IQActionsQAction qAction)>> packagesWithVersion in packagesWithVersions)
+            foreach (KeyValuePair<string, List<(string Version, IQActionsQAction)>> packagesWithVersion in packagesWithVersions)
             {
                 string packageName = packagesWithVersion.Key;
 
