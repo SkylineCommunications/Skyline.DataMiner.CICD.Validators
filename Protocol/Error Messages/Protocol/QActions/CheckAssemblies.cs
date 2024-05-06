@@ -29,7 +29,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 Description = String.Format("Package '{0}' has multiple versions across different QActions.", packageId),
                 HowToFix = "Consolidate the package references so they have the same version across all projects.",
                 ExampleCode = "",
-                Details = "When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException." + Environment.NewLine + "To fix these issues, it's important to synchronize NuGet package versions across the entire solution." + Environment.NewLine + "" + Environment.NewLine + "However, it's important to note that with 'Skyline.DataMiner.Dev.*' packages (aka DevPacks) this isn't blindly updated. These DevPacks represent the DataMinerVersion that is being developed against.",
+                Details = "When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException." + Environment.NewLine + "To fix these issues, it is important to use the same version of a NuGet package across the entire solution." + Environment.NewLine + "" + Environment.NewLine + "'Skyline.DataMiner.Dev.*' (aka DevPacks) or 'Skyline.DataMiner.Files.*' NuGet packages should also be aligned across all projects of the solution as these packages represent the DataMiner version that is being developed against.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -54,7 +54,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 Description = String.Format("QAction '{0}' has package '{1}' with version '{2}'.", qactionId, packageId, packageVersion),
                 HowToFix = "Consolidate the package references so they have the same version across all projects.",
                 ExampleCode = "",
-                Details = "When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException." + Environment.NewLine + "To fix these issues, it's important to synchronize NuGet package versions across the entire solution." + Environment.NewLine + "" + Environment.NewLine + "However, it's important to note that with 'Skyline.DataMiner.Dev.*' packages (aka DevPacks) this isn't blindly updated. These DevPacks represent the DataMinerVersion that is being developed against.",
+                Details = "When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException." + Environment.NewLine + "To fix these issues, it is important to use the same version of a NuGet package across the entire solution." + Environment.NewLine + "" + Environment.NewLine + "'Skyline.DataMiner.Dev.*' (aka DevPacks) or 'Skyline.DataMiner.Files.*' NuGet packages should also be aligned across all projects of the solution as these packages represent the DataMiner version that is being developed against.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
