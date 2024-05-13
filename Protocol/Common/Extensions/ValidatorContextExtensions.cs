@@ -1,6 +1,8 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions
 {
+    using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
 
     using Microsoft.CodeAnalysis;
@@ -75,14 +77,16 @@
             return context?.ProtocolModel?.EachTreeControlWithValidParameterId() ?? Enumerable.Empty<ITreeControlsTreeControl>();
         }
 
-        public static IEnumerable<(CompiledQActionProject projectData, IQActionsQAction qaction)> EachQActionProject(this ValidatorContext context)
+        public static IEnumerable<(CompiledQActionProject projectData, IQActionsQAction qaction)> EachQActionProject(this ValidatorContext context, bool allowBuildErrors = false)
         {
+            Debug.WriteLine("TEMP: testing protocolModel.");
             var model = context.ProtocolModel;
             if (model?.Protocol?.QActions == null)
             {
                 yield break;
             }
 
+            Debug.WriteLine("TEMP: testing CompiledQActions.");
             if (context.CompiledQActions == null)
             {
                 yield break;
@@ -90,6 +94,8 @@
 
             foreach (KeyValuePair<ProjectId, CompiledQActionProject> kvp in context.CompiledQActions)
             {
+                Debug.WriteLine("TEMP: loop a compiled QAction.");
+
                 var projectData = kvp.Value;
 
                 var projectName = projectData.Project.Name;
@@ -113,7 +119,7 @@
                 }
 
                 // We only validate if the build of the project succeeded.
-                if (!projectData.BuildSucceeded)
+                if (!allowBuildErrors && !projectData.BuildSucceeded)
                 {
                     continue;
                 }
@@ -138,16 +144,22 @@
                 yield return (syntaxTree, semanticModel);
             }
         }
-        
-        public static IEnumerable<(IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData)> EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas(this ValidatorContext context)
+
+        public static IEnumerable<(IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData)> EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas(this ValidatorContext context, bool allowBuildErrors = false)
         {
-            foreach ((var projectData, var qaction) in context.EachQActionProject())
+            Debug.WriteLine("TEMP: looping all QActions...");
+            foreach ((var projectData, var qaction) in context.EachQActionProject(allowBuildErrors))
             {
+                Debug.WriteLine("TEMP: loop QA ");
+
                 foreach ((var syntaxTree, var semanticModel) in projectData.EachQActionSyntaxTreesAndModels())
                 {
+                    Debug.WriteLine("TEMP: loop SyntaxModels ");
+
                     yield return (qaction, syntaxTree, semanticModel, projectData);
                 }
             }
         }
+
     }
 }

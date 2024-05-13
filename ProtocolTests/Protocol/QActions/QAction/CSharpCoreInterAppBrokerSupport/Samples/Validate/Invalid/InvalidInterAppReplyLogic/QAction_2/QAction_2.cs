@@ -32,12 +32,10 @@ public class QAction
 				message.TryExecute(protocol, protocol, new Dictionary<Type, Type>(), out returnMessage);
 				if (returnMessage != null)
 				{
-					returnMessage.Send(
-						protocol.SLNet.RawConnection,
-						message.ReturnAddress.AgentId,
-						message.ReturnAddress.ElementId,
-						message.ReturnAddress.ParameterId, new List<Type> { });
-				}
+                    var serializer = SerializerFactory.CreateInterAppSerializer(new List<Type> { });
+                    var returnData = serializer.SerializeToString(returnMessage);
+                    protocol.SetParameter(9000001, returnData);
+                }
 			}
 		}
 		catch (Exception ex)
