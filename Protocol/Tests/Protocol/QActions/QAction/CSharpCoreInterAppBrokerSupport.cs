@@ -53,16 +53,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 return results;
             }
 
-            Debug.WriteLine("TEMP: Top lvl looping all QActions...");
             foreach ((IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData) in context.EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas(true))
             {
-                Debug.WriteLine("TEMP: Top lvl Parsing a QAction.");
                 // Load csproj
                 var project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
-                Debug.WriteLine("TEMP: Top lvl Loaded project.");
                 if (!project.PackageReferences.Any())
                 {
-                    Debug.WriteLine("TEMP: found 0 references");
                     // No NuGet packages being used
                     continue;
                 }
@@ -72,7 +68,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
                 if (hasHighEnoughInterApp)
                 {
-                    Debug.WriteLine("TEMP: found a high nuget version");
                     // then check for invalid ways of replying with the interapp
                     // Protocol.SetParameter(9000001,)
                     // Protocol.SetParameter(ReturnAddress
@@ -81,7 +76,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                     Solution solution = projectData.Project.Solution;
                     QActionAnalyzer analyzer = new QActionAnalyzer(this, qaction, results, context.ProtocolModel, semanticModel, solution);
                     RoslynVisitor parser = new RoslynVisitor(analyzer);
-                    Debug.WriteLine("TEMP: visiting the parser");
                     parser.Visit(syntaxTree.GetRoot());
                 }
             }
@@ -94,10 +88,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
         private static bool CheckInterAppNugetVersions(Project project)
         {
-            Debug.WriteLine("TEMP: checking package references");
             foreach (PackageReference packageReference in project.PackageReferences)
             {
-                Debug.WriteLine($"TEMP: {packageReference.Name}  {packageReference.Version}");
                 if (packageReference.Name.Equals("Skyline.DataMiner.Core.InterAppCalls.Common", StringComparison.InvariantCultureIgnoreCase))
                 {
                     var thisVersion = packageReference.Version;
@@ -237,7 +229,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
         public override void CheckCallingMethod(CallingMethodClass callingMethod)
         {
-            Debug.WriteLine("TEMP: Calling Method Check");
             CheckForSetParameter(callingMethod);
             CheckForSendMessage(callingMethod);
         }

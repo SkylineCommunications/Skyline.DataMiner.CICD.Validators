@@ -79,14 +79,12 @@
 
         public static IEnumerable<(CompiledQActionProject projectData, IQActionsQAction qaction)> EachQActionProject(this ValidatorContext context, bool allowBuildErrors = false)
         {
-            Debug.WriteLine("TEMP: testing protocolModel.");
             var model = context.ProtocolModel;
             if (model?.Protocol?.QActions == null)
             {
                 yield break;
             }
 
-            Debug.WriteLine("TEMP: testing CompiledQActions.");
             if (context.CompiledQActions == null)
             {
                 yield break;
@@ -94,8 +92,6 @@
 
             foreach (KeyValuePair<ProjectId, CompiledQActionProject> kvp in context.CompiledQActions)
             {
-                Debug.WriteLine("TEMP: loop a compiled QAction.");
-
                 var projectData = kvp.Value;
 
                 var projectName = projectData.Project.Name;
@@ -147,15 +143,10 @@
 
         public static IEnumerable<(IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData)> EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas(this ValidatorContext context, bool allowBuildErrors = false)
         {
-            Debug.WriteLine("TEMP: looping all QActions...");
             foreach ((var projectData, var qaction) in context.EachQActionProject(allowBuildErrors))
             {
-                Debug.WriteLine("TEMP: loop QA ");
-
                 foreach ((var syntaxTree, var semanticModel) in projectData.EachQActionSyntaxTreesAndModels())
                 {
-                    Debug.WriteLine("TEMP: loop SyntaxModels ");
-
                     yield return (qaction, syntaxTree, semanticModel, projectData);
                 }
             }
