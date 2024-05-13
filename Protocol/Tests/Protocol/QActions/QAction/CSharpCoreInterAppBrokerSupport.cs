@@ -19,6 +19,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
+            // first make sure we are dealing with a Solution
+
+            // then check if the nuget version Skyline.DataMiner.Core.InterApp is >= 1.0.1.1
+
+            // then check for invalid ways of replying with the interapp
+
+
             return results;
         }
     }
