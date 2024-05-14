@@ -39,6 +39,9 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCoreInterAppBrokerSuppor
         #region Invalid Checks
 
         [TestMethod]
+#if !NET6_0_OR_GREATER
+        [Ignore]
+#endif
         public void QAction_CSharpCoreInterAppBrokerSupport_InvalidInterAppReplyLogic()
         {
             Generic.ValidateData data = new Generic.ValidateData

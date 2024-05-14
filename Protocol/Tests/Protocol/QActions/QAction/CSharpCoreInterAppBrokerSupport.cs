@@ -2,12 +2,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
-    using System.Diagnostics;
     using System.Linq;
-    using System.Linq.Expressions;
-    using System.Reflection.Metadata;
-    using System.Xml.Linq;
 
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp;
@@ -19,9 +14,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
-    using Skyline.DataMiner.CICD.Parsers.Protocol.Xml.QActions;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -29,8 +22,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-
-    using static System.Net.Mime.MediaTypeNames;
 
     using Project = Parsers.Common.VisualStudio.Projects.Project;
 
@@ -80,9 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 }
             }
 
-
-
-
             return results;
         }
 
@@ -112,6 +100,53 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             : base(test, results, qAction, semanticModel, solution)
         {
             this.protocolModel = protocolModel;
+        }
+
+        public override void CheckCallingMethod(CallingMethodClass callingMethod)
+        {
+            CheckForSetParameter(callingMethod);
+            CheckForSendMessage(callingMethod);
+        }
+
+        private static bool IsInterAppMessage(CallingMethodClass callingMethod, SemanticModel semanticModel)
+        {
+            string fullyQualifiedNameOfParent = callingMethod.GetFullyQualifiedNameOfParent(semanticModel);
+
+            // Seems to also return "Message" as a 'fullyQualifiedNameOfParent'
+            return string.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) || string.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.Message", StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        private void CheckForSendMessage(CallingMethodClass callingMethod)
+        {
+            if (!IsInterAppMessage(callingMethod, semanticModel) || !String.Equals(callingMethod.Name, "Send"))
+            {
+                return;
+            }
+
+            var agentArgument = callingMethod.Arguments[1];
+            var expressionOfArgument = agentArgument.SyntaxNode.Expression;
+
+            // Trace the origin of the argument
+            if (expressionOfArgument is IdentifierNameSyntax identifierName)
+            {
+                // Someone passing along a different variable possibly defined earlier as the AgentId.
+                var symbolInfo = semanticModel.GetSymbolInfo(identifierName).Symbol;
+
+                if (IsArgumentPropertyFromReturnAddress(symbolInfo))
+                {
+                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue));
+                }
+            }
+            else if (expressionOfArgument is MemberAccessExpressionSyntax memberAccess)
+            {
+                // Someone directly passing along the AgentId property.
+                // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
+
+                if (callingMethod.Arguments[1].RawValue.EndsWith(".ReturnAddress.AgentId", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue));
+                }
+            }
         }
 
         private void CheckForSetParameter(CallingMethodClass callingMethod)
@@ -148,7 +183,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             }
         }
 
-
         private bool IsArgumentPropertyFromReturnAddress(ISymbol symbol)
         {
             foreach (var reference in symbol.DeclaringSyntaxReferences)
@@ -157,80 +191,28 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 if (syntax is VariableDeclaratorSyntax variableDeclarator)
                 {
                     var initializer = variableDeclarator.Initializer;
-                    if (initializer != null)
+                    if (initializer != null && initializer.Value is MemberAccessExpressionSyntax memberAccess)
                     {
-                        if (initializer.Value is MemberAccessExpressionSyntax memberAccess)
+                        // at this point we found a declaration to a property called AgentId
+                        if (memberAccess.Name.Identifier.Text.Equals("AgentId"))
                         {
-                            // at this point we found a declaration to a property called AgentId
-                            if (memberAccess.Name.Identifier.Text.Equals("AgentId"))
+                            // Double check the Class this property comes from is our ReturnAddress class.
+                            // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
+                            // Get the full text of the expression leading to 'AgentId'
+                            var instanceExpression = memberAccess.Expression.ToString();
+
+                            if (instanceExpression.EndsWith("ReturnAddress"))
                             {
-                                // Double check the Class this property comes from is our ReturnAddress class.
-                                // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
-                                // Get the full text of the expression leading to 'AgentId'
-                                var instanceExpression = memberAccess.Expression.ToString();
-
-                                if (instanceExpression.EndsWith("ReturnAddress"))
-                                {
-                                    return true;
-                                }
+                                return true;
                             }
-
-                            return false;
                         }
+
+                        return false;
                     }
                 }
             }
 
             return false;
-        }
-
-        private void CheckForSendMessage(CallingMethodClass callingMethod)
-        {
-            if (!IsInterAppMessage(callingMethod, semanticModel) || !String.Equals(callingMethod.Name, "Send"))
-            {
-                return;
-            }
-
-            var agentArgument = callingMethod.Arguments[1];
-            var expressionOfArgument = agentArgument.SyntaxNode.Expression;
-
-            // Trace the origin of the argument
-            if (expressionOfArgument is IdentifierNameSyntax identifierName)
-            {
-                // Someone passing along a different variable possibly defined earlier as the AgentId.
-                var symbolInfo = semanticModel.GetSymbolInfo(identifierName).Symbol;
-
-                if (IsArgumentPropertyFromReturnAddress(symbolInfo))
-                {
-                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue));
-                    return;
-                }
-            }
-            else if (expressionOfArgument is MemberAccessExpressionSyntax memberAccess)
-            {
-                // Someone directly passing along the AgentId property.
-                // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
-
-                if (callingMethod.Arguments[1].RawValue.EndsWith(".ReturnAddress.AgentId", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue));
-                    return;
-                }
-            }
-        }
-
-        private static bool IsInterAppMessage(CallingMethodClass callingMethod, SemanticModel semanticModel)
-        {
-            string fullyQualifiedNameOfParent = callingMethod.GetFullyQualifiedNameOfParent(semanticModel);
-
-            // Seems to also return "Message" as a 'fullyQualifiedNameOfParent'
-            return string.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) || string.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.Message", StringComparison.InvariantCultureIgnoreCase);
-        }
-
-        public override void CheckCallingMethod(CallingMethodClass callingMethod)
-        {
-            CheckForSetParameter(callingMethod);
-            CheckForSendMessage(callingMethod);
         }
     }
 }
