@@ -6,7 +6,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCoreInterAppBrokerSuppor
     using FluentAssertions;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    
+
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -19,6 +19,19 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCoreInterAppBrokerSuppor
         private readonly IValidate check = new CSharpCoreInterAppBrokerSupport();
 
         #region Valid Checks
+
+        [TestMethod]
+        public void QAction_CSharpCoreInterAppBrokerSupport_Valid_XmlBased()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
 
         [TestMethod]
         public void QAction_CSharpCoreInterAppBrokerSupport_Valid()
@@ -39,8 +52,22 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCoreInterAppBrokerSuppor
         #region Invalid Checks
 
         [TestMethod]
-#if !NET6_0_OR_GREATER
-        [Ignore]
+        [Ignore("Isn't really relevant and causes other checks to fail")]
+        public void QAction_CSharpCoreInterAppBrokerSupport_InvalidInterAppReplyLogic_XmlBased()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "InvalidInterAppReplyLogic",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+#if NETFRAMEWORK
+        [Ignore("Roslyn part gives build errors, so no QActions can be properly checked in .NET Framework")]
 #endif
         public void QAction_CSharpCoreInterAppBrokerSupport_InvalidInterAppReplyLogic()
         {
@@ -51,13 +78,13 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCoreInterAppBrokerSuppor
                 IsSolution = true,
                 ExpectedResults = new List<IValidationResult>
                 {
-                  //("Invocation of method '{0}.{1}' is not compatible with 'DataMiner.Core.Interapp > 1.0.1.0'. QAction ID '{3}'
-                  Error.InvalidInterAppReplyLogic(null, null, null, "Message", "Send(ReturnAddress", "1"),
-                  Error.InvalidInterAppReplyLogic(null, null, null, "Protocol", "SetParameter(9000001", "2"), // best effort
-                  Error.InvalidInterAppReplyLogic(null, null, null, "Protocol", "SetParameter(ReturnAddress", "3"),
-                  Error.InvalidInterAppReplyLogic(null, null, null, "Message", "Send(ReturnAddress", "4"),
-                  // Due to time contraints SetParameters currently not validated.
-                  // SetParameters(  is unlikely to be used, reply message had to be sent one by one.
+                    // Invocation of method '{0}.{1}' is not compatible with 'DataMiner.Core.Interapp > 1.0.1.0'. QAction ID '{3}'
+                    Error.InvalidInterAppReplyLogic(null, null, null, "Message", "Send(ReturnAddress", "1"),
+                    Error.InvalidInterAppReplyLogic(null, null, null, "Protocol", "SetParameter(9000001", "2"), // best effort
+                    Error.InvalidInterAppReplyLogic(null, null, null, "Protocol", "SetParameter(ReturnAddress", "3"),
+                    Error.InvalidInterAppReplyLogic(null, null, null, "Message", "Send(ReturnAddress", "4"),
+                    // Due to time contraints SetParameters currently not validated.
+                    // SetParameters(  is unlikely to be used, reply message had to be sent one by one.
                 }
             };
 
@@ -75,7 +102,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCoreInterAppBrokerSuppor
         {
             // Create ErrorMessage
             var message = Error.InvalidInterAppReplyLogic(null, null, null, "methodClassType", "incompatibleMethod", "qactionId");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Critical,
