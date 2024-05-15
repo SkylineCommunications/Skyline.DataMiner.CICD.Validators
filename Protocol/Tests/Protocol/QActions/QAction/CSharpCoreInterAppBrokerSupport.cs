@@ -5,7 +5,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using System.Linq;
 
     using Microsoft.CodeAnalysis;
-    using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.CSharp.Syntax;
 
     using Skyline.DataMiner.CICD.CSharpAnalysis;
@@ -94,7 +93,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             string fullyQualifiedNameOfParent = callingMethod.GetFullyQualifiedNameOfParent(semanticModel);
 
             // Seems to also return "Message" as a 'fullyQualifiedNameOfParent'
-            return String.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) || String.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.Message", StringComparison.InvariantCultureIgnoreCase);
+            return String.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) ||
+                   String.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.Message", StringComparison.InvariantCultureIgnoreCase);
         }
 
         private void CheckForSendMessage(CallingMethodClass callingMethod)
@@ -111,7 +111,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             if (expressionOfArgument is IdentifierNameSyntax identifierName)
             {
                 // Someone passing along a different variable possibly defined earlier as the AgentId.
-                var symbolInfo = semanticModel.GetSymbolInfo(identifierName).Symbol;
+                var symbolInfo = RoslynHelper.GetSymbol(identifierName, semanticModel);
 
                 if (IsArgumentPropertyFromReturnAddress(symbolInfo))
                 {
@@ -165,7 +165,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             }
         }
 
-        private bool IsArgumentPropertyFromReturnAddress(ISymbol symbol)
+        private static bool IsArgumentPropertyFromReturnAddress(ISymbol symbol)
         {
             foreach (var reference in symbol.DeclaringSyntaxReferences)
             {
