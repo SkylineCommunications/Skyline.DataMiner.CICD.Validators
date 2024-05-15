@@ -13,8 +13,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.CSharpAnalysis.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -28,13 +26,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     [Test(CheckId.CSharpCoreInterAppBrokerSupport, Category.QAction)]
     internal class CSharpCoreInterAppBrokerSupport : IValidate
     {
-        // Please comment out the interfaces that aren't used together with the respective methods.
-
         public List<IValidationResult> Validate(ValidatorContext context)
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
-            // first make sure we are dealing with a Solution
             if (context?.ProtocolModel?.Protocol?.QActions == null ||
             context.InputData?.QActionCompilationModel == null ||
             !context.InputData.QActionCompilationModel.IsSolutionBased ||
@@ -54,18 +49,17 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                     continue;
                 }
 
-                // then check if the nuget version Skyline.DataMiner.Core.InterApp is >= 1.0.1.1
+                // Then check if the nuget version Skyline.DataMiner.Core.InterApp is >= 1.0.1.1
                 bool hasHighEnoughInterApp = CheckInterAppNugetVersions(project);
-
                 if (hasHighEnoughInterApp)
                 {
-                    // then check for invalid ways of replying with the interapp
+                    // Then check for invalid ways of replying with the interapp
                     // Protocol.SetParameter(9000001,)
                     // Protocol.SetParameter(ReturnAddress
                     // Message.Send(ReturnAddress
 
                     Solution solution = projectData.Project.Solution;
-                    QActionAnalyzer analyzer = new QActionAnalyzer(this, qaction, results, context.ProtocolModel, semanticModel, solution);
+                    QActionAnalyzer analyzer = new QActionAnalyzer(this, qaction, results, semanticModel, solution);
                     RoslynVisitor parser = new RoslynVisitor(analyzer);
                     parser.Visit(syntaxTree.GetRoot());
                 }
@@ -76,30 +70,17 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
         private static bool CheckInterAppNugetVersions(Project project)
         {
-            foreach (PackageReference packageReference in project.PackageReferences)
-            {
-                if (packageReference.Name.Equals("Skyline.DataMiner.Core.InterAppCalls.Common", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    var thisVersion = packageReference.Version;
-                    if (!thisVersion.StartsWith("1.0.0"))
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
+            return project.PackageReferences.Any(packageReference =>
+                packageReference.Name.Equals("Skyline.DataMiner.Core.InterAppCalls.Common", StringComparison.InvariantCultureIgnoreCase) &&
+                !packageReference.Version.StartsWith("1.0.0"));
         }
     }
 
     internal class QActionAnalyzer : QActionAnalyzerBase
     {
-        private readonly IProtocolModel protocolModel;
-
-        public QActionAnalyzer(IValidate test, IQActionsQAction qAction, List<IValidationResult> results, IProtocolModel protocolModel, SemanticModel semanticModel, Solution solution)
+        public QActionAnalyzer(IValidate test, IQActionsQAction qAction, List<IValidationResult> results, SemanticModel semanticModel, Solution solution)
             : base(test, results, qAction, semanticModel, solution)
         {
-            this.protocolModel = protocolModel;
         }
 
         public override void CheckCallingMethod(CallingMethodClass callingMethod)
@@ -113,7 +94,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             string fullyQualifiedNameOfParent = callingMethod.GetFullyQualifiedNameOfParent(semanticModel);
 
             // Seems to also return "Message" as a 'fullyQualifiedNameOfParent'
-            return string.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) || string.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.Message", StringComparison.InvariantCultureIgnoreCase);
+            return String.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) || String.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.Message", StringComparison.InvariantCultureIgnoreCase);
         }
 
         private void CheckForSendMessage(CallingMethodClass callingMethod)
@@ -134,17 +115,18 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
                 if (IsArgumentPropertyFromReturnAddress(symbolInfo))
                 {
-                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue));
+                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue)
+                                     .WithCSharp(callingMethod));
                 }
             }
-            else if (expressionOfArgument is MemberAccessExpressionSyntax memberAccess)
+            else if (expressionOfArgument is MemberAccessExpressionSyntax)
             {
                 // Someone directly passing along the AgentId property.
                 // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
-
                 if (callingMethod.Arguments[1].RawValue.EndsWith(".ReturnAddress.AgentId", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue));
+                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue)
+                                     .WithCSharp(callingMethod));
                 }
             }
         }
@@ -160,13 +142,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             {
                 if (callingMethod.Arguments[0].RawValue.EndsWith(".ReturnAddress.ParameterId", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Protocol", "SetParameter(ReturnAddress", qAction.Id.RawValue));
+                    results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Protocol", "SetParameter(ReturnAddress", qAction.Id.RawValue)
+                                     .WithCSharp(callingMethod));
                     return;
                 }
-                else
-                {
-                    return;
-                }
+
+                return;
             }
 
             if (!value.HasStaticValue)
@@ -179,7 +160,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
             if (pid == 9000001)
             {
-                results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Protocol", "SetParameter(9000001", qAction.Id.RawValue));
+                results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Protocol", "SetParameter(9000001", qAction.Id.RawValue)
+                                 .WithCSharp(callingMethod));
             }
         }
 
@@ -188,28 +170,32 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             foreach (var reference in symbol.DeclaringSyntaxReferences)
             {
                 var syntax = reference.GetSyntax();
-                if (syntax is VariableDeclaratorSyntax variableDeclarator)
+                if (!(syntax is VariableDeclaratorSyntax variableDeclarator))
                 {
-                    var initializer = variableDeclarator.Initializer;
-                    if (initializer != null && initializer.Value is MemberAccessExpressionSyntax memberAccess)
+                    continue;
+                }
+
+                var initializer = variableDeclarator.Initializer;
+                if (!(initializer?.Value is MemberAccessExpressionSyntax memberAccess))
+                {
+                    continue;
+                }
+
+                // At this point we found a declaration to a property called AgentId
+                if (memberAccess.Name.Identifier.Text.Equals("AgentId"))
+                {
+                    // Double-check the Class this property comes from is our ReturnAddress class.
+                    // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
+                    // Get the full text of the expression leading to 'AgentId'
+                    var instanceExpression = memberAccess.Expression.ToString();
+
+                    if (instanceExpression.EndsWith("ReturnAddress"))
                     {
-                        // at this point we found a declaration to a property called AgentId
-                        if (memberAccess.Name.Identifier.Text.Equals("AgentId"))
-                        {
-                            // Double check the Class this property comes from is our ReturnAddress class.
-                            // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
-                            // Get the full text of the expression leading to 'AgentId'
-                            var instanceExpression = memberAccess.Expression.ToString();
-
-                            if (instanceExpression.EndsWith("ReturnAddress"))
-                            {
-                                return true;
-                            }
-                        }
-
-                        return false;
+                        return true;
                     }
                 }
+
+                return false;
             }
 
             return false;
