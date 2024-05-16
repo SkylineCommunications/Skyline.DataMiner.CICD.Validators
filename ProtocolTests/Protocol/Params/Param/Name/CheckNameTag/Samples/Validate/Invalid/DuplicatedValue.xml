@@ -1,27 +1,54 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
 	
     <Params>
-        <Param id="100">
-            <Name>SameName</Name>
+		<Param id="100">
+			<Name>Duplicate_2Read</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="101">
+			<Name>Duplicate_2Read</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="200">
+			<Name>Duplicate_2Write</Name>
+			<Type>write</Type>
+		</Param>
+		<Param id="201">
+			<Name>Duplicate_2Write</Name>
+			<Type>write</Type>
+		</Param>
+		
+        <Param id="300">
+            <Name>Duplicate_2Read_1Write</Name>
             <Type>read</Type>
         </Param>
-        <Param id="150">
-            <Name>SameName</Name>
+        <Param id="350">
+            <Name>Duplicate_2Read_1Write</Name>
             <Type>write</Type>
         </Param>
-        <Param id="101">
-            <Name>SameName</Name>
+        <Param id="301">
+            <Name>Duplicate_2Read_1Write</Name>
             <Type>read</Type>
         </Param>
-		
-        <Param id="200">
-            <Name>SameName3</Name>
-            <Type>read</Type>
-        </Param>
-        <Param id="201">
-            <Name>SameName3</Name>
-            <Type>read</Type>
-        </Param>
+
+		<Param id="400">
+			<Name>Duplicate_1Read_1Table</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="401">
+			<Name>Duplicate_1Read_1Table</Name>
+			<Type>array</Type>
+		</Param>
+
+		<Param id="500">
+			<Name>Duplicate_1Write_1Table</Name>
+			<Type>write</Type>
+		</Param>
+		<Param id="501">
+			<Name>Duplicate_1Write_1Table</Name>
+			<Type>array</Type>
+		</Param>
     </Params>
 
 </Protocol>

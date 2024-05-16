@@ -62,12 +62,18 @@
 
         <!--Matrix-->
         <Param id="101">
-            <Name>ArrayWrite</Name>
-            <Type>array</Type>
+            <Name>Matrix_Write</Name>
+            <Type options="dimensions=640,640;columntypes=102:0-639">array</Type>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
         </Param>
         <Param id="151">
-            <Name>ArrayWrite</Name>
-            <Type>write</Type>
+            <Name>Matrix_Write</Name>
+            <Type options="dimensions=640,640;columntypes=102:0-639">write</Type>
+			<Measurement>
+				<Type>matrix</Type>
+			</Measurement>
         </Param>
     </Params>
 </Protocol>

@@ -1180,16 +1180,19 @@
                 return false;
             }
 
-            if (IsParamsComboOfTypes(parameters[0], parameters[1], EnumParamType.Read, EnumParamType.Write) ||
+            var param1 = parameters[0];
+            var param2 = parameters[1];
+            
+            if (IsParamsComboOfTypes(param1, param2, EnumParamType.Read, EnumParamType.Write) ||
 
-                IsParamsComboOfTypes(parameters[0], parameters[1], EnumParamType.Read, EnumParamType.WriteBit) ||
-                IsParamsComboOfTypes(parameters[0], parameters[1], EnumParamType.ReadBit, EnumParamType.Write) ||
-                IsParamsComboOfTypes(parameters[0], parameters[1], EnumParamType.ReadBit, EnumParamType.WriteBit) ||
+                IsParamsComboOfTypes(param1, param2, EnumParamType.Read, EnumParamType.WriteBit) ||
+                IsParamsComboOfTypes(param1, param2, EnumParamType.ReadBit, EnumParamType.Write) ||
+                IsParamsComboOfTypes(param1, param2, EnumParamType.ReadBit, EnumParamType.WriteBit) ||
 
-                IsParamsComboOfTypes(parameters[0], parameters[1], EnumParamType.Header, EnumParamType.Write) ||
-                IsParamsComboOfTypes(parameters[0], parameters[1], EnumParamType.Trailer, EnumParamType.Write) ||
+                IsParamsComboOfTypes(param1, param2, EnumParamType.Header, EnumParamType.Write) ||
+                IsParamsComboOfTypes(param1, param2, EnumParamType.Trailer, EnumParamType.Write) ||
 
-                IsParamsComboOfTypes(parameters[0], parameters[1], EnumParamType.Array, EnumParamType.Write) /* Matrix */)
+                (param1.IsMatrix() && param2.IsMatrix() && IsParamsComboOfTypes(param1, param2, EnumParamType.Array, EnumParamType.Write)))
             {
                 return true;
             }
