@@ -167,9 +167,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
         private static bool IsArgumentPropertyFromReturnAddress(ISymbol symbol)
         {
-            foreach (var reference in symbol.DeclaringSyntaxReferences)
+            foreach (SyntaxNode syntax in symbol.DeclaringSyntaxReferences.Select(reference => reference.GetSyntax()))
             {
-                var syntax = reference.GetSyntax();
                 if (!(syntax is VariableDeclaratorSyntax variableDeclarator))
                 {
                     continue;
@@ -181,21 +180,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                     continue;
                 }
 
-                // At this point we found a declaration to a property called AgentId
-                if (memberAccess.Name.Identifier.Text.Equals("AgentId"))
+                if (!memberAccess.Name.Identifier.Text.Equals("AgentId"))
                 {
-                    // Double-check the Class this property comes from is our ReturnAddress class.
-                    // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
-                    // Get the full text of the expression leading to 'AgentId'
-                    var instanceExpression = memberAccess.Expression.ToString();
-
-                    if (instanceExpression.EndsWith("ReturnAddress"))
-                    {
-                        return true;
-                    }
+                    continue;
                 }
 
-                return false;
+                // At this point we found a declaration to a property called AgentId
+                // Double check the Class this property comes from is our ReturnAddress class.
+                // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
+                // Get the full text of the expression leading to 'AgentId'
+                var instanceExpression = memberAccess.Expression.ToString();
+
+                if (instanceExpression.EndsWith("ReturnAddress"))
+                {
+                    return true;
+                }
             }
 
             return false;
