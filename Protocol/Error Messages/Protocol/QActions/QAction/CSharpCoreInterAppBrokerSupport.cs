@@ -19,7 +19,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 Test = test,
                 CheckId = CheckId.CSharpCoreInterAppBrokerSupport,
                 ErrorId = ErrorIds.InvalidInterAppReplyLogic,
-                FullId = "3.40.1",
+                FullId = "3.39.1",
                 Category = Category.QAction,
                 Severity = Severity.Critical,
                 Certainty = Certainty.Certain,
@@ -51,6 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         /// <summary>
         /// The check identifier.
         /// </summary>
-        public const uint CSharpCoreInterAppBrokerSupport = 40;
+        public const uint CSharpCoreInterAppBrokerSupport = 39;
     }
 }

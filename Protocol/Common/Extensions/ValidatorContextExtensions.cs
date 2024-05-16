@@ -1,8 +1,6 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions
 {
-    using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
 
     using Microsoft.CodeAnalysis;
@@ -151,6 +149,5 @@
                 }
             }
         }
-
     }
 }
