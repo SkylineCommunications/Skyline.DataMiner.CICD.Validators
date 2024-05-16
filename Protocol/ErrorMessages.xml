@@ -12038,10 +12038,6 @@
 						</ErrorMessages>
 					</Check>
 					<Check id="38">
-						<Name namespace="Protocol.QActions.QAction">CheckAssemblies</Name>
-						<ErrorMessages />
-					</Check>
-					<Check id="39">
 						<Name namespace="Protocol.QActions">CheckAssemblies</Name>
 						<ErrorMessages>
 							<ErrorMessage id="1">
@@ -12084,7 +12080,7 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
-					<Check id="40">
+					<Check id="39">
 						<Name namespace="Protocol.QActions.QAction">CSharpCoreInterAppBrokerSupport</Name>
 						<ErrorMessages>
 							<ErrorMessage id="1">

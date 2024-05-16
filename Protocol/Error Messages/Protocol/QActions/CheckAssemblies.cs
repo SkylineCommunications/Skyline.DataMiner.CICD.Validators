@@ -19,7 +19,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 Test = test,
                 CheckId = CheckId.CheckAssemblies,
                 ErrorId = ErrorIds.UnconsolidatedPackageReference,
-                FullId = "3.39.1",
+                FullId = "3.38.1",
                 Category = Category.QAction,
                 Severity = Severity.Major,
                 Certainty = Certainty.Certain,
@@ -44,7 +44,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 Test = test,
                 CheckId = CheckId.CheckAssemblies,
                 ErrorId = ErrorIds.UnconsolidatedPackageReference_Sub,
-                FullId = "3.39.2",
+                FullId = "3.38.2",
                 Category = Category.QAction,
                 Severity = Severity.Major,
                 Certainty = Certainty.Certain,
@@ -77,6 +77,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
         /// <summary>
         /// The check identifier.
         /// </summary>
-        public const uint CheckAssemblies = 39;
+        public const uint CheckAssemblies = 38;
     }
 }
