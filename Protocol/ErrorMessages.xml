@@ -12094,7 +12094,7 @@
 									<InputParameters>
 										<InputParameter id="0">methodClassType</InputParameter>
 										<InputParameter id="1">incompatibleMethod</InputParameter>
-										<InputParameter id="2" value="DataMiner.Core.InterApp &gt; v1.0.1.1">incompatibleComponent</InputParameter>
+										<InputParameter id="2" value="DataMiner.Core.InterApp &gt;= v1.0.1.1">incompatibleComponent</InputParameter>
 										<InputParameter id="3">qactionId</InputParameter>
 									</InputParameters>
 								</Description>

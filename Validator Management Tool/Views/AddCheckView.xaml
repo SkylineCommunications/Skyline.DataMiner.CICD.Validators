@@ -372,8 +372,8 @@
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
                                                             <TextBlock Text="{Binding Path=Id}" Width="15"/>
-                                                            <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}" Width="160" MaxLength="26"/>
-                                                            <TextBox Text="{Binding Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="210" MaxLength="34"/>
+                                                            <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}" Width="160" />
+                                                            <TextBox Text="{Binding Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="210" />
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </ListBox.ItemTemplate>
