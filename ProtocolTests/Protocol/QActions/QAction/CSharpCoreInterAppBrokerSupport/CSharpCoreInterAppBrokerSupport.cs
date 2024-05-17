@@ -78,13 +78,13 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCoreInterAppBrokerSuppor
                 IsSolution = true,
                 ExpectedResults = new List<IValidationResult>
                 {
-                    // Invocation of method '{0}.{1}' is not compatible with 'DataMiner.Core.Interapp > 1.0.1.0'. QAction ID '{3}'
+                    // Invocation of method '{0}.{1}' is not compatible with 'DataMiner.Core.InterApp >= 1.0.1.1'. QAction ID '{3}'.
                     Error.InvalidInterAppReplyLogic(null, null, null, "Message", "Send(ReturnAddress", "1"),
                     Error.InvalidInterAppReplyLogic(null, null, null, "Protocol", "SetParameter(9000001", "2"), // best effort
                     Error.InvalidInterAppReplyLogic(null, null, null, "Protocol", "SetParameter(ReturnAddress", "3"),
                     Error.InvalidInterAppReplyLogic(null, null, null, "Message", "Send(ReturnAddress", "4"),
                     Error.InvalidInterAppReplyLogic(null, null, null, "Message", "Send(ReturnAddress", "5"),
-                    // Due to time contraints SetParameters currently not validated.
+                    // Due to time constraints SetParameters currently not validated.
                     // SetParameters(  is unlikely to be used, reply message had to be sent one by one.
                 }
             };
