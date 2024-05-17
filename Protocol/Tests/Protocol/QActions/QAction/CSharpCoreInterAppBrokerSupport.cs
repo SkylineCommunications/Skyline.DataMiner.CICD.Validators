@@ -94,7 +94,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
             // Seems to also return "Message" as a 'fullyQualifiedNameOfParent'
             return String.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) ||
-                   String.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.Message", StringComparison.InvariantCultureIgnoreCase);
+                   String.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle.Message", StringComparison.InvariantCultureIgnoreCase);
         }
 
         private void CheckForSendMessage(CallingMethodClass callingMethod)
