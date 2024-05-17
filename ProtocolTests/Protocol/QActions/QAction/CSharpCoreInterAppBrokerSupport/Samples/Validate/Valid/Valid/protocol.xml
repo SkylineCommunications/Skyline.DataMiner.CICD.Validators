@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>InvalidInterAppReplyLogic</Name>
+	<Version>1.0.0.1</Version>
+
+	<QActions>
+		<QAction id="1" name="validReplyKnownTypes" encoding="csharp" />
+        <QAction id="2" name="validReplySerializer" encoding="csharp" />
+        <QAction id="3" name="validReplyKnownTypesTimeout" encoding="csharp" />
+        <QAction id="4" name="validReplySerializerTimeout" encoding="csharp" />
+        <QAction id="11" name="validSendMessage_ToReturnAddress" encoding="csharp" />
+        <QAction id="12" name="validSetParameter_WithMostUsedPid" encoding="csharp" />
+        <QAction id="13" name="validSetParameter_WithReturnAddress" encoding="csharp" />
+        <QAction id="14" name="validSendMessage_ToReturnAddressAsIntegers" encoding="csharp" />
+    </QActions>
+</Protocol>

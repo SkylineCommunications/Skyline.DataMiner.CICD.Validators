@@ -75,7 +75,7 @@
             return context?.ProtocolModel?.EachTreeControlWithValidParameterId() ?? Enumerable.Empty<ITreeControlsTreeControl>();
         }
 
-        public static IEnumerable<(CompiledQActionProject projectData, IQActionsQAction qaction)> EachQActionProject(this ValidatorContext context)
+        public static IEnumerable<(CompiledQActionProject projectData, IQActionsQAction qaction)> EachQActionProject(this ValidatorContext context, bool allowBuildErrors = false)
         {
             var model = context.ProtocolModel;
             if (model?.Protocol?.QActions == null)
@@ -113,7 +113,7 @@
                 }
 
                 // We only validate if the build of the project succeeded.
-                if (!projectData.BuildSucceeded)
+                if (!allowBuildErrors && !projectData.BuildSucceeded)
                 {
                     continue;
                 }
@@ -138,10 +138,10 @@
                 yield return (syntaxTree, semanticModel);
             }
         }
-        
-        public static IEnumerable<(IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData)> EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas(this ValidatorContext context)
+
+        public static IEnumerable<(IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData)> EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas(this ValidatorContext context, bool allowBuildErrors = false)
         {
-            foreach ((var projectData, var qaction) in context.EachQActionProject())
+            foreach ((var projectData, var qaction) in context.EachQActionProject(allowBuildErrors))
             {
                 foreach ((var syntaxTree, var semanticModel) in projectData.EachQActionSyntaxTreesAndModels())
                 {

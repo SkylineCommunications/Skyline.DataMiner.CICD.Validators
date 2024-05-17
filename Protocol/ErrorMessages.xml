@@ -12038,10 +12038,6 @@
 						</ErrorMessages>
 					</Check>
 					<Check id="38">
-						<Name namespace="Protocol.QActions.QAction">CheckAssemblies</Name>
-						<ErrorMessages />
-					</Check>
-					<Check id="39">
 						<Name namespace="Protocol.QActions">CheckAssemblies</Name>
 						<ErrorMessages>
 							<ErrorMessage id="1">
@@ -12081,6 +12077,31 @@
 								<HowToFix><![CDATA[Consolidate the package references so they have the same version across all projects.]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException.[NewLine]To fix these issues, it is important to use the same version of a NuGet package across the entire solution.[NewLine][NewLine]'Skyline.DataMiner.Dev.*' (aka DevPacks) or 'Skyline.DataMiner.Files.*' NuGet packages should also be aligned across all projects of the solution as these packages represent the DataMiner version that is being developed against.]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
+					<Check id="39">
+						<Name namespace="Protocol.QActions.QAction">CSharpCoreInterAppBrokerSupport</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>InvalidInterAppReplyLogic</Name>
+								<GroupDescription />
+								<Description templateId="100004">
+									<InputParameters>
+										<InputParameter id="0">methodClassType</InputParameter>
+										<InputParameter id="1">incompatibleMethod</InputParameter>
+										<InputParameter id="2" value="DataMiner.Core.InterApp &gt;= v1.0.1.1">incompatibleComponent</InputParameter>
+										<InputParameter id="3">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Critical</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[To ensure correct handling of messages, always respond to incoming interapp messages by invoking the `.Reply()` method on the original message object received from an external source. [NewLine][NewLine]It is incorrect to use the `.Reply()` method on newly created message objects. [NewLine]Additionally, avoid performing `.SetParameter(9000001, data);` or invoking `.Send` to the `ReturnAddress`, as these actions are also incorrect.]]></HowToFix>
+								<ExampleCode><![CDATA[foreach (var receivedMessage in receivedCall.Messages)[NewLine]{[NewLine]    Message response;[NewLine]    receivedMessage.TryExecute(protocol, protocol, Shared.Mapping, out response);[NewLine]    [NewLine]    if (response != null)[NewLine]    {[NewLine]         receivedMessage.Reply(protocol.SLNet.RawConnection, response, Shared.KnownTypes);[NewLine]    }[NewLine]}]]></ExampleCode>
+								<Details><![CDATA[To maintain proper message handling, always use the .Reply() method on the original incoming message object received from an external source.[NewLine][NewLine]Do not use .Reply() on messages you create anew. [NewLine]Also, refrain from using .SetParameter(9000001, data); or .Send to the ReturnAddress, as these practices are incorrect.[NewLine][NewLine]Using the .Reply() method is crucial because it incorporates specific logic that optimizes communication between applications. It dynamically chooses the best delivery method, utilizing either SLNet Subscriptions or a more efficient message broker when available, ensuring that responses are handled efficiently and effectively based on the current configuration of the running agent. [NewLine][NewLine]This optimization helps maintain system integrity and improves performance.]]></Details>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>

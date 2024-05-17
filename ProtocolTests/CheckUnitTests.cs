@@ -1411,7 +1411,9 @@
                 @"Protocol\CheckConnections\Samples\Validate\Invalid\UnrecommendedSyntax2.xml",
                 @"Protocol\Groups\Group\Content\CheckContentTag\Samples\Validate\Invalid\MixedTypes.xml",
                 @"Protocol\Triggers\Trigger\Content\Id\CheckIdTag\Samples\Validate\Invalid\MissingTag.xml",
-                @"Protocol\Type\CheckTypeTag\Samples\Validate\Valid\Valid_OtherSyntax.xml"
+                @"Protocol\Type\CheckTypeTag\Samples\Validate\Valid\Valid_OtherSyntax.xml",
+                @"Protocol\QActions\QAction\CSharpCoreInterAppBrokerSupport\Samples\Validate\Invalid\InvalidInterAppReplyLogic\protocol.xml",
+                @"Protocol\QActions\QAction\CSharpCoreInterAppBrokerSupport\Samples\Validate\Valid\Valid\protocol.xml",
             };
 
             const string NAMESPACE = "http://www.skyline.be/validatorProtocolUnitTest";
