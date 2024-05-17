@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;net6.0</TargetFrameworks>
+    <TargetFrameworks>net48;net6.0;net8.0</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
 
@@ -28,17 +28,17 @@
 
   <ItemGroup>
     <Compile Remove="Helpers\**\*.xml" />
-    <Compile Remove="Protocol\**\*.xml" />
+    <Compile Remove="Protocol\**\Samples\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Helpers\**\*.xml" />
-    <Content Include="Protocol\**\*.xml" />
+    <Content Include="Protocol\**\Samples\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Helpers\**\*.xml" />
-    <None Remove="Protocol\**\*.xml" />
+    <None Remove="Protocol\**\Samples\**" />
   </ItemGroup>
 
 </Project>

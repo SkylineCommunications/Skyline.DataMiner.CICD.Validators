@@ -13,11 +13,15 @@
     using FluentAssertions;
     using FluentAssertions.Equivalency;
 
+    using Microsoft.Build.Locator;
+    using Microsoft.CodeAnalysis;
+    using Microsoft.CodeAnalysis.MSBuild;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Parsers.Common.Xml;
+    using Skyline.DataMiner.CICD.Parsers.Protocol.VisualStudio;
     using Skyline.DataMiner.CICD.Validators.Common.Data;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
@@ -438,6 +442,11 @@
             public List<IValidationResult> ExpectedResults { get; set; }
 
             public bool IsSkylineUser { get; set; } = true;
+
+            /// <summary>
+            /// Gets or sets a value indicating whether the provided file name is a solution.
+            /// </summary>
+            public bool IsSolution { get; set; }
         }
 
         public class CompareData
@@ -481,6 +490,19 @@
             return success ? code : throw new FileNotFoundException(code);
         }
 
+        private static string GetValidatePath(ValidateData data, string pathToClassFile)
+        {
+            string validatePath = Path.Combine(Path.GetDirectoryName(pathToClassFile), "Samples", "Validate");
+
+            string type = data.TestType == TestType.Valid ? "Valid" : "Invalid";
+
+            string fileName = data.FileName.EndsWith(".sln") ? data.FileName : $"{data.FileName}.sln";
+
+            // ..\\Samples\\Validate\\Valid\\solutionFolder\\solution.sln
+            string filePath = Path.Combine(validatePath, type, data.FileName, fileName);
+            return filePath;
+        }
+
         private static string GetFix(FixData data, string pathToClassFile)
         {
             string path = Path.Combine(Path.GetDirectoryName(pathToClassFile), "Samples", "Codefix");
@@ -522,23 +544,40 @@
 
         private static ValidatorContext GetValidatorContext(ValidateData data, string pathToClassFile)
         {
-            ValidatorContext context;
-
-            string code = GetValidate(data, pathToClassFile);
-
             try
             {
-                var qactionCompilationModel = ProtocolTestsHelper.GetQActionCompilationModel(code);
-                var input = new ProtocolInputData(code, qactionCompilationModel);
+                ProtocolInputData input;
+                if (data.IsSolution)
+                {
+                    string solutionPath = GetValidatePath(data, pathToClassFile);
 
-                context = new ValidatorContext(input, GetValidatorSettingsFromEnvironmentData(data.IsSkylineUser));
+                    // Creating a build workspace.
+                    var workspace = MSBuildWorkspace.Create();
+
+                    // Opening the solution.
+                    Solution solution = workspace.OpenSolutionAsync(solutionPath).Result;
+
+                    ProtocolSolution protocolSolution = ProtocolSolution.Load(solutionPath);
+                    ProtocolModel protocolModel = new ProtocolModel(protocolSolution.ProtocolDocument);
+
+                    QActionCompilationModel qActionCompilationModel = new QActionCompilationModel(protocolModel, solution);
+
+                    input = new ProtocolInputData(protocolModel, protocolSolution.ProtocolDocument, qActionCompilationModel);
+                }
+                else
+                {
+                    string code = GetValidate(data, pathToClassFile);
+
+                    var qactionCompilationModel = ProtocolTestsHelper.GetQActionCompilationModel(code);
+                    input = new ProtocolInputData(code, qactionCompilationModel);
+                }
+
+                return new ValidatorContext(input, GetValidatorSettingsFromEnvironmentData(data.IsSkylineUser));
             }
             catch (Exception e)
             {
-                throw new FormatException($"Sample Code could not be parsed by the {nameof(context)} object. FileName: {data.FileName}{Environment.NewLine}{e}");
+                throw new FormatException($"Sample Code could not be parsed by the {nameof(ValidatorContext)} object. FileName: {data.FileName}{Environment.NewLine}{e}");
             }
-
-            return context;
         }
 
         private static MajorChangeCheckContext GetMajorChangeCheckContext(CompareData data, string pathToClassFile = "")
