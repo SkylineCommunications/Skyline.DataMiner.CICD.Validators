@@ -46,13 +46,26 @@ namespace ProtocolTests.Protocol.Params.Param.Name.CheckNameTag
                 FileName = "DuplicatedValue",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.DuplicatedValue(null, null, null, "SameName", "100, 150, 101").WithSubResults(
-                        Error.DuplicatedValue(null, null, null, "SameName", "100"),
-                        Error.DuplicatedValue(null, null, null, "SameName", "150"),
-                        Error.DuplicatedValue(null, null, null, "SameName", "101")),
-                    Error.DuplicatedValue(null, null, null, "SameName3", "200, 201").WithSubResults(
-                        Error.DuplicatedValue(null, null, null, "SameName3", "200"),
-                        Error.DuplicatedValue(null, null, null, "SameName3", "201"))
+                    Error.DuplicatedValue(null, null, null, "Duplicate_2Read", "100, 101").WithSubResults(
+                        Error.DuplicatedValue(null, null, null, "Duplicate_2Read", "100"),
+                        Error.DuplicatedValue(null, null, null, "Duplicate_2Read", "101")),
+
+                    Error.DuplicatedValue(null, null, null, "Duplicate_2Write", "200, 201").WithSubResults(
+                        Error.DuplicatedValue(null, null, null, "Duplicate_2Write", "200"),
+                        Error.DuplicatedValue(null, null, null, "Duplicate_2Write", "201")),
+
+                    Error.DuplicatedValue(null, null, null, "Duplicate_2Read_1Write", "300, 350, 301").WithSubResults(
+                        Error.DuplicatedValue(null, null, null, "Duplicate_2Read_1Write", "300"),
+                        Error.DuplicatedValue(null, null, null, "Duplicate_2Read_1Write", "350"),
+                        Error.DuplicatedValue(null, null, null, "Duplicate_2Read_1Write", "301")),
+
+                    Error.DuplicatedValue(null, null, null, "Duplicate_1Read_1Table", "400, 401").WithSubResults(
+                        Error.DuplicatedValue(null, null, null, "Duplicate_1Read_1Table", "400"),
+                        Error.DuplicatedValue(null, null, null, "Duplicate_1Read_1Table", "401")),
+
+                    Error.DuplicatedValue(null, null, null, "Duplicate_1Write_1Table", "500, 501").WithSubResults(
+                        Error.DuplicatedValue(null, null, null, "Duplicate_1Write_1Table", "500"),
+                        Error.DuplicatedValue(null, null, null, "Duplicate_1Write_1Table", "501")),
                 }
             };
 
