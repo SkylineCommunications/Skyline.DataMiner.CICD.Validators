@@ -92,9 +92,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         {
             string fullyQualifiedNameOfParent = callingMethod.GetFullyQualifiedNameOfParent(semanticModel);
 
-            // Seems to also return "Message" as a 'fullyQualifiedNameOfParent'
-            return String.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) ||
-                   String.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle.Message", StringComparison.InvariantCultureIgnoreCase);
+            return String.Equals(fullyQualifiedNameOfParent, "Message", StringComparison.InvariantCultureIgnoreCase) || // .NET 8
+                   String.Equals(fullyQualifiedNameOfParent, "Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle.Message", StringComparison.InvariantCultureIgnoreCase); // .NET Framework, .NET 6
         }
 
         private void CheckForSendMessage(CallingMethodClass callingMethod)
@@ -112,18 +111,29 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             {
                 // Someone passing along a different variable possibly defined earlier as the AgentId.
                 var symbolInfo = RoslynHelper.GetSymbol(identifierName, semanticModel);
-
+                
                 if (IsArgumentPropertyFromReturnAddress(symbolInfo))
                 {
                     results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue)
                                      .WithCSharp(callingMethod));
                 }
             }
-            else if (expressionOfArgument is MemberAccessExpressionSyntax)
+            else if (expressionOfArgument is MemberAccessExpressionSyntax maes)
             {
-                // Someone directly passing along the AgentId property.
-                // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
-                if (callingMethod.Arguments[1].RawValue.EndsWith(".ReturnAddress.AgentId", StringComparison.InvariantCultureIgnoreCase))
+                string fullyQualifiedName = RoslynHelper.GetFullyQualifiedName(semanticModel, maes);
+
+                /*
+                 * var returnAddress = message.ReturnAddress;
+                 * Send(..., returnAddress.AgentId, ...);
+                 * => Covered by the first 2 statements.
+                 *
+                 *
+                 * Send(..., message.ReturnAddress.AgentId, ...);
+                 * => Covered in .NET 8 by the last statement. In .NET 6 & Framework, it's covered by the first 2 statements.
+                 */
+                if (String.Equals(fullyQualifiedName, "ReturnAddress") || // .NET 8
+                    String.Equals(fullyQualifiedName, "Skyline.DataMiner.Core.InterAppCalls.Common.Shared.ReturnAddress") || // .NET Framework, .NET 6
+                    agentArgument.RawValue.EndsWith(".ReturnAddress.AgentId", StringComparison.InvariantCultureIgnoreCase)) // Backup for .NET 8
                 {
                     results.Add(Error.InvalidInterAppReplyLogic(test, qAction, qAction, "Message", "Send(ReturnAddress", qAction.Id.RawValue)
                                      .WithCSharp(callingMethod));
@@ -165,7 +175,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             }
         }
 
-        private static bool IsArgumentPropertyFromReturnAddress(ISymbol symbol)
+        private bool IsArgumentPropertyFromReturnAddress(ISymbol symbol)
         {
             foreach (SyntaxNode syntax in symbol.DeclaringSyntaxReferences.Select(reference => reference.GetSyntax()))
             {
@@ -185,12 +195,19 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                     continue;
                 }
 
+                var fullyQualifiedName = RoslynHelper.GetFullyQualifiedName(semanticModel, memberAccess);
+                if (String.Equals(fullyQualifiedName, "Skyline.DataMiner.Core.InterAppCalls.Common.Shared.ReturnAddress"))
+                {
+                    // .NET Framework & .NET 6
+                    return true;
+                }
+
                 // At this point we found a declaration to a property called AgentId
                 // Double check the Class this property comes from is our ReturnAddress class.
                 // This is currently performed using Syntax Analysis. As symbol parsing requires valid compilation.
                 // Get the full text of the expression leading to 'AgentId'
                 var instanceExpression = memberAccess.Expression.ToString();
-
+                
                 if (instanceExpression.EndsWith("ReturnAddress"))
                 {
                     return true;

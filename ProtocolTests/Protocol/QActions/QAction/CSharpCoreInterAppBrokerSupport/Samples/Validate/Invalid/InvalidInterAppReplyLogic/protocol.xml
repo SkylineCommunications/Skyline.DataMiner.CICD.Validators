@@ -8,5 +8,6 @@
 		<QAction id="2" name="InvalidSetParameter_WithMostUsedPid" encoding="csharp" />	
 		<QAction id="3" name="InvalidSetParameter_WithReturnAddress" encoding="csharp" />
 		<QAction id="4" name="InvalidSendMessage_ToReturnAddressAsIntegers" encoding="csharp" />
+		<QAction id="5" name="InvalidSendMessage_ToReturnAddress2" encoding="csharp" />
 	</QActions>
 </Protocol>
