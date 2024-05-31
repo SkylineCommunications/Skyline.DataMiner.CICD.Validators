@@ -35,6 +35,7 @@ jobs:
   
   export:
     if: ${{ github.ref_type }} == 'tag'
+    needs: CICD
     name: Export Error Messages
     runs-on: ubuntu-latest
     permissions:
