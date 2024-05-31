@@ -2911,6 +2911,29 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="30">
+						<Name namespace="Protocol">CheckBaseForAttribute</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>InvalidAttribute</Name>
+								<GroupDescription />
+								<Description templateId="4100">
+									<InputParameters>
+										<InputParameter id="0" value="baseFor">attributeName</InputParameter>
+										<InputParameter id="1">attributeValue</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Critical</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Make sure that the Protocol@baseFor attribute value is not equal to the value specified in Protocol/ElementType.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[The Protocol@baseFor attribute value must not be equal to the value specified in Protocol/ElementType.]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="2">
