@@ -6,9 +6,7 @@ on:
   push:
     branches: []
     tags:
-      - "[0-9]+.[0-9]+.[0-9]+.[0-9]+"
       - "[0-9]+.[0-9]+.[0-9]+"
-      - "[0-9]+.[0-9]+.[0-9]+.[0-9]+-**"
       - "[0-9]+.[0-9]+.[0-9]+-**"
   pull_request: 
     types: [opened, reopened]
@@ -34,3 +32,28 @@ jobs:
       pfx: ${{ secrets.PFX }}
       pfxPassword: ${{ secrets.PFXPASSWORD }}
       nugetApiKey: ${{ secrets.NUGETAPIKEY }}
+  
+  export:
+    if: ${{ github.ref_type }} == 'tag'
+    name: Export Error Messages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Building
+        run: dotnet build "./ExportErrorMessages/ExportErrorMessages.csproj" --configuration Release -nodeReuse:false
+
+      - name: Run export logic
+        run: | 
+          ./ExportErrorMessages ${{ github.workspace }}/Protocol/ErrorMessages.xml ${{ github.ref_name }} ${{ github.workspace }}/TEMP
+        working-directory: ${{ github.workspace }}/ExportErrorMessages/bin/Release/net6.0
+
+      - name: Update release
+        uses: ncipollo/release-action@v1.14.0
+        with:
+            name: Release v${{ github.ref_name }}
+            allowUpdates: true
+            artifacts: "${{ github.workspace }}/TEMP/Validator Error Messages - ${{ github.ref_name }}.xlsx"
+            generateReleaseNotes: true
