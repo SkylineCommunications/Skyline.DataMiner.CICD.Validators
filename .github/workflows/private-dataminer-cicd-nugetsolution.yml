@@ -34,7 +34,7 @@ jobs:
       nugetApiKey: ${{ secrets.NUGETAPIKEY }}
   
   export:
-    if: ${{ github.ref_type }} == 'tag'
+    if: github.ref_type == 'tag'
     needs: CICD
     name: Export Error Messages
     runs-on: ubuntu-latest
