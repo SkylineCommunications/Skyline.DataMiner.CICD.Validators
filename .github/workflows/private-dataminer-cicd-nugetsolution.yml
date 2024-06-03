@@ -57,4 +57,4 @@ jobs:
             name: Release v${{ github.ref_name }}
             allowUpdates: true
             artifacts: "${{ github.workspace }}/TEMP/Validator Error Messages - ${{ github.ref_name }}.xlsx"
-            generateReleaseNotes: true
+            omitBodyDuringUpdate: true
