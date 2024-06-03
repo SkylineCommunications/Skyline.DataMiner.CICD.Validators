@@ -20,6 +20,8 @@
     <Company>Skyline Communications</Company>
     <Description>Validates a DataMiner artifact.</Description>
     <RootNamespace>Skyline.DataMiner.CICD.Tools.Validator</RootNamespace>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Validators</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
