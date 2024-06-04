@@ -21,7 +21,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
         #region Valid Checks
 
         [TestMethod]
-        [Ignore]
+        [Ignore("Isn't really relevant and causes other checks to fail")]
         public void QAction_CheckFileEncoding_Valid_Xml()
         {
             Generic.ValidateData data = new Generic.ValidateData
@@ -53,7 +53,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
         #region Invalid Checks
 
         [TestMethod]
-        [Ignore]
+        [Ignore("Isn't really relevant and causes other checks to fail")]
         public void QAction_CheckFileEncoding_InvalidFileEncoding_Xml()
         {
             Generic.ValidateData data = new Generic.ValidateData
@@ -95,24 +95,12 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
         private readonly ICodeFix check = new CheckFileEncoding();
 
         [TestMethod]
-        [Ignore]
-        public void QAction_CheckFileEncoding_InvalidFileEncoding_Xml()
-        {
-            Generic.FixData data = new Generic.FixData
-            {
-                FileNameBase = "InvalidFileEncoding",
-            };
-
-            Generic.Fix(check, data);
-        }
-
-        [TestMethod]
+        [Ignore("Unable to test as actual files are being modified, breaking the test")]
         public void QAction_CheckFileEncoding_InvalidFileEncoding()
         {
             Generic.FixData data = new Generic.FixData
             {
                 FileNameBase = "InvalidFileEncoding",
-                //IsSolution = true,
             };
 
             Generic.Fix(check, data);

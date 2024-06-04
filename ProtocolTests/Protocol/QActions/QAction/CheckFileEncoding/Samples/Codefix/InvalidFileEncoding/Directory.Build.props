@@ -1,9 +1,0 @@
-<Project>
-	<PropertyGroup>
-		<PlatformTarget>x86</PlatformTarget>
-		<DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-	</PropertyGroup>
-	<PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(MSBuildProjectName), '^QAction_([0-9]+)$'))">
-		<DefineConstants>$(DefineConstants);DCFv1;DBInfo;ALARM_SQUASHING</DefineConstants>
-	</PropertyGroup>
-</Project>
