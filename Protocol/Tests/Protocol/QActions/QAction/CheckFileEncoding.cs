@@ -63,15 +63,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         public ICodeFixResult Fix(CodeFixContext context)
         {
             CodeFixResult result = new CodeFixResult();
+            var fs = FileSystem.Instance;
 
             switch (context.Result.ErrorId)
             {
                 case ErrorIds.InvalidFileEncoding:
                     if (context.Result.ExtraData.TryGetValue(ExtraData.InvalidFileEncoding, out object csharpFile) &&
                         csharpFile is string filePath &&
-                        FileSystem.Instance.File.Exists(filePath))
+                        fs.File.Exists(filePath))
                     {
-                        string tempPath = Path.GetTempFileName();
+                        string tempPath = fs.Path.Combine(fs.Path.GetTempPath(), fs.Path.GetRandomFileName());
                         using (StreamReader sr = new StreamReader(filePath))
                         using (StreamWriter sw = new StreamWriter(tempPath, false, Encoding.UTF8))
                         {
@@ -86,6 +87,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                             }
                         }
 
+                        // TODO: With update FileSystem, swap to use the ones in FileSystem.
                         File.Delete(filePath);
                         File.Move(tempPath, filePath);
 

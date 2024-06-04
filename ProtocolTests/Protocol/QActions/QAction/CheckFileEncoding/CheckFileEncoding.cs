@@ -1,12 +1,11 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
 {
-    using System;
     using System.Collections.Generic;
 
     using FluentAssertions;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    
+
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
