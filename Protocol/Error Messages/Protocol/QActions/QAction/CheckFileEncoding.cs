@@ -12,7 +12,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
     internal static class Error
     {
-        public static IValidationResult InvalidFileEncoding(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidFileEncoding, string qactionId)
+        public static IValidationResult InvalidFileEncoding(IValidate test, IReadable referenceNode, IReadable positionNode, string invalidFileEncoding, string fileName, string qactionId)
         {
             return new ValidationResult
             {
@@ -26,7 +26,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Invalid file encoding '{0}' detected. QAction ID '{1}'.", invalidFileEncoding, qactionId),
+                Description = String.Format("Invalid file encoding '{0}' detected in file '{1}'. QAction ID '{2}'.", invalidFileEncoding, fileName, qactionId),
                 HowToFix = "",
                 ExampleCode = "",
                 Details = "Each file in a QAction needs to be UTF-8 as otherwise certain characters could be converted to invalid characters.",

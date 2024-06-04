@@ -2,6 +2,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 {
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Text;
 
     using Skyline.DataMiner.CICD.FileSystem;
@@ -21,12 +22,23 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
+            if (!context.HasQActionsAndIsSolution)
+            {
+                // Early skip when no QActions are present or when it is not solution based.
+                return results;
+            }
+
             foreach ((CompiledQActionProject projectData, IQActionsQAction qaction) in context.EachQActionProject(true))
             {
                 var project = projectData.Project;
                 string projectDirectory = FileSystem.Instance.Path.GetDirectoryName(project.FilePath);
 
-                string[] csharpFiles = FileSystem.Instance.Directory.GetFiles(projectDirectory, "*.cs", SearchOption.AllDirectories);
+                string binFolder = FileSystem.Instance.Path.Combine(projectDirectory, "bin");
+                string objFolder = FileSystem.Instance.Path.Combine(projectDirectory, "obj");
+
+                // Get all C# files whilst filtering out the bin & obj folder
+                var csharpFiles = FileSystem.Instance.Directory.EnumerateFiles(projectDirectory, "*.cs", SearchOption.AllDirectories)
+                                                 .Where(file => !file.StartsWith(binFolder) && !file.StartsWith(objFolder)).ToList();
 
                 foreach (string csharpFile in csharpFiles)
                 {
@@ -37,7 +49,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
                         if (!sr.CurrentEncoding.Equals(Encoding.UTF8))
                         {
-                            results.Add(Error.InvalidFileEncoding(this, qaction, qaction, sr.CurrentEncoding.EncodingName, qaction.Id.RawValue)
+                            string fileName = FileSystem.Instance.Path.GetFileName(csharpFile);
+                            results.Add(Error.InvalidFileEncoding(this, qaction, qaction, sr.CurrentEncoding.EncodingName, fileName, qaction.Id.RawValue)
                                              .WithExtraData(ExtraData.InvalidFileEncoding, csharpFile));
                         }
                     }
@@ -54,7 +67,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             switch (context.Result.ErrorId)
             {
                 case ErrorIds.InvalidFileEncoding:
-                    if (context.Result.ExtraData.TryGetValue(ExtraData.InvalidFileEncoding, out object csharpFile) && csharpFile is string filePath)
+                    if (context.Result.ExtraData.TryGetValue(ExtraData.InvalidFileEncoding, out object csharpFile) &&
+                        csharpFile is string filePath &&
+                        FileSystem.Instance.File.Exists(filePath))
                     {
                         string tempPath = Path.GetTempFileName();
                         using (StreamReader sr = new StreamReader(filePath))
@@ -70,9 +85,17 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                                 sw.Write(buffer, 0, charsRead);
                             }
                         }
+
                         File.Delete(filePath);
                         File.Move(tempPath, filePath);
+
+                        result.Success = true;
                     }
+                    else
+                    {
+                        result.Message = "Unable to locate file.";
+                    }
+
                     break;
 
                 default:

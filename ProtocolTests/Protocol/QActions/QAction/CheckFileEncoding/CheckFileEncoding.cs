@@ -79,7 +79,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
                 IsSolution = true,
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.InvalidFileEncoding(null, null, null, "Unicode", "1"),
+                    Error.InvalidFileEncoding(null, null, null, "Unicode", "QAction_1.cs", "1"),
                 }
             };
 
@@ -114,7 +114,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
         public void QAction_CheckFileEncoding_InvalidFileEncoding()
         {
             // Create ErrorMessage
-            var message = Error.InvalidFileEncoding(null, null, null, "invalidFileEncoding", "qactionId");
+            var message = Error.InvalidFileEncoding(null, null, null, "Unicode", "QAction_1", "1");
                         
             var expected = new ValidationResult
             {
@@ -122,7 +122,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = "Invalid file encoding 'invalidFileEncoding' detected. QAction ID 'qactionId'.",
+                Description = "Invalid file encoding 'Unicode' detected in file 'QAction_1.cs'. QAction ID '1'.",
                 Details = "Each file in a QAction needs to be UTF-8 as otherwise certain characters could be converted to invalid characters.",
                 HasCodeFix = true,
             };

@@ -39,5 +39,10 @@
         public CrossData.CrossData CrossData { get; } = new CrossData.CrossData();
 
         internal HelperCollection Helpers { get; }
+
+        public bool HasQActionsAndIsSolution =>
+            ProtocolModel?.Protocol?.QActions != null &&
+            InputData?.QActionCompilationModel?.IsSolutionBased == true &&
+            CompiledQActions != null;
     }
 }
