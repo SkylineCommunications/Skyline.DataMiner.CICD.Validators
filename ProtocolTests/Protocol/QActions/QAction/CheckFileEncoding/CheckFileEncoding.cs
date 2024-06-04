@@ -114,7 +114,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
         public void QAction_CheckFileEncoding_InvalidFileEncoding()
         {
             // Create ErrorMessage
-            var message = Error.InvalidFileEncoding(null, null, null, "Unicode", "QAction_1", "1");
+            var message = Error.InvalidFileEncoding(null, null, null, "Unicode", "QAction_1.cs", "1");
                         
             var expected = new ValidationResult
             {
