@@ -87,9 +87,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                             }
                         }
 
-                        // TODO: With update FileSystem, swap to use the ones in FileSystem.
-                        File.Delete(filePath);
-                        File.Move(tempPath, filePath);
+                        fs.File.Delete(filePath);
+                        fs.File.Move(tempPath, filePath);
 
                         result.Success = true;
                     }
