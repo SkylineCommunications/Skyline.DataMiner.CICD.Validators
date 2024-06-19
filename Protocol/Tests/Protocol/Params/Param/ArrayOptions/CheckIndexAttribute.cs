@@ -89,14 +89,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         private readonly RelationManager relationManager;
 
         private readonly IParamsParam tableParam;
+        private readonly IParamsParamArrayOptions arrayOptions;
         private readonly IValueTag<uint?> indexAttribute;
 
         public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results, IParamsParam tableParam, IParamsParamArrayOptions arrayOptions)
             : base(test, context, results)
         {
             this.tableParam = tableParam;
-            this.relationManager = context.ProtocolModel.RelationManager;
-            this.indexAttribute = arrayOptions.Index;
+            this.arrayOptions = arrayOptions;
+            relationManager = context.ProtocolModel.RelationManager;
+            indexAttribute = arrayOptions.Index;
         }
 
         public void Validate()
@@ -106,7 +108,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             // Missing
             if (status.HasFlag(GenericStatus.Missing))
             {
-                results.Add(Error.MissingAttribute(test, tableParam, indexAttribute, tableParam.Id.RawValue));
+                results.Add(Error.MissingAttribute(test, tableParam, arrayOptions, tableParam.Id.RawValue));
                 return;
             }
 
