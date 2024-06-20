@@ -8,6 +8,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.FileSystem;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -30,18 +31,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
             foreach ((CompiledQActionProject projectData, IQActionsQAction qaction) in context.EachQActionProject(true))
             {
-                var project = projectData.Project;
-                string projectDirectory = FileSystem.Instance.Path.GetDirectoryName(project.FilePath);
-
-                string binFolder = FileSystem.Instance.Path.Combine(projectDirectory, "bin");
-                string objFolder = FileSystem.Instance.Path.Combine(projectDirectory, "obj");
-
-                // Get all C# files whilst filtering out the bin & obj folder
-                var csharpFiles = FileSystem.Instance.Directory.EnumerateFiles(projectDirectory, "*.cs", SearchOption.AllDirectories)
-                                                 .Where(file => !file.StartsWith(binFolder) && !file.StartsWith(objFolder)).ToList();
-
-                foreach (string csharpFile in csharpFiles)
+                Project project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
+                string projectDirectory = FileSystem.Instance.Path.GetDirectoryName(project.Path);
+                foreach (ProjectFile file in project.Files)
                 {
+                    string csharpFile = FileSystem.Instance.Path.Combine(projectDirectory, file.Name);
                     using (StreamReader sr = new StreamReader(csharpFile))
                     {
                         // Have a look in the file, so it can detect the encoding.
