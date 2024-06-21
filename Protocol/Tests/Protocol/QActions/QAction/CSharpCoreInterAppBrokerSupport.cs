@@ -29,10 +29,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
-            if (context?.ProtocolModel?.Protocol?.QActions == null ||
-                context.InputData?.QActionCompilationModel == null ||
-                !context.InputData.QActionCompilationModel.IsSolutionBased ||
-                context.CompiledQActions == null)
+            if (!context.HasQActionsAndIsSolution)
             {
                 // Early skip when no QActions are present or when it is not solution based.
                 return results;
