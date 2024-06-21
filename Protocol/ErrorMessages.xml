@@ -12128,6 +12128,31 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="40">
+						<Name namespace="Protocol.QActions.QAction">CheckFileEncoding</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>InvalidFileEncoding</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Invalid file encoding '{0}' detected in file '{1}'. QAction ID '{2}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">invalidFileEncoding</InputParameter>
+										<InputParameter id="1">fileName</InputParameter>
+										<InputParameter id="2">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Each file in a QAction needs to be UTF-8 as otherwise certain characters could be converted to invalid characters.]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="4">
