@@ -12153,6 +12153,30 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="41">
+						<Name namespace="Protocol.QActions.QAction">CSharpCheckUnrecommendedFinalizer</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>UnrecommendedFinalizer</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Finalizer '{0}' is unrecommended. QAction ID '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">finalizerName</InputParameter>
+										<InputParameter id="1">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Critical</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Finalizers can cause a performance impact if implemented improperly. Generally they are not needed in QActions.[NewLine]More information can be found on the Microsoft docs (https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers).]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="4">
