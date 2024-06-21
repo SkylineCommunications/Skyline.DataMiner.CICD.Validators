@@ -1,5 +1,6 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CheckFileEncoding
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -31,23 +32,30 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
             foreach ((CompiledQActionProject projectData, IQActionsQAction qaction) in context.EachQActionProject(true))
             {
-                Project project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
-                string projectDirectory = FileSystem.Instance.Path.GetDirectoryName(project.Path);
-                foreach (ProjectFile file in project.Files)
+                try
                 {
-                    string csharpFile = FileSystem.Instance.Path.Combine(projectDirectory, file.Name);
-                    using (StreamReader sr = new StreamReader(csharpFile))
+                    Project project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
+                    string projectDirectory = FileSystem.Instance.Path.GetDirectoryName(project.Path);
+                    foreach (ProjectFile file in project.Files)
                     {
-                        // Have a look in the file, so it can detect the encoding.
-                        sr.Peek();
-
-                        if (!sr.CurrentEncoding.Equals(Encoding.UTF8))
+                        string csharpFile = FileSystem.Instance.Path.Combine(projectDirectory, file.Name);
+                        using (StreamReader sr = new StreamReader(csharpFile))
                         {
-                            string fileName = FileSystem.Instance.Path.GetFileName(csharpFile);
-                            results.Add(Error.InvalidFileEncoding(this, qaction, qaction, sr.CurrentEncoding.EncodingName, fileName, qaction.Id.RawValue)
-                                             .WithExtraData(ExtraData.InvalidFileEncoding, csharpFile));
+                            // Have a look in the file, so it can detect the encoding.
+                            sr.Peek();
+
+                            if (!sr.CurrentEncoding.Equals(Encoding.UTF8))
+                            {
+                                string fileName = FileSystem.Instance.Path.GetFileName(csharpFile);
+                                results.Add(Error.InvalidFileEncoding(this, qaction, qaction, sr.CurrentEncoding.EncodingName, fileName, qaction.Id.RawValue)
+                                                 .WithExtraData(ExtraData.InvalidFileEncoding, csharpFile));
+                            }
                         }
                     }
+                }
+                catch (FileNotFoundException)
+                {
+                    // Can happen in legacy style projects. In case the file mentioned in the csproj does not exist.
                 }
             }
 
