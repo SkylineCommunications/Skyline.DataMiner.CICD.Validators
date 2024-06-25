@@ -73,7 +73,8 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedFinali
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Finalizer 'finalizerName' is unrecommended. QAction ID 'qactionId'.",
-                Details = "Finalizers can cause a performance impact if implemented improperly. Generally they are not needed in QActions." + Environment.NewLine + "More information can be found on the Microsoft docs (https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers).",
+                Details = "Finalizers are not permitted as they introduce unnecessary risk of process crashes, add complexity without corresponding benefits, and have a significant performance impact. It is recommended to use the IDisposable interface and the dispose pattern for resource management instead." + Environment.NewLine + 
+                          "More information can be found on the Microsoft docs (https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers).",
                 HasCodeFix = false,
             };
 
