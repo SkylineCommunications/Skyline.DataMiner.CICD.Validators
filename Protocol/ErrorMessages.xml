@@ -7550,7 +7550,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[Add the attribute with value 0.]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.]]></Details>
+								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.[NewLine]When the table would be a logger table of type DirectConnection, the index needs to be '1'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="2">
 								<Name>EmptyAttribute</Name>
@@ -7569,7 +7569,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[ Add the attribute with value 0.]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.]]></Details>
+								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.[NewLine]When the table would be a logger table of type DirectConnection, the index needs to be '1'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="3">
 								<Name>InvalidAttributeValue</Name>
@@ -7589,7 +7589,7 @@
 								<HasCodeFix>False</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.]]></Details>
+								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.[NewLine]When the table would be a logger table of type DirectConnection, the index needs to be '1'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="4">
 								<Name>NonExistingColumn</Name>
@@ -7608,7 +7608,7 @@
 								<HasCodeFix>False</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.]]></Details>
+								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.[NewLine]When the table would be a logger table of type DirectConnection, the index needs to be '1'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="5">
 								<Name>UnrecommendedValue</Name>
@@ -7628,7 +7628,7 @@
 								<HasCodeFix>False</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.]]></Details>
+								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.[NewLine]When the table would be a logger table of type DirectConnection, the index needs to be '1'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="6">
 								<Name>UntrimmedAttribute</Name>
@@ -7648,7 +7648,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.]]></Details>
+								<Details><![CDATA[The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.[NewLine]When the table would be a logger table of type DirectConnection, the index needs to be '1'.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="7">
 								<Name>InvalidColumnInterpreteType</Name>
