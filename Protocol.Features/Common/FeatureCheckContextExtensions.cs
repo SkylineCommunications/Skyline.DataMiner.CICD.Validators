@@ -31,7 +31,7 @@
             }
         }
 
-        public static IEnumerable<(CompiledQActionProject projectData, IQActionsQAction qaction)> EachQActionProject(this FeatureCheckContext context)
+        public static IEnumerable<(CompiledQActionProject projectData, IQActionsQAction qaction)> EachQActionProject(this FeatureCheckContext context, bool allowBuildErrors = false)
         {
             var model = context.Model;
             if (model?.Protocol?.QActions == null)
@@ -39,8 +39,7 @@
                 yield break;
             }
 
-            var solutionSemanticModel = context.CompiledQActions;
-            if (solutionSemanticModel == null)
+            if (context.CompiledQActions == null)
             {
                 yield break;
             }
@@ -52,7 +51,7 @@
                 var qaction = projectData.QAction;
 
                 // We only validate if the build of the project succeeded.
-                if (!projectData.BuildSucceeded)
+                if (!allowBuildErrors && !projectData.BuildSucceeded)
                 {
                     continue;
                 }

@@ -551,25 +551,13 @@
                 {
                     string solutionPath = GetValidatePath(data, pathToClassFile);
 
-                    // Creating a build workspace.
-                    var workspace = MSBuildWorkspace.Create();
-
-                    // Opening the solution.
-                    Solution solution = workspace.OpenSolutionAsync(solutionPath).Result;
-
-                    ProtocolSolution protocolSolution = ProtocolSolution.Load(solutionPath);
-                    ProtocolModel protocolModel = new ProtocolModel(protocolSolution.ProtocolDocument);
-
-                    QActionCompilationModel qActionCompilationModel = new QActionCompilationModel(protocolModel, solution);
-
-                    input = new ProtocolInputData(protocolModel, protocolSolution.ProtocolDocument, qActionCompilationModel);
+                    input = ProtocolTestsHelper.GetProtocolInputDataFromSolution(solutionPath);
                 }
                 else
                 {
                     string code = GetValidate(data, pathToClassFile);
 
-                    var qactionCompilationModel = ProtocolTestsHelper.GetQActionCompilationModel(code);
-                    input = new ProtocolInputData(code, qactionCompilationModel);
+                    input = ProtocolTestsHelper.GetProtocolInputDateFromXml(code);
                 }
 
                 return new ValidatorContext(input, GetValidatorSettingsFromEnvironmentData(data.IsSkylineUser));

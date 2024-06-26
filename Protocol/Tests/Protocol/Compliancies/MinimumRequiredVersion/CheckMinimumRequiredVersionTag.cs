@@ -14,6 +14,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckMinimumRequiredVersionTag, Category.Protocol)]
@@ -21,18 +23,18 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {
-            var model = context.ProtocolModel;
-            var protocol = model?.Protocol;
-            if (protocol == null)
+            List<IValidationResult> results = new List<IValidationResult>();
+
+            if (context?.ProtocolModel?.Protocol == null)
             {
-                return new List<IValidationResult>(0);
+                return results;
             }
 
-            ValidateHelper helper = new ValidateHelper(this, context);
-            helper.CheckUntrimmed();
+            ValidateHelper helper = new ValidateHelper(this, context, results);
+            helper.CheckBasics();
             helper.CheckUsedFeatures();
 
-            return helper.GetResults();
+            return results;
         }
 
         public ICodeFixResult Fix(CodeFixContext context)
@@ -55,6 +57,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                         DataMinerVersion expected = (DataMinerVersion)context.Result.ExtraData[ExtraData.TooLow];
 
                         editNode.Value = expected.ToString();
+                        result.Success = true;
+                        break;
+                    }
+
+                case ErrorIds.MissingTag:
+                case ErrorIds.EmptyTag:
+                    {
+                        editNode.Value = context.ValidatorSettings.MinimumSupportedDataMinerVersion.ToString();
                         result.Success = true;
                         break;
                     }
@@ -111,34 +121,39 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
         TooLow
     }
 
-    internal class ValidateHelper
+    internal class ValidateHelper : ValidateHelperBase
     {
-        private readonly IValidate test;
-        private readonly ValidatorContext context;
+        private readonly IProtocol protocol;
+        private readonly ICompliancies compliancies;
         private readonly IValueTag<string> tag;
-        private readonly List<IValidationResult> results = new List<IValidationResult>();
 
-        public ValidateHelper(IValidate test, ValidatorContext context)
+        public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results) : base(test, context, results)
         {
-            this.test = test;
-            this.context = context;
-
-            tag = context.ProtocolModel.Protocol.Compliancies?.MinimumRequiredVersion;
+            protocol = context.ProtocolModel.Protocol;
+            compliancies = protocol.Compliancies;
+            tag = compliancies?.MinimumRequiredVersion;
         }
 
-        public List<IValidationResult> GetResults()
+        public void CheckBasics()
         {
-            return results;
-        }
+            (GenericStatus status, _, _) = GenericTests.CheckBasics(tag, isRequired: true);
 
-        public void CheckUntrimmed()
-        {
-            if (tag?.Value == null)
+            // Missing
+            if (status.HasFlag(GenericStatus.Missing))
             {
+                results.Add(Error.MissingTag(test, null, GetPositionNode()));
                 return;
             }
 
-            if (Helper.IsUntrimmed(tag.RawValue))
+            // Empty
+            if (status.HasFlag(GenericStatus.Empty))
+            {
+                results.Add(Error.EmptyTag(test, tag, tag));
+                return;
+            }
+
+            // Untrimmed
+            if (status.HasFlag(GenericStatus.Untrimmed))
             {
                 results.Add(Error.UntrimmedTag(test, tag, tag, tag.RawValue));
             }
@@ -147,8 +162,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
         public void CheckUsedFeatures()
         {
             string versionValue = tag?.Value;
-            var model = context.ProtocolModel;
-            var protocol = model.Protocol;
 
             if (!DataMinerVersion.TryParse(versionValue, out DataMinerVersion minRequiredVersion))
             {
@@ -188,24 +201,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
 
             /* Local functions */
 
-            IReadable GetPositionNode()
-            {
-                if (protocol.Compliancies == null)
-                {
-                    return protocol;
-                }
-
-                if (protocol.Compliancies.MinimumRequiredVersion == null)
-                {
-                    return protocol.Compliancies;
-                }
-
-                return protocol.Compliancies.MinimumRequiredVersion;
-            }
-
             DataMinerVersion GetDataMinerVersion(Feature feature)
             {
-                // Feature release is always lower then the main release.
+                // Feature release is always lower than the main release.
                 return feature.MinFeatureRelease ?? feature.MinMainRelease;
             }
 
@@ -343,6 +341,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             }
 
             return (identifier, id);
+        }
+
+        private IReadable GetPositionNode()
+        {
+            if (compliancies == null)
+            {
+                return protocol;
+            }
+
+            if (tag == null)
+            {
+                return compliancies;
+            }
+
+            return tag;
         }
     }
 }

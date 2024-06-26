@@ -10,6 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Test Files\Solutions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Test Files\Solutions\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.4.3" />
@@ -22,5 +32,4 @@
     <ProjectReference Include="..\Common.Testing\Common.Testing.csproj" />
     <ProjectReference Include="..\Protocol.Features\Protocol.Features.csproj" />
   </ItemGroup>
-
 </Project>
