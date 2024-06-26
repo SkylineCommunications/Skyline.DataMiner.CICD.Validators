@@ -1,0 +1,38 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Name>Valid</Name>
+    <Version>1.0.0.1</Version>
+    <QActions>
+        <QAction id="1" name="QAction - Finalizer" encoding="csharp">
+            <![CDATA[using System;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+	}
+}]]>
+        </QAction>
+        <QAction id="2" name="Other Class - Finalizer" encoding="csharp">
+            <![CDATA[using System;
+using System.Xml.Serialization;
+
+using Skyline.DataMiner.Net.Messages;
+using Skyline.DataMiner.Scripting;
+
+public class QAction
+{
+	public static void Run(SLProtocol protocol)
+	{
+	}
+}
+
+public class RandomClass
+{
+}]]>
+        </QAction>
+    </QActions>
+</Protocol>
