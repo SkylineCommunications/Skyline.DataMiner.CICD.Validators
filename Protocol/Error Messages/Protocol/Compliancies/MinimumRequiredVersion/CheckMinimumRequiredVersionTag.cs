@@ -136,6 +136,56 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 ReferenceNode = referenceNode,
             };
         }
+
+        public static IValidationResult MissingTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckMinimumRequiredVersionTag,
+                ErrorId = ErrorIds.MissingTag,
+                FullId = "1.25.7",
+                Category = Category.Protocol,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Missing tag '{0}'.", "MinimumRequiredVersion"),
+                HowToFix = "",
+                ExampleCode = "",
+                Details = "",
+                HasCodeFix = true,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckMinimumRequiredVersionTag,
+                ErrorId = ErrorIds.EmptyTag,
+                FullId = "1.25.8",
+                Category = Category.Protocol,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Empty tag '{0}'.", "MinimumRequiredVersion"),
+                HowToFix = "",
+                ExampleCode = "",
+                Details = "",
+                HasCodeFix = true,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
     }
 
     internal static class ErrorCompare
@@ -174,6 +224,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
         public const uint MinVersionFeatureUsedInItem_Sub = 4;
         public const uint UntrimmedTag = 5;
         public const uint MinVersionIncreased = 6;
+        public const uint MissingTag = 7;
+        public const uint EmptyTag = 8;
     }
 
     /// <summary>

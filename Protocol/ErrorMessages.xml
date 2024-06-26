@@ -2642,6 +2642,40 @@
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[When increasing the minimum supported DataMiner version, a new protocol range should be made by incrementing the system version (2nd part of the protocol version)]]></Details>
 							</ErrorMessage>
+							<ErrorMessage id="7">
+								<Name>MissingTag</Name>
+								<GroupDescription />
+								<Description templateId="1000">
+									<InputParameters>
+										<InputParameter id="0" value="MinimumRequiredVersion">tagName</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="8">
+								<Name>EmptyTag</Name>
+								<GroupDescription />
+								<Description templateId="2000">
+									<InputParameters>
+										<InputParameter id="0" value="MinimumRequiredVersion">tagName</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="26">
