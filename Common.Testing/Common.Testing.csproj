@@ -6,19 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Skyline.DataMiner.Files.QActionHelper" Version="10.4.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="QActionHelper">
-      <HintPath>..\DLLs\QActionHelper.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <SonarQubeSetting Include="sonar.exclusions">
-      <Value>QActionHelper/**</Value>
-    </SonarQubeSetting>
   </ItemGroup>
 
 </Project>
