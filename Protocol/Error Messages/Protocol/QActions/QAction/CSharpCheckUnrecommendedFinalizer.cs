@@ -29,7 +29,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 Description = String.Format("Finalizer '{0}' is unrecommended. QAction ID '{1}'.", finalizerName, qactionId),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "Finalizers are not permitted as they introduce unnecessary risk of process crashes, add complexity without corresponding benefits, and have a significant performance impact. It is recommended to use the IDisposable interface and the dispose pattern for resource management instead." + Environment.NewLine + "More information can be found on the Microsoft docs (https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers).",
+                Details = "Finalizers introduce unnecessary risk of process crashes because they execute code on the finalizer thread. The significant performance impact arises from the delayed cleanup until the finalizer finalizes the object. Finalizers can clean up unmanaged resources if the dispose method is not called, but it is preferred to use a SafeHandle to avoid the need for a finalizer. For resource management, it is recommended to use the IDisposable interface and the dispose pattern instead. More information can be found on the Microsoft docs (https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
