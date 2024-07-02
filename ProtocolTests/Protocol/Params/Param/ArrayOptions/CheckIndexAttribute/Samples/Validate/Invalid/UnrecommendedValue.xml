@@ -8,6 +8,18 @@
 				<ColumnOption idx="1" pid="1002"/>
 			</ArrayOptions>
 		</Param>
+		<Param id="1200">
+			<Name>LoggerTable_DirectConnection</Name>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001"/>
+				<ColumnOption idx="1" pid="1002"/>
+			</ArrayOptions>
+			<Database>
+				<Connection>
+					<Type>DirectConnection</Type>
+				</Connection>
+			</Database>
+		</Param>
 	</Params>
 
 </Protocol>

@@ -29,6 +29,19 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckIndexAttribute
             Generic.Validate(test, data);
         }
 
+        [TestMethod]
+        public void Param_CheckIndexAttribute_Valid_LoggerTableDirectConnection()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid_LoggerTableDirectConnection",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(test, data);
+        }
+
         #endregion
 
         #region Invalid Checks
@@ -185,6 +198,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckIndexAttribute
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.UnrecommendedValue(null, null, null, " 1 ", "1000", "0"),
+                    Error.UnrecommendedValue(null, null, null, "0", "1200", "1"),
                 }
             };
 

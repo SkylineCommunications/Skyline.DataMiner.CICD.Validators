@@ -127,9 +127,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             }
 
             // Unrecommended PK IDX
-            if (index.Value != 0)
+            bool isDirectConnectionLoggerTable = tableParam.Database?.Connection?.Type?.Value == "DirectConnection";
+            int expectedValue = isDirectConnectionLoggerTable ? 1 : 0;
+            if (index.Value != expectedValue)
             {
-                results.Add(Error.UnrecommendedValue(test, tableParam, indexAttribute, indexAttribute.RawValue, tableParam.Id.RawValue, "0"));
+                results.Add(Error.UnrecommendedValue(test, tableParam, indexAttribute, indexAttribute.RawValue, tableParam.Id.RawValue, expectedValue.ToString()));
                 return;
             }
 
