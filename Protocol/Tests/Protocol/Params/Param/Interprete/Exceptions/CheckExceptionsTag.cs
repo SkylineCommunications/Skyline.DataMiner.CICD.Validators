@@ -131,7 +131,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                             continue;
                         }
 
-                        results.Add(ErrorCompare.RemovedException(oldException, oldException, oldException.Id?.RawValue, newPid));
+                        results.Add(ErrorCompare.RemovedException(newParam, newParam, oldException.Id?.RawValue, newPid));
                     }
                 }
             }
