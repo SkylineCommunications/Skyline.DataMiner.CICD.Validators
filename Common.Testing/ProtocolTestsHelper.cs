@@ -37,7 +37,7 @@
             return new ProtocolInputData(protocolModel, protocolSolution.ProtocolDocument, qActionCompilationModel);
         }
 
-        public static ProtocolInputData GetProtocolInputDateFromXml(string xmlCode)
+        public static ProtocolInputData GetProtocolInputDataFromXml(string xmlCode)
         {
             return new ProtocolInputData(xmlCode, GetQActionCompilationModel(xmlCode));
         }

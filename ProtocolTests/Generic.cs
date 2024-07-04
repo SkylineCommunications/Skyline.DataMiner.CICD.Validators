@@ -557,7 +557,7 @@
                 {
                     string code = GetValidate(data, pathToClassFile);
 
-                    input = ProtocolTestsHelper.GetProtocolInputDateFromXml(code);
+                    input = ProtocolTestsHelper.GetProtocolInputDataFromXml(code);
                 }
 
                 return new ValidatorContext(input, GetValidatorSettingsFromEnvironmentData(data.IsSkylineUser));
