@@ -29,7 +29,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "index", "table", tablePid),
                 HowToFix = "Add the attribute with value 0.",
                 ExampleCode = "",
-                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.",
+                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'." + Environment.NewLine + "If the table is a logger table of type DirectConnection, the index needs to be '1'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -54,7 +54,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "index", "table", tablePid),
                 HowToFix = " Add the attribute with value 0.",
                 ExampleCode = "",
-                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.",
+                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'." + Environment.NewLine + "If the table is a logger table of type DirectConnection, the index needs to be '1'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -79,7 +79,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Unsupported attribute '{0}' in {1} '{2}'. Current value '{3}'.", "index", "table", tablePid, currentValue),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.",
+                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'." + Environment.NewLine + "If the table is a logger table of type DirectConnection, the index needs to be '1'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -104,7 +104,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Reference to non-existing column with IDX '{0}' in attribute 'index'. Table ID '{1}'.", indexValue, tablePid),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.",
+                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'." + Environment.NewLine + "If the table is a logger table of type DirectConnection, the index needs to be '1'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -129,7 +129,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Unrecommended value '{0}' in attribute 'index'. Recommended values '{2}'. Table ID '{1}'.", indexValue, tablePid, recommendedIndex),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.",
+                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'." + Environment.NewLine + "If the table is a logger table of type DirectConnection, the index needs to be '1'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -154,7 +154,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "index", "table", tablePid, untrimmedIndex),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'.",
+                Details = "The value should correspond to one of the column IDXs. '0' (corresponding to the first column) is the recommended value. The referred column should be of Interprete/Type 'string'." + Environment.NewLine + "If the table is a logger table of type DirectConnection, the index needs to be '1'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
