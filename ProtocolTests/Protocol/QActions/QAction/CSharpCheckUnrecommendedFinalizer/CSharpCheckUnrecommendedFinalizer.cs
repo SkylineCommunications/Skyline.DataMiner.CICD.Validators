@@ -1,12 +1,11 @@
 namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedFinalizer
 {
-    using System;
     using System.Collections.Generic;
 
     using FluentAssertions;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    
+
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -73,7 +72,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedFinali
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Finalizer 'finalizerName' is unrecommended. QAction ID 'qactionId'.",
-                Details = "Finalizers introduce unnecessary risk of process crashes because they execute code on the finalizer thread. The significant performance impact arises from the delayed cleanup until the finalizer finalizes the object. Finalizers can clean up unmanaged resources if the dispose method is not called, but it is preferred to use a SafeHandle to avoid the need for a finalizer. For resource management, it is recommended to use the IDisposable interface and the dispose pattern instead. More information can be found on the Microsoft docs (https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers).",
+                Details = "Finalizers need careful implementation as any exception thrown in a finalizer will result in a process crashes as this code is executes by the finalizer thread. The performance impact arises from the delayed cleanup until the finalizer finalizes the object. Finalizers can clean up unmanaged resources in case the dispose method was not called, but it is preferred to use a SafeHandle to avoid the need for a finalizer. For resource management, it is recommended to use the IDisposable interface and the dispose pattern instead. More information can be found on the Microsoft docs (https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers).",
                 HasCodeFix = false,
             };
 
