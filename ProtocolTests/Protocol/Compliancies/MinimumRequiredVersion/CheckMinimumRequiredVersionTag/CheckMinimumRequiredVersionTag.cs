@@ -34,19 +34,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
             Generic.Validate(check, data);
         }
 
-        [TestMethod]
-        public void Protocol_CheckMinimumRequiredVersionTag_ValidNoTag()
-        {
-            Generic.ValidateData data = new Generic.ValidateData
-            {
-                TestType = Generic.TestType.Valid,
-                FileName = "Valid_NoTag",
-                ExpectedResults = new List<IValidationResult>()
-            };
-
-            Generic.Validate(check, data);
-        }
-
         #endregion
 
         #region Invalid Checks
@@ -93,6 +80,38 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void Protocol_CheckMinimumRequiredVersionTag_MissingTag()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "MissingTag",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.MissingTag(null, null, null)
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Protocol_CheckMinimumRequiredVersionTag_EmptyTag()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "EmptyTag",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.EmptyTag(null, null, null)
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
         #endregion
     }
 
@@ -118,6 +137,28 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
             Generic.FixData data = new Generic.FixData
             {
                 FileNameBase = "UntrimmedTag",
+            };
+
+            Generic.Fix(check, data);
+        }
+
+        [TestMethod]
+        public void Protocol_CheckMinimumRequiredVersionTag_MissingTag()
+        {
+            Generic.FixData data = new Generic.FixData
+            {
+                FileNameBase = "MissingTag",
+            };
+
+            Generic.Fix(check, data);
+        }
+
+        [TestMethod]
+        public void Protocol_CheckMinimumRequiredVersionTag_EmptyTag()
+        {
+            Generic.FixData data = new Generic.FixData
+            {
+                FileNameBase = "EmptyTag",
             };
 
             Generic.Fix(check, data);
@@ -454,6 +495,48 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 Description = "Untrimmed tag 'MinimumRequiredVersion'. Current value ' 10.0.0.0 - 1234 '.",
                 HowToFix = String.Empty,
                 ExampleCode = String.Empty,
+                Details = String.Empty,
+                HasCodeFix = true
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Protocol_CheckMinimumRequiredVersionTag_MissingTag()
+        {
+            // Create ErrorMessage
+            var message = Error.MissingTag(null, null, null);
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = String.Empty,
+                Description = "Missing tag 'MinimumRequiredVersion'.",
+                Details = String.Empty,
+                HasCodeFix = true
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Protocol_CheckMinimumRequiredVersionTag_EmptyTag()
+        {
+            // Create ErrorMessage
+            var message = Error.EmptyTag(null, null, null);
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = String.Empty,
+                Description = "Empty tag 'MinimumRequiredVersion'.",
                 Details = String.Empty,
                 HasCodeFix = true
             };
