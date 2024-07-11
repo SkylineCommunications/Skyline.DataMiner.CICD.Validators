@@ -13,3 +13,6 @@ updates:
       mstest:
         patterns:
           - "MSTest.*"
+    ignore:
+      # AutoMapper can't be updated as we would lose support for .NET Standard 2.0
+      - dependency-name: "AutoMapper"
