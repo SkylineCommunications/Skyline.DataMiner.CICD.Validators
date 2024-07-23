@@ -186,6 +186,56 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 ReferenceNode = referenceNode,
             };
         }
+
+        public static IValidationResult BelowMinimumSupportedVersion(IValidate test, IReadable referenceNode, IReadable positionNode, string currentMinDmVersion, string currentSupportedDmVersion)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckMinimumRequiredVersionTag,
+                ErrorId = ErrorIds.BelowMinimumSupportedVersion,
+                FullId = "1.25.9",
+                Category = Category.Protocol,
+                Severity = Severity.Warning,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Minimum required version '{0}' is lower than the minimum supported version '{1}'.", currentMinDmVersion, currentSupportedDmVersion),
+                HowToFix = "",
+                ExampleCode = "",
+                Details = "",
+                HasCodeFix = true,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult InvalidValue(IValidate test, IReadable referenceNode, IReadable positionNode, string tagValue)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckMinimumRequiredVersionTag,
+                ErrorId = ErrorIds.InvalidValue,
+                FullId = "1.25.10",
+                Category = Category.Protocol,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Invalid value '{1}' in tag '{0}'.", "MinimumRequiredVersion", tagValue),
+                HowToFix = "",
+                ExampleCode = "",
+                Details = "",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
     }
 
     internal static class ErrorCompare
@@ -226,6 +276,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
         public const uint MinVersionIncreased = 6;
         public const uint MissingTag = 7;
         public const uint EmptyTag = 8;
+        public const uint BelowMinimumSupportedVersion = 9;
+        public const uint InvalidValue = 10;
     }
 
     /// <summary>

@@ -31,8 +31,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             }
 
             ValidateHelper helper = new ValidateHelper(this, context, results);
-            helper.CheckBasics();
-            helper.CheckUsedFeatures();
+            helper.CheckBasics(out DataMinerVersion parsedVersion);
+            helper.CheckUsedFeatures(parsedVersion);
+            helper.CheckSupportedDmVersion(parsedVersion);
 
             return results;
         }
@@ -63,6 +64,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
 
                 case ErrorIds.MissingTag:
                 case ErrorIds.EmptyTag:
+                case ErrorIds.BelowMinimumSupportedVersion:
                     {
                         editNode.Value = context.ValidatorSettings.MinimumSupportedDataMinerVersion.ToString();
                         result.Success = true;
@@ -134,8 +136,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             tag = compliancies?.MinimumRequiredVersion;
         }
 
-        public void CheckBasics()
+        public void CheckBasics(out DataMinerVersion parsedVersion)
         {
+            parsedVersion = null;
+
             (GenericStatus status, _, _) = GenericTests.CheckBasics(tag, isRequired: true);
 
             // Missing
@@ -152,6 +156,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 return;
             }
 
+            if (!DataMinerVersion.TryParse(tag.RawValue, out parsedVersion))
+            {
+                results.Add(Error.InvalidValue(test, tag, tag, tag.RawValue));
+                return;
+            }
+
             // Untrimmed
             if (status.HasFlag(GenericStatus.Untrimmed))
             {
@@ -159,14 +169,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             }
         }
 
-        public void CheckUsedFeatures()
+        public void CheckUsedFeatures(DataMinerVersion parsedVersion)
         {
-            string versionValue = tag?.Value;
-
-            if (!DataMinerVersion.TryParse(versionValue, out DataMinerVersion minRequiredVersion))
-            {
-                minRequiredVersion = context.ValidatorSettings.MinimumSupportedDataMinerVersion;
-            }
+            // Default to minimum supported version
+            DataMinerVersion minRequiredVersion = parsedVersion ?? context.ValidatorSettings.MinimumSupportedDataMinerVersion;
 
             IDmVersionCheckResults versionCheckResults = VersionChecker.GetUsedFeatures(context.InputData,
                     context.CompiledQActions, context.InputData.QActionCompilationModel?.IsSolutionBased ?? false, CancellationToken.None);
@@ -193,7 +199,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
 
             if (subResults.Count > 0)
             {
-                IValidationResult minVersionTooLow = Error.MinVersionTooLow(test, null, GetPositionNode(), versionValue, expectedVersion.ToString());
+                IValidationResult minVersionTooLow = Error.MinVersionTooLow(test, null, GetPositionNode(), tag?.RawValue, expectedVersion.ToString());
                 minVersionTooLow.WithSubResults(subResults.ToArray())
                                 .WithExtraData(ExtraData.TooLow, expectedVersion);
                 results.Add(minVersionTooLow);
@@ -236,6 +242,20 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 }
 
                 subResults.Add(minVersionTooLowSub);
+            }
+        }
+
+        public void CheckSupportedDmVersion(DataMinerVersion parsedVersion)
+        {
+            if (parsedVersion == null)
+            {
+                // Covered by the basic checks.
+                return;
+            }
+            
+            if (parsedVersion < context.ValidatorSettings.MinimumSupportedDataMinerVersion)
+            {
+                results.Add(Error.BelowMinimumSupportedVersion(test, null, GetPositionNode(), parsedVersion.ToString(), context.ValidatorSettings.MinimumSupportedDataMinerVersion.ToString()));
             }
         }
 

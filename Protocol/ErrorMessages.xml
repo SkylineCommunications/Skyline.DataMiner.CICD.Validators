@@ -2676,6 +2676,43 @@
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[]]></Details>
 							</ErrorMessage>
+							<ErrorMessage id="9">
+								<Name>BelowMinimumSupportedVersion</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Minimum required version '{0}' is lower than the minimum supported version '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">currentMinDmVersion</InputParameter>
+										<InputParameter id="1">currentSupportedDmVersion</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Warning</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="10">
+								<Name>InvalidValue</Name>
+								<GroupDescription />
+								<Description templateId="4000">
+									<InputParameters>
+										<InputParameter id="0" value="MinimumRequiredVersion">tagName</InputParameter>
+										<InputParameter id="1">tagValue</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="26">
