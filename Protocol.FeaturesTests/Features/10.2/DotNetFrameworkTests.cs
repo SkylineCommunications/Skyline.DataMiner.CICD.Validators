@@ -40,10 +40,43 @@
         }
 
         [TestMethod]
+        public void CheckIsUsed_Solution_Framework462_Legacy()
+        {
+            // Arrange
+            var input = ProtocolTestsHelper.GetProtocolInputDataFromSolution(@"Test Files\Solutions\SolutionFramework462_Legacy\SolutionFramework462.sln");
+
+            FeatureCheckContext context = new FeatureCheckContext(input);
+
+            // Act
+            var result = check.CheckIfUsed(context);
+
+            // Assert
+            Assert.IsFalse(result.IsUsed);
+            result.FeatureItems.Should().BeEmpty();
+        }
+
+        [TestMethod]
         public void CheckIsUsed_Solution_OtherFramework()
         {
             // Arrange
             var input = ProtocolTestsHelper.GetProtocolInputDataFromSolution(@"Test Files\Solutions\SolutionFrameworkOther\SolutionFrameworkOther.sln");
+            var expected = input.Model.Protocol.QActions.Select(qAction => new FeatureCheckResultItem(qAction)).ToList();
+
+            FeatureCheckContext context = new FeatureCheckContext(input);
+
+            // Act
+            var result = check.CheckIfUsed(context);
+
+            // Assert
+            Assert.IsTrue(result.IsUsed);
+            result.FeatureItems.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
+        public void CheckIsUsed_Solution_OtherFramework_Legacy()
+        {
+            // Arrange
+            var input = ProtocolTestsHelper.GetProtocolInputDataFromSolution(@"Test Files\Solutions\SolutionFrameworkOther_Legacy\SolutionFrameworkOther.sln");
             var expected = input.Model.Protocol.QActions.Select(qAction => new FeatureCheckResultItem(qAction)).ToList();
 
             FeatureCheckContext context = new FeatureCheckContext(input);

@@ -36,11 +36,14 @@
                 {
                     Project project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
 
-                    if (project.TargetFrameworkMoniker != ".NETFramework,Version=v4.6.2")
+                    if (project.TargetFrameworkMoniker == ".NETFramework,Version=v4.6.2" || // SDK style projects
+                        project.TargetFrameworkMoniker == ".NETFramework,Version=4.6.2") // Legacy style projects
                     {
-                        // If TargetFramework is not .NET Framework 4.6.2 (e.g.: 4.7 or higher), then it requires DM 10.2.
-                        items.Add(new FeatureCheckResultItem(qAction));
+                        continue;
                     }
+
+                    // If TargetFramework is not .NET Framework 4.6.2 (e.g.: 4.7 or higher), then it requires DM 10.2.
+                    items.Add(new FeatureCheckResultItem(qAction));
                 }
                 catch (FileNotFoundException)
                 {
