@@ -3,6 +3,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using System;
     using System.Collections.Generic;
     using System.Linq;
+
     using Skyline.DataMiner.CICD.Common;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
@@ -31,25 +32,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             ValidateHelper helper = new ValidateHelper(this, context, results);
             foreach ((CompiledQActionProject projectData, IQActionsQAction qaction) in context.EachQActionProject(true))
             {
-                try
+                // Load csproj
+                var project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
+                if (!project.PackageReferences.Any())
                 {
-                    // Load csproj
-                    var project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
-                    if (!project.PackageReferences.Any())
-                    {
-                        // No NuGet packages being used
-                        continue;
-                    }
-
-                    helper.CheckDevPack(project.PackageReferences, qaction);
-
-
+                    // No NuGet packages being used
+                    // Should not happen, but is covered by the banner in DIS.
+                    continue;
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
+
+                helper.CheckDevPack(project.PackageReferences, qaction);
             }
 
             return results;
@@ -88,6 +80,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             minReqVersionTag = context.ProtocolModel.Protocol?.Compliancies?.MinimumRequiredVersion?.Value;
             if (!DataMinerVersion.TryParse(minReqVersionTag, out DataMinerVersion version))
             {
+                // Default in case tag is not present.
                 version = context.ValidatorSettings.MinimumSupportedDataMinerVersion;
             }
 
