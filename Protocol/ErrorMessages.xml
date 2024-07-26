@@ -12313,6 +12313,32 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="42">
+						<Name namespace="Protocol.QActions.QAction">CheckDataMinerDependency</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>MismatchDevPack</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Package '{0}' version '{1}' does not meet the minimum required version '{2}'. QAction ID '{3}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">packageName</InputParameter>
+										<InputParameter id="1">packageVersion</InputParameter>
+										<InputParameter id="2">minimumRequiredVersion</InputParameter>
+										<InputParameter id="3">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Either increase version in the MinimumRequiredVersion tag or downgrade the package so it matches with the minimum required version.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Using a higher version of the DevPack may introduce new features that are not compatible with the specified version of DataMiner.[NewLine]This can lead to unexpected behavior or errors. Make sure that the DevPack version used in the solution does not exceed the MinimumRequiredVersion.]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="4">
