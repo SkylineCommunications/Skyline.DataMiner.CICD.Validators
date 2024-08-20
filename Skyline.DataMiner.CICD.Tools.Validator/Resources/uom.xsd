@@ -7256,6 +7256,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Sites">
+                <xs:annotation>
+                    <xs:documentation>sites</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>sites</slu:name>
+                        <slu:ignoreInDescription>true</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="Slots">
                 <xs:annotation>
                     <xs:documentation>slots</xs:documentation>

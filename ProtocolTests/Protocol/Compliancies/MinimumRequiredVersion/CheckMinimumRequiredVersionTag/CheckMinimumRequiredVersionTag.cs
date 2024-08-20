@@ -621,8 +621,8 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
-                Description = "Minimum required version 'currentMinDmVersion' is lower than the minimum supported version 'currentSupportedDmVersion'.",
-                Details = String.Empty,
+                Description = "Connector minimum required DM version 'currentMinDmVersion' is lower than the Skyline minimum supported DM version 'currentSupportedDmVersion'.",
+                Details = "The minimum required DataMiner version for this connector is lower than the minimum DataMiner version supported by Skyline." + Environment.NewLine + "For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.",
                 HasCodeFix = true
             };
 

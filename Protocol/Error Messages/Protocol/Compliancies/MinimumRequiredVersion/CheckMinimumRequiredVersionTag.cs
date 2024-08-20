@@ -187,7 +187,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             };
         }
 
-        public static IValidationResult BelowMinimumSupportedVersion(IValidate test, IReadable referenceNode, IReadable positionNode, string currentMinDmVersion, string currentSupportedDmVersion)
+        public static IValidationResult BelowMinimumSupportedVersion(IValidate test, IReadable referenceNode, IReadable positionNode, string connectorMinDmVersion, string skylineMinDmVersion)
         {
             return new ValidationResult
             {
@@ -201,10 +201,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Minimum required version '{0}' is lower than the minimum supported version '{1}'.", currentMinDmVersion, currentSupportedDmVersion),
+                Description = String.Format("Connector minimum required DM version '{0}' is lower than the Skyline minimum supported DM version '{1}'.", connectorMinDmVersion, skylineMinDmVersion),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "",
+                Details = "The minimum required DataMiner version for this connector is lower than the minimum DataMiner version supported by Skyline." + Environment.NewLine + "For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
