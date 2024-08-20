@@ -29,7 +29,7 @@
             }
         }
 
-        public FeatureCheckContext(IProtocolInputData input) : this(input, false)
+        public FeatureCheckContext(IProtocolInputData input) : this(input, input.QActionCompilationModel?.IsSolutionBased ?? false)
         {
         }
 

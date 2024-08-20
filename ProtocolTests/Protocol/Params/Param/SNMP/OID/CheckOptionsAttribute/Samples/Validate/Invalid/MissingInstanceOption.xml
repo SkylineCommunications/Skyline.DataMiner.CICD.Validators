@@ -1,0 +1,9 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="1000">
+            <SNMP>
+                <OID options="partialSNMP:3" />
+            </SNMP>
+        </Param>
+    </Params>
+</Protocol>

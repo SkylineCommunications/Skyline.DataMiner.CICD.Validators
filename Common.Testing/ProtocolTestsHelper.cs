@@ -4,12 +4,14 @@
     using System.Reflection;
     using System.Runtime.CompilerServices;
     using System.Text;
-
+    using Microsoft.CodeAnalysis;
+    using Microsoft.CodeAnalysis.MSBuild;
     using Skyline.DataMiner.CICD.Models.Common;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Parsers.Common.Xml;
+    using Skyline.DataMiner.CICD.Parsers.Protocol.VisualStudio;
     using Skyline.DataMiner.CICD.Validators.Common.Data;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
@@ -19,6 +21,27 @@
 
     public static class ProtocolTestsHelper
     {
+        public static ProtocolInputData GetProtocolInputDataFromSolution(string solutionPath)
+        {
+            // Creating a build workspace.
+            var workspace = MSBuildWorkspace.Create();
+
+            // Opening the solution.
+            Solution solution = workspace.OpenSolutionAsync(solutionPath).Result;
+
+            ProtocolSolution protocolSolution = ProtocolSolution.Load(solutionPath);
+            ProtocolModel protocolModel = new ProtocolModel(protocolSolution.ProtocolDocument);
+
+            QActionCompilationModel qActionCompilationModel = new QActionCompilationModel(protocolModel, solution);
+
+            return new ProtocolInputData(protocolModel, protocolSolution.ProtocolDocument, qActionCompilationModel);
+        }
+
+        public static ProtocolInputData GetProtocolInputDataFromXml(string xmlCode)
+        {
+            return new ProtocolInputData(xmlCode, GetQActionCompilationModel(xmlCode));
+        }
+
         private static (IProtocolModel model, XmlDocument document, string protocolCode) ReadProtocol(string fileName, [CallerFilePath] string pathToClassFile = "")
         {
             string filePath = Path.Combine(Path.GetDirectoryName(pathToClassFile), fileName);
