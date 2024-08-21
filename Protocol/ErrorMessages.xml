@@ -2693,8 +2693,7 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline.[NewLine]For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.]]></Details>
-								<!--<Details><![CDATA[The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline.[NewLine]For more info on the minimum DataMiner version supported by Skyline, see aka.dataminer.services/SoftwareSupport-LifeCycle.]]></Details>-->
+								<Details><![CDATA[The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline.[NewLine]For more info on the minimum DataMiner version supported by Skyline, see https://aka.dataminer.services/SoftwareSupport-LifeCycle.]]></Details>
 							</ErrorMessage>
 							<ErrorMessage id="10">
 								<Name>InvalidValue</Name>
