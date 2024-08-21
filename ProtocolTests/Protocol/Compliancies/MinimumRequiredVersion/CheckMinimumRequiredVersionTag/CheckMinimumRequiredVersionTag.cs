@@ -613,7 +613,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
         public void Protocol_CheckMinimumRequiredVersionTag_BelowMinimumSupportedVersion()
         {
             // Create ErrorMessage
-            var message = Error.BelowMinimumSupportedVersion(null, null, null, "currentMinDmVersion", "currentSupportedDmVersion");
+            var message = Error.BelowMinimumSupportedVersion(null, null, null, "protocolMinDmVersion", "skylineMinDmVersion");
 
             var expected = new ValidationResult
             {
@@ -621,8 +621,8 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
-                Description = "Connector minimum required DM version 'currentMinDmVersion' is lower than the Skyline minimum supported DM version 'currentSupportedDmVersion'.",
-                Details = "The minimum required DataMiner version for this connector is lower than the minimum DataMiner version supported by Skyline." + Environment.NewLine + "For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.",
+                Description = "Protocol minimum required DM version 'protocolMinDmVersion' is lower than the Skyline minimum supported DM version 'skylineMinDmVersion'.",
+                Details = "The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline." + Environment.NewLine + "For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.",
                 HasCodeFix = true
             };
 

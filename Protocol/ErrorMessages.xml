@@ -2680,9 +2680,9 @@
 								<Name>BelowMinimumSupportedVersion</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Connector minimum required DM version '{0}' is lower than the Skyline minimum supported DM version '{1}'.</Format>
+									<Format>Protocol minimum required DM version '{0}' is lower than the Skyline minimum supported DM version '{1}'.</Format>
 									<InputParameters>
-										<InputParameter id="0">connectorMinDmVersion</InputParameter>
+										<InputParameter id="0">protocolMinDmVersion</InputParameter>
 										<InputParameter id="1">skylineMinDmVersion</InputParameter>
 									</InputParameters>
 								</Description>
@@ -2693,7 +2693,8 @@
 								<HasCodeFix>True</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[The minimum required DataMiner version for this connector is lower than the minimum DataMiner version supported by Skyline.[NewLine]For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.]]></Details>
+								<Details><![CDATA[The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline.[NewLine]For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.]]></Details>
+								<!--<Details><![CDATA[The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline.[NewLine]For more info on the minimum DataMiner version supported by Skyline, see aka.dataminer.services/SoftwareSupport-LifeCycle.]]></Details>-->
 							</ErrorMessage>
 							<ErrorMessage id="10">
 								<Name>InvalidValue</Name>

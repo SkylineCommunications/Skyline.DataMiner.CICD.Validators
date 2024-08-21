@@ -187,7 +187,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
             };
         }
 
-        public static IValidationResult BelowMinimumSupportedVersion(IValidate test, IReadable referenceNode, IReadable positionNode, string connectorMinDmVersion, string skylineMinDmVersion)
+        public static IValidationResult BelowMinimumSupportedVersion(IValidate test, IReadable referenceNode, IReadable positionNode, string protocolMinDmVersion, string skylineMinDmVersion)
         {
             return new ValidationResult
             {
@@ -201,10 +201,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Connector minimum required DM version '{0}' is lower than the Skyline minimum supported DM version '{1}'.", connectorMinDmVersion, skylineMinDmVersion),
+                Description = String.Format("Protocol minimum required DM version '{0}' is lower than the Skyline minimum supported DM version '{1}'.", protocolMinDmVersion, skylineMinDmVersion),
                 HowToFix = "",
                 ExampleCode = "",
-                Details = "The minimum required DataMiner version for this connector is lower than the minimum DataMiner version supported by Skyline." + Environment.NewLine + "For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.",
+                Details = "The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline." + Environment.NewLine + "For more info on the minimum DataMiner version supported by Skyline, see https://docs.dataminer.services/user-guide/Reference/Software_support_life_cycles.html.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
