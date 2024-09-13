@@ -624,7 +624,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
             }
 
             // Get exported protocols from type tag
-            XmlNode xnTypeOptions = xDoc.SelectSingleNode("./slc:Protocol/slc:Type/@options", xmlNsm);
+            XmlNode xnTypeTag = xDoc.SelectSingleNode("slc:Protocol/slc:Type", xmlNsm);
+            XmlNode xnTypeOptions = xnTypeTag?.Attributes?["options"];
             if (xnTypeOptions != null)
             {
                 string options = xnTypeOptions.InnerXml;
@@ -633,7 +634,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                 {
                     if (option.StartsWith("exportProtocol", StringComparison.InvariantCulture))
                     {
-                        LineNum = xnTypeOptions.Attributes?["QA_LNx"]?.InnerXml; // TODO figure out it returns 0 instead of actual line number
+                        LineNum = xnTypeTag.Attributes?["QA_LNx"]?.InnerXml;
                         string[] s = option.Split(':');
                         string exportprotocolname = s[1];
                         CheckProtocolNamesInner(name, exportprotocolname, Convert.ToInt32(LineNum), resultMsg);
