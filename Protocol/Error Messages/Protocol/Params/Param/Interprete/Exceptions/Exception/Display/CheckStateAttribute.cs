@@ -12,13 +12,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class Error
     {
-        public static IValidationResult UnrecommendedEnabledValue(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        public static IValidationResult UnusualEnabledValue(IValidate test, IReadable referenceNode, IReadable positionNode, string itemId)
         {
             return new ValidationResult
             {
                 Test = test,
                 CheckId = CheckId.CheckStateAttribute,
-                ErrorId = ErrorIds.UnrecommendedEnabledValue,
+                ErrorId = ErrorIds.UnusualEnabledValue,
                 FullId = "2.75.1",
                 Category = Category.Param,
                 Severity = Severity.Warning,
@@ -26,36 +26,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Exception with state 'enabled'. Param '{0}'.", paramId),
+                Description = String.Format("Unusual value '{0}' in attribute '{1}'. {2} {3} '{4}'.", "enabled", "Exception/Display@state", "Param", "ID", itemId),
                 HowToFix = "",
                 ExampleCode = "",
                 Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
-                HasCodeFix = true,
-
-                PositionNode = positionNode,
-                ReferenceNode = referenceNode,
-            };
-        }
-
-        public static IValidationResult MissingAttribute(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
-        {
-            return new ValidationResult
-            {
-                Test = test,
-                CheckId = CheckId.CheckStateAttribute,
-                ErrorId = ErrorIds.MissingAttribute,
-                FullId = "2.75.2",
-                Category = Category.Param,
-                Severity = Severity.Warning,
-                Certainty = Certainty.Uncertain,
-                Source = Source.Validator,
-                FixImpact = FixImpact.NonBreaking,
-                GroupDescription = "",
-                Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "state", "Param", paramId),
-                HowToFix = "Add missing state attribute",
-                ExampleCode = "",
-                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
-                HasCodeFix = true,
+                HasCodeFix = false,
 
                 PositionNode = positionNode,
                 ReferenceNode = referenceNode,
@@ -76,11 +51,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "state", "Param", paramId),
+                Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Exception/Display@state", "Param", paramId),
                 HowToFix = "",
                 ExampleCode = "",
                 Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
-                HasCodeFix = true,
+                HasCodeFix = false,
 
                 PositionNode = positionNode,
                 ReferenceNode = referenceNode,
@@ -101,11 +76,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Display@state", attributeValue, "Param", pid, "ID"),
+                Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Exception/Display@state", attributeValue, "Param", pid, "ID"),
                 HowToFix = "",
                 ExampleCode = "",
                 Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
-                HasCodeFix = true,
+                HasCodeFix = false,
 
                 PositionNode = positionNode,
                 ReferenceNode = referenceNode,
@@ -130,7 +105,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 HowToFix = "",
                 ExampleCode = "",
                 Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
-                HasCodeFix = true,
+                HasCodeFix = false,
 
                 PositionNode = positionNode,
                 ReferenceNode = referenceNode,
@@ -140,8 +115,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class ErrorIds
     {
-        public const uint UnrecommendedEnabledValue = 1;
-        public const uint MissingAttribute = 2;
+        public const uint UnusualEnabledValue = 1;
         public const uint EmptyAttribute = 3;
         public const uint InvalidAttributeValue = 4;
         public const uint UntrimmedAttributeValue = 5;
