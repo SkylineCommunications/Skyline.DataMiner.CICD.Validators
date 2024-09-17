@@ -1747,7 +1747,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
         /// <param name="xmlNsm">The namespace.</param>
         private void CheckActionAttributes(XmlDocument xDoc, List<IValidationResult> resultMsg, XmlNamespaceManager xmlNsm)
         {
-            string[] operators = { "<", ">", "==", "<=", ">=", "!=", "&lt;", "&gt;", "&lt;=", "&gt;=" };
+            string[] operators = { "<", ">", "==", "<=", ">=", "!=", "&lt;", "&gt;", "&lt;=", "&gt;=", "regex" };
 
             // Action.On => done  in CheckResponsePairGroup
             // Action.Type options: semicolon separated.
