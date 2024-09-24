@@ -149,6 +149,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                     continue;
                 }
 
+                if (columnParam.Trending?.Value == false)
+                {
+                    // Ignore columns with trending false
+                    continue;
+                }
+
                 // Reference node needs to be param as that's where the Fix needs to happen.
                 results.Add(Error.ParamMissingHistorySet(test, columnParam, qAction, columnParam.Id.RawValue).WithCSharp(callingMethod));
             }
