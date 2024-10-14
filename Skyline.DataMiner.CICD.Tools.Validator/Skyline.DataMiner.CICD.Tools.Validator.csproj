@@ -35,7 +35,7 @@
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.7.2" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.11.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="3.11.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.11" />
     <PackageReference Include="Skyline.DataMiner.CICD.Tools.Reporter" Version="1.0.2" />
