@@ -1959,6 +1959,23 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                                                 });
                                             }
 
+                                            if (op == "regex" && pid == String.Empty)
+                                            {
+                                                if (xnActionType.Attributes?.GetNamedItem("regex") == null)
+                                                {
+                                                    resultMsg.Add(new ValidationResult
+                                                    {
+                                                        Line = Convert.ToInt32(LineNum),
+                                                        ErrorId = 9999, // todo
+                                                        DescriptionFormat = "Missing parameter ID or regex attribute to define the regular expression.",
+                                                        TestName = "CheckAttributesContent",
+                                                        Severity = Severity.Major
+                                                    });
+                                                }
+
+                                                continue;
+                                            }
+
                                             if (Int32.TryParse(pid, out int id)) // Check if value is single number
                                             {
                                                 if (ParameterIdSet.Contains(pid)) { continue; }
@@ -2038,6 +2055,23 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                                                     TestName = "CheckAttributesContent",
                                                     Severity = Severity.Major
                                                 });
+                                            }
+
+                                            if (op == "regex" && pid == String.Empty)
+                                            {
+                                                if (xnActionType.Attributes?.GetNamedItem("regex") == null)
+                                                {
+                                                    resultMsg.Add(new ValidationResult
+                                                    {
+                                                        Line = Convert.ToInt32(LineNum),
+                                                        ErrorId = 9999, // todo
+                                                        DescriptionFormat = "Missing parameter ID or regex attribute to define the regular expression.",
+                                                        TestName = "CheckAttributesContent",
+                                                        Severity = Severity.Major
+                                                    });
+                                                }
+
+                                                continue;
                                             }
 
                                             if (!ParameterIdSet.Contains(pid))
