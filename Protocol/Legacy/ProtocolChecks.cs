@@ -1959,20 +1959,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                                                 });
                                             }
 
-                                            if (op == "regex" && pid == String.Empty)
-                                            {
-                                                if (xnActionType.Attributes?.GetNamedItem("regex") == null)
-                                                {
-                                                    resultMsg.Add(new ValidationResult
-                                                    {
-                                                        Line = Convert.ToInt32(LineNum),
-                                                        ErrorId = 9999, // todo
-                                                        DescriptionFormat = "Missing parameter ID or regex attribute to define the regular expression.",
-                                                        TestName = "CheckAttributesContent",
-                                                        Severity = Severity.Major
-                                                    });
-                                                }
+                                            // pid is allowed to be empty when the regex attribute is used.
+                                            bool isRegexOperationWithAttributeValid = op == "regex"
+                                                && pid == String.Empty
+                                                && xnActionType.Attributes?.GetNamedItem("regex") != null;
 
+                                            if (isRegexOperationWithAttributeValid)
+                                            {
                                                 continue;
                                             }
 
@@ -2057,20 +2050,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                                                 });
                                             }
 
-                                            if (op == "regex" && pid == String.Empty)
-                                            {
-                                                if (xnActionType.Attributes?.GetNamedItem("regex") == null)
-                                                {
-                                                    resultMsg.Add(new ValidationResult
-                                                    {
-                                                        Line = Convert.ToInt32(LineNum),
-                                                        ErrorId = 9999, // todo
-                                                        DescriptionFormat = "Missing parameter ID or regex attribute to define the regular expression.",
-                                                        TestName = "CheckAttributesContent",
-                                                        Severity = Severity.Major
-                                                    });
-                                                }
+                                            // pid is allowed to be empty when the regex attribute is used.
+                                            bool isRegexOperationWithAttributeValid = op == "regex"
+                                                && pid == String.Empty
+                                                && xnActionType.Attributes?.GetNamedItem("regex") != null;
 
+                                            if (isRegexOperationWithAttributeValid)
+                                            {
                                                 continue;
                                             }
 
