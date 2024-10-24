@@ -780,13 +780,14 @@
 
         private static readonly Dictionary<uint, (string Name, string Description)> EnhancedServiceParams = new Dictionary<uint, (string Name, string Description)>
         {
-            /* Currently based on: https://svn.skyline.be/svn/SystemEngineering/Protocols/Skyline/Skyline Service Definition Basic/1.0.0.7 */
+            /* Currently based on: Skyline Service Definition Basic/1.0.0.11 */
             
             {1, ("Service Name", "Service Name") },
             {2, ("Service Severity", "Service Severity") },
             {3, ("Severity Update", "Severity Update") },
             {4, ("raw_alarm_input", "raw_alarm_input") },
             {5, ("subservice_element_update", "Severity Update (Element in Sub Service)") },
+            {7, ("raw_alarmid_input", "raw_alarmid_input") },
 
             // Table
             {100, ("Service Element Status", "Service Element Status") },
