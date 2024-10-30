@@ -780,7 +780,7 @@
 
         private static readonly Dictionary<uint, (string Name, string Description)> EnhancedServiceParams = new Dictionary<uint, (string Name, string Description)>
         {
-            /* Currently based on: Skyline Service Definition Basic/1.0.0.11 */
+            /* Currently based on: Skyline Service Definition Basic/1.0.0.11 (https://catalog.dataminer.services/details/809251d6-724d-499a-9c3c-d41ae1b5492b) */
             
             {1, ("Service Name", "Service Name") },
             {2, ("Service Severity", "Service Severity") },
