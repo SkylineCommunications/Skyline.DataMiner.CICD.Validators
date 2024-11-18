@@ -16,7 +16,7 @@
     <PackageReference Include="MSTest.TestFramework" Version="3.6.0" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
     <PackageReference Include="Moq" Version="4.18.4" />
-    <PackageReference Include="System.CodeDom" Version="8.0.0" />
+    <PackageReference Include="System.CodeDom" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
