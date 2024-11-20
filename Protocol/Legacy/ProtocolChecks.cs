@@ -1745,7 +1745,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
         /// <param name="xmlNsm">The namespace.</param>
         private void CheckActionAttributes(XmlDocument xDoc, List<IValidationResult> resultMsg, XmlNamespaceManager xmlNsm)
         {
-            string[] operators = { "<", ">", "==", "<=", ">=", "!=", "&lt;", "&gt;", "&lt;=", "&gt;=" };
+            string[] operators = { "<", ">", "==", "<=", ">=", "!=", "&lt;", "&gt;", "&lt;=", "&gt;=", "regex" };
 
             // Action.On => done  in CheckResponsePairGroup
             // Action.Type options: semicolon separated.
@@ -1957,6 +1957,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                                                 });
                                             }
 
+                                            // pid is allowed to be empty when the regex attribute is used.
+                                            bool isRegexOperationWithAttributeValid = op == "regex"
+                                                && pid == String.Empty
+                                                && xnActionType.Attributes?.GetNamedItem("regex") != null;
+
+                                            if (isRegexOperationWithAttributeValid)
+                                            {
+                                                continue;
+                                            }
+
                                             if (Int32.TryParse(pid, out int id)) // Check if value is single number
                                             {
                                                 if (ParameterIdSet.Contains(pid)) { continue; }
@@ -2036,6 +2046,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                                                     TestName = "CheckAttributesContent",
                                                     Severity = Severity.Major
                                                 });
+                                            }
+
+                                            // pid is allowed to be empty when the regex attribute is used.
+                                            bool isRegexOperationWithAttributeValid = op == "regex"
+                                                && pid == String.Empty
+                                                && xnActionType.Attributes?.GetNamedItem("regex") != null;
+
+                                            if (isRegexOperationWithAttributeValid)
+                                            {
+                                                continue;
                                             }
 
                                             if (!ParameterIdSet.Contains(pid))
