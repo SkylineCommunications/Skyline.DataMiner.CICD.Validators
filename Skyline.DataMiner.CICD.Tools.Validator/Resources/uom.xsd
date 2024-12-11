@@ -6686,6 +6686,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="ps/s">
+                <xs:annotation>
+                    <xs:documentation>picosecond per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>picosecond per second</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="PSI">
                 <xs:annotation>
                     <xs:documentation>pounds per square inch (Non-SI Pascal (Pa) is preferred)</xs:documentation>
