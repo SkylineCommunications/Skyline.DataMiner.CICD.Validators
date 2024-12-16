@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.Files.QActionHelper" Version="10.4.12" />
+    <PackageReference Include="Skyline.DataMiner.Files.QActionHelper" Version="10.5.1" />
   </ItemGroup>
 
   <ItemGroup>
