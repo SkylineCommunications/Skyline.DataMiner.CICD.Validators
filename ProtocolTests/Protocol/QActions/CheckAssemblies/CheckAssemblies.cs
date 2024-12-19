@@ -48,6 +48,38 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void QAction_SecureCoding_Valid()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid",
+                IsSolution = true,
+                ExpectedResults = new List<IValidationResult>(),
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void QAction_SecureCoding_Invalid()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "MissingSecureCoding",
+                IsSolution = true,
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.MissingSecureCoding(null, null, null),
+                    Error.MissingSecureCoding(null, null, null),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
         #endregion
 
         #region Invalid Checks
@@ -60,6 +92,20 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
             {
                 TestType = Generic.TestType.Invalid,
                 FileName = "UnconsolidatedPackageReference",
+                ExpectedResults = new List<IValidationResult>(),
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        [Ignore("Isn't really relevant and causes other checks to fail")]
+        public void QAction_CheckAssemblies_SecureCoding_XmlBased()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "MissingSecureCoding",
                 ExpectedResults = new List<IValidationResult>(),
             };
 

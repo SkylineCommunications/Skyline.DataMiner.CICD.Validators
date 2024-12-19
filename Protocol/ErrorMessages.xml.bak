@@ -12249,9 +12249,9 @@
 								<Source>Validator</Source>
 								<FixImpact>Undefined</FixImpact>
 								<HasCodeFix>False</HasCodeFix>
-								<HowToFix><![CDATA[Include the Skyline.DataMiner.Utils.SecureCoding Package in all projects within the solution.]]></HowToFix>
+								<HowToFix><![CDATA[Include Skyline.DataMiner.Utils.SecureCoding Package in the Solution Manager]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.]]></Details>
+								<Details><![CDATA[]]></Details>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
