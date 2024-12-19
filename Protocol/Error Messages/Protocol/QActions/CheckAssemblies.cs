@@ -61,12 +61,38 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 ReferenceNode = referenceNode,
             };
         }
+
+        public static IValidationResult MissingSecureCoding(IValidate test, IReadable referenceNode, IReadable positionNode)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckAssemblies,
+                ErrorId = ErrorIds.MissingSecureCoding,
+                FullId = "3.38.3",
+                Category = Category.QAction,
+                Severity = Severity.Critical,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.Undefined,
+                GroupDescription = "",
+                Description = "Missing Skyline.DataMiner.Utils.SecureCoding Package.",
+                HowToFix = "Include the Skyline.DataMiner.Utils.SecureCoding Package in all projects within the solution.",
+                ExampleCode = "",
+                Details = "Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
     }
 
     internal static class ErrorIds
     {
         public const uint UnconsolidatedPackageReference = 1;
         public const uint UnconsolidatedPackageReference_Sub = 2;
+        public const uint MissingSecureCoding = 3;
     }
 
     /// <summary>
