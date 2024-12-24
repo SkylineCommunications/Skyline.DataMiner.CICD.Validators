@@ -10,7 +10,7 @@ jobs:
   build-and-test:
     # Only run for external forks
     if: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
