@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="MSTest" Version="3.7.0" />
-    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="coverlet.collector" Version="6.0.3" />
   </ItemGroup>
 
   <ItemGroup>
