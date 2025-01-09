@@ -72,8 +72,8 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
                 IsSolution = true,
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.MissingSecureCoding(null, null, null),
-                    Error.MissingSecureCoding(null, null, null),
+                    Error.MissingSecureCoding(null, null, null, null),
+                    Error.MissingSecureCoding(null, null, null, null),
                 }
             };
 

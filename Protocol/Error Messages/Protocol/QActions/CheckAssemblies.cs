@@ -62,7 +62,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
             };
         }
 
-        public static IValidationResult MissingSecureCoding(IValidate test, IReadable referenceNode, IReadable positionNode)
+        public static IValidationResult MissingSecureCoding(IValidate test, IReadable referenceNode, IReadable positionNode, string qactionId)
         {
             return new ValidationResult
             {
@@ -74,9 +74,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 Severity = Severity.Critical,
                 Certainty = Certainty.Certain,
                 Source = Source.Validator,
-                FixImpact = FixImpact.Undefined,
+                FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = "Missing Skyline.DataMiner.Utils.SecureCoding Package.",
+                Description = $"Missing Skyline.DataMiner.Utils.SecureCoding Package. QAction ID '{qactionId}'.",
                 HowToFix = "Include the Skyline.DataMiner.Utils.SecureCoding Package in all projects within the solution.",
                 ExampleCode = "",
                 Details = "Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.",
