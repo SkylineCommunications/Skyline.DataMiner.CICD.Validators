@@ -131,6 +131,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                             continue;
                         }
 
+                        // Exceptions are only supposed to be used on read parameters,
+                        // therefore removing an exception from a write parameter is OK
+                        if (newParam.IsWrite())
+                        {
+                            continue;
+                        }
+
                         results.Add(ErrorCompare.RemovedException(newParam, newParam, oldException.Id?.RawValue, newPid));
                     }
                 }
