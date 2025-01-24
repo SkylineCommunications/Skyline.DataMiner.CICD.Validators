@@ -9,6 +9,11 @@
   <ItemGroup>
     <PackageReference Include="Skyline.DataMiner.Core.DataMinerSystem.Protocol" Version="1.1.1.9" />
     <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.2.0.25" />
+    <PackageReference Include="Skyline.DataMiner.Utils.SecureCoding" Version="1.0.0" />
+    <PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

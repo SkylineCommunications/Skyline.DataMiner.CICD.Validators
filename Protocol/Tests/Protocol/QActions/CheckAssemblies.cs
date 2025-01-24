@@ -39,6 +39,17 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                     continue;
                 }
 
+                if (!project.PackageReferences.Any(package => package.Name.Equals("Skyline.DataMiner.Utils.SecureCoding.Analyzers", System.StringComparison.OrdinalIgnoreCase)))
+                {
+                    var missingSecureCodingError = Error.MissingSecureCoding(
+                        this,
+                        compiledQActionProject.QAction,
+                        compiledQActionProject.QAction,
+                        compiledQActionProject.QAction.Id.RawValue);
+
+                    results.Add(missingSecureCodingError);
+                }
+
                 foreach (PackageReference packageReference in project.PackageReferences)
                 {
                     if (!packagesWithVersions.TryGetValue(packageReference.Name, out var list))
