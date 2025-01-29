@@ -12339,6 +12339,30 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="43">
+						<Name namespace="Protocol.QActions.QAction">CheckDllImportAttribute</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>DeprecatedDll</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Deprecated DLL '{0}' in attribute 'dllImport'. QAction '{1}'</Format>
+									<InputParameters>
+										<InputParameter id="0">dllImportValue</InputParameter>
+										<InputParameter id="1">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Warning</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Adapt the reported QAction to not use the reported DLL and use a NuGet instead.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="4">
