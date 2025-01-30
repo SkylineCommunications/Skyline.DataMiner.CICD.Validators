@@ -3,11 +3,11 @@
 	<Name>Valid</Name>
 	<Description>Valid DataMiner connector</Description>
 	<Version>1.0.0.1</Version>
-	<IntegrationID>DMS-DRV-</IntegrationID>
+	<IntegrationID>DMS-DRV-1</IntegrationID>
 	<Provider>Skyline Communications</Provider>
-	<Vendor></Vendor>
-	<VendorOID>1.3.6.1.4.1.8813.2.</VendorOID>
-	<DeviceOID></DeviceOID>
+	<Vendor>Skyline Communications</Vendor>
+	<VendorOID>1.3.6.1.4.1.8813.2.0</VendorOID>
+	<DeviceOID>0</DeviceOID>
 	<SNMP includepages="true">auto</SNMP>
 	<ElementType>Test</ElementType>
 	<Type relativeTimers="true" options=";unicode">virtual</Type>
