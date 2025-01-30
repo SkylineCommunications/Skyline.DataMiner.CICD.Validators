@@ -3,29 +3,18 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using System;
     using System.Collections.Generic;
     using System.Linq;
-
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckDllImportAttribute, Category.QAction)]
     internal class CheckDllImportAttribute : IValidate/*, ICodeFix, ICompare*/
     {
-
-        private readonly string[] deprecatedDlls = new string[]
-        {
-            // MySQL
-            @"MySql.Data.dll",
-            @"C:\Skyline DataMiner\ProtocolScripts\MySql.Data.dll",
-            // SLDatabase
-            @"SLDatabase.dll",
-            @"C:\Skyline DataMiner\Files\SLDatabase.dll"
-        };
 
         public List<IValidationResult> Validate(ValidatorContext context)
         {
@@ -33,7 +22,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
             foreach (IQActionsQAction qAction in context.EachQActionWithValidId())
             {
-                if (qAction.DllImport.Value == null)
+                if (qAction.DllImport?.Value == null)
                 {
                     continue;
                 }
@@ -44,7 +33,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
                 foreach (string dll in dlls)
                 {
-                    if (deprecatedDlls.Contains(dll, StringComparer.InvariantCultureIgnoreCase))
+                    if (QActionHelper.DeprecatedDLLs.Contains(dll, StringComparer.InvariantCultureIgnoreCase))
                     {
                         results.Add(Error.DeprecatedDll(this, qAction, qAction, dll, qAction.Id.Value.ToString()));
                     }

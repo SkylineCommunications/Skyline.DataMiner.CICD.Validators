@@ -1,4 +1,4 @@
-namespace ProtocolTests.Protocol.QActions.QAction.CheckDllImportAttribute
+namespace ProtocolTests.Protocol.QActions.QAction.CheckDeprecatedDllReferences
 {
     using System.Collections.Generic;
 
@@ -10,17 +10,18 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDllImportAttribute
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CheckDllImportAttribute;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAction.CheckDeprecatedDllReferences;
 
     [TestClass]
     public class Validate
     {
-        private readonly IValidate check = new CheckDllImportAttribute();
+        private readonly IValidate check = new CheckDeprecatedDllReferences();
 
         #region Valid Checks
 
+        // Not really testing anything, but makes sure the check does not crash on XML protocols.
         [TestMethod]
-        public void QAction_CheckDllImportAttribute_Valid()
+        public void QAction_CheckDeprecatedDllReferences_XML_Valid()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -32,26 +33,15 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDllImportAttribute
             Generic.Validate(check, data);
         }
 
+        // The valid solution contains a NuGet reference to MySql.Data, which should be allowed, only direct usage of the MySql.Data.dll should be flagged.
         [TestMethod]
-        public void QAction_CheckDllImportAttribute_ValidNoDllImportTag()
+        public void QAction_CheckDeprecatedDllReferences_Valid()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Valid,
-                FileName = "ValidNoDllImportTag",
-                ExpectedResults = new List<IValidationResult>()
-            };
-
-            Generic.Validate(check, data);
-        }
-
-        [TestMethod]
-        public void QAction_CheckDllImportAttribute_ValidNoQAction()
-        {
-            Generic.ValidateData data = new Generic.ValidateData
-            {
-                TestType = Generic.TestType.Valid,
-                FileName = "ValidNoQAction",
+                FileName = "Valid",
+                IsSolution = true,
                 ExpectedResults = new List<IValidationResult>()
             };
 
@@ -63,16 +53,18 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDllImportAttribute
         #region Invalid Checks
 
         [TestMethod]
-        public void QAction_CheckDllImportAttribute_DeprecatedDll()
+        public void QAction_CheckDeprecatedDllReferences_DeprecatedDllReferences()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "DeprecatedDll",
+                FileName = "DeprecatedDllReferences",
+                IsSolution = true,
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.DeprecatedDll(null, null, null, "SLDatabase.dll", "10"),
-                    Error.DeprecatedDll(test: null, null, null, "MySql.Data.dll", "10"),
+                    Error.DeprecatedDll(null, null, null, "SLDatabase.dll", "1"),
+                    Error.DeprecatedDll(null, null, null, "SLDatabase.dll", "2"),
+                    Error.DeprecatedDll(null, null, null, "MySql.Data.dll", "2"),
                 }
             };
 
@@ -86,12 +78,13 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDllImportAttribute
     public class ErrorMessages
     {
         [TestMethod]
-        public void QAction_CheckDllImportAttribute_DeprecatedDll()
+        public void QAction_CheckDeprecatedDllReferences_DeprecatedDll()
         {
-            // Create ErrorMessage
-            string dllImportValue = "SLDatabase.dll";
+            string packageName = "test.dll";
             string qactionId = "1";
-            var message = Error.DeprecatedDll(null, null, null, dllImportValue, qactionId);
+
+            // Create ErrorMessage
+            var message = Error.DeprecatedDll(null, null, null, packageName, qactionId);
                         
             var expected = new ValidationResult
             {
@@ -99,7 +92,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDllImportAttribute
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = $"Deprecated DLL '{dllImportValue}' in attribute 'dllImport'. QAction '{qactionId}'",
+                Description = $"Deprecated DLL '{packageName}' referenced. QAction '{qactionId}'",
                 Details = "",
                 HasCodeFix = false,
             };
@@ -112,12 +105,12 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDllImportAttribute
     [TestClass]
     public class Attribute
     {
-        private readonly IRoot check = new CheckDllImportAttribute();
+        private readonly IRoot check = new CheckDeprecatedDllReferences();
 
         [TestMethod]
-        public void QAction_CheckDllImportAttribute_CheckCategory() => Generic.CheckCategory(check, Category.QAction);
+        public void QAction_CheckDeprecatedDllReferences_CheckCategory() => Generic.CheckCategory(check, Category.QAction);
 
         [TestMethod]
-        public void QAction_CheckDllImportAttribute_CheckId() => Generic.CheckId(check, CheckId.CheckDllImportAttribute);
+        public void QAction_CheckDeprecatedDllReferences_CheckId() => Generic.CheckId(check, CheckId.CheckDeprecatedDllReferences);
     }
 }

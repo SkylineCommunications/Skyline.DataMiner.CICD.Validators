@@ -12352,12 +12352,36 @@
 										<InputParameter id="1">qactionId</InputParameter>
 									</InputParameters>
 								</Description>
-								<Severity>Warning</Severity>
+								<Severity>Critical</Severity>
 								<Certainty>Certain</Certainty>
 								<Source>Validator</Source>
-								<FixImpact>Breaking</FixImpact>
+								<FixImpact>NonBreaking</FixImpact>
 								<HasCodeFix>False</HasCodeFix>
-								<HowToFix><![CDATA[Adapt the reported QAction to not use the reported DLL and use a NuGet instead.]]></HowToFix>
+								<HowToFix><![CDATA[Replace the deprecated DLL by a NuGet and adapt the QAction accordingly.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
+					<Check id="44">
+						<Name namespace="Protocol.QActions.QAction">CheckDeprecatedDllReferences</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>DeprecatedDll</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Deprecated DLL '{0}' referenced. QAction '{1}'</Format>
+									<InputParameters>
+										<InputParameter id="0">packageName</InputParameter>
+										<InputParameter id="1">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Critical</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Replace the deprecated DLL by a NuGet and adapt the QAction accordingly.]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[]]></Details>
 							</ErrorMessage>

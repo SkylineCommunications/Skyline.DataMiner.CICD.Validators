@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Protocol xmlns="http://www.skyline.be/protocol">
+	<Name>Valid</Name>
+	<Description>Valid DataMiner connector</Description>
+	<Version>1.0.0.1</Version>
+	<IntegrationID>DMS-DRV-</IntegrationID>
+	<Provider>Skyline Communications</Provider>
+	<Vendor></Vendor>
+	<VendorOID>1.3.6.1.4.1.8813.2.</VendorOID>
+	<DeviceOID></DeviceOID>
+	<SNMP includepages="true">auto</SNMP>
+	<ElementType>Test</ElementType>
+	<Type relativeTimers="true" options=";unicode">virtual</Type>
+	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
+
+	<Compliancies>
+		<CassandraReady>true</CassandraReady>
+		<MinimumRequiredVersion>10.2.0.0 - 12603</MinimumRequiredVersion>
+	</Compliancies>
+
+	<Params>
+		<Param id="1" trending="false">
+			<Name>dummy</Name>
+			<Description>Dummy</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>dummy</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="Precompiled QAction" encoding="csharp" options="precompile" />
+		<QAction id="2" name="Normal QAction" encoding="csharp" triggers="1" />
+	</QActions>
+
+</Protocol>
