@@ -1736,7 +1736,7 @@
         {
             foreach (string file in files)
             {
-                project = project.AddDocument(file, File.ReadAllText(file)).Project;
+                project = project.AddDocument(file, Alphaleonis.Win32.Filesystem.File.ReadAllText(file)).Project;
             }
             return project;
         }

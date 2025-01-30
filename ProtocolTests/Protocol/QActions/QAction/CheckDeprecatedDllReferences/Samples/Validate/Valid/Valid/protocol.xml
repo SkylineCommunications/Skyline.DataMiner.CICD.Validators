@@ -1,0 +1,13 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+			<Name>dummy</Name>
+			<Description>dummy</Description>
+			<Type>dummy</Type>
+		</Param>
+	</Params>
+	<QActions>
+		<QAction id="1" name="Precompiled QAction" encoding="csharp" options="precompile" />
+		<QAction id="2" name="Normal QAction" encoding="csharp" triggers="1" />
+	</QActions>
+</Protocol>
