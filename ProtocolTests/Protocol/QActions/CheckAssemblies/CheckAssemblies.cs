@@ -184,6 +184,28 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
             // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
+
+        [TestMethod]
+        public void QAction_CheckAssemblies_MissingSecureCoding()
+        {
+            // Create ErrorMessage
+            var message = Error.MissingSecureCoding(null, null, null, "qactionId");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Critical,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Missing Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package. QAction ID 'qactionId'.",
+                HowToFix = "Include the Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package in all projects within the solution.",
+                Details = "Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.",
+                HasCodeFix = false,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
     }
 
     [TestClass]

@@ -12241,15 +12241,17 @@
 								<Name>MissingSecureCoding</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Missing Skyline.DataMiner.Utils.SecureCoding Package.</Format>
-									<InputParameters />
+									<Format>Missing Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package. QAction ID '{0}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">qactionId</InputParameter>
+									</InputParameters>
 								</Description>
 								<Severity>Critical</Severity>
 								<Certainty>Certain</Certainty>
 								<Source>Validator</Source>
-								<FixImpact>Undefined</FixImpact>
+								<FixImpact>NonBreaking</FixImpact>
 								<HasCodeFix>False</HasCodeFix>
-								<HowToFix><![CDATA[Include the Skyline.DataMiner.Utils.SecureCoding Package in all projects within the solution.]]></HowToFix>
+								<HowToFix><![CDATA[Include the Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package in all projects within the solution.]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.]]></Details>
 							</ErrorMessage>
