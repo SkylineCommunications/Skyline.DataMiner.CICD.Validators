@@ -3005,6 +3005,29 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="31">
+						<Name namespace="Protocol">CheckDuplicateTags</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>DuplicateRawTypeTag</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Duplicate Interprete\RawType found. Param ID '{0}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Critical</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Having multiple RawType tags within a parameter could lead to a SLProtocol RTE.]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="2">
