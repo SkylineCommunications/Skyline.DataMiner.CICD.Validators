@@ -12338,7 +12338,7 @@
 								<Name>MismatchDevPack</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Package '{0}' version '{1}' does not meet the minimum required version '{2}'. QAction ID '{3}'.</Format>
+									<Format>Package '{0}' version '{1}' has a higher version than the version specified in the MinimumRequiredVersion tag '{2}'. QAction ID '{3}'.</Format>
 									<InputParameters>
 										<InputParameter id="0">packageName</InputParameter>
 										<InputParameter id="1">packageVersion</InputParameter>

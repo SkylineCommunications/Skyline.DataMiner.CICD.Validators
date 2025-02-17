@@ -104,7 +104,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDataMinerDependency
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = "Package 'packageName' version 'packageVersion' does not meet the minimum required version 'minimumRequiredVersion'. QAction ID 'qactionId'.",
+                Description = "Package 'packageName' version 'packageVersion' has a higher version than the version specified in the MinimumRequiredVersion tag 'minimumRequiredVersion'. QAction ID 'qactionId'.",
                 Details = "Using a higher version of the DevPack may introduce new features that are not compatible with the specified version of DataMiner." + Environment.NewLine +
                           "This can lead to unexpected behavior or errors. Make sure that the DevPack version used in the solution does not exceed the MinimumRequiredVersion.",
                 HasCodeFix = false,
