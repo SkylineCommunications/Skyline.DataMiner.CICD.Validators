@@ -1,6 +1,5 @@
 namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.CheckExceptionsTag
 {
-    using System;
     using System.Collections.Generic;
     using FluentAssertions;
 
@@ -70,6 +69,19 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.CheckExcepti
             {
                 TestType = Generic.TestType.Valid,
                 FileNameBase = "Valid",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Compare(compare, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckExceptionsTag_RemovedExceptionWrite()
+        {
+            Generic.CompareData data = new Generic.CompareData
+            {
+                TestType = Generic.TestType.Valid,
+                FileNameBase = "RemovedExceptionWrite",
                 ExpectedResults = new List<IValidationResult>()
             };
 
