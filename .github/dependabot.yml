@@ -12,3 +12,7 @@ updates:
     ignore:
       # AutoMapper can't be updated as we would lose support for .NET Standard 2.0
       - dependency-name: "AutoMapper"
+      
+      # FluentAssertions equal to or higher than 8.0.0 are a different license, which requires payment
+      - dependency-name: "FluentAssertions"
+        versions: [ ">=8.0.0" ]
