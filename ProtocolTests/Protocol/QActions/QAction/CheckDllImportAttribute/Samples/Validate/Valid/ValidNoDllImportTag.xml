@@ -1,0 +1,32 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10">
+			<Name>dummy</Name>
+			<Description>dummy</Description>
+			<Type>dummy</Type>
+		</Param>
+	</Params>
+	<QActions>
+		<QAction id="10" name="PerformAction" encoding="csharp" triggers="10">
+			<![CDATA[using System;
+using System.Diagnostics;
+using Skyline.DataMiner.Scripting;
+using Skyline.DataMiner;
+
+
+/// <summary>
+/// DataMiner QAction Class: PerformAction.
+/// </summary>
+public static class QAction
+{
+    /// <summary>
+    /// The QAction entry point.
+    /// </summary>
+    /// <param name="protocol">Link with SLProtocol process.</param>
+    public static void Run(SLProtocol protocol)
+    {
+    }
+}]]>
+		</QAction>
+	</QActions>
+</Protocol>
