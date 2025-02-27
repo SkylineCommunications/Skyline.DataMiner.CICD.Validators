@@ -35,7 +35,7 @@
 
         private protected virtual string GetTopicUid()
         {
-            return Path.Split(@"\").Last().Split(".").First();
+            return Path.Split(@"/").Last().Split(".").First();
         }
 
         public virtual void Build(StringBuilder tocContent, int level)
