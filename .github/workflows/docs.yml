@@ -38,24 +38,24 @@ jobs:
         ./Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown --inputFilePath ${{ github.workspace }}/Protocol/ErrorMessages.xml --outputDirectoryPath ${{ github.workspace }}/Documentation/checks
       working-directory: ${{ github.workspace }}/ValidatorErrorsToMarkdown/bin/Release/net8.0
 
-    - name: Zip artifact for deployment
-      run: zip -r result.zip ${{ github.workspace }}/Documentation 
+    # - name: Zip artifact for deployment
+    #   run: zip -r result.zip ${{ github.workspace }}/Documentation 
     
-    - name: Publish results
-      uses: actions/upload-artifact@v4
-      with:
-        name: result
-        path: result.zip
-
-    # - name: DocFX Build
-    #   working-directory: Documentation
-    #   run: docfx build --warningsAsErrors
-
-    # - name: Upload artifact
-    #   uses: actions/upload-pages-artifact@v3
+    # - name: Publish results
+    #   uses: actions/upload-artifact@v4
     #   with:
-    #     path: './Documentation/_site'
+    #     name: result
+    #     path: result.zip
 
-    # - name: Deploy to GitHub Pages
-    #   id: deployment
-    #   uses: actions/deploy-pages@v4
+    - name: DocFX Build
+      working-directory: Documentation
+      run: docfx build --warningsAsErrors
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './Documentation/_site'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
