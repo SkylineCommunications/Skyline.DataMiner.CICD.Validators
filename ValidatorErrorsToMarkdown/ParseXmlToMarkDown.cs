@@ -105,16 +105,16 @@
                         }
 
                         string source = XDocCheckHelper.GetCheckSource(errorMessage);
-                        Directory.CreateDirectory($@"{outputDirectoryPath}\{source}\{namespacePath}\{checkName}");
+                        Directory.CreateDirectory($@"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}");
 
                         string url = $"{baseUrl}/{source}/{namespacePath}/{checkName}/{uid}.html";
                         WriteRedirectFile(checkUid, url);
 
-                        if(!File.Exists($@"{outputDirectoryPath}\{source}\{namespacePath}\{checkName}\{uid}.md"))
+                        if(!File.Exists($@"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md"))
                         {
                             // Note: When a file already exists, it will not be overwritten.
                             // This allows users to provide overrides for the automatically generated pages (in case they want to provide e.g. additional info).
-                            doc.Save($@"{outputDirectoryPath}\{source}\{namespacePath}\{checkName}\{uid}.md");
+                            doc.Save($@"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md");
                         }
                     }
                 }
@@ -124,7 +124,7 @@
             CreateToc("Validator", sb);
             CreateToc("MajorChangeChecker", sb);
 
-            File.WriteAllText($@"{outputDirectoryPath}\toc.yml", sb.ToString());
+            File.WriteAllText($@"{outputDirectoryPath}/toc.yml", sb.ToString());
         }
 
         private void WriteRedirectFile(string checkId, string redirectUrl)
@@ -136,12 +136,12 @@
             stringBuilder.Append(Environment.NewLine);
             stringBuilder.AppendLine("---");
 
-            File.WriteAllText($@"{outputDirectoryPath}\Check_{checkId}.md", stringBuilder.ToString());
+            File.WriteAllText($@"{outputDirectoryPath}/Check_{checkId}.md", stringBuilder.ToString());
         }
 
         private void CreateToc(string folder, StringBuilder sb)
         {
-            string startFolder = $@"{outputDirectoryPath}\{folder}";
+            string startFolder = $@"{outputDirectoryPath}/{folder}";
 
             TocFolder root = new TocFolder(startFolder);
             root.Build(sb);
