@@ -39,7 +39,7 @@ jobs:
       working-directory: ${{ github.workspace }}/ValidatorErrorsToMarkdown/bin/Release/net8.0
 
     - name: Zip artifact for deployment
-      run: Compress-Archive -Path ${{ github.workspace }}/Documentation -DestinationPath .\result.zip
+      run: zip -r result.zip ${{ github.workspace }}/Documentation 
     
     - name: Publish results
       uses: actions/upload-artifact@v4
