@@ -29,7 +29,7 @@
 
         private protected override string GetName()
         {
-            return Path.Split(@"\").Last();
+            return Path.Split(@"/").Last();
         }
 
         private protected override string GetTopicUid()
