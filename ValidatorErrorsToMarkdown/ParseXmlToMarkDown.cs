@@ -107,7 +107,7 @@
                         string source = XDocCheckHelper.GetCheckSource(errorMessage);
                         Directory.CreateDirectory($@"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}");
 
-                        string url = $"{baseUrl}/{source}/{namespacePath}/{checkName}/{uid}.html";
+                        string url = $"{baseUrl}/checks/{source}/{namespacePath}/{checkName}/{uid}.html";
                         WriteRedirectFile(checkUid, url);
 
                         if(!File.Exists($@"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md"))
