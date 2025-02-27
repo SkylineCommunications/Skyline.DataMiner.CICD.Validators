@@ -3,8 +3,7 @@ name: Docs
 on:
   push:
     branches:
-      - '*'
-    #- main
+    - main
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -36,7 +35,7 @@ jobs:
 
     - name: Execute check documentation generation
       run: | 
-        ./Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown --inputFilePath ${{ github.workspace }}/Protocol/ErrorMessages.xml --outputDirectoryPath ${{ github.workspace }}/Documentation2/checks
+        ./Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown --inputFilePath ${{ github.workspace }}/Protocol/ErrorMessages.xml --outputDirectoryPath ${{ github.workspace }}/Documentation/checks
       working-directory: ${{ github.workspace }}/ValidatorErrorsToMarkdown/bin/Release/net8.0
 
     - name: DocFX Build
