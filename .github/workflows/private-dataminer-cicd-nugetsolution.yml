@@ -47,7 +47,7 @@ jobs:
       - name: Run export logic
         run: | 
           ./ExportErrorMessages ${{ github.workspace }}/Protocol/ErrorMessages.xml ${{ github.ref_name }} ${{ github.workspace }}/TEMP
-        working-directory: ${{ github.workspace }}/ExportErrorMessages/bin/Release/net6.0
+        working-directory: ${{ github.workspace }}/ExportErrorMessages/bin/Release/net8.0
 
       - name: Update release
         uses: ncipollo/release-action@v1.14.0
