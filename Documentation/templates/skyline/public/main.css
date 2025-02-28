@@ -8,7 +8,6 @@
   --color-background-subnav: #f2f2f2;
   --color-background-dark: #00517D;
   --color-background-table-alt: #f9f9f9;
-  /* --color-background-quote: #69696e; */
   --color-background-quote: #747474;
   --color-background-alert-note: #d7eaf8;
   --color-foreground-alert-note: #004173;
@@ -59,7 +58,6 @@ html[data-bs-theme='dark'] {
   --color-background-subnav: #3a3a3e;
   --color-background-dark: #013c5c;
   --color-background-table-alt: #212123;
-  /* --color-background-quote: #69696e; */
   --color-background-quote: #bbb;
   --color-background-alert-note: #02355c;
   --color-foreground-alert-note: #d7eaf8;

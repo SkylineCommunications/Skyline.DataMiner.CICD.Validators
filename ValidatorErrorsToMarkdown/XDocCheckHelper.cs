@@ -155,9 +155,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
         {
             IEnumerable<XElement> inputParams = inputParameters?.Elements("InputParameter");
             string[] inputParamsArray;
+
             if (templateInput is not null)
             {
-                IEnumerable<XElement> templateInputs = templateInput?.Elements("InputParameter");
+                IEnumerable<XElement> templateInputs = templateInput.Elements("InputParameter");
                 inputParamsArray = new string[templateInputs.Count()];
                 inputParamsArray = CheckValueOverrides(templateInputs, inputParamsArray);
             }
@@ -165,7 +166,6 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
             {
                 inputParamsArray = new string[inputParameters.Elements("InputParameter").Count()];
             }
-
 
             if (inputParams is not null)
                 inputParamsArray = CheckValueOverrides(inputParams, inputParamsArray);

@@ -8,7 +8,7 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
     /// </summary>
     public class DescriptionTemplates
     {
-        private XElement descriptionTemplates;
+        private readonly XElement descriptionTemplates;
 
         /// <summary>
         /// Creates an instance off class <see cref="DescriptionTemplates"/>.
@@ -48,7 +48,7 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
         /// <returns>An <see cref="XElement"/> Template that matches the specified <see cref="XAttribute"/> template id.</returns>
         private XElement GetTemplateById(XAttribute templateId)
         {
-            return descriptionTemplates?.Elements("DescriptionTemplate").Where(template => template?.Attribute("id")?.Value == templateId?.Value).FirstOrDefault();
+            return descriptionTemplates?.Elements("DescriptionTemplate").FirstOrDefault(template => template?.Attribute("id")?.Value == templateId?.Value);
         }
     }
 }

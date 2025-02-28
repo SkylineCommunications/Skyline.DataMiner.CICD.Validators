@@ -37,12 +37,24 @@
         public void ConvertToMarkDown()
         {
             var categories = xml?.Element("Validator")?.Element("ValidationChecks")?.Element("Categories")?.Elements("Category");
+
+            if(categories == null)
+            {
+                return;
+            }
+
             foreach (var category in categories)
             {
                 string catagoryId = category?.Attribute("id")?.Value;
                 string catagoryName = category?.Element("Name")?.Value;
 
                 var checks = category?.Element("Checks")?.Elements("Check");
+
+                if(checks == null)
+                {
+                    continue;
+                }
+
                 foreach (var check in checks)
                 {
                     XDocCheckHelper helper = new(check, descriptionTemplates);
