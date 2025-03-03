@@ -58,6 +58,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                             Error.MinVersionFeatureUsedInItem_Sub(null, null, null, "Chain")
                         )
                     ),
+                    Error.BelowMinimumSupportedVersion(null, null, null, "10.1.1.0", "10.3.0.0 - 12752")
                 }
             };
 
@@ -73,7 +74,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FileName = "UntrimmedTag",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.UntrimmedTag(null, null, null, " 10.2.0.0 - 123 ")
+                    Error.UntrimmedTag(null, null, null, " 10.4.0.0 - 123 ")
                 }
             };
 
@@ -137,7 +138,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FileName = "BelowMinimumSupportedVersion",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.BelowMinimumSupportedVersion(null, null, null, "10.0.0.0", "10.1.0.0 - 9966")
+                    Error.BelowMinimumSupportedVersion(null, null, null, "10.0.0.0", "10.3.0.0 - 12752")
                 }
             };
 
