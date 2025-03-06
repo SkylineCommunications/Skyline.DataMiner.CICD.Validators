@@ -3,6 +3,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using System;
     using System.Collections.Generic;
     using System.Linq;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
@@ -15,7 +16,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     [Test(CheckId.CheckDllImportAttribute, Category.QAction)]
     internal class CheckDllImportAttribute : IValidate/*, ICodeFix, ICompare*/
     {
-
         public List<IValidationResult> Validate(ValidatorContext context)
         {
             List<IValidationResult> results = new List<IValidationResult>();
@@ -33,9 +33,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
                 foreach (string dll in dlls)
                 {
-                    if (QActionHelper.DeprecatedDLLs.Contains(dll, StringComparer.InvariantCultureIgnoreCase))
+                    if (QActionHelper.DeprecatedDlls.Contains(dll, StringComparer.InvariantCultureIgnoreCase))
                     {
-                        results.Add(Error.DeprecatedDll(this, qAction, qAction, dll, qAction.Id.Value.ToString()));
+                        results.Add(Error.DeprecatedDll(this, qAction, qAction, dll, qAction.Id.RawValue));
                     }
                 }
             }

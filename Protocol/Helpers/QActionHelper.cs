@@ -13,10 +13,10 @@
 
     internal static class QActionHelper
     {
-        public static readonly string[] DeprecatedDLLs = new string[]
+        public static readonly string[] DeprecatedDlls =
         {
-            @"MySql.Data.dll",
-            @"SLDatabase.dll",
+            "MySql.Data.dll",
+            "SLDatabase.dll",
         };
 
         public static bool ParameterCanBeSet(IParamsParam parameter)

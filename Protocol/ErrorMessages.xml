@@ -12346,7 +12346,7 @@
 								<Name>DeprecatedDll</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Deprecated DLL '{0}' in attribute 'dllImport'. QAction '{1}'</Format>
+									<Format>Deprecated DLL '{0}' in attribute 'dllImport'. QAction '{1}'.</Format>
 									<InputParameters>
 										<InputParameter id="0">dllImportValue</InputParameter>
 										<InputParameter id="1">qactionId</InputParameter>
@@ -12370,7 +12370,7 @@
 								<Name>DeprecatedDll</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Deprecated DLL '{0}' referenced. QAction '{1}'</Format>
+									<Format>Deprecated DLL '{0}' referenced. QAction '{1}'.</Format>
 									<InputParameters>
 										<InputParameter id="0">packageName</InputParameter>
 										<InputParameter id="1">qactionId</InputParameter>

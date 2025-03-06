@@ -2,21 +2,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+
+    using Skyline.DataMiner.CICD.Models.Protocol;
+    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
     
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
-    using Skyline.DataMiner.CICD.Models.Protocol;
-    using System.Linq;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckDeprecatedDllReferences, Category.QAction)]
     internal class CheckDeprecatedDllReferences : IValidate /*, ICodeFix, ICompare */
     {
-
         public List<IValidationResult> Validate(ValidatorContext context)
         {
             List<IValidationResult> results = new List<IValidationResult>();
@@ -33,11 +33,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 Project qactionProject = Project.Load(compiledQActionProject.Project.FilePath, compiledQActionProject.Project.Name);
 
                 string[] referencedDlls = qactionProject.References.Select(reference => reference.GetDllName()).ToArray();
-                foreach (string deprecatedDll in QActionHelper.DeprecatedDLLs)
+                foreach (string deprecatedDll in QActionHelper.DeprecatedDlls)
                 {
                     if (referencedDlls.Contains(deprecatedDll, StringComparer.InvariantCultureIgnoreCase))
                     {
-                        results.Add(Error.DeprecatedDll(this, compiledQActionProject.QAction, compiledQActionProject.QAction, deprecatedDll, compiledQActionProject.QAction.Id.Value.ToString()));
+                        results.Add(Error.DeprecatedDll(this, compiledQActionProject.QAction, compiledQActionProject.QAction, deprecatedDll, compiledQActionProject.QAction.Id.RawValue));
                     }
                 }
             }
@@ -45,27 +45,26 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             return results;
         }
 
+        ////public ICodeFixResult Fix(CodeFixContext context)
+        ////{
+        ////    CodeFixResult result = new CodeFixResult();
 
-        //public ICodeFixResult Fix(CodeFixContext context)
-        //{
-        //    CodeFixResult result = new CodeFixResult();
+        ////    switch (context.Result.ErrorId)
+        ////    {
 
-        //    switch (context.Result.ErrorId)
-        //    {
+        ////        default:
+        ////            result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
+        ////            break;
+        ////    }
 
-        //        default:
-        //            result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
-        //            break;
-        //    }
-
-        //    return result;
-        //}
+        ////    return result;
+        ////}
         
-        //public List<IValidationResult> Compare(MajorChangeCheckContext context)
-        //{
-        //    List<IValidationResult> results = new List<IValidationResult>();
+        ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
+        ////{
+        ////    List<IValidationResult> results = new List<IValidationResult>();
 
-        //    return results;
-        //}
+        ////    return results;
+        ////}
     }
 }

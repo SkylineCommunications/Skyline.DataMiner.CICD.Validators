@@ -99,7 +99,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDllImportAttribute
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = $"Deprecated DLL '{dllImportValue}' in attribute 'dllImport'. QAction '{qactionId}'",
+                Description = $"Deprecated DLL '{dllImportValue}' in attribute 'dllImport'. QAction '{qactionId}'.",
                 Details = "",
                 HasCodeFix = false,
             };

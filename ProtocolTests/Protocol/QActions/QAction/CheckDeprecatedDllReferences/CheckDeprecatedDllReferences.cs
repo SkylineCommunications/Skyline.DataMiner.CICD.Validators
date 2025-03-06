@@ -53,6 +53,21 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDeprecatedDllReferences
         #region Invalid Checks
 
         [TestMethod]
+        [Ignore("Isn't really relevant and causes other checks to fail")]
+        public void QAction_CheckDeprecatedDllReferences_DeprecatedDllReferences_XmlBased()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "DeprecatedDllReferences",
+                IsSolution = true,
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
         public void QAction_CheckDeprecatedDllReferences_DeprecatedDllReferences()
         {
             Generic.ValidateData data = new Generic.ValidateData
@@ -92,7 +107,7 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDeprecatedDllReferences
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = $"Deprecated DLL '{packageName}' referenced. QAction '{qactionId}'",
+                Description = $"Deprecated DLL '{packageName}' referenced. QAction '{qactionId}'.",
                 Details = "",
                 HasCodeFix = false,
             };
