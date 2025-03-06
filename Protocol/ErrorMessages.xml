@@ -12237,6 +12237,24 @@
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException.[NewLine]To fix these issues, it is important to use the same version of a NuGet package across the entire solution.[NewLine][NewLine]'Skyline.DataMiner.Dev.*' (aka DevPacks) or 'Skyline.DataMiner.Files.*' NuGet packages should also be aligned across all projects of the solution as these packages represent the DataMiner version that is being developed against.]]></Details>
 							</ErrorMessage>
+							<ErrorMessage id="3">
+								<Name>MissingSecureCoding</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Missing Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package. QAction ID '{0}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Critical</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Include the Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package in all projects within the solution.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.]]></Details>
+							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="39">
@@ -12320,7 +12338,7 @@
 								<Name>MismatchDevPack</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Package '{0}' version '{1}' does not meet the minimum required version '{2}'. QAction ID '{3}'.</Format>
+									<Format>Package '{0}' version '{1}' has a higher version than the version specified in the MinimumRequiredVersion tag '{2}'. QAction ID '{3}'.</Format>
 									<InputParameters>
 										<InputParameter id="0">packageName</InputParameter>
 										<InputParameter id="1">packageVersion</InputParameter>
