@@ -49,7 +49,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
                 if (newType == null)
                 {
-                    results.Add(ErrorCompare.RemovedTag(newInterprete, newInterprete, newParam.Id?.RawValue));
+                    IReadable referenceNode = (IReadable)newInterprete ?? newParam;
+                    results.Add(ErrorCompare.RemovedTag(referenceNode, referenceNode, newParam.Id?.RawValue));
                     continue;
                 }
 
