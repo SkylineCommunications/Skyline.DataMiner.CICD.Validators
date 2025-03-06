@@ -1,16 +1,11 @@
 ﻿namespace Common.Testing
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.Tracing;
     using System.IO;
     using System.Reflection;
     using System.Runtime.CompilerServices;
     using System.Text;
     using System.Threading.Tasks;
-    using Microsoft.Build.Framework;
-    using Microsoft.Build.Locator;
-    using Microsoft.Build.Logging;
+
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.MSBuild;
     using Nito.AsyncEx.Synchronous;
@@ -31,18 +26,7 @@
     {
         public static ProtocolInputData GetProtocolInputDataFromSolution(string solutionPath)
         {
-            // Creating a build workspace.
-            var workspace = MSBuildWorkspace.Create();
-            
-            // Opening the solution.
-            Solution solution = workspace.OpenSolutionAsync(solutionPath).Result;
-
-            ProtocolSolution protocolSolution = ProtocolSolution.Load(solutionPath);
-            ProtocolModel protocolModel = new ProtocolModel(protocolSolution.ProtocolDocument);
-
-            QActionCompilationModel qActionCompilationModel = new QActionCompilationModel(protocolModel, solution);
-
-            return new ProtocolInputData(protocolModel, protocolSolution.ProtocolDocument, qActionCompilationModel);
+            return GetProtocolInputDataFromSolutionAsync(solutionPath).WaitAndUnwrapException();
         }
 
         public static async Task<ProtocolInputData> GetProtocolInputDataFromSolutionAsync(string solutionPath)
@@ -60,7 +44,7 @@
 
             return new ProtocolInputData(protocolModel, protocolSolution.ProtocolDocument, qActionCompilationModel);
         }
-        
+
         public static ProtocolInputData GetProtocolInputDataFromXml(string xmlCode)
         {
             return new ProtocolInputData(xmlCode, GetQActionCompilationModel(xmlCode));

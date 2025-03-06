@@ -18,6 +18,7 @@
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.MSBuild;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;

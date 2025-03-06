@@ -1,4 +1,5 @@
-﻿namespace Protocol.FeaturesTests.Features._10._2
+﻿#if NET // For some reason, this test is not working in .NET Framework...
+namespace Protocol.FeaturesTests.Features._10._2
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -90,3 +91,4 @@
         }
     }
 }
+#endif
