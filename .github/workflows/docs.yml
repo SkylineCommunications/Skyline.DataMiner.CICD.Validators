@@ -1,0 +1,61 @@
+name: Docs
+
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+    group: "pages"
+    cancel-in-progress: false
+
+jobs:
+  generate-docs:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install DocFX
+      run: dotnet tool update -g docfx
+
+    - name: Building
+      run: dotnet build "./ValidatorErrorsToMarkdown/ValidatorErrorsToMarkdown.csproj" --configuration Release -nodeReuse:false
+
+    - name: Execute check documentation generation
+      run: | 
+        ./Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown --inputFilePath ${{ github.workspace }}/Protocol/ErrorMessages.xml --outputDirectoryPath ${{ github.workspace }}/Documentation/checks
+      working-directory: ${{ github.workspace }}/ValidatorErrorsToMarkdown/bin/Release/net8.0
+
+    # - name: Zip artifact for deployment
+    #   run: zip -r result.zip ${{ github.workspace }}/Documentation 
+    
+    # - name: Publish results
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: result
+    #     path: result.zip
+
+    - name: DocFX Build
+      working-directory: Documentation
+      run: docfx build --warningsAsErrors
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './Documentation/_site'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
