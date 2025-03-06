@@ -25,7 +25,7 @@
         /// <summary>
         /// Gets the minimum DataMiner version with its build number for which support is still given.
         /// </summary>
-        private static string MinimumSupportedDataMinerVersionWithBuildNumber => "10.2.0.0 - 12603";
+        private static string MinimumSupportedDataMinerVersionWithBuildNumber => "10.3.0.0 - 12752";
 
         /// <summary>
         /// Gets the minimum DataMiner version with its build number for which support is still given.

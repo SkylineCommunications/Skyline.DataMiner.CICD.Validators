@@ -21,7 +21,7 @@
         {
             testsToExecute = new List<(Category catergory, uint checkId)>();
             UnitList = new UnitList();
-            MinimumSupportedDataMinerVersion = new DataMinerVersion(new Version(10, 3, 0, 0), 12752);
+            MinimumSupportedDataMinerVersion = new DataMinerVersion(new Version(10, 1, 0, 0), 9966);
             ExpectedProvider = "Skyline Communications";
         }
 
