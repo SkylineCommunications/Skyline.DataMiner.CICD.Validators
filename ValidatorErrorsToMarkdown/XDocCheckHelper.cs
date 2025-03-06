@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-
-namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
+﻿namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Xml.Linq;
+
     /// <summary>
     /// A helper to get all the info in the element check.
     /// </summary>
@@ -40,7 +40,7 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
         /// Gets the namespace of the <see cref="check"/>.
         /// </summary>
         /// <returns>A <see cref="string"/> checkNamespace.</returns>
-        public string GetCheckNampespace() => check?.Element("Name")?.Attribute("namespace")?.Value;
+        public string GetCheckNamespace() => check?.Element("Name")?.Attribute("namespace")?.Value;
 
         /// <summary>
         /// Gets the id of the <see cref="XElement"/> errorMessage.
@@ -84,8 +84,13 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
                 format = errorMessage?.Element("Description")?.Element("Format")?.Value;
             }
 
+            if (format is null)
+            {
+                throw new InvalidOperationException($"No format found for {errorMessage}");
+            }
+
             var input = GetInputParams(inputParameters, templateInputs);
-            return string.Format(format, input);
+            return String.Format(format, input);
         }
 
         /// <summary>
@@ -153,22 +158,24 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
 
         private static string[] GetInputParams(XElement inputParameters, XElement templateInput)
         {
-            IEnumerable<XElement> inputParams = inputParameters?.Elements("InputParameter");
+            IEnumerable<XElement> inputParams = inputParameters?.Elements("InputParameter").ToList();
             string[] inputParamsArray;
 
             if (templateInput is not null)
             {
-                IEnumerable<XElement> templateInputs = templateInput.Elements("InputParameter");
+                IEnumerable<XElement> templateInputs = templateInput.Elements("InputParameter").ToList();
                 inputParamsArray = new string[templateInputs.Count()];
                 inputParamsArray = CheckValueOverrides(templateInputs, inputParamsArray);
             }
             else
             {
-                inputParamsArray = new string[inputParameters.Elements("InputParameter").Count()];
+                inputParamsArray = new string[inputParams?.Count() ?? 0];
             }
 
             if (inputParams is not null)
+            {
                 inputParamsArray = CheckValueOverrides(inputParams, inputParamsArray);
+            }
 
             return inputParamsArray;
         }
@@ -184,8 +191,8 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
             int index = 0;
             foreach (var parameter in inputs)
             {
-	            string valueAttribute = parameter.Attribute("value")?.Value;
-	            if (String.IsNullOrEmpty(valueAttribute))
+                string valueAttribute = parameter.Attribute("value")?.Value;
+                if (String.IsNullOrEmpty(valueAttribute))
                 {
                     inputParamsArray[index] = "{" + parameter.Value + "}";
                 }
@@ -202,8 +209,7 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
 
         private static string SetNewLines(string data)
         {
-            data = data.Replace("[NewLine]", Environment.NewLine);
-            return data;
+            return data.Replace("[NewLine]", Environment.NewLine);
         }
     }
 }

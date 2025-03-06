@@ -9,14 +9,14 @@
     /// </summary>
     internal class TocItem
     {
-        private string topcUid;
+        private string topicUid;
         private string name;
 
         public string Path { get; }
 
         public string Name => name ??= GetName();
 
-        public string TopicUid => topcUid ??= GetTopicUid();
+        public string TopicUid => topicUid ??= GetTopicUid();
 
         /// <summary>
         /// Creates an instance of class <see cref="TocItem"/>.
@@ -35,7 +35,7 @@
 
         private protected virtual string GetTopicUid()
         {
-            return Path.Split(@"/").Last().Split(".").First();
+            return Path.Split("/").Last().Split(".").First();
         }
 
         public virtual void Build(StringBuilder tocContent, int level)

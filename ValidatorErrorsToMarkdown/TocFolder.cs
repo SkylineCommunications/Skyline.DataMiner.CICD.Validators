@@ -29,7 +29,7 @@
 
         private protected override string GetName()
         {
-            return Path.Split(@"/").Last();
+            return Path.Split("/").Last();
         }
 
         private protected override string GetTopicUid()
@@ -37,7 +37,7 @@
             return FindFirstChildWithTopicUid(this);
         }
 
-        private string FindFirstChildWithTopicUid(TocItem child)
+        private static string FindFirstChildWithTopicUid(TocItem child)
         {
             if (child is TocFolder folder)
             {
@@ -58,7 +58,7 @@
             tocContent.AppendLine($"- name: {Name}");
 
             tocContent.Append(GetSpacesBasedOnLevel(level));
-            tocContent.AppendLine($"  items:");
+            tocContent.AppendLine("  items:");
 
             level++;
             foreach (TocItem child in Children)

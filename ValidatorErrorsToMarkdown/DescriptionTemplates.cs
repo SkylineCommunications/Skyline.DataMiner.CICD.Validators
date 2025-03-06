@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Xml.Linq;
-
-namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
+﻿namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
 {
+    using System.Linq;
+    using System.Xml.Linq;
+
     /// <summary>
     /// Class to work with the description templates
     /// </summary>
@@ -20,7 +20,7 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
         }
 
         /// <summary>
-        /// Gets the format from the template with the the template id.
+        /// Gets the format from the template with the template id.
         /// </summary>
         /// <param name="templateId"></param>
         /// <returns>A <see cref="string"/> format from the template that matches the specified <see cref="XAttribute"/> template id.</returns>
@@ -31,7 +31,7 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
         }
 
         /// <summary>
-        /// Gets the name of the template with the the template id.
+        /// Gets the name of the template with the template id.
         /// </summary>
         /// <param name="templateId"></param>
         /// <returns>An <see cref="XElement"/> TemplateInputs from the template that matches the specified <see cref="XAttribute"/> template id.</returns>

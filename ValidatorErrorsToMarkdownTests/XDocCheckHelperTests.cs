@@ -1,12 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Xml.Linq;
-
-namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
+﻿namespace ValidatorErrorsToMarkdownTests
 {
-    [TestClass()]
+    using System.Xml.Linq;
+    using FluentAssertions;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown;
+
+    [TestClass]
     public class XDocCheckHelperTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckDescriptionTest_NoTemplateNoOverride()
         {
             // Arrange
@@ -38,10 +41,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = helper.GetCheckDescription(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Invalid prefix '{invalidPrefix}' in 'Protocol/Name' tag. Current value '{tagValue}'.", result);
+            result.Should().BeEquivalentTo("Invalid prefix '{invalidPrefix}' in 'Protocol/Name' tag. Current value '{tagValue}'.");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckDescriptionTest_NoTemplateOverride()
         {
             // Arrange
@@ -73,10 +76,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = helper.GetCheckDescription(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Invalid prefix '{invalidPrefix}' in 'Protocol/Name' tag. Current value 'Protocol'.", result);
+            result.Should().BeEquivalentTo("Invalid prefix '{invalidPrefix}' in 'Protocol/Name' tag. Current value 'Protocol'.");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckDescriptionTest_TemplateOverride()
         {
             // Arrange
@@ -117,10 +120,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = helper.GetCheckDescription(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Missing tag 'Protocol'.", result);
+            result.Should().BeEquivalentTo("Missing tag 'Protocol'.");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckDescriptionTest_TemplateNoOverride()
         {
             // Arrange
@@ -161,10 +164,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = helper.GetCheckDescription(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Missing tag '{tagName}'.", result);
+            result.Should().BeEquivalentTo("Missing tag '{tagName}'.");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckDescriptionTest_TemplateNoOverrideOnlyInputTemplate()
         {
             // Arrange
@@ -201,10 +204,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = helper.GetCheckDescription(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Missing tag '{tagName}'.", result);
+            result.Should().BeEquivalentTo("Missing tag '{tagName}'.");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckNameTest()
         {
             // Arrange
@@ -235,10 +238,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = helper.GetCheckName();
 
             // Assert
-            Assert.AreEqual("CheckProtocolTag", result);
+            result.Should().BeEquivalentTo("CheckProtocolTag");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckIdTest()
         {
             // Arrange
@@ -269,10 +272,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = helper.GetCheckId();
 
             // Assert
-            Assert.AreEqual("1", result);
+            result.Should().BeEquivalentTo("1");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckSeverityTest()
         {
             // Arrange
@@ -302,10 +305,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckSeverity(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Critical", result);
+            result.Should().BeEquivalentTo("Critical");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckCertaintyTest()
         {
             // Arrange
@@ -335,10 +338,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckCertainty(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Certain", result);
+            result.Should().BeEquivalentTo("Certain");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckErrorMessageIdTest()
         {
             // Arrange
@@ -368,10 +371,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckErrorMessageId(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("5", result);
+            result.Should().BeEquivalentTo("5");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckErrorMessageNameTest()
         {
             // Arrange
@@ -401,10 +404,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckErrorMessageName(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("InvalidPrefix", result);
+            result.Should().BeEquivalentTo("InvalidPrefix");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckGroupDescriptionTest()
         {
             // Arrange
@@ -434,10 +437,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckGroupDescription(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Unrecommended chars in some parameter names.", result);
+            result.Should().BeEquivalentTo("Unrecommended chars in some parameter names.");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckSourceTest()
         {
             // Arrange
@@ -467,10 +470,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckSource(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Validator", result);
+            result.Should().BeEquivalentTo("Validator");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckFixImpactTest()
         {
             // Arrange
@@ -500,10 +503,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckFixImpact(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("NonBreaking", result);
+            result.Should().BeEquivalentTo("NonBreaking");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void HasCheckErrorMessageCodeFixTest()
         {
             // Arrange
@@ -533,10 +536,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.HasCheckErrorMessageCodeFix(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual(true, result);
+            result.Should().BeTrue();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckHowToFixTest()
         {
             // Arrange
@@ -566,10 +569,12 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckHowToFix(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual($"Use one of the following constructors:{Environment.NewLine}- XmlSerializer.XmlSerializer(Type){Environment.NewLine}- XmlSerializer.XmlSerializer(Type, String)", result);
+            result.Should()
+                  .BeEquivalentTo(
+                      $"Use one of the following constructors:{Environment.NewLine}- XmlSerializer.XmlSerializer(Type){Environment.NewLine}- XmlSerializer.XmlSerializer(Type, String)");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckExampleCodeTest()
         {
             // Arrange
@@ -599,10 +604,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckExampleCode(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("object[] elementInfo = new object[] { elementId, ipPort, multipleSet, instance, connectionId, setCommunityString, enableRetries, agentId };" + Environment.NewLine + "object[] oidInfo = new object[] { new object[] { oid, newValue, snmpType } };" + Environment.NewLine + Environment.NewLine + "object[] result = (object[])protocol.NotifyProtocol(292/*NT_SNMP_SET*/, elementInfo, oidInfo);", result);
+            result.Should().BeEquivalentTo("object[] elementInfo = new object[] { elementId, ipPort, multipleSet, instance, connectionId, setCommunityString, enableRetries, agentId };" + Environment.NewLine + "object[] oidInfo = new object[] { new object[] { oid, newValue, snmpType } };" + Environment.NewLine + Environment.NewLine + "object[] result = (object[])protocol.NotifyProtocol(292/*NT_SNMP_SET*/, elementInfo, oidInfo);");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckDetailsTest()
         {
             // Arrange
@@ -632,10 +637,10 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             var result = XDocCheckHelper.GetCheckDetails(element.Descendants("ErrorMessage").FirstOrDefault());
 
             // Assert
-            Assert.AreEqual("Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface", result);
+            result.Should().BeEquivalentTo("Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetCheckAutoFixWarningsTest()
         {
             // Arrange
@@ -668,8 +673,40 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown.Tests
             // Act
             var result = XDocCheckHelper.GetCheckAutoFixWarnings(element.Descendants("ErrorMessage").FirstOrDefault());
             // Assert
-            Assert.AreEqual("Double check the use of the Parameter class in QActions.", result[0]);
-            Assert.AreEqual("Double check the use of the (Get/Set)ParameterByName methods in QActions.", result[1]);
+            result[0].Should().BeEquivalentTo("Double check the use of the Parameter class in QActions.");
+            result[1].Should().BeEquivalentTo("Double check the use of the (Get/Set)ParameterByName methods in QActions.");
+        }
+
+        [TestMethod]
+        public void GetCheckDescriptionTest_NoInputParameters()
+        {
+            // Arrange
+            string xmlContent = @"  <Check id=""9"">
+							            <ErrorMessage id=""6"">
+							            	<Name>AddedUnicode</Name>
+							            	<GroupDescription />
+							            	<Description>
+							            		<Format>Unicode option on protocol was added.</Format>
+							            		<InputParameters />
+							            	</Description>
+							            	<Severity>Major</Severity>
+							            	<Certainty>Certain</Certainty>
+							            	<Source>MajorChangeChecker</Source>
+							            	<FixImpact>Breaking</FixImpact>
+							            	<HasCodeFix>False</HasCodeFix>
+							            	<HowToFix><![CDATA[]]></HowToFix>
+							            	<ExampleCode><![CDATA[]]></ExampleCode>
+							            	<Details><![CDATA[]]></Details>
+							            </ErrorMessage>
+                                    </Check>";
+            XElement element = XElement.Parse(xmlContent);
+            XDocCheckHelper helper = new(element, null);
+
+            // Act
+            var result = helper.GetCheckDescription(element.Descendants("ErrorMessage").FirstOrDefault());
+
+            // Assert
+            result.Should().BeEquivalentTo("Unicode option on protocol was added.");
         }
     }
 }

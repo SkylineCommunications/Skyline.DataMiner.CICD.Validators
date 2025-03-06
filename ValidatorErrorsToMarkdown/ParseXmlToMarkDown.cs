@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Xml.Linq;
+
     using Grynwald.MarkdownGenerator;
 
     /// <summary>
@@ -13,7 +14,7 @@
     /// </summary>
     public class ParseXmlToMarkDown
     {
-        private readonly string baseUrl = "https://skylinecommunications.github.io/Skyline.DataMiner.CICD.Validators";
+        private const string baseUrl = "https://skylinecommunications.github.io/Skyline.DataMiner.CICD.Validators";
 
         private readonly XDocument xml;
         private readonly string outputDirectoryPath;
@@ -38,19 +39,19 @@
         {
             var categories = xml?.Element("Validator")?.Element("ValidationChecks")?.Element("Categories")?.Elements("Category");
 
-            if(categories == null)
+            if (categories == null)
             {
                 return;
             }
 
             foreach (var category in categories)
             {
-                string catagoryId = category?.Attribute("id")?.Value;
-                string catagoryName = category?.Element("Name")?.Value;
+                string categoryId = category.Attribute("id")?.Value;
+                string categoryName = category.Element("Name")?.Value;
 
-                var checks = category?.Element("Checks")?.Elements("Check");
+                var checks = category.Element("Checks")?.Elements("Check");
 
-                if(checks == null)
+                if (checks == null)
                 {
                     continue;
                 }
@@ -58,17 +59,17 @@
                 foreach (var check in checks)
                 {
                     XDocCheckHelper helper = new(check, descriptionTemplates);
-                    string nameSpace = helper.GetCheckNampespace();
-                    string namespacePath = string.Join('/', nameSpace.Split('.'));
+                    string nameSpace = helper.GetCheckNamespace();
+                    string namespacePath = String.Join('/', nameSpace.Split('.'));
                     string checkName = helper.GetCheckName();
                     string checkId = helper.GetCheckId();
 
                     var errorMessages = check.Descendants("ErrorMessage");
                     foreach (var errorMessage in errorMessages)
                     {
-                        string fullId = $"{catagoryId}.{checkId}.{XDocCheckHelper.GetCheckErrorMessageId(errorMessage)}";
-                        string uid = $"{XDocCheckHelper.GetCheckSource(errorMessage)}_{catagoryId}_{checkId}_{XDocCheckHelper.GetCheckErrorMessageId(errorMessage)}";
-                        string checkUid = $"{catagoryId}_{checkId}_{XDocCheckHelper.GetCheckErrorMessageId(errorMessage)}";
+                        string fullId = $"{categoryId}.{checkId}.{XDocCheckHelper.GetCheckErrorMessageId(errorMessage)}";
+                        string uid = $"{XDocCheckHelper.GetCheckSource(errorMessage)}_{categoryId}_{checkId}_{XDocCheckHelper.GetCheckErrorMessageId(errorMessage)}";
+                        string checkUid = $"{categoryId}_{checkId}_{XDocCheckHelper.GetCheckErrorMessageId(errorMessage)}";
 
                         MdDocument doc = new();
                         // uid
@@ -82,7 +83,7 @@
                         doc.Root.Add(new MdParagraph(helper.GetCheckDescription(errorMessage)));
                         // properties table
                         doc.Root.Add(new MdHeading("Properties", 3));
-                        doc.Root.Add(CreateTable(errorMessage, catagoryName, fullId));
+                        doc.Root.Add(CreateTable(errorMessage, categoryName, fullId));
 
                         string howToFix = XDocCheckHelper.GetCheckHowToFix(errorMessage);
                         if (howToFix is not "")
@@ -109,24 +110,24 @@
                         if (autofixWarnings is not null)
                         {
                             MdParagraph warnings = new();
-                            warnings.Add(new MdRawMarkdownSpan($"[!WARNING]\r\n"));
-                            for (int i = 0; i < autofixWarnings.Count; i++)
+                            warnings.Add(new MdRawMarkdownSpan("[!WARNING]\r\n"));
+                            foreach (string autofixWarning in autofixWarnings)
                             {
-                                warnings.Add(new MdRawMarkdownSpan($"{autofixWarnings[i]}\r\n"));
+                                warnings.Add(new MdRawMarkdownSpan($"{autofixWarning}\r\n"));
                             }
                         }
 
                         string source = XDocCheckHelper.GetCheckSource(errorMessage);
-                        Directory.CreateDirectory($@"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}");
+                        Directory.CreateDirectory($"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}");
 
                         string url = $"{baseUrl}/checks/{source}/{namespacePath}/{checkName}/{uid}.html";
                         WriteRedirectFile(checkUid, url);
 
-                        if(!File.Exists($@"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md"))
+                        if (!File.Exists($"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md"))
                         {
                             // Note: When a file already exists, it will not be overwritten.
                             // This allows users to provide overrides for the automatically generated pages (in case they want to provide e.g. additional info).
-                            doc.Save($@"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md");
+                            doc.Save($"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md");
                         }
                     }
                 }
@@ -136,7 +137,7 @@
             CreateToc("Validator", sb);
             CreateToc("MajorChangeChecker", sb);
 
-            File.WriteAllText($@"{outputDirectoryPath}/toc.yml", sb.ToString());
+            File.WriteAllText($"{outputDirectoryPath}/toc.yml", sb.ToString());
         }
 
         private void WriteRedirectFile(string checkId, string redirectUrl)
@@ -148,12 +149,12 @@
             stringBuilder.Append(Environment.NewLine);
             stringBuilder.AppendLine("---");
 
-            File.WriteAllText($@"{outputDirectoryPath}/Check_{checkId}.md", stringBuilder.ToString());
+            File.WriteAllText($"{outputDirectoryPath}/Check_{checkId}.md", stringBuilder.ToString());
         }
 
         private void CreateToc(string folder, StringBuilder sb)
         {
-            string startFolder = $@"{outputDirectoryPath}/{folder}";
+            string startFolder = $"{outputDirectoryPath}/{folder}";
 
             TocFolder root = new TocFolder(startFolder);
             root.Build(sb);
@@ -168,37 +169,38 @@
         /// <returns>A <see cref="MdTable"/> table</returns>
         private static MdTable CreateTable(XElement errorMessage, string categoryName, string fullId)
         {
-            MdSpan[] headingCells = { "Name", "Value" };
+            MdSpan[] headingCells = ["Name", "Value"];
             MdTableRow tableRowHeading = new(headingCells);
 
-            MdSpan[] categoryCells = { "Category", categoryName };
+            MdSpan[] categoryCells = ["Category", categoryName];
             MdTableRow tableRowCategory = new(categoryCells);
 
-            MdSpan[] fullIdCells = { "Full Id", fullId };
+            MdSpan[] fullIdCells = ["Full Id", fullId];
             MdTableRow tableRowfullId = new(fullIdCells);
 
-            MdSpan[] severityCells = { "Severity", XDocCheckHelper.GetCheckSeverity(errorMessage) ?? "Variable" };
+            MdSpan[] severityCells = ["Severity", XDocCheckHelper.GetCheckSeverity(errorMessage) ?? "Variable"];
             MdTableRow tableRowSeverity = new(severityCells);
 
-            MdSpan[] certaintyCells = { "Certainty", XDocCheckHelper.GetCheckCertainty(errorMessage) ?? "Variable" };
+            MdSpan[] certaintyCells = ["Certainty", XDocCheckHelper.GetCheckCertainty(errorMessage) ?? "Variable"];
             MdTableRow tableRowCertainty = new(certaintyCells);
 
-            MdSpan[] sourceCells = { "Source", XDocCheckHelper.GetCheckSource(errorMessage) };
+            MdSpan[] sourceCells = ["Source", XDocCheckHelper.GetCheckSource(errorMessage)];
             MdTableRow tableRowSource = new(sourceCells);
 
-            MdSpan[] fixImpactCells = { "Fix Impact", XDocCheckHelper.GetCheckFixImpact(errorMessage) };
+            MdSpan[] fixImpactCells = ["Fix Impact", XDocCheckHelper.GetCheckFixImpact(errorMessage)];
             MdTableRow tableRowFixImpact = new(fixImpactCells);
 
-            MdSpan[] hasCodeFixCells = { "Has Code Fix", XDocCheckHelper.HasCheckErrorMessageCodeFix(errorMessage).ToString() };
+            MdSpan[] hasCodeFixCells = ["Has Code Fix", XDocCheckHelper.HasCheckErrorMessageCodeFix(errorMessage).ToString()];
             MdTableRow tableRowHasCodeFix = new(hasCodeFixCells);
 
-            MdTableRow[] tableRows = { tableRowCategory, tableRowfullId, tableRowSeverity, tableRowCertainty, tableRowSource, tableRowFixImpact, tableRowHasCodeFix };
+            MdTableRow[] tableRows =
+                [tableRowCategory, tableRowfullId, tableRowSeverity, tableRowCertainty, tableRowSource, tableRowFixImpact, tableRowHasCodeFix];
             MdTable table = new(tableRowHeading, tableRows);
 
             string groupDescription = XDocCheckHelper.GetCheckGroupDescription(errorMessage);
             if (groupDescription != "")
             {
-                MdSpan[] groupDescriptionCells = { "Group Description", groupDescription };
+                MdSpan[] groupDescriptionCells = ["Group Description", groupDescription];
                 MdTableRow tableRowDescriptionGroup = new(groupDescriptionCells);
                 table.Add(tableRowDescriptionGroup);
             }

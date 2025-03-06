@@ -1,9 +1,9 @@
-﻿using System.CommandLine;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
+﻿namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
 {
+    using System.CommandLine;
+    using System.Threading.Tasks;
+    using System.Xml.Linq;
+
     /// <summary>
     /// This tool converts an XML file of error messages from the validator of DIS to MarkDown files.
     /// </summary>
@@ -34,7 +34,6 @@ namespace Skyline.DataMiner.CICD.Tools.ValidatorErrorsToMarkdown
                 inputFilePath,
                 outputDirectoryPath,
             };
-
 
             rootCommand.SetHandler(Process, inputFilePath, outputDirectoryPath);
 
