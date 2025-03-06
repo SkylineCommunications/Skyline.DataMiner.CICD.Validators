@@ -1,7 +1,7 @@
 ﻿namespace Protocol.FeaturesTests.Features._10._2
 {
     using System.Linq;
-
+    using System.Threading.Tasks;
     using Common.Testing;
 
     using FluentAssertions;
@@ -24,10 +24,10 @@
         }
 
         [TestMethod]
-        public void CheckIsUsed_Solution_Framework462()
+        public async Task CheckIsUsed_Solution_Framework462()
         {
             // Arrange
-            var input = ProtocolTestsHelper.GetProtocolInputDataFromSolution(@"Test Files\Solutions\SolutionFramework462\SolutionFramework462.sln");
+            var input = await ProtocolTestsHelper.GetProtocolInputDataFromSolutionAsync(@"Test Files\Solutions\SolutionFramework462\SolutionFramework462.sln");
 
             FeatureCheckContext context = new FeatureCheckContext(input);
 
@@ -40,10 +40,10 @@
         }
 
         [TestMethod]
-        public void CheckIsUsed_Solution_Framework462_Legacy()
+        public async Task CheckIsUsed_Solution_Framework462_Legacy()
         {
             // Arrange
-            var input = ProtocolTestsHelper.GetProtocolInputDataFromSolution(@"Test Files\Solutions\SolutionFramework462_Legacy\SolutionFramework462.sln");
+            var input = await ProtocolTestsHelper.GetProtocolInputDataFromSolutionAsync(@"Test Files\Solutions\SolutionFramework462_Legacy\SolutionFramework462.sln");
 
             FeatureCheckContext context = new FeatureCheckContext(input);
 
@@ -56,10 +56,10 @@
         }
 
         [TestMethod]
-        public void CheckIsUsed_Solution_OtherFramework()
+        public async Task CheckIsUsed_Solution_OtherFramework()
         {
             // Arrange
-            var input = ProtocolTestsHelper.GetProtocolInputDataFromSolution(@"Test Files\Solutions\SolutionFrameworkOther\SolutionFrameworkOther.sln");
+            var input = await ProtocolTestsHelper.GetProtocolInputDataFromSolutionAsync(@"Test Files\Solutions\SolutionFrameworkOther\SolutionFrameworkOther.sln");
             var expected = input.Model.Protocol.QActions.Select(qAction => new FeatureCheckResultItem(qAction)).ToList();
 
             FeatureCheckContext context = new FeatureCheckContext(input);
@@ -73,10 +73,10 @@
         }
 
         [TestMethod]
-        public void CheckIsUsed_Solution_OtherFramework_Legacy()
+        public async Task CheckIsUsed_Solution_OtherFramework_Legacy()
         {
             // Arrange
-            var input = ProtocolTestsHelper.GetProtocolInputDataFromSolution(@"Test Files\Solutions\SolutionFrameworkOther_Legacy\SolutionFrameworkOther.sln");
+            var input = await ProtocolTestsHelper.GetProtocolInputDataFromSolutionAsync(@"Test Files\Solutions\SolutionFrameworkOther_Legacy\SolutionFrameworkOther.sln");
             var expected = input.Model.Protocol.QActions.Select(qAction => new FeatureCheckResultItem(qAction)).ToList();
 
             FeatureCheckContext context = new FeatureCheckContext(input);

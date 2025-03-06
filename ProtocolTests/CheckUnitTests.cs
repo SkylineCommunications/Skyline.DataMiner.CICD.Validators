@@ -470,8 +470,6 @@
 
 #if NETFRAMEWORK
             testProject = solution.Projects.Single(x => x.Name == "ProtocolTests" || x.Name == "ProtocolTests(net48)");
-#elif NET6_0
-            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net6.0)");
 #elif NET8_0
             testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net8.0)");
 #endif

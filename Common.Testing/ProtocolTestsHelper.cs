@@ -1,11 +1,19 @@
 ﻿namespace Common.Testing
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.Tracing;
     using System.IO;
     using System.Reflection;
     using System.Runtime.CompilerServices;
     using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.Build.Framework;
+    using Microsoft.Build.Locator;
+    using Microsoft.Build.Logging;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.MSBuild;
+    using Nito.AsyncEx.Synchronous;
     using Skyline.DataMiner.CICD.Models.Common;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
@@ -25,7 +33,7 @@
         {
             // Creating a build workspace.
             var workspace = MSBuildWorkspace.Create();
-
+            
             // Opening the solution.
             Solution solution = workspace.OpenSolutionAsync(solutionPath).Result;
 
@@ -37,6 +45,22 @@
             return new ProtocolInputData(protocolModel, protocolSolution.ProtocolDocument, qActionCompilationModel);
         }
 
+        public static async Task<ProtocolInputData> GetProtocolInputDataFromSolutionAsync(string solutionPath)
+        {
+            // Creating a build workspace.
+            var workspace = MSBuildWorkspace.Create();
+            
+            // Opening the solution.
+            Solution solution = await workspace.OpenSolutionAsync(solutionPath);
+
+            ProtocolSolution protocolSolution = ProtocolSolution.Load(solutionPath);
+            ProtocolModel protocolModel = new ProtocolModel(protocolSolution.ProtocolDocument);
+
+            QActionCompilationModel qActionCompilationModel = new QActionCompilationModel(protocolModel, solution);
+
+            return new ProtocolInputData(protocolModel, protocolSolution.ProtocolDocument, qActionCompilationModel);
+        }
+        
         public static ProtocolInputData GetProtocolInputDataFromXml(string xmlCode)
         {
             return new ProtocolInputData(xmlCode, GetQActionCompilationModel(xmlCode));

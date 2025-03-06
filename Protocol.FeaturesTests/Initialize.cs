@@ -16,7 +16,7 @@
             // Needed for Jenkins
             if (!MSBuildLocator.IsRegistered)
             {
-                MSBuildLocator.RegisterDefaults();
+               MSBuildLocator.RegisterDefaults();
             }
 
             try
