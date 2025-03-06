@@ -57,7 +57,7 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                         (
                             Error.MinVersionFeatureUsedInItem_Sub(null, null, null, "Chain")
                         )
-                    )
+                    ),
                 }
             };
 
