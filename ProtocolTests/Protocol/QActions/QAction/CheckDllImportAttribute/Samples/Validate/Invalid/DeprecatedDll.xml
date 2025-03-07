@@ -1,0 +1,33 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Version>0.0.0.0</Version>
+	<Params>
+		<Param id="10">
+			<Name>dummy</Name>
+			<Description>dummy</Description>
+			<Type>dummy</Type>
+		</Param>
+	</Params>
+	<QActions>
+		<QAction id="10" name="PerformAction" encoding="csharp" triggers="10" dllImport="SLDatabase.dll;MySql.Data.dll;newtonsoft.json\13.0.2\lib\net45\Newtonsoft.Json.dll;system.threading.tasks.dataflow\7.0.0\lib\net462\System.Threading.Tasks.Dataflow.dll;skyline.dataminer.core.dataminersystem.common\1.0.0\lib\net462\Skyline.DataMiner.Core.DataMinerSystem.Common.dll;skyline.dataminer.core.dataminersystem.protocol\1.0.0\lib\net462\Skyline.DataMiner.Core.DataMinerSystem.Protocol.dll">
+			<![CDATA[using System;
+using System.Diagnostics;
+using Skyline.DataMiner.Scripting;
+using Skyline.DataMiner;
+
+
+/// <summary>
+/// DataMiner QAction Class: PerformAction.
+/// </summary>
+public static class QAction
+{
+    /// <summary>
+    /// The QAction entry point.
+    /// </summary>
+    /// <param name="protocol">Link with SLProtocol process.</param>
+    public static void Run(SLProtocol protocol)
+    {
+    }
+}]]>
+		</QAction>
+	</QActions>
+</Protocol>
