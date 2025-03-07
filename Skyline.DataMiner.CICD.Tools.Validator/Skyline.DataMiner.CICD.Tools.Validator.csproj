@@ -22,6 +22,7 @@
     <RootNamespace>Skyline.DataMiner.CICD.Tools.Validator</RootNamespace>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Validators</RepositoryUrl>
+    <Version>999.999.999</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,7 +33,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Locator" Version="1.7.8" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.13.9" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.13.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.13.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.2" />
@@ -41,12 +41,6 @@
     <PackageReference Include="Skyline.DataMiner.CICD.Tools.Reporter" Version="1.0.2" />
     <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.1.1" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
-    <PackageReference Include="NuGet.Common" Version="6.13.2" ExcludeAssets="runtime" />
-    <PackageReference Include="NuGet.Configuration" Version="6.13.2" ExcludeAssets="runtime" />
-    <PackageReference Include="NuGet.Frameworks" Version="6.13.2" ExcludeAssets="runtime" />
-    <PackageReference Include="NuGet.Packaging" Version="6.13.2" ExcludeAssets="runtime" />
-    <PackageReference Include="NuGet.Protocol" Version="6.13.2" ExcludeAssets="runtime" />
-    <PackageReference Include="NuGet.Versioning" Version="6.13.2" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <ItemGroup>
