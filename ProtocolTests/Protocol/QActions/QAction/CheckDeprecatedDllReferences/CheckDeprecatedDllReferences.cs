@@ -54,13 +54,12 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDeprecatedDllReferences
 
         [TestMethod]
         [Ignore("Isn't really relevant and causes other checks to fail")]
-        public void QAction_CheckDeprecatedDllReferences_DeprecatedDllReferences_XmlBased()
+        public void QAction_CheckDeprecatedDllReferences_DeprecatedDll_XmlBased()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "DeprecatedDllReferences",
-                IsSolution = true,
+                FileName = "DeprecatedDll",
                 ExpectedResults = new List<IValidationResult>()
             };
 
