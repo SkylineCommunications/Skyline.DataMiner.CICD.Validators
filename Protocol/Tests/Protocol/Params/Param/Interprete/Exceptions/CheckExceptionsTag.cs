@@ -116,7 +116,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     }
                 }
 
-                if (oldExceptions != null)
+                // Exceptions are only supposed to be used on read parameters,
+                // therefore removing an exception from a write parameter is OK.
+                // This means we can safely skip this section for write params
+                if (oldExceptions != null && !newParam.IsWrite())
                 {
                     foreach (var oldException in oldExceptions)
                     {
