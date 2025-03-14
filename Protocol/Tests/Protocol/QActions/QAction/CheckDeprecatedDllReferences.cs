@@ -5,12 +5,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using System.Linq;
 
     using Skyline.DataMiner.CICD.Models.Protocol;
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
     
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
@@ -21,27 +23,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
-            if (!context.HasQActionsAndIsSolution)
-            {
-                // Early skip when no QActions are present or when it is not solution based.
-                return results;
-            }
-           
-            foreach (CompiledQActionProject compiledQActionProject in context.CompiledQActions.Values)
-            {
-                // Load csproj of the QAction
-                Project qactionProject = Project.Load(compiledQActionProject.Project.FilePath, compiledQActionProject.Project.Name);
+            ValidateHelper helper = new ValidateHelper(this, context, results);
 
-                string[] referencedDlls = qactionProject.References.Select(reference => reference.GetDllName()).ToArray();
-                foreach (string deprecatedDll in QActionHelper.DeprecatedDlls)
-                {
-                    if (referencedDlls.Contains(deprecatedDll, StringComparer.InvariantCultureIgnoreCase))
-                    {
-                        results.Add(Error.DeprecatedDll(this, compiledQActionProject.QAction, compiledQActionProject.QAction, deprecatedDll, compiledQActionProject.QAction.Id.RawValue));
-                    }
-                }
-            }
-
+            helper.ValidateIfNonSolution();
+            helper.ValidateIfSolution();
+            
             return results;
         }
 
@@ -66,5 +52,61 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
         ////    return results;
         ////}
+    }
+
+    internal class ValidateHelper : ValidateHelperBase
+    {
+        public ValidateHelper(IValidate test, ValidatorContext context, List<IValidationResult> results) : base(test, context, results)
+        {
+        }
+
+        public void ValidateIfNonSolution()
+        {
+            if (!context.HasQActionsAndIsNotSolution)
+            {
+                // Will be covered by ValidateIfSolution
+                return;
+            }
+
+            foreach (IQActionsQAction qaction in context.EachQActionWithValidId())
+            {
+                if (String.IsNullOrWhiteSpace(qaction.DllImport?.Value))
+                {
+                    continue;
+                }
+
+                foreach (string dll in qaction.GetDllImports())
+                {
+                    if (QActionHelper.DeprecatedDlls.Contains(dll, StringComparer.OrdinalIgnoreCase))
+                    {
+                        results.Add(Error.DeprecatedDll(test, qaction, qaction.DllImport, dll, qaction.Id.RawValue));
+                    }
+                }
+            }
+        }
+
+        public void ValidateIfSolution()
+        {
+            if (!context.HasQActionsAndIsSolution)
+            {
+                // Will be covered by ValidateIfNonSolution
+                return;
+            }
+
+            foreach ((CompiledQActionProject compiledQActionProject, IQActionsQAction qaction) in context.EachQActionProject(allowBuildErrors: true))
+            {
+                // Load csproj of the QAction
+                Project qactionProject = Project.Load(compiledQActionProject.Project.FilePath, compiledQActionProject.Project.Name);
+
+                string[] referencedDlls = qactionProject.References.Select(reference => reference.GetDllName()).ToArray();
+                foreach (string deprecatedDll in QActionHelper.DeprecatedDlls)
+                {
+                    if (referencedDlls.Contains(deprecatedDll, StringComparer.OrdinalIgnoreCase))
+                    {
+                        results.Add(Error.DeprecatedDll(test, qaction, qaction, deprecatedDll, qaction.Id.RawValue));
+                    }
+                }
+            }
+        }
     }
 }

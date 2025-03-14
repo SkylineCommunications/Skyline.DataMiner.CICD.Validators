@@ -12382,27 +12382,7 @@
 					</Check>
 					<Check id="43">
 						<Name namespace="Protocol.QActions.QAction">CheckDllImportAttribute</Name>
-						<ErrorMessages>
-							<ErrorMessage id="1">
-								<Name>DeprecatedDll</Name>
-								<GroupDescription />
-								<Description>
-									<Format>Deprecated DLL '{0}' in attribute 'dllImport'. QAction '{1}'.</Format>
-									<InputParameters>
-										<InputParameter id="0">dllImportValue</InputParameter>
-										<InputParameter id="1">qactionId</InputParameter>
-									</InputParameters>
-								</Description>
-								<Severity>Critical</Severity>
-								<Certainty>Certain</Certainty>
-								<Source>Validator</Source>
-								<FixImpact>NonBreaking</FixImpact>
-								<HasCodeFix>False</HasCodeFix>
-								<HowToFix><![CDATA[Replace the deprecated DLL by a NuGet and adapt the QAction accordingly.]]></HowToFix>
-								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[]]></Details>
-							</ErrorMessage>
-						</ErrorMessages>
+						<ErrorMessages />
 					</Check>
 					<Check id="44">
 						<Name namespace="Protocol.QActions.QAction">CheckDeprecatedDllReferences</Name>
