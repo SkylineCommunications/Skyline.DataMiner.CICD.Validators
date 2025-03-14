@@ -19,7 +19,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDeprecatedDllReferences
 
         #region Valid Checks
 
-        // Not really testing anything, but makes sure the check does not crash on XML protocols.
         [TestMethod]
         public void QAction_CheckDeprecatedDllReferences_XML_Valid()
         {
@@ -27,6 +26,32 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDeprecatedDllReferences
             {
                 TestType = Generic.TestType.Valid,
                 FileName = "Valid",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void QAction_CheckDeprecatedDllReferences_XML_Valid_NoDllImport()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidNoDllImportAttribute",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void QAction_CheckDeprecatedDllReferences_XML_Valid_NoQAction()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidNoQAction",
                 ExpectedResults = new List<IValidationResult>()
             };
 
@@ -53,14 +78,17 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDeprecatedDllReferences
         #region Invalid Checks
 
         [TestMethod]
-        [Ignore("Isn't really relevant and causes other checks to fail")]
         public void QAction_CheckDeprecatedDllReferences_DeprecatedDll_XmlBased()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
                 FileName = "DeprecatedDll",
-                ExpectedResults = new List<IValidationResult>()
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.DeprecatedDll(null, null, null, "SLDatabase.dll", "10"),
+                    Error.DeprecatedDll(null, null, null, "MySql.Data.dll", "10"),
+                }
             };
 
             Generic.Validate(check, data);

@@ -42,7 +42,11 @@
 
         public bool HasQActionsAndIsSolution =>
             ProtocolModel?.Protocol?.QActions != null &&
-            InputData?.QActionCompilationModel?.IsSolutionBased == true &&
-            CompiledQActions != null;
+            CompiledQActions != null && IsSolution;
+
+        public bool HasQActionsAndIsNotSolution =>
+            ProtocolModel?.Protocol?.QActions != null && !IsSolution;
+
+        private bool IsSolution => InputData?.QActionCompilationModel?.IsSolutionBased == true;
     }
 }

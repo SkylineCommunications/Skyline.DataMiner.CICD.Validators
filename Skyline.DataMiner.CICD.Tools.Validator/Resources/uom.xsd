@@ -950,6 +950,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Connections/s">
+                <xs:annotation>
+                    <xs:documentation>connections per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>connections per second</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="cPa">
                 <xs:annotation>
                     <xs:documentation>centipascal</xs:documentation>
@@ -7648,6 +7657,24 @@ DATE        VERSION     AUTHOR          COMMENTS
                     <xs:documentation>terapascal</xs:documentation>
                     <xs:appinfo>
                         <slu:name>terapascal</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Transactions">
+                <xs:annotation>
+                    <xs:documentation>transactions</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>transactions</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Transactions/s">
+                <xs:annotation>
+                    <xs:documentation>transactions per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>transactions per second</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
