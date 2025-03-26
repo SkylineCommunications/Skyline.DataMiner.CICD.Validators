@@ -11,6 +11,10 @@
             <Name>Service Severity</Name>
             <Description>Service Severity</Description>
         </Param>
+        <Param id="7">
+            <Name>raw_alarmid_input</Name>
+            <Description>raw_alarmid_input</Description>
+        </Param>		
         <Param id="213">
             <Name>active_service_alarms_category</Name>
             <Description>Category (Active Service Alarms)</Description>

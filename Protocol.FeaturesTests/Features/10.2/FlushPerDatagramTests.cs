@@ -34,7 +34,7 @@
             var expected = new FeatureCheckResultItem(context.Model.Protocol.PortSettings);
 
             Assert.IsTrue(result.IsUsed);
-            result.FeatureItems.Should().BeEquivalentTo(expected);
+            result.FeatureItems.Should().HaveCount(1).And.ContainEquivalentOf(expected);
         }
 
         [TestMethod]

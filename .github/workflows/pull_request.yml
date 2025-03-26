@@ -1,0 +1,30 @@
+name: External Pull Request
+
+# Controls when the workflow will run
+on:
+  pull_request: 
+    branches-ignore:
+        - 'dependabot/**'
+
+jobs:
+  build-and-test:
+    # Only run for external forks
+    if: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+    
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+    
+      - name: Restore dependencies
+        run: dotnet restore
+    
+      - name: Build the project
+        run: dotnet build --no-restore --configuration Release
+    
+      - name: Run tests
+        run: dotnet test --no-build --configuration Release

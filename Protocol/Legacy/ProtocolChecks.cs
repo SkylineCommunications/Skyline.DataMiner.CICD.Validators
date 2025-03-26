@@ -623,11 +623,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                 name = xnProtocolName.InnerXml;
             }
 
-            // Exported protocols
-            List<string> exportProtocolNames = new List<string>();
-
             // Get exported protocols from type tag
-            XmlNode xnTypeOptions = xDoc.SelectSingleNode("./slc:Protocol/slc:Type/@options", xmlNsm);
+            XmlNode xnTypeTag = xDoc.SelectSingleNode("slc:Protocol/slc:Type", xmlNsm);
+            XmlNode xnTypeOptions = xnTypeTag?.Attributes?["options"];
             if (xnTypeOptions != null)
             {
                 string options = xnTypeOptions.InnerXml;
@@ -636,9 +634,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                 {
                     if (option.StartsWith("exportProtocol", StringComparison.InvariantCulture))
                     {
+                        LineNum = xnTypeTag.Attributes?["QA_LNx"]?.InnerXml;
                         string[] s = option.Split(':');
                         string exportprotocolname = s[1];
-                        exportProtocolNames.Add(exportprotocolname);
+                        CheckProtocolNamesInner(name, exportprotocolname, Convert.ToInt32(LineNum), resultMsg);
                     }
                 }
             }
@@ -649,41 +648,40 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
             {
                 LineNum = dveProtocol.Attributes?["QA_LNx"]?.InnerXml;
                 string dveName = dveProtocol.Attributes?["name"]?.InnerXml;
-                exportProtocolNames.Add(dveName);
-            }
-
-            foreach (string exportProtocolName in exportProtocolNames)
-            {
-                List<char> badChars = CheckBadCharacters(exportProtocolName);
-                if (badChars.Count > 0)
-                {
-                    string chars = String.Join(", ", badChars);
-                    resultMsg.Add(new ValidationResult
-                    {
-                        Line = Convert.ToInt32(LineNum),
-                        ErrorId = 4902,
-                        DescriptionFormat = "Exported protocol name {0} contains illegal characters {1}.",
-                        DescriptionParameters = new object[] { exportProtocolName, chars },
-                        TestName = "CheckProtocolNames",
-                        Severity = Severity.Major
-                    });
-                }
-
-                if (!exportProtocolName.StartsWith(name + " - ", StringComparison.InvariantCulture) || exportProtocolName.Trim() == (name + " -") || exportProtocolName.Trim() == (name + "-"))
-                {
-                    resultMsg.Add(new ValidationResult
-                    {
-                        Line = Convert.ToInt32(LineNum),
-                        ErrorId = 4903,
-                        DescriptionFormat = "Exported protocol name \"{0}\" has incorrect format. Expected format is \"[Mother Protocol Name] - [Name]\"",
-                        DescriptionParameters = new object[] { exportProtocolName },
-                        TestName = "CheckAttributesContent",
-                        Severity = Severity.Major
-                    });
-                }
+                CheckProtocolNamesInner(name, dveName, Convert.ToInt32(LineNum), resultMsg);
             }
 
             return resultMsg;
+        }
+
+        private void CheckProtocolNamesInner(string protocolName, string exportProtocolName, int lineNum, List<IValidationResult> resultMsg){
+            List<char> badChars = CheckBadCharacters(exportProtocolName);
+            if (badChars.Count > 0)
+            {
+                string chars = String.Join(", ", badChars);
+                resultMsg.Add(new ValidationResult
+                {
+                    Line = lineNum,
+                    ErrorId = 4902,
+                    DescriptionFormat = "Exported protocol name {0} contains illegal characters {1}.",
+                    DescriptionParameters = new object[] { exportProtocolName, chars },
+                    TestName = "CheckProtocolNames",
+                    Severity = Severity.Major
+                });
+            }
+
+            if (!exportProtocolName.StartsWith(protocolName + " - ", StringComparison.InvariantCulture) || exportProtocolName.Trim() == (protocolName + " -") || exportProtocolName.Trim() == (protocolName + "-"))
+            {
+                resultMsg.Add(new ValidationResult
+                {
+                    Line = lineNum,
+                    ErrorId = 4903,
+                    DescriptionFormat = "Exported protocol name \"{0}\" has incorrect format. Expected format is \"[Mother Protocol Name] - [Name]\"",
+                    DescriptionParameters = new object[] { exportProtocolName },
+                    TestName = "CheckAttributesContent",
+                    Severity = Severity.Major
+                });
+            }
         }
 
         /// <summary>
@@ -1747,7 +1745,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
         /// <param name="xmlNsm">The namespace.</param>
         private void CheckActionAttributes(XmlDocument xDoc, List<IValidationResult> resultMsg, XmlNamespaceManager xmlNsm)
         {
-            string[] operators = { "<", ">", "==", "<=", ">=", "!=", "&lt;", "&gt;", "&lt;=", "&gt;=" };
+            string[] operators = { "<", ">", "==", "<=", ">=", "!=", "&lt;", "&gt;", "&lt;=", "&gt;=", "regex" };
 
             // Action.On => done  in CheckResponsePairGroup
             // Action.Type options: semicolon separated.
@@ -1959,6 +1957,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                                                 });
                                             }
 
+                                            // pid is allowed to be empty when the regex attribute is used.
+                                            bool isRegexOperationWithAttributeValid = op == "regex"
+                                                && pid == String.Empty
+                                                && xnActionType.Attributes?.GetNamedItem("regex") != null;
+
+                                            if (isRegexOperationWithAttributeValid)
+                                            {
+                                                continue;
+                                            }
+
                                             if (Int32.TryParse(pid, out int id)) // Check if value is single number
                                             {
                                                 if (ParameterIdSet.Contains(pid)) { continue; }
@@ -2038,6 +2046,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                                                     TestName = "CheckAttributesContent",
                                                     Severity = Severity.Major
                                                 });
+                                            }
+
+                                            // pid is allowed to be empty when the regex attribute is used.
+                                            bool isRegexOperationWithAttributeValid = op == "regex"
+                                                && pid == String.Empty
+                                                && xnActionType.Attributes?.GetNamedItem("regex") != null;
+
+                                            if (isRegexOperationWithAttributeValid)
+                                            {
+                                                continue;
                                             }
 
                                             if (!ParameterIdSet.Contains(pid))

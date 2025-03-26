@@ -48,6 +48,38 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void QAction_SecureCoding_Valid()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid",
+                IsSolution = true,
+                ExpectedResults = new List<IValidationResult>(),
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void QAction_SecureCoding_Invalid()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "MissingSecureCoding",
+                IsSolution = true,
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.MissingSecureCoding(null, null, null, "1"),
+                    Error.MissingSecureCoding(null, null, null, "2"),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
         #endregion
 
         #region Invalid Checks
@@ -60,6 +92,20 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
             {
                 TestType = Generic.TestType.Invalid,
                 FileName = "UnconsolidatedPackageReference",
+                ExpectedResults = new List<IValidationResult>(),
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        [Ignore("Isn't really relevant and causes other checks to fail")]
+        public void QAction_CheckAssemblies_SecureCoding_XmlBased()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "MissingSecureCoding",
                 ExpectedResults = new List<IValidationResult>(),
             };
 
@@ -132,6 +178,28 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
                           "To fix these issues, it is important to use the same version of a NuGet package across the entire solution." + Environment.NewLine +
                           "" + Environment.NewLine +
                           "'Skyline.DataMiner.Dev.*' (aka DevPacks) or 'Skyline.DataMiner.Files.*' NuGet packages should also be aligned across all projects of the solution as these packages represent the DataMiner version that is being developed against.",
+                HasCodeFix = false,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void QAction_CheckAssemblies_MissingSecureCoding()
+        {
+            // Create ErrorMessage
+            var message = Error.MissingSecureCoding(null, null, null, "qactionId");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Critical,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Missing Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package. QAction ID 'qactionId'.",
+                HowToFix = "Include the Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package in all projects within the solution.",
+                Details = "Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.",
                 HasCodeFix = false,
             };
 

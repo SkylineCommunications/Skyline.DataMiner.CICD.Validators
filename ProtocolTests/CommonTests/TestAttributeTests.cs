@@ -28,7 +28,7 @@
             TestAttribute attr = TestAttribute.GetAttribute(test);
 
             attr.Should().BeAssignableTo(typeof(TestAttribute));
-            attr.Category.Should().BeEquivalentTo(Category.Protocol);
+            attr.Category.Should().Be(Category.Protocol);
             attr.CheckId.Should().Be(CheckId.CheckProtocolTag);
         }
 

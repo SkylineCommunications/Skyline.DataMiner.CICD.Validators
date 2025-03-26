@@ -437,6 +437,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Beacons">
+                <xs:annotation>
+                    <xs:documentation>beacons</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>beacons</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="Bft">
                 <xs:annotation>
                     <xs:documentation>Beaufort (wind speed)</xs:documentation>
@@ -937,6 +946,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     <xs:documentation>connections</xs:documentation>
                     <xs:appinfo>
                         <slu:name>connections</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Connections/s">
+                <xs:annotation>
+                    <xs:documentation>connections per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>connections per second</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
@@ -2119,6 +2137,42 @@ DATE        VERSION     AUTHOR          COMMENTS
                     <xs:documentation>decihertz</xs:documentation>
                     <xs:appinfo>
                         <slu:name>decihertz</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="Discards">
+                <xs:annotation>
+                    <xs:documentation>Discards</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>Discards</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="Discards/h">
+                <xs:annotation>
+                    <xs:documentation>Discards per hour</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>Discards per hour</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="Discards/min">
+                <xs:annotation>
+                    <xs:documentation>Discards per minute</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>Discards per minute</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="Discards/s">
+                <xs:annotation>
+                    <xs:documentation>Discards per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>Discards per second</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
@@ -6650,6 +6704,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Processes">
+                <xs:annotation>
+                    <xs:documentation>processes</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>processes</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="ps">
                 <xs:annotation>
                     <xs:documentation>picosecond</xs:documentation>
@@ -6682,6 +6745,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     <xs:documentation>picosecond per nanometer per kilometer</xs:documentation>
                     <xs:appinfo>
                         <slu:name>picosecond per nanometer per kilometer</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ps/s">
+                <xs:annotation>
+                    <xs:documentation>picosecond per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>picosecond per second</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
@@ -7585,6 +7657,24 @@ DATE        VERSION     AUTHOR          COMMENTS
                     <xs:documentation>terapascal</xs:documentation>
                     <xs:appinfo>
                         <slu:name>terapascal</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Transactions">
+                <xs:annotation>
+                    <xs:documentation>transactions</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>transactions</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Transactions/s">
+                <xs:annotation>
+                    <xs:documentation>transactions per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>transactions per second</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>

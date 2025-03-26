@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Linq.Expressions;
     using System.Runtime.CompilerServices;
     using System.Text;
     using System.Threading;
@@ -362,8 +363,8 @@
                    .Excluding(x => x.Line)
                    .Excluding(x => x.PositionNode)
                    .Excluding(x => x.ReferenceNode)
-                   .Excluding(x => x.SelectedMemberInfo.MemberType == typeof(IValidate)) // Test
-                   .Excluding(x => x.SelectedMemberPath.EndsWith("ExtraData"));
+                   .Excluding(x => x.Type == typeof(IValidate)) // Test
+                   .Excluding(x => x.Path.EndsWith("ExtraData"));
 
             return options;
         }
@@ -385,19 +386,19 @@
                    .Excluding(x => x.Source)
                    .Excluding(x => x.HowToFix)
                    .Excluding(x => x.ExampleCode)
-                   .Excluding(x => x.SelectedMemberInfo.MemberType == typeof(IValidate)) // Test
-                   .Excluding(x => x.SelectedMemberPath.EndsWith("ExtraData"));
+                   .Excluding(x => x.Type == typeof(IValidate)) // Test
+                   .Excluding(x => x.Path.EndsWith("ExtraData"));
 
             return options;
         }
 
         private static EquivalencyAssertionOptions<IProtocol> ExcludePropertiesForFix(EquivalencyAssertionOptions<IProtocol> options)
         {
-            options.Excluding(x => x.SelectedMemberInfo.MemberType == typeof(IProtocolModel)) // Model
-                   .Excluding(x => x.SelectedMemberInfo.MemberType == typeof(XmlElement)) // ReadNode
-                   .Excluding(x => x.SelectedMemberInfo.MemberType == typeof(XmlAttribute)) // ReadAttribute
-                   .Excluding(x => x.SelectedMemberInfo.MemberType == typeof(XmlCDATA)) // CodeCDATA (QActions)
-                   .Excluding(x => x.SelectedMemberPath.Contains("Parent"));
+            options.Excluding((IMemberInfo x) => x.Type == typeof(IProtocolModel)) // Model
+                   .Excluding((IMemberInfo x) => x.Type == typeof(XmlElement)) // ReadNode
+                   .Excluding((IMemberInfo x) => x.Type == typeof(XmlAttribute)) // ReadAttribute
+                   .Excluding((IMemberInfo x) => x.Type == typeof(XmlCDATA)) // CodeCDATA (QActions)
+                   .Excluding(x => x.Path.Contains("Parent"));
 
             options.IgnoringCyclicReferences();
             options.ComparingEnumsByName();
