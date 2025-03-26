@@ -86,6 +86,31 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                 ReferenceNode = referenceNode,
             };
         }
+
+        public static IValidationResult UndesiredSavedReadParam(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string responseId)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckParamTag,
+                ErrorId = ErrorIds.UndesiredSavedReadParam,
+                FullId = "11.3.4",
+                Category = Category.Response,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Unrecommended use of saved read parameter '{0}' within response '{1}'.", paramId, responseId),
+                HowToFix = "If the read param is not configuration related, remove the save attribute from the Protocol/Params/Param tag." + Environment.NewLine + "If the read param is configuration related, create parameter of type fixed." + Environment.NewLine + "Replace the saved read param with the fixed param within the response." + Environment.NewLine + "Whenever the configuration related read param changes in value, copy it's value over to the fixed param.",
+                ExampleCode = "",
+                Details = "A saved read param is usually configuration related." + Environment.NewLine + "Thus, if a response contains a saved read param, we have a configured setting that might get overwritten from a malformed response.",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
     }
 
     internal static class ErrorIds
@@ -93,6 +118,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
         public const uint NonExistingId = 1;
         public const uint EmptyParamTag = 2;
         public const uint InvalidParamTag = 3;
+        public const uint UndesiredSavedReadParam = 4;
     }
 
     /// <summary>

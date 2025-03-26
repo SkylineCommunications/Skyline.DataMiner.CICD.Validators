@@ -17733,6 +17733,25 @@
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[Response/Content tag should contain a list of 'Param' tags. The 'Param' tags should refer to the id of an existing Param.]]></Details>
 							</ErrorMessage>
+							<ErrorMessage id="4">
+								<Name>UndesiredSavedReadParam</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Unrecommended use of saved read parameter '{0}' within response '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">paramId</InputParameter>
+										<InputParameter id="1">responseId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[If the read param is not configuration related, remove the save attribute from the Protocol/Params/Param tag.[NewLine]If the read param is configuration related, create parameter of type fixed.[NewLine]Replace the saved read param with the fixed param within the response.[NewLine]Whenever the configuration related read param changes in value, copy it's value over to the fixed param.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[A saved read param is usually configuration related.[NewLine]Thus, if a response contains a saved read param, we have a configured setting that might get overwritten from a malformed response.]]></Details>
+							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="4">
