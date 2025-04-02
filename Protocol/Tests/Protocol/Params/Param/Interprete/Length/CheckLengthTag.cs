@@ -84,6 +84,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return;
             }
 
+            if (interprete.Length == null)
+            {
+                // Tag is not present, no need to check any further
+                return;
+            }
+
             // Empty
             if (status.HasFlag(GenericStatus.Empty))
             {
