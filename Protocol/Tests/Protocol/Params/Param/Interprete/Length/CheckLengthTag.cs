@@ -84,6 +84,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return;
             }
 
+            if (interprete.Length == null)
+            {
+                // Tag is not present, no need to check any further
+                return;
+            }
+
             // Empty
             if (status.HasFlag(GenericStatus.Empty))
             {
@@ -99,7 +105,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             }
 
             // Length parameters can never be longer than 4 bytes as otherwise it can cause memory corruption in SLPort
-            if (param.Type?.Value == EnumParamType.Length && interprete?.Length?.Value > 4)
+            if (param.Type?.Value == EnumParamType.Length && interprete.Length.Value > 4)
             {
                 results.Add(Error.InvalidValue(test, param, interprete.Length, Severity.Critical, interprete.Length.RawValue, param.Id.RawValue));
             }
