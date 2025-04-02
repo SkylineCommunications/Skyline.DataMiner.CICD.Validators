@@ -572,14 +572,14 @@
 					<InputParameter id="4">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
-			<DescriptionTemplate id="5100">
-				<Name>DuplicateValueInAttribute</Name>
-				<Format>Duplicate value '{0}' in attribute '{1}'.</Format>
-				<InputParameters>
-					<InputParameter id="0">attributeValue</InputParameter>
-					<InputParameter id="1">attributeName</InputParameter>
-				</InputParameters>
-			</DescriptionTemplate>
+            <DescriptionTemplate id="5100">
+                <Name>DuplicateValueInAttribute</Name>
+                <Format>Duplicate value '{0}' in attribute '{1}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">attributeValue</InputParameter>
+                    <InputParameter id="1">attributeName</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
 			<DescriptionTemplate id="5101">
 				<Name>DuplicateValueInAttributeInItem</Name>
 				<Format>Duplicate value '{0}' in attribute '{1}'. {2} {3} '{4}'.</Format>
@@ -591,6 +591,16 @@
 					<InputParameter id="4">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
+                <DescriptionTemplate id="5201">
+                    <Name>DuplicateTagInItem</Name>
+                    <Format>Duplicate '{0}' tag found. {1} {2} '{3}'.</Format>
+                    <InputParameters>
+                        <InputParameter id="0">tag</InputParameter>
+                        <InputParameter id="1">itemKind</InputParameter>
+                        <InputParameter id="2" value="ID">idOrPid</InputParameter>
+                        <InputParameter id="3">itemId</InputParameter>
+                    </InputParameters>
+                </DescriptionTemplate>
 			<DescriptionTemplate id="6001">
 				<Name>MultipleItemsWithSameId</Name>
 				<Format>More than one {0} with same ID '{1}'. {0} Names '{2}'.</Format>
@@ -3011,10 +3021,12 @@
 							<ErrorMessage id="1">
 								<Name>DuplicateRawTypeTag</Name>
 								<GroupDescription />
-								<Description>
-									<Format>Duplicate Interprete\RawType found. Param ID '{0}'.</Format>
+								<Description templateId="5201">
 									<InputParameters>
-										<InputParameter id="0">paramId</InputParameter>
+                                        <InputParameter id="0" value="Interprete/RawType">tag</InputParameter>
+                                        <InputParameter id="1" value="Param">itemKind</InputParameter>
+                                        <InputParameter id="2" value="ID">idOrPid</InputParameter>
+                                        <InputParameter id="3">paramId</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Critical</Severity>
@@ -3024,7 +3036,7 @@
 								<HasCodeFix>False</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[Having multiple RawType tags within a parameter could lead to a SLProtocol RTE.]]></Details>
+								<Details><![CDATA[Having multiple 'Interprete/RawType' tags within a parameter could lead to an SLProtocol RTE.]]></Details>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
