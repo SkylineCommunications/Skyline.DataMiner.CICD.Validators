@@ -572,14 +572,14 @@
 					<InputParameter id="4">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
-            <DescriptionTemplate id="5100">
-                <Name>DuplicateValueInAttribute</Name>
-                <Format>Duplicate value '{0}' in attribute '{1}'.</Format>
-                <InputParameters>
-                    <InputParameter id="0">attributeValue</InputParameter>
-                    <InputParameter id="1">attributeName</InputParameter>
-                </InputParameters>
-            </DescriptionTemplate>
+			<DescriptionTemplate id="5100">
+				<Name>DuplicateValueInAttribute</Name>
+				<Format>Duplicate value '{0}' in attribute '{1}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">attributeValue</InputParameter>
+					<InputParameter id="1">attributeName</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
 			<DescriptionTemplate id="5101">
 				<Name>DuplicateValueInAttributeInItem</Name>
 				<Format>Duplicate value '{0}' in attribute '{1}'. {2} {3} '{4}'.</Format>
@@ -591,16 +591,16 @@
 					<InputParameter id="4">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
-                <DescriptionTemplate id="5201">
-                    <Name>DuplicateTagInItem</Name>
-                    <Format>Duplicate '{0}' tag found. {1} {2} '{3}'.</Format>
-                    <InputParameters>
-                        <InputParameter id="0">tag</InputParameter>
-                        <InputParameter id="1">itemKind</InputParameter>
-                        <InputParameter id="2" value="ID">idOrPid</InputParameter>
-                        <InputParameter id="3">itemId</InputParameter>
-                    </InputParameters>
-                </DescriptionTemplate>
+			<DescriptionTemplate id="5201">
+				<Name>DuplicateTagInItem</Name>
+				<Format>Duplicate '{0}' tag found. {1} {2} '{3}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">tag</InputParameter>
+					<InputParameter id="1">itemKind</InputParameter>
+					<InputParameter id="2" value="ID">idOrPid</InputParameter>
+					<InputParameter id="3">itemId</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
 			<DescriptionTemplate id="6001">
 				<Name>MultipleItemsWithSameId</Name>
 				<Format>More than one {0} with same ID '{1}'. {0} Names '{2}'.</Format>
@@ -3023,10 +3023,10 @@
 								<GroupDescription />
 								<Description templateId="5201">
 									<InputParameters>
-                                        <InputParameter id="0" value="Interprete/RawType">tag</InputParameter>
-                                        <InputParameter id="1" value="Param">itemKind</InputParameter>
-                                        <InputParameter id="2" value="ID">idOrPid</InputParameter>
-                                        <InputParameter id="3">paramId</InputParameter>
+										<InputParameter id="0" value="Interprete/RawType">tag</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2" value="ID">idOrPid</InputParameter>
+										<InputParameter id="3">paramId</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Critical</Severity>
@@ -12417,6 +12417,109 @@
 								<HowToFix><![CDATA[Replace the deprecated DLL by a NuGet and adapt the QAction accordingly.]]></HowToFix>
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
+					<Check id="45">
+						<Name namespace="Protocol.QActions.QAction">CheckEncodingAttribute</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>MissingAttribute</Name>
+								<GroupDescription />
+								<Description templateId="1101">
+									<InputParameters>
+										<InputParameter id="0" value="encoding">attributeName</InputParameter>
+										<InputParameter id="1" value="QAction">itemKind</InputParameter>
+										<InputParameter id="2">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>EmptyAttribute</Name>
+								<GroupDescription />
+								<Description templateId="2101">
+									<InputParameters>
+										<InputParameter id="0" value="encoding">attributeName</InputParameter>
+										<InputParameter id="1" value="QAction">itemKind</InputParameter>
+										<InputParameter id="2">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="3">
+								<Name>InvalidValue</Name>
+								<GroupDescription />
+								<Description templateId="4101">
+									<InputParameters>
+										<InputParameter id="0" value="encoding">attributeName</InputParameter>
+										<InputParameter id="1">attributeValue</InputParameter>
+										<InputParameter id="2" value="QAction">itemKind</InputParameter>
+										<InputParameter id="3" value="">qactionId</InputParameter>
+										<InputParameter id="4" value="ID">idOrPid</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="4">
+								<Name>UntrimmedAttribute</Name>
+								<GroupDescription />
+								<Description templateId="3101">
+									<InputParameters>
+										<InputParameter id="0" value="encoding">attributeName</InputParameter>
+										<InputParameter id="1" value="QAction">itemKind</InputParameter>
+										<InputParameter id="2">qactionId</InputParameter>
+										<InputParameter id="3">untrimmedValue</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Warning</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[]]></Details>
+							</ErrorMessage>
+							<ErrorMessage id="5">
+								<Name>UnsupportedValue</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Unsupported value '{0}' in encoding attribute. QAction ID '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">value</InputParameter>
+										<InputParameter id="1">qactionId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Critical</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Convert the QAction to C#.]]></HowToFix>
+								<ExampleCode><![CDATA[]]></ExampleCode>
+								<Details><![CDATA[As of Windows Server 2025, the other encodings (vbscript and jscript) are not supported anymore.]]></Details>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
