@@ -1,5 +1,6 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Response.Content.Param.CheckParamTag
 {
+    using System;
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
@@ -18,6 +19,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
         public List<IValidationResult> Validate(ValidatorContext context)
         {
             List<IValidationResult> results = new List<IValidationResult>();
+
+            var relationManager = context.ProtocolModel.RelationManager;
 
             foreach (IResponsesResponse response in context.EachResponseWithValidId())
             {
@@ -46,6 +49,15 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                     {
                         results.Add(Error.NonExistingId(this, paramInResponse, paramInResponse, rawValue, response.Id.RawValue));
                         continue;
+                    }
+                }
+
+                var paramsInResponse = response.GetParameters(relationManager);
+                foreach (var paramInResponse in  paramsInResponse)
+                {
+                    if (paramInResponse.Save?.Value == true)
+                    {
+                        results.Add(Error.UndesiredSavedReadParam(this, paramInResponse, paramInResponse, Convert.ToString(paramInResponse.Id.RawValue), response.Id.RawValue));
                     }
                 }
             }
