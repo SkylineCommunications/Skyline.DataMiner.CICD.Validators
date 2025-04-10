@@ -1,0 +1,14 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="10" trending="false" save="true">
+			<Name>SavedParam</Name>
+			<Description>Saved Param</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+		</Param>
+	</Params>
+</Protocol>
