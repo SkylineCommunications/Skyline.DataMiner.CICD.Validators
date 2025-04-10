@@ -75,7 +75,7 @@
                 // Do nothing if file already exists.
                 string source = check.Source.ToString();
                 string namespacePath = String.Join("/", check.Namespace.Split('.'));
-                string checkName = check.Name;
+                string checkName = check.CheckName;
 
                 var categoryId = check.CategoryId;
                 var checkId = check.CheckId;
