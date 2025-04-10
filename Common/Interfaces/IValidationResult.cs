@@ -83,18 +83,6 @@
         string HowToFix { get; }
 
         /// <summary>
-        /// Gets example code.
-        /// </summary>
-        /// <value>Example code.</value>
-        string ExampleCode { get; }
-
-        /// <summary>
-        /// Gets additional details.
-        /// </summary>
-        /// <value>The additional details.</value>
-        string Details { get; }
-
-        /// <summary>
         /// Gets the reference node.
         /// </summary>
         /// <value>The reference node.</value>

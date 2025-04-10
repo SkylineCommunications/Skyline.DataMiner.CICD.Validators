@@ -32,8 +32,6 @@
         private bool fromTemplate;
         private uint templateId;
         private string howToFix;
-        private string exampleCode;
-        private string details;
         private Category category;
         private Source source;
         private uint categoryId;
@@ -677,70 +675,6 @@
         }
 
         /// <summary>
-        /// Gets or sets a piece of example code to fix the error.
-        /// </summary>
-        public string ExampleCode
-        {
-            get
-            {
-                return exampleCode;
-            }
-
-            set
-            {
-                if (exampleCode != value)
-                {
-                    exampleCode = value;
-                    RaisePropertyChanged("ExampleCodeEnabled");
-                    RaisePropertyChanged("ExampleCode");
-                }
-
-                if (value == null)
-                {
-                    SettedProperties.Remove("ExampleCode");
-                }
-                else
-                {
-                    SettedProperties.Add("ExampleCode");
-                }
-
-                HasChanges = true;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets some details about the error message.
-        /// </summary>
-        public string Details
-        {
-            get
-            {
-                return details;
-            }
-
-            set
-            {
-                if (details != value)
-                {
-                    details = value;
-                    RaisePropertyChanged("DetailsEnabled");
-                    RaisePropertyChanged("Details");
-                }
-
-                if (value == null)
-                {
-                    SettedProperties.Remove("Details");
-                }
-                else
-                {
-                    SettedProperties.Add("Details");
-                }
-
-                HasChanges = true;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the category of the error message.
         /// </summary>
         public Category Category
@@ -1064,37 +998,6 @@
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the example code tag should be included in the XML or not.
-        /// </summary>
-        public bool ExampleCodeEnabled
-        {
-            get
-            {
-                return SettedProperties.Contains("ExampleCode");
-            }
-
-            set
-            {
-                if (value)
-                {
-                    if (ExampleCode == null)
-                    {
-                        ExampleCode = String.Empty;
-                    }
-
-                    SettedProperties.Add("ExampleCode");
-                }
-                else
-                {
-                    ExampleCode = null;
-                    SettedProperties.Remove("ExampleCode");
-                }
-
-                RaisePropertyChanged("ExampleCodeEnabled");
-            }
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether the how to fix tag should be included in the XML or not.
         /// </summary>
         public bool HowToFixEnabled
@@ -1122,37 +1025,6 @@
                 }
 
                 RaisePropertyChanged("HowToFixEnabled");
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the details tag should be included in the XML or not.
-        /// </summary>
-        public bool DetailsEnabled
-        {
-            get
-            {
-                return SettedProperties.Contains("Details");
-            }
-
-            set
-            {
-                if (value)
-                {
-                    if (Details == null)
-                    {
-                        Details = String.Empty;
-                    }
-
-                    SettedProperties.Add("Details");
-                }
-                else
-                {
-                    Details = null;
-                    SettedProperties.Remove("Details");
-                }
-
-                RaisePropertyChanged("DetailsEnabled");
             }
         }
 

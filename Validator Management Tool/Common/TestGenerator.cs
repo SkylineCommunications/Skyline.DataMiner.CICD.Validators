@@ -54,6 +54,7 @@
 
                 CreateErrorClass(currentChecks);
                 CreateUnitTestClass(currentChecks);
+                CreateExtraDetailsMarkdownFile(currentChecks);
             }
 
             if (Settings.ErrorClassesInOneFile)
@@ -61,6 +62,49 @@
                 CreateFile("ErrorMessages", singleFile.ToString(), Settings.ErrorMessagesPath, "Error Messages/", "Error Messages\\", true, false);
             }
 
+        }
+
+        /// <summary>
+        /// Creates a markdown file that can be used to add additional information about the check such as extra details and example code.
+        /// </summary>
+        /// <param name="currentChecks">The current checks.</param>
+        private static void CreateExtraDetailsMarkdownFile(List<Check> currentChecks)
+        {
+            foreach (var check in currentChecks)
+            {
+                // Do nothing if file already exists.
+                string source = check.Source.ToString();
+                string namespacePath = String.Join("/", check.Namespace.Split('.'));
+                string checkName = check.Name;
+
+                var categoryId = check.CategoryId;
+                var checkId = check.CheckId;
+                var errorMessageId = check.ErrorId;
+                string uid = $"{source}_{categoryId}_{checkId}_{errorMessageId}";
+                string filePath = $"{Settings.DocumentationMarkdownFilesPath}/{source}/{namespacePath}/{checkName}/{uid}.md";
+
+                if (!File.Exists(filePath))
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.AppendLine("---");
+                    stringBuilder.AppendLine($"uid: {uid}");
+                    stringBuilder.AppendLine("---");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine($"#{check.CheckName}");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine($"##{check.Name}");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("<!-- Description, Properties, How to fix sections are auto-generated. -->");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("<!-- uncomment to add extra details -->");
+                    stringBuilder.AppendLine("<!--### Details-->");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("<!-- uncomment to add example code -->");
+                    stringBuilder.AppendLine("<!--### Example code-->");
+
+                    File.WriteAllText(filePath, stringBuilder.ToString());
+                }
+            }
         }
 
         /// <summary>

@@ -92,20 +92,6 @@
                             doc.Root.Add(new MdParagraph(howToFix));
                         }
 
-                        string exampleCode = XDocCheckHelper.GetCheckExampleCode(errorMessage);
-                        if (exampleCode is not "")
-                        {
-                            doc.Root.Add(new MdHeading("Example code", 3));
-                            doc.Root.Add(new MdCodeBlock(exampleCode, "xml"));
-                        }
-
-                        string details = XDocCheckHelper.GetCheckDetails(errorMessage);
-                        if (details is not "")
-                        {
-                            doc.Root.Add(new MdHeading("Details", 3));
-                            doc.Root.Add(new MdParagraph(details));
-                        }
-
                         List<string> autofixWarnings = XDocCheckHelper.GetCheckAutoFixWarnings(errorMessage);
                         if (autofixWarnings is not null)
                         {
@@ -117,17 +103,53 @@
                             }
                         }
 
+                        //string details = XDocCheckHelper.GetCheckDetails(errorMessage);
+                        //if (details is not "")
+                        //{
+                        //    doc.Root.Add(new MdHeading("Details", 3));
+                        //    doc.Root.Add(new MdParagraph(details));
+                        //}
+
+                        //string exampleCode = XDocCheckHelper.GetCheckExampleCode(errorMessage);
+                        //if (exampleCode is not "")
+                        //{
+                        //    doc.Root.Add(new MdHeading("Example code", 3));
+                        //    doc.Root.Add(new MdCodeBlock(exampleCode, "xml"));
+                        //}
+
                         string source = XDocCheckHelper.GetCheckSource(errorMessage);
                         Directory.CreateDirectory($"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}");
 
                         string url = $"{baseUrl}/checks/{source}/{namespacePath}/{checkName}/{uid}.html";
                         WriteRedirectFile(checkUid, url);
 
-                        if (!File.Exists($"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md"))
+                        string filePath = $"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md";
+                        int startIndex = -1;
+                        string[] lines = null;
+
+                        if (File.Exists(filePath))
                         {
-                            // Note: When a file already exists, it will not be overwritten.
-                            // This allows users to provide overrides for the automatically generated pages (in case they want to provide e.g. additional info).
-                            doc.Save($"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md");
+                            lines = File.ReadAllLines(filePath);
+
+                            for (int i = 0; i < lines.Length; i++)
+                            {
+                                var line = lines[i];
+                                // Search for first line that indicates a subtitle.
+                                if (line.StartsWith("###"))
+                                {
+                                    startIndex = i;
+                                    break;
+                                }
+                            }
+                        }
+
+                        // Note: When a file already exists, the content will be read out and appended to the generated document.
+                        // This allows users to provide additional content such as details and examples for the automatically generated pages.
+                        doc.Save($"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}/{uid}.md");
+
+                        if (startIndex > -1)
+                        {
+                            File.AppendAllLines(filePath, new[] { "" }.Concat(lines.Skip(startIndex)));
                         }
                     }
                 }
