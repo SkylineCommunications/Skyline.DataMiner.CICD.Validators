@@ -82,7 +82,7 @@
                 var errorMessageId = check.ErrorId;
                 string uid = $"{source}_{categoryId}_{checkId}_{errorMessageId}";
 
-                string directoryPath = $"{Settings.DocumentationMarkdownFilesPath}/{source}/{namespacePath}/{checkName}";
+                string directoryPath = $"{Settings.DocumentationMarkdownFilesPath}/checks/{source}/{namespacePath}/{checkName}";
                 string filePath = $"{directoryPath}/{uid}.md";
 
                 if (!File.Exists(filePath))
