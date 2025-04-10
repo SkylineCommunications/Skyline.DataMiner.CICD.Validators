@@ -92,9 +92,9 @@
                     stringBuilder.AppendLine($"uid: {uid}");
                     stringBuilder.AppendLine("---");
                     stringBuilder.AppendLine();
-                    stringBuilder.AppendLine($"#{check.CheckName}");
+                    stringBuilder.AppendLine($"# {check.CheckName}");
                     stringBuilder.AppendLine();
-                    stringBuilder.AppendLine($"##{check.Name}");
+                    stringBuilder.AppendLine($"## {check.Name}");
                     stringBuilder.AppendLine();
                     stringBuilder.AppendLine("<!-- Description, Properties, How to fix sections are auto-generated. -->");
                     stringBuilder.AppendLine();
