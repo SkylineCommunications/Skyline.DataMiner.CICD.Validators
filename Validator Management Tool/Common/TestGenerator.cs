@@ -81,7 +81,9 @@
                 var checkId = check.CheckId;
                 var errorMessageId = check.ErrorId;
                 string uid = $"{source}_{categoryId}_{checkId}_{errorMessageId}";
-                string filePath = $"{Settings.DocumentationMarkdownFilesPath}/{source}/{namespacePath}/{checkName}/{uid}.md";
+
+                string directoryPath = $"{Settings.DocumentationMarkdownFilesPath}/{source}/{namespacePath}/{checkName}";
+                string filePath = $"{directoryPath}/{uid}.md";
 
                 if (!File.Exists(filePath))
                 {
@@ -101,6 +103,11 @@
                     stringBuilder.AppendLine();
                     stringBuilder.AppendLine("<!-- uncomment to add example code -->");
                     stringBuilder.AppendLine("<!--### Example code-->");
+
+                    if (!Directory.Exists(directoryPath))
+                    {
+                        Directory.CreateDirectory(directoryPath);
+                    }
 
                     File.WriteAllText(filePath, stringBuilder.ToString());
                 }
