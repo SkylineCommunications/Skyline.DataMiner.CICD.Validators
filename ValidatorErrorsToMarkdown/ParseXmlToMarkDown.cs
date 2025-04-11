@@ -78,44 +78,44 @@
                         doc.Root.Add(new MdHeading(checkName, 1));
                         // error message name
                         doc.Root.Add(new MdHeading(XDocCheckHelper.GetCheckErrorMessageName(errorMessage), 2));
-                        //// description
-                        //doc.Root.Add(new MdHeading("Description", 3));
-                        //doc.Root.Add(new MdParagraph(helper.GetCheckDescription(errorMessage)));
-                        //// properties table
-                        //doc.Root.Add(new MdHeading("Properties", 3));
-                        //doc.Root.Add(CreateTable(errorMessage, categoryName, fullId));
+                        // description
+                        doc.Root.Add(new MdHeading("Description", 3));
+                        doc.Root.Add(new MdParagraph(helper.GetCheckDescription(errorMessage)));
+                        // properties table
+                        doc.Root.Add(new MdHeading("Properties", 3));
+                        doc.Root.Add(CreateTable(errorMessage, categoryName, fullId));
 
-                        //string howToFix = XDocCheckHelper.GetCheckHowToFix(errorMessage);
-                        //if (howToFix is not "")
-                        //{
-                        //    doc.Root.Add(new MdHeading("How to fix", 3));
-                        //    doc.Root.Add(new MdParagraph(howToFix));
-                        //}
-
-                        //List<string> autofixWarnings = XDocCheckHelper.GetCheckAutoFixWarnings(errorMessage);
-                        //if (autofixWarnings is not null)
-                        //{
-                        //    MdParagraph warnings = new();
-                        //    warnings.Add(new MdRawMarkdownSpan("[!WARNING]\r\n"));
-                        //    foreach (string autofixWarning in autofixWarnings)
-                        //    {
-                        //        warnings.Add(new MdRawMarkdownSpan($"{autofixWarning}\r\n"));
-                        //    }
-                        //}
-
-                        string details = XDocCheckHelper.GetCheckDetails(errorMessage);
-                        if (details is not "")
+                        string howToFix = XDocCheckHelper.GetCheckHowToFix(errorMessage);
+                        if (howToFix is not "")
                         {
-                            doc.Root.Add(new MdHeading("Details", 3));
-                            doc.Root.Add(new MdParagraph(details));
+                            doc.Root.Add(new MdHeading("How to fix", 3));
+                            doc.Root.Add(new MdParagraph(howToFix));
                         }
 
-                        string exampleCode = XDocCheckHelper.GetCheckExampleCode(errorMessage);
-                        if (exampleCode is not "")
+                        List<string> autofixWarnings = XDocCheckHelper.GetCheckAutoFixWarnings(errorMessage);
+                        if (autofixWarnings is not null)
                         {
-                            doc.Root.Add(new MdHeading("Example code", 3));
-                            doc.Root.Add(new MdCodeBlock(exampleCode, "xml"));
+                            MdParagraph warnings = new();
+                            warnings.Add(new MdRawMarkdownSpan("[!WARNING]\r\n"));
+                            foreach (string autofixWarning in autofixWarnings)
+                            {
+                                warnings.Add(new MdRawMarkdownSpan($"{autofixWarning}\r\n"));
+                            }
                         }
+
+                        //string details = XDocCheckHelper.GetCheckDetails(errorMessage);
+                        //if (details is not "")
+                        //{
+                        //    doc.Root.Add(new MdHeading("Details", 3));
+                        //    doc.Root.Add(new MdParagraph(details));
+                        //}
+
+                        //string exampleCode = XDocCheckHelper.GetCheckExampleCode(errorMessage);
+                        //if (exampleCode is not "")
+                        //{
+                        //    doc.Root.Add(new MdHeading("Example code", 3));
+                        //    doc.Root.Add(new MdCodeBlock(exampleCode, "xml"));
+                        //}
 
                         string source = XDocCheckHelper.GetCheckSource(errorMessage);
                         Directory.CreateDirectory($"{outputDirectoryPath}/{source}/{namespacePath}/{checkName}");
