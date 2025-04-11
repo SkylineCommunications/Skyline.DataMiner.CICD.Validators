@@ -2,7 +2,7 @@
   "profiles": {
     "CICD.Tools.ValidatorErrorsToMarkdown": {
       "commandName": "Project",
-      "commandLineArgs": "--inputFilePath D:\\GitHub\\SLC\\Skyline.DataMiner.CICD.Validators\\Protocol\\ErrorMessages.xml --outputDirectoryPath \"D:\\ValidatorChecksMarkdown\""
+      "commandLineArgs": "--inputFilePath C:\\GitHub\\Skyline.DataMiner.CICD.Validators-Fork\\Protocol\\ErrorMessages.xml --outputDirectoryPath \"D:\\Test\\ValidatorChecksMarkdownBase\""
     }
   }
 }
