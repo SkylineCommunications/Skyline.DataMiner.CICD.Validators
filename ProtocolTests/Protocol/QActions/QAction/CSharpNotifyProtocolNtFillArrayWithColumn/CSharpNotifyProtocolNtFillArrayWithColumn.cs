@@ -470,8 +470,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 GroupDescription = "",
                 Description = "NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...) method with one or more DateTime(s) given to it requires 'Param@historySet=true' on column with PID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...) with DateTime given on table or cell level requires related column parameter(s) to be set to have the 'Param@historySet' attribute set to 'true'.",
                 HasCodeFix = true,
             };
 
@@ -497,8 +495,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '2', use 'Parameter' class instead. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...) is used to update the values of column(s)." + Environment.NewLine + "Make sure to provide it with column parameter IDs that exists excluding the index (Primary Key) column." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -524,8 +520,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '2', use 'Parameter' class instead. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...) is used to update the values of column(s)." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -551,8 +545,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 GroupDescription = "",
                 Description = "Method 'NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...)' references a non-existing 'column' with PID '2'. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...) is used to update the values of column(s)." + Environment.NewLine + "Make sure to provide it with column parameter IDs that exists excluding the index (Primary Key) column." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -578,8 +570,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 GroupDescription = "",
                 Description = "Method 'NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...)' references a non-existing 'table' with PID '2'. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...) is used to update the values of column(s)." + Environment.NewLine + "Make sure to provide it with the ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -605,8 +595,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 GroupDescription = "",
                 Description = "Method 'NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...)' with arguments '2' is not implemented as expected. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...) is used to update the values of column(s)." + Environment.NewLine + "See DDL for more information." + Environment.NewLine + "Also note that using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -632,17 +620,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 GroupDescription = "",
                 Description = "Unrecommended set on column '1' with 'ColumnOption@type' containing 'snmp'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details =
-                    $"It is typically unrecommended to update SNMP parameters from within a protocol.{Environment.NewLine}" +
-                    $"Indeed, SNMP parameters should typically strictly be updated via polling.{Environment.NewLine}" +
-                    $"{Environment.NewLine}" +
-                    $"Exceptions can sometimes be made when we update SNMP parameters based on received traps which contains, without any possible doubt, the new value.{Environment.NewLine}" +
-                    $"{Environment.NewLine}" +
-                    $"Side note: There are alternatives to poll SNMP parameters in an efficient way when, for example, a cell or column or row needs to be updated but you don't want to poll the entire table:{Environment.NewLine}" +
-                    $"- See various snmpSet options{Environment.NewLine}" +
-                    $"- See dynamicSnmpGet feature.{Environment.NewLine}" +
-                    "- ...",
                 HasCodeFix = false,
             };
 

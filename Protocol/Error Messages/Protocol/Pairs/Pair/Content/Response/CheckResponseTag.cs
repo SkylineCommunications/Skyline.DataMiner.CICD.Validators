@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Content/Response", "Pair", pairId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of pairs can contain any number of Response tags." + Environment.NewLine + "Those should have as value an unsigned number and refer to the id of an existing Response." + Environment.NewLine + "A given pair can't refer to the same Response more than once (including both Response and ResponseOnBadCommand tags)." + Environment.NewLine + "" + Environment.NewLine + "Also note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Content/Response", "Pair", pairId, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of pairs can contain any number of Response tags." + Environment.NewLine + "Those should have as value an unsigned number and refer to the id of an existing Response." + Environment.NewLine + "A given pair can't refer to the same Response more than once (including both Response and ResponseOnBadCommand tags)." + Environment.NewLine + "" + Environment.NewLine + "Also note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}'. {2} {4} '{3}'.", tagValue, "Content/Response", "Pair", pairId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of pairs can contain any number of Response tags." + Environment.NewLine + "Those should have as value an unsigned number and refer to the id of an existing Response." + Environment.NewLine + "A given pair can't refer to the same Response more than once (including both Response and ResponseOnBadCommand tags)." + Environment.NewLine + "" + Environment.NewLine + "Also note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 GroupDescription = "",
                 Description = String.Format("Tag '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Content/Response", "Response", "ID", responseId, "Pair", "ID", pairId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of pairs can contain any number of Response tags." + Environment.NewLine + "Those should have as value an unsigned number and refer to the id of an existing Response." + Environment.NewLine + "A given pair can't refer to the same Response more than once (including both Response and ResponseOnBadCommand tags)." + Environment.NewLine + "" + Environment.NewLine + "Also note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

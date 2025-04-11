@@ -90,8 +90,6 @@ namespace ProtocolTests.Protocol.Params.Param.CheckColumns
                 GroupDescription = "",
                 Description = "Invalid value 'columnType' in tag 'Param/Type' for column. Possible values 'read, write, group, read bit, write bit'. Column PID 'columnPid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A column should be of Param/Type 'read', 'write', 'group', 'read bit' or 'write bit'.",
                 HasCodeFix = false,
             };
 

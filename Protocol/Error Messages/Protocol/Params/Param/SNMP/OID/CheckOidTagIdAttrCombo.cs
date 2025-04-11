@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unsupported attribute '{0}' in {1} '{2}'.", "SNMP/OID@id", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The SNMP/OID@id attribute needs to refer to a standalone read Param and can be used in following situations:" + Environment.NewLine + "- Subtables: the id should refer to a parameter that will allow to filter on the list of instances to be polled." + Environment.NewLine + "- Tables with filtered rows: each column should contain an id attribute that refers to a parameter that will allow to filter on the instances to be polled." + Environment.NewLine + "- Dynamic OID: the id should refer to a parameter that will allow to dynamically define the full OID." + Environment.NewLine + "Except for subtables, the id attribute only makes sense in case a wildcard is present in the OID tag value.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid combination of OID value '{0}' and SNMP/OID@id value '{1}' in Param '{2}'.", oidValue, idValue, pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The SNMP/OID@id attribute needs to refer to a standalone read Param and can be used in following situations:" + Environment.NewLine + "- Subtables: the id should refer to a parameter that will allow to filter on the list of instances to be polled." + Environment.NewLine + "- Tables with filtered rows: each column should contain an id attribute that refers to a parameter that will allow to filter on the instances to be polled." + Environment.NewLine + "- Dynamic OID: the id should refer to a parameter that will allow to dynamically define the full OID." + Environment.NewLine + "Except for subtables, the id attribute only makes sense in case a wildcard is present in the OID tag value.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

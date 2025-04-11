@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "Missing tag 'Display/Range' in some parameters.",
                 Description = String.Format("Missing '{0}' tag for '{1}' Param with ID '{2}'.", "Display/Range", paramDisplayType, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unsupported '{0}' tag for '{1}' Param with ID '{2}'.", "Display/Range", paramDisplayType, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For certain types of Param, a range does not make sense (ex: table param).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Display/Range", "Param", pid),
                 HowToFix = "Either add 'Range/Low' and/or 'Range/High' tag(s), either remove the empty 'Display/Range' tag.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Range/Low '{0}' should be smaller than Range/High '{1}'. Param ID '{2}'.", rangeLow, rangeHigh, paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

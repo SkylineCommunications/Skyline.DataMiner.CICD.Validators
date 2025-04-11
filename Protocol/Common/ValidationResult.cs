@@ -46,10 +46,6 @@
 
         public string HowToFix { get; set; }
 
-        public string ExampleCode { get; set; }
-
-        public string Details { get; set; }
-
         public IReadable ReferenceNode { get; set; }
 
         public bool HasCodeFix { get; set; }
@@ -124,8 +120,6 @@
                 .AppendLine($"\tFixImpact = {FixImpact}")
                 .AppendLine($"\tHasCodeFix = {HasCodeFix}")
                 .AppendLine($"\tHowToFix = {HowToFix}")
-                .AppendLine($"\tExampleCode = {ExampleCode}")
-                .AppendLine($"\tDetails = {Details}")
                 .AppendLine("\tSubResults = ");
 
             if (SubResults != null)

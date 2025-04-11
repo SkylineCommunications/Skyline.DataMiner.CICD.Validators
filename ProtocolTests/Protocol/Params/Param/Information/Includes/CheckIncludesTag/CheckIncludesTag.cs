@@ -94,8 +94,6 @@ namespace ProtocolTests.Protocol.Params.Param.Information.Includes.CheckIncludes
                 GroupDescription = "",
                 Description = "Obsolete tag 'Information/Includes'. Param ID 'pid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Information/Includes' tag was only used in the past by SystemDisplay. Today, it is considered obsolete.",
                 HasCodeFix = true,
             };
 

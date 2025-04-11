@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Interprete/Exceptions is incompatible with Param/Type '{0}'. Param ID '{1}'.", paramType, paramId),
                 HowToFix = "Use Measurement.Discreets.Discreet tags.",
-                ExampleCode = "",
-                Details = "Do not use Exception tags to add exceptions to write parameters.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -56,8 +54,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Exception value tag for exception with id '{0}' on Param '{1}' was changed from '{2}' to '{3}'.", exceptionId, paramPid, previousExceptionValue, newExceptionValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Updating the exceptions value tag will have impact on existing alarm templates as an exception value is preceded by a '$' sign in the alarm template.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -81,8 +77,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Exception with id '{0}' was removed from Param '{1}'.", exceptionId, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Removing an exception value will have impact on existing alarm templates as an exception value is preceded by a '$' sign in the alarm template.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -106,8 +100,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Exception with id '{0}' was added to Param '{1}'.", exceptionId, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Adding an exception will have impact on existing alarm templates as an exception value is preceded by a '$' sign in the alarm template.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

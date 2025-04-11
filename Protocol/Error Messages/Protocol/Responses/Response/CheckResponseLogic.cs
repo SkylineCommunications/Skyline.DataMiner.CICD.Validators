@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                 GroupDescription = "",
                 Description = String.Format("No '{0}' Action triggered before Response '{1}'. '{0}' Param '{2}'.", "CRC", responseId, paramPid),
                 HowToFix = "Make sure a CRC action is triggered after response.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                 GroupDescription = "",
                 Description = String.Format("Defined headers and trailers linked to smart-serial connection '{0}' should be used in response '{1}'.", connectionId, responseId),
                 HowToFix = "Use a header and matching trailer parameter in the response.",
-                ExampleCode = "",
-                Details = "If there is a header/trailer parameter defined with a headerTrailerLink on a specific connection that is smart-serial, or when there is no connection specified it will automatically apply to the smart-serial connection, then SLPort will be filtering on this header/trailer pairs regardless on how the response definition looks like." + Environment.NewLine + "This means if there is e.g. a response defined for the smart-serial connection that consists of one next param type parameter without header/trailer with the intention to receive ALL data that is entering on the socket then this will not work as expected as SLPort will be filtering on the header/trailer pairs and will only foward that data to SLProtocol. Data that does not match the header/trailer will be dropped in the background by SLPort and will also not be shown in the StreamViewer. When there are headerTrailerLink parameters defined for a smart-serial connection then these parameters should also be used on the response for the smart-serial connection.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

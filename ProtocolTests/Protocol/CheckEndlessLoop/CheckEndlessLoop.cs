@@ -337,8 +337,6 @@ namespace ProtocolTests.Protocol.CheckEndlessLoop
                 GroupDescription = String.Empty,
                 Description = "Endless loop detected. Involved items '1'",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 
@@ -364,8 +362,6 @@ namespace ProtocolTests.Protocol.CheckEndlessLoop
                 GroupDescription = String.Empty,
                 Description = "Potential endless loop detected. Involved items '1'",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "Uncertain because not all paths could be completed due to conditions in the flow of the loop.",
                 HasCodeFix = false,
             };
 

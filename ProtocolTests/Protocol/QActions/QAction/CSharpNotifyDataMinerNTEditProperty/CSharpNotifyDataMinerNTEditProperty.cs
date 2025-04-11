@@ -107,8 +107,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTEditPro
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(Queued)(62/*NT_EDIT_PROPERTY*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "string propertyLocation = \"element:\"+ elementId + \":\" + agentId;" + Environment.NewLine + "string[] propertyDetails = new string[3] {\"DeviceKey\", \"read-write\", \"2100\"};" + Environment.NewLine + "" + Environment.NewLine + "protocol.NotifyDataMinerQueued(62/*NT_EDIT_PROPERTY*/ , propertyLocation, propertyDetails);",
-                Details = "To make this call DELT compatible, the DMA ID needs to be provided as argument." + Environment.NewLine + "See Example code." + Environment.NewLine + "" + Environment.NewLine + "More information about the syntax can be found in the DataMiner Development Library.",
                 HasCodeFix = false,
             };
 

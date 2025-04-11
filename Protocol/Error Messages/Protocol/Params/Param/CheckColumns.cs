@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}' for {2}. Possible values '{3}'. {4} {5} '{6}'.", columnType, "Param/Type", "column", "read, write, group, read bit, write bit", "Column", "PID", columnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A column should be of Param/Type 'read', 'write', 'group', 'read bit' or 'write bit'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

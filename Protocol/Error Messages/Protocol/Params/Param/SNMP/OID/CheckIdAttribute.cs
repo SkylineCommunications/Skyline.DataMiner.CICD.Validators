@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "SNMP/OID@id", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The SNMP/OID@id attribute needs to refer to a standalone read or bus Param and can be used in following situations:" + Environment.NewLine + "- Subtables: the id should refer to a parameter that will allow to filter on the list of instances to be polled." + Environment.NewLine + "- Tables with filtered rows: each column should contain an id attribute that refers to a parameter that will allow to filter on the instances to be polled." + Environment.NewLine + "- Dynamic OID: the id should refer to a parameter that will allow to dynamically define the full OID." + Environment.NewLine + "Except for subtables, the id attribute only makes sense in case a wildcard is present in the OID tag value.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unsupported attribute '{0}' in {1} '{2}'. Current value '{3}'.", "SNMP/OID@id", "Param", pid, currentValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The SNMP/OID@id attribute needs to refer to a standalone read or bus Param and can be used in following situations:" + Environment.NewLine + "- Subtables: the id should refer to a parameter that will allow to filter on the list of instances to be polled." + Environment.NewLine + "- Tables with filtered rows: each column should contain an id attribute that refers to a parameter that will allow to filter on the instances to be polled." + Environment.NewLine + "- Dynamic OID: the id should refer to a parameter that will allow to dynamically define the full OID." + Environment.NewLine + "Except for subtables, the id attribute only makes sense in case a wildcard is present in the OID tag value.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "SNMP/OID@id", "Param", "ID", referencedPid, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The SNMP/OID@id attribute needs to refer to a standalone read or bus Param and can be used in following situations:" + Environment.NewLine + "- Subtables: the id should refer to a parameter that will allow to filter on the list of instances to be polled." + Environment.NewLine + "- Tables with filtered rows: each column should contain an id attribute that refers to a parameter that will allow to filter on the instances to be polled." + Environment.NewLine + "- Dynamic OID: the id should refer to a parameter that will allow to dynamically define the full OID." + Environment.NewLine + "Except for subtables, the id attribute only makes sense in case a wildcard is present in the OID tag value.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unsupported Param '{0}' reference in attribute 'SNMP/OID@id' in Param '{1}'.", idAttributeValue, pid),
                 HowToFix = "Refer to a standalone read param.",
-                ExampleCode = "",
-                Details = "The SNMP/OID@id attribute needs to refer to a standalone read or bus Param and can be used in following situations:" + Environment.NewLine + "- Subtables: the id should refer to a parameter that will allow to filter on the list of instances to be polled." + Environment.NewLine + "- Tables with filtered rows: each column should contain an id attribute that refers to a parameter that will allow to filter on the instances to be polled." + Environment.NewLine + "- Dynamic OID: the id should refer to a parameter that will allow to dynamically define the full OID." + Environment.NewLine + "Except for subtables, the id attribute only makes sense in case a wildcard is present in the OID tag value.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "SNMP/OID@id", "Param", pid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The SNMP/OID@id attribute needs to refer to a standalone read or bus Param and can be used in following situations:" + Environment.NewLine + "- Subtables: the id should refer to a parameter that will allow to filter on the list of instances to be polled." + Environment.NewLine + "- Tables with filtered rows: each column should contain an id attribute that refers to a parameter that will allow to filter on the instances to be polled." + Environment.NewLine + "- Dynamic OID: the id should refer to a parameter that will allow to dynamically define the full OID." + Environment.NewLine + "Except for subtables, the id attribute only makes sense in case a wildcard is present in the OID tag value.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

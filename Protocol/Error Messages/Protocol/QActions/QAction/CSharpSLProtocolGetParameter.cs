@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}' references a non-existing '{1}' with {2} '{3}'. QAction ID '{4}'.", "SLProtocol.GetParameter", "Param", "ID", paramId, qactionId),
                 HowToFix = "",
-                ExampleCode = "protocol.GetParameter(Parameter.ParameterName);",
-                Details = "SLProtocol.GetParameter is used to get the current value of a standalone parameter." + Environment.NewLine + "Make sure to provide it with an ID of a standalone parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Unrecommended use of magic number '{0}', use '{1}' {2} instead. QAction ID '{3}'.", hardCodedPid, "Parameter", "class", qactionId),
                 HowToFix = "",
-                ExampleCode = "protocol.GetParameter(Parameter.ParameterName);",
-                Details = "SLProtocol.GetParameter is used to get the current value of a standalone parameter." + Environment.NewLine + "Make sure to provide it with an ID of a standalone parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

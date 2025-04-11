@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "ascii", "Command", commandId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "This attribute allows you to specify which parameters should be sent as ASCII. Possible values:" + Environment.NewLine + " - True: all params as ascii" + Environment.NewLine + " - False: no param as ascii" + Environment.NewLine + " - Semicolon separated list of Param IDs" + Environment.NewLine + "Note that this option only makes sense when using unicode feature.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "ascii", asciiValue, "Command", commandId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "This attribute allows you to specify which parameters should be sent as ASCII. Possible values:" + Environment.NewLine + " - True: all params as ascii" + Environment.NewLine + " - False: no param as ascii" + Environment.NewLine + " - Semicolon separated list of Param IDs" + Environment.NewLine + "Note that this option only makes sense when using unicode feature.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "ascii", "Param", "ID", pid, "Command", "ID", commandId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "This attribute allows you to specify which parameters should be sent as ASCII. Possible values:" + Environment.NewLine + " - True: all params as ascii" + Environment.NewLine + " - False: no param as ascii" + Environment.NewLine + " - Semicolon separated list of Param IDs" + Environment.NewLine + "Note that this option only makes sense when using unicode feature.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

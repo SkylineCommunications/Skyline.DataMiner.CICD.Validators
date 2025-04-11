@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                 GroupDescription = "",
                 Description = String.Format("Tag '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Content/Param", "Param", "ID", referencedPid, "Response", "ID", responseId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Response/Content tag should contain a list of 'Param' tags. The 'Param' tags should refer to the id of an existing Param.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Content/Param", "Response", responseId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Response/Content tag should contain a list of 'Param' tags. The 'Param' tags should refer to the id of an existing Param.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}'. {2} {4} '{3}'.", value, "Content/Param", "Response", responseId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Response/Content tag should contain a list of 'Param' tags. The 'Param' tags should refer to the id of an existing Param.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -71,7 +71,6 @@ namespace ProtocolTests.Protocol.CheckDuplicateTags
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Duplicate 'Interprete/RawType' tag found. Param ID 'paramId'.",
-                Details = "Having multiple 'Interprete/RawType' tags within a parameter could lead to an SLProtocol RTE.",
                 HasCodeFix = false,
             };
 

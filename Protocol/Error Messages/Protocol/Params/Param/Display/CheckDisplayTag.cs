@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Display", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Param/Display' should always contain, at least, one child tag.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

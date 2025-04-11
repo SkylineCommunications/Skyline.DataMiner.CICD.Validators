@@ -146,8 +146,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckOnTag
                 GroupDescription = "",
                 Description = "Empty tag 'On' in Action '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On' tag is mandatory and should contain one of the following values:" + Environment.NewLine + "command, group, pair, parameter, protocol, response, timer.",
                 HasCodeFix = false,
             };
 
@@ -173,8 +171,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckOnTag
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'On'. Action ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On' tag is mandatory and should contain one of the following values:" + Environment.NewLine + "command, group, pair, parameter, protocol, response, timer.",
                 HasCodeFix = false,
             };
 
@@ -200,8 +196,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckOnTag
                 GroupDescription = "",
                 Description = "Missing tag 'On' in Action '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On' tag is mandatory and should contain one of the following values:" + Environment.NewLine + "command, group, pair, parameter, protocol, response, timer.",
                 HasCodeFix = false,
             };
 
@@ -227,8 +221,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckOnTag
                 GroupDescription = "",
                 Description = "Untrimmed tag 'On' in Action '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On' tag is mandatory and should contain one of the following values:" + Environment.NewLine + "command, group, pair, parameter, protocol, response, timer.",
                 HasCodeFix = true,
             };
 

@@ -174,14 +174,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 GroupDescription = String.Empty,
                 Description = "Missing attribute 'defaultPage'.",
                 HowToFix = "Specify a default page using the defaultPage attribute.",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details =
-                    $"Skyline recommends the following structure for driver pages:{Environment.NewLine}" +
-                    $"- General{Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    $"- Data Page(s){Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    "- WebInterface",
                 HasCodeFix = false
             };
 
@@ -207,14 +199,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'defaultPage'.",
                 HowToFix = "Specify a default page in the defaultPage attribute.",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details =
-                    $"Skyline recommends the following structure for driver pages:{Environment.NewLine}" +
-                    $"- General{Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    $"- Data Page(s){Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    "- WebInterface",
                 HasCodeFix = false
             };
 
@@ -240,14 +224,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 GroupDescription = String.Empty,
                 Description = "The specified defaultPage 'ABC' does not exist.",
                 HowToFix = String.Empty,
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details =
-                    $"Skyline recommends the following structure for driver pages:{Environment.NewLine}" +
-                    $"- General{Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    $"- Data Page(s){Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    "- WebInterface",
                 HasCodeFix = false
             };
 
@@ -273,14 +249,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 GroupDescription = String.Empty,
                 Description = "Untrimmed attribute 'defaultPage'. Current value 'ABC'.",
                 HowToFix = String.Empty,
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details =
-                    $"Skyline recommends the following structure for driver pages:{Environment.NewLine}" +
-                    $"- General{Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    $"- Data Page(s){Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    "- WebInterface",
                 HasCodeFix = true
             };
 
@@ -306,14 +274,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 GroupDescription = String.Empty,
                 Description = "The default page should be a page with name 'General'.",
                 HowToFix = "Define a page with name 'General' and specify it as the default page.",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details =
-                    $"Skyline recommends the following structure for driver pages:{Environment.NewLine}" +
-                    $"- General{Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    $"- Data Page(s){Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    "- WebInterface",
                 HasCodeFix = false
             };
 
@@ -339,14 +299,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 GroupDescription = String.Empty,
                 Description = "Unsupported popup page 'ABC' in defaultPage attribute.",
                 HowToFix = String.Empty,
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details =
-                    $"Skyline recommends the following structure for driver pages:{Environment.NewLine}" +
-                    $"- General{Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    $"- Data Page(s){Environment.NewLine}" +
-                    $"- -----------{Environment.NewLine}" +
-                    "- WebInterface",
                 HasCodeFix = false
             };
 

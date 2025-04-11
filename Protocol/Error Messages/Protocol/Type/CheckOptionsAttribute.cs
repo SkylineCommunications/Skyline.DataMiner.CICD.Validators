@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "Protocol/Type@options"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "Protocol/Type@options", currentValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "Protocol/Type", "options", "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Within the 'Protocol/Type@options' attribute, the 'exportProtocol' option allows to define which DVE protocols should be made and based on what parameter DVE elements should be created." + Environment.NewLine + "" + Environment.NewLine + "The exportProtocol option is expected to have the following format: \"exportProtocol:[protocolName]:[DveTablePid]\" optionally followed by \":noElementPrefix\" where:" + Environment.NewLine + "- [protocolName] should be the name of the DVE protocol to be created." + Environment.NewLine + "    - Note that we recommend the DVE protocol name to start with: \"[DveParentProtocolName] - \"" + Environment.NewLine + "- [DveTablePid] should be the PID of the table responsible for creating DVE elements. The referred Param is expected to:" + Environment.NewLine + "    - Be of type 'array'." + Environment.NewLine + "    - Have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("Invalid DVE Param Type '{0}'. Expected Type 'array'. Param ID '{1}'.", paramType, paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Within the 'Protocol/Type@options' attribute, the 'exportProtocol' option allows to define which DVE protocols should be made and based on what parameter DVE elements should be created." + Environment.NewLine + "" + Environment.NewLine + "The exportProtocol option is expected to have the following format: \"exportProtocol:[protocolName]:[DveTablePid]\" optionally followed by \":noElementPrefix\" where:" + Environment.NewLine + "- [protocolName] should be the name of the DVE protocol to be created." + Environment.NewLine + "    - Note that we recommend the DVE protocol name to start with: \"[DveParentProtocolName] - \"" + Environment.NewLine + "- [DveTablePid] should be the PID of the table responsible for creating DVE elements. The referred Param is expected to:" + Environment.NewLine + "    - Be of type 'array'." + Environment.NewLine + "    - Have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on DVE Table. Table PID '{0}'.", dveTablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Within the 'Protocol/Type@options' attribute, the 'exportProtocol' option allows to define which DVE protocols should be made and based on what parameter DVE elements should be created." + Environment.NewLine + "" + Environment.NewLine + "The exportProtocol option is expected to have the following format: \"exportProtocol:[protocolName]:[DveTablePid]\" optionally followed by \":noElementPrefix\" where:" + Environment.NewLine + "- [protocolName] should be the name of the DVE protocol to be created." + Environment.NewLine + "    - Note that we recommend the DVE protocol name to start with: \"[DveParentProtocolName] - \"" + Environment.NewLine + "- [DveTablePid] should be the PID of the table responsible for creating DVE elements. The referred Param is expected to:" + Environment.NewLine + "    - Be of type 'array'." + Environment.NewLine + "    - Have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -156,8 +146,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("DVE Protocol with Name '{0}' for Table '{1}' was changed into '{2}'.", dveProtocolName, tableId, newDveProtocolName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -181,8 +169,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("DVE Protocol with Name '{0}' for Table '{1}' was removed.", dveProtocolName, tableId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -206,8 +192,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("NoElementPrefix option was added to DVE Protocol with Name '{0}' for Table '{1}'.", dveProtocolName, tableId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -231,8 +215,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = String.Format("NoElementPrefix option was removed from DVE Protocol with Name '{0}' for Table '{1}'.", dveProtocolName, tableId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -256,8 +238,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = "Unicode option on protocol was added.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -281,8 +261,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckOp
                 GroupDescription = "",
                 Description = "Unicode option on protocol was removed.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -183,8 +183,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Empty attribute 'Type@id' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
             };
 
@@ -210,8 +208,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Attribute 'Type@id' references a non-existing 'Column' with PID '2'. Param ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
             };
 
@@ -237,8 +233,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Attribute 'Type@id' references a non-existing 'Param' with ID '2'. Param ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
             };
 
@@ -264,8 +258,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Attribute 'Type@id' references a non-existing 'Response' with ID '2'. Param ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
             };
 
@@ -291,8 +283,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Type@id' in Param '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = true,
             };
 

@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Check
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "Params@loadSequence"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Params@loadSequence' expects a semicolon separated list of Param IDs allowing to define the order in which saved parameter values are loaded in SLElement." + Environment.NewLine + "Referenced parameters are expected to:" + Environment.NewLine + "- Have the save attribute set to 'true'" + Environment.NewLine + "- Have the RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Check
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "Params@loadSequence", untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Params@loadSequence' expects a semicolon separated list of Param IDs allowing to define the order in which saved parameter values are loaded in SLElement." + Environment.NewLine + "Referenced parameters are expected to:" + Environment.NewLine + "- Have the save attribute set to 'true'" + Environment.NewLine + "- Have the RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Check
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "Params", "loadSequence", "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Params@loadSequence' expects a semicolon separated list of Param IDs allowing to define the order in which saved parameter values are loaded in SLElement." + Environment.NewLine + "Referenced parameters are expected to:" + Environment.NewLine + "- Have the save attribute set to 'true'" + Environment.NewLine + "- Have the RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Check
                 GroupDescription = "",
                 Description = String.Format("Param '{0}' referenced by 'Params@loadSequence' attribute is expected to be saved.", referencedPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Params@loadSequence' expects a semicolon separated list of Param IDs allowing to define the order in which saved parameter values are loaded in SLElement." + Environment.NewLine + "Referenced parameters are expected to:" + Environment.NewLine + "- Have the save attribute set to 'true'" + Environment.NewLine + "- Have the RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Check
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' referenced by 'Params@loadSequence' attribute.", referencedPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Params@loadSequence' expects a semicolon separated list of Param IDs allowing to define the order in which saved parameter values are loaded in SLElement." + Environment.NewLine + "Referenced parameters are expected to:" + Environment.NewLine + "- Have the save attribute set to 'true'" + Environment.NewLine + "- Have the RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

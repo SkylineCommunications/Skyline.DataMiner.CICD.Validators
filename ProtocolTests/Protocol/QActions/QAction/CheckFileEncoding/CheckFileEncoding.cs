@@ -122,7 +122,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckFileEncoding
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid file encoding 'Unicode' detected in file 'QAction_1.cs'. QAction ID '1'.",
-                Details = "Each file in a QAction needs to be UTF-8 as otherwise certain characters could be converted to invalid characters.",
                 HasCodeFix = true,
             };
 

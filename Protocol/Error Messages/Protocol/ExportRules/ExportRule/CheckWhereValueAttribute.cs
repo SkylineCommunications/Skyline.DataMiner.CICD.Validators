@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "ExportRule@whereValue"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "As soon as whereTag or whereAttribute is being used, the whereValue is needed.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

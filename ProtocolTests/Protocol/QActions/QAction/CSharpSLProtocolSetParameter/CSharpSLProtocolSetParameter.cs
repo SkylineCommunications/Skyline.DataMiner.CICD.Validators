@@ -271,8 +271,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.SetParameter' references a non-existing 'Param' with ID '1'. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.SetParameter is used to update the value of a standalone parameter." + Environment.NewLine + "Make sure to provide it with an ID of a standalone parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -298,8 +296,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '1', use 'Parameter' class instead. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.SetParameter is used to update the value of a standalone parameter." + Environment.NewLine + "Make sure to provide it with an ID of a standalone parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -325,8 +321,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
                 GroupDescription = "",
                 Description = "SLProtocol.SetParameter overload with 'ValueType timeInfo' argument requires 'Param@historySet=true'. Param ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Every overload of the 'SLProtocol.SetParameter' method having the 'ValueType timeInfo' argument is meant to execute a historySet on a standlone parameter." + Environment.NewLine + "Such method requires the standalone parameter to be set to have the 'Param@historySet' attribute set to 'true'.",
                 HasCodeFix = true,
             };
 

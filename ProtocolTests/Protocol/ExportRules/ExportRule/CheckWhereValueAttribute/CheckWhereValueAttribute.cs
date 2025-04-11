@@ -72,7 +72,6 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereValueAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'ExportRule@whereValue'.",
-                Details = "As soon as whereTag or whereAttribute is being used, the whereValue is needed.",
                 HasCodeFix = false,
             };
 

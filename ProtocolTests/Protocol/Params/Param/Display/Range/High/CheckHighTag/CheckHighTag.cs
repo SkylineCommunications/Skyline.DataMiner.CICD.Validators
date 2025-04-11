@@ -220,7 +220,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Range/High' in Param '2'.",
-                Details = "If present, the 'Range/High' tag should be filled in with a numerical value." + Environment.NewLine + "Its value should be bigger than the one in the 'Range/Low' tag.",
                 HasCodeFix = false,
             };
 
@@ -241,7 +240,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value '1' in tag 'Range/High'. Param ID '2'.",
-                Details = "If present, the 'Range/High' tag should be filled in with a numerical value." + Environment.NewLine + "Its value should be bigger than the one in the 'Range/Low' tag.",
                 HasCodeFix = false,
             };
 
@@ -262,7 +260,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Range/High' in Param '1'. Current value '2'.",
-                Details = "If present, the 'Range/High' tag should be filled in with a numerical value." + Environment.NewLine + "Its value should be bigger than the one in the 'Range/Low' tag.",
                 HasCodeFix = true,
             };
 
@@ -283,7 +280,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.High.CheckHighTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Range/High 'rangeHigh' should be bigger than zero due to Trending@logarithmic 'true'. Param ID 'paramId'.",
-                Details = "When Trending@logarithmic is set to 'true', both 'Range/Low' and 'Range/High' should be bigger than 0.",
                 HasCodeFix = false,
             };
 

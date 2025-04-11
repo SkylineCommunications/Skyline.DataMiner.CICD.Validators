@@ -170,8 +170,6 @@ namespace ProtocolTests.Protocol.Display.CheckWideColumnPagesAttribute
                 GroupDescription = "",
                 Description = "The page 'pageName' specified in 'Protocol/Display@wideColumnPages' does not exist.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Protocol/Display@wideColumnPages allows to define a semicolon list of pages that should take the whole width available even if it only contains 1 column." + Environment.NewLine + "It should refer to pages that are present in the Protocol/Display@pageOrder attribute and on which at least one parameter is displayed.",
                 HasCodeFix = false,
             };
 
@@ -197,8 +195,6 @@ namespace ProtocolTests.Protocol.Display.CheckWideColumnPagesAttribute
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'wideColumnsPages'. Current value 'untrimmedValue'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Protocol/Display@wideColumnPages allows to define a semicolon list of pages that should take the whole width available even if it only contains 1 column." + Environment.NewLine + "It should refer to pages that are present in the Protocol/Display@pageOrder attribute and on which at least one parameter is displayed.",
                 HasCodeFix = true,
             };
 

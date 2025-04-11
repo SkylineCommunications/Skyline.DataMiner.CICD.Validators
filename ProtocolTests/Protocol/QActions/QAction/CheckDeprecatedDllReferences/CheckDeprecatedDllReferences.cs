@@ -135,7 +135,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckDeprecatedDllReferences
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = $"Deprecated DLL '{packageName}' referenced. QAction '{qactionId}'.",
-                Details = "",
                 HasCodeFix = false,
             };
 

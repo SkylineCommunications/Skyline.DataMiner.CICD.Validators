@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing (page)button width attribute. Param '{0}'.", pid),
                 HowToFix = "Add Measurement.Type@width attribute with a value equal or greater than 110.",
-                ExampleCode = "<Type width=\"110\">button</Type>",
-                Details = "The recommended width for (page)buttons is 110." + Environment.NewLine + "When needed, (page)buttons can exceptionally be made larger but in that case, they need to be consistent through the driver page they belong to.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty (page)button width attribute. Param '{0}'.", pid),
                 HowToFix = "Fill in Measurement.Type@width attribute with a value equal or greater than 110.",
-                ExampleCode = "<Type width=\"110\">button</Type>",
-                Details = "The recommended width for (page)buttons is 110." + Environment.NewLine + "When needed, (page)buttons can exceptionally be made larger but in that case, they need to be consistent through the driver page they belong to.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed (page)button width attribute '{0}'. Param '{1}'.", untrimmedWidth, pid),
                 HowToFix = "Remove leading and/or trailing whitespaces",
-                ExampleCode = "<Type width=\"110\">button</Type>",
-                Details = "The recommended width for (page)buttons is 110." + Environment.NewLine + "When needed, (page)buttons can exceptionally be made larger but in that case, they need to be consistent through the driver page they belong to.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid (page)button width attribute '{0}'. Param '{1}'.", invalidWidth, pid),
                 HowToFix = "Fill in Measurement.Type@width attribute with a value equal or greater than 110.",
-                ExampleCode = "<Type width=\"110\">button</Type>",
-                Details = "The recommended width for (page)buttons is 110." + Environment.NewLine + "When needed, (page)buttons can exceptionally be made larger but in that case, they need to be consistent through the driver page they belong to.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Inconsistent (page)buttons width on page '{0}'. PIDs '{1}' - Widths '{2}'.", pageName, paramIDs, widthValues),
                 HowToFix = "Adjust the width of this button to the highest width value of all buttons on this page.",
-                ExampleCode = "<Type width=\"110\">button</Type>",
-                Details = "The recommended width for (page)buttons is 110." + Environment.NewLine + "When needed, (page)buttons can exceptionally be made larger but in that case, they need to be consistent through the driver page they belong to.",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("The width attribute is not supported for '{0}'. Param '{1}'.", measurementType, pid),
                 HowToFix = "Remove the Measurement.Type@width attribute.",
-                ExampleCode = "",
-                Details = "Measurement.Type@width attribute is only supported for (page)button parameters.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unrecommended (page)button width '{0}'. Param '{1}'.", widthValue, pid),
                 HowToFix = "",
-                ExampleCode = "<Type width=\"110\">button</Type>",
-                Details = "The recommended width for (page)buttons is 110." + Environment.NewLine + "When needed, (page)buttons can exceptionally be made larger but in that case, they need to be consistent through the driver page they belong to.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

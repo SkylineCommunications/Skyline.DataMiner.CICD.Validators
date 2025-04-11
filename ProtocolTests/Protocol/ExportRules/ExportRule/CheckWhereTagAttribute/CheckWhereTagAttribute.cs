@@ -104,7 +104,6 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'ExportRule@whereTag'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -125,7 +124,6 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'ExportRule@whereTag'.",
-                Details = "As soon as whereValue or whereAttribute is being used, the whereTag is needed.",
                 HasCodeFix = false,
             };
 
@@ -146,7 +144,6 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereTagAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'ExportRule@whereTag'. Current value 'untrimmedValue'.",
-                Details = "",
                 HasCodeFix = false,
             };
 

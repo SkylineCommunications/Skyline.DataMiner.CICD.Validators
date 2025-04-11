@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckDuplica
                 GroupDescription = "",
                 Description = String.Format("Duplicate '{0}' tag found. {1} {2} '{3}'.", "Interprete/RawType", "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Having multiple 'Interprete/RawType' tags within a parameter could lead to an SLProtocol RTE.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

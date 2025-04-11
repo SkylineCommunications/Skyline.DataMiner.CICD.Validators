@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing 'Discreet' tag(s) in 'Measurement/Discreets' tag. Param ID '{0}'.", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets tags should always have at least one of the following:" + Environment.NewLine + "- Discreet tag(s)" + Environment.NewLine + "- dependencyId attribute.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

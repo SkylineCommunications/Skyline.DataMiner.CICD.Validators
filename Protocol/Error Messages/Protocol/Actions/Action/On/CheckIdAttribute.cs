@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' due to '{1}' '{2}'. {3} {4} '{5}'.", "Action/On@id", "Action/Type", actionType, "Action", "ID", actionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On@id' attribute is mandatory if 'Action/Type' is set to one of the following values:" + Environment.NewLine + "add to execute, aggregate, append, append data, change length, clear, clear length info, clear on display, copy, copy reverse, crc, execute, execute next, execute one, execute one now, execute one top, force execute, go, increment, length, make, multiply, normalize, pow, read, read file, read stuffing, replace, replace data, reschedule, restart timer, reverse, run actions, save, set and get with wait, set next, set with wait, start, stop, stuffing, timeout.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "On@id", "Action", actionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On@id' attribute can contain a semicolon list of unsigned number which refer to the id of an existing protocol item. The type of item is specified by the inner value of the 'Action/On' tag." + Environment.NewLine + "If the 'Action/On@id' attribute is not present, the action will apply to all item of the type given by the value of the 'Action/On' tag." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 GroupDescription = "",
                 Description = String.Format("Untrimmed value '{0}' in attribute '{1}'. {2} {3} '{4}'.", untrimmedValue, "On@id", "Action", "ID", actionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On@id' attribute can contain a semicolon list of unsigned number which refer to the id of an existing protocol item. The type of item is specified by the inner value of the 'Action/On' tag." + Environment.NewLine + "If the 'Action/On@id' attribute is not present, the action will apply to all item of the type given by the value of the 'Action/On' tag." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "On@id", attributeValue, "Action", actionId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On@id' attribute can contain a semicolon list of unsigned number which refer to the id of an existing protocol item. The type of item is specified by the inner value of the 'Action/On' tag." + Environment.NewLine + "If the 'Action/On@id' attribute is not present, the action will apply to all item of the type given by the value of the 'Action/On' tag." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "On@id", referenceKind, "ID", referenceId, "Action", "ID", actionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On@id' attribute can contain a semicolon list of unsigned number which refer to the id of an existing protocol item. The type of item is specified by the inner value of the 'Action/On' tag." + Environment.NewLine + "If the 'Action/On@id' attribute is not present, the action will apply to all item of the type given by the value of the 'Action/On' tag." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

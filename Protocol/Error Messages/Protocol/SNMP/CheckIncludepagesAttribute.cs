@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.SNMP.CheckIn
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "includepages"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.SNMP.CheckIn
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "includepages"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.SNMP.CheckIn
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. Possible values '{2}'.", "includepages", attributeValue, allowedValues),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

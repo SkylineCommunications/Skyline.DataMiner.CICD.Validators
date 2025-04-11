@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Name", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Name", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Name", "Param", pid, untrimmedValue),
                 HowToFix = "Remove the leading/trailing whitespaces.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid chars '{2}' in tag '{0}'. Current value '{1}'.", "Name", tagValue, invalidCharacters),
                 HowToFix = "Remove or replace invalid chars.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid Param Name '{1}'. Param ID '{0}'. The Param Name is reserved by DataMiner for internal use.", paramId, paramName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "On top of a predefined list of names, all parameter names starting with two underscores are reserved for internal use.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "Param", "Name", duplicateName, paramIds),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "Unrecommended chars in some parameter names.",
                 Description = String.Format("Unrecommended chars '{2}' in tag '{0}'. Current value '{1}'.", tagName, tagValue, invalidCharacters),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -209,8 +195,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unrecommended start chars '{2}' in tag '{0}'. Current value '{1}'.", tagName, tagValue, unrecommendedStartCharacters),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -234,8 +218,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' used as context menu for table.", contextMenuPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Parameter with names ending with \"_contextmenu\" are used as context menu for tables." + Environment.NewLine + "Such Param requires its RTDisplay tag to be set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -259,8 +241,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' used for QAction feedback.", qactionFeedbackPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Parameter with names ending with \"_QActionFeedback\" are used to dynamically provide feedback from a QAction to (and only to) the user triggering the QAction." + Environment.NewLine + "Example scenarios where such feature is used:" + Environment.NewLine + "- Feedback from a QAction triggered by a table context menu." + Environment.NewLine + "" + Environment.NewLine + "Such Param requires its RTDisplay tag to be set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -287,8 +267,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Logger table column name '{0}' for column PID '{1}' on table '{2}' was changed into '{3}'.", oldColumnName, columnPid, tablePid, newColumnName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -154,7 +154,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckEncodingAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'encoding' in QAction 'qactionId'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -175,7 +174,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckEncodingAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value 'attributeValue' in attribute 'encoding'. QAction ID 'qactionId'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -196,7 +194,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckEncodingAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'encoding' in QAction 'qactionId'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -217,7 +214,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckEncodingAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unsupported value 'value' in encoding attribute. QAction ID 'qactionId'.",
-                Details = "As of Windows Server 2025, the other encodings (vbscript and jscript) are not supported anymore.",
                 HasCodeFix = false,
             };
 
@@ -238,7 +234,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckEncodingAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'encoding' in QAction 'qactionId'. Current value 'untrimmedValue'.",
-                Details = "",
                 HasCodeFix = true,
             };
 

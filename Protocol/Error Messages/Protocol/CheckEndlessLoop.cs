@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
                 GroupDescription = "",
                 Description = String.Format("Endless loop detected. Involved items '{0}'", involvedItems),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
                 GroupDescription = "",
                 Description = String.Format("Potential endless loop detected. Involved items '{0}'", involvedItems),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Uncertain because not all paths could be completed due to conditions in the flow of the loop.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

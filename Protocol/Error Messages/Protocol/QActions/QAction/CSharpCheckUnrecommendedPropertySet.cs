@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Setting property '{0}.{1}' is unrecommended. QAction ID '{2}'.", "CultureInfo", "DefaultThreadCurrentCulture", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Changing application domain settings should not be performed as QActions from other protocols might be impacted by this change.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Setting property '{0}.{1}' is unrecommended. QAction ID '{2}'.", "Thread.CurrentThread", "CurrentCulture", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "As the threads that execute QAction code are part of a thread pool, changing a setting on a thread in a QAction can affect other QActions of other protocols.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Setting property '{0}.{1}' is unrecommended. QAction ID '{2}'.", "Thread.CurrentThread", "CurrentUICulture", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "As the threads that execute QAction code are part of a thread pool, changing a setting on a thread in a QAction can affect other QActions of other protocols.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

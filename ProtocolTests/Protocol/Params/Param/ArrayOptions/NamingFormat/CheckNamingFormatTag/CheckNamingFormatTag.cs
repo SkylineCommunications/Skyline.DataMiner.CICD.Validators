@@ -160,8 +160,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
                 GroupDescription = "",
                 Description = "Empty tag 'ArrayOptions/NamingFormat' in Table 'tablePid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'ArrayOptions/NamingFormat' tag should start by a separator followed by a separated list of display key parts." + Environment.NewLine + "- Numeric parts will be considered as dynamic display key parts and should refer to an existing Param." + Environment.NewLine + "- Non-Numeric parts will be considered as hard-coded display key parts." + Environment.NewLine + "" + Environment.NewLine + "NamingFormat should contain, at least, 1 dynamic part.",
                 HasCodeFix = false,
             };
 
@@ -187,8 +185,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
                 GroupDescription = "",
                 Description = "Tag 'ArrayOptions/NamingFormat' references a non-existing 'Param' with ID 'referencedPid'. Table PID 'tablePid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'ArrayOptions/NamingFormat' tag should start by a separator followed by a separated list of display key parts." + Environment.NewLine + "- Numeric parts will be considered as dynamic display key parts and should refer to an existing Param." + Environment.NewLine + "- Non-Numeric parts will be considered as hard-coded display key parts." + Environment.NewLine + "" + Environment.NewLine + "NamingFormat should contain, at least, 1 dynamic part.",
                 HasCodeFix = false,
             };
 
@@ -214,8 +210,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
                 GroupDescription = "",
                 Description = "Untrimmed tag 'ArrayOptions/NamingFormat' in Table 'tablePid'. Current value 'untrimmedValue'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'ArrayOptions/NamingFormat' tag should start by a separator followed by a separated list of display key parts." + Environment.NewLine + "- Numeric parts will be considered as dynamic display key parts and should refer to an existing Param." + Environment.NewLine + "- Non-Numeric parts will be considered as hard-coded display key parts." + Environment.NewLine + "" + Environment.NewLine + "NamingFormat should contain, at least, 1 dynamic part.",
                 HasCodeFix = true,
             };
 

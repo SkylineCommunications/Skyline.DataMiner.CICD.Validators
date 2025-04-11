@@ -284,8 +284,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameters
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '2', use 'Parameter' class instead. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.GetParameters is used to get current values of standalone parameters." + Environment.NewLine + "Make sure to provide it with a uint array of existing standalone parameter IDs." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -311,8 +309,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameters
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.GetParameters' references a non-existing 'Param' with ID '2'. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.GetParameters is used to get current values of standalone parameters." + Environment.NewLine + "Make sure to provide it with a uint array of existing standalone parameter IDs." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -338,8 +334,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameters
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.GetParameters' with arguments '2' is not implemented as expected. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.GetParameters is used to get current values of standalone parameters." + Environment.NewLine + "Make sure to provide it with a uint array of existing standalone parameter IDs." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -365,8 +359,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameters
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.GetParameters' has an invalid type '2' for the argument 'ids'. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.GetParameters is used to get current values of standalone parameters." + Environment.NewLine + "Make sure to provide it with a uint array of existing standalone parameter IDs." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 

@@ -80,8 +80,6 @@ namespace ProtocolTests.Protocol.Commands.Command.Name.CheckNameTag
                 GroupDescription = String.Empty,
                 Description = "Duplicated Command Name '0'. Command IDs '1'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 

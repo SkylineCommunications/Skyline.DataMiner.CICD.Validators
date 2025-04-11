@@ -178,8 +178,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "Missing tag 'Dependencies/Id' in Param 'pid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
             };
 
@@ -205,8 +203,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "Attribute 'Dependencies/Id' references a non-existing 'Param' with ID 'referencedPid'. Param ID 'pid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -232,8 +228,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param 'pid' containing 'Dependencies/Id' tag(s).",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -259,8 +253,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param 'referencedPid' referenced by a 'Dependencies/Id' tag. Param ID 'referencingPid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -286,8 +278,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Dependencies/Id' in Param 'pid'. Current value 'untrimmedValue'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
             };
 
