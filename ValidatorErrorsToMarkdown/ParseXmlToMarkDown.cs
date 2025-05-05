@@ -116,7 +116,7 @@
 
                         string content = File.ReadAllText(filePath);
 
-                        string newContent = content.Replace("<!-- REPLACE ME AUTO-GENERATION -->", doc.ToString());
+                        string newContent = content.Replace("<!-- REPLACE ME AUTO-GENERATION -->", doc.ToString().Trim());
                         File.WriteAllText(filePath, newContent);
                     }
                 }
