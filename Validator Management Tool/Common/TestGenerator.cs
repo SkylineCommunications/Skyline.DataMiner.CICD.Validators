@@ -61,7 +61,6 @@
             {
                 CreateFile("ErrorMessages", singleFile.ToString(), Settings.ErrorMessagesPath, "Error Messages/", "Error Messages\\", true, false);
             }
-
         }
 
         /// <summary>
@@ -96,13 +95,35 @@
                     stringBuilder.AppendLine();
                     stringBuilder.AppendLine($"## {check.Name}");
                     stringBuilder.AppendLine();
-                    stringBuilder.AppendLine("<!-- Description, Properties, How to fix sections are auto-generated. -->");
+                    stringBuilder.AppendLine("<!-- Description, Properties, ... sections are auto-generated. -->");
+                    stringBuilder.AppendLine("<!-- REPLACE ME AUTO-GENERATION -->");
                     stringBuilder.AppendLine();
-                    stringBuilder.AppendLine("<!-- uncomment to add extra details -->");
-                    stringBuilder.AppendLine("<!--### Details-->");
+
+                    if (String.IsNullOrWhiteSpace(check.Details))
+                    {
+                        stringBuilder.AppendLine("<!-- Uncomment to add extra details -->");
+                        stringBuilder.AppendLine("<!--### Details-->");
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLine("### Details");
+                        stringBuilder.AppendLine();
+                        stringBuilder.AppendLine(check.Details);
+                    }
+
                     stringBuilder.AppendLine();
-                    stringBuilder.AppendLine("<!-- uncomment to add example code -->");
-                    stringBuilder.AppendLine("<!--### Example code-->");
+
+                    if (String.IsNullOrWhiteSpace(check.ExampleCode))
+                    {
+                        stringBuilder.AppendLine("<!-- Uncomment to add example code -->");
+                        stringBuilder.AppendLine("<!--### Example code-->");
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLine("### Example code");
+                        stringBuilder.AppendLine();
+                        stringBuilder.AppendLine(check.ExampleCode);
+                    }
 
                     if (!Directory.Exists(directoryPath))
                     {
@@ -269,7 +290,6 @@
                         }
                     }
                 }
-
             }
             else
             {

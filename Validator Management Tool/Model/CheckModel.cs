@@ -32,6 +32,8 @@
         private bool fromTemplate;
         private uint templateId;
         private string howToFix;
+        private string exampleCode;
+        private string details;
         private Category category;
         private Source source;
         private uint categoryId;
@@ -671,6 +673,68 @@
 
                     HasChanges = true;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a piece of example code to fix the error.
+        /// </summary>
+        public string ExampleCode
+        {
+            get
+            {
+                return exampleCode;
+            }
+
+            set
+            {
+                if (exampleCode != value)
+                {
+                    exampleCode = value;
+                    RaisePropertyChanged("ExampleCode");
+                }
+
+                if (value == null)
+                {
+                    SettedProperties.Remove("ExampleCode");
+                }
+                else
+                {
+                    SettedProperties.Add("ExampleCode");
+                }
+
+                HasChanges = true;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets some details about the error message.
+        /// </summary>
+        public string Details
+        {
+            get
+            {
+                return details;
+            }
+
+            set
+            {
+                if (details != value)
+                {
+                    details = value;
+                    RaisePropertyChanged("Details");
+                }
+
+                if (value == null)
+                {
+                    SettedProperties.Remove("Details");
+                }
+                else
+                {
+                    SettedProperties.Add("Details");
+                }
+
+                HasChanges = true;
             }
         }
 

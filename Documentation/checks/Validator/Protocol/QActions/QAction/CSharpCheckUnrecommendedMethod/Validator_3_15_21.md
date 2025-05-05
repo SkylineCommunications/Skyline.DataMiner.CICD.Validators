@@ -1,12 +1,19 @@
-﻿---  
-uid: Validator_3_15_21  
+---
+uid: Validator_3_15_21
 ---
 
 # CSharpCheckUnrecommendedMethod
 
-## UnrecommendedNotifyProtocolNT\_SET\_PARAMETER\_WITH\_HISTORY
+## UnrecommendedNotifyProtocolNT_SET_PARAMETER_WITH_HISTORY
+
+<!-- Description, Properties, ... sections are auto-generated. -->
+<!-- REPLACE ME AUTO-GENERATION -->
 
 ### Details
 
-'SLProtocol.NotifyProtocol(256\/\*NT\_SET\_PARAMETER\_WITH\_HISTORY\*\/, ...)' method is now considered unrecommended.  
+'SLProtocol.NotifyProtocol(256/*NT_SET_PARAMETER_WITH_HISTORY*/, ...)' method is now considered unrecommended.
+
 Instead, the wrapper method 'SLProtocol.SetParameter()' is recommended.
+
+<!-- Uncomment to add example code -->
+<!--### Example code-->

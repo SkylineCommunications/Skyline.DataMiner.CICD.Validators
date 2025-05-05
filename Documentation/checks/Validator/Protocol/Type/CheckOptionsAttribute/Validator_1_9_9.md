@@ -1,7 +1,16 @@
-﻿---  
-uid: Validator_1_9_9  
+---
+uid: Validator_1_9_9
 ---
 
 # CheckOptionsAttribute
 
 ## UntrimmedAttribute
+
+<!-- Description, Properties, ... sections are auto-generated. -->
+<!-- REPLACE ME AUTO-GENERATION -->
+
+<!-- Uncomment to add extra details -->
+<!--### Details-->
+
+<!-- Uncomment to add example code -->
+<!--### Example code-->

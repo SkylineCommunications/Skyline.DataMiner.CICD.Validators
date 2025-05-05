@@ -1,7 +1,16 @@
-﻿---  
-uid: MajorChangeChecker_1_9_7  
+---
+uid: MajorChangeChecker_1_9_7
 ---
 
 # CheckOptionsAttribute
 
 ## RemovedUnicode
+
+<!-- Description, Properties, ... sections are auto-generated. -->
+<!-- REPLACE ME AUTO-GENERATION -->
+
+<!-- Uncomment to add extra details -->
+<!--### Details-->
+
+<!-- Uncomment to add example code -->
+<!--### Example code-->

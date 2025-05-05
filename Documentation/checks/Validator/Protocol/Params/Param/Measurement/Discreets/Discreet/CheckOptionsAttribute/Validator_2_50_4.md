@@ -1,21 +1,22 @@
-﻿---  
-uid: Validator_2_50_4  
+---
+uid: Validator_2_50_4
 ---
 
 # CheckOptionsAttribute
 
 ## UntrimmedConfirmOption
 
+<!-- Description, Properties, ... sections are auto-generated. -->
+<!-- REPLACE ME AUTO-GENERATION -->
+
 ### Details
 
-A context menu action executing a critical action should have a confirmation message.  
+A context menu action executing a critical action should have a confirmation message.
 This can be done by adding the confirm option via the 'Discreet@options' attribute.
 
 ### Example code
 
-```xml
 <Discreet options="confirm:The selected item(s) will be deleted permanently.">
     <Display>Delete selected row(s)</Display>
     <Value>delete</Value>
 </Discreet>
-```

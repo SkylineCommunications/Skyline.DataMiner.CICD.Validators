@@ -1,22 +1,25 @@
-﻿---  
-uid: Validator_2_21_21  
+---
+uid: Validator_2_21_21
 ---
 
 # CheckOptionsAttribute
 
 ## InvalidMixOfSshOptionsAndPortSettings
 
+<!-- Description, Properties, ... sections are auto-generated. -->
+<!-- REPLACE ME AUTO-GENERATION -->
+
 ### Details
 
-Conflicting SSH configurations detected.  
-You're using both SSH Username, SSH Password, SSH Options and 'PortSettings\/SSH'.  
-SSH Username, SSH Password, SSH Options are restricted to one SSH connection on port 22 only and shouldn't be mixed with 'PortSettings\/SSH'.  
-Use only one of these configurations.  
-'PortSettings\/SSH' is generally better as it supports multiple SSH connections and use any port number.
+Conflicting SSH configurations detected.
+You're using both SSH Username, SSH Password, SSH Options and 'PortSettings/SSH'.
+SSH Username, SSH Password, SSH Options are restricted to one SSH connection on port 22 only and shouldn't be mixed with 'PortSettings/SSH'.
+Use only one of these configurations.
+'PortSettings/SSH' is generally better as it supports multiple SSH connections and use any port number.
+
 
 ### Example code
 
-```xml
 <PortSettings name="SSH Connection">
     <IPport>
         <DefaultValue>22</DefaultValue>
@@ -37,4 +40,3 @@ Use only one of these configurations.
         </Credentials>
     </SSH>
 </PortSettings>
-```

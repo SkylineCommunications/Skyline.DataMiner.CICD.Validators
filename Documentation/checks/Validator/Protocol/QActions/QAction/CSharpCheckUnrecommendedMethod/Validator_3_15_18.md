@@ -1,12 +1,19 @@
-﻿---  
-uid: Validator_3_15_18  
+---
+uid: Validator_3_15_18
 ---
 
 # CSharpCheckUnrecommendedMethod
 
-## UnrecommendedNotifyProtocolNT\_GET\_ROW
+## UnrecommendedNotifyProtocolNT_GET_ROW
+
+<!-- Description, Properties, ... sections are auto-generated. -->
+<!-- REPLACE ME AUTO-GENERATION -->
 
 ### Details
 
-'SLProtocol.NotifyProtocol(215\/\*NT\_GET\_ROW\*\/, ...)' method is now considered unrecommended.  
+'SLProtocol.NotifyProtocol(215/*NT_GET_ROW*/, ...)' method is now considered unrecommended.
+
 Instead, the wrapper method 'SLProtocol.GetRow()' is recommended.
+
+<!-- Uncomment to add example code -->
+<!--### Example code-->

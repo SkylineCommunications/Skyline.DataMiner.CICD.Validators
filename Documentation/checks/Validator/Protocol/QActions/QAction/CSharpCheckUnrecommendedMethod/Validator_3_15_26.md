@@ -1,12 +1,19 @@
-﻿---  
-uid: Validator_3_15_26  
+---
+uid: Validator_3_15_26
 ---
 
 # CSharpCheckUnrecommendedMethod
 
-## UnrecommendedNotifyProtocolNT\_SET\_ROW
+## UnrecommendedNotifyProtocolNT_SET_ROW
+
+<!-- Description, Properties, ... sections are auto-generated. -->
+<!-- REPLACE ME AUTO-GENERATION -->
 
 ### Details
 
-'SLProtocol.NotifyProtocol(225\/\*NT\_SET\_ROW\*\/, ...)' method is now considered unrecommended.  
+'SLProtocol.NotifyProtocol(225/*NT_SET_ROW*/, ...)' method is now considered unrecommended.
+
 Instead, the wrapper method 'SLProtocol.SetRow()' is recommended.
+
+<!-- Uncomment to add example code -->
+<!--### Example code-->
