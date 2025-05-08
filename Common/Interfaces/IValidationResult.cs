@@ -1,5 +1,6 @@
 ﻿namespace Skyline.DataMiner.CICD.Validators.Common.Interfaces
 {
+    using System;
     using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
@@ -81,6 +82,20 @@
         /// </summary>
         /// <value>Information about how to fix the issue.</value>
         string HowToFix { get; }
+
+        /// <summary>
+        /// Gets example code.
+        /// </summary>
+        /// <value>Example code.</value>
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
+        string ExampleCode { get; }
+
+        /// <summary>
+        /// Gets additional details.
+        /// </summary>
+        /// <value>The additional details.</value>
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
+        string Details { get; }
 
         /// <summary>
         /// Gets the reference node.

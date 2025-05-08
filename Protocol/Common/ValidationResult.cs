@@ -46,6 +46,12 @@
 
         public string HowToFix { get; set; }
 
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
+        public string ExampleCode { get; set; }
+
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
+        public string Details { get; set; }
+
         public IReadable ReferenceNode { get; set; }
 
         public bool HasCodeFix { get; set; }
