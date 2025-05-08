@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Incompatible links to parameters via 'Group@dynamicId' attribute and 'Group/Params' element. ParameterGroup ID '{0}'.", parameterGroupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Different type of DCF interfaces can be created:" + Environment.NewLine + "  - Standalone interface: without 'Group@dynamicId' attribute" + Environment.NewLine + "      - Without alarm linking: without 'Group/Params' element" + Environment.NewLine + "      - With alarm linking: with 'Group/Params/Param' element(s)" + Environment.NewLine + "  - Dynamic interfaces: with 'Group@dynamicId' and 'Group@dynamicIndex' attributes.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -56,8 +54,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("ParameterGroup '{0}' was removed.", groupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -200,8 +200,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 GroupDescription = "",
                 Description = "Empty attribute 'Discreets@dependencyId' in Param '100'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -227,8 +225,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 GroupDescription = "",
                 Description = "Invalid value 'aaa' in attribute 'Discreets@dependencyId'. Param ID '100'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -254,8 +250,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 GroupDescription = "",
                 Description = "Attribute 'Discreets@dependencyId' references a non-existing 'Param' with ID '100'. Param ID '1000'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -281,8 +275,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param '100' referenced by a 'Discreets@dependencyId' attribute. Param ID '1000'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -308,8 +300,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 GroupDescription = "",
                 Description = "Invalid Param Type '2' on Param referenced by a 'Discreets@dependencyId' attribute. Param ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -335,8 +325,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Discreets@dependencyId' in Param '100'. Current value ' untrimmed '.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
             };
 

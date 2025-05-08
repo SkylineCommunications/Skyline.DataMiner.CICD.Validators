@@ -176,13 +176,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "More than one Command with same ID '2'. Command Names '3'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details =
-                    $"The id attribute is used internally as the identifier for each command.{Environment.NewLine}" +
-                    $"It is therefore mandatory and needs to follow a number of rules:{Environment.NewLine}" +
-                    $"- Each command should have a unique id.{Environment.NewLine}" +
-                    $"- Should be an unsigned integer.{Environment.NewLine}" +
-                    "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false
             };
 
@@ -208,13 +201,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'Command@id'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details =
-                    $"The id attribute is used internally as the identifier for each command.{Environment.NewLine}" +
-                    $"It is therefore mandatory and needs to follow a number of rules:{Environment.NewLine}" +
-                    $"- Each command should have a unique id.{Environment.NewLine}" +
-                    $"- Should be an unsigned integer.{Environment.NewLine}" +
-                    "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false
             };
 
@@ -240,13 +226,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "Invalid value '2' in attribute 'Command@id'. Command name 'MyName'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details =
-                    $"The id attribute is used internally as the identifier for each command.{Environment.NewLine}" +
-                    $"It is therefore mandatory and needs to follow a number of rules:{Environment.NewLine}" +
-                    $"- Each command should have a unique id.{Environment.NewLine}" +
-                    $"- Should be an unsigned integer.{Environment.NewLine}" +
-                    "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false
             };
 
@@ -272,13 +251,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "Missing attribute 'Command@id'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details =
-                    $"The id attribute is used internally as the identifier for each command.{Environment.NewLine}" +
-                    $"It is therefore mandatory and needs to follow a number of rules:{Environment.NewLine}" +
-                    $"- Each command should have a unique id.{Environment.NewLine}" +
-                    $"- Should be an unsigned integer.{Environment.NewLine}" +
-                    "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false
             };
 
@@ -304,13 +276,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "Untrimmed attribute 'Command@id'. Current value '2'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details =
-                    $"The id attribute is used internally as the identifier for each command.{Environment.NewLine}" +
-                    $"It is therefore mandatory and needs to follow a number of rules:{Environment.NewLine}" +
-                    $"- Each command should have a unique id.{Environment.NewLine}" +
-                    $"- Should be an unsigned integer.{Environment.NewLine}" +
-                    "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true
             };
 

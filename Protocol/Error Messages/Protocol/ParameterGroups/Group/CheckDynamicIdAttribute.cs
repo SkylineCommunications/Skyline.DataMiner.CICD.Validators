@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "dynamicId", "Table", "PID", tablePid, "ParameterGroup", "ID", parameterGroupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ParameterGroups/Group@dynamicId should always refer to an existing table Param.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "dynamicId", attributeValue, "ParameterGroup", parameterGroupId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ParameterGroup/Groups/Group/Params/Param tags should all refer to existing parameters.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "dynamicId", "ParameterGroup", groupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ParameterGroup/Groups/Group/Params/Param tags should all refer to existing parameters.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

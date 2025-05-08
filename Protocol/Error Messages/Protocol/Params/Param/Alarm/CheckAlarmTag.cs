@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "Missing default thresholds on some monitored parameters.",
                 Description = String.Format("Missing default thresholds on monitored parameter. Param ID '{0}'.", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When possible, default thresholds should be provided on monitored parameter as starting point to make things easier for a user when configuring alarm templates.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

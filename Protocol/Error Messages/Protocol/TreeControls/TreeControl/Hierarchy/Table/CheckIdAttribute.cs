@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "Table@id", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@id attribute should contain a table PID allowing to define which table contains entries for a specific level of the TreeControl." + Environment.NewLine + "Such table is expected to have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Table@id", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@id attribute should contain a table PID allowing to define which table contains entries for a specific level of the TreeControl." + Environment.NewLine + "Such table is expected to have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "Table@id", "TreeControl", treeControlPid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@id attribute should contain a table PID allowing to define which table contains entries for a specific level of the TreeControl." + Environment.NewLine + "Such table is expected to have RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Table@id", tableId, "TreeControl", treeControlPid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@id attribute should contain a table PID allowing to define which table contains entries for a specific level of the TreeControl." + Environment.NewLine + "Such table is expected to have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "Hierarchy/Table", "id", "Table", "PID", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@id attribute should contain a table PID allowing to define which table contains entries for a specific level of the TreeControl." + Environment.NewLine + "Such table is expected to have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on table displayed in TreeControl Hierarchy. Table PID '{0}'.", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@id attribute should contain a table PID allowing to define which table contains entries for a specific level of the TreeControl." + Environment.NewLine + "Such table is expected to have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

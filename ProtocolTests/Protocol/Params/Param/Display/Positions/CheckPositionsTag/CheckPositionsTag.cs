@@ -125,8 +125,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.CheckPositionsTa
                 GroupDescription = "",
                 Description = "Missing tag 'Display/Positions' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Display/Positions' should always have, at least, one Position tag.",
                 HasCodeFix = true,
             };
 
@@ -152,8 +150,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.CheckPositionsTa
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param '2' which is positioned.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A positioned Param (with Display/Positions tag) requires its RTDisplay to be set to true in order to be properly displayed." + Environment.NewLine + "Note that an exception to this rule can be made when a Param is only meant to be displayed on a DVE protocol and not on the main one.",
                 HasCodeFix = false,
             };
 

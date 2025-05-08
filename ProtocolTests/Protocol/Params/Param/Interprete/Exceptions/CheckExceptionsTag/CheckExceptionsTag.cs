@@ -167,7 +167,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.CheckExcepti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Interprete/Exceptions is incompatible with Param/Type 'paramType'. Param ID 'paramId'.",
-                Details = "Do not use Exception tags to add exceptions to write parameters.",
                 HasCodeFix = false,
             };
 

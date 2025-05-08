@@ -265,8 +265,6 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
                 GroupDescription = "",
                 Description = "Ping group for '2' connection is not a '2' poll group. Group ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When to define a poll group:" + Environment.NewLine + "If a protocol has, at least, one group of type \"poll\" (no matter on which connection), then, the main connection should have a ping group defined in the protocol." + Environment.NewLine + "" + Environment.NewLine + "How to define a poll group:" + Environment.NewLine + "No matter the (1st) connection type, if a group with id=\"-1\" is defined, it will be the ping group." + Environment.NewLine + "Otherwise:" + Environment.NewLine + "    - SNMP: the first group defined in the XML." + Environment.NewLine + "    - (smart-)serial: " + Environment.NewLine + "        - The pair with ping attribute set to true." + Environment.NewLine + "        - If no such pair, the pair with lowest ID.",
                 HasCodeFix = false,
             };
 
@@ -292,8 +290,6 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
                 GroupDescription = "",
                 Description = "Multiple ping pairs for connection with name '2' and type '3'. Connection ID '4'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "There should always be one and only one ping pair per (smart-)serial connection.",
                 HasCodeFix = false,
             };
 
@@ -319,8 +315,6 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
                 GroupDescription = "",
                 Description = "Multiple ping pairs for connection '2'. Pair '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -346,8 +340,6 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
                 GroupDescription = "",
                 Description = "Ping pair for 'serial' connection contains no response. Pair ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The pair used for the ping group should always contain a response.",
                 HasCodeFix = false,
             };
 

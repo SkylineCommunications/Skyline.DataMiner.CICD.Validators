@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}'.", "Name"),
                 HowToFix = "Add <Name></Name> to the protocol.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}'.", "Name"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}'. Current value '{1}'.", "Name", tagValue),
                 HowToFix = "Remove the leading/trailing whitespaces.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
                 GroupDescription = "",
                 Description = String.Format("Invalid chars '{2}' in tag '{0}'. Current value '{1}'.", "Name", tagValue, invalidCharacters),
                 HowToFix = "Remove or replace the invalid characters.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
                 GroupDescription = "",
                 Description = String.Format("Invalid prefix '{1}' in 'Protocol/Name' tag. Current value '{0}'.", tagValue, invalidPrefix),
                 HowToFix = "Remove invalid prefix and trim if needed.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -156,8 +146,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Name.CheckNa
                 GroupDescription = "",
                 Description = String.Format("Protocol Name '{0}' changed into '{1}'.", oldProtocolName, newProtocolName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

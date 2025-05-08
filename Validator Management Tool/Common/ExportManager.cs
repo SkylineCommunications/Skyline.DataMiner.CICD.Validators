@@ -95,8 +95,6 @@
                 headerRow.CreateCell(8).SetCellValue("Fix Impact");
                 headerRow.CreateCell(9).SetCellValue("Has Code Fix");
                 headerRow.CreateCell(10).SetCellValue("Source");
-                headerRow.CreateCell(11).SetCellValue("Details");
-                headerRow.CreateCell(12).SetCellValue("Example Code");
                 headerRow.CreateCell(13).SetCellValue("How To Fix");
 
                 int rowCount = 2;
@@ -146,8 +144,6 @@
                     row.CreateCell(8).SetCellValue(check.FixImpact.ToString());
                     row.CreateCell(9).SetCellValue(check.HasCodeFix);
                     row.CreateCell(10).SetCellValue(check.Source.ToString());
-                    row.CreateCell(11).SetCellValue(check.Details);
-                    row.CreateCell(12).SetCellValue(check.ExampleCode);
                     row.CreateCell(13).SetCellValue(check.HowToFix);
 
                     rowCount++;

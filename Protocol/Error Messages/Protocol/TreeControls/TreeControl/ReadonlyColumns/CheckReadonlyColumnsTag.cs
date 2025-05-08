@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "ReadonlyColumns", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "ReadonlyColumns", "TreeControl", treeControlPid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}'. {2} {4} '{3}'.", readonlyColumnsValue, "ReadonlyColumns", "TreeControl", treeControlPid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Tag '{0}' references non-existing IDs. {1} {3} '{2}'.", "ReadonlyColumns", "TreeControl", treeControlPid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Tag '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "ReadonlyColumns", "Column", "PID", columnPid, "TreeControl", "ID", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Duplicate value '{0}' in tag '{1}'. {2} {3} '{4}'.", duplicateId, "ReadonlyColumns", "TreeControl", "ID", treeControlId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed value '{0}' in tag '{1}'.", untrimmedValue, "ReadonlyColumns"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in tag '{0}'.", "ReadonlyColumns", invalidPart),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -228,8 +212,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Irrelevant column with PID '{0}' in 'TreeControl/ReadonlyColumns'. TreeControl ID '{1}'.", columnPid, treeControlId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'TreeControl/ReadonlyColumns' tag should contain a comma separated list of column PIDs for which the value edition via the TreeControl should be disabled." + Environment.NewLine + "The column PIDs should belong to one of the tables displayed in the TreeControl.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -142,8 +142,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
                 GroupDescription = "",
                 Description = "Empty tag 'Position/Row' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -169,8 +167,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
                 GroupDescription = "",
                 Description = "Invalid value 'abc' in tag 'Position/Row'. Param ID '100'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -196,8 +192,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
                 GroupDescription = "",
                 Description = "Missing tag 'Position/Row' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -223,8 +217,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Position/Row' in Param '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
             };
 

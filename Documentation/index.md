@@ -40,5 +40,5 @@ A check consists of the following properties:
 
 ## Check overview
 
-- [Validator cheks](xref:Validator_1_1_1)
+- [Validator checks](xref:Validator_1_1_1)
 - [Major Change Checker checks](xref:MajorChangeChecker_1_23_10)

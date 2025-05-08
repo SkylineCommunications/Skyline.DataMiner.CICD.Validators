@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Display/Positions", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Display/Positions' should always have, at least, one Position tag.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' which is positioned.", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A positioned Param (with Display/Positions tag) requires its RTDisplay to be set to true in order to be properly displayed." + Environment.NewLine + "Note that an exception to this rule can be made when a Param is only meant to be displayed on a DVE protocol and not on the main one.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

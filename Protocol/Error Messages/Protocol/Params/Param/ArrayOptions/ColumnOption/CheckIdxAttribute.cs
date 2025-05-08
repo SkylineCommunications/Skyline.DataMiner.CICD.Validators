@@ -29,8 +29,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Column with PID '{0}' had its SLProtocol position changed from '{1}' into '{2}'. Table PID '{3}'.", columnPid, oldSLProtocolPosition, newSLProtocolPosition, tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The SLProtocol position is based on the idx of the columns and will typically match with it." + Environment.NewLine + "However, note that columns with type=\"displaykey\" are not known to SLProtocol." + Environment.NewLine + "This means that even though the SLProtocol position is based on idx value, it will not alway match with it.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -54,8 +52,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Some columns have their SLProtocol position changed. Table PID '{0}'.", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The SLProtocol position is based on the idx of the columns and will typically match with it." + Environment.NewLine + "However, note that columns with type=\"displaykey\" are not known to SLProtocol." + Environment.NewLine + "This means that even though the SLProtocol position is based on idx value, it will not alway match with it.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

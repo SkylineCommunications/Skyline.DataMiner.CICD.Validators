@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "name", "ParameterGroup", parameterGroupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All ParameterGroups should have an unique name." + Environment.NewLine + "These names are used by DataMiner to build the DCF interfaces names. Therefore, we recommend to keep it rather small (max 25 chars) and avoid using special characters (see protocol guide for more info).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "name", "ParameterGroup", parameterGroupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All ParameterGroups should have an unique name." + Environment.NewLine + "These names are used by DataMiner to build the DCF interfaces names. Therefore, we recommend to keep it rather small (max 25 chars) and avoid using special characters (see protocol guide for more info).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "ParameterGroup", "Name", duplicateName, parameterGroupIds),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All ParameterGroups should have an unique name." + Environment.NewLine + "These names are used by DataMiner to build the DCF interfaces names. Therefore, we recommend to keep it rather small (max 25 chars) and avoid using special characters (see protocol guide for more info).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Invalid chars '{2}' in attribute '{0}'. Current value '{1}'.", "name", attributeValue, invalidCharacters),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All ParameterGroups should have an unique name." + Environment.NewLine + "These names are used by DataMiner to build the DCF interfaces names. Therefore, we recommend to keep it rather small (max 25 chars) and avoid using special characters (see protocol guide for more info).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Too long ParameterGroup Name. Current value '{0}'.", parameterGroupName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All ParameterGroups should have an unique name." + Environment.NewLine + "These names are used by DataMiner to build the DCF interfaces names. Therefore, we recommend to keep it rather small (max 25 chars) and avoid using special characters (see protocol guide for more info).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "name", "ParameterGroup", parameterGroupId, untrimmedName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All ParameterGroups should have an unique name." + Environment.NewLine + "These names are used by DataMiner to build the DCF interfaces names. Therefore, we recommend to keep it rather small (max 25 chars) and avoid using special characters (see protocol guide for more info).",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -181,8 +169,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("DCF Group name for ParameterGroup '{0}' was changed from '{1}' into '{2}'.", groupId, oldName, newName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -77,8 +77,6 @@ namespace ProtocolTests.Protocol.CheckProtocolTag
                 GroupDescription = String.Empty,
                 Description = "Missing tag 'Protocol'.",
                 HowToFix = "Add Protocol root tag to the document.",
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 

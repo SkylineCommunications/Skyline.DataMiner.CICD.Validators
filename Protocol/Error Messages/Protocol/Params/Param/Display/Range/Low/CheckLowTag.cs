@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Range/Low", "Param", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "If present, the 'Range/Low' tag should be filled in with a numerical value." + Environment.NewLine + "Its value should be smaller than the one in the 'Range/High' tag.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}'. {2} {4} '{3}'.", tagValue, "Range/Low", "Param", paramId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "If present, the 'Range/Low' tag should be filled in with a numerical value." + Environment.NewLine + "Its value should be smaller than the one in the 'Range/High' tag.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Range/Low", "Param", paramId, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "If present, the 'Range/Low' tag should be filled in with a numerical value." + Environment.NewLine + "Its value should be smaller than the one in the 'Range/High' tag.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Range/Low '{0}' should be bigger than zero due to Trending@logarithmic 'true'. Param ID '{1}'.", rangeLow, paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When Trending@logarithmic is set to 'true', both 'Range/Low' and 'Range/High' should be bigger than 0.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Range/Low on write Param '{0}' is different than the one on read Param '{1}'. Write PID '{2}'.", rangeLowOnWrite, rangeLowOnRead, writePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -156,8 +146,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Low range '{0}' in Param '{1}' increased to '{2}'.", previousValue, paramPid, newValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -181,8 +169,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Low range '{0}' in Param '{1}' was added.", newValue, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -164,8 +164,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 GroupDescription = "",
                 Description = "Empty attribute 'Page.Visibility@overridePID' in Page 'pageName'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -191,8 +189,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 GroupDescription = "",
                 Description = "Missing attribute 'Page.Visibility@overridePID' in Page 'pageName'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -218,8 +214,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 GroupDescription = "",
                 Description = "Attribute 'Page.Visibility@overridePID' references a non-existing 'Param' with ID 'pid'. Page Name 'pageName'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -245,8 +239,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param 'pid' used as page visibility condition. Page name 'pageName'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -272,8 +264,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Page.Visibility@overridePID' in Page 'pageName'. Current value 'untrimmedValue'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
             };
 

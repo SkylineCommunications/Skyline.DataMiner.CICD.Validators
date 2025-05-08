@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "Tab@parameter", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Tab@parameter' attribute has different meaning depending on the 'Tab@type' attribute value." + Environment.NewLine + "    - parameters: a comma-separated list of PIDs is expeted. Those should refer to columns of the main table for this TreeControl level or params added to its main section via ExtraDetail tags." + Environment.NewLine + "    - relation: The PID of a column containing a foreignKey to the main table for this TreeControl level." + Environment.NewLine + "    - summary: The PID of a table is a 'grand-chidren' of the main table for this TreeControl level." + Environment.NewLine + "    - default: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - chart: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - web: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "" + Environment.NewLine + "Note that in any case, parameters referenced are expected to have the RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Tab@parameter", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Tab@parameter' attribute has different meaning depending on the 'Tab@type' attribute value." + Environment.NewLine + "    - parameters: a comma-separated list of PIDs is expeted. Those should refer to columns of the main table for this TreeControl level or params added to its main section via ExtraDetail tags." + Environment.NewLine + "    - relation: The PID of a column containing a foreignKey to the main table for this TreeControl level." + Environment.NewLine + "    - summary: The PID of a table is a 'grand-chidren' of the main table for this TreeControl level." + Environment.NewLine + "    - default: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - chart: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - web: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "" + Environment.NewLine + "Note that in any case, parameters referenced are expected to have the RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "Tab@parameter", "TreeControl", treeControlPid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Tab@parameter' attribute has different meaning depending on the 'Tab@type' attribute value." + Environment.NewLine + "    - parameters: a comma-separated list of PIDs is expeted. Those should refer to columns of the main table for this TreeControl level or params added to its main section via ExtraDetail tags." + Environment.NewLine + "    - relation: The PID of a column containing a foreignKey to the main table for this TreeControl level." + Environment.NewLine + "    - summary: The PID of a table is a 'grand-chidren' of the main table for this TreeControl level." + Environment.NewLine + "    - default: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - chart: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - web: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "" + Environment.NewLine + "Note that in any case, parameters referenced are expected to have the RTDisplay tag set to true.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Tab@parameter", attributeValue, "TreeControl", treeControlPid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Tab@parameter' attribute has different meaning depending on the 'Tab@type' attribute value." + Environment.NewLine + "    - parameters: a comma-separated list of PIDs is expeted. Those should refer to columns of the main table for this TreeControl level or params added to its main section via ExtraDetail tags." + Environment.NewLine + "    - relation: The PID of a column containing a foreignKey to the main table for this TreeControl level." + Environment.NewLine + "    - summary: The PID of a table is a 'grand-chidren' of the main table for this TreeControl level." + Environment.NewLine + "    - default: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - chart: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - web: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "" + Environment.NewLine + "Note that in any case, parameters referenced are expected to have the RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "ExtraTabs/Tab", "parameter", "Column", "PID", columnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Tab@parameter' attribute has different meaning depending on the 'Tab@type' attribute value." + Environment.NewLine + "    - parameters: a comma-separated list of PIDs is expeted. Those should refer to columns of the main table for this TreeControl level or params added to its main section via ExtraDetail tags." + Environment.NewLine + "    - relation: The PID of a column containing a foreignKey to the main table for this TreeControl level." + Environment.NewLine + "    - summary: The PID of a table is a 'grand-chidren' of the main table for this TreeControl level." + Environment.NewLine + "    - default: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - chart: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - web: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "" + Environment.NewLine + "Note that in any case, parameters referenced are expected to have the RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on 'TreeControl/ExtraTabs/Tab@parameters' Param. Param ID '{0}'.", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Tab@parameter' attribute has different meaning depending on the 'Tab@type' attribute value." + Environment.NewLine + "    - parameters: a comma-separated list of PIDs is expeted. Those should refer to columns of the main table for this TreeControl level or params added to its main section via ExtraDetail tags." + Environment.NewLine + "    - relation: The PID of a column containing a foreignKey to the main table for this TreeControl level." + Environment.NewLine + "    - summary: The PID of a table is a 'grand-chidren' of the main table for this TreeControl level." + Environment.NewLine + "    - default: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - chart: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "    - web: No 'Tab@parameter' attribute expected in this case." + Environment.NewLine + "" + Environment.NewLine + "Note that in any case, parameters referenced are expected to have the RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

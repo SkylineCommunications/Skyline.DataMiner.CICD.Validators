@@ -289,8 +289,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithC
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '1', use 'Parameter' class instead. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.FillArrayWithColumn is used to update the values of a column." + Environment.NewLine + "Make sure to provide it with an ID of a column parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -316,8 +314,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithC
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '1', use 'Parameter' class instead. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.FillArrayWithColumn is used to update the values of a column." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -343,8 +339,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithC
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.FillArrayWithColumn' references a non-existing 'column' with PID '1'. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.FillArrayWithColumn is used to update the values of a column." + Environment.NewLine + "Make sure to provide it with an ID of a column parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -370,8 +364,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithC
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.FillArrayWithColumn' references a non-existing 'table' with PID '1'. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.FillArrayWithColumn is used to update the values of a column." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -397,8 +389,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithC
                 GroupDescription = "",
                 Description = "SLProtocol.FillArrayWithColumn overload with 'DateTime? timeInfo' argument requires 'Param@historySet=true'. column PID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Every overload of the 'SLProtocol.FillArrayWithColumn' method having the 'DateTime? timeInfo' argument is meant to execute a historySet." + Environment.NewLine + "Such method requires the column to be set to have the 'Param@historySet' attribute set to 'true'.",
                 HasCodeFix = true,
             };
 
@@ -424,17 +414,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayWithC
                 GroupDescription = "",
                 Description = "Unrecommended set on column '1' with 'ColumnOption@type' containing 'snmp'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details =
-                    $"It is typically unrecommended to update SNMP parameters from within a protocol.{Environment.NewLine}" +
-                    $"Indeed, SNMP parameters should typically strictly be updated via polling.{Environment.NewLine}" +
-                    $"{Environment.NewLine}" +
-                    $"Exceptions can sometimes be made when we update SNMP parameters based on received traps which contains, without any possible doubt, the new value.{Environment.NewLine}" +
-                    $"{Environment.NewLine}" +
-                    $"Side note: There are alternatives to poll SNMP parameters in an efficient way when, for example, a cell or column or row needs to be updated but you don't want to poll the entire table:{Environment.NewLine}" +
-                    $"- See various snmpSet options{Environment.NewLine}" +
-                    $"- See dynamicSnmpGet feature.{Environment.NewLine}" +
-                    "- ...",
                 HasCodeFix = false,
             };
 

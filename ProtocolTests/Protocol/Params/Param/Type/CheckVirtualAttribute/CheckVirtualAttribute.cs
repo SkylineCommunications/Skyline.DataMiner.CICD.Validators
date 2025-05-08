@@ -137,8 +137,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckVirtualAttribute
                 GroupDescription = "",
                 Description = "Empty attribute 'Type@virtual' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
             };
 
@@ -164,8 +162,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckVirtualAttribute
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on parameters used as virtual source. Param ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -191,8 +187,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckVirtualAttribute
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Type@virtual' in Param '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
             };
 

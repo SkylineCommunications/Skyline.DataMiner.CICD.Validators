@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Param/Message", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "<Message>Are you sure you want to restart the device?</Message>",
-                Details = "A button executing a critical action should have a confirmation message." + Environment.NewLine + "This can be done by adding a 'Param/Message' tag.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag 'Param/Message' for button with caption '{0}'.", discreetDisplayValue),
                 HowToFix = "",
-                ExampleCode = "<Message>Are you sure you want to restart the device?</Message>",
-                Details = "A button executing a critical action should have a confirmation message." + Environment.NewLine + "This can be done by adding a 'Param/Message' tag.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

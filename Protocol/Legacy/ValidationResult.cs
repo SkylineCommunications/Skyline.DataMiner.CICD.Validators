@@ -123,6 +123,7 @@
             }
         }
 
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
         public string ExampleCode
         {
             get
@@ -131,6 +132,7 @@
             }
         }
 
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
         public string Details
         {
             get

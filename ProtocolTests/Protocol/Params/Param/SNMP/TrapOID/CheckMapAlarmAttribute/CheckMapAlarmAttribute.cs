@@ -127,8 +127,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribut
                 GroupDescription = "",
                 Description = "Empty attribute 'SNMP/TrapOID@mapAlarm' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -154,8 +152,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribut
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param '2' generating alarms based on traps.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Param/SNMP/TrapOID@mapAlarm' attribute of a Param starts with 'TRUE' when the param is expected to generate alarm or information event on received traps." + Environment.NewLine + "Such feature requires the parameter RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -181,8 +177,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribut
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'SNMP/TrapOID@mapAlarm' in Param '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
             };
 

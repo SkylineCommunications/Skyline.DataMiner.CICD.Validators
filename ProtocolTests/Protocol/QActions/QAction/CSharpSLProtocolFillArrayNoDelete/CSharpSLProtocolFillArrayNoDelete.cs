@@ -156,8 +156,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayNoDel
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.FillArrayNoDelete' references a non-existing 'table' with PID '1'. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.FillArrayNoDelete is used to update a table with new values." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -183,8 +181,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayNoDel
                 GroupDescription = "",
                 Description = "SLProtocol.FillArrayNoDelete overload with 'DateTime? timeInfo' argument requires 'Param@historySet=true'. column PID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Every overload of the 'SLProtocol.FillArrayNoDelete' method having the 'DateTime? timeInfo' argument is meant to execute a historySet." + Environment.NewLine + "Such method requires the columns of the table to be set to have the 'Param@historySet' attribute set to 'true'.",
                 HasCodeFix = true,
             };
 
@@ -210,8 +206,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayNoDel
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '1', use 'Parameter' class instead. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.FillArrayNoDelete is used to update a table with new values." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 

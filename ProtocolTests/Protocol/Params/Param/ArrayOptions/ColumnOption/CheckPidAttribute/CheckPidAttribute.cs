@@ -153,8 +153,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckPid
                 GroupDescription = "",
                 Description = "Empty attribute 'ColumnOption@pid' in Param 'tablePid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ColumnOption@pid attribute is mandatory and should be filled in with the ID of an existing column Param.",
                 HasCodeFix = false,
             };
 
@@ -180,8 +178,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckPid
                 GroupDescription = "",
                 Description = "Missing attribute 'ColumnOption@pid' in table 'tablePid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ColumnOption@pid attribute is mandatory and should be filled in with the ID of an existing column Param.",
                 HasCodeFix = false,
             };
 
@@ -207,8 +203,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckPid
                 GroupDescription = "",
                 Description = "Attribute 'ColumnOption@pid' references a non-existing 'column' with PID 'columnPid'. Table PID 'tablePid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ColumnOption@pid attribute is mandatory and should be filled in with the ID of an existing column Param.",
                 HasCodeFix = false,
             };
 
@@ -234,8 +228,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckPid
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'ColumnOption@pid' in Table 'tablePid'. Current value 'untrimmedValue'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ColumnOption@pid attribute is mandatory and should be filled in with the ID of an existing column Param.",
                 HasCodeFix = true,
             };
 

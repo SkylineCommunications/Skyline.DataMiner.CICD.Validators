@@ -158,8 +158,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameter
                 FixImpact = FixImpact.NonBreaking,
                 Description = "Method 'SLProtocol.GetParameter' references a non-existing 'Param' with ID '1'. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.GetParameter is used to get the current value of a standalone parameter." + Environment.NewLine + "Make sure to provide it with an ID of a standalone parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 

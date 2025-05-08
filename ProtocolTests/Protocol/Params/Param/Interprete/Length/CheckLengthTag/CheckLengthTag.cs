@@ -107,7 +107,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Length.CheckLengthTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Length' in Param '6024'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -128,7 +127,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Length.CheckLengthTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value 'tagValue' in tag 'Length'. Param ID '6024'.",
-                Details = "The 'Length' tag needs to be an unsigned integer." + Environment.NewLine + "When the parameter is of type 'length', the 'Length' tag can not be larger than 4.",
                 HasCodeFix = false,
             };
 
@@ -149,7 +147,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Length.CheckLengthTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Length' in Param '6024'.",
-                Details = "",
                 HasCodeFix = false,
             };
 

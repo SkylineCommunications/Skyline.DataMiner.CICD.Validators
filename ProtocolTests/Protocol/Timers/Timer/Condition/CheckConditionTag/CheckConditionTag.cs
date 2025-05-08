@@ -133,8 +133,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Condition.CheckConditionTag
                 GroupDescription = "",
                 Description = "Unrecommended condition on Timer. Timer ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The usage of a Condition within a Timer is unrecommended for performance reasons. See DDL for more information.",
                 HasCodeFix = false
             };
 
@@ -161,8 +159,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Condition.CheckConditionTag
                 GroupDescription = "",
                 Description = "Tag 'Timer/Condition' references a non-existing 'Param' with PID '1'. Timer ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Timer/Condition' should always contain a statement returning a boolean." + Environment.NewLine + "See DDL for more information." + Environment.NewLine + "" + Environment.NewLine + "Here are a few examples of mistakes covered by this error:" + Environment.NewLine + "- Empty condition." + Environment.NewLine + "- Malformed condition:" + Environment.NewLine + "  - The 'id:' placeholder used to retrieve a parameter value is incorrectly defined." + Environment.NewLine + "  - The number of opening & closing parenthesis is not matching." + Environment.NewLine + "  - '&&', '||' is used instead of 'AND', 'OR'." + Environment.NewLine + "- Condition that is not a boolean expression." + Environment.NewLine + "- Fully hard-coded boolean expression (No reference to any parameter value)." + Environment.NewLine + "- etc.",
                 HasCodeFix = false
             };
 
@@ -189,8 +185,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Condition.CheckConditionTag
                 GroupDescription = "",
                 Description = "Invalid condition '1'. Reason '2'. Timer ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Timer/Condition' should always contain a statement returning a boolean." + Environment.NewLine + "See DDL for more information." + Environment.NewLine + "" + Environment.NewLine + "Here are a few examples of mistakes covered by this error:" + Environment.NewLine + "- Empty condition." + Environment.NewLine + "- Malformed condition:" + Environment.NewLine + "  - The 'id:' placeholder used to retrieve a parameter value is incorrectly defined." + Environment.NewLine + "  - The number of opening & closing parenthesis is not matching." + Environment.NewLine + "  - '&&', '||' is used instead of 'AND', 'OR'." + Environment.NewLine + "- Condition that is not a boolean expression." + Environment.NewLine + "- Fully hard-coded boolean expression (No reference to any parameter value)." + Environment.NewLine + "- etc.",
                 HasCodeFix = false
             };
 

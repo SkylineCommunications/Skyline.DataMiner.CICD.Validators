@@ -176,8 +176,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 GroupDescription = "",
                 Description = "More than one Trigger with same ID '2'. Trigger Names '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each trigger." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each trigger should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -203,8 +201,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Empty attribute 'Trigger@id'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each trigger." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each trigger should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -230,8 +226,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Trigger@id'. Trigger name 'MyName'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each trigger." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each trigger should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -257,8 +251,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Missing attribute 'Trigger@id'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each trigger." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each trigger should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -284,8 +276,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Trigger@id'. Current value '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each trigger." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each trigger should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
             };
 

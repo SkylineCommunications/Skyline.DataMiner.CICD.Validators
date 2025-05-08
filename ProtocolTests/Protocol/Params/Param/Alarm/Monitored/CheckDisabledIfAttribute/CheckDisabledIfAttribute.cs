@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Monitored@disabledIf' in Param 'pid'.",
-                Details = "Monitored@disabledIf attribute should follow the following format 'pid,value' where:" + Environment.NewLine + "- pid: refers to the ID of an existing parameter." + Environment.NewLine + "  The referenced Param is expected to:" + Environment.NewLine + "    - Have RTDisplay tag set to 'true'." + Environment.NewLine + "- value: correspond to the value of the referenced parameter which will cause the monitoring to be disabled." + Environment.NewLine + "  When using discreet values, it is only possible to set a condition on the discreet value, not on the display value.",
                 HasCodeFix = false,
             };
 
@@ -196,7 +195,6 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value 'attributeValue' in attribute 'Monitored@disabledIf'. Param ID 'pid'.",
-                Details = "Monitored@disabledIf attribute should follow the following format 'pid,value' where:" + Environment.NewLine + "- pid: refers to the ID of an existing parameter." + Environment.NewLine + "  The referenced Param is expected to:" + Environment.NewLine + "    - Have RTDisplay tag set to 'true'." + Environment.NewLine + "- value: correspond to the value of the referenced parameter which will cause the monitoring to be disabled." + Environment.NewLine + "  When using discreet values, it is only possible to set a condition on the discreet value, not on the display value.",
                 HasCodeFix = false,
             };
 
@@ -217,7 +215,6 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Monitored@disabledIf' references a non-existing 'Param' with ID 'referencedPid'. Param ID 'pid'.",
-                Details = "Monitored@disabledIf attribute should follow the following format 'pid,value' where:" + Environment.NewLine + "- pid: refers to the ID of an existing parameter." + Environment.NewLine + "  The referenced Param is expected to:" + Environment.NewLine + "    - Have RTDisplay tag set to 'true'." + Environment.NewLine + "- value: correspond to the value of the referenced parameter which will cause the monitoring to be disabled." + Environment.NewLine + "  When using discreet values, it is only possible to set a condition on the discreet value, not on the display value.",
                 HasCodeFix = false,
             };
 
@@ -238,7 +235,6 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param 'referencedPid' referenced by a 'Monitored@disabledIf' attribute. Param ID 'referencingPid'.",
-                Details = "Monitored@disabledIf attribute should follow the following format 'pid,value' where:" + Environment.NewLine + "- pid: refers to the ID of an existing parameter." + Environment.NewLine + "  The referenced Param is expected to:" + Environment.NewLine + "    - Have RTDisplay tag set to 'true'." + Environment.NewLine + "- value: correspond to the value of the referenced parameter which will cause the monitoring to be disabled." + Environment.NewLine + "  When using discreet values, it is only possible to set a condition on the discreet value, not on the display value.",
                 HasCodeFix = false,
             };
 
@@ -259,7 +255,6 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid Param Type 'referencedParamType' on Param referenced by a 'Monitored@disabledIf' attribute. Param ID 'referencedPid'.",
-                Details = "Monitored@disabledIf attribute should follow the following format 'pid,value' where:" + Environment.NewLine + "- pid: refers to the ID of an existing parameter." + Environment.NewLine + "  The referenced Param is expected to:" + Environment.NewLine + "    - Have RTDisplay tag set to 'true'." + Environment.NewLine + "- value: correspond to the value of the referenced parameter which will cause the monitoring to be disabled." + Environment.NewLine + "  When using discreet values, it is only possible to set a condition on the discreet value, not on the display value.",
                 HasCodeFix = false,
             };
 
@@ -280,7 +275,6 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Monitored.CheckDisabledIfAtt
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Monitored@disabledIf' in Param 'pid'. Current value 'untrimmedValue'.",
-                Details = "Monitored@disabledIf attribute should follow the following format 'pid,value' where:" + Environment.NewLine + "- pid: refers to the ID of an existing parameter." + Environment.NewLine + "  The referenced Param is expected to:" + Environment.NewLine + "    - Have RTDisplay tag set to 'true'." + Environment.NewLine + "- value: correspond to the value of the referenced parameter which will cause the monitoring to be disabled." + Environment.NewLine + "  When using discreet values, it is only possible to set a condition on the discreet value, not on the display value.",
                 HasCodeFix = true,
             };
 

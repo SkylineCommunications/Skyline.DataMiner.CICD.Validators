@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "userName", "Param", "ID", pid, "HTTP Session", "ID", sessionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Use this attribute to specify a hardcoded username or the id of an existing parameter containing the username.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

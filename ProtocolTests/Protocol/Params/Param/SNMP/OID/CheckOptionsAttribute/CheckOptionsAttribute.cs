@@ -143,7 +143,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.OID.CheckOptionsAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'SNMP/OID@options' in Param 'paramId'.",
-                Details = "",
                 HasCodeFix = true,
             };
 
@@ -164,7 +163,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.OID.CheckOptionsAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing value 'instance' in attribute 'SNMP/OID@options'. Table PID 'paramId'.",
-                Details = "The instance option is always required when using the partialSNMP option. If not present, the data in the table can be incomplete or shifted.",
                 HasCodeFix = true,
             };
 
@@ -185,7 +183,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.OID.CheckOptionsAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'SNMP/OID@options' in Param 'paramId'. Current value 'untrimmedValue'.",
-                Details = "",
                 HasCodeFix = true,
             };
 

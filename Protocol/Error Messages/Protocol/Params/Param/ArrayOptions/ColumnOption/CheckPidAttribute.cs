@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "ColumnOption@pid", "table", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ColumnOption@pid attribute is mandatory and should be filled in with the ID of an existing column Param.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "ColumnOption@pid", "Param", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ColumnOption@pid attribute is mandatory and should be filled in with the ID of an existing column Param.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "ColumnOption@pid", "Table", tablePid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ColumnOption@pid attribute is mandatory and should be filled in with the ID of an existing column Param.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "ColumnOption@pid", "column", "PID", columnPid, "Table", "PID", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The ColumnOption@pid attribute is mandatory and should be filled in with the ID of an existing column Param.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

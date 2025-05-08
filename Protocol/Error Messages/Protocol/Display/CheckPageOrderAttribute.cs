@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "pageOrder"),
                 HowToFix = "",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "pageOrder"),
                 HowToFix = "",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "pageOrder", attributeValue),
                 HowToFix = "",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Unsupported popup page '{0}' in 'Protocol/Display@pageOrder' attribute.", pageName),
                 HowToFix = "",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Missing page '{0}' on 'Protocol/Display@pageOrder' attribute.", pageName),
                 HowToFix = "",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = "Missing WebInterface page.",
                 HowToFix = "Make sure the webInterface page(s) are defined as last and preceded by a separator page.",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Web page '{0}' should be defined after all regular pages and the first web page should be preceded by a separator.", pageName),
                 HowToFix = "Make sure the webInterface page(s) are defined as last and preceded by a separator page.",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("The specified page '{0}' does not exist.", pageName),
                 HowToFix = "",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -228,8 +212,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Page '{0}' has been added more than once to the pageOrder attribute.", pageName),
                 HowToFix = "",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -253,8 +235,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Param with ID '{0}' is positioned on page '{1}' which is not ordered via 'Protocol/Display@pageOrder' attribute.", pid, pageName),
                 HowToFix = "",
-                ExampleCode = "<Display defaultPage=\"General\" pageOrder=\"General;----------;Data Page 1;Data Page 2;----------;WebInterface#http://[Polling Ip]/\" />",
-                Details = "Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -278,8 +258,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "Protocol/Display", "pageOrder", "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Via the 'Protocol/Display@pageOrder' attribute, it's possible to add pages which will link to an internet page via its URL." + Environment.NewLine + "Such URL can be made dynamic by refering to parameter IDs." + Environment.NewLine + "Such referenced parameters then require the RTDisplay tag to be set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -303,8 +281,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' referenced by the 'Protocol/Display@pageOrder' attribute.", referencedPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Via the 'Protocol/Display@pageOrder' attribute, it's possible to add pages which will link to an internet page via its URL." + Environment.NewLine + "Such URL can be made dynamic by refering to parameter IDs." + Environment.NewLine + "Such referenced parameters then require the RTDisplay tag to be set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

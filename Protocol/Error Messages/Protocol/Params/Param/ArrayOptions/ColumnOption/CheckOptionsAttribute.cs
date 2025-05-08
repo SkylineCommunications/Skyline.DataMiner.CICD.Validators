@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid syntax on view option of column with IDX '{0}'. View table '{1}'.", columnIdx, viewTablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Column view option '{0}' must refer to an existing column of another table. View table PID '{1}'.", viewOption, viewTablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid combination of view table filterChange option with column view option. View table PID '{0}'.", viewTablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When the filterChange option is used on a view table, its columns can't have the view option.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing Relation between table '{0}' and table '{1}' due to foreignKey on column '{2}'.", fkToTablePid, fkFromTablePid, fkColumnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Tables directly linked via a foreignKey should always be adjacent in, at least one relation path.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on column Param '{0}' due to '{1}' in 'ColumnOption@options' attribute. Table PID '{2}'.", columnPid, option, tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Many options from the 'ColumnOption@options' attribute only make sense if the related column is exported or has RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on PK column Param '{0}' due to '{1}' in 'ColumnOption@options' attribute. Table PID '{2}'.", pkColumnPid, foreignKeyOption, tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When a table contains a FK to another table. That other table requires its PK column to have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}' for {2}. Possible values '{3}'. {4} {5} '{6}'.", columnIntrepeteType, "Interprete/Type", "foreign key column", "string", "FK column", "PID", fkColumnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A column used as foreign key to a table should be of Interprete/Type 'string'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}' for {2}. Possible values '{3}'. {4} {5} '{6}'.", columnMeasurementType, "Measurement/Type", "foreign key column", "string, number", "FK column", "PID", fkColumnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A column used as foreign key to a table should be of Measurement/Type 'string' or 'number'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -228,8 +212,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}' for {2}. Possible values '{3}'. {4} {5} '{6}'.", columnType, "Param/Type", "foreign key column", "read", "FK column", "PID", fkColumnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A column used as foreign key to a table should be of Param/Type 'read'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

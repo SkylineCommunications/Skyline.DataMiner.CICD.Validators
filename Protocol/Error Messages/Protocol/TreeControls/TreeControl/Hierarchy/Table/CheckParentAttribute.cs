@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "Table@parent", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@parent attribute should contain a table PID. This allows to define which table is on the above level." + Environment.NewLine + "Note this does not make sense on the first Hierarchy/Table tag but is mandatory on all other ones.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Unsupported attribute '{0}' in {1} '{2}'.", "Table@parent", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@parent attribute should contain a table PID. This allows to define which table is on the above level." + Environment.NewLine + "Note this does not make sense on the first Hierarchy/Table tag but is mandatory on all other ones.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Table@parent", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@parent attribute should contain a table PID. This allows to define which table is on the above level." + Environment.NewLine + "Note this does not make sense on the first Hierarchy/Table tag but is mandatory on all other ones.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "Table@parent", "TreeControl", treeControlPid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@parent attribute should contain a table PID. This allows to define which table is on the above level." + Environment.NewLine + "Note this does not make sense on the first Hierarchy/Table tag but is mandatory on all other ones.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Table@parent", attributeValue, "TreeControl", treeControlPid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@parent attribute should contain a table PID. This allows to define which table is on the above level." + Environment.NewLine + "Note this does not make sense on the first Hierarchy/Table tag but is mandatory on all other ones.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "Hierarchy/Table", "parent", "Table", "PID", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Hierarchy/Table@parent attribute should contain a table PID. This allows to define which table is on the above level." + Environment.NewLine + "Note this does not make sense on the first Hierarchy/Table tag but is mandatory on all other ones.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

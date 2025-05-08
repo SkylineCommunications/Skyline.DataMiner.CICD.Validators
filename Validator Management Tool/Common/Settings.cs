@@ -18,6 +18,7 @@
         public const bool DefaultErrorClassesInOneFile = false;
 
         // The path specified in the settings menu
+        public static string DocumentationMarkdownFilesPath = "../../../../Documentation/";
         public static string ErrorMessagesPath = "../../../../Protocol/";
         public static string TestPath = "../../../../Protocol/";
         public static string UnitTestPath = "../../../../ProtocolTests/";

@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid pagebutton caption format '{0}'. Suggested fix '{1}'. Param ID '{2}'.", displayValue, suggestedValue, paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For pagebuttons, the display tag should end with ellipsis (…) without any space before nor after it.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Discreet/Display", "Param", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet tags should always contain a unique Display tag (user-friendly value) and a unique Value tag (internal value).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Discreet/Display", "Param", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet tags should always contain a unique Display tag (user-friendly value) and a unique Value tag (internal value).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Discreet/Display", "Param", paramId, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet tags should always contain a unique Display tag (user-friendly value) and a unique Value tag (internal value).",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "Param", "Discreet/Display", duplicateValue, paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet tags should always contain a unique Display tag (user-friendly value) and a unique Value tag (internal value).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Current value '{0}'. Expected value '{1}'. {2} {3} '{4}'.", currentValue, expectedValue, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet/Display values should follow following title case rules:" + Environment.NewLine + "- Should start with a capital" + Environment.NewLine + "    - First and last word" + Environment.NewLine + "    - Important words (verbs, nouns, adjective, adverb, etc)" + Environment.NewLine + "- Should not start with a capital" + Environment.NewLine + "    - Articles (a, an, the)" + Environment.NewLine + "    - Coordinating conjuctions (and, but, for, nor, or, so, yet)" + Environment.NewLine + "    - Preposition with <4 chars (at, by, to...)",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("'{0}' values do not follow {1} rules.", "Discreet/Display", "title casing"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet/Display values should follow following title case rules:" + Environment.NewLine + "- Should start with a capital" + Environment.NewLine + "    - First and last word" + Environment.NewLine + "    - Important words (verbs, nouns, adjective, adverb, etc)" + Environment.NewLine + "- Should not start with a capital" + Environment.NewLine + "    - Articles (a, an, the)" + Environment.NewLine + "    - Coordinating conjuctions (and, but, for, nor, or, so, yet)" + Environment.NewLine + "    - Preposition with <4 chars (at, by, to...)",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -206,8 +192,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Discreet display tag with value '{0}' on Param '{1}' was changed from '{2}' into '{3}'.", oldValue, paramId, previousDispay, newDisplay),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

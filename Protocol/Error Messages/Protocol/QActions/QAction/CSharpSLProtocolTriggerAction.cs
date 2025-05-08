@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}' references a non-existing '{1}' with {2} '{3}'. QAction ID '{4}'.", "NotifyProtocol(221/*NT_RUN_ACTION*/, ...)", "Action", "ID", actionId, qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "NotifyProtocol 221 is used to trigger an action to go off." + Environment.NewLine + "Make sure to provide it with an ID of an action that exists.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

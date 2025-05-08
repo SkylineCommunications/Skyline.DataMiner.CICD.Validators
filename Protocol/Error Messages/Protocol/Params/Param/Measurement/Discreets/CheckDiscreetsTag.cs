@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing '{0}' tag for '{1}' Param with ID '{2}'.", "Measurement/Discreets", paramDisplayType, pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Button, pagebutton and discreet parameters should always have the Discreets tag." + Environment.NewLine + "Additionally, Discreets tags should always have at least one of the following:" + Environment.NewLine + "- Discreet tag(s)" + Environment.NewLine + "- dependencyId attribute.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

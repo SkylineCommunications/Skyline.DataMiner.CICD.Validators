@@ -46,8 +46,10 @@
 
         public string HowToFix { get; set; }
 
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
         public string ExampleCode { get; set; }
 
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
         public string Details { get; set; }
 
         public IReadable ReferenceNode { get; set; }
@@ -124,8 +126,6 @@
                 .AppendLine($"\tFixImpact = {FixImpact}")
                 .AppendLine($"\tHasCodeFix = {HasCodeFix}")
                 .AppendLine($"\tHowToFix = {HowToFix}")
-                .AppendLine($"\tExampleCode = {ExampleCode}")
-                .AppendLine($"\tDetails = {Details}")
                 .AppendLine("\tSubResults = ");
 
             if (SubResults != null)

@@ -30,6 +30,12 @@
 
                 foreach (var interfaceProperty in interfaceProperties)
                 {
+                    if (interfaceProperty.Name == "Details" || interfaceProperty.Name == "ExampleCode")
+                    {
+                        // Skip the properties that are obsolete
+                        continue;
+                    }
+
                     // Add the description with the correct parameters
                     if (interfaceProperty.Name == "Description")
                     {

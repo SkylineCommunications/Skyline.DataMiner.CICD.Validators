@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Page
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "Page.Visibility@overridePID", "Page", pageName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Page
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Page.Visibility@overridePID", "Page", pageName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Page
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "Page.Visibility@overridePID", "Page", pageName, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Page
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Page.Visibility@overridePID", "Param", "ID", pid, "Page", "Name", pageName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Page
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' used as page visibility condition. Page name '{1}'.", pid, pageName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The attribute 'Visibility@overridePID' is mandatory within a Page/Visibility tag. It should refer to the ID of an existing Param. The referenced Param should have its RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

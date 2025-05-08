@@ -109,8 +109,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.Condition.CheckConditionTag
                 GroupDescription = "",
                 Description = "Invalid condition 'currentCondition'. Reason 'reason'. QAction ID '100'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'QAction/Condition' should always contain a statement returning a boolean." + Environment.NewLine + "See DDL for more information." + Environment.NewLine + "" + Environment.NewLine + "Here are a few examples of mistakes covered by this error:" + Environment.NewLine + "- Empty condition." + Environment.NewLine + "- Malformed condition:" + Environment.NewLine + "  - The 'id:' placeholder used to retrieve a parameter value is incorrectly defined." + Environment.NewLine + "  - The number of opening & closing parentheses is not matching." + Environment.NewLine + "  - '&&', '||' is used instead of 'AND', 'OR'." + Environment.NewLine + "- Condition that is not a boolean expression." + Environment.NewLine + "- Fully hard-coded boolean expression (No reference to any parameter value)." + Environment.NewLine + "- etc.",
                 HasCodeFix = false
             };
 
@@ -136,8 +134,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.Condition.CheckConditionTag
                 GroupDescription = "",
                 Description = "Tag 'QAction/Condition' references a non-existing 'Param' with PID '2'. QAction ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'QAction/Condition' should always contain a statement returning a boolean." + Environment.NewLine + "See DDL for more information." + Environment.NewLine + "" + Environment.NewLine + "Here are a few examples of mistakes covered by this error:" + Environment.NewLine + "- Empty condition." + Environment.NewLine + "- Malformed condition:" + Environment.NewLine + "  - The 'id:' placeholder used to retrieve a parameter value is incorrectly defined." + Environment.NewLine + "  - The number of opening & closing parentheses is not matching." + Environment.NewLine + "  - '&&', '||' is used instead of 'AND', 'OR'." + Environment.NewLine + "- Condition that is not a boolean expression." + Environment.NewLine + "- Fully hard-coded boolean expression (No reference to any parameter value)." + Environment.NewLine + "- etc.",
                 HasCodeFix = false
             };
 

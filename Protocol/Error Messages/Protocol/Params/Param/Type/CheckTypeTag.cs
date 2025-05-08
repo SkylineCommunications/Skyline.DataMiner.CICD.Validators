@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Param/Type", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All parameters must have a properly filled-in 'Param/Type' tag.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Param/Type", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All parameters must have a properly filled-in 'Param/Type' tag.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Param/Type", "Param", pid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All parameters must have a properly filled-in 'Param/Type' tag.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}'. {2} {4} '{3}'.", tagValue, "Param/Type", "Param", pid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All parameters must have a properly filled-in 'Param/Type' tag.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

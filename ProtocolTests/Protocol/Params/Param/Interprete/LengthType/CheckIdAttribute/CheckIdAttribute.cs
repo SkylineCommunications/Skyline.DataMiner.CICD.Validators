@@ -153,7 +153,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckIdAttri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Interprete/LengthType@id' in Param 'paramId'.",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = false,
             };
 
@@ -174,7 +173,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckIdAttri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Interprete/LengthType@id' due to 'LengthType' 'other param'. Param ID 'paramId'.",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = false,
             };
 
@@ -195,7 +193,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckIdAttri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Interprete/LengthType@id' references a non-existing 'Param' with ID 'nonExistingParamId'. Param ID 'paramId'.",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = false,
             };
 
@@ -216,7 +213,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckIdAttri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'id' in Param 'paramId'. Current value 'untrimmedValue'.",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = true,
             };
 
@@ -237,7 +233,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckIdAttri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid Interprete/Type 'interpreteType' on Param referenced by Interprete/LengthType@id. Expected value 'double'. Param ID '2'.",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = false,
             };
 
