@@ -92,10 +92,10 @@
                         if (autofixWarnings is not null)
                         {
                             MdParagraph warnings = new();
-                            warnings.Add(new MdRawMarkdownSpan($"[!WARNING]{Environment.NewLine}"));
+                            warnings.Add(new MdRawMarkdownSpan($"> [!WARNING]{Environment.NewLine}"));
                             foreach (string autofixWarning in autofixWarnings)
                             {
-                                warnings.Add(new MdRawMarkdownSpan($"{autofixWarning}{Environment.NewLine}"));
+                                warnings.Add(new MdRawMarkdownSpan($"> - {autofixWarning}{Environment.NewLine}"));
                             }
 
                             doc.Root.Add(warnings);
