@@ -1,0 +1,57 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Name>CheckEndlessLoop_PotentialEndlessLoop_Collab269212</Name>
+	<Version>1.0.0.1</Version>
+
+	<Params>
+		<Param id="1116">
+			<Name>Noise_Param_1</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>Noise_Param_2</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+
+	<Triggers>
+        <Trigger id="127">
+            <On id="1202">command</On>
+            <Time>before</Time>
+            <Type>action</Type>
+            <Content>
+                <Id>70</Id>
+            </Content>
+        </Trigger>
+	</Triggers>
+
+	<Actions>
+        <Action id="70">
+            <On id="1202">pair</On>
+            <Type id="64026">timeout</Type>
+        </Action>
+	</Actions>
+
+	<Groups></Groups>
+
+	<Pairs>
+        <Pair id="1202">
+            <Name>Sweep</Name>
+            <Description></Description>
+            <Content>
+                <Command>1202</Command>
+            </Content>
+        </Pair>
+	</Pairs>
+
+	<Commands>
+        <Command id="1202">
+            <Name>Sweep</Name>
+            <Description></Description>
+            <Content>
+                <!--<Param>1011</Param>-->
+                <Param>1116</Param>
+                <Param>1002</Param>
+            </Content>
+        </Command>
+	</Commands>
+</Protocol>
