@@ -59,6 +59,19 @@ namespace ProtocolTests.Protocol.CheckEndlessLoop
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void Protocol_CheckEndlessLoop_Valid_Collab269212()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid_Collab269212",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
         #endregion
 
         #region Invalid Checks

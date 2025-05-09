@@ -221,7 +221,18 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
                         break;
 
                     case EnumActionOn.Pair:
-                        nextType = ItemTypes.Pair;
+                        EnumActionType[] excludedPairTypes =
+                        {
+                            EnumActionType.Timeout,
+                            EnumActionType.SetNext
+                        };
+
+                        if (!excludedPairTypes.Contains(type))
+                        {
+                            // Continue path if the type is not excluded.
+                            nextType = ItemTypes.Pair;
+                        }
+
                         break;
 
                     case EnumActionOn.Command:
