@@ -52,6 +52,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTableCon
                     Error.InvalidVolatileTableUsage(null, null, null, "1000", "DVE customization"),
                     Error.InvalidVolatileTableUsage(null, null, null, "1000", "DCF usage"),
                     Error.InvalidVolatileTableUsage(null, null, null, "1000", "foreign key"),
+                    Error.InvalidVolatileTableUsage(null, null, null, "1000", "DVE element option"),
                 }
             };
 
