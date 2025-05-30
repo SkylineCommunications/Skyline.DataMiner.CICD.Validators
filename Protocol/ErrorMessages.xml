@@ -9111,6 +9111,28 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="78">
+						<Name namespace="Protocol.Params.Param.ArrayOptions">CheckVolatileTableConsistency</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>InvalidVolatileTableUsage</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Table '{0}' is marked as volatile, but it uses features incompatible with volatility: {1}.</Format>
+									<InputParameters>
+										<InputParameter id="0">tableId</InputParameter>
+										<InputParameter id="1">incompatibleFeature</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Remove the 'volatile' option from the <ArrayOptions> tag (e.g. options=";volatile;"), or remove the incompatible features from the table (such as alarmed columns, foreign keys, or DVE usage).[NewLine]]]></HowToFix>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="3">
