@@ -94,7 +94,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 				{
 					results.Add(Error.InvalidVolatileTableUsage(test, tableParam, column, tableParam.Id?.RawValue, "saved column"));
 				}
-			}
+
+                if (options.DVE?.IsElement == true)
+                {
+                    results.Add(Error.InvalidVolatileTableUsage(test, tableParam, column, tableParam.Id?.RawValue, "DVE element option"));
+                }
+            }
 		}
 
         ////public ICodeFixResult Fix(CodeFixContext context)
