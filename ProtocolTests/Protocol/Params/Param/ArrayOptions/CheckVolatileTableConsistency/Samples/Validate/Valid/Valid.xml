@@ -1,0 +1,23 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<!-- Volatile table, clean and compliant -->
+		<Param id="1000">
+			<Name>ValidVolatileTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";volatile;">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+			</ArrayOptions>
+		</Param>
+
+		<!-- Key column -->
+		<Param id="1001">
+			<Type>read</Type>
+		</Param>
+
+		<!-- Simple data column -->
+		<Param id="1002">
+			<Type>read</Type>
+		</Param>
+	</Params>
+</Protocol>
