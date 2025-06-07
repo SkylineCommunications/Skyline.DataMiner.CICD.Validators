@@ -10,9 +10,12 @@
         ]
       }
     ],
+    "xref" : [
+		"xref/dataminerdocsxef.yml" ],
     "resource": [
       {
         "files": [
+          "fonts/**",
           "images/**"
         ]
       }
