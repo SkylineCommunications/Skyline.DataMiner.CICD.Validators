@@ -2114,6 +2114,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Devices">
+                <xs:annotation>
+                    <xs:documentation>devices</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>devices</slu:name>
+                        <slu:ignoreInDescription>true</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="dF">
                 <xs:annotation>
                     <xs:documentation>decifarad</xs:documentation>
@@ -2690,6 +2699,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     <xs:appinfo>
                         <slu:name>exavolt</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Events">
+                <xs:annotation>
+                    <xs:documentation>events</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>events</slu:name>
+                        <slu:ignoreInDescription>true</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
