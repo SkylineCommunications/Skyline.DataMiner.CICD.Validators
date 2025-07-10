@@ -805,6 +805,29 @@
 					<InputParameter id="6">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
+            <DescriptionTemplate id="9010">
+                <Name>IncompatibleOptions</Name>
+                <Format>Incompatible '{0}' option '{1}' with '{2}' option '{3}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">item1Title</InputParameter>
+                    <InputParameter id="1">item1Value</InputParameter>
+                    <InputParameter id="2">item2Title</InputParameter>
+                    <InputParameter id="3">item2Value</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
+            <DescriptionTemplate id="9011">
+                <Name>IncompatibleOptionsInItem</Name>
+                <Format>Incompatible '{0}' option '{1}' with '{2}' option '{3}'. {4} {5} '{6}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">item1Title</InputParameter>
+                    <InputParameter id="1">item1Value</InputParameter>
+                    <InputParameter id="2">item2Title</InputParameter>
+                    <InputParameter id="3">item2Value</InputParameter>
+                    <InputParameter id="4">itemKind</InputParameter>
+                    <InputParameter id="5" value="ID">idOrPid</InputParameter>
+                    <InputParameter id="6">itemId</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
 			<DescriptionTemplate id="10000">
 				<Name>UnsupportedTag</Name>
 				<Format>Unsupported tag '{0}'.</Format>
