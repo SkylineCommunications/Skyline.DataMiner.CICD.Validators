@@ -9143,7 +9143,7 @@
 								<Description>
 									<Format>Table '{0}' is marked as volatile, but it uses features incompatible with volatility: {1}.</Format>
 									<InputParameters>
-										<InputParameter id="0">tableId</InputParameter>
+										<InputParameter id="0">tablePid</InputParameter>
 										<InputParameter id="1">incompatibleFeature</InputParameter>
 									</InputParameters>
 								</Description>
