@@ -11,7 +11,8 @@ uid: Validator_2_77_1
 
 ### Details
 
-Volatile tables are meant for temporary data. If a table uses features that persist data (like save, alarm, or foreign key relations), the volatile option should not be used, as this can lead to inconsistencies or performance issues.
+Volatile tables are meant for temporary data, meaning none of the table data will be stored to database with the intention of sparing some resources.
+This makes the volatile feature incompatible with any features that requires persistent (stored to database) data (like save, alarming, foreign keys, etc)..
 
 <!-- Uncomment to add example code -->
 <!--### Example code-->
