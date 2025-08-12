@@ -17756,25 +17756,6 @@
 								<ExampleCode><![CDATA[]]></ExampleCode>
 								<Details><![CDATA[Response/Content tag should contain a list of 'Param' tags. The 'Param' tags should refer to the id of an existing Param.]]></Details>
 							</ErrorMessage>
-							<ErrorMessage id="4">
-								<Name>UndesiredSavedReadParam</Name>
-								<GroupDescription />
-								<Description>
-									<Format>Unrecommended use of saved read parameter '{0}' within response '{1}'.</Format>
-									<InputParameters>
-										<InputParameter id="0">paramId</InputParameter>
-										<InputParameter id="1">responseId</InputParameter>
-									</InputParameters>
-								</Description>
-								<Severity>Minor</Severity>
-								<Certainty>Certain</Certainty>
-								<Source>Validator</Source>
-								<FixImpact>NonBreaking</FixImpact>
-								<HasCodeFix>False</HasCodeFix>
-								<HowToFix><![CDATA[Depending on the use-case, you should either remove the save option or include another parameter within your response.[NewLine]- Is your parameter corresponding to a user configuration on the DataMiner element side -> don't use it in your response.[NewLine]- Is your parameter corresponding to data or configuration retrieved from your data-source -> no need to save it.[NewLine][NewLine]There might be some use-cases where you need to use a dataminer element configuration parameter as a filter/validation on whether a data-source response should be accepted or not. In such cases,  you will indeed want to save such configuration parameter but then, you should copy its value to a fixed (and non-saved) parameter and include it within your response so that the user configuration does not get overwritten by the data-source response.]]></HowToFix>
-								<ExampleCode><![CDATA[]]></ExampleCode>
-								<Details><![CDATA[Having a parameter being both saved and polled from the data-source seems inconsistent. Indeed:[NewLine]- A saved read parameter is typically used for configurations on the DataMiner element side so that user configuration can persist across restarts.[NewLine]- A polled parameter will typically never need to be saved as we rely on the fact that the newer value will be polled again shortly after an element restart, no matter if such a parameter is a data parameter or a configuration parameter on the data-source side.]]></Details>
-							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="4">

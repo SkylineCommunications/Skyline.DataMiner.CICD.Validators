@@ -106,22 +106,6 @@ namespace ProtocolTests.Protocol.Responses.Response.Content.Param.CheckParamTag
             Generic.Validate(check, data);
         }
 
-        [TestMethod]
-        public void Response_CheckParamTag_UndesiredSavedReadParam()
-        {
-            Generic.ValidateData data = new Generic.ValidateData
-            {
-                TestType = Generic.TestType.Invalid,
-                FileName = "UndesiredSavedReadParam",
-                ExpectedResults = new List<IValidationResult>
-                {
-                    Error.UndesiredSavedReadParam(null, null, null, "1001", "1")
-                }
-            };
-
-            Generic.Validate(check, data);
-        }
-
         #endregion
     }
 
@@ -159,18 +143,6 @@ namespace ProtocolTests.Protocol.Responses.Response.Content.Param.CheckParamTag
             var message = Error.NonExistingId(null, null, null, "0", "1");
 
             string description = "Tag 'Content/Param' references a non-existing 'Param' with ID '0'. Response ID '1'.";
-
-            // Assert
-            Assert.AreEqual(description, message.Description);
-        }
-
-        [TestMethod]
-        public void Response_CheckParamTag_UndesiredSavedReadParam()
-        {
-            // Create ErrorMessage
-            var message = Error.UndesiredSavedReadParam(null, null, null, "0", "1");
-
-            string description = "Unrecommended use of saved read parameter '0' within response '1'.";
 
             // Assert
             Assert.AreEqual(description, message.Description);
