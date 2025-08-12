@@ -80,11 +80,17 @@ namespace ProtocolTests.Protocol.Params.Param.CheckSaveAttribute
 
             var expected = new ValidationResult
             {
+                ErrorId = ErrorIds.UndesiredSavedReadParam,
+                FullId = "2.77.1",
+                Category = Category.Param,
                 Severity = Severity.Minor,
                 Certainty = Certainty.Certain,
+                Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended use of 'save' attribute. Param ID '1001'.",
+                HowToFix = "Depending on the use-case, you should either remove the save option or include another parameter within your response." + Environment.NewLine + "-Is your parameter corresponding to a user configuration on the DataMiner element side -> don't use it in your response." + Environment.NewLine + "- Is your parameter corresponding to data or configuration retrieved from your data-source -> no need to save it." + Environment.NewLine + "" + Environment.NewLine + "There might be some use-cases where you need to use a dataminer element configuration parameter as a filter/validation on whether a data-source response should be accepted or not. In such cases,  you will indeed want to save such configuration parameter but then, you should copy its value to a fixed (and non-saved) parameter and include it within your response so that the user configuration does not get overwritten by the data-source response.",
+                ExampleCode = "",
                 Details = "Having a parameter being both saved and polled from the data-source seems inconsistent. Indeed:" + Environment.NewLine + "- A saved read parameter is typically used for configurations on the DataMiner element side so that user configuration can persist across restarts." + Environment.NewLine + "- A polled parameter will typically never need to be saved as we rely on the fact that the newer value will be polled again shortly after an element restart, no matter if such a parameter is a data parameter or a configuration parameter on the data-source side.",
                 HasCodeFix = false,
             };
