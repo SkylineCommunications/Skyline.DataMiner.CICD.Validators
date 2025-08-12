@@ -9950,7 +9950,7 @@
 						<Name namespace="Protocol.Params.Param">CheckSaveAttribute</Name>
 						<ErrorMessages>
 							<ErrorMessage id="1">
-								<Name>UndesiredSavedReadParam</Name>
+								<Name>UnrecommendedSavedReadParam</Name>
 								<GroupDescription />
 								<Description>
 									<Format>Unrecommended use of 'save' attribute. Param ID '{0}'.</Format>
