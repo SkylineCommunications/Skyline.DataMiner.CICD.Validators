@@ -8,6 +8,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckSaveAttribute, Category.Param)]
@@ -17,22 +18,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
-            if (context?.ProtocolModel?.Protocol?.Params == null)
+            if (context.ProtocolModel?.Protocol?.Params == null)
             {
                 return results;
             }
 
-            var protocol = context.ProtocolModel.Protocol;
             var relationManager = context.ProtocolModel.RelationManager;
-
-            foreach (IParamsParam param in protocol.Params)
+            
+            foreach (IParamsParam param in context.EachParamWithValidId())
             {
                 IEnumerable<Link> links = relationManager.GetReverseLinks(param);
                 foreach (Link link in links)
                 {
                     if (link.Source is IResponsesResponse && param.Save?.Value == true)
                     {
-                        results.Add(Error.UndesiredSavedReadParam(this, null, null, Convert.ToString(param.Id.RawValue)));
+                        results.Add(Error.UndesiredSavedReadParam(this, param, param.Save, Convert.ToString(param.Id.RawValue)));
                     }
                 }
             }

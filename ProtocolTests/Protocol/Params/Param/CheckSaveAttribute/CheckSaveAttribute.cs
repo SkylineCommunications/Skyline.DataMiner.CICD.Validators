@@ -33,6 +33,19 @@ namespace ProtocolTests.Protocol.Params.Param.CheckSaveAttribute
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void Param_CheckSaveAttribute_ValidUnsavedReadParamInResponse()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidUnsavedReadParamInResponse",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
         #endregion
 
         #region Invalid Checks
@@ -43,7 +56,7 @@ namespace ProtocolTests.Protocol.Params.Param.CheckSaveAttribute
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "UndesiredSavedReadParam",
+                FileName = "UnrecommendedSavedReadParamInResponse",
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.UndesiredSavedReadParam(null, null, null, "1001"),
