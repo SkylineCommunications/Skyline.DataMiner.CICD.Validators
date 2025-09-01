@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.Encodings.Web" Version="4.7.2" />
     <ProjectReference Include="..\Common\Common.csproj" />
     <PackageReference Include="Microsoft.Build.Locator" Version="1.6.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="3.11.0" />
