@@ -1,5 +1,20 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
 	<Params>
+		<Param id="551" trending="false">
+			<Name>Parameter Without Interprete Length</Name>
+			<Description>Parameter Without Interprete Length</Description>
+			<Type>length</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<LengthType>next param</LengthType>
+				<Type>double</Type>
+			</Interprete>
+		</Param>
+		<Param id="552" trending="false">
+			<Name>Parameter Without Interprete</Name>
+			<Description>Parameter Without Interprete</Description>
+			<Type>length</Type>
+		</Param>
 		<Param id="300">
 			<Name>Comparison Value For Power In dbW</Name>
 			<Description>Comparison Value For Power In dbW</Description>

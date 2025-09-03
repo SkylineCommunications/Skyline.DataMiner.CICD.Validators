@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Provider.Che
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}'.", "Provider"),
                 HowToFix = "Add <Provider></Provider> to the protocol.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Provider.Che
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}'.", "Provider"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Provider.Che
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in tag '{0}'. Possible values '{2}'.", "Provider", tagValue, allowedValues),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

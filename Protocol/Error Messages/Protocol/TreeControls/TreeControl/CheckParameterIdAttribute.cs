@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "TreeControl@parameterId"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "TreeControl@parameterId attribute should contain the PID of a parameter which will be used to define where to display the TreeControl." + Environment.NewLine + "Such TreeControl parameter is expected to have:" + Environment.NewLine + "- 'Param\\Type' tag set to 'dummy' (or alternatively 'read' but 'dummy' is preferred)." + Environment.NewLine + "- 'Param\\Display\\RTDisplay' tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "TreeControl@parameterId"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "TreeControl@parameterId attribute should contain the PID of a parameter which will be used to define where to display the TreeControl." + Environment.NewLine + "Such TreeControl parameter is expected to have:" + Environment.NewLine + "- 'Param\\Type' tag set to 'dummy' (or alternatively 'read' but 'dummy' is preferred)." + Environment.NewLine + "- 'Param\\Display\\RTDisplay' tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "TreeControl@parameterId", currentValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "TreeControl@parameterId attribute should contain the PID of a parameter which will be used to define where to display the TreeControl." + Environment.NewLine + "Such TreeControl parameter is expected to have:" + Environment.NewLine + "- 'Param\\Type' tag set to 'dummy' (or alternatively 'read' but 'dummy' is preferred)." + Environment.NewLine + "- 'Param\\Display\\RTDisplay' tag set to 'true'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'.", "TreeControl@parameterId", invalidValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "TreeControl@parameterId attribute should contain the PID of a parameter which will be used to define where to display the TreeControl." + Environment.NewLine + "Such TreeControl parameter is expected to have:" + Environment.NewLine + "- 'Param\\Type' tag set to 'dummy' (or alternatively 'read' but 'dummy' is preferred)." + Environment.NewLine + "- 'Param\\Display\\RTDisplay' tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "TreeControl", "parameterId", "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "TreeControl@parameterId attribute should contain the PID of a parameter which will be used to define where to display the TreeControl." + Environment.NewLine + "Such TreeControl parameter is expected to have:" + Environment.NewLine + "- 'Param\\Type' tag set to 'dummy' (or alternatively 'read' but 'dummy' is preferred)." + Environment.NewLine + "- 'Param\\Display\\RTDisplay' tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid TreeControl Param Type '{0}'. Expected Type 'dummy'. Param ID '{1}'.", paramType, paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "TreeControl@parameterId attribute should contain the PID of a parameter which will be used to define where to display the TreeControl." + Environment.NewLine + "Such TreeControl parameter is expected to have:" + Environment.NewLine + "- 'Param\\Type' tag set to 'dummy' (or alternatively 'read' but 'dummy' is preferred)." + Environment.NewLine + "- 'Param\\Display\\RTDisplay' tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on TreeControl Param. Param ID '{0}'.", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "TreeControl@parameterId attribute should contain the PID of a parameter which will be used to define where to display the TreeControl." + Environment.NewLine + "Such TreeControl parameter is expected to have:" + Environment.NewLine + "- 'Param\\Type' tag set to 'dummy' (or alternatively 'read' but 'dummy' is preferred)." + Environment.NewLine + "- 'Param\\Display\\RTDisplay' tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

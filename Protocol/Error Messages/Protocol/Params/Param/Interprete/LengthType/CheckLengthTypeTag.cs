@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "LengthType", "Param", paramId),
                 HowToFix = "Add LengthType tag to the document.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "LengthType", "Param", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}'. {2} {4} '{3}'.", tagValue, "LengthType", "Param", paramId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When 'Param/Type' is 'fixed', 'Interprete/LengthType' should also be 'fixed'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

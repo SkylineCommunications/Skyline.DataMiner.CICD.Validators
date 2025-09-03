@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 GroupDescription = "",
                 Description = String.Format("Package '{0}' has multiple versions across different QActions.", packageId),
                 HowToFix = "Consolidate the package references so they have the same version across all projects.",
-                ExampleCode = "",
-                Details = "When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException." + Environment.NewLine + "To fix these issues, it is important to use the same version of a NuGet package across the entire solution." + Environment.NewLine + "" + Environment.NewLine + "'Skyline.DataMiner.Dev.*' (aka DevPacks) or 'Skyline.DataMiner.Files.*' NuGet packages should also be aligned across all projects of the solution as these packages represent the DataMiner version that is being developed against.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 GroupDescription = "",
                 Description = String.Format("QAction '{0}' has package '{1}' with version '{2}'.", qactionId, packageId, packageVersion),
                 HowToFix = "Consolidate the package references so they have the same version across all projects.",
-                ExampleCode = "",
-                Details = "When multiple QActions are using different versions of a NuGet package, it can lead to runtime exceptions such as MissingMethodException or InvalidCastException." + Environment.NewLine + "To fix these issues, it is important to use the same version of a NuGet package across the entire solution." + Environment.NewLine + "" + Environment.NewLine + "'Skyline.DataMiner.Dev.*' (aka DevPacks) or 'Skyline.DataMiner.Files.*' NuGet packages should also be aligned across all projects of the solution as these packages represent the DataMiner version that is being developed against.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.Che
                 GroupDescription = "",
                 Description = String.Format("Missing Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package. QAction ID '{0}'.", qactionId),
                 HowToFix = "Include the Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package in all projects within the solution.",
-                ExampleCode = "",
-                Details = "Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

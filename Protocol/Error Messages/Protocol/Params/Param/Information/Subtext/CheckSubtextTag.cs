@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "Missing tag 'Information/Subtext' in some parameters.",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Subtext", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Subtext", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

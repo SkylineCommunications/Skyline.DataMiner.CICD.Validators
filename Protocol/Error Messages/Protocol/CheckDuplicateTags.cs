@@ -26,10 +26,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckDuplica
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Duplicate Interprete\\RawType found. Param ID '{0}'.", paramId),
+                Description = String.Format("Duplicate '{0}' tag found. {1} {2} '{3}'.", "Interprete/RawType", "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Having multiple RawType tags within a parameter could lead to a SLProtocol RTE.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

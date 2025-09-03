@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Dependencies/Id", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Dependencies/Id", "Param", pid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Dependencies/Id", "Param", "ID", referencedPid, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' containing 'Dependencies/Id' tag(s).", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' referenced by a 'Dependencies/Id' tag. Param ID '{1}'.", referencedPid, referencingPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Dependencies/Id' tag should contain the ID of an existing Param. Both the referencing and the referenced Param should have their RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "ParameterGroups/Group@id"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each parameterGroup." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each parameterGroup should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "ParameterGroups/Group@id"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each parameterGroup." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each parameterGroup should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "ParameterGroups/Group@id", attributeValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each parameterGroup." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each parameterGroup should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "ParameterGroups/Group@id", parameterGroupId, "ParameterGroup", parameterGroupName, "name"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each parameterGroup." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each parameterGroup should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Out of range ParameterGroup ID '{0}'.", id),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A ParameterGroup should have a unique id > 0 and <= 10000." + Environment.NewLine + "Note that from DM 9.0.4 onward, id > 0 and <=100.000 can be used.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("More than one {0} with same ID '{1}'. {0} Names '{2}'.", "ParameterGroup", parameterGroupId, parameterGroupNames),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each parameterGroup." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each parameterGroup should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

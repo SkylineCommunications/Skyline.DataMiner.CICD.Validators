@@ -96,8 +96,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Ch
                 GroupDescription = "",
                 Description = "Missing attribute 'Exception@value' in Param 'paramId'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For each exception, the Exception@value attribute is required in order to define the incoming value that should be interpreted as exceptional." + Environment.NewLine + "The value should be compliant with the defined Param/Interprete/Type.",
                 HasCodeFix = false,
             };
 

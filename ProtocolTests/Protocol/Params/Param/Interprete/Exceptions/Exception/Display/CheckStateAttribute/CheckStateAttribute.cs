@@ -197,7 +197,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Di
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Exception with state 'enabled'. Param 'paramId'.",
-                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
             };
 
@@ -218,7 +217,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Di
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'state' in Param 'paramId'.",
-                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
             };
 
@@ -239,7 +237,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Di
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'state' in Param 'paramId'.",
-                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
             };
 
@@ -260,7 +257,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Di
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value '' in attribute 'Display@state'. Param ID 'paramId'.",
-                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
             };
 
@@ -281,7 +277,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Di
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Display@state' in Param 'paramId'. Current value ''.",
-                Details = "Default behavior is that the state attribute of an exception should be 'disabled'.",
                 HasCodeFix = true,
             };
 

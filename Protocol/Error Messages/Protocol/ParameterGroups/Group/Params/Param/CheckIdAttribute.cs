@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "ParameterGroup/Group/Params/Param@id", "Param", "PID", pid, "ParameterGroup", "ID", parameterGroupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'ParameterGroups/Group/Params/Param' elements are used to link the alarm status of a DCF interfaces to one of the following types of parameters" + Environment.NewLine + " - Standalone parameter: 'ParameterGroups/Group/Params/Param' element should contain a standalong parameter pid." + Environment.NewLine + " - Table cell: 'ParameterGroups/Group/Params/Param' element should contain a column parameter pid and index attribute should be used to specify the row key.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Duplicate Param '{0}' in ParameterGroup '{1}'.", paramId, parameterGroupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Make sure the same Param is not added more than once in a ParameterGroup.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

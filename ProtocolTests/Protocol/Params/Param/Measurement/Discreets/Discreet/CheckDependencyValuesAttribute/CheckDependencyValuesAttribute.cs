@@ -162,8 +162,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
                 GroupDescription = "",
                 Description = "Empty attribute 'Discreet@dependencyValues' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet@dependencyValues attribute can be used in 2 scenarios:" + Environment.NewLine + "- In combination with Discreets@dependencyId attribute." + Environment.NewLine + "- On a table contextMenu Param." + Environment.NewLine + "    - All referenced Params then require their RTDisplay tag to be set to true." + Environment.NewLine + "" + Environment.NewLine + "See the guides for more info.",
                 HasCodeFix = false,
             };
 
@@ -189,8 +187,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
                 GroupDescription = "",
                 Description = "Attribute 'Discreet@dependencyValues' references a non-existing 'Param' with ID '2'. Param ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet@dependencyValues attribute can be used in 2 scenarios:" + Environment.NewLine + "- In combination with Discreets@dependencyId attribute." + Environment.NewLine + "- On a table contextMenu Param." + Environment.NewLine + "    - All referenced Params then require their RTDisplay tag to be set to true." + Environment.NewLine + "" + Environment.NewLine + "See the guides for more info.",
                 HasCodeFix = false,
             };
 
@@ -216,8 +212,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param '1002' referenced in 'Discreet@dependencyValues' attribute. Param ID '999'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet@dependencyValues attribute can be used in 2 scenarios:" + Environment.NewLine + "- In combination with Discreets@dependencyId attribute." + Environment.NewLine + "- On a table contextMenu Param." + Environment.NewLine + "    - All referenced Params then require their RTDisplay tag to be set to true." + Environment.NewLine + "" + Environment.NewLine + "See the guides for more info.",
                 HasCodeFix = false,
             };
 
@@ -243,8 +237,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Discreet@dependencyValues' in Param '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet@dependencyValues attribute can be used in 2 scenarios:" + Environment.NewLine + "- In combination with Discreets@dependencyId attribute." + Environment.NewLine + "- On a table contextMenu Param." + Environment.NewLine + "    - All referenced Params then require their RTDisplay tag to be set to true." + Environment.NewLine + "" + Environment.NewLine + "See the guides for more info.",
                 HasCodeFix = true,
             };
 

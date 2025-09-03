@@ -29,8 +29,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Id attribute '{0}' has been changed to '{1}' for Other tag with Value tag '{2}'. Param ID '{3}'.", oldId, newId, valueTag, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -54,8 +52,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Display tag '{0}' has been changed to '{1}' for Other tag with Value tag '{2}'. Param ID '{3}'.", oldDisplayTag, newDisplayTag, valueTag, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -79,8 +75,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Other with Value tag '{0}' has been deleted. Param '{1}'.", oldValue, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "If a value is removed from the Other tags, it will have impact on an alarm template for which that value was configured as a threshold value.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -104,8 +98,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Other with Value tag '{0}' has been added. Param '{1}'.", newValue, paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "If a new value is added to the Other tags and that value is withing the previously allowed range of values for that parameter, it might have an impact on configured alarm templates.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

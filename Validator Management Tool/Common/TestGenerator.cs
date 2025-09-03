@@ -54,13 +54,85 @@
 
                 CreateErrorClass(currentChecks);
                 CreateUnitTestClass(currentChecks);
+                CreateExtraDetailsMarkdownFile(currentChecks);
             }
 
             if (Settings.ErrorClassesInOneFile)
             {
                 CreateFile("ErrorMessages", singleFile.ToString(), Settings.ErrorMessagesPath, "Error Messages/", "Error Messages\\", true, false);
             }
+        }
 
+        /// <summary>
+        /// Creates a markdown file that can be used to add additional information about the check such as extra details and example code.
+        /// </summary>
+        /// <param name="currentChecks">The current checks.</param>
+        private static void CreateExtraDetailsMarkdownFile(List<Check> currentChecks)
+        {
+            foreach (var check in currentChecks)
+            {
+                // Do nothing if file already exists.
+                string source = check.Source.ToString();
+                string namespacePath = String.Join("/", check.Namespace.Split('.'));
+                string checkName = check.CheckName;
+
+                var categoryId = check.CategoryId;
+                var checkId = check.CheckId;
+                var errorMessageId = check.ErrorId;
+                string uid = $"{source}_{categoryId}_{checkId}_{errorMessageId}";
+
+                string directoryPath = $"{Settings.DocumentationMarkdownFilesPath}/checks/{source}/{namespacePath}/{checkName}";
+                string filePath = $"{directoryPath}/{uid}.md";
+
+                if (!File.Exists(filePath))
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.AppendLine("---");
+                    stringBuilder.AppendLine($"uid: {uid}");
+                    stringBuilder.AppendLine("---");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine($"# {check.CheckName}");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine($"## {check.Name}");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("<!-- Description, Properties, ... sections are auto-generated. -->");
+                    stringBuilder.AppendLine("<!-- REPLACE ME AUTO-GENERATION -->");
+                    stringBuilder.AppendLine();
+
+                    if (String.IsNullOrWhiteSpace(check.Details))
+                    {
+                        stringBuilder.AppendLine("<!-- Uncomment to add extra details -->");
+                        stringBuilder.AppendLine("<!--### Details-->");
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLine("### Details");
+                        stringBuilder.AppendLine();
+                        stringBuilder.AppendLine(check.Details);
+                    }
+
+                    stringBuilder.AppendLine();
+
+                    if (String.IsNullOrWhiteSpace(check.ExampleCode))
+                    {
+                        stringBuilder.AppendLine("<!-- Uncomment to add example code -->");
+                        stringBuilder.AppendLine("<!--### Example code-->");
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLine("### Example code");
+                        stringBuilder.AppendLine();
+                        stringBuilder.AppendLine(check.ExampleCode);
+                    }
+
+                    if (!Directory.Exists(directoryPath))
+                    {
+                        Directory.CreateDirectory(directoryPath);
+                    }
+
+                    File.WriteAllText(filePath, stringBuilder.ToString());
+                }
+            }
         }
 
         /// <summary>
@@ -218,7 +290,6 @@
                         }
                     }
                 }
-
             }
             else
             {

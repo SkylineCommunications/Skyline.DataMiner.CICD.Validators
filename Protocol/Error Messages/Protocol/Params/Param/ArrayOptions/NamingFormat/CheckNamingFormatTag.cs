@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "ArrayOptions/NamingFormat", "Table", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'ArrayOptions/NamingFormat' tag should start by a separator followed by a separated list of display key parts." + Environment.NewLine + "- Numeric parts will be considered as dynamic display key parts and should refer to an existing Param." + Environment.NewLine + "- Non-Numeric parts will be considered as hard-coded display key parts." + Environment.NewLine + "" + Environment.NewLine + "NamingFormat should contain, at least, 1 dynamic part.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "ArrayOptions/NamingFormat", "Table", tablePid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'ArrayOptions/NamingFormat' tag should start by a separator followed by a separated list of display key parts." + Environment.NewLine + "- Numeric parts will be considered as dynamic display key parts and should refer to an existing Param." + Environment.NewLine + "- Non-Numeric parts will be considered as hard-coded display key parts." + Environment.NewLine + "" + Environment.NewLine + "NamingFormat should contain, at least, 1 dynamic part.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Tag '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "ArrayOptions/NamingFormat", "Param", "ID", referencedPid, "Table", "PID", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'ArrayOptions/NamingFormat' tag should start by a separator followed by a separated list of display key parts." + Environment.NewLine + "- Numeric parts will be considered as dynamic display key parts and should refer to an existing Param." + Environment.NewLine + "- Non-Numeric parts will be considered as hard-coded display key parts." + Environment.NewLine + "" + Environment.NewLine + "NamingFormat should contain, at least, 1 dynamic part.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing dynamic part(s) in 'ArrayOptions/NamingFormat' tag. Table PID '{0}'.", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'ArrayOptions/NamingFormat' tag should start by a separator followed by a separated list of display key parts." + Environment.NewLine + "- Numeric parts will be considered as dynamic display key parts and should refer to an existing Param." + Environment.NewLine + "- Non-Numeric parts will be considered as hard-coded display key parts." + Environment.NewLine + "" + Environment.NewLine + "NamingFormat should contain, at least, 1 dynamic part.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

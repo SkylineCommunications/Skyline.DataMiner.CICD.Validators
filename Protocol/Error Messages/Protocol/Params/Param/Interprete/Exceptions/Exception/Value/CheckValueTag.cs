@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Exception/Value", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For each exception, the Exception/Value tag is required in order to define the value that should be stored in memory and database." + Environment.NewLine + "The value should be compliant with the defined Param/Interprete/Type.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Exception/Value", "Param", pid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For each exception, the Exception/Value tag is required in order to define the value that should be stored in memory and database." + Environment.NewLine + "The value should be compliant with the defined Param/Interprete/Type.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Incompatible '{0}' value '{1}' with '{2}' value '{3}'. {4} {5} '{6}'.", "Exception/Value", exceptionValue, "Interprete/Type", interpreteType, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For each exception, the Exception/Value tag is required in order to define the value that should be stored in memory and database." + Environment.NewLine + "The value should be compliant with the defined Param/Interprete/Type.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

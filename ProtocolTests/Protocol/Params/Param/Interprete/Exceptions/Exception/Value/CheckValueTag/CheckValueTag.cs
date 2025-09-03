@@ -131,8 +131,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Va
                 GroupDescription = "",
                 Description = "Missing tag 'Exception/Value' in Param 'paramId'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For each exception, the Exception/Value tag is required in order to define the value that should be stored in memory and database." + Environment.NewLine + "The value should be compliant with the defined Param/Interprete/Type.",
                 HasCodeFix = false,
             };
 

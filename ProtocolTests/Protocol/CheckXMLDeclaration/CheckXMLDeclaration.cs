@@ -133,8 +133,6 @@ namespace ProtocolTests.Protocol.CheckXMLDeclaration
                 GroupDescription = String.Empty,
                 Description = "Invalid XML encoding '1'. Possible values '2'.",
                 HowToFix = "Remove the XML declaration if not set to UTF-8.",
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = true
             };
 

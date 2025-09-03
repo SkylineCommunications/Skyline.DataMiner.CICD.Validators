@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "System.Threading.Thread", "Abort", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Thread.Abort method should be used with caution." + Environment.NewLine + "Particularly when you call it to abort a thread other than the current thread, you do not know what code has executed or failed to execute when the ThreadAbortException is thrown." + Environment.NewLine + "You also cannot be certain of the state of your application or any application and user state that it's responsible for preserving." + Environment.NewLine + "For example, calling Thread.Abort may prevent the execution of static constructors or the release of unmanaged resources." + Environment.NewLine + "" + Environment.NewLine + "Instead, some logic to nicely end the thread should be implemented." + Environment.NewLine + "This is usually implemented according to the cooperative cancellation model.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "GetParameterIndex", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.GetParameterIndex' method is used to get the value of a specific cell in a table." + Environment.NewLine + "The problem with this call is that it relies on an indexer to identify the row for which a cell value needs to be retrieved." + Environment.NewLine + "However, the order of rows in element tables is not guaranteed." + Environment.NewLine + "Meaning, using an index (row position) is not ideal." + Environment.NewLine + "" + Environment.NewLine + "Instead, it is recommended to use the 'SLProtocol.GetParameterIndexByKey' method which relies on the primary key of the rows.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "SetParameterIndex", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.SetParameterIndex' method is used to set the value of a specific cell in a table." + Environment.NewLine + "The problem with this call is that it relies on an indexer to identify the row for which a cell value needs to be updated." + Environment.NewLine + "However, the order of rows in element tables is not guaranteed." + Environment.NewLine + "Meaning, using an index (row position) is not ideal." + Environment.NewLine + "" + Environment.NewLine + "Instead, it is recommended to use the 'SLProtocol.SetParameterIndexByKey' method which relies on the primary key of the rows.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "SetParametersIndex", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.SetParametersIndex' method is used to set the value of a specific cells in a table." + Environment.NewLine + "The problem with this call is that it relies on an indexer to identify the rows for which a cells values need to be updated." + Environment.NewLine + "However, the order of rows in element tables is not guaranteed." + Environment.NewLine + "Meaning, using an index (row position) is not ideal." + Environment.NewLine + "" + Environment.NewLine + "Instead, it is recommended to use the 'SLProtocol.SetParametersIndexByKey' method which relies on the primary key of the rows.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyDataMiner(216/*NT_GET_REMOTE_TREND*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyDataMiner(216/*NT_GET_REMOTE_TREND*/, ...)' method is now considered obsolete." + Environment.NewLine + "" + Environment.NewLine + "Instead, the 'GetTrendDataMessage' SLNet message is recommended as it is more efficient and up to date.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyDataMiner(260/*NT_GET_REMOTE_TREND_AVG*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyDataMiner(260/*NT_GET_REMOTE_TREND_AVG*/, ...)' method is now considered obsolete." + Environment.NewLine + "" + Environment.NewLine + "Instead, the 'GetTrendDataMessage' SLNet message is recommended as it is more efficient and up to date.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(156/*NT_DELETE_ROW*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(156/*NT_DELETE_ROW*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.DeleteRow()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(149/*NT_ADD_ROW*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(149/*NT_ADD_ROW*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.AddRow()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -228,8 +212,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(134/*NT_CHECK_TRIGGER*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(134/*NT_CHECK_TRIGGER*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.CheckTrigger()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -253,8 +235,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(60/*NT_GET_DATA*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(60/*NT_GET_DATA*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.GetData()' is recommended." + Environment.NewLine + "" + Environment.NewLine + "If the intention was only to check if the parameter is empty, then 'SLProtocol.IsEmpty()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -278,8 +258,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(163/*NT_GET_KEY_POSITION*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(163/*NT_GET_KEY_POSITION*/, ...)' method is now considered obsolete." + Environment.NewLine + "" + Environment.NewLine + "Instead of relying on row positions, working directly with calls relying on primary keys is recommended" + Environment.NewLine + "" + Environment.NewLine + "Examples:" + Environment.NewLine + " - Use 'SLProtocol.GetParameterIndexByKey()' instead of 'SLProtocol.GetParameterIndex()'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -303,8 +281,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(73/*NT_GET_PARAMETER*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(73/*NT_GET_PARAMETER*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.GetParameter()' or 'SLProtocol.GetParameters()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -328,8 +304,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol( 87/*NT_GET_PARAMETER_BY_DATA*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol( 87/*NT_GET_PARAMETER_BY_DATA*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.GetParameterByData()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -353,8 +327,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(85/*NT_GET_PARAMETER_BY_NAME*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(85/*NT_GET_PARAMETER_BY_NAME*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.GetParameterByName()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -378,8 +350,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(77/*NT_GET_DESCRIPTION*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(77/*NT_GET_DESCRIPTION*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.GetParameterDescription()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -403,8 +373,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(122/*NT_GET_PARAMETER_INDEX*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(122/*NT_GET_PARAMETER_INDEX*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.GetParameterIndexByKey()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -428,8 +396,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(88/*NT_GET_ITEM_DATA*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(88/*NT_GET_ITEM_DATA*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.GetParameterItemData()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -453,8 +419,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(215/*NT_GET_ROW*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(215/*NT_GET_ROW*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.GetRow()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -478,8 +442,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(195/*NT_ARRAY_ROW_COUNT*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(195/*NT_ARRAY_ROW_COUNT*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.RowCount()' is recommended." + Environment.NewLine + "" + Environment.NewLine + "If the intention is to loop over rows based on the result, using a call to get columns straight away is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -503,8 +465,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(123/*NT_NOTIFY_DISPLAY*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(123/*NT_NOTIFY_DISPLAY*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.SendToDisplay()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -528,8 +488,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(256/*NT_SET_PARAMETER_WITH_HISTORY*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(256/*NT_SET_PARAMETER_WITH_HISTORY*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.SetParameter()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -553,8 +511,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(86/*NT_SET_PARAMETER_BY_DATA*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(86/*NT_SET_PARAMETER_BY_DATA*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.SetParameterByData()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -578,8 +534,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(84/*NT_SET_PARAMETER_BY_NAME*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(84/*NT_SET_PARAMETER_BY_NAME*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.SetParameterByName()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -603,8 +557,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(131/*NT_SET_DESCRIPTION*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(131/*NT_SET_DESCRIPTION*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.SetParameterDescription()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -628,8 +580,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(89/*NT_SET_ITEM_DATA*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(89/*NT_SET_ITEM_DATA*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.SetParameterItemData()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -653,8 +603,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(225/*NT_SET_ROW*/, ...)", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyProtocol(225/*NT_SET_ROW*/, ...)' method is now considered unrecommended." + Environment.NewLine + "" + Environment.NewLine + "Instead, the wrapper method 'SLProtocol.SetRow()' is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

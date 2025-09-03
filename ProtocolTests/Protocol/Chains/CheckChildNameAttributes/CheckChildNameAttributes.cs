@@ -86,8 +86,6 @@ namespace ProtocolTests.Protocol.Chains.CheckChildNameAttributes
                 GroupDescription = String.Empty,
                 Description = "Duplicated Chain child Name '2'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 

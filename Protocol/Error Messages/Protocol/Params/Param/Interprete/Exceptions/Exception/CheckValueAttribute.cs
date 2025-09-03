@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "Exception@value", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For each exception, the Exception@value attribute is required in order to define the incoming value that should be interpreted as exceptional." + Environment.NewLine + "The value should be compliant with the defined Param/Interprete/Type.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Incompatible '{0}' value '{1}' with '{2}' value '{3}'. {4} {5} '{6}'.", "Exception@value", exceptionValue, "Interprete/Type", interpreteType, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "For each exception, the Exception@value attribute is required in order to define the incoming value that should be interpreted as exceptional." + Environment.NewLine + "The value should be compliant with the defined Param/Interprete/Type.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

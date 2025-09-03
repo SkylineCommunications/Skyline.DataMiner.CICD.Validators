@@ -110,8 +110,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTGetElem
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(144/*NT_GET_ELEMENT_NAME*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "uint[] elementDetails = new uint[] { agentId, elementId };" + Environment.NewLine + "string elementName = (string) protocol.NotifyDataMiner(144/*NT_GET_ELEMENT_NAME */, elementDetails, null);",
-                Details = "To make this call DELT compatible, the DMA ID needs to be provided as argument." + Environment.NewLine + "See Example code." + Environment.NewLine + "" + Environment.NewLine + "More information about the syntax can be found in the DataMiner Development Library.",
                 HasCodeFix = false,
             };
 

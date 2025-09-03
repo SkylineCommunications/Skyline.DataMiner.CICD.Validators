@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 GroupDescription = "",
                 Description = String.Format("Missing clear response routine for pair '{0}'.", pairId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Typically when a pair contains multiple responses, a clear response routine needs to be implemented in order to make sure parameters gets updated correctly." + Environment.NewLine + "There are 2 possible ways to implement the clear routine." + Environment.NewLine + "However, the first one is recommended as it is more efficient." + Environment.NewLine + "    - Recommended way: After response X, clear all other responses present in the same pair." + Environment.NewLine + "    - Alternative way: After response X, clear response X.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 GroupDescription = "",
                 Description = String.Format("Missing clear response '{0}' routine after response '{1}'.", responseIdToClear, responseIdOnWhichToTrigger),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Typically when a pair contains multiple responses, a clear response routine needs to be implemented in order to make sure parameters gets updated correctly." + Environment.NewLine + "There are 2 possible ways to implement the clear routine." + Environment.NewLine + "However, the first one is recommended as it is more efficient." + Environment.NewLine + "    - Recommended way: After response X, clear all other responses present in the same pair." + Environment.NewLine + "    - Alternative way: After response X, clear response X.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

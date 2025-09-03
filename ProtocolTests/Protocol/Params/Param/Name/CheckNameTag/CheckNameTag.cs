@@ -391,8 +391,6 @@ namespace ProtocolTests.Protocol.Params.Param.Name.CheckNameTag
                 GroupDescription = "Unrecommended chars in some parameter names.",
                 Description = "Unrecommended chars '3' in tag '1'. Current value '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
                 AutoFixWarnings = new List<(string, bool)>
                 {

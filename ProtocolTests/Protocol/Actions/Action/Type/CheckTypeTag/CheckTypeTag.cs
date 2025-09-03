@@ -146,8 +146,6 @@ namespace ProtocolTests.Protocol.Actions.Action.Type.CheckTypeTag
                 GroupDescription = "",
                 Description = "Empty tag 'Type' in Action '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/Type' tag is mandatory and should contain one of the following values:" + Environment.NewLine + "add to execute, aggregate, append, append data, change length, clear, clear length info, clear on display, close, copy, copy reverse, crc, execute, execute next, execute one, execute one top, execute one now, force execute, go, increment, length, lock, unlock, make, merge, multiply, normalize, open, pow, priority lock, priority unlock, read, read file, read stuffing, replace, replace data, reschedule, restart timer, reverse, run actions, save, set, set and get with wait, set info, set next, set with wait, sleep, start, stop, stop current group, stuffing, swap column, timeout, wmi.",
                 HasCodeFix = false,
             };
 
@@ -173,8 +171,6 @@ namespace ProtocolTests.Protocol.Actions.Action.Type.CheckTypeTag
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'Type'. Action ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/Type' tag is mandatory and should contain one of the following values:" + Environment.NewLine + "add to execute, aggregate, append, append data, change length, clear, clear length info, clear on display, close, copy, copy reverse, crc, execute, execute next, execute one, execute one top, execute one now, force execute, go, increment, length, lock, unlock, make, merge, multiply, normalize, open, pow, priority lock, priority unlock, read, read file, read stuffing, replace, replace data, reschedule, restart timer, reverse, run actions, save, set, set and get with wait, set info, set next, set with wait, sleep, start, stop, stop current group, stuffing, swap column, timeout, wmi.",
                 HasCodeFix = false,
             };
 
@@ -200,8 +196,6 @@ namespace ProtocolTests.Protocol.Actions.Action.Type.CheckTypeTag
                 GroupDescription = "",
                 Description = "Missing tag 'Type' in Action '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/Type' tag is mandatory and should contain one of the following values:" + Environment.NewLine + "add to execute, aggregate, append, append data, change length, clear, clear length info, clear on display, close, copy, copy reverse, crc, execute, execute next, execute one, execute one top, execute one now, force execute, go, increment, length, lock, unlock, make, merge, multiply, normalize, open, pow, priority lock, priority unlock, read, read file, read stuffing, replace, replace data, reschedule, restart timer, reverse, run actions, save, set, set and get with wait, set info, set next, set with wait, sleep, start, stop, stop current group, stuffing, swap column, timeout, wmi.",
                 HasCodeFix = false,
             };
 
@@ -227,8 +221,6 @@ namespace ProtocolTests.Protocol.Actions.Action.Type.CheckTypeTag
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Type' in Action '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/Type' tag is mandatory and should contain one of the following values:" + Environment.NewLine + "add to execute, aggregate, append, append data, change length, clear, clear length info, clear on display, close, copy, copy reverse, crc, execute, execute next, execute one, execute one top, execute one now, force execute, go, increment, length, lock, unlock, make, merge, multiply, normalize, open, pow, priority lock, priority unlock, read, read file, read stuffing, replace, replace data, reschedule, restart timer, reverse, run actions, save, set, set and get with wait, set info, set next, set with wait, sleep, start, stop, stop current group, stuffing, swap column, timeout, wmi.",
                 HasCodeFix = true,
             };
 

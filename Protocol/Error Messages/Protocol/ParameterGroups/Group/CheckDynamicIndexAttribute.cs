@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 GroupDescription = "",
                 Description = String.Format("Filtering via 'Group@dynamicIndex' attribute requires a 'Group@dynamicId' attribute. ParameterGroup ID '{0}'.", parameterGroupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Group@dynamicIndex' attribute allows to filter on Display Keys before creating dynamic DCF interfaces." + Environment.NewLine + "Such filter is applied on the table referred to via the 'Group@dynamicId' attribute." + Environment.NewLine + "This means that the presence of a 'Group@dynamicIndex' attribute while there is no 'Group@dynamicIndex' doesn't make sense.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

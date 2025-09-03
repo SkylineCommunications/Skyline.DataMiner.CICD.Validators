@@ -187,7 +187,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.CheckRangeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Display/Range' in Param '2'.",
-                Details = "",
                 HowToFix = "Either add 'Range/Low' and/or 'Range/High' tag(s), either remove the empty 'Display/Range' tag.",
                 HasCodeFix = false,
             };
@@ -218,7 +217,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.CheckRangeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Range/Low '10' should be smaller than Range/High '1'. Param ID '2'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -239,7 +237,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.CheckRangeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "Missing tag 'Display/Range' in some parameters.",
                 Description = "Missing 'Display/Range' tag for 'number' Param with ID '2'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -260,7 +257,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.CheckRangeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unsupported 'Display/Range' tag for 'button' Param with ID '2'.",
-                Details = "For certain types of Param, a range does not make sense (ex: table param).",
                 HasCodeFix = false,
             };
 

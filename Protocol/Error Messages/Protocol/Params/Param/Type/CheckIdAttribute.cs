@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Type@id", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "Type@id", "Param", pid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Type@id", "Param", "ID", referencedPid, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Type@id", "Response", "ID", responseId, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Type@id", "Column", "PID", columnPid, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' due to '{1}' '{2}'. {3} {4} '{5}'.", "Type@id", "Param/Type", paramType, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Param.Type tag value, this attribute should refer to an existing protocol items:" + Environment.NewLine + "- read bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- write bit: ID of the corresponding group param (mandatory)." + Environment.NewLine + "- response: ID of the response responsible to further parse the value of this param (mandatory)." + Environment.NewLine + "- array: Semi-column list of column Param IDs (optional: depends on the type of table and the presence of ArrayOptions/ColumnOptions tags).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

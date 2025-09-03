@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "LinkedDetails@detailsTableId", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@detailsTableId attribute should contain one of the following:" + Environment.NewLine + "- tablePid: Extra info from that table will then be added to the TreeControl." + Environment.NewLine + "- fkColumnPid: Extra info from the table to which the FK Column belongs will then be added to the TreeControl." + Environment.NewLine + "" + Environment.NewLine + "In both cases, the table containing extra details should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "LinkedDetails@detailsTableId", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@detailsTableId attribute should contain one of the following:" + Environment.NewLine + "- tablePid: Extra info from that table will then be added to the TreeControl." + Environment.NewLine + "- fkColumnPid: Extra info from the table to which the FK Column belongs will then be added to the TreeControl." + Environment.NewLine + "" + Environment.NewLine + "In both cases, the table containing extra details should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "LinkedDetails@detailsTableId", "TreeControl", treeControlPid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@detailsTableId attribute should contain one of the following:" + Environment.NewLine + "- tablePid: Extra info from that table will then be added to the TreeControl." + Environment.NewLine + "- fkColumnPid: Extra info from the table to which the FK Column belongs will then be added to the TreeControl." + Environment.NewLine + "" + Environment.NewLine + "In both cases, the table containing extra details should have its RTDisplay tag set to true.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "LinkedDetails@detailsTableId", attributeValue, "TreeControl", treeControlPid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@detailsTableId attribute should contain one of the following:" + Environment.NewLine + "- tablePid: Extra info from that table will then be added to the TreeControl." + Environment.NewLine + "- fkColumnPid: Extra info from the table to which the FK Column belongs will then be added to the TreeControl." + Environment.NewLine + "" + Environment.NewLine + "In both cases, the table containing extra details should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "ExtraDetails/LinkedDetails", "detailsTableId", "Table", "PID", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@detailsTableId attribute should contain one of the following:" + Environment.NewLine + "- tablePid: Extra info from that table will then be added to the TreeControl." + Environment.NewLine + "- fkColumnPid: Extra info from the table to which the FK Column belongs will then be added to the TreeControl." + Environment.NewLine + "" + Environment.NewLine + "In both cases, the table containing extra details should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on TreeControl/ExtraDetails table. Table PID '{0}'.", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@detailsTableId attribute should contain one of the following:" + Environment.NewLine + "- tablePid: Extra info from that table will then be added to the TreeControl." + Environment.NewLine + "- fkColumnPid: Extra info from the table to which the FK Column belongs will then be added to the TreeControl." + Environment.NewLine + "" + Environment.NewLine + "In both cases, the table containing extra details should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

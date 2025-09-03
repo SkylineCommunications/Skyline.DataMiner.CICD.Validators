@@ -70,8 +70,7 @@ namespace ProtocolTests.Protocol.CheckDuplicateTags
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = "Duplicate Interprete\\RawType found. Param ID 'paramId'.",
-                Details = "Having multiple RawType tags within a parameter could lead to a SLProtocol RTE.",
+                Description = "Duplicate 'Interprete/RawType' tag found. Param ID 'paramId'.",
                 HasCodeFix = false,
             };
 

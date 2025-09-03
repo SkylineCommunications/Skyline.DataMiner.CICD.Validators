@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Description", "Param", pid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Description", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Description", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "Param", "Description", duplicateDescription, paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Current value '{0}'. Expected value '{1}'. {2} {3} '{4}'.", currentValue, expectedValue, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Param/Description values should follow following title case rules:" + Environment.NewLine + "- Should start with a capital" + Environment.NewLine + "    - First and last word" + Environment.NewLine + "    - Important words (verbs, nouns, adjective, adverb, etc)" + Environment.NewLine + "- Should not start with a capital" + Environment.NewLine + "    - Articles (a, an, the)" + Environment.NewLine + "    - Coordinating conjuctions (and, but, for, nor, or, so, yet)" + Environment.NewLine + "    - Preposition with <4 chars (at, by, to...)",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("'{0}' values do not follow {1} rules.", "Param/Description", "title casing"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Param/Description values should follow following title case rules:" + Environment.NewLine + "- Should start with a capital" + Environment.NewLine + "    - First and last word" + Environment.NewLine + "    - Important words (verbs, nouns, adjective, adverb, etc)" + Environment.NewLine + "- Should not start with a capital" + Environment.NewLine + "    - Articles (a, an, the)" + Environment.NewLine + "    - Coordinating conjuctions (and, but, for, nor, or, so, yet)" + Environment.NewLine + "    - Preposition with <4 chars (at, by, to...)",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -181,8 +169,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Description tag on Param '{0}' was changed from '{1}' into '{2}'.", paramId, previousDescription, newDescription),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -206,8 +192,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Description tag with value '{0}' on Param '{1}' was removed.", descriptionValue, paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

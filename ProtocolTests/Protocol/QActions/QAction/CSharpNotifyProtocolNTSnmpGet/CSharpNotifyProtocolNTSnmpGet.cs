@@ -106,8 +106,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNTSnmpGet
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyProtocol(295/*NT_SNMP_GET*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "object[] elementInfo = new object[] { elementId, ipPort, multipleGet, instance, connectionId, getCommunityString, splitErrors, agentId };" + Environment.NewLine + "string[] oidInfo = new string[] { \"1.3.6.1.2.1.1.4.0\" };" + Environment.NewLine + "" + Environment.NewLine + "object[] result = (object[])protocol.NotifyProtocol(295/*NT_SNMP_GET*/, elementInfo, oidInfo);",
-                Details = "To make this call DELT compatible, the DMA ID needs to be provided as argument." + Environment.NewLine + "See Example code." + Environment.NewLine + "" + Environment.NewLine + "More information about the syntax can be found in the DataMiner Development Library.",
                 HasCodeFix = false,
             };
 

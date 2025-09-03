@@ -636,24 +636,6 @@
                     <TextBox Height="90" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" SpellCheck.IsEnabled="True" Text="{Binding Check.HowToFix, UpdateSourceTrigger=PropertyChanged}" MinWidth="570" Width="Auto" MaxWidth="1000"/>
                 </StackPanel>
             </ListBoxItem>
-
-            <!--Example Code-->
-            <ListBoxItem MinHeight="30" Height="Auto" MaxHeight="150" IsTabStop="False" Focusable="False">
-                <StackPanel Orientation="Horizontal">
-                    <CheckBox IsTabStop="False" IsChecked="{Binding Check.ExampleCodeEnabled, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 10 0"/>
-                    <TextBlock Width="140" FontWeight="Bold">Example Code</TextBlock>
-                    <TextBox Height="90" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" SpellCheck.IsEnabled="True" Text="{Binding Check.ExampleCode, UpdateSourceTrigger=PropertyChanged}" MinWidth="570" Width="Auto" MaxWidth="1000"/>
-                </StackPanel>
-            </ListBoxItem>
-
-            <!--Details-->
-            <ListBoxItem MinHeight="30" Height="Auto" IsTabStop="False" Focusable="False">
-                <StackPanel Orientation="Horizontal">
-                    <CheckBox IsTabStop="False" IsChecked="{Binding Check.DetailsEnabled, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 10 0"/>
-                    <TextBlock Width="140" FontWeight="Bold">Details</TextBlock>
-                    <TextBox Height="Auto" MinHeight="90" MaxHeight="500" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" SpellCheck.IsEnabled="True" Text="{Binding Check.Details, UpdateSourceTrigger=PropertyChanged}" MinWidth="570" Width="Auto" MaxWidth="1000"/>
-                </StackPanel>
-            </ListBoxItem>
         </ListBox>
 
         <!--Buttons-->

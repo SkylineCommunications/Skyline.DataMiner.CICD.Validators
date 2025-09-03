@@ -108,7 +108,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedProper
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Setting property 'CultureInfo.DefaultThreadCurrentCulture' is unrecommended. QAction ID 'qactionId'.",
-                Details = "Changing application domain settings should not be performed as QActions from other protocols might be impacted by this change.",
                 HasCodeFix = false,
             };
 
@@ -129,7 +128,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedProper
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Setting property 'Thread.CurrentThread.CurrentCulture' is unrecommended. QAction ID 'qactionId'.",
-                Details = "As the threads that execute QAction code are part of a thread pool, changing a setting on a thread in a QAction can affect other QActions of other protocols.",
                 HasCodeFix = false,
             };
 
@@ -150,7 +148,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedProper
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Setting property 'Thread.CurrentThread.CurrentUICulture' is unrecommended. QAction ID 'qactionId'.",
-                Details = "As the threads that execute QAction code are part of a thread pool, changing a setting on a thread in a QAction can affect other QActions of other protocols.",
                 HasCodeFix = false,
             };
 

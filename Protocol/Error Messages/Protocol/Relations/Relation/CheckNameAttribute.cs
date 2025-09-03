@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Relations.Re
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'.", "Relation", "name", duplicateName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

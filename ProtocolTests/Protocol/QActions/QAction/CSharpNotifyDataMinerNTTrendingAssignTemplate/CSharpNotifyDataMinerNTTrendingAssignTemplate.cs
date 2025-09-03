@@ -108,8 +108,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTTrendin
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(Queued)(14/*NT_TRENDING_ASSIGN_TEMPLATE*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "uint[] elementDetails = { agentId, elementId };" + Environment.NewLine + "string[] trendTemplate = new string[] { \"Template 1\" };" + Environment.NewLine + "" + Environment.NewLine + "protocol.NotifyDataMiner(14 /*NT_TRENDING_ASSIGN_TEMPLATE*/, elementDetails, trendTemplate);",
-                Details = "To make this call DELT compatible, the DMA ID needs to be provided as argument." + Environment.NewLine + "See Example code." + Environment.NewLine + "" + Environment.NewLine + "More information about the syntax can be found in the DataMiner Development Library.",
                 HasCodeFix = false,
             };
 

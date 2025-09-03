@@ -59,6 +59,19 @@ namespace ProtocolTests.Protocol.CheckEndlessLoop
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void Protocol_CheckEndlessLoop_Valid_Collab269212()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid_Collab269212",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
         #endregion
 
         #region Invalid Checks
@@ -337,8 +350,6 @@ namespace ProtocolTests.Protocol.CheckEndlessLoop
                 GroupDescription = String.Empty,
                 Description = "Endless loop detected. Involved items '1'",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 
@@ -364,8 +375,6 @@ namespace ProtocolTests.Protocol.CheckEndlessLoop
                 GroupDescription = String.Empty,
                 Description = "Potential endless loop detected. Involved items '1'",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "Uncertain because not all paths could be completed due to conditions in the flow of the loop.",
                 HasCodeFix = false,
             };
 

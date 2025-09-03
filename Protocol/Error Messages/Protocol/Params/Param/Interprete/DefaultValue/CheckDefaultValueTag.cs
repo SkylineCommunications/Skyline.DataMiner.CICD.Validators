@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unsupported tag '{0}' in {1} '{2}'.", "DefaultValue", "Param", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Interprete/DefaultValue tag allows to give a default value to a parameter." + Environment.NewLine + "This is currently only supported on standalone read parameters and the given value should be compatible with the Inteprete/Type.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unsupported tag '{0}' in {1} '{2}'.", "DefaultValue", "Column", columnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Interprete/DefaultValue tag allows to give a default value to a parameter." + Environment.NewLine + "This is currently only supported on standalone read parameters and the given value should be compatible with the Inteprete/Type.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Interprete/DefaultValue '{0}' is incompatible with Interprete/Type '{1}'. Param ID '{2}'.", defaultValue, interpreteType, pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Interprete/DefaultValue tag allows to give a default value to a parameter." + Environment.NewLine + "This is currently only supported on standalone read parameters and the given value should be compatible with the Inteprete/Type.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

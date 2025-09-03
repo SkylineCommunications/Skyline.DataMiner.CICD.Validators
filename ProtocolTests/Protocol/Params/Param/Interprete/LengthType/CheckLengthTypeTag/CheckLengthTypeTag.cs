@@ -104,7 +104,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckLengthT
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'LengthType' in Param '6024'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -125,7 +124,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckLengthT
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value 'tagValue' in tag 'LengthType'. Param ID '6024'.",
-                Details = "When 'Param/Type' is 'fixed', 'Interprete/LengthType' should also be 'fixed'.",
                 HasCodeFix = false,
             };
 
@@ -146,7 +144,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.LengthType.CheckLengthT
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'LengthType' in Param '300'.",
-                Details = "",
                 HasCodeFix = false,
             };
 

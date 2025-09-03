@@ -124,8 +124,6 @@
     public class ErrorMessage
     {
         private string _howToFix = null;
-        private string _exampleCode = null;
-        private string _details = null;
         private string _groupDescription = String.Empty;
 
         [XmlElement(ElementName = "Name")]
@@ -187,55 +185,6 @@
             }
         }
 
-        [XmlElement(ElementName = "ExampleCode")]
-        public XmlCDataSection ExampleCode
-        {
-            get
-            {
-                if (_exampleCode != null)
-                {
-                    XmlDocument doc = new XmlDocument();
-                    return doc.CreateCDataSection(_exampleCode);
-                }
-                else
-                {
-                    return null;
-                }
-            }
-
-            set
-            {
-                if (value != null)
-                {
-                    _exampleCode = value.Value;
-                }
-            }
-        }
-
-        [XmlElement(ElementName = "Details")]
-        public XmlCDataSection Details
-        {
-            get
-            {
-                if (_details != null)
-                {
-                    XmlDocument doc = new XmlDocument();
-                    return doc.CreateCDataSection(_details);
-                }
-                else
-                {
-                    return null;
-                }
-            }
-
-            set
-            {
-                if (value != null)
-                {
-                    _details = value.Value;
-                }
-            }
-        }
         [XmlAttribute(AttributeName = "id")]
         public string Id { get; set; }
 

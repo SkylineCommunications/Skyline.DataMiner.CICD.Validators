@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "connectionPid", "Group", groupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The connectionPid attribute should contain the id of an existing parameter with the id of the connection.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "connectionPid", connectionPid, "Group", groupId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The connectionPid attribute should contain the id of an existing parameter with the id of the connection.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "connectionPid", "Param", "ID", pid, "Group", "ID", groupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The connectionPid attribute should contain the id of an existing parameter with the id of the connection.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

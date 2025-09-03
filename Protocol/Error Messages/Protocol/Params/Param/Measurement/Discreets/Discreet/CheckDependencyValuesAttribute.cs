@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Discreet@dependencyValues", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet@dependencyValues attribute can be used in 2 scenarios:" + Environment.NewLine + "- In combination with Discreets@dependencyId attribute." + Environment.NewLine + "- On a table contextMenu Param." + Environment.NewLine + "    - All referenced Params then require their RTDisplay tag to be set to true." + Environment.NewLine + "" + Environment.NewLine + "See the guides for more info.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "Discreet@dependencyValues", "Param", pid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet@dependencyValues attribute can be used in 2 scenarios:" + Environment.NewLine + "- In combination with Discreets@dependencyId attribute." + Environment.NewLine + "- On a table contextMenu Param." + Environment.NewLine + "    - All referenced Params then require their RTDisplay tag to be set to true." + Environment.NewLine + "" + Environment.NewLine + "See the guides for more info.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Discreet@dependencyValues", "Param", "ID", referencePid, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet@dependencyValues attribute can be used in 2 scenarios:" + Environment.NewLine + "- In combination with Discreets@dependencyId attribute." + Environment.NewLine + "- On a table contextMenu Param." + Environment.NewLine + "    - All referenced Params then require their RTDisplay tag to be set to true." + Environment.NewLine + "" + Environment.NewLine + "See the guides for more info.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' referenced in 'Discreet@dependencyValues' attribute. Param ID '{1}'.", referencePid, pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreet@dependencyValues attribute can be used in 2 scenarios:" + Environment.NewLine + "- In combination with Discreets@dependencyId attribute." + Environment.NewLine + "- On a table contextMenu Param." + Environment.NewLine + "    - All referenced Params then require their RTDisplay tag to be set to true." + Environment.NewLine + "" + Environment.NewLine + "See the guides for more info.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

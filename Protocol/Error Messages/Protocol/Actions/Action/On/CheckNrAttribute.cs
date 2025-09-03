@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Action/On@nr", "Action", actionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On@nr' attribute only makes sense if 'Action/Type' tag is set to one of the following values:" + Environment.NewLine + "- reverse: Semicolon (;) separated list of 0-based position(s) of the parameter in the command/response.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 GroupDescription = "",
                 Description = String.Format("Untrimmed value '{0}' in attribute '{1}'. {2} {3} '{4}'.", untrimmedValue, "Action/On@nr", "Action", "ID", actionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On@nr' attribute only makes sense if 'Action/Type' tag is set to one of the following values:" + Environment.NewLine + "- reverse: Semicolon (;) separated list of 0-based position(s) of the parameter in the command/response.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Action/On@nr", attributeValue, "Action", actionId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Action/On@nr' attribute only makes sense if 'Action/Type' tag is set to one of the following values:" + Environment.NewLine + "- reverse: Semicolon (;) separated list of 0-based position(s) of the parameter in the command/response.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

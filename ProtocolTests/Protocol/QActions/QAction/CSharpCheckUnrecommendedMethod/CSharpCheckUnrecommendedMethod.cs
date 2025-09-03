@@ -738,8 +738,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.NotifyDataMiner(216/*NT_GET_REMOTE_TREND*/, ...)' is unrecommended. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyDataMiner(216/*NT_GET_REMOTE_TREND*/, ...)' method is now considered obsolete." + Environment.NewLine + "" + Environment.NewLine + "Instead, the 'GetTrendDataMessage' SLNet message is recommended as it is more efficient and up to date.",
                 HasCodeFix = false,
             };
 
@@ -765,8 +763,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.NotifyDataMiner(260/*NT_GET_REMOTE_TREND_AVG*/, ...)' is unrecommended. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.NotifyDataMiner(260/*NT_GET_REMOTE_TREND_AVG*/, ...)' method is now considered obsolete." + Environment.NewLine + "" + Environment.NewLine + "Instead, the 'GetTrendDataMessage' SLNet message is recommended as it is more efficient and up to date.",
                 HasCodeFix = false,
             };
 
@@ -792,8 +788,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.GetParameterIndex' is unrecommended. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.GetParameterIndex' method is used to get the value of a specific cell in a table." + Environment.NewLine + "The problem with this call is that it relies on an indexer to identify the row for which a cell value needs to be retrieved." + Environment.NewLine + "However, the order of rows in element tables is not guaranteed." + Environment.NewLine + "Meaning, using an index (row position) is not ideal." + Environment.NewLine + "" + Environment.NewLine + "Instead, it is recommended to use the 'SLProtocol.GetParameterIndexByKey' method which relies on the primary key of the rows.",
                 HasCodeFix = false,
             };
 
@@ -819,8 +813,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.SetParameterIndex' is unrecommended. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.SetParameterIndex' method is used to set the value of a specific cell in a table." + Environment.NewLine + "The problem with this call is that it relies on an indexer to identify the row for which a cell value needs to be updated." + Environment.NewLine + "However, the order of rows in element tables is not guaranteed." + Environment.NewLine + "Meaning, using an index (row position) is not ideal." + Environment.NewLine + "" + Environment.NewLine + "Instead, it is recommended to use the 'SLProtocol.SetParameterIndexByKey' method which relies on the primary key of the rows.",
                 HasCodeFix = false,
             };
 
@@ -846,8 +838,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.SetParametersIndex' is unrecommended. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'SLProtocol.SetParametersIndex' method is used to set the value of a specific cells in a table." + Environment.NewLine + "The problem with this call is that it relies on an indexer to identify the rows for which a cells values need to be updated." + Environment.NewLine + "However, the order of rows in element tables is not guaranteed." + Environment.NewLine + "Meaning, using an index (row position) is not ideal." + Environment.NewLine + "" + Environment.NewLine + "Instead, it is recommended to use the 'SLProtocol.SetParametersIndexByKey' method which relies on the primary key of the rows.",
                 HasCodeFix = false,
             };
 
@@ -873,8 +863,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 GroupDescription = "",
                 Description = "Method 'System.Threading.Thread.Abort' is unrecommended. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Thread.Abort method should be used with caution." + Environment.NewLine + "Particularly when you call it to abort a thread other than the current thread, you do not know what code has executed or failed to execute when the ThreadAbortException is thrown." + Environment.NewLine + "You also cannot be certain of the state of your application or any application and user state that it's responsible for preserving." + Environment.NewLine + "For example, calling Thread.Abort may prevent the execution of static constructors or the release of unmanaged resources." + Environment.NewLine + "" + Environment.NewLine + "Instead, some logic to nicely end the thread should be implemented." + Environment.NewLine + "This is usually implemented according to the cooperative cancellation model.",
                 HasCodeFix = false,
             };
 

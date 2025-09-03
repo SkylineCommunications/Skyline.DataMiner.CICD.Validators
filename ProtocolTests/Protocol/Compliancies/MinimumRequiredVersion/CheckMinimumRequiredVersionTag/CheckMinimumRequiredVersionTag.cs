@@ -427,8 +427,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 GroupDescription = String.Empty,
                 Description = "Feature used in 'Protocol'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 
@@ -454,8 +452,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 GroupDescription = String.Empty,
                 Description = "Feature used in 'Param' with 'ID' '3'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 
@@ -481,10 +477,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 GroupDescription = String.Empty,
                 Description = "Minimum required version '9.5.0.0 - 1234' too low. Expected value '10.0.0.0 - 1234'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details =
-                    $"Indicates the minimum DataMiner ver­sion that the driver is compatible with. {Environment.NewLine}" +
-                    "If the DMS software version is less recent than the indicated version, the protocol will not be useable.",
                 HasCodeFix = true
             };
 
@@ -510,8 +502,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 GroupDescription = String.Empty,
                 Description = "'10.0.0.0 - 1234' : 'Test Feature'",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 
@@ -537,8 +527,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 GroupDescription = String.Empty,
                 Description = "Untrimmed tag 'MinimumRequiredVersion'. Current value ' 10.0.0.0 - 1234 '.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = true
             };
 
@@ -559,7 +547,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Missing tag 'MinimumRequiredVersion'.",
-                Details = String.Empty,
                 HasCodeFix = true
             };
 
@@ -580,7 +567,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Empty tag 'MinimumRequiredVersion'.",
-                Details = String.Empty,
                 HasCodeFix = true
             };
 
@@ -601,7 +587,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Invalid value 'tagValue' in tag 'MinimumRequiredVersion'.",
-                Details = String.Empty,
                 HasCodeFix = false
             };
 
@@ -622,7 +607,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Protocol minimum required DM version 'protocolMinDmVersion' is lower than the Skyline minimum supported DM version 'skylineMinDmVersion'.",
-                Details = "The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline." + Environment.NewLine + "For more info on the minimum DataMiner version supported by Skyline, see https://aka.dataminer.services/SoftwareSupport-LifeCycle.",
                 HasCodeFix = true
             };
 

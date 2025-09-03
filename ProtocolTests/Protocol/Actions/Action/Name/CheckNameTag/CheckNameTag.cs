@@ -80,8 +80,6 @@ namespace ProtocolTests.Protocol.Actions.Action.Name.CheckNameTag
                 GroupDescription = String.Empty,
                 Description = "Duplicated Action Name '0'. Action IDs '1'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 

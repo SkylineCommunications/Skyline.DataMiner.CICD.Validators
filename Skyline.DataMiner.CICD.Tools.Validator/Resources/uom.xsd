@@ -8063,6 +8063,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+             <xs:enumeration value="Updates">
+                <xs:annotation>
+                    <xs:documentation>updates</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>updates</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="us">
                 <xs:annotation>
                     <xs:documentation>microsecond</xs:documentation>

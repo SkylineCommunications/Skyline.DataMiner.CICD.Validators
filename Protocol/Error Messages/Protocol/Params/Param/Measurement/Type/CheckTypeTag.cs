@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Measurement/Type 'togglebutton' is recommended for Param with ID '{0}'.", pid),
                 HowToFix = "Change measurement type to 'togglebutton'.",
-                ExampleCode = "",
-                Details = "When we have only two possible discreet values and it is obvious from reading one what the other one is, we should use a togglebutton.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid RawType '{0}' for matrix Param '{1}'. Expected RawType 'other'.", rawType, matrixPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid Interprete/Type '{0}' for matrix Param '{1}'. Expected Type '{2}'.", interpreteType, matrixPid, expectedInterpreteType),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid LengthType '{0}' for matrix Param '{1}'. Expected LengthType 'next param'.", lengthType, matrixPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("{0} Param '{1}' should be alarmed.", "Matrix", matrixPid),
                 HowToFix = "Enable alarming.",
-                ExampleCode = "",
-                Details = "Matrix parameters should always be alarmed.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("{0} Param '{1}' should not be trended.", "Matrix", matrixPid),
                 HowToFix = "Disable trending.",
-                ExampleCode = "",
-                Details = "Matrix parameters should never be trended.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unsupported attribute '{0}' in {1} '{2}'. Current value '{3}'.", "setter", "Matrix", matrixPid, "true"),
                 HowToFix = "Remove the setter attribute.",
-                ExampleCode = "",
-                Details = "Matrix write parameters should never have a setter = true.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid Interprete for matrix Param '{0}'.", matrixPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -228,8 +212,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in '{1}' for '{2}'. {3} {4} '{5}'.", paramType, "Param/Type", measurementType, "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Following kind of parameters require the Param/Type tag to be set to 'write' or 'writebit':" + Environment.NewLine + "- button" + Environment.NewLine + "- togglebutton" + Environment.NewLine + "- pagebutton",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -253,8 +235,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Measurement/Type", "Param", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -278,8 +258,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}'. {2} {4} '{3}'.", measurementType, "Measurement/Type", "Param", paramId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -303,8 +281,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Measurement/Type", "Param", paramId, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

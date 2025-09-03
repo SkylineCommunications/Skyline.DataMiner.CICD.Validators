@@ -110,8 +110,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTGetAlar
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(48/*NT_GET_ALARM_INFO*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "uint[] elementInfo = new uint[] { dmaId, elementId };" + Environment.NewLine + "uint[] parameterIds = new uint[] { 100, 300 };" + Environment.NewLine + "" + Environment.NewLine + "object[] result = (object[]) protocol.NotifyDataMiner(48 /* NT_GET_ALARM_INFO */, elementInfo, parameterIds);",
-                Details = "To make this call DELT compatible, the DMA ID needs to be provided as argument." + Environment.NewLine + "See Example code." + Environment.NewLine + "" + Environment.NewLine + "More information about the syntax can be found in the DataMiner Development Library.",
                 HasCodeFix = false,
             };
 

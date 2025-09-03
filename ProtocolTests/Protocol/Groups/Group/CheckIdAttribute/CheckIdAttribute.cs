@@ -202,8 +202,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 GroupDescription = "",
                 Description = "More than one Group with same ID '2'. Group Names '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each group." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each group should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -229,8 +227,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Empty attribute 'Group@id'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each group." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each group should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -256,8 +252,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Group@id'. Group name 'MyName'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each group." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each group should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -283,8 +277,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Missing attribute 'Group@id'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each group." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each group should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -310,8 +302,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Group@id'. Current value '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each group." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each group should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
             };
 

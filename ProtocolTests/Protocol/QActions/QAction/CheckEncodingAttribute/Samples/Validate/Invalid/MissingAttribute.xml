@@ -1,0 +1,7 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Version>0.0.0.0</Version>
+    <QActions>
+        <QAction id="1">
+        </QAction>
+    </QActions>
+</Protocol>

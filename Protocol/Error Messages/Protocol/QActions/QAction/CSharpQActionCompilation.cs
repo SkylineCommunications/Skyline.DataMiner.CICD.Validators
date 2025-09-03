@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("C# compilation errors. QAction ID '{0}'.", qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("{0}", errorMessage),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("No C# QAction code analysis was performed due to unsupported C# version '{0}' in Visual Studio version '{1}'.", cSharpVersion, visualStudioVersion),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "No C# QAction code analysis could be performed due to following mismatch in supported C# syntax versions:" + Environment.NewLine + "- C# syntax up to and including version 7.3 is supported by the protocol (see 'Compliancies/MinimumRequiredVersion' tag)." + Environment.NewLine + "- C# 7.3 syntax is not supported by this Visual Studio (See Visual Studio version).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
