@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Chains.Check
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} Name '{1}'.", "Chain child", chainName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

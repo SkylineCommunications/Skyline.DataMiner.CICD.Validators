@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("The On tag value '{0}' can't be used in combination with the Time tag value '{1}'. Trigger ID '{2}'.", onTagValue, timeTagValue, triggerId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Multiple triggers with same Time/On combination. Trigger IDs '{0}'.", triggerId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

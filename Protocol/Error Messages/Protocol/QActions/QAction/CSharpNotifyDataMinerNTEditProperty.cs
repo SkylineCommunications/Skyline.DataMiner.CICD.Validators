@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Invocation of method '{0}.{1}' is not compatible with '{2}'. QAction ID '{3}'.", "SLProtocol", "NotifyDataMiner(Queued)(62/*NT_EDIT_PROPERTY*/, ...)", "DELT", qactionId),
                 HowToFix = "",
-                ExampleCode = "string propertyLocation = \"element:\"+ elementId + \":\" + agentId;" + Environment.NewLine + "string[] propertyDetails = new string[3] {\"DeviceKey\", \"read-write\", \"2100\"};" + Environment.NewLine + "" + Environment.NewLine + "protocol.NotifyDataMinerQueued(62/*NT_EDIT_PROPERTY*/ , propertyLocation, propertyDetails);",
-                Details = "To make this call DELT compatible, the DMA ID needs to be provided as argument." + Environment.NewLine + "See Example code." + Environment.NewLine + "" + Environment.NewLine + "More information about the syntax can be found in the DataMiner Development Library.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

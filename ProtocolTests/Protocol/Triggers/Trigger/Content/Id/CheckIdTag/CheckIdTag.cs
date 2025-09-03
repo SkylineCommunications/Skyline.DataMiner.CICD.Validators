@@ -208,8 +208,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "Empty tag 'Content/Id' in Trigger '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of every Trigger should contain at least one Id tag." + Environment.NewLine + "Such Id tag should contain an unsigned number and refer to the id of an existing Trigger or Action depending on the 'Trigger/Type' tag value." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -235,8 +233,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'Content/Id'. Trigger ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of every Trigger should contain at least one Id tag." + Environment.NewLine + "Such Id tag should contain an unsigned number and refer to the id of an existing Trigger or Action depending on the 'Trigger/Type' tag value." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -262,8 +258,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "Missing tag 'Content/Id' in Trigger '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of every Trigger should contain at least one Id tag." + Environment.NewLine + "Such Id tag should contain an unsigned number and refer to the id of an existing Trigger or Action depending on the 'Trigger/Type' tag value." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -289,8 +283,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "Tag 'Content/Id' references a non-existing '2' with ID '3'. Trigger ID '4'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of every Trigger should contain at least one Id tag." + Environment.NewLine + "Such Id tag should contain an unsigned number and refer to the id of an existing Trigger or Action depending on the 'Trigger/Type' tag value." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -316,8 +308,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Content/Id' in Trigger '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of every Trigger should contain at least one Id tag." + Environment.NewLine + "Such Id tag should contain an unsigned number and refer to the id of an existing Trigger or Action depending on the 'Trigger/Type' tag value." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
             };
 

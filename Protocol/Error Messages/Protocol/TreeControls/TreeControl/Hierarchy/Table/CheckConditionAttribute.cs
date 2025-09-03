@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Table@condition", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Hierarchy/Table@condition attribute should have one of the following format:" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue}" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue};filter:fk={fkColumnPid}" + Environment.NewLine + "where:" + Environment.NewLine + "- {conditionColumnPid} refers to a column which should have its RTDisplay set to true." + Environment.NewLine + "- {conditionValue} allows to specify the value to be present in column referred by {conditionColumnPid} for the condition to match.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed value '{0}' in attribute 'Table@condition' in TreeControl '{1}'.", untrimmedColumnPid, treeControlId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Hierarchy/Table@condition attribute should have one of the following format:" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue}" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue};filter:fk={fkColumnPid}" + Environment.NewLine + "where:" + Environment.NewLine + "- {conditionColumnPid} refers to a column which should have its RTDisplay set to true." + Environment.NewLine + "- {conditionValue} allows to specify the value to be present in column referred by {conditionColumnPid} for the condition to match.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Table@condition", attributeValue, "TreeControl", treeControlPid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Hierarchy/Table@condition attribute should have one of the following format:" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue}" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue};filter:fk={fkColumnPid}" + Environment.NewLine + "where:" + Environment.NewLine + "- {conditionColumnPid} refers to a column which should have its RTDisplay set to true." + Environment.NewLine + "- {conditionValue} allows to specify the value to be present in column referred by {conditionColumnPid} for the condition to match.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "Hierarchy/Table", "condition", "Column", "PID", columnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Hierarchy/Table@condition attribute should have one of the following format:" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue}" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue};filter:fk={fkColumnPid}" + Environment.NewLine + "where:" + Environment.NewLine + "- {conditionColumnPid} refers to a column which should have its RTDisplay set to true." + Environment.NewLine + "- {conditionValue} allows to specify the value to be present in column referred by {conditionColumnPid} for the condition to match.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid option '{0}' in attribute '{1}'. {2} {3} '{4}'. Current Value '{5}'.", optionName, "Table@condition", "TreeControl", "ID", treeControlId, optionValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Hierarchy/Table@condition attribute should have one of the following format:" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue}" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue};filter:fk={fkColumnPid}" + Environment.NewLine + "where:" + Environment.NewLine + "- {conditionColumnPid} refers to a column which should have its RTDisplay set to true." + Environment.NewLine + "- {conditionValue} allows to specify the value to be present in column referred by {conditionColumnPid} for the condition to match.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Missing value '{0}' in attribute '{1}'. {2} {3} '{4}'.", valueName, "Table@condition", "TreeControl", "ID", treeControlId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Hierarchy/Table@condition attribute should have one of the following format:" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue}" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue};filter:fk={fkColumnPid}" + Environment.NewLine + "where:" + Environment.NewLine + "- {conditionColumnPid} refers to a column which should have its RTDisplay set to true." + Environment.NewLine + "- {conditionValue} allows to specify the value to be present in column referred by {conditionColumnPid} for the condition to match.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' referred as condition column in 'Hierarchy/Table@condition' attribute. TreeControl PID '{1}'.", columnPid, treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Hierarchy/Table@condition attribute should have one of the following format:" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue}" + Environment.NewLine + "- {conditionColumnPid}:{conditionValue};filter:fk={fkColumnPid}" + Environment.NewLine + "where:" + Environment.NewLine + "- {conditionColumnPid} refers to a column which should have its RTDisplay set to true." + Environment.NewLine + "- {conditionValue} allows to specify the value to be present in column referred by {conditionColumnPid} for the condition to match.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

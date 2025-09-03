@@ -691,7 +691,6 @@
                 if (exampleCode != value)
                 {
                     exampleCode = value;
-                    RaisePropertyChanged("ExampleCodeEnabled");
                     RaisePropertyChanged("ExampleCode");
                 }
 
@@ -723,7 +722,6 @@
                 if (details != value)
                 {
                     details = value;
-                    RaisePropertyChanged("DetailsEnabled");
                     RaisePropertyChanged("Details");
                 }
 
@@ -1064,37 +1062,6 @@
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the example code tag should be included in the XML or not.
-        /// </summary>
-        public bool ExampleCodeEnabled
-        {
-            get
-            {
-                return SettedProperties.Contains("ExampleCode");
-            }
-
-            set
-            {
-                if (value)
-                {
-                    if (ExampleCode == null)
-                    {
-                        ExampleCode = String.Empty;
-                    }
-
-                    SettedProperties.Add("ExampleCode");
-                }
-                else
-                {
-                    ExampleCode = null;
-                    SettedProperties.Remove("ExampleCode");
-                }
-
-                RaisePropertyChanged("ExampleCodeEnabled");
-            }
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether the how to fix tag should be included in the XML or not.
         /// </summary>
         public bool HowToFixEnabled
@@ -1122,37 +1089,6 @@
                 }
 
                 RaisePropertyChanged("HowToFixEnabled");
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the details tag should be included in the XML or not.
-        /// </summary>
-        public bool DetailsEnabled
-        {
-            get
-            {
-                return SettedProperties.Contains("Details");
-            }
-
-            set
-            {
-                if (value)
-                {
-                    if (Details == null)
-                    {
-                        Details = String.Empty;
-                    }
-
-                    SettedProperties.Add("Details");
-                }
-                else
-                {
-                    Details = null;
-                    SettedProperties.Remove("Details");
-                }
-
-                RaisePropertyChanged("DetailsEnabled");
             }
         }
 

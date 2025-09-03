@@ -480,8 +480,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "Duplicated Connection name 'myConnection'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "- When having only one connection for a specific type, the name needs to be of following format, where the second option can (optionally) be used to add more info about the goal of the connection (ex: XXX = Traps, XXX = Events, XXX = Alarms, etc):" + Environment.NewLine + "     - \"IP Connection\" or \"IP Connection - XXX\": for drivers that support TCP and/or UDP (See PortTypeIP, PortTypeUDP and PortTypeSerial tags under PortSettings tag)" + Environment.NewLine + "     - \"HTTP Connection\" or \"HTTP Connection - XXX\"" + Environment.NewLine + "     - \"SSH Connection\" or \"SSH Connection - XXX\"" + Environment.NewLine + "     - \"SNMP Connection\" or \"SNMP Connection - XXX\"" + Environment.NewLine + "     - \"Serial Connection\" or \"Serial Connection - XXX\": for drivers that only support the physical serial port. In other words, driver connections of type serial which don't support TCP nor UDP (See PortTypeIP, PortTypeUDP and PortTypeSerial tags under PortSettings tag)." + Environment.NewLine + "- When having more than one connection for a specific type, the name needs to be of following format where XXX is used to distinguish them (ex: XXX = Redundant, XXX = Redundant 2, XXX = Backup, XXX = Traps, XXX = Events, etc):" + Environment.NewLine + "     - \"IP Connection - XXX\"" + Environment.NewLine + "     - \"HTTP Connection - XXX\"" + Environment.NewLine + "     - etc",
                 HasCodeFix = false
             };
 
@@ -507,8 +505,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "Duplicated Connection name 'myConnection'. Connection IDs '1'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "- When having only one connection for a specific type, the name needs to be of following format, where the second option can (optionally) be used to add more info about the goal of the connection (ex: XXX = Traps, XXX = Events, XXX = Alarms, etc):" + Environment.NewLine + "     - \"IP Connection\" or \"IP Connection - XXX\": for drivers that support TCP and/or UDP (See PortTypeIP, PortTypeUDP and PortTypeSerial tags under PortSettings tag)" + Environment.NewLine + "     - \"HTTP Connection\" or \"HTTP Connection - XXX\"" + Environment.NewLine + "     - \"SSH Connection\" or \"SSH Connection - XXX\"" + Environment.NewLine + "     - \"SNMP Connection\" or \"SNMP Connection - XXX\"" + Environment.NewLine + "     - \"Serial Connection\" or \"Serial Connection - XXX\": for drivers that only support the physical serial port. In other words, driver connections of type serial which don't support TCP nor UDP (See PortTypeIP, PortTypeUDP and PortTypeSerial tags under PortSettings tag)." + Environment.NewLine + "- When having more than one connection for a specific type, the name needs to be of following format where XXX is used to distinguish them (ex: XXX = Redundant, XXX = Redundant 2, XXX = Backup, XXX = Traps, XXX = Events, etc):" + Environment.NewLine + "     - \"IP Connection - XXX\"" + Environment.NewLine + "     - \"HTTP Connection - XXX\"" + Environment.NewLine + "     - etc",
                 HasCodeFix = false
             };
 
@@ -534,11 +530,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "Connections can not be defined simultaneously via 'Protocol/Type' and 'Protocol/Connections'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details =
-                    $"Connections can be defined either via 'Protocol/Type' or via 'Protocol/Connections' but both syntaxes can not be used in the same protocol.{Environment.NewLine}" +
-                    $"- 'Protocol/Type' is the recommended syntax.{Environment.NewLine}" +
-                    "- 'Protocol/Connections' should only be used in case one of the rare features only available in this syntax is needed.",
                 HasCodeFix = false
             };
 
@@ -564,8 +555,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "Connection count in 'Protocol/Type' tag '0' does not match with PortSettings count '1'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "For each port that is defined, a PortSettings element should be defined. In addition, the order of these PortSettings elements must correspond with the order of the con­nections defined in the Protocol/Type@advanced attribute." + Environment.NewLine + "- Connection count = number of connections defined in 'Protocol/Type@advanced' + 1 for the main connection define in 'Protocol/Type' tag." + Environment.NewLine + "- PortSettings count = number of PortSettings in 'Protocol/Ports' tag + 1 for main PortSettings define in 'Protocol/PortSettings'.",
                 HasCodeFix = false
             };
 
@@ -591,8 +580,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "Invalid connection name 'myName' for a 'snmp' connection. Connection ID '1'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "- When having only one connection for a specific type, the name needs to be of following format, where the second option can (optionally) be used to add more info about the goal of the connection (ex: XXX = Traps, XXX = Events, XXX = Alarms, etc):" + Environment.NewLine + "     - \"IP Connection\" or \"IP Connection - XXX\": for drivers that support TCP and/or UDP (See PortTypeIP, PortTypeUDP and PortTypeSerial tags under PortSettings tag)" + Environment.NewLine + "     - \"HTTP Connection\" or \"HTTP Connection - XXX\"" + Environment.NewLine + "     - \"SSH Connection\" or \"SSH Connection - XXX\"" + Environment.NewLine + "     - \"SNMP Connection\" or \"SNMP Connection - XXX\"" + Environment.NewLine + "     - \"Serial Connection\" or \"Serial Connection - XXX\": for drivers that only support the physical serial port. In other words, driver connections of type serial which don't support TCP nor UDP (See PortTypeIP, PortTypeUDP and PortTypeSerial tags under PortSettings tag)." + Environment.NewLine + "- When having more than one connection for a specific type, the name needs to be of following format where XXX is used to distinguish them (ex: XXX = Redundant, XXX = Redundant 2, XXX = Backup, XXX = Traps, XXX = Events, etc):" + Environment.NewLine + "     - \"IP Connection - XXX\"" + Environment.NewLine + "     - \"HTTP Connection - XXX\"" + Environment.NewLine + "     - etc",
                 HasCodeFix = false
             };
 
@@ -618,8 +605,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "Connection 0 has mismatching names: 'myConnectionName' vs 'myConnectionOtherName'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "- When having only one connection for a specific type, the name needs to be of following format, where the second option can (optionally) be used to add more info about the goal of the connection (ex: XXX = Traps, XXX = Events, XXX = Alarms, etc):" + Environment.NewLine + "     - \"IP Connection\" or \"IP Connection - XXX\": for drivers that support TCP and/or UDP (See PortTypeIP, PortTypeUDP and PortTypeSerial tags under PortSettings tag)" + Environment.NewLine + "     - \"HTTP Connection\" or \"HTTP Connection - XXX\"" + Environment.NewLine + "     - \"SSH Connection\" or \"SSH Connection - XXX\"" + Environment.NewLine + "     - \"SNMP Connection\" or \"SNMP Connection - XXX\"" + Environment.NewLine + "     - \"Serial Connection\" or \"Serial Connection - XXX\": for drivers that only support the physical serial port. In other words, driver connections of type serial which don't support TCP nor UDP (See PortTypeIP, PortTypeUDP and PortTypeSerial tags under PortSettings tag)." + Environment.NewLine + "- When having more than one connection for a specific type, the name needs to be of following format where XXX is used to distinguish them (ex: XXX = Redundant, XXX = Redundant 2, XXX = Backup, XXX = Traps, XXX = Events, etc):" + Environment.NewLine + "     - \"IP Connection - XXX\"" + Environment.NewLine + "     - \"HTTP Connection - XXX\"" + Environment.NewLine + "     - etc",
                 HasCodeFix = false
             };
 
@@ -645,11 +630,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "Unrecommended use of the 'Protocol/Connections' syntax.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details =
-                    $"Connections can be defined either via 'Protocol/Type' or via 'Protocol/Connections' but both syntaxes can not be used in the same protocol.{Environment.NewLine}" +
-                    $"- 'Protocol/Type' is the recommended syntax.{Environment.NewLine}" +
-                    "- 'Protocol/Connections' should only be used in case one of the rare features only available in this syntax is needed.",
                 HasCodeFix = false
             };
 
@@ -679,8 +659,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "snmp Connection '0' with name 'myNewSnmp' was added.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 
@@ -706,8 +684,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "Order of connections changed from '0:snmp, 1:serial' to '0:serial, 1:snmp'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 
@@ -733,8 +709,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 GroupDescription = String.Empty,
                 Description = "snmp Connection '0' with name 'myConnection' was changed into 'serial'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = String.Empty,
                 HasCodeFix = false
             };
 

@@ -96,7 +96,6 @@ namespace ProtocolTests.Protocol.CheckBaseForAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value 'attributeValue' in attribute 'baseFor'.",
-                Details = "The Protocol@baseFor attribute value must not be equal to the value specified in Protocol/ElementType.",
                 HasCodeFix = false,
             };
 

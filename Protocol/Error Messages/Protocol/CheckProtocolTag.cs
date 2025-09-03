@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckProtoco
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}'.", "Protocol"),
                 HowToFix = "Add Protocol root tag to the document.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

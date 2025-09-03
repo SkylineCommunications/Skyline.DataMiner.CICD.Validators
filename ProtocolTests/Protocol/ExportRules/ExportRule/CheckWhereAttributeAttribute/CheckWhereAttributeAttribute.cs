@@ -87,7 +87,6 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereAttributeAttri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'ExportRule@whereAttribute'.",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -108,7 +107,6 @@ namespace ProtocolTests.Protocol.ExportRules.ExportRule.CheckWhereAttributeAttri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'ExportRule@whereAttribute'. Current value 'untrimmedValue'.",
-                Details = "",
                 HasCodeFix = false,
             };
 

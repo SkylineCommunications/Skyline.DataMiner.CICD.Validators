@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Missing Header '{0}' in HTTP '{1}' request. Session ID '{2}'. Connection ID '{3}'.", headerKey, verb, sessionId, connectionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Duplicate Header '{0}' in HTTP request. Session ID '{1}'. Connection ID '{2}'.", headerKey, sessionId, connectionId),
                 HowToFix = "Merge the duplicate headers into one by providing a comma separated list of values.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,

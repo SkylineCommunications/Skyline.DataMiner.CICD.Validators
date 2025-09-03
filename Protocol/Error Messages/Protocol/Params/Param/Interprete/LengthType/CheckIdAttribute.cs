@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' due to '{1}' '{2}'. {3} {4} '{5}'.", "Interprete/LengthType@id", "LengthType", "other param", "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Interprete/LengthType@id", "Param", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "id", "Param", paramId, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Interprete/LengthType@id", "Param", "ID", nonExistingParamId, "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid {0} '{1}' on {4} referenced by {2}. Expected value '{3}'. {4} {5} '{6}'.", "Interprete/Type", interpreteType, "Interprete/LengthType@id", "double", "Param", "ID", paramId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When Interprete/LengthType tag is set to 'other param', the id attribute should be added to it and should refer to the id of an existing parameter of Interprete/Type double.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

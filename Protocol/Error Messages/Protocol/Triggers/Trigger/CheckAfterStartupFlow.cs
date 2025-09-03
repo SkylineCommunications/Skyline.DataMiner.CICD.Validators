@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("After startup Trigger can't have a Condition. Trigger ID '{0}'.", triggerId),
                 HowToFix = "Move the condition to a later step.",
-                ExampleCode = "",
-                Details = "A condition should not be used until the after startup flow went through the protocol thread (via a poll group).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("After startup Action can't have a Condition. Action ID '{0}'.", actionId),
                 HowToFix = "Move the condition to a later step.",
-                ExampleCode = "",
-                Details = "A condition should not be used until the after startup flow went through the protocol thread (via a poll group).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("After startup Trigger must have a Type tag with value 'action'. Trigger ID '{0}'", triggerId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "After startup flow must be:" + Environment.NewLine + "Trigger: after startup On protocol -> Action: 'execute next/execute one top/execute/execute one now' On Group -> Group: poll/poll action/poll trigger.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("After startup Action must have an On tag with value 'group'. Action ID '{0}'.", actionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "After startup flow must be:" + Environment.NewLine + "Trigger: after startup On protocol -> Action: 'execute next/execute one top/execute/execute one now' On Group -> Group: poll/poll action/poll trigger.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("After startup Action must have a Type tag with value 'execute next' or 'execute'. Action ID '{0}'.", actionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "After startup flow must be:" + Environment.NewLine + "Trigger: after startup On protocol -> Action: 'execute next/execute one top/execute/execute one now' On Group -> Group: poll/poll action/poll trigger.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("After startup Group must have a Type tag with value 'poll', 'poll trigger' or 'poll action'. Group ID '{0}'.", groupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "After startup flow must be:" + Environment.NewLine + "Trigger: after startup On protocol -> Action: 'execute next/execute one top/execute/execute one now' On Group -> Group: poll/poll action/poll trigger.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

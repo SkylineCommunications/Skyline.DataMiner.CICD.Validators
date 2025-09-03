@@ -78,7 +78,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedConstr
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Constructor 'unrecommendedConstructor' ('constructorNamespace') is unrecommended. QAction ID 'qactionId'.",
-                Details = "As mentioned on Microsoft docs (https://learn.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer):" + Environment.NewLine + "To increase performance, the XML serialization infrastructure dynamically generates assemblies to serialize and deserialize specified types. The infrastructure finds and reuses those assemblies. This behavior occurs only when using the following constructors:" + Environment.NewLine + "- XmlSerializer.XmlSerializer(Type)" + Environment.NewLine + "- XmlSerializer.XmlSerializer(Type, String)" + Environment.NewLine + "If you use any of the other constructors, multiple versions of the same assembly are generated and never unloaded, which results in a memory leak and poor performance. The easiest solution is to use one of the previously mentioned two constructors.",
                 HasCodeFix = false,
             };
 

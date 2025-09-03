@@ -1318,8 +1318,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTa
                 FixImpact = FixImpact.NonBreaking,
                 Description = "Empty tag 'RTDisplay' in Param '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -1344,8 +1342,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTa
                 FixImpact = FixImpact.NonBreaking,
                 Description = "Invalid value 'invalidValue' in tag 'RTDisplay'. Possible values 'true, false'. Param ID '100'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
             };
 
@@ -1370,8 +1366,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTa
                 FixImpact = FixImpact.NonBreaking,
                 Description = "RTDisplay(true) expected on Param '100'.",
                 HowToFix = "Double check the subresults to evaluate if the features requiring RTDisplay are to be removed or if RTDisplay actually has to be set to true.",
-                ExampleCode = "",
-                Details = "This protocol contains some feature(s) requiring this Param to need the RTDisplay tag to be set true (see subresults).",
                 HasCodeFix = false,
             };
 
@@ -1396,8 +1390,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTa
                 FixImpact = FixImpact.NonBreaking,
                 Description = "Unexpected RTDisplay(true) on Param '100'.",
                 HowToFix = "Double check if this Param requires RTDisplay for reasons that are outside the scope of this driver (Visios, automation scripts, etc)." + Environment.NewLine + "- If so, suppress this result and explain why RTDisplay is required via the suppression comment." + Environment.NewLine + "- If not, remove the full Display tag containing this RTDisplay tag.",
-                ExampleCode = "",
-                Details = "This protocol doesn't contain anything that would justify the need of the RTDisplay tag being true.",
                 HasCodeFix = false,
             };
 
@@ -1422,8 +1414,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.RTDisplay.CheckRTDisplayTa
                 FixImpact = FixImpact.NonBreaking,
                 Description = "Untrimmed tag 'RTDisplay' in Param '1'. Current value ' true '.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
             };
 

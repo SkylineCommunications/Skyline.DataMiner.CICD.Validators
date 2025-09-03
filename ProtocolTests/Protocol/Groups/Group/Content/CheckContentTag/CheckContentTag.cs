@@ -245,8 +245,6 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.CheckContentTag
                 GroupDescription = "",
                 Description = "Group contains more than 10 content elements. Group ID 'groupId'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "It is recommended to limit the Group/Content to a max of 10 tags.",
                 HasCodeFix = false,
             };
 
@@ -272,8 +270,6 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.CheckContentTag
                 GroupDescription = "",
                 Description = "Group with 'multipleGet' true contains more than 20 content elements. Group ID 'groupId'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When 'Content@multipleGet' is set to true. It recommended to limit the Group/Content to a max of 20 Param tags.",
                 HasCodeFix = false,
             };
 
@@ -299,8 +295,6 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.CheckContentTag
                 GroupDescription = "",
                 Description = "Missing tag 'Content' in Group 'groupId'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Typically, a non-empty 'Group/Content' is mandatory on groups except for the following exceptional cases where the Content tag should be ommitted:" + Environment.NewLine + "- Multi-threaded groups" + Environment.NewLine + "- When the protocol doesn't have any group at all. In that case, it is needed to add a Group without any content.",
                 HasCodeFix = false,
             };
 
@@ -326,8 +320,6 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.CheckContentTag
                 GroupDescription = "",
                 Description = "Unsupported mixed group content 'contentTypes'. Group ID 'groupId'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Depending on the Group/Type, the Group/Content can only contain certain tags:" + Environment.NewLine + "- 'poll': Can contain multiple instances of one of the below tags but not a mix of them:" + Environment.NewLine + "    - 'Param'" + Environment.NewLine + "    - 'Pair'" + Environment.NewLine + "    - 'Session'" + Environment.NewLine + "- 'action' / 'poll action': Can only contain Action tags." + Environment.NewLine + "- 'trigger' / 'poll trigger': Can only contain Trigger tags.",
                 HasCodeFix = false,
             };
 

@@ -20,25 +20,27 @@ The Major Change Checker is currently only available in DataMiner Integration St
 
 A check consists of the following properties:
 
-- Full ID: Unique ID of the check.
-- Name: This is the name of the check.
-- Description: A meaningful description of the check with the necessary placeholders.
-- Severity: Specify the severity level. To choose the right severity, you can follow the following guide:
+- **Full ID**: Unique ID of the check.
+- **Name**: This is the name of the check.
+- **Description**: A meaningful description of the check with the necessary placeholders.
+- **Severity**: Specify the severity level. To choose the right severity, you can follow the following guide:
   - Critical: This type of error will have a critical impact on the system or will prevent the driver from working. It may also draw your attention to something that needs to be fixed for administrative reasons.
   - Major: This type of error will prevent part of the driver from working as expected. (For example, A specific driver feature will not work.)
   - Minor: This type of error will not prevent the driver from working, but will have some impact. It may draw your attention to something that was not implemented according to the best practice guidelines. (For example, bad performance, Not user-friendly, etc.)
   - Warning: This type of error reveals something that will not have any impact. (For example, unused XML elements or attributes.)
-- Source: Either Validator or MajorChangeChecker
-- Certainty: Specifies the certainty level.
+- **Source: Either Validator or MajorChangeChecker
+- **Certainty**: Specifies the certainty level.
   - Certain: An error has been detected and needs to be fixed.
   - Uncertain: A possible error has been detected and needs to be fixed once verified.
-- Fix Impact: Indicates whether there would be a breaking change when fixing the error.
-- Has Code Fix: Indicates whether this check provides an automatic fix.
-- How To Fix: This optional field indicates the steps needed on how to fix the issue.
-- Example Code: Optional field that can describe how the correct syntax would be.
-- Details: This optional field gives additional information regarding the error.
+- **Fix Impact**: Indicates whether there would be a breaking change when fixing the error.
+- **Has Code Fix**: Indicates whether this check provides an automatic fix.
+- **How To Fix**: This optional field indicates the steps needed on how to fix the issue.
+- **Example Code**: Optional field that can describe how the correct syntax would be.
+- **Details**: This optional field gives additional information regarding the error.
 
 ## Check overview
 
-- [Validator cheks](xref:Validator_1_1_1)
+- [Validator checks](xref:Validator_1_1_1)
 - [Major Change Checker checks](xref:MajorChangeChecker_1_23_10)
+
+[Params tag](xref:Protocol.Params)

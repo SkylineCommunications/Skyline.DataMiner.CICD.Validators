@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "On@id", "Trigger", triggerId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When triggering on:" + Environment.NewLine + "  - parameter" + Environment.NewLine + "  - command" + Environment.NewLine + "  - response" + Environment.NewLine + "  - pair" + Environment.NewLine + "  - group" + Environment.NewLine + "  - timer" + Environment.NewLine + "  - session" + Environment.NewLine + "A 'Trigger/On@id' attribute is expected and should have one of the following values:" + Environment.NewLine + "  - 'each': in this case, the protocol should have at least one item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "  - The ID of an item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "" + Environment.NewLine + "When triggering on:" + Environment.NewLine + "  - protocol" + Environment.NewLine + "  - communication" + Environment.NewLine + "No 'Trigger/On@id' attribute is expected.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Excessive 'id' Attribute in tag 'On' with value '{0}'. Trigger ID '{1}'.", onTagValue, triggerId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When triggering on:" + Environment.NewLine + "  - parameter" + Environment.NewLine + "  - command" + Environment.NewLine + "  - response" + Environment.NewLine + "  - pair" + Environment.NewLine + "  - group" + Environment.NewLine + "  - timer" + Environment.NewLine + "  - session" + Environment.NewLine + "A 'Trigger/On@id' attribute is expected and should have one of the following values:" + Environment.NewLine + "  - 'each': in this case, the protocol should have at least one item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "  - The ID of an item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "" + Environment.NewLine + "When triggering on:" + Environment.NewLine + "  - protocol" + Environment.NewLine + "  - communication" + Environment.NewLine + "No 'Trigger/On@id' attribute is expected.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "id"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When triggering on:" + Environment.NewLine + "  - parameter" + Environment.NewLine + "  - command" + Environment.NewLine + "  - response" + Environment.NewLine + "  - pair" + Environment.NewLine + "  - group" + Environment.NewLine + "  - timer" + Environment.NewLine + "  - session" + Environment.NewLine + "A 'Trigger/On@id' attribute is expected and should have one of the following values:" + Environment.NewLine + "  - 'each': in this case, the protocol should have at least one item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "  - The ID of an item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "" + Environment.NewLine + "When triggering on:" + Environment.NewLine + "  - protocol" + Environment.NewLine + "  - communication" + Environment.NewLine + "No 'Trigger/On@id' attribute is expected.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Attribute 'On@id' cannot have multiple values. Trigger ID '{0}'.", triggerId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When triggering on:" + Environment.NewLine + "  - parameter" + Environment.NewLine + "  - command" + Environment.NewLine + "  - response" + Environment.NewLine + "  - pair" + Environment.NewLine + "  - group" + Environment.NewLine + "  - timer" + Environment.NewLine + "  - session" + Environment.NewLine + "A 'Trigger/On@id' attribute is expected and should have one of the following values:" + Environment.NewLine + "  - 'each': in this case, the protocol should have at least one item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "  - The ID of an item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "" + Environment.NewLine + "When triggering on:" + Environment.NewLine + "  - protocol" + Environment.NewLine + "  - communication" + Environment.NewLine + "No 'Trigger/On@id' attribute is expected.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. Possible values '{2}'.", "id", attributeValue, allowedValues),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When triggering on:" + Environment.NewLine + "  - parameter" + Environment.NewLine + "  - command" + Environment.NewLine + "  - response" + Environment.NewLine + "  - pair" + Environment.NewLine + "  - group" + Environment.NewLine + "  - timer" + Environment.NewLine + "  - session" + Environment.NewLine + "A 'Trigger/On@id' attribute is expected and should have one of the following values:" + Environment.NewLine + "  - 'each': in this case, the protocol should have at least one item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "  - The ID of an item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "" + Environment.NewLine + "When triggering on:" + Environment.NewLine + "  - protocol" + Environment.NewLine + "  - communication" + Environment.NewLine + "No 'Trigger/On@id' attribute is expected.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "On@id", referenceKind, "ID", referenceId, "Trigger", "ID", triggerId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When triggering on:" + Environment.NewLine + "  - parameter" + Environment.NewLine + "  - command" + Environment.NewLine + "  - response" + Environment.NewLine + "  - pair" + Environment.NewLine + "  - group" + Environment.NewLine + "  - timer" + Environment.NewLine + "  - session" + Environment.NewLine + "A 'Trigger/On@id' attribute is expected and should have one of the following values:" + Environment.NewLine + "  - 'each': in this case, the protocol should have at least one item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "  - The ID of an item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "" + Environment.NewLine + "When triggering on:" + Environment.NewLine + "  - protocol" + Environment.NewLine + "  - communication" + Environment.NewLine + "No 'Trigger/On@id' attribute is expected.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Invalid use of leading zeros on 'On@id' attribute. Trigger ID '{0}'. Current value '{1}'.", triggerId, attributeValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When triggering on:" + Environment.NewLine + "  - parameter" + Environment.NewLine + "  - command" + Environment.NewLine + "  - response" + Environment.NewLine + "  - pair" + Environment.NewLine + "  - group" + Environment.NewLine + "  - timer" + Environment.NewLine + "  - session" + Environment.NewLine + "A 'Trigger/On@id' attribute is expected and should have one of the following values:" + Environment.NewLine + "  - 'each': in this case, the protocol should have at least one item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "  - The ID of an item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "" + Environment.NewLine + "When triggering on:" + Environment.NewLine + "  - protocol" + Environment.NewLine + "  - communication" + Environment.NewLine + "No 'Trigger/On@id' attribute is expected.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "id", attributeValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When triggering on:" + Environment.NewLine + "  - parameter" + Environment.NewLine + "  - command" + Environment.NewLine + "  - response" + Environment.NewLine + "  - pair" + Environment.NewLine + "  - group" + Environment.NewLine + "  - timer" + Environment.NewLine + "  - session" + Environment.NewLine + "A 'Trigger/On@id' attribute is expected and should have one of the following values:" + Environment.NewLine + "  - 'each': in this case, the protocol should have at least one item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "  - The ID of an item of the type mentioned in the 'Trigger/On' tag." + Environment.NewLine + "" + Environment.NewLine + "When triggering on:" + Environment.NewLine + "  - protocol" + Environment.NewLine + "  - communication" + Environment.NewLine + "No 'Trigger/On@id' attribute is expected.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

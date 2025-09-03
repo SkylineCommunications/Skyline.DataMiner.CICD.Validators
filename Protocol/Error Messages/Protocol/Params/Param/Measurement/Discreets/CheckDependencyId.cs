@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Discreets@dependencyId", "Param", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "Discreets@dependencyId", "Param", pid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Discreets@dependencyId", attributeValue, "Param", pid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Discreets@dependencyId", "Param", "ID", referencedPid, "Param", "ID", pid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid Param Type '{0}' on Param referenced by a 'Discreets@dependencyId' attribute. Param ID '{1}'.", referencedParamType, referencedPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' referenced by a 'Discreets@dependencyId' attribute. Param ID '{1}'.", referencedPid, referencingPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Discreets@dependencyId attribute should contain the ID of a Param." + Environment.NewLine + "The referenced Param is expected to:" + Environment.NewLine + "- Be of type 'read' or 'read bit'." + Environment.NewLine + "- Have RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

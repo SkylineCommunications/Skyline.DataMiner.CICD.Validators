@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Package '{0}' version '{1}' has a higher version than the version specified in the MinimumRequiredVersion tag '{2}'. QAction ID '{3}'.", packageName, packageVersion, minimumRequiredVersion, qactionId),
                 HowToFix = "Either increase version in the MinimumRequiredVersion tag or downgrade the package so it matches with the minimum required version.",
-                ExampleCode = "",
-                Details = "Using a higher version of the DevPack may introduce new features that are not compatible with the specified version of DataMiner." + Environment.NewLine + "This can lead to unexpected behavior or errors. Make sure that the DevPack version used in the solution does not exceed the MinimumRequiredVersion.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

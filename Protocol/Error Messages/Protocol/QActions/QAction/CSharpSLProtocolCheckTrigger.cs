@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}' references a non-existing '{1}' with {2} '{3}'. QAction ID '{4}'.", "SLProtocol.CheckTrigger", "Trigger", "ID", triggerId, qactionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.CheckTrigger is used to make a trigger go off." + Environment.NewLine + "Make sure to provide it with an ID of a trigger that exists.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

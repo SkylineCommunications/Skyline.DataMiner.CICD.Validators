@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "ExportRule@whereTag"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "As soon as whereValue or whereAttribute is being used, the whereTag is needed.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "ExportRule@whereTag"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "ExportRule@whereTag", untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

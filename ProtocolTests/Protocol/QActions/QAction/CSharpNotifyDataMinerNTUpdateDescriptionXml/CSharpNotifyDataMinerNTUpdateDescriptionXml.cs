@@ -110,8 +110,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTUpdateD
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(Queued)(127/*NT_UPDATE_DESCRIPTION_XML*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "uint[] elementDetails = new uint[] { agentId, elementId };" + Environment.NewLine + "object[] updates = new object[] { update1, update2 };" + Environment.NewLine + "" + Environment.NewLine + "int result = (int) protocol.NotifyDataMinerQueued(127/*NT_UPDATE_DESCRIPTION_XML */ , elementDetails, updates);",
-                Details = "To make this call DELT compatible, the DMA ID needs to be provided as argument." + Environment.NewLine + "See Example code." + Environment.NewLine + "" + Environment.NewLine + "More information about the syntax can be found in the DataMiner Development Library.",
                 HasCodeFix = false,
             };
 

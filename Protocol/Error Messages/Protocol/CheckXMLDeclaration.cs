@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckXMLDecl
                 GroupDescription = "",
                 Description = String.Format("Invalid XML encoding '{0}'. Possible values '{1}'.", currentEncoding, possibleValues),
                 HowToFix = "Remove the XML declaration if not set to UTF-8.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

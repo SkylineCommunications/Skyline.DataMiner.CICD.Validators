@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "LinkedDetails@discreetColumnId", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@discreetColumnId attribute should contain a column PID. The value contained in that column will then be compared to the value specified in LinkedDetails@value attribute." + Environment.NewLine + "Such column should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "LinkedDetails@discreetColumnId", "TreeControl", treeControlPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@discreetColumnId attribute should contain a column PID. The value contained in that column will then be compared to the value specified in LinkedDetails@value attribute." + Environment.NewLine + "Such column should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "LinkedDetails@discreetColumnId", "TreeControl", treeControlPid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@discreetColumnId attribute should contain a column PID. The value contained in that column will then be compared to the value specified in LinkedDetails@value attribute." + Environment.NewLine + "Such column should have its RTDisplay tag set to true.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "LinkedDetails@discreetColumnId", attributeValue, "TreeControl", treeControlPid, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@discreetColumnId attribute should contain a column PID. The value contained in that column will then be compared to the value specified in LinkedDetails@value attribute." + Environment.NewLine + "Such column should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "ExtraDetails/LinkedDetails", "discreetColumnId", "Column", "PID", columnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@discreetColumnId attribute should contain a column PID. The value contained in that column will then be compared to the value specified in LinkedDetails@value attribute." + Environment.NewLine + "Such column should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on column referenced by TreeControl 'LinkedDetails@discreetColumnId' attribute. Column PID '{0}'.", columnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "LinkedDetails@discreetColumnId attribute should contain a column PID. The value contained in that column will then be compared to the value specified in LinkedDetails@value attribute." + Environment.NewLine + "Such column should have its RTDisplay tag set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

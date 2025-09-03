@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Minimum required version '{0}' too low. Expected value '{1}'.", currentMinDmVersion, expectedMinDmVersion),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Indicates the minimum DataMiner ver­sion that the driver is compatible with. " + Environment.NewLine + "If the DMS software version is less recent than the indicated version, the protocol will not be useable.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("'{0}' : '{1}'", requiredDmVersion, usedFeature),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Feature used in '{0}' with '{1}' '{2}'.", itemKind, identifierType, itemId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Feature used in '{0}'.", itemKind),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}'. Current value '{1}'.", "MinimumRequiredVersion", tagValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}'.", "MinimumRequiredVersion"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}'.", "MinimumRequiredVersion"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Protocol minimum required DM version '{0}' is lower than the Skyline minimum supported DM version '{1}'.", protocolMinDmVersion, skylineMinDmVersion),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The minimum required DataMiner version for this protocol is lower than the minimum DataMiner version supported by Skyline." + Environment.NewLine + "For more info on the minimum DataMiner version supported by Skyline, see https://aka.dataminer.services/SoftwareSupport-LifeCycle.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -228,8 +212,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in tag '{0}'.", "MinimumRequiredVersion", tagValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -256,8 +238,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 GroupDescription = "",
                 Description = String.Format("Minimum DataMiner required version increased from '{0}' to '{1}'.", oldMinDmVersion, newMinDmVersion),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "When increasing the minimum supported DataMiner version, a new protocol range should be made by incrementing the system version (2nd part of the protocol version)",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

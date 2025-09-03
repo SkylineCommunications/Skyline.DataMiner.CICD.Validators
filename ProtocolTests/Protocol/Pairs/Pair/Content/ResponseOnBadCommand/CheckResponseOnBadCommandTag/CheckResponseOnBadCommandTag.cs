@@ -176,8 +176,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.ResponseOnBadCommand.CheckRe
                 GroupDescription = "",
                 Description = "Empty tag 'Content/ResponseOnBadCommand' in Pair '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of a pairs can contain maximum one ResponseOnBadCommand tag." + Environment.NewLine + "It should have as value an unsigned number and refer to the id of an existing Response." + Environment.NewLine + "A given pair can't refer to the same Response more than once (including both Response and ResponseOnBadCommand tags)." + Environment.NewLine + "" + Environment.NewLine + "Also note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -203,8 +201,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.ResponseOnBadCommand.CheckRe
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'Content/ResponseOnBadCommand'. Pair ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of a pairs can contain maximum one ResponseOnBadCommand tag." + Environment.NewLine + "It should have as value an unsigned number and refer to the id of an existing Response." + Environment.NewLine + "A given pair can't refer to the same Response more than once (including both Response and ResponseOnBadCommand tags)." + Environment.NewLine + "" + Environment.NewLine + "Also note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -230,8 +226,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.ResponseOnBadCommand.CheckRe
                 GroupDescription = "",
                 Description = "Tag 'Content/ResponseOnBadCommand' references a non-existing 'Response' with ID '2'. Pair ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of a pairs can contain maximum one ResponseOnBadCommand tag." + Environment.NewLine + "It should have as value an unsigned number and refer to the id of an existing Response." + Environment.NewLine + "A given pair can't refer to the same Response more than once (including both Response and ResponseOnBadCommand tags)." + Environment.NewLine + "" + Environment.NewLine + "Also note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -257,8 +251,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.ResponseOnBadCommand.CheckRe
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Content/ResponseOnBadCommand' in Pair '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Content tag of a pairs can contain maximum one ResponseOnBadCommand tag." + Environment.NewLine + "It should have as value an unsigned number and refer to the id of an existing Response." + Environment.NewLine + "A given pair can't refer to the same Response more than once (including both Response and ResponseOnBadCommand tags)." + Environment.NewLine + "" + Environment.NewLine + "Also note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
             };
 

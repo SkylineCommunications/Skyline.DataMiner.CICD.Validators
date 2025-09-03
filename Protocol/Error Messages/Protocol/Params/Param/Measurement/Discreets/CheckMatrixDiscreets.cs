@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Invalid number of Discreets '{0}' for matrix Param. Expected count '{1}'. Param ID '{2}'.", discreetCount, expectedDiscreetCount, matrixPid),
                 HowToFix = "Make sure the number of discreets is equal to the number of inputs + outputs as defined in the Param/Type@options dimension.",
-                ExampleCode = "",
-                Details = "For matrix read parameters, the number of discreets should correspond to sum of the number of inputs and the number of outputs." + Environment.NewLine + "Their values should be one-based and sequentially increasing by 1.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Missing matrix Discreet values '{0}'. Param ID '{1}'.", missingValues, matrixPid),
                 HowToFix = "Make sure Discreet values are sequentially incremented by 1.",
-                ExampleCode = "",
-                Details = "For matrix read parameters, the number of discreets should correspond to sum of the number of inputs and the number of outputs." + Environment.NewLine + "Their values should be one-based and sequentially increasing by 1.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Matrix Discreet values should be one-based. Param ID '{0}'.", matrixPid),
                 HowToFix = "Make sure the first discreet value is 1.",
-                ExampleCode = "",
-                Details = "For matrix read parameters, the number of discreets should correspond to sum of the number of inputs and the number of outputs." + Environment.NewLine + "Their values should be one-based and sequentially increasing by 1.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

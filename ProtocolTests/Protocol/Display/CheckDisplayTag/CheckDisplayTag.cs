@@ -76,8 +76,6 @@ namespace ProtocolTests.Protocol.Display.CheckDisplayTag
                 GroupDescription = "",
                 Description = "Missing tag 'Protocol/Display'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Protocol/Display tag is mandatory in order to define how pages should be displayed (default page, page order, etc).",
                 HasCodeFix = false,
             };
 

@@ -29,8 +29,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("DisplayColumn attribute with column idx '{0}' on table '{1}' was changed into naming options: '{2}'.", columnIdx, tableId, namingValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -54,8 +52,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("DisplayColumn attribute with column idx '{0}' on table '{1}' was changed into NamingFormat: '{2}'.", columnIdx, tableId, namingFormatValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

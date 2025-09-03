@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'. {7} {8} '{9}'.", "Response/Headers/Header@pid", "Param", "ID", pid, "HTTP Session", "ID", sessionId, "Connection", "ID", connectionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Use this attribute to specify the id of an existing parameter where the response header value will be set.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'. {3} {4} '{5}'.", "Response/Headers/Header@pid", "HTTP Session", sessionId, "Connection", "ID", connectionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Use this attribute to specify the id of an existing parameter where the response header value will be set.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'. {5} {7} '{6}'.", "Response/Headers/Header@pid", pidValue, "HTTP Session", httpSessionId, "ID", "Connection", connectionId, "ID"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Use this attribute to specify the id of an existing parameter where the response header value will be set.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

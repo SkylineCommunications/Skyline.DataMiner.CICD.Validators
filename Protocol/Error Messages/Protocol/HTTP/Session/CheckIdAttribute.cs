@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "HTTP/Session@id"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "HTTP/Session@id"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "HTTP/Session@id", attributeValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "HTTP/Session@id", sessionId, "Session", sessionName, "name"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("More than one {0} with same ID '{1}'. {0} Names '{2}'.", "HTTP Session", sessionId, sessionNames),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

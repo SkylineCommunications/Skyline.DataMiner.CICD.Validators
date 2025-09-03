@@ -94,8 +94,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.CheckDisplayTag
                 GroupDescription = "",
                 Description = "Missing tag 'Display' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Param/Display' should always contain, at least, one child tag.",
                 HasCodeFix = true,
             };
 

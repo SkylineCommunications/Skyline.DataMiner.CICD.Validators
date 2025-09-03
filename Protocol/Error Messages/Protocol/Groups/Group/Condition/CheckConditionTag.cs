@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
                 GroupDescription = "",
                 Description = String.Format("Invalid condition '{0}'. Reason '{1}'. {2} {3} '{4}'.", conditionString, invalidityReason, "Group", "ID", groupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Group/Condition' should always contain a statement returning a boolean." + Environment.NewLine + "See DDL for more information." + Environment.NewLine + "" + Environment.NewLine + "Here are a few examples of mistakes covered by this error:" + Environment.NewLine + "- Empty condition." + Environment.NewLine + "- Malformed condition:" + Environment.NewLine + "  - The 'id:' placeholder used to retrieve a parameter value is incorrectly defined." + Environment.NewLine + "  - The number of opening & closing parenthesis is not matching." + Environment.NewLine + "  - '&&', '||' is used instead of 'AND', 'OR'." + Environment.NewLine + "- Condition that is not a boolean expression." + Environment.NewLine + "- Fully hard-coded boolean expression (No reference to any parameter value)." + Environment.NewLine + "- etc.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
                 GroupDescription = "",
                 Description = String.Format("Tag '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Group/Condition", "Param", "PID", paramId, "Group", "ID", groupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "A 'Group/Condition' should always contain a statement returning a boolean." + Environment.NewLine + "See DDL for more information." + Environment.NewLine + "" + Environment.NewLine + "Here are a few examples of mistakes covered by this error:" + Environment.NewLine + "- Empty condition." + Environment.NewLine + "- Malformed condition:" + Environment.NewLine + "  - The 'id:' placeholder used to retrieve a parameter value is incorrectly defined." + Environment.NewLine + "  - The number of opening & closing parenthesis is not matching." + Environment.NewLine + "  - '&&', '||' is used instead of 'AND', 'OR'." + Environment.NewLine + "- Condition that is not a boolean expression." + Environment.NewLine + "- Fully hard-coded boolean expression (No reference to any parameter value)." + Environment.NewLine + "- etc.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Groups.Group
                 GroupDescription = "",
                 Description = String.Format("Condition '{0}' can be simplified. {1} {2} '{3}'.", conditionString, "Group", "ID", groupId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The 'Group/Condition' can be simplified. Some examples of when the condition can be simplified:" + Environment.NewLine + "  - The condition contains redundant parentheses." + Environment.NewLine + "  - The condition does not contain a variable and therefore can either be dropped completely (or a variable must be included).",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

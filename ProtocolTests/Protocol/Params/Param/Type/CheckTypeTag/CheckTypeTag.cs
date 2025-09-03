@@ -145,8 +145,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
                 GroupDescription = "",
                 Description = "Empty tag 'Param/Type' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All parameters must have a properly filled-in 'Param/Type' tag.",
                 HasCodeFix = false,
             };
 
@@ -172,8 +170,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'Param/Type'. Param ID '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All parameters must have a properly filled-in 'Param/Type' tag.",
                 HasCodeFix = false,
             };
 
@@ -199,8 +195,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
                 GroupDescription = "",
                 Description = "Missing tag 'Param/Type' in Param '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All parameters must have a properly filled-in 'Param/Type' tag.",
                 HasCodeFix = false,
             };
 
@@ -226,8 +220,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Param/Type' in Param '2'. Current value '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "All parameters must have a properly filled-in 'Param/Type' tag.",
                 HasCodeFix = true,
             };
 

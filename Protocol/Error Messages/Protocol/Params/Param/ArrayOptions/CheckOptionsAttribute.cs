@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "ArrayOptions@options", "Param", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "ArrayOptions@options", "Table", tablePid, untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Empty option '{0}' in attribute '{1}'. {2} {3} '{4}'.", "naming", "ArrayOptions@options", "Table", "PID", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The naming option in the ArrayOptions@options attribute should contain a list of PIDs referencing existing parameters.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Option '{0}' in attribute '{1}' references a non-existing '{2}' with {3} '{4}'. {5} {6} '{7}'.", "naming", "ArrayOptions@options", "Param", "ID", referencedPid, "Table", "PID", tablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The naming option in the ArrayOptions@options attribute should contain a list of PIDs referencing existing parameters.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Unrecommended use of the \"preserve state\" option on table '{0}'.", tablePid),
                 HowToFix = "Use a QAction to compare the previous and new values of the cells, and calculate the state of each row.",
-                ExampleCode = "",
-                Details = "The use of the \"preserve state\" option on tables should be avoided as it requires sig­nificantly more processing.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Table view option '{0}' must refer to an existing table excluding the view table itself. View table PID '{1}'.", viewOption, viewTablePid),
                 HowToFix = "Make sure the view table refers to an existing table, excluding view tables.",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Column '{0}' specified in the filterChange option must refer to a column of the view table '{1}'.", columnPid, viewTablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Column '{0}' specified in the directView option of view table '{1}' must refer to a column of another table.", columnPid, viewTablePid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -231,8 +215,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 GroupDescription = "",
                 Description = String.Format("Database link for logger table '{0}' was removed.", paramPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

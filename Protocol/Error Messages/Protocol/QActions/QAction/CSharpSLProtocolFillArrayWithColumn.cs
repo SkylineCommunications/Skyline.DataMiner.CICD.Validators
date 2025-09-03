@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}' references a non-existing '{1}' with {2} '{3}'. QAction ID '{4}'.", "SLProtocol.FillArrayWithColumn", "table", "PID", tablePid, qactionId),
                 HowToFix = "",
-                ExampleCode = "protocol.FillArrayWithColumn(Parameter.TableName.tablePid, Parameter.TableName.Pid.ColumnName, keys, values);",
-                Details = "SLProtocol.FillArrayWithColumn is used to update the values of a column." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Method '{0}' references a non-existing '{1}' with {2} '{3}'. QAction ID '{4}'.", "SLProtocol.FillArrayWithColumn", "column", "PID", columnPid, qactionId),
                 HowToFix = "",
-                ExampleCode = "protocol.FillArrayWithColumn(Parameter.TableName.tablePid, Parameter.TableName.Pid.ColumnName, keys, values);",
-                Details = "SLProtocol.FillArrayWithColumn is used to update the values of a column." + Environment.NewLine + "Make sure to provide it with an ID of a column parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("{0} overload with '{1}' argument requires '{2}'. {3} {4} '{5}'.", "SLProtocol.FillArrayWithColumn", "DateTime? timeInfo", "Param@historySet=true", "column", "PID", columnPid),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Every overload of the 'SLProtocol.FillArrayWithColumn' method having the 'DateTime? timeInfo' argument is meant to execute a historySet." + Environment.NewLine + "Such method requires the column to be set to have the 'Param@historySet' attribute set to 'true'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -103,8 +97,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Unrecommended use of magic number '{0}', use '{1}' {2} instead. QAction ID '{3}'.", hardCodedTablePid, "Parameter", "class", qactionId),
                 HowToFix = "",
-                ExampleCode = "protocol.FillArrayWithColumn(Parameter.TableName.tablePid, Parameter.TableName.Pid.ColumnName, keys, values);",
-                Details = "SLProtocol.FillArrayWithColumn is used to update the values of a column." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -128,8 +120,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Unrecommended use of magic number '{0}', use '{1}' {2} instead. QAction ID '{3}'.", hardCodedColumnPid, "Parameter", "class", qactionId),
                 HowToFix = "",
-                ExampleCode = "protocol.FillArrayWithColumn(Parameter.TableName.tablePid, Parameter.TableName.Pid.ColumnName, keys, values);",
-                Details = "SLProtocol.FillArrayWithColumn is used to update the values of a column." + Environment.NewLine + "Make sure to provide it with an ID of a column parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -153,8 +143,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Unsupported {0} on {1} '{2}' with '{3}' containing '{4}'.", "set", "column", columnPid, optionLocation, optionName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Some columns are fully managed by DataMiner and therefore cannot be updated from the protocol." + Environment.NewLine + "" + Environment.NewLine + "Examples:" + Environment.NewLine + "- ColumnOption@Type=\"state\"." + Environment.NewLine + "- ColumnOption@Option containing the 'element' option.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -178,8 +166,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Unsupported {0} on {1} '{2}' managed by {3} '{4}' with '{5}' containing '{6}'.", "set", "column", columnPid, managedByItemKind, managedByItemId, optionLocation, optionName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Some columns are fully managed by protocol items and therefore cannot be updated from QActions." + Environment.NewLine + "" + Environment.NewLine + "Examples:" + Environment.NewLine + "- Multi-threaded timers with following ping options: rttColumn, timestampColumn, jitterColumn, latencyColumn, packetLossRateColumn." + Environment.NewLine + "- Merge actions (result destination)." + Environment.NewLine + "- ...",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -203,8 +189,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 GroupDescription = "",
                 Description = String.Format("Unrecommended {0} on {1} '{2}' with '{3}' containing '{4}'.", "set", "column", columnPid, "ColumnOption@type", "snmp"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "It is typically unrecommended to update SNMP parameters from within a protocol." + Environment.NewLine + "Indeed, SNMP parameters should typically strictly be updated via polling." + Environment.NewLine + "" + Environment.NewLine + "Exceptions can sometimes be made when we update SNMP parameters based on received traps which contains, without any possible doubt, the new value." + Environment.NewLine + "" + Environment.NewLine + "Side note: There are alternatives to poll SNMP parameters in an efficient way when, for example, a cell or column or row needs to be updated but you don't want to poll the entire table:" + Environment.NewLine + "- See various snmpSet options" + Environment.NewLine + "- See dynamicSnmpGet feature." + Environment.NewLine + "- ...",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

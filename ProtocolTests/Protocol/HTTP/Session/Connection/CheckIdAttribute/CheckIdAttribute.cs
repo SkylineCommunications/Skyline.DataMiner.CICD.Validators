@@ -178,8 +178,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 GroupDescription = "",
                 Description = "More than one Connection with same ID '2' in HTTP Session '4'. Connection Names '3'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each connection within a session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each connection within a session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -205,8 +203,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Empty attribute 'Connection@id' in HTTP Session '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each connection within a session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each connection within a session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -232,8 +228,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Connection@id'. HTTP Session ID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each connection within a session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each connection within a session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -259,8 +253,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Missing attribute 'Connection@id' in HTTP Session '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each connection within a session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each connection within a session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false,
             };
 
@@ -286,8 +278,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Connection@id' in HTTP Session '2'. Current value ' a '.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The id attribute is used internally as the identifier for each connection within a session." + Environment.NewLine + "It is therefore mandatory and needs to follow a number of rules:" + Environment.NewLine + "- Each connection within a session should have a unique id." + Environment.NewLine + "- Should be an unsigned integer." + Environment.NewLine + "- Only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true,
             };
 

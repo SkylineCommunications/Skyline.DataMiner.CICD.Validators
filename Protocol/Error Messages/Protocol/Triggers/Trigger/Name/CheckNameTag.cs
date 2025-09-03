@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "Trigger", "Name", duplicateName, triggerIds),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

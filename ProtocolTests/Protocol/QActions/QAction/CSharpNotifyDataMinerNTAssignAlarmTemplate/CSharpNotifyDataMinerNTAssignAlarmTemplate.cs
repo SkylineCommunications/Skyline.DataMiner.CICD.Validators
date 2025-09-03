@@ -111,8 +111,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTAssignA
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(Queued)(117/*NT_ASSIGN_ALARM_TEMPLATE*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
                 HowToFix = "",
-                ExampleCode = "uint[] elementDetails = { agentId, elementId };" + Environment.NewLine + "string[] alarmTemplate = new string[] { \"Alarm Template 1\" };" + Environment.NewLine + "" + Environment.NewLine + "protocol.NotifyDataMiner(117/*NT_ASSIGN_ALARM_TEMPLATE*/, elementDetails, alarmTemplate);",
-                Details = "To make this call DELT compatible, the DMA ID needs to be provided as argument." + Environment.NewLine + "See Example code." + Environment.NewLine + "" + Environment.NewLine + "More information about the syntax can be found in the DataMiner Development Library.",
                 HasCodeFix = false,
             };
 

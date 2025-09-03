@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "Protocol/Display@wideColumnPage"),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Protocol/Display@wideColumnPages allows to define a semicolon list of pages that should take the whole width available even if it only contains 1 column." + Environment.NewLine + "It should refer to pages that are present in the Protocol/Display@pageOrder attribute and on which at least one parameter is displayed.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -53,8 +51,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "wideColumnsPages", untrimmedValue),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Protocol/Display@wideColumnPages allows to define a semicolon list of pages that should take the whole width available even if it only contains 1 column." + Environment.NewLine + "It should refer to pages that are present in the Protocol/Display@pageOrder attribute and on which at least one parameter is displayed.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -78,8 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 GroupDescription = "",
                 Description = String.Format("The page '{0}' specified in 'Protocol/Display@wideColumnPages' does not exist.", pageName),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "The Protocol/Display@wideColumnPages allows to define a semicolon list of pages that should take the whole width available even if it only contains 1 column." + Environment.NewLine + "It should refer to pages that are present in the Protocol/Display@pageOrder attribute and on which at least one parameter is displayed.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

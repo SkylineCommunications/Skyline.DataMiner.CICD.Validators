@@ -28,8 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "proxyServer", "Param", "ID", pid, "HTTP Session", "ID", sessionId),
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Use this attribute to specify a hardcoded proxy server or the id of an existing parameter containing the proxy server.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

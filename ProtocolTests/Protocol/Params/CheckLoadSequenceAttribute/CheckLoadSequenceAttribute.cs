@@ -164,8 +164,6 @@ namespace ProtocolTests.Protocol.Params.CheckLoadSequenceAttribute
                 GroupDescription = "",
                 Description = "Empty attribute 'Params@loadSequence'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Params@loadSequence' expects a semicolon separated list of Param IDs allowing to define the order in which saved parameter values are loaded in SLElement." + Environment.NewLine + "Referenced parameters are expected to:" + Environment.NewLine + "- Have the save attribute set to 'true'" + Environment.NewLine + "- Have the RTDisplay tag set to 'true'.",
                 HasCodeFix = false,
             };
 
@@ -191,8 +189,6 @@ namespace ProtocolTests.Protocol.Params.CheckLoadSequenceAttribute
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Params@loadSequence'. Current value '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "'Params@loadSequence' expects a semicolon separated list of Param IDs allowing to define the order in which saved parameter values are loaded in SLElement." + Environment.NewLine + "Referenced parameters are expected to:" + Environment.NewLine + "- Have the save attribute set to 'true'" + Environment.NewLine + "- Have the RTDisplay tag set to 'true'.",
                 HasCodeFix = true,
             };
 

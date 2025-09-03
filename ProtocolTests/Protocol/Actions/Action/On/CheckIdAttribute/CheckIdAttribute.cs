@@ -222,8 +222,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'On@id' in Action '2'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "The 'Action/On@id' attribute can contain a semicolon list of unsigned number which refer to the id of an existing protocol item. The type of item is specified by the inner value of the 'Action/On' tag." + Environment.NewLine + "If the 'Action/On@id' attribute is not present, the action will apply to all item of the type given by the value of the 'Action/On' tag." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false
             };
 
@@ -249,8 +247,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "Invalid value '2' in attribute 'On@id'. Action ID '3'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "The 'Action/On@id' attribute can contain a semicolon list of unsigned number which refer to the id of an existing protocol item. The type of item is specified by the inner value of the 'Action/On' tag." + Environment.NewLine + "If the 'Action/On@id' attribute is not present, the action will apply to all item of the type given by the value of the 'Action/On' tag." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false
             };
 
@@ -276,8 +272,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "Attribute 'On@id' references a non-existing '2' with ID '3'. Action ID '4'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "The 'Action/On@id' attribute can contain a semicolon list of unsigned number which refer to the id of an existing protocol item. The type of item is specified by the inner value of the 'Action/On' tag." + Environment.NewLine + "If the 'Action/On@id' attribute is not present, the action will apply to all item of the type given by the value of the 'Action/On' tag." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = false
             };
 
@@ -303,8 +297,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
                 GroupDescription = String.Empty,
                 Description = "Untrimmed value '2' in attribute 'On@id'. Action ID '3'.",
                 HowToFix = String.Empty,
-                ExampleCode = String.Empty,
-                Details = "The 'Action/On@id' attribute can contain a semicolon list of unsigned number which refer to the id of an existing protocol item. The type of item is specified by the inner value of the 'Action/On' tag." + Environment.NewLine + "If the 'Action/On@id' attribute is not present, the action will apply to all item of the type given by the value of the 'Action/On' tag." + Environment.NewLine + "" + Environment.NewLine + "Note that only plain numbers are allowed (no leading signs, no leading zeros, no scientific notation, etc).",
                 HasCodeFix = true
             };
 

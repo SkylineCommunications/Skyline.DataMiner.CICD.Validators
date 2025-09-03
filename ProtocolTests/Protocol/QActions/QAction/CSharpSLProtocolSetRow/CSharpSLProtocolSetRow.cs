@@ -185,8 +185,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetRow
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.SetRow' references a non-existing 'table' with PID '1'. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.SetRow is used to update the values of a table row." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -212,8 +210,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetRow
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '1', use 'Parameter' class instead. QAction ID '2'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "SLProtocol.SetRow is used to update the values of a table row." + Environment.NewLine + "Make sure to provide it with an ID of a table parameter that exists." + Environment.NewLine + "Using Parameter class is recommended.",
                 HasCodeFix = false,
             };
 
@@ -239,8 +235,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetRow
                 GroupDescription = "",
                 Description = "SLProtocol.SetRow overload with 'ValueType timeInfo' argument requires 'Param@historySet=true'. column PID '1'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Every overload of the 'SLProtocol.SetRow' method having the 'ValueType timeInfo' argument is meant to execute a historySet." + Environment.NewLine + "Such method requires the columns of table to be set to have the 'Param@historySet' attribute set to 'true'.",
                 HasCodeFix = true,
             };
 

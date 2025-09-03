@@ -147,8 +147,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.DefaultValue.CheckDefau
                 GroupDescription = "",
                 Description = "Unsupported tag 'DefaultValue' in Column 'columnPid'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Interprete/DefaultValue tag allows to give a default value to a parameter." + Environment.NewLine + "This is currently only supported on standalone read parameters and the given value should be compatible with the Inteprete/Type.",
                 HasCodeFix = false,
             };
 
@@ -174,8 +172,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.DefaultValue.CheckDefau
                 GroupDescription = "",
                 Description = "Unsupported tag 'DefaultValue' in Param 'paramId'.",
                 HowToFix = "",
-                ExampleCode = "",
-                Details = "Interprete/DefaultValue tag allows to give a default value to a parameter." + Environment.NewLine + "This is currently only supported on standalone read parameters and the given value should be compatible with the Inteprete/Type.",
                 HasCodeFix = false,
             };
 
