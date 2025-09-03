@@ -12,21 +12,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class Error
     {
-        public static IValidationResult InvalidVolatileTableUsage(IValidate test, IReadable referenceNode, IReadable positionNode, string tableId, string incompatibleFeature)
+        public static IValidationResult InvalidVolatileTableUsage(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePid, string incompatibleFeature)
         {
             return new ValidationResult
             {
                 Test = test,
                 CheckId = CheckId.CheckVolatileTableConsistency,
                 ErrorId = ErrorIds.InvalidVolatileTableUsage,
-                FullId = "2.77.1",
+                FullId = "2.78.1",
                 Category = Category.Param,
                 Severity = Severity.Major,
                 Certainty = Certainty.Certain,
                 Source = Source.Validator,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = String.Format("Table '{0}' is marked as volatile, but it uses features incompatible with volatility: {1}.", tableId, incompatibleFeature),
+                Description = String.Format("Table '{0}' is marked as volatile, but it uses features incompatible with volatility: {1}.", tablePid, incompatibleFeature),
                 HowToFix = "Remove the 'volatile' option from the <ArrayOptions> tag (e.g. options=\";volatile;\"), or remove the incompatible features from the table (such as alarmed columns, foreign keys, or DVE usage)." + Environment.NewLine + "",
                 HasCodeFix = false,
 
@@ -49,6 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         /// <summary>
         /// The check identifier.
         /// </summary>
-        public const uint CheckVolatileTableConsistency = 77;
+        public const uint CheckVolatileTableConsistency = 78;
     }
 }
