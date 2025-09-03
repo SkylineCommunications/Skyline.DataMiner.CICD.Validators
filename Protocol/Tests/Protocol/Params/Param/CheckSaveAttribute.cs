@@ -1,9 +1,8 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.CheckSaveAttribute
 {
-    using System;
     using System.Collections.Generic;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -27,38 +26,40 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             
             foreach (IParamsParam param in context.EachParamWithValidId())
             {
-                IEnumerable<Link> links = relationManager.GetReverseLinks(param);
-                foreach (Link link in links)
+                if (param.Save?.Value == null || !param.Save.Value.Value)
                 {
-                    if (link.Source is IResponsesResponse && param.Save?.Value == true)
-                    {
-                        results.Add(Error.UndesiredSavedReadParam(this, param, param.Save, Convert.ToString(param.Id.RawValue)));
-                    }
+                    // No save attribute or save = false
+                    continue;
+                }
+
+                if (param.GetResponses(relationManager).Any())
+                {
+                    results.Add(Error.UnrecommendedSavedReadParam(this, param, param.Save, param.Id.RawValue));
                 }
             }
 
             return results;
         }
 
-        //public ICodeFixResult Fix(CodeFixContext context)
-        //{
-        //    CodeFixResult result = new CodeFixResult();
+        ////public ICodeFixResult Fix(CodeFixContext context)
+        ////{
+        ////    CodeFixResult result = new CodeFixResult();
 
-        //    switch (context.Result.ErrorId)
-        //    {
-        //        default:
-        //            result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
-        //            break;
-        //    }
+        ////    switch (context.Result.ErrorId)
+        ////    {
+        ////        default:
+        ////            result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
+        ////            break;
+        ////    }
 
-        //    return result;
-        //}
+        ////    return result;
+        ////}
 
-        //public List<IValidationResult> Compare(MajorChangeCheckContext context)
-        //{
-        //    List<IValidationResult> results = new List<IValidationResult>();
+        ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
+        ////{
+        ////    List<IValidationResult> results = new List<IValidationResult>();
 
-        //    return results;
-        //}
+        ////    return results;
+        ////}
     }
 }

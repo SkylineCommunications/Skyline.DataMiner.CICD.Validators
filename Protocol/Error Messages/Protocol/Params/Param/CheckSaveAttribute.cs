@@ -2,6 +2,7 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.CheckSaveAttribute
 {
     using System;
+    using System.Collections.Generic;
 
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
@@ -11,13 +12,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class Error
     {
-        public static IValidationResult UndesiredSavedReadParam(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        public static IValidationResult UnrecommendedSavedReadParam(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
         {
             return new ValidationResult
             {
                 Test = test,
                 CheckId = CheckId.CheckSaveAttribute,
-                ErrorId = ErrorIds.UndesiredSavedReadParam,
+                ErrorId = ErrorIds.UnrecommendedSavedReadParam,
                 FullId = "2.77.1",
                 Category = Category.Param,
                 Severity = Severity.Minor,
@@ -39,7 +40,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class ErrorIds
     {
-        public const uint UndesiredSavedReadParam = 1;
+        public const uint UnrecommendedSavedReadParam = 1;
     }
 
     /// <summary>
