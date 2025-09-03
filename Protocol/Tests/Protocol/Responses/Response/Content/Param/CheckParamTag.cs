@@ -45,7 +45,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                     if (!context.ProtocolModel.TryGetObjectByKey<IParamsParam>(Mappings.ParamsById, rawValue, out _))
                     {
                         results.Add(Error.NonExistingId(this, paramInResponse, paramInResponse, rawValue, response.Id.RawValue));
-                        continue;
                     }
                 }
             }
@@ -59,7 +58,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
 
         ////    switch (context.Result.ErrorId)
         ////    {
-
         ////        default:
         ////            result.Message = String.Format("This error ({0}) isn't implemented.", context.Result.ErrorId.ToString());
         ////            break;
