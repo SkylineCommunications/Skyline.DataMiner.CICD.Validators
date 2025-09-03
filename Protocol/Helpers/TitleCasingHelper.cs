@@ -417,6 +417,7 @@
                     "CSMA/CD",      // Carrier sense multiple access / collision detection
                     "CSU/DSU",      // Channel service unit / data service unit
                     "CMOS",     // Complementary metal-oxide semiconductor
+                    "DaaS",     // DataMiner as a Service
                     "DAM",      // Digital asset management
                     "DC",       // Down Converter
                     "DCE",      // Data Communications Equipment
@@ -434,6 +435,7 @@
                     "DTE",      // Data Terminal Equipment
                     "DMI",      // Desktop Management Interface
                     "DUC",      // Digital Up Converter
+                    "DxM",      // DataMiner Extension Module
                     //"eCM",      // Embedded Cable Modem -> Added to multipleFixedCasingWords
                     "EHA",      // Ethernet Hardware Address (MAC address)
                     "EIA",      // Electronics Industry Alliance
@@ -501,6 +503,8 @@
                     "MLD",      // Multicast Listener Discovery
                     "MPLS",     // MultiProtocol Label Switching
                     "MTU",      // Maximum Transmission Unit
+                    "MSSQL",    // Microsoft SQL Server
+                    "MySQL",    // MySQL database
                     "NAC",      // Network access control
                     "NAT",      // Network Address Translation
                     "NBMA",     // Non-Broadcast Multiple Access (e.g. Frame Relay ATM)
@@ -511,6 +515,7 @@
                     "Off-Air",
                     "On-Air",
                     "OpenConfig",
+                    "OpenSearch", // OpenSearch (search engine)
                     "OSI",      // Open System Interconnect (joint ISO and ITU standard)
                     "OSPF",     // Open Shortest Path First (routing protocol)
                     "OUI",      // Organization Unique Identifier
@@ -562,6 +567,7 @@
                     "SRAM",     // Static random access memory
                     "SSH",      // Secure shell
                     "SSID",     // Service set identifier (WiFi)
+                    "STaaS",    // Storage as a Service
                     "T2-MI",    // T2 Modulator Interface
                     "TCP/IP",   // Transmission Control Protocol/Internet Protocol
                     "TDM",      // Time-division multiplexing
