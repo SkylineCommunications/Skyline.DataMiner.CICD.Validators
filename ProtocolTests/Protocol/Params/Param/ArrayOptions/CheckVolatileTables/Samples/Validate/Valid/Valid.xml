@@ -12,11 +12,13 @@
 
 		<!-- Key column -->
 		<Param id="1001">
+			<Name>ValidVolatileTableKey</Name>
 			<Type>read</Type>
 		</Param>
 
 		<!-- Simple data column -->
 		<Param id="1002">
+			<Name>ValidVolatileTableData</Name>
 			<Type>read</Type>
 		</Param>
 	</Params>

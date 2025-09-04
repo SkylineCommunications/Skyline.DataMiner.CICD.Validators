@@ -6,25 +6,24 @@
 			<Type>array</Type>
 			<ArrayOptions index="0" options=";volatile;">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
-				<!-- Key -->
 				<ColumnOption idx="1" pid="1002" type="retrieved" options=";save"/>
-				<!-- Save: X -->
 				<ColumnOption idx="2" pid="1003" type="retrieved" options=";foreignKey=2000"/>
-				<!-- Alarm: X-->
 				<ColumnOption idx="3" pid="1004" type="retrieved" options=";element"/>
-				<!-- DVE: X -->
 			</ArrayOptions>
 		</Param>
 
 		<Param id="1001">
+			<Name>InvalidVolatileTableKey</Name>
 			<Type>read</Type>
 		</Param>
 
 		<Param id="1002" trending="true">
+			<Name>InvalidVolatileTable_TrendedParam</Name>
 			<Type>read</Type>
 		</Param>
 
 		<Param id="1003">
+			<Name>InvalidVolatileTable_MonitoredParam</Name>
 			<Type>read</Type>
 			<Alarm>
 				<Monitored>true</Monitored>
@@ -32,16 +31,13 @@
 		</Param>
 
 		<Param id="1004">
+			<Name>InvalidVolatileTable_DVEParam</Name>
 			<Type>read</Type>
-		</Param>
-
-		<!-- A state column -->
-		<Param id="1005">
-			<Type>state</Type>
 		</Param>
 
 		<!-- FK target table -->
 		<Param id="2000">
+			<Name>ForeignTable</Name>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
@@ -49,6 +45,7 @@
 		</Param>
 
 		<Param id="2001">
+			<Name>ForeignTableKey</Name>
 			<Type>read</Type>
 		</Param>
 	</Params>
