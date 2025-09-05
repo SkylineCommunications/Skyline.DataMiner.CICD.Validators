@@ -43,10 +43,34 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
             var expectedSubResults = new List<IValidationResult>
             {
                 Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "save",        "Table",  "PID",  "1000"),
-                Error.IncompatibleVolatileOption(null, null, null, "Param@trending",       "true",        "Column", "PID", "1002"),
-                Error.IncompatibleVolatileOption(null, null, null, "Alarm/Monitored",      "true",        "Column", "PID", "1003"),
                 Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "foreignKey",  "Table",  "PID",  "1000"),
                 Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "element",     "Table",  "PID",  "1000"),
+            };
+
+            var parent = Error.IncompatibleVolatileTable(
+                test: null,
+                referenceNode: null,
+                positionNode: null,
+                item2Value: "1000"
+            ).WithSubResults(expectedSubResults.ToArray());
+
+            var data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "IncompatibleVolatileOption",
+                ExpectedResults = new List<IValidationResult> { parent },
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable()
+        {
+            var expectedSubResults = new List<IValidationResult>
+            {
+                Error.IncompatibleVolatileOption(null, null, null, "Param@trending",       "true",        "Column", "PID", "1002"),
+                Error.IncompatibleVolatileOption(null, null, null, "Alarm/Monitored",      "true",        "Column", "PID", "1003"),
                 Error.IncompatibleVolatileOption(null, null, null, "ParameterGroups/Group@dynamicId", "dynamicId", "Table", "PID", "1000"),
                 Error.IncompatibleVolatileOption(null, null, null, "ExportRule@table",     "ExportRule",  "Table",  "PID",  "1000"),
             };
@@ -61,7 +85,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
             var data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "IncompatibleVolatileOption",
+                FileName = "IncompatibleVolatileTable",
                 ExpectedResults = new List<IValidationResult> { parent },
             };
 

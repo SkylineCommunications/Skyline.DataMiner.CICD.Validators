@@ -17,17 +17,14 @@
 			<Type>read</Type>
 		</Param>
 
-		<Param id="1002" trending="true">
-			<Name>InvalidVolatileTable_TrendedParam</Name>
+		<Param id="1002">
+			<Name>InvalidVolatileTable_SavedParam</Name>
 			<Type>read</Type>
 		</Param>
 
 		<Param id="1003">
-			<Name>InvalidVolatileTable_MonitoredParam</Name>
+			<Name>InvalidVolatileTable_ForeignKey</Name>
 			<Type>read</Type>
-			<Alarm>
-				<Monitored>true</Monitored>
-			</Alarm>
 		</Param>
 
 		<Param id="1004">
@@ -54,14 +51,4 @@
 	<Relations>
 		<Relation path="1000;2000" />
 	</Relations>
-
-	<!-- Used in DCF interface -->
-	<ParameterGroups>
-		<Group id="1" name="Input" type="in" dynamicId="1000" dynamicIndex="*" />
-	</ParameterGroups>
-
-	<!-- ExportRule for DVE customization -->
-	<ExportRules>
-		<ExportRule table="1000" tag="Protocol/Display" attribute="defaultPage" value="Task Manager"/>
-	</ExportRules>
 </Protocol>
