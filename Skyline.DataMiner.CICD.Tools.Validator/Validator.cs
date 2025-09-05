@@ -19,7 +19,7 @@
     using Skyline.DataMiner.CICD.Validators.Common.Suppressions;
     using Skyline.DataMiner.CICD.Validators.Common.Tools;
     using Skyline.DataMiner.XmlSchemas.Protocol;
-
+    
     internal class Validator
     {
         /// <summary>
@@ -39,7 +39,7 @@
 
             return await ValidateProtocolSolution(solutionFilePath, protocolCode, includeSuppressed);
         }
-
+        //ova ce mi isto trebat i za mcc
         private static string GetProtocolCode(string protocolFolderPath)
         {
             var solutionDirectoryPath = Path.GetDirectoryName(protocolFolderPath);
@@ -54,7 +54,7 @@
             string protocolCode = File.ReadAllText(protocolFilePath);
             return protocolCode;
         }
-
+        //i ova
         private static async Task<ValidatorResults> ValidateProtocolSolution(string solutionFilePath, string protocolCode, bool includeSuppressed)
         {
             DateTime timestamp = DateTime.Now;
