@@ -9156,7 +9156,7 @@
                                         <InputParameter id="0" value="ArrayOptions/options">item1Title</InputParameter>
                                         <InputParameter id="1" value="volatile">item1Value</InputParameter>
                                         <InputParameter id="2" value="Table PID">item2Title</InputParameter>
-                                        <InputParameter id="3">item2Value</InputParameter>
+                                        <InputParameter id="3">tablePID</InputParameter>
                                     </InputParameters>
                                 </Description>
                                 <Severity>Major</Severity>
@@ -9196,7 +9196,7 @@
 										<InputParameter id="1" value="volatile">item1Value</InputParameter>
 										<InputParameter id="2" value="Table">itemKind</InputParameter>
 										<InputParameter id="3" value="PID">idOrPid</InputParameter>
-										<InputParameter id="4">itemId</InputParameter>
+										<InputParameter id="4">tablePID</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Minor</Severity>
