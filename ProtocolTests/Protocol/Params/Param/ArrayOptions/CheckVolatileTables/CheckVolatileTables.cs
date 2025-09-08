@@ -40,25 +40,17 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         [TestMethod]
         public void Param_CheckVolatileTables_IncompatibleVolatileOption()
         {
-            var expectedSubResults = new List<IValidationResult>
-            {
-                Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "save",        "Table",  "PID",  "1000"),
-                Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "foreignKey",  "Table",  "PID",  "1000"),
-                Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "element",     "Table",  "PID",  "1000"),
-            };
-
-            var parent = Error.IncompatibleVolatileTable(
-                test: null,
-                referenceNode: null,
-                positionNode: null,
-                item2Value: "1000"
-            ).WithSubResults(expectedSubResults.ToArray());
-
             var data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
                 FileName = "IncompatibleVolatileOption",
-                ExpectedResults = new List<IValidationResult> { parent },
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.IncompatibleVolatileTable(null, null, null, item2Value: "1000").WithSubResults(
+                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "save",       "Table", "PID", "1000"),
+                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "foreignKey", "Table", "PID", "1000"),
+                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options", "element",    "Table", "PID", "1000")),
+                },
             };
 
             Generic.Validate(check, data);
@@ -67,26 +59,18 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         [TestMethod]
         public void Param_CheckVolatileTables_IncompatibleVolatileTable()
         {
-            var expectedSubResults = new List<IValidationResult>
-            {
-                Error.IncompatibleVolatileOption(null, null, null, "Param@trending",       "true",        "Column", "PID", "1002"),
-                Error.IncompatibleVolatileOption(null, null, null, "Alarm/Monitored",      "true",        "Column", "PID", "1003"),
-                Error.IncompatibleVolatileOption(null, null, null, "ParameterGroups/Group@dynamicId", "dynamicId", "Table", "PID", "1000"),
-                Error.IncompatibleVolatileOption(null, null, null, "ExportRule@table",     "ExportRule",  "Table",  "PID",  "1000"),
-            };
-
-            var parent = Error.IncompatibleVolatileTable(
-                test: null,
-                referenceNode: null,
-                positionNode: null,
-                item2Value: "1000"
-            ).WithSubResults(expectedSubResults.ToArray());
-
             var data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
                 FileName = "IncompatibleVolatileTable",
-                ExpectedResults = new List<IValidationResult> { parent },
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.IncompatibleVolatileTable(null, null, null, item2Value: "1000").WithSubResults(
+                        Error.IncompatibleVolatileOption(null, null, null, "Param@trending",                  "true",       "Column", "PID", "1002"),
+                        Error.IncompatibleVolatileOption(null, null, null, "Alarm/Monitored",                 "true",       "Column", "PID", "1003"),
+                        Error.IncompatibleVolatileOption(null, null, null, "ParameterGroups/Group@dynamicId", "dynamicId",  "Table",  "PID", "1000"),
+                        Error.IncompatibleVolatileOption(null, null, null, "ExportRule@table",                "ExportRule", "Table",  "PID", "1000")),
+                }
             };
 
             Generic.Validate(check, data);
