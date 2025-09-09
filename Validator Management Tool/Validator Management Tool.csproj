@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NPOI">
-      <Version>2.7.3</Version>
+      <Version>2.7.4</Version>
     </PackageReference>
     <PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol">
       <Version>1.1.0</Version>
