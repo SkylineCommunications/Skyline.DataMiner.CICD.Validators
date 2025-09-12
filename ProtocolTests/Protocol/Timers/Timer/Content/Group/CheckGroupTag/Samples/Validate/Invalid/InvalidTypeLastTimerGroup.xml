@@ -1,0 +1,35 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Groups>
+		<Group id="1">
+			<Type>poll</Type>
+		</Group>
+		<Group id="2">
+			<Type>trigger</Type>
+		</Group>
+	</Groups>
+	<Timers>
+		<Timer id="1" >
+			<Content>
+				<Group>1</Group>
+				<Group>2</Group>
+			</Content>
+		</Timer>
+		<Timer id="2" >
+			<Content>
+				<Group>1</Group>
+			</Content>
+		</Timer>
+		<Timer id="3" >
+			<Content>
+				<Group>2</Group>
+			</Content>
+		</Timer>
+		<Timer id="4" >
+			<Content>
+				<Group>2</Group>
+				<Group>1</Group>
+			</Content>
+		</Timer>
+	</Timers>	
+</Protocol>
