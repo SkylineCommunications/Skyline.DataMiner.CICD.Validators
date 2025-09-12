@@ -14515,6 +14515,24 @@
 								<HasCodeFix>False</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 							</ErrorMessage>
+							<ErrorMessage id="5">
+								<Name>InvalidTypeLastTimerGroup</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Invalid last group type '{0}' in Timer '{1}'. Group ID '{2}'</Format>
+									<InputParameters>
+										<InputParameter id="0">groupType</InputParameter>
+										<InputParameter id="1">timerId</InputParameter>
+										<InputParameter id="2">groupId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="6">
