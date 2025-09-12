@@ -104,6 +104,21 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void Timer_CheckGroupTag_InvalidTypeLastTimerGroup()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "InvalidTypeLastTimerGroup",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Trigger", "1", "2"),
+                }
+            };
+            Generic.Validate(check, data);
+        }
+
         #endregion
     }
 
