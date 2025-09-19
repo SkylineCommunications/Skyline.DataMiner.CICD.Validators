@@ -89,7 +89,10 @@
             };
 
             rootCommand.AddCommand(validateProtocolSolutionCommand);
-            
+
+            var validatorRunner = new ValidatorRunner();
+            validateProtocolSolutionCommand.SetHandler(validatorRunner.ValidateProtocolSolution, solutionPathOption, validatorResultsOutputDirectoryOption, validatorResultsFileNameOption, outputFormatsOption, includeSuppressedOption, performRestoreOption, restoreTimeoutOption);
+
 
             #endregion
 
