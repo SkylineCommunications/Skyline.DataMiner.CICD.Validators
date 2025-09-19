@@ -73,6 +73,7 @@
   </Target>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <SonarQubeSetting Include="sonar.exclusions">
       <Value>Resources/**</Value>
     </SonarQubeSetting>
