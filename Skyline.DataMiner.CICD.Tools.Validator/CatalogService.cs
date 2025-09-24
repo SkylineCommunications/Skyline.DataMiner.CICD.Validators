@@ -3,9 +3,17 @@ using System.IO;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.XPath;
 using Microsoft.Extensions.Logging;
+using Skyline.ArtifactDownloader;
+using Skyline.ArtifactDownloader.Exceptions;
+using Skyline.ArtifactDownloader.Identifiers;
+using Skyline.ArtifactDownloader.Services;
 using Skyline.DataMiner.CICD.Models.Protocol.Read;
 using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
+using Skyline.DataMiner.Net.Messages;
 
 namespace Skyline.DataMiner.CICD.Tools.Validator
 {
@@ -14,8 +22,14 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
         private readonly ILogger _logger;
         private readonly HttpClient _httpClient;
         private readonly string _apiKey;
+        private readonly XDocument doc;
 
-        public CatalogService(ILogger logger, string apiKey)
+        private readonly XmlNamespaceManager mgr;
+
+        private readonly XNamespace ns;
+
+
+        public CatalogService(ILogger logger, string apiKey, string protocolXml)
         {
             _logger = logger;
             _httpClient = new HttpClient();
@@ -24,46 +38,86 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
             {
                 _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
             }
-        }
 
+            if (!string.IsNullOrEmpty(protocolXml))
+            {
+                doc = XDocument.Parse(protocolXml);
+                ns = doc.Root.GetDefaultNamespace();
+                mgr = new XmlNamespaceManager(new NameTable());
+                mgr.AddNamespace("ns", ns.NamespaceName);
+            }
+        }
         public async Task<string> DownloadPreviousProtocolVersion(string catalogId, IProtocolModel currentProtocol)
         {
             try
             {
-                string protocolName = currentProtocol.Protocol?.Name?.Value;
-                string currentVersion = currentProtocol.Protocol?.Version?.Value;
-
-                if (string.IsNullOrEmpty(protocolName) || string.IsNullOrEmpty(currentVersion))
+                if (doc == null)
                 {
-                    throw new Exception("Could not determine protocol name or version from protocol.xml");
+                    throw new InvalidOperationException("Protocol XML document is not initialized.");
                 }
 
-                string previousVersion = GetPreviousVersion(currentVersion);
-                string downloadUrl = $"https://api.dataminer.services/api/key-catalog/v2-0/{catalogId}/versions/{previousVersion}/download";
+                string protocolName = RetrieveName();
+                string currentVersion = currentProtocol.Protocol?.Version?.Value;
 
-                HttpResponseMessage response = await _httpClient.GetAsync(downloadUrl);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.NotFound ||
-                    response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                if (string.IsNullOrEmpty(currentVersion))
                 {
-                    _logger.LogWarning($"Catalog ID {catalogId} appears invalid. Searching public catalog...");
+                    throw new Exception("Could not determine protocol version from protocol.xml");
+                }
+
+                string previousVersion = RetrievePreviousVersion();
+
+                if (!Guid.TryParse(catalogId, out Guid catalogGuid))
+                {
+                    throw new ArgumentException($"Catalog ID '{catalogId}' is not a valid GUID.");
+                }
+
+                var downloader = Downloader.FromCatalog(new HttpClient(), _apiKey);
+
+                byte[] content = null;
+                CatalogDownloadResult downloadResult = null;
+
+                try
+                {
+                    downloadResult = await downloader.DownloadCatalogItemAsync(
+                        CatalogIdentifier.WithVersion(catalogGuid, previousVersion));
+                    content = downloadResult?.Content;
+                }
+                catch (ArtifactDownloadException ex)
+                {
+                    _logger.LogWarning($"Download failed with catalog ID {catalogId}: {ex.Message}. Searching public catalog...");
+
                     string publicCatalogId = await FindCatalogIdFromPublicCatalog(protocolName);
 
-                    if (publicCatalogId != null)
+                    if (!string.IsNullOrEmpty(publicCatalogId) && Guid.TryParse(publicCatalogId, out Guid publicGuid))
                     {
-                        _logger.LogInformation($"Found catalog ID {publicCatalogId} from public catalog. Retrying download...");
-                        downloadUrl = $"https://api.dataminer.services/api/key-catalog/v2-0/{publicCatalogId}/versions/{previousVersion}/download";
-                        response = await _httpClient.GetAsync(downloadUrl);
+                        _logger.LogInformation($"Found public catalog ID {publicGuid}. Retrying download...");
+
+                        try
+                        {
+                            downloadResult = await downloader.DownloadCatalogItemAsync(
+                                CatalogIdentifier.WithVersion(publicGuid, previousVersion));
+                            content = downloadResult?.Content;
+                        }
+                        catch (Exception retryEx)
+                        {
+                            _logger.LogError(retryEx, $"Failed to download with public catalog ID {publicCatalogId}");
+                            throw new Exception($"Failed to download protocol version {previousVersion} even with public catalog ID", retryEx);
+                        }
+                    }
+                    else
+                    {
+                        _logger.LogError("Could not find valid catalog ID from public catalog");
+                        throw new Exception($"Failed to find valid catalog ID for protocol: {protocolName}");
                     }
                 }
 
-                response.EnsureSuccessStatusCode();
+                if (content == null || content.Length == 0)
+                {
+                    throw new Exception($"Failed to download protocol version {previousVersion}");
+                }
 
                 string tempFilePath = Path.Combine(Path.GetTempPath(), $"{protocolName}_{previousVersion}.xml");
-                using (var fileStream = new FileStream(tempFilePath, FileMode.Create))
-                {
-                    await response.Content.CopyToAsync(fileStream);
-                }
+                await File.WriteAllBytesAsync(tempFilePath, content);
 
                 _logger.LogInformation($"Downloaded previous version {previousVersion} to: {tempFilePath}");
                 return tempFilePath;
@@ -74,9 +128,10 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
                 throw;
             }
         }
+
         public async Task<string> FindCatalogIdFromPublicCatalog(string protocolName)
         {
-            
+
             using (var publicCatalogClient = new HttpClient())
             {
                 try
@@ -141,17 +196,103 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
                 }
             }
         }
-        private string GetPreviousVersion(string currentVersion)
+
+        public string RetrievePreviousVersion()
         {
-            var versionParts = currentVersion.Split('.');
-           
-            if (!int.TryParse(versionParts[3], out int buildNumber))
+            var previousVersion = "Missing";
+
+            XElement versionElement = this.doc.XPathSelectElement("ns:Protocol/ns:Version", this.mgr);
+
+            if (versionElement == null)
             {
-                throw new FormatException($"Invalid build number in version: {currentVersion}");
+                return previousVersion;
             }
 
-            versionParts[3] = ( buildNumber - 1).ToString();
-            return string.Join(".", versionParts);
+            string currentVersion = versionElement.Value;
+
+            if (currentVersion == "1.0.0.1")
+            {
+                // This is the initial version, it has no previous version.
+                return "None";
+            }
+
+            var protocolVersion = new ProtocolVersion(currentVersion);
+
+            if (protocolVersion.MinorVersion == 1)
+            {
+                if (protocolVersion.MajorVersion > 0 || protocolVersion.SystemVersion > 0)
+                {
+                    previousVersion = "Missing";
+                }
+                else
+                {
+                    // This means the current version is a X.0.0.1 where X is > 1. 
+                    // If no basedOn attribute is used, it indicates that this is a brand new development.
+                    // If a basedOn attribute is used, it will be detected later in the program.
+                    previousVersion = "None";
+                }
+            }
+
+            // Check if VersionHistory contains a basedOn attribute for this version.
+            string basedOnVersion = this.RetrieveBasedOnVersion(protocolVersion);
+
+            if (basedOnVersion != null)
+            {
+                previousVersion = basedOnVersion;
+            }
+            else
+            {
+                // If basedOn attribute is not explicitly specified, we assume it is based on the previous minor version.
+                if (protocolVersion.MinorVersion > 1)
+                {
+                    previousVersion = protocolVersion.BranchVersion
+                                    + "."
+                                    + protocolVersion.SystemVersion
+                                    + "."
+                                    + protocolVersion.MajorVersion
+                                    + "."
+                                    + (protocolVersion.MinorVersion - 1);
+                }
+            }
+
+            return previousVersion;
+        }
+        public string RetrieveBasedOnVersion(ProtocolVersion protocolVersion)
+        {
+            string basedOnVersion = null;
+
+            XElement minorVersionElement = this.doc.XPathSelectElement(
+                "ns:Protocol/ns:VersionHistory/ns:Branches/ns:Branch[@id='"
+                + protocolVersion.BranchVersion
+                + "']/ns:SystemVersions/ns:SystemVersion[@id='"
+                + protocolVersion.SystemVersion
+                + "']/ns:MajorVersions/ns:MajorVersion[@id='"
+                + protocolVersion.MajorVersion
+                + "']/ns:MinorVersions/ns:MinorVersion[@id='"
+                + protocolVersion.MinorVersion
+                + "']",
+                this.mgr);
+
+            string value = minorVersionElement?.Attribute("basedOn")?.Value;
+
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                basedOnVersion = value;
+            }
+
+            return basedOnVersion;
+        }
+        public string RetrieveName()
+        {
+            XElement nameElement = this.doc.XPathSelectElement("ns:Protocol/ns:Name", this.mgr);
+
+            if (nameElement != null && !string.IsNullOrWhiteSpace(nameElement.Value))
+            {
+                return nameElement.Value;
+            }
+
+            throw new InvalidOperationException(
+                "The protocol.xml file does not contain a Name element or it is empty.");
         }
     }
 }
