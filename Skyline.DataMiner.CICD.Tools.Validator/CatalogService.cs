@@ -66,6 +66,22 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
 
                 string previousVersion = RetrievePreviousVersion();
 
+                if (previousVersion == "None")
+                {
+                    _logger.LogInformation($"No previous version available for protocol {protocolName} (current version: {currentVersion}). Comparison cannot be performed.");
+                    return null; 
+                }
+
+                if (previousVersion == "Missing")
+                {
+                    throw new Exception("Previous version information is missing. Cannot determine which version to download.");
+                }
+
+                if (string.IsNullOrEmpty(previousVersion))
+                {
+                    throw new Exception("Could not determine previous protocol version.");
+                }
+
                 if (!Guid.TryParse(catalogId, out Guid catalogGuid))
                 {
                     throw new ArgumentException($"Catalog ID '{catalogId}' is not a valid GUID.");
@@ -163,10 +179,12 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
                     {
                         foreach (JsonElement catalog in searchPage.EnumerateArray())
                         {
-                            if (catalog.TryGetProperty("name", out JsonElement nameElement))
+                            if (catalog.TryGetProperty("name", out JsonElement nameElement)&& catalog.TryGetProperty("type", out JsonElement typeElement))
                             {
                                 string catalogName = nameElement.GetString();
-                                if (catalogName != null && catalogName.Equals(protocolName, StringComparison.OrdinalIgnoreCase))
+                                string catalogType = typeElement.GetString();
+
+                                if (catalogName != null && catalogName.Equals(protocolName, StringComparison.OrdinalIgnoreCase) && catalogType != null && catalogType.Equals("Connector", StringComparison.OrdinalIgnoreCase))
                                 {
                                     if (catalog.TryGetProperty("id", out JsonElement idElement))
                                     {
