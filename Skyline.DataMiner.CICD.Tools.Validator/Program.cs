@@ -1,4 +1,4 @@
-﻿namespace Skyline.DataMiner.CICD.Tools.Validator
+namespace Skyline.DataMiner.CICD.Tools.Validator
 {
     using System.CommandLine;
     using System.IO;
