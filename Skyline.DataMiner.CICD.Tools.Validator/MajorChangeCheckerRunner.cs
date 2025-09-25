@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -47,16 +47,16 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
 
                 if (string.IsNullOrEmpty(oldProtocolPath))
                 {
-                    
+
                     string newProtocolCode = GetProtocolCode(solutionPath);
                     var newParser = new Parser(newProtocolCode);
                     var newDocument = newParser.Document;
                     var newModel = new ProtocolModel(newDocument);
 
-                    var catalogService = new CatalogService(logger, apiKey);
+                    var catalogService = new CatalogService(logger, apiKey, newProtocolCode);
                     string effectiveCatalogId = catalogId;
 
-                   
+
                     if (string.IsNullOrEmpty(effectiveCatalogId))
                     {
                         logger.LogInformation("Catalog ID not provided. Searching public catalog...");
@@ -75,7 +75,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
 
                     if (string.IsNullOrEmpty(downloadedProtocolPath) || !File.Exists(downloadedProtocolPath))
                     {
-                        
+
                         logger.LogWarning("Download failed. Searching public catalog for correct catalog ID...");
                         effectiveCatalogId = await catalogService.FindCatalogIdFromPublicCatalog(newModel.Protocol?.Name?.Value);
 
@@ -96,7 +96,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
                     var protocolInfo = GetProtocolInfo(oldProtocolCode);
                     oldProtocolName = protocolInfo.Name;
                     oldProtocolVersion = protocolInfo.Version;
-                    
+
                     File.Delete(downloadedProtocolPath);
                 }
                 else
@@ -109,7 +109,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
                     logger.LogInformation($"Local protocol: {oldProtocolName} version {oldProtocolVersion}");
                 }
 
-                
+
                 var checker = new MajorChangeChecker();
                 var results = await checker.CheckMajorChanges(solutionPath, oldProtocolCode, includeSuppressed);
 
@@ -118,7 +118,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
 
                 if (string.IsNullOrEmpty(outputFileName))
                 {
-                    outputFileName = $"MCCResults_{results.NewProtocol}_{results.NewVersion}_vs_{oldProtocolName}_{oldProtocolVersion}";
+                    outputFileName = $"MCCResults_{results.NewProtocol}_{results.NewVersion}";
                 }
 
                 Directory.CreateDirectory(outputDirectory);
