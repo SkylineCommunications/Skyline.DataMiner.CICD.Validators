@@ -16,3 +16,6 @@ updates:
       # FluentAssertions equal to or higher than 8.0.0 are a different license, which requires payment
       - dependency-name: "FluentAssertions"
         versions: [ ">=8.0.0" ]
+    exclude-paths:
+      - "ProtocolTests/Protocol/**/*.csproj"
+      - "Protocol.FeatureTests/Test Files/**"
