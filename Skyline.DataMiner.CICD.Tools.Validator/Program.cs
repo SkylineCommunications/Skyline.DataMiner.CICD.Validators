@@ -1,4 +1,4 @@
-﻿namespace Skyline.DataMiner.CICD.Tools.Validator
+namespace Skyline.DataMiner.CICD.Tools.Validator
 {
     using System.CommandLine;
     using System.IO;
@@ -131,7 +131,7 @@
             var majorChangeCheckerOutputFormatsOption = new Option<string[]>(
                 name: "--output-format",
                 description: "Specifies the output format for MCC results. Possible values: JSON, XML, HTML.",
-                getDefaultValue: () => new[] { "JSON", "HTML"}) 
+                getDefaultValue: () => new[] { "JSON", "HTML" })
             {
                 Arity = ArgumentArity.ZeroOrMore,
                 IsRequired = false,
@@ -169,7 +169,7 @@
                 majorChangeCheckerOutputFileNameOption,
                 majorChangeCheckerOutputFormatsOption,
                 majorChangeCheckerIncludeSuppressedOption,
-                catalogIdOption,                
+                catalogIdOption,
                 catalogApiKeyOption
             };
 
@@ -188,8 +188,8 @@
                 int result = await runner.RunMajorChangeChecker(
                     solutionPath, oldProtocolPath, outputDirectory, outputFileName,
                     outputFormats, includeSuppressed, catalogId, apiKey);
-                
-              
+
+
                 context.ExitCode = result;
             });
 
@@ -199,5 +199,5 @@
             int value = await rootCommand.InvokeAsync(args);
             return value;
         }
-    }     
-}   
+    }
+}

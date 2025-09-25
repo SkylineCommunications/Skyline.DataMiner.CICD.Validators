@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +12,7 @@ using Skyline.DataMiner.CICD.Common;
 using Skyline.DataMiner.CICD.Models.Protocol;
 using Skyline.DataMiner.CICD.Models.Protocol.Read;
 using Skyline.DataMiner.CICD.Parsers.Common.Xml;
+using Skyline.DataMiner.CICD.Tools.Validator;
 using Skyline.DataMiner.CICD.Validators.Common.Data;
 using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 using Skyline.DataMiner.CICD.Validators.Common.Model;
@@ -39,7 +40,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
             {
                 throw new InvalidOperationException($"protocol.xml not found. Expected location '${protocolFilePath}'.");
             }
-            
+
             string protocolCode = File.ReadAllText(protocolFilePath);
             return protocolCode;
         }
@@ -64,7 +65,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
 
             using CancellationTokenSource cts = new CancellationTokenSource();
 
-            
+
             var newParser = new Parser(newProtocolCode);
             var newDocument = newParser.Document;
             var newModel = new ProtocolModel(newDocument);
@@ -194,7 +195,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
         private static MajorChangeCheckerResult CreateMajorChangeCheckerResult(IValidationResult result, bool isSuppressed, ILineInfoProvider lineInfoProvider)
         {
             string message = BuildIssueMessage(result);
-            
+
             var majorChangeCheckerResult = new MajorChangeCheckerResult
             {
                 Certainty = result.Certainty,
@@ -279,7 +280,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
 
             if (result.DescriptionFormat != null)
             {
-                
+
                 return result.DescriptionFormat;
             }
 
