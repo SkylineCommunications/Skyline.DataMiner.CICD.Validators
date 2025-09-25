@@ -5,6 +5,7 @@
     <Copyright>© Skyline Communications</Copyright>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="SharpZipLib" Version="1.3.3" />
     <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.2.0.25" />
   </ItemGroup>
   <ProjectExtensions>
