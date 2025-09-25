@@ -275,6 +275,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
                 bool? CheckAllowClearOrLeave(Value optional)
                 {
+                    if (optional == null)
+                    {
+                        return null;
+                    }
+
                     if (optional.Type == Value.ValueType.Boolean && optional.HasStaticValue)
                     {
                         return (bool)optional.Object;
