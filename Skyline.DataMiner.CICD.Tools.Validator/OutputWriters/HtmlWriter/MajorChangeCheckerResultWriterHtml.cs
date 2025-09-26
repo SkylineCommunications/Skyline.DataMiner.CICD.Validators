@@ -33,7 +33,7 @@
 
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(templateStart);
-            stringBuilder.AppendFormat("<h1>Comparison: {0} v{1} → {2} v{3}</h1>",
+            stringBuilder.AppendFormat("<h1>Comparison: Previous version{0} {1} → {2} v{3}</h1>",
                 mccResults.OldProtocol, mccResults.OldVersion,
                 mccResults.NewProtocol, mccResults.NewVersion);
             stringBuilder.Append("    <table id=\"resultstable\">\r\n        <tr>\r\n            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description</th>\r\n            <th>State</th>\r\n            <th>Severity</th>\r\n            <th>Code</th>\r\n            <th>Line</th>\r\n            <th>Column</th>\r\n        </tr>");
