@@ -195,13 +195,38 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
                 solutionDirectory = solutionPath;
             }
 
-            string protocolFilePath = Path.Combine(solutionDirectory, "protocol.xml");
+            // Search recursively for protocol.xml
+            string protocolFilePath = FindProtocolFile(solutionDirectory);
             if (!File.Exists(protocolFilePath))
             {
-                throw new FileNotFoundException($"protocol.xml not found in solution directory: {solutionDirectory}");
+                throw new FileNotFoundException($"protocol.xml not found in solution directory or subdirectories: {solutionDirectory}");
             }
 
             return File.ReadAllText(protocolFilePath);
+        }
+
+        private static string FindProtocolFile(string directory)
+        {
+            // First, try to find protocol.xml recursively
+            var protocolFiles = Directory.GetFiles(directory, "protocol.xml", SearchOption.AllDirectories)
+                                        .Concat(Directory.GetFiles(directory, "Protocol.xml", SearchOption.AllDirectories))
+                                        .ToList();
+
+            if (protocolFiles.Count == 0)
+            {
+                throw new FileNotFoundException($"No protocol.xml file found in {directory} or its subdirectories");
+            }
+
+            if (protocolFiles.Count > 1)
+            {
+                // If multiple found, prefer one in the same directory as .sln file or root
+                var preferred = protocolFiles.FirstOrDefault(f =>
+                    Path.GetDirectoryName(f)?.Equals(directory, StringComparison.OrdinalIgnoreCase) == true)
+                    ?? protocolFiles.First();
+                return preferred;
+            }
+
+            return protocolFiles.First();
         }
 
         public class ProtocolInfo
