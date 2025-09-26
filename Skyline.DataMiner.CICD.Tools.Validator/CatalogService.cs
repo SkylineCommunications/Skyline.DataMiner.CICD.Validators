@@ -47,6 +47,11 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
                 mgr.AddNamespace("ns", ns.NamespaceName);
             }
         }
+
+
+        //TODO: It is missing downloading protocol versions of private connectors
+
+
         public async Task<string> DownloadPreviousProtocolVersion(string catalogId, IProtocolModel currentProtocol)
         {
             try
@@ -69,7 +74,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
                 if (previousVersion == "None")
                 {
                     _logger.LogInformation($"No previous version available for protocol {protocolName} (current version: {currentVersion}). Comparison cannot be performed.");
-                    return null; 
+                    return null;
                 }
 
                 if (previousVersion == "Missing")
