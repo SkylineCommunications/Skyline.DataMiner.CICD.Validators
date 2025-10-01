@@ -5,6 +5,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
     using System.Linq;
     using System.Text.RegularExpressions;
 
+    using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
@@ -30,6 +31,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
                 var linkedContentGroups = timer.GetTimerContentGroups(context.ProtocolModel.RelationManager).ToList();
 
+                var hasPollGroups = false;
+                var lastGroup = string.Empty;
+                EnumGroupType lastGroupType = EnumGroupType.Poll;
                 foreach (ITimersTimerContentGroup group in timer.Content)
                 {
                     (GenericStatus valueStatus, uint convertedValue) = Generic.GenericTests.CheckBasics<uint>(group.Value);
@@ -48,6 +52,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                             results.Add(Error.NonExistingIdInGroup(this, timer, group, group.TagName, group.Value, timer.Id.RawValue));
                         }
 
+                        if (ValidateHelper.IsPollGroup(context, Convert.ToUInt32(group.Value)))
+                        {
+                            hasPollGroups = true;
+                        }
+
+                        lastGroup = group.RawValue;
+                        lastGroupType = ValidateHelper.GetGroupType(context, Convert.ToUInt32(group.Value));
                         continue;
                     }
 
@@ -103,6 +114,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                         invalidGroupTag.WithSubResults(subErrors.ToArray());
                         results.Add(invalidGroupTag);
                     }
+                }
+
+                if (hasPollGroups && !string.IsNullOrEmpty(lastGroup) && (lastGroupType == EnumGroupType.Trigger || lastGroupType == EnumGroupType.Action ))
+                {
+                    results.Add(Error.InvalidTypeLastTimerGroup(this, timer, timer, Convert.ToString(lastGroupType), timer.Id.RawValue, lastGroup));
                 }
             }
 
@@ -182,6 +198,26 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             }
 
             return groupExists;
+        }
+
+        public static bool IsPollGroup(ValidatorContext context, uint groupId)
+        {
+            if (context.ProtocolModel.TryGetObjectByKey<IGroupsGroup>(Mappings.GroupsById, groupId.ToString(), out var group))
+            {
+                var groupType = group.Type?.Value.Value;
+                return groupType == Models.Protocol.Enums.EnumGroupType.Poll || groupType == Models.Protocol.Enums.EnumGroupType.PollTrigger || groupType == Models.Protocol.Enums.EnumGroupType.PollAction ;
+            }
+
+            return false;
+        }
+
+        public static EnumGroupType GetGroupType(ValidatorContext context, uint groupId)
+        {
+            if (context.ProtocolModel.TryGetObjectByKey<IGroupsGroup>(Mappings.GroupsById, groupId.ToString(), out var group))
+            {
+                return group.Type?.Value.Value ??EnumGroupType.Poll;
+            }
+            return EnumGroupType.Poll;
         }
     }
 }
