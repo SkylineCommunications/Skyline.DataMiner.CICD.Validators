@@ -4,21 +4,18 @@
     using System.Collections.Generic;
     using System.Text;
 
-    internal class ValidatorResultTreeNode : ValidatorResultTreeItem
+    using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results;
+
+    internal class ValidatorResultTreeNode(ValidatorResult validatorResult) : ValidatorResultTreeItem(validatorResult)
     {
         private int suppressedCount;
         private int nonSuppressedCount;
-
-        public ValidatorResultTreeNode(ValidatorResult validatorResult) : base(validatorResult)
-        {
-            SubResults = new List<ValidatorResultTreeItem>();
-        }
 
         /// <summary>
         /// Gets the sub results.
         /// </summary>
         /// <value>The sub results.</value>
-        public List<ValidatorResultTreeItem> SubResults { get; }
+        public List<ValidatorResultTreeItem> SubResults { get; } = [];
 
         public override int SuppressedCount => suppressedCount;
 

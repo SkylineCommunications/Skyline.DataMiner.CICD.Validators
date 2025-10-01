@@ -3,13 +3,10 @@
     using System;
     using System.Text;
 
-    internal class ValidatorResultTreeLeaf : ValidatorResultTreeItem
+    using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results;
+
+    internal class ValidatorResultTreeLeaf(ValidatorResult validatorResult) : ValidatorResultTreeItem(validatorResult)
     {
-        public ValidatorResultTreeLeaf(ValidatorResult validatorResult) : base(validatorResult)
-        {
-
-        }
-
         public override int SuppressedCount => Suppressed ? 1 : 0;
 
         public override int NonSuppressedCount => Suppressed ? 0 : 1;
