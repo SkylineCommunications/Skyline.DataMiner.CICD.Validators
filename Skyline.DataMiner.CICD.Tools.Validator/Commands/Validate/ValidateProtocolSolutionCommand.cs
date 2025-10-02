@@ -42,7 +42,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate
         public required bool PerformRestore { get; set; }
 
         public required int RestoreTimeout { get; set; }
-        
+
         public override async Task<int> InvokeAsync(InvocationContext context)
         {
             logger.LogDebug("Starting {Method}...", nameof(ValidateProtocolSolutionCommand));
@@ -106,7 +106,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate
 
                 ResultsConverter.ConvertResults(results, validatorResults, suppressionManager, lineInfoProvider);
                 ResultsConverter.ProcessSubResults(results, results.Issues, IncludeSuppressed ?? false);
- 
+
                 results.ValidationTimeStamp = DateTime.Now;
                 results.SuppressedIssuesIncluded = IncludeSuppressed ?? false;
 
@@ -123,7 +123,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate
                 {
                     OutputFileName = $"ValidatorResults_{results.Protocol}_{results.Version}";
                 }
-                
+
                 logger.LogInformation("Writing results...");
 
                 OutputDirectory.Create();

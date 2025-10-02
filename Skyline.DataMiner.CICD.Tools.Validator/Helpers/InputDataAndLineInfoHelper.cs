@@ -1,5 +1,6 @@
 ﻿namespace Skyline.DataMiner.CICD.Tools.Validator.Helpers
 {
+    using Skyline.DataMiner.CICD.FileSystem;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Parsers.Common.Xml;
@@ -11,7 +12,7 @@
     {
         public static async Task<(IProtocolInputData, ILineInfoProvider)> GetDataBasedOnSolutionAsync(string solutionFilePath, bool includeQActionCompilationModel = true, CancellationToken cancellationToken = default)
         {
-            if (!File.Exists(solutionFilePath))
+            if (!FileSystem.Instance.File.Exists(solutionFilePath))
             {
                 throw new FileNotFoundException($"The protocol solution file '{solutionFilePath}' does not exist.", solutionFilePath);
             }
@@ -38,14 +39,14 @@
             return (data, new SimpleLineInfoProvider(protocolCode));
         }
 
-        public static async Task<(IProtocolInputData, ILineInfoProvider)> GetBasedOnXmlAsync(string protocolXmlPath, CancellationToken cancellationToken = default)
+        public static (IProtocolInputData, ILineInfoProvider) GetBasedOnXml(string protocolXmlPath)
         {
-            if (!File.Exists(protocolXmlPath))
+            if (!FileSystem.Instance.File.Exists(protocolXmlPath))
             {
                 throw new FileNotFoundException($"The protocol XML file '{protocolXmlPath}' does not exist.", protocolXmlPath);
             }
 
-            string protocolCode = await File.ReadAllTextAsync(protocolXmlPath, cancellationToken);
+            string protocolCode = FileSystem.Instance.File.ReadAllText(protocolXmlPath);
 
             var parser = new Parser(protocolCode);
             var document = parser.Document;
@@ -56,17 +57,16 @@
 
         private static string GetProtocolCodeFromSolution(string solutionFilePath)
         {
-            var solutionDirectoryPath = Path.GetDirectoryName(solutionFilePath);
+            var solutionDirectoryPath = FileSystem.Instance.Path.GetDirectoryName(solutionFilePath);
 
-            string protocolFilePath = Path.GetFullPath(Path.Combine(solutionDirectoryPath!, "protocol.xml"));
+            string protocolFilePath = FileSystem.Instance.Path.GetFullPath(FileSystem.Instance.Path.Combine(solutionDirectoryPath!, "protocol.xml"));
 
-            if (!File.Exists(protocolFilePath))
+            if (!FileSystem.Instance.File.Exists(protocolFilePath))
             {
                 throw new InvalidOperationException($"protocol.xml not found. Expected location '{protocolFilePath}'.");
             }
 
-            string protocolCode = File.ReadAllText(protocolFilePath);
-            return protocolCode;
+            return FileSystem.Instance.File.ReadAllText(protocolFilePath);
         }
     }
 }

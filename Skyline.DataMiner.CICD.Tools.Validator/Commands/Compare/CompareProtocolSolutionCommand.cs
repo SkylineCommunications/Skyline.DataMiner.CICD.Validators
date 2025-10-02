@@ -71,24 +71,28 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
                     await InputDataAndLineInfoHelper.GetDataBasedOnSolutionAsync(solutionFile.FullName, includeQActionCompilationModel: false, context.GetCancellationToken());
 
                 // Get previous protocol input data
-                IFileInfoIO previousProtocolXmlFile;
+                string? previousProtocolXmlFile;
                 if (PreviousProtocolXmlPath?.Exists == true)
                 {
-                    previousProtocolXmlFile = PreviousProtocolXmlPath;
+                    previousProtocolXmlFile = PreviousProtocolXmlPath.FullName;
                 }
                 else
                 {
-                    (IFileInfoIO? fileInfoIo, ExitCodes exitCode) = await GetPreviousProtocolVersionAsync(inputData.Model, temporaryDirectory, solutionFile.DirectoryName);
-                    if (fileInfoIo == null)
+                    previousProtocolXmlFile = await GetPreviousProtocolVersionAsync(inputData.Model, temporaryDirectory, solutionFile.DirectoryName, context.GetCancellationToken());
+                    if (previousProtocolXmlFile == null)
                     {
-                        return (int)exitCode;
+                        return (int)ExitCodes.Fail;
+                    }
+
+                    if (String.Equals("Skipped", previousProtocolXmlFile))
+                    {
+                        return (int)ExitCodes.Ok;
                     }
 
                     logger.LogInformation("Found previous protocol version.");
-                    previousProtocolXmlFile = fileInfoIo;
                 }
 
-                (IProtocolInputData previousInputData, _) = await InputDataAndLineInfoHelper.GetBasedOnXmlAsync(previousProtocolXmlFile.FullName, context.GetCancellationToken());
+                (IProtocolInputData previousInputData, _) = InputDataAndLineInfoHelper.GetBasedOnXml(previousProtocolXmlFile);
 
                 ValidatorSettings settings = new ValidatorSettings(Globals.MinSupportedDataMinerVersionWithBuildNumber, new UnitList(XDocument.Parse(Resources.uom)));
 
@@ -148,8 +152,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             }
         }
 
-        private async Task<(IFileInfoIO?, ExitCodes)> GetPreviousProtocolVersionAsync(IProtocolModel currentProtocol, string temporaryDirectory,
-            string solutionFileDirectoryName)
+        private async Task<string?> GetPreviousProtocolVersionAsync(IProtocolModel currentProtocol, string temporaryDirectory, string solutionFileDirectoryName, CancellationToken cancellationToken = default)
         {
             /* Catalog API checks */
             if (String.IsNullOrWhiteSpace(CatalogApiKey))
@@ -158,12 +161,37 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
                 if (String.IsNullOrWhiteSpace(CatalogApiKey))
                 {
                     logger.LogError("Unable to fetch previous protocol version from Catalog due to missing Catalog API key.");
-                    return (null, ExitCodes.Fail);
+                    return null;
                 }
             }
 
             ICatalogService catalogService = ArtifactDownloader.Downloader.FromCatalog(new HttpClient(), CatalogApiKey);
 
+            string previousVersion = RetrievePreviousVersion(currentProtocol.Protocol);
+
+            switch (previousVersion)
+            {
+                case "Missing":
+                    logger.LogError("Unable to resolve the protocol version based on the provided protocol solution.");
+                    return null;
+                case "None":
+                    // Current version is the first version, no previous version exists.
+                    logger.LogInformation("Protocol solution is version 1.0.0.1, comparison will be skipped.");
+                    return "Skipped";
+            }
+
+            Guid? catalogId = await TryGetCatalogIdAsync(solutionFileDirectoryName, currentProtocol, cancellationToken);
+            if (catalogId != null)
+            {
+                return (await TryDownloadPreviousVersion(catalogId.Value, previousVersion, catalogService, temporaryDirectory))?.FullName;
+            }
+
+            logger.LogError("Unable to locate previous protocol version.");
+            return null;
+        }
+
+        private async Task<Guid?> TryGetCatalogIdAsync(string solutionFileDirectoryName, IProtocolModel currentProtocol, CancellationToken cancellationToken = default)
+        {
             /*
              * Priority order:
              *  - Catalog ID
@@ -172,27 +200,42 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
              *  - Search on public Catalog based on protocol name
              */
 
-            string previousVersion = RetrievePreviousVersion(currentProtocol.Protocol);
-
-            switch (previousVersion)
-            {
-                case "Missing":
-                    logger.LogError("Unable to resolve the protocol version based on the provided protocol solution.");
-                    return (null, ExitCodes.Fail);
-                case "None":
-                    // Current version is the first version, no previous version exists.
-                    logger.LogInformation("Protocol solution is version 1.0.0.1, comparison will be skipped.");
-                    return (null, ExitCodes.Ok);
-            }
-
             /* Catalog ID */
             if (!String.IsNullOrWhiteSpace(CatalogId) && Guid.TryParse(CatalogId, out Guid catalogId))
             {
-                logger.LogInformation("Found protocol with following Catalog ID: {CatalogId}", catalogId);
-                return await TryDownloadPreviousVersion(catalogId);
+                return catalogId;
             }
 
             logger.LogInformation("No valid Catalog ID provided.");
+
+            /* YAML files */
+            if (TryGetCatalogIdFromYamlFiles(solutionFileDirectoryName, out Guid? catalogIdAsync))
+            {
+                return catalogIdAsync;
+            }
+
+            /* Public Catalog Search */
+            logger.LogInformation("Falling back to searching on the public Catalog.");
+            var publicId = await publicCatalogService.SearchConnectorOnNameAsync(currentProtocol.Protocol.Name.Value, cancellationToken);
+            if (publicId != null)
+            {
+                logger.LogInformation("Found protocol with following Catalog ID: {PublicCatalogId}", publicId);
+                return publicId.Value;
+            }
+
+            // TODO: Check if there could be a search call on the key Catalog API that could be used instead of the public Catalog.
+            // As we already have a Catalog API key, it would be better to use that instead of relying on the public Catalog.
+            // Check with Cloud team to see if this could be implemented.
+
+            return null;
+        }
+
+        private bool TryGetCatalogIdFromYamlFiles(string solutionFileDirectoryName, out Guid? catalogId)
+        {
+            var deserializer = new DeserializerBuilder()
+                               .WithNamingConvention(UnderscoredNamingConvention.Instance)
+                               .IgnoreUnmatchedProperties()
+                               .Build();
 
             /* catalog.yml / manifest.yml */
             logger.LogInformation("Falling back to searching the Catalog ID in the 'catalog.yml' or 'manifest.yml' file.");
@@ -201,19 +244,15 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             {
                 catalogFilePath = FileSystem.Instance.Path.Combine(solutionFileDirectoryName, "manifest.yml");
             }
-            
-            var deserializer = new DeserializerBuilder()
-                               .WithNamingConvention(UnderscoredNamingConvention.Instance)
-                               .IgnoreUnmatchedProperties()
-                               .Build();
 
             if (FileSystem.Instance.File.Exists(catalogFilePath))
             {
                 string? id = deserializer.Deserialize<CatalogYaml>(FileSystem.Instance.File.ReadAllText(catalogFilePath)).Id;
-                if (!String.IsNullOrWhiteSpace(id) && Guid.TryParse(id, out catalogId))
+                if (!String.IsNullOrWhiteSpace(id) && Guid.TryParse(id, out Guid temp))
                 {
-                    logger.LogInformation("Found protocol with following Catalog ID: {CatalogId}", catalogId);
-                    return await TryDownloadPreviousVersion(catalogId);
+                    logger.LogInformation("Found protocol with following Catalog ID: {CatalogId}", temp);
+                    catalogId = temp;
+                    return true;
                 }
 
                 logger.LogInformation("No valid Catalog ID found in YAML file.");
@@ -230,10 +269,11 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             {
                 string? id = deserializer.Deserialize<CatalogYaml>(FileSystem.Instance.File.ReadAllText(catalogFilePath)).Id;
 
-                if (!String.IsNullOrWhiteSpace(id) && Guid.TryParse(id, out catalogId))
+                if (!String.IsNullOrWhiteSpace(id) && Guid.TryParse(id, out Guid temp))
                 {
-                    logger.LogInformation("Found protocol with following Catalog ID: {CatalogId}", catalogId);
-                    return await TryDownloadPreviousVersion(catalogId);
+                    logger.LogInformation("Found protocol with following Catalog ID: {CatalogId}", temp);
+                    catalogId = temp;
+                    return true;
                 }
 
                 logger.LogInformation("No valid Catalog ID found in YAML file.");
@@ -243,50 +283,37 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
                 logger.LogInformation("No YAML file found.");
             }
 
-            /* Public Catalog Search */
-            logger.LogInformation("Falling back to searching on the public Catalog.");
-            var publicId = await publicCatalogService.SearchConnectorOnNameAsync(currentProtocol.Protocol.Name.Value);
-            if (publicId != null)
+            catalogId = null;
+            return false;
+        }
+
+        private async Task<IFileInfoIO?> TryDownloadPreviousVersion(Guid id, string previousVersion, ICatalogService catalogService, string temporaryDirectory)
+        {
+            try
             {
-                logger.LogInformation("Found protocol with following Catalog ID: {PublicCatalogId}", publicId);
-                return await TryDownloadPreviousVersion(publicId.Value);
+                CatalogDownloadResult downloadResult = await catalogService.DownloadCatalogItemAsync(CatalogIdentifier.WithVersion(id, previousVersion));
+
+                if (downloadResult.Type != PackageType.Dmprotocol)
+                {
+                    throw new InvalidDataException("Downloaded package is not a protocol.");
+                }
+
+                using MemoryStream ms = new MemoryStream(downloadResult.Content);
+                using ZipArchive archive = new ZipArchive(ms);
+                archive.ExtractToDirectory(temporaryDirectory);
+
+                var fileInfo = new FileInfo(FileSystem.Instance.Path.Combine(temporaryDirectory, "Protocol", "Protocol.xml"));
+                if (!fileInfo.Exists)
+                {
+                    throw new FileNotFoundException("Downloaded protocol from Catalog did not contain a Protocol.xml file");
+                }
+
+                return fileInfo;
             }
-
-            // TODO: Check if there could be a search call on the key Catalog API that could be used instead of the public Catalog.
-            // As we already have a Catalog API key, it would be better to use that instead of relying on the public Catalog.
-            // Check with Cloud team to see if this could be implemented.
-
-            logger.LogError("Unable to locate previous protocol version.");
-            return (null, ExitCodes.Fail);
-
-            async Task<(IFileInfoIO?, ExitCodes)> TryDownloadPreviousVersion(Guid id)
+            catch (Exception e)
             {
-                try
-                {
-                    CatalogDownloadResult downloadResult = await catalogService.DownloadCatalogItemAsync(CatalogIdentifier.WithVersion(id, previousVersion));
-
-                    if (downloadResult.Type != PackageType.Dmprotocol)
-                    {
-                        throw new InvalidDataException("Downloaded package is not a protocol.");
-                    }
-
-                    using MemoryStream ms = new MemoryStream(downloadResult.Content);
-                    using ZipArchive archive = new ZipArchive(ms);
-                    archive.ExtractToDirectory(temporaryDirectory);
-
-                    var fileInfo = new FileInfo(FileSystem.Instance.Path.Combine(temporaryDirectory, "Protocol", "Protocol.xml"));
-                    if (!fileInfo.Exists)
-                    {
-                        throw new FileNotFoundException("Downloaded protocol from Catalog did not contain a Protocol.xml file");
-                    }
-
-                    return (fileInfo, ExitCodes.Ok);
-                }
-                catch (Exception e)
-                {
-                    logger.LogError(e, "Failed to download protocol with ID '{CatalogId}' from Catalog.", id);
-                    return (null, ExitCodes.Fail);
-                }
+                logger.LogError(e, "Failed to download protocol with ID '{CatalogId}' from Catalog.", id);
+                return null;
             }
         }
 
@@ -340,7 +367,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
         }
 
         [YamlSerializable(typeof(CatalogYaml))]
-        private class CatalogYaml
+        private sealed class CatalogYaml
         {
             /// <summary>
             /// Gets or sets the unique identifier for the catalog entry.

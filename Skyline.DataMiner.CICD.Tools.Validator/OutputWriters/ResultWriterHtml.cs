@@ -1,11 +1,11 @@
 ﻿namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters
 {
     using System.Collections.Generic;
-    using System.IO;
     using System.Text;
 
     using Microsoft.Extensions.Logging;
 
+    using Skyline.DataMiner.CICD.FileSystem;
     using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.HtmlWriter;
     using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
@@ -52,8 +52,8 @@
             htmlBuilder.Append(script);
 
             htmlBuilder.Append("</html>");
-            
-            File.WriteAllText(resultsFilePath, htmlBuilder.ToString());
+
+            FileSystem.Instance.File.WriteAllText(resultsFilePath, htmlBuilder.ToString());
         }
         
         private void AddResultsTable(ValidatorResults results, StringBuilder stringBuilder, string rootRowText)

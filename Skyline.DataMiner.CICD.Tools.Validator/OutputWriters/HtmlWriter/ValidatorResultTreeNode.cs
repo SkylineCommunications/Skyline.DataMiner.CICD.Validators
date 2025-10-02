@@ -23,9 +23,9 @@
 
         private void AddSubResults(StringBuilder stringBuilder, bool includeSuppressed, int depth = 2)
         {
-            foreach (var result in SubResults)
+            foreach (var subResult in SubResults)
             {
-                result.WriteHtml(stringBuilder, includeSuppressed, depth);
+                subResult.WriteHtml(stringBuilder, includeSuppressed, depth);
             }
         }
 
@@ -34,10 +34,10 @@
             suppressedCount = 0;
             nonSuppressedCount = 0;
 
-            foreach (var result in SubResults)
+            foreach (var subResult in SubResults)
             {
-                suppressedCount += result.SuppressedCount;
-                nonSuppressedCount += result.NonSuppressedCount;
+                suppressedCount += subResult.SuppressedCount;
+                nonSuppressedCount += subResult.NonSuppressedCount;
             }
         }
 

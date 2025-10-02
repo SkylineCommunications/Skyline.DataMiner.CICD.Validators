@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Xml.Serialization;
+
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
     /// <summary>

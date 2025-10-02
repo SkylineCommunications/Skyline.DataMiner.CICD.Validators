@@ -6,7 +6,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
     {
         private const string publicCatalogApi = "https://api.dataminer.services/api/public-catalog/v2-0/";
 
-        public async Task<Guid?> SearchConnectorOnNameAsync(string protocolName)
+        public async Task<Guid?> SearchConnectorOnNameAsync(string protocolName, CancellationToken cancellationToken = default)
         {
             using var publicCatalogClient = new HttpClient();
 
@@ -20,9 +20,9 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
 
                 string searchUrl = $"{publicCatalogApi}catalogs/search?query={Uri.EscapeDataString(protocolName)}&pageLimit=50&typeFilters=Connector";
 
-                HttpResponseMessage response = await publicCatalogClient.GetAsync(searchUrl);
+                HttpResponseMessage response = await publicCatalogClient.GetAsync(searchUrl, cancellationToken);
 
-                string content = await response.Content.ReadAsStringAsync();
+                string content = await response.Content.ReadAsStringAsync(cancellationToken);
                 if (!response.IsSuccessStatusCode)
                 {
                     logger.LogError("Public Catalog API returned {ResponseStatusCode}: {ErrorContent}", response.StatusCode, content);

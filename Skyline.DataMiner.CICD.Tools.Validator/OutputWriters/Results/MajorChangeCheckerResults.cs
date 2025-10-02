@@ -1,6 +1,7 @@
 ﻿namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results
 {
     using System.Xml.Serialization;
+
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 
     /// <summary>
