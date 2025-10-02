@@ -62,7 +62,7 @@
 
             if (!File.Exists(protocolFilePath))
             {
-                throw new InvalidOperationException($"protocol.xml not found. Expected location '${protocolFilePath}'.");
+                throw new InvalidOperationException($"protocol.xml not found. Expected location '{protocolFilePath}'.");
             }
 
             string protocolCode = File.ReadAllText(protocolFilePath);
