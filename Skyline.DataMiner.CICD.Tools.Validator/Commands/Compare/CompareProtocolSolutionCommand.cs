@@ -201,13 +201,14 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             {
                 catalogFilePath = FileSystem.Instance.Path.Combine(solutionFileDirectoryName, "manifest.yml");
             }
+            
+            var deserializer = new DeserializerBuilder()
+                               .WithNamingConvention(UnderscoredNamingConvention.Instance)
+                               .IgnoreUnmatchedProperties()
+                               .Build();
 
             if (FileSystem.Instance.File.Exists(catalogFilePath))
             {
-                var deserializer = new DeserializerBuilder()
-                                    .WithNamingConvention(UnderscoredNamingConvention.Instance)
-                                    .IgnoreUnmatchedProperties()
-                                    .Build();
                 string? id = deserializer.Deserialize<CatalogYaml>(FileSystem.Instance.File.ReadAllText(catalogFilePath)).Id;
                 if (!String.IsNullOrWhiteSpace(id) && Guid.TryParse(id, out catalogId))
                 {
@@ -227,10 +228,6 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             catalogFilePath = FileSystem.Instance.Path.Combine(solutionFileDirectoryName, ".githubtocatalog", "auto-generated-catalog.yml");
             if (FileSystem.Instance.File.Exists(catalogFilePath))
             {
-                var deserializer = new DeserializerBuilder()
-                                    .WithNamingConvention(UnderscoredNamingConvention.Instance)
-                                    .IgnoreUnmatchedProperties()
-                                    .Build();
                 string? id = deserializer.Deserialize<CatalogYaml>(FileSystem.Instance.File.ReadAllText(catalogFilePath)).Id;
 
                 if (!String.IsNullOrWhiteSpace(id) && Guid.TryParse(id, out catalogId))

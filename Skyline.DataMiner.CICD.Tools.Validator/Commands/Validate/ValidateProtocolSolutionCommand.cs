@@ -163,14 +163,14 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate
             {
                 if (args.Data != null)
                 {
-                    logger.LogInformation(args.Data);
+                    logger.LogInformation("Restore output: {Output}", args.Data);
                 }
             };
             process.ErrorDataReceived += (_, args) =>
             {
                 if (args.Data != null)
                 {
-                    logger.LogError(args.Data);
+                    logger.LogError("Restore error: {Error}", args.Data);
                 }
             };
 #pragma warning restore CA2254
