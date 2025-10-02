@@ -9,22 +9,22 @@
 
     internal class ResultWriterXml(string resultsFilePath, ILogger logger) : IResultWriter
     {
-        public void WriteResults(ValidatorResults validatorResults)
+        public void WriteResults(ValidatorResults results)
         {
             logger.LogInformation("  Writing results to {ResultsFilePath}...", resultsFilePath);
 
             FileStream fs = new FileStream(resultsFilePath, FileMode.Create);
             XmlSerializer s = new XmlSerializer(typeof(ValidatorResults));
-            s.Serialize(fs, validatorResults);
+            s.Serialize(fs, results);
         }
 
-        public void WriteResults(MajorChangeCheckerResults majorChangeCheckerResults)
+        public void WriteResults(MajorChangeCheckerResults results)
         {
             logger.LogInformation("  Writing results to {ResultsFilePath}...", resultsFilePath);
 
             FileStream fs = new FileStream(resultsFilePath, FileMode.Create);
             XmlSerializer s = new XmlSerializer(typeof(MajorChangeCheckerResults));
-            s.Serialize(fs, majorChangeCheckerResults);
+            s.Serialize(fs, results);
         }
     }
 }

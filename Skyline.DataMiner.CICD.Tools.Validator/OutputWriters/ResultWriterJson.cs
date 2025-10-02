@@ -11,7 +11,7 @@
 
     internal class ResultWriterJson(string resultsFilePath, ILogger logger) : IResultWriter
     {
-        public void WriteResults(ValidatorResults validatorResults)
+        public void WriteResults(ValidatorResults results)
         {
             logger.LogInformation("  Writing results to {ResultsFilePath}...", resultsFilePath);
 
@@ -24,10 +24,10 @@
 
             using StreamWriter sw = new StreamWriter(resultsFilePath);
             using JsonWriter writer = new JsonTextWriter(sw);
-            serializer.Serialize(writer, validatorResults);
+            serializer.Serialize(writer, results);
         }
 
-        public void WriteResults(MajorChangeCheckerResults majorChangeCheckerResults)
+        public void WriteResults(MajorChangeCheckerResults results)
         {
             logger.LogInformation("  Writing results to {ResultsFilePath}...", resultsFilePath);
 
@@ -40,7 +40,7 @@
 
             using StreamWriter sw = new StreamWriter(resultsFilePath);
             using JsonWriter writer = new JsonTextWriter(sw);
-            serializer.Serialize(writer, majorChangeCheckerResults);
+            serializer.Serialize(writer, results);
         }
     }
 }
