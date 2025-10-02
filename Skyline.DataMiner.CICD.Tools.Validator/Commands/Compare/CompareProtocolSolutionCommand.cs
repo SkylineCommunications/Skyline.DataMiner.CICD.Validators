@@ -154,7 +154,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             /* Catalog API checks */
             if (String.IsNullOrWhiteSpace(CatalogApiKey))
             {
-                CatalogApiKey = configuration["DATAMINER_TOKEN2"];
+                CatalogApiKey = configuration["DATAMINER_TOKEN"];
                 if (String.IsNullOrWhiteSpace(CatalogApiKey))
                 {
                     logger.LogError("Unable to fetch previous protocol version from Catalog due to missing Catalog API key.");
