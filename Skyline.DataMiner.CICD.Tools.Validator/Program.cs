@@ -1,92 +1,84 @@
-﻿namespace Skyline.DataMiner.CICD.Tools.Validator
+namespace Skyline.DataMiner.CICD.Tools.Validator
 {
     using System.CommandLine;
+    using System.CommandLine.Builder;
+    using System.CommandLine.Hosting;
     using System.Threading.Tasks;
 
-    internal class Program
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+
+    using Serilog;
+    using Serilog.Events;
+
+    using Skyline.DataMiner.CICD.Tools.Validator.Commands;
+    using Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare;
+    using Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate;
+
+    /// <summary>
+    /// This .NET tool allows you to validate and compare protocol solutions.
+    /// </summary>
+    public static class Program
     {
+        /// <summary>
+        /// Code that will be called when running the tool.
+        /// </summary>
+        /// <param name="args">Extra arguments.</param>
+        /// <returns>0 if successful.</returns>
         public static async Task<int> Main(string[] args)
         {
-            var rootCommand = new RootCommand("Validates a DataMiner artifact or solution.");
-
-            var solutionPathOption = new Option<string>(
-                name: "--solution-path",
-                description: "Path to a solution file (.sln) of a DataMiner protocol or a directory that contains a .sln file. Note: In case the specified directory contains multiple .sln files, you must specify the file path of a specific solution.")
+            var rootCommand = new RootCommand("This .NET tool allows you to validate and compare protocol solutions.")
             {
-                IsRequired = true
-            };
-            solutionPathOption.LegalFilePathsOnly();
-
-            var validatorResultsOutputDirectoryOption = new Option<string>(
-                name: "--output-directory",
-                description: "Path to the directory where the validator results should be stored.")
-            {
-                IsRequired = true
+                new ValidateCommand(),
+                new CompareCommand()
             };
 
-            var validatorResultsFileNameOption = new Option<string>(
-                name: "--output-file-name",
-                description:
-                "Name of the results file. Note: Do not provide an extension, the extension is automatically added based on the results-output-formats option. Default: 'ValidatorResults_<protocolName>_<protocolVersion>'")
+            var isDebug = new Option<bool>(
+                name: "--debug",
+                description: "Indicates the tool should write out debug logging.")
             {
-                IsRequired = false
+                IsHidden = true
             };
 
-            var outputFormatsOption = new Option<string[]>(
-                name: "--output-format",
-                description:
-                "Specifies the output format. Possible values: JSON, XML, HTML. Specify a space separated list to output multiple formats.",
-                getDefaultValue: () => new[] { "JSON", "HTML" })
+            var logLevel = new Option<LogEventLevel>(
+                name: "--minimum-log-level",
+                description: "Indicates what the minimum log level should be. Default is Information",
+                getDefaultValue: () => LogEventLevel.Information);
+
+            rootCommand.AddGlobalOption(isDebug);
+            rootCommand.AddGlobalOption(logLevel);
+
+            ParseResult parseResult = rootCommand.Parse(args);
+            LogEventLevel level = parseResult.GetValueForOption(isDebug)
+                ? LogEventLevel.Debug
+                : parseResult.GetValueForOption(logLevel);
+
+            var builder = new CommandLineBuilder(rootCommand).UseDefaults().UseHost(host =>
             {
-                Arity = ArgumentArity.ZeroOrMore,
-                IsRequired = false,
-                AllowMultipleArgumentsPerToken = true,
-            };
-            outputFormatsOption.FromAmong("JSON", "XML", "HTML");
+                host.ConfigureServices(services =>
+                    {
+                        services.AddLogging(loggingBuilder =>
+                        {
+                            loggingBuilder.AddSerilog(
+                                new LoggerConfiguration()
+                                    .MinimumLevel.Is(level)
+                                    .WriteTo.Console()
+                                    .CreateLogger());
+                        });
 
-            var includeSuppressedOption = new Option<bool>(
-                name: "--include-suppressed",
-                description: "Specifies whether the suppressed results should also be included in the results.",
-                getDefaultValue: () => false)
-            {
-                IsRequired = false
-            };
+                        services.AddSingleton<PublicCatalogService>();
+                    })
+                    .ConfigureHostConfiguration(configurationBuilder =>
+                    {
+                        configurationBuilder.AddUserSecrets<BaseCommand>() // For easy testing
+                                            .AddEnvironmentVariables();
+                    })
+                    .UseCommandHandler<ValidateProtocolSolutionCommand, ValidateProtocolSolutionCommandHandler>()
+                    .UseCommandHandler<CompareProtocolSolutionCommand, CompareProtocolSolutionCommandHandler>();
+            });
 
-            var performRestoreOption = new Option<bool>(
-                name: "--perform-restore",
-                description: "Specifies whether to perform a dotnet restore operation.",
-                getDefaultValue: () => true)
-            {
-                IsRequired = false
-            };
-
-            var restoreTimeoutOption = new Option<int>(
-                name: "--restore-timeout",
-                description: "Specifies the timeout for the restore operation (in ms).",
-                getDefaultValue: () => 300000)
-            {
-                IsRequired = false
-            };
-
-            // output format.
-            var validateProtocolSolutionCommand = new Command("validate-protocol-solution", "Validates a protocol solution.")
-            {
-                solutionPathOption,
-                validatorResultsOutputDirectoryOption,
-                validatorResultsFileNameOption,
-                outputFormatsOption,
-                includeSuppressedOption,
-                performRestoreOption,
-                restoreTimeoutOption
-            };
-
-            rootCommand.Add(validateProtocolSolutionCommand);
-
-            var validatorRunner = new ValidatorRunner();
-            validateProtocolSolutionCommand.SetHandler(validatorRunner.ValidateProtocolSolution, solutionPathOption, validatorResultsOutputDirectoryOption, validatorResultsFileNameOption, outputFormatsOption, includeSuppressedOption, performRestoreOption, restoreTimeoutOption);
-
-            int value = await rootCommand.InvokeAsync(args);
-            return value;
+            return await builder.Build().InvokeAsync(args);
         }
     }
 }

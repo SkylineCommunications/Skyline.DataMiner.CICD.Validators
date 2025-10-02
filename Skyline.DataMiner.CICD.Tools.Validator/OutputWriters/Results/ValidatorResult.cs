@@ -1,9 +1,9 @@
-﻿namespace Skyline.DataMiner.CICD.Tools.Validator
+﻿namespace Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results
 {
     using System;
     using System.Collections.Generic;
 
-     using Skyline.DataMiner.CICD.Validators.Common.Model;
+    using Skyline.DataMiner.CICD.Validators.Common.Model;
 
     /// <summary>
     /// Represents a validator result.
@@ -63,7 +63,7 @@
         /// Gets or sets the DVE for which this issue was detected.
         /// </summary>
         /// <value>The DVE for which this issue was detected.</value>
-        public string Dve { get; set; }
+        public string? Dve { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this issue is suppressed (Default: false).
@@ -75,6 +75,6 @@
         /// Gets or sets the sub results.
         /// </summary>
         /// <value>The sub results.</value>
-        public List<ValidatorResult> SubResults { get; set; }
+        public List<ValidatorResult>? SubResults { get; set; }
     }
 }

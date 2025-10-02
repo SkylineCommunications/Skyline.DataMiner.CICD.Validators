@@ -10,7 +10,7 @@
     /// <summary>
     /// Suppression manager for comment-based suppressions.
     /// </summary>
-    public class CommentSuppressionManager
+    public class CommentSuppressionManager : ISuppressionManager<CommentSuppression>
     {
         private readonly ILineInfoProvider lineInfoProvider;
 
@@ -42,7 +42,7 @@
         /// <param name="result">The validation result.</param>
         /// <returns><c>true</c> if the specified validator result is suppressed; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="result"/> is <see langword="null"/>.</exception>
-		public bool IsSuppressed(IValidationResult result)
+        public bool IsSuppressed(IValidationResult result)
         {
             if (result is null)
             {

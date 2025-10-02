@@ -3,22 +3,29 @@
     using System;
     using System.Text;
 
-    internal class ValidatorResultTreeLeaf : ValidatorResultTreeItem
+    using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results;
+
+    internal class ValidatorResultTreeLeaf(ValidatorResult result) : ValidatorResultTreeItem(result)
     {
-        public ValidatorResultTreeLeaf(ValidatorResult validatorResult) : base(validatorResult)
-        {
-
-        }
-
         public override int SuppressedCount => Suppressed ? 1 : 0;
 
         public override int NonSuppressedCount => Suppressed ? 0 : 1;
 
         public override void WriteHtml(StringBuilder stringBuilder, bool includeSuppressed, int depth = 2)
         {
-            stringBuilder.AppendFormat("        <tr data-depth=\"{0}\" class=\"collapse level{0}{2}\">{1}            <td>", depth, Environment.NewLine, Suppressed ? " suppressed" : String.Empty);
-            stringBuilder.AppendFormat("<span class=\"notoggle\"></span>");
-            stringBuilder.AppendFormat("&nbsp;<span class=\"{1}\" >&nbsp;</span>&nbsp;{2}</td>{0}            <td>{3}</td>{0}            <td>{4}</td>{0}            <td>{5}</td>{0}            <td>{6}</td>{0}            <td>{7}</td>{0}            <td>{8}</td>{0}            <td>{9}</td>{0}            <td>{10}</td>{0}        </tr>", Environment.NewLine, Severity.ToString().ToLower(), Description, GetState(), Certainty, FixImpact, Category, Id, Line, Column, Dve);
+            // Add row start
+            stringBuilder.Append($"<tr data-depth=\"{depth}\" class=\"collapse level{depth}{(Suppressed ? " suppressed" : String.Empty)}\">");
+
+            // Add description (with colored rectangle and no expand/collapse toggle)
+            stringBuilder.Append("<td><span class=\"notoggle\"></span>");
+            stringBuilder.Append($"&nbsp;<span class=\"{Severity.ToString().ToLower()}\">&nbsp;</span>&nbsp;{Description}</td>");
+
+            // Add other columns
+            string linkToDocId = $"<a href=\"https://skylinecommunications.github.io/Skyline.DataMiner.CICD.Validators/checks/Check_{Id.Replace('.', '_')}.html\" target=\"_blank\" rel=\"noopener noreferrer\">{Id}</a>";
+            stringBuilder.Append($"<td>{GetState()}</td><td>{Certainty}</td><td>{FixImpact}</td><td>{Category}</td><td>{linkToDocId}</td><td>{Line}</td><td>{Column}</td><td>{Dve}</td>");
+
+            // Add row end
+            stringBuilder.Append("</tr>");
         }
     }
 }
