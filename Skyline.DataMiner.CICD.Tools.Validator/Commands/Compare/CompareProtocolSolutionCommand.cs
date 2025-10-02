@@ -167,7 +167,8 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             /*
              * Priority order:
              *  - Catalog ID
-             *  - Search Catalog ID in .githubtocatalog/auto-generated-catalog.yml
+             *  - Search Catalog ID in catalog.yml or manifest.yml (in case it would be overwritten by user)
+             *  - Search Catalog ID in .githubtocatalog/auto-generated-catalog.yml (in case user did not overwrite it)
              *  - Search on public Catalog based on protocol name
              */
 
@@ -193,16 +194,44 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
 
             logger.LogInformation("No valid Catalog ID provided.");
 
-            /* .githubtocatalog/auto-generated-catalog.yml */
-            logger.LogInformation("Falling back to searching the Catalog ID in the '.githubtocatalog/auto-generated-catalog.yml' file.");
-            var yamlFilePath = FileSystem.Instance.Path.Combine(solutionFileDirectoryName, ".githubtocatalog", "auto-generated-catalog.yml");
-            if (FileSystem.Instance.File.Exists(yamlFilePath))
+            /* catalog.yml / manifest.yml */
+            logger.LogInformation("Falling back to searching the Catalog ID in the 'catalog.yml' or 'manifest.yml' file.");
+            var catalogFilePath = FileSystem.Instance.Path.Combine(solutionFileDirectoryName, "catalog.yml");
+            if (!FileSystem.Instance.File.Exists(catalogFilePath))
+            {
+                catalogFilePath = FileSystem.Instance.Path.Combine(solutionFileDirectoryName, "manifest.yml");
+            }
+
+            if (FileSystem.Instance.File.Exists(catalogFilePath))
             {
                 var deserializer = new DeserializerBuilder()
                                     .WithNamingConvention(UnderscoredNamingConvention.Instance)
                                     .IgnoreUnmatchedProperties()
                                     .Build();
-                string? id = deserializer.Deserialize<CatalogYaml>(FileSystem.Instance.File.ReadAllText(yamlFilePath)).Id;
+                string? id = deserializer.Deserialize<CatalogYaml>(FileSystem.Instance.File.ReadAllText(catalogFilePath)).Id;
+                if (!String.IsNullOrWhiteSpace(id) && Guid.TryParse(id, out catalogId))
+                {
+                    logger.LogInformation("Found protocol with following Catalog ID: {CatalogId}", catalogId);
+                    return await TryDownloadPreviousVersion(catalogId);
+                }
+
+                logger.LogInformation("No valid Catalog ID found in YAML file.");
+            }
+            else
+            {
+                logger.LogInformation("No catalog.yml or manifest.yml file found.");
+            }
+
+            /* .githubtocatalog/auto-generated-catalog.yml */
+            logger.LogInformation("Falling back to searching the Catalog ID in the '.githubtocatalog/auto-generated-catalog.yml' file.");
+            catalogFilePath = FileSystem.Instance.Path.Combine(solutionFileDirectoryName, ".githubtocatalog", "auto-generated-catalog.yml");
+            if (FileSystem.Instance.File.Exists(catalogFilePath))
+            {
+                var deserializer = new DeserializerBuilder()
+                                    .WithNamingConvention(UnderscoredNamingConvention.Instance)
+                                    .IgnoreUnmatchedProperties()
+                                    .Build();
+                string? id = deserializer.Deserialize<CatalogYaml>(FileSystem.Instance.File.ReadAllText(catalogFilePath)).Id;
 
                 if (!String.IsNullOrWhiteSpace(id) && Guid.TryParse(id, out catalogId))
                 {
