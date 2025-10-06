@@ -5,30 +5,26 @@
 
     using Microsoft.Extensions.Logging;
 
-    internal class ResultWriterXml : IResultWriter
+    using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results;
+
+    internal class ResultWriterXml(string resultsFilePath, ILogger logger) : IResultWriter
     {
-        private readonly string resultsFilePath;
-        private readonly ILogger logger;
-
-        public ResultWriterXml(string resultsFilePath, ILogger logger)
+        public void WriteResults(ValidatorResults results)
         {
-            this.resultsFilePath = resultsFilePath;
-            this.logger = logger;
-        }
-
-        public void WriteResults(ValidatorResults validatorResults)
-        {
-            logger.LogInformation("  Writing results to " + resultsFilePath + "...");
+            logger.LogInformation("  Writing results to {ResultsFilePath}...", resultsFilePath);
 
             FileStream fs = new FileStream(resultsFilePath, FileMode.Create);
             XmlSerializer s = new XmlSerializer(typeof(ValidatorResults));
-            s.Serialize(fs, validatorResults);
+            s.Serialize(fs, results);
+        }
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ValidatorResults));
-            using (StringWriter textWriter = new StringWriter())
-            {
-                xmlSerializer.Serialize(textWriter, validatorResults);
-            }
+        public void WriteResults(MajorChangeCheckerResults results)
+        {
+            logger.LogInformation("  Writing results to {ResultsFilePath}...", resultsFilePath);
+
+            FileStream fs = new FileStream(resultsFilePath, FileMode.Create);
+            XmlSerializer s = new XmlSerializer(typeof(MajorChangeCheckerResults));
+            s.Serialize(fs, results);
         }
     }
 }

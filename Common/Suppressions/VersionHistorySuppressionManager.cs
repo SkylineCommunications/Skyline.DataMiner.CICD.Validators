@@ -10,7 +10,7 @@
     /// <summary>
     /// Suppression manager for version history based suppressions.
     /// </summary>
-	public class VersionHistorySuppressionManager
+	public class VersionHistorySuppressionManager : ISuppressionManager<VersionHistorySuppression>
     {
         private readonly IProtocol protocol;
         private readonly IDictionary<string, List<VersionHistorySuppression>> suppressions = new Dictionary<string, List<VersionHistorySuppression>>();

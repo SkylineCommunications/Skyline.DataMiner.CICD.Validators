@@ -7,31 +7,40 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    internal class ResultWriterJson : IResultWriter
+    using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results;
+
+    internal class ResultWriterJson(string resultsFilePath, ILogger logger) : IResultWriter
     {
-        private readonly string resultsFilePath;
-        private readonly ILogger logger;
-
-        public ResultWriterJson(string resultsFilePath, ILogger logger)
+        public void WriteResults(ValidatorResults results)
         {
-            this.resultsFilePath = resultsFilePath;
-            this.logger = logger;
-        }
+            logger.LogInformation("  Writing results to {ResultsFilePath}...", resultsFilePath);
 
-        public void WriteResults(ValidatorResults validatorResults)
-        {
-            logger.LogInformation("  Writing results to " + resultsFilePath + "...");
-
-            JsonSerializer serializer = new JsonSerializer();
-            serializer.NullValueHandling = NullValueHandling.Ignore;
-            serializer.Formatting = Formatting.Indented;
+            JsonSerializer serializer = new JsonSerializer
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                Formatting = Formatting.Indented
+            };
             serializer.Converters.Add(new StringEnumConverter());
 
-            using (StreamWriter sw = new StreamWriter(resultsFilePath))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            using StreamWriter sw = new StreamWriter(resultsFilePath);
+            using JsonWriter writer = new JsonTextWriter(sw);
+            serializer.Serialize(writer, results);
+        }
+
+        public void WriteResults(MajorChangeCheckerResults results)
+        {
+            logger.LogInformation("  Writing results to {ResultsFilePath}...", resultsFilePath);
+
+            JsonSerializer serializer = new JsonSerializer
             {
-                serializer.Serialize(writer, validatorResults);
-            }
+                NullValueHandling = NullValueHandling.Ignore,
+                Formatting = Formatting.Indented
+            };
+            serializer.Converters.Add(new StringEnumConverter());
+
+            using StreamWriter sw = new StreamWriter(resultsFilePath);
+            using JsonWriter writer = new JsonTextWriter(sw);
+            serializer.Serialize(writer, results);
         }
     }
 }
