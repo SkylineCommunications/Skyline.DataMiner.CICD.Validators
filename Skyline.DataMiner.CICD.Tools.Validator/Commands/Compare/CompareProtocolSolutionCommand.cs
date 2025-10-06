@@ -86,6 +86,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
 
                     if (String.Equals("Skipped", previousProtocolXmlFile))
                     {
+                        WriteOutputResults(new MajorChangeCheckerResults(inputData, null));
                         return (int)ExitCodes.Ok;
                     }
 
@@ -110,9 +111,6 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
                 ResultsConverter.ConvertResults(results, compareResults, suppressionManager, lineInfoProvider);
                 ResultsConverter.ProcessSubResults(results, results.Issues, IncludeSuppressed ?? false);
 
-                results.ValidationTimeStamp = DateTime.Now;
-                results.SuppressedIssuesIncluded = IncludeSuppressed ?? false;
-
                 logger.LogInformation("Comparison completed.");
 
                 logger.LogInformation("  Detected {ResultsCriticalIssueCount} critical issue(s).", results.CriticalIssueCount);
@@ -122,20 +120,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
 
                 logger.LogInformation("  Time elapsed: {SwElapsed}", sw.Elapsed);
 
-                if (String.IsNullOrWhiteSpace(OutputFileName))
-                {
-                    OutputFileName = $"MajorChangeCheckerResults_{results.Protocol}_{results.Version}";
-                }
-
-                logger.LogInformation("Writing results...");
-
-                OutputDirectory.Create();
-                foreach (var writer in GetResultWriters(OutputFileName))
-                {
-                    writer.WriteResults(results);
-                }
-
-                logger.LogInformation("Writing results completed");
+                WriteOutputResults(results);
 
                 logger.LogInformation("Finished");
                 return (int)ExitCodes.Ok;
@@ -152,6 +137,27 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             }
         }
 
+        private void WriteOutputResults(MajorChangeCheckerResults results)
+        {
+            results.ValidationTimeStamp = DateTime.Now;
+            results.SuppressedIssuesIncluded = IncludeSuppressed ?? false;
+            
+            if (String.IsNullOrWhiteSpace(OutputFileName))
+            {
+                OutputFileName = $"MajorChangeCheckerResults_{results.Protocol}_{results.Version}";
+            }
+
+            logger.LogInformation("Writing results...");
+
+            OutputDirectory.Create();
+            foreach (var writer in GetResultWriters(OutputFileName))
+            {
+                writer.WriteResults(results);
+            }
+
+            logger.LogInformation("Writing results completed");
+        }
+        
         private async Task<string?> GetPreviousProtocolVersionAsync(IProtocolModel currentProtocol, string temporaryDirectory, string solutionFileDirectoryName, CancellationToken cancellationToken = default)
         {
             /* Catalog API checks */

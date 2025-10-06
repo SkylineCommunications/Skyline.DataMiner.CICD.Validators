@@ -11,16 +11,16 @@
     /// <param name="previousInputData"></param>
     [Serializable]
     [XmlRoot("MajorChangeCheckerResults")]
-    public class MajorChangeCheckerResults(IProtocolInputData inputData, IProtocolInputData previousInputData) : ValidatorResults(inputData)
+    public class MajorChangeCheckerResults(IProtocolInputData inputData, IProtocolInputData? previousInputData) : ValidatorResults(inputData)
     {
         /// <summary>
         /// Gets or sets the name of the previous protocol.
         /// </summary>
-        public string PreviousProtocol { get; } = previousInputData.Model.Protocol?.Name?.Value ?? Unknown;
+        public string PreviousProtocol { get; } = previousInputData?.Model?.Protocol?.Name?.Value ?? Unknown;
 
         /// <summary>
         /// Gets or sets the version of the previous protocol.
         /// </summary>
-        public string PreviousVersion { get; }  = previousInputData.Model.Protocol?.Version?.Value ?? Unknown;
+        public string PreviousVersion { get; }  = previousInputData?.Model?.Protocol?.Version?.Value ?? Unknown;
     }
 }
