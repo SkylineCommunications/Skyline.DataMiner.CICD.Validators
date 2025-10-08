@@ -16,7 +16,7 @@ Default allowed ranges are:
 - 70.000 -> 99.999
 - 1.000.000 -> 9.999.999
 
-There are exception for spectrum, base, Enhanced Service, SLA and Aggregation drivers. For more information about those exceptions, please check the protocol reference guide.
+There are exception for spectrum, base, Enhanced Service, SLA and Aggregation drivers. For more information about those exceptions, please check [the protocol reference guide](https://aka.dataminer.services/Reserved_PIDs).
 
 <!-- Uncomment to add example code -->
 <!--### Example code-->
