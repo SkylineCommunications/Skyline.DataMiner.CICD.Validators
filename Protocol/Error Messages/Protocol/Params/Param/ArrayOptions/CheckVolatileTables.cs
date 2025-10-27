@@ -12,44 +12,21 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class Error
     {
-        public static IValidationResult IncompatibleVolatileOption(IValidate test, IReadable referenceNode, IReadable positionNode, string item2Title, string item2Value, string itemKind, string idOrPid, string itemId)
-        {
-            return new ValidationResult
-            {
-                Test = test,
-                CheckId = CheckId.CheckVolatileTables,
-                ErrorId = ErrorIds.IncompatibleVolatileOption,
-                FullId = "2.78.1",
-                Category = Category.Param,
-                Severity = Severity.Major,
-                Certainty = Certainty.Certain,
-                Source = Source.Validator,
-                FixImpact = FixImpact.Breaking,
-                GroupDescription = "",
-                Description = String.Format("Incompatible '{0}' option '{1}' with '{2}' option '{3}'. {4} {5} '{6}'.", "ArrayOptions/options", "volatile", item2Title, item2Value, itemKind, idOrPid, itemId),
-                HowToFix = "Remove the 'volatile' option from the <ArrayOptions> tag or remove the incompatible features from the table (such as alarmed columns, foreign keys, or DVE usage).",
-                HasCodeFix = false,
-
-                PositionNode = positionNode,
-                ReferenceNode = referenceNode,
-            };
-        }
-
-        public static IValidationResult SuggestedVolatileOption(IValidate test, IReadable referenceNode, IReadable positionNode, string itemId)
+        public static IValidationResult SuggestedVolatileOption(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePID)
         {
             return new ValidationResult
             {
                 Test = test,
                 CheckId = CheckId.CheckVolatileTables,
                 ErrorId = ErrorIds.SuggestedVolatileOption,
-                FullId = "2.78.2",
+                FullId = "2.78.1",
                 Category = Category.Param,
                 Severity = Severity.Minor,
                 Certainty = Certainty.Uncertain,
                 Source = Source.Validator,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = String.Format("Suggested '{0}' option '{1}' in {2} {3} '{4}'.", "ArrayOptions/options", "volatile", "Table", "PID", itemId),
+                Description = String.Format("Suggested '{0}' option '{1}' in {2} {3} '{4}'.", "ArrayOptions/options", "volatile", "Table", "PID", tablePID),
                 HowToFix = "Add the 'volatile' option to the table's <ArrayOptions>.",
                 HasCodeFix = false,
 
@@ -58,13 +35,36 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        public static IValidationResult IncompatibleVolatileTable(IValidate test, IReadable referenceNode, IReadable positionNode, string item2Value)
+        public static IValidationResult IncompatibleVolatileTable(IValidate test, IReadable referenceNode, IReadable positionNode, string tablePID)
         {
             return new ValidationResult
             {
                 Test = test,
                 CheckId = CheckId.CheckVolatileTables,
                 ErrorId = ErrorIds.IncompatibleVolatileTable,
+                FullId = "2.78.2",
+                Category = Category.Param,
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = String.Format("Incompatible '{0}' option '{1}'. {2} {3} '{4}'.", "ArrayOptions@options", "volatile", "Table", "PID", tablePID),
+                HowToFix = "",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult IncompatibleVolatileTable_ColumnOption(IValidate test, IReadable referenceNode, IReadable positionNode, string optionName, string columnIdx)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckVolatileTables,
+                ErrorId = ErrorIds.IncompatibleVolatileTable_ColumnOption,
                 FullId = "2.78.3",
                 Category = Category.Param,
                 Severity = Severity.Major,
@@ -72,8 +72,77 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = String.Format("Incompatible '{0}' value '{1}' with '{2}' value '{3}'.", "ArrayOptions/options", "volatile", "Table PID", item2Value),
-                HowToFix = "Remove the 'volatile' option from the <ArrayOptions> tag or remove the incompatible features from the table (such as alarmed columns, foreign keys, or DVE usage).",
+                Description = String.Format("Incompatible '{0}' option '{1}'. {2} {3} '{4}'.", "ColumnOption@options", optionName, "Column", "IDX", columnIdx),
+                HowToFix = "",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult IncompatibleVolatileTable_Relation(IValidate test, IReadable referenceNode, IReadable positionNode, string relationPath, string relationName)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckVolatileTables,
+                ErrorId = ErrorIds.IncompatibleVolatileTable_Relation,
+                FullId = "2.78.4",
+                Category = Category.Param,
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = String.Format("Incompatible '{0}' value '{1}'. {2} {3} '{4}'.", "Relation@path", relationPath, "Relation", "name", relationName),
+                HowToFix = "",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult IncompatibleVolatileTable_Alarming(IValidate test, IReadable referenceNode, IReadable positionNode, string monitoredValue, string columnPID)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckVolatileTables,
+                ErrorId = ErrorIds.IncompatibleVolatileTable_Alarming,
+                FullId = "2.78.5",
+                Category = Category.Param,
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = String.Format("Incompatible '{0}' value '{1}'. {2} {3} '{4}'.", "Alarm/Monitored", monitoredValue, "Column", "PID", columnPID),
+                HowToFix = "",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult IncompatibleVolatileTable_DCF(IValidate test, IReadable referenceNode, IReadable positionNode, string dynamicID, string parameterGroupID)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckVolatileTables,
+                ErrorId = ErrorIds.IncompatibleVolatileTable_DCF,
+                FullId = "2.78.6",
+                Category = Category.Param,
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = String.Format("Incompatible '{0}' value '{1}'. {2} {3} '{4}'.", "ParameterGroups/Group@dynamicId", dynamicID, "ParameterGroup", "ID", parameterGroupID),
+                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -84,9 +153,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class ErrorIds
     {
-        public const uint IncompatibleVolatileOption = 1;
-        public const uint SuggestedVolatileOption = 2;
-        public const uint IncompatibleVolatileTable = 3;
+        public const uint SuggestedVolatileOption = 1;
+        public const uint IncompatibleVolatileTable = 2;
+        public const uint IncompatibleVolatileTable_ColumnOption = 3;
+        public const uint IncompatibleVolatileTable_Relation = 4;
+        public const uint IncompatibleVolatileTable_Alarming = 5;
+        public const uint IncompatibleVolatileTable_DCF = 6;
     }
 
     /// <summary>

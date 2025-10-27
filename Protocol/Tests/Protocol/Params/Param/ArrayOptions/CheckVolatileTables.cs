@@ -20,44 +20,45 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
-            // 1) INCOMPATIBLE: tables already marked as volatile but using incompatible features
+            // IncompatibleVolatileTable: tables already marked as volatile but using incompatible features
             var volatileTables = context.EachParamWithValidId().Where(IsVolatileArray);
 
             foreach (IParamsParam tableParam in volatileTables)
             {
-                string tableId = tableParam.Id?.RawValue;
+                string tablePid = tableParam.Id?.RawValue;
 
+                // Column Param
                 var columnResults = new List<IValidationResult>();
                 ValidateColumns(this, context, tableParam, columnResults);
 
-                var exportRuleResults = new List<IValidationResult>();
-                ValidateExportRule(this, context, tableParam, exportRuleResults, tableId);
-
-                var dcfUsageResults = new List<IValidationResult>();
-                ValidateDcfUsage(this, context, tableParam, dcfUsageResults, tableId);
-
+                // ColumnOptions
                 var columnOptionResults = new List<IValidationResult>();
-                ValidateColumnOptions(this, tableParam, columnOptionResults, tableId);
+                ValidateColumnOptions(this, tableParam, columnOptionResults);
 
-                if (columnResults.Count > 0 || exportRuleResults.Count > 0 || dcfUsageResults.Count > 0 || columnOptionResults.Count > 0)
+                // DCF
+                var dcfUsageResults = new List<IValidationResult>();
+                ValidateDcfUsage(this, context, tableParam, dcfUsageResults);
+
+                // Summary
+                if (columnResults.Count > 0 || dcfUsageResults.Count > 0 || columnOptionResults.Count > 0)
                 {
                     var parentResult = Error.IncompatibleVolatileTable(
                         this,
                         referenceNode: tableParam,
                         positionNode: tableParam,
-                        item2Value: tableId
+                        tablePID: tablePid
                     ).WithSubResults(
-                        columnResults.Concat(exportRuleResults)
-                                     .Concat(dcfUsageResults)
-                                     .Concat(columnOptionResults)
-                                     .ToArray()
+                        columnResults
+                            .Concat(dcfUsageResults)
+                            .Concat(columnOptionResults)
+                            .ToArray()
                     );
 
                     results.Add(parentResult);
                 }
             }
 
-            // 2) SUGGESTION: tables that are arrays, NOT volatile, and "clean" suggest adding volatile
+            // SuggestedVolatileOption: tables that are NOT volatile, and not using any incompatible features
             var relationManager = context.ProtocolModel?.RelationManager;
 
             var nonVolatileTables = context.EachParamWithValidId()
@@ -66,12 +67,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             foreach (var tableParam in nonVolatileTables.Where(tp => IsCleanForVolatile(context, tp, relationManager)))
             {
-                string tableId = tableParam.Id?.RawValue;
+                string tablePid = tableParam.Id?.RawValue;
                 results.Add(Error.SuggestedVolatileOption(
                     this,
                     referenceNode: tableParam,
                     positionNode: tableParam,
-                    itemId: tableId));
+                    tablePID: tablePid));
             }
 
 
@@ -111,11 +112,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 if (!context.ProtocolModel.TryGetObjectByKey(Mappings.ParamsById, pid, out IParamsParam col))
                 {
                     continue;
-                }
-
-                if (col.Trending?.Value == true)
-                {
-                    return false;
                 }
 
                 if (col.Alarm?.Monitored?.Value == true)
@@ -168,111 +164,77 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 if (!context.ProtocolModel.TryGetObjectByKey(Mappings.ParamsById, columnPid, out IParamsParam columnParam))
                     continue;
 
-                if (columnParam.Trending?.Value == true)
-                {
-                    results.Add(Error.IncompatibleVolatileOption(
-                        test,
-                        referenceNode: tableParam,
-                        positionNode: columnParam,
-                        item2Title: "Param@trending",
-                        item2Value: "true",
-                        itemKind: "Column",
-                        idOrPid: "PID",
-                        itemId: columnPid));
-                }
-
                 if (columnParam.Alarm?.Monitored?.Value == true)
                 {
-                    results.Add(Error.IncompatibleVolatileOption(
+                    results.Add(Error.IncompatibleVolatileTable_Alarming(
                         test,
                         referenceNode: tableParam,
                         positionNode: columnParam,
-                        item2Title: "Alarm/Monitored",
-                        item2Value: "true",
-                        itemKind: "Column",
-                        idOrPid: "PID",
-                        itemId: columnPid));
+                        monitoredValue: columnParam.Alarm?.Monitored?.RawValue,
+                        columnPID: columnPid));
                 }
             }
         }
 
-        private static void ValidateExportRule(IValidate test, ValidatorContext context, IParamsParam tableParam, List<IValidationResult> results, string tableId)
+        private static void ValidateDcfUsage(IValidate test, ValidatorContext context, IParamsParam tableParam, List<IValidationResult> results)
         {
-            if (context.ProtocolModel?.Protocol?.ExportRules?.Any(er => er.Table?.Value == tableParam.Id?.RawValue) == true)
+            if (context.ProtocolModel?.Protocol?.ParameterGroups == null || tableParam.Id?.Value == null)
             {
-                results.Add(Error.IncompatibleVolatileOption(
+                return;
+            }
+
+            foreach (var ParameterGroup in context.ProtocolModel.Protocol.ParameterGroups)
+            {
+                if (ParameterGroup.DynamicId?.Value != tableParam.Id?.Value)
+                {
+                    continue;
+                }
+
+                results.Add(Error.IncompatibleVolatileTable_DCF(
                     test,
                     referenceNode: tableParam,
                     positionNode: tableParam,
-                    item2Title: "ExportRule@table",
-                    item2Value: "ExportRule",
-                    itemKind: "Table",
-                    idOrPid: "PID",
-                    itemId: tableId));
+                    dynamicID: ParameterGroup.DynamicId.RawValue,
+                    parameterGroupID: ParameterGroup.Id?.RawValue));
             }
         }
 
-        private static void ValidateDcfUsage(IValidate test, ValidatorContext context, IParamsParam tableParam, List<IValidationResult> results, string tableId)
+        private static void ValidateColumnOptions(IValidate test, IParamsParam tableParam, List<IValidationResult> results)
         {
-            if (context.ProtocolModel?.Protocol?.ParameterGroups?.Any(pg => pg.DynamicId?.Value == tableParam.Id?.Value) == true)
+            foreach (var columnOption in tableParam.ArrayOptions)
             {
-                results.Add(Error.IncompatibleVolatileOption(
-                    test,
-                    referenceNode: tableParam,
-                    positionNode: tableParam,
-                    item2Title: "ParameterGroups/Group@dynamicId",
-                    item2Value: "dynamicId",
-                    itemKind: "Table",
-                    idOrPid: "PID",
-                    itemId: tableId));
-            }
-        }
-
-        private static void ValidateColumnOptions(IValidate test, IParamsParam tableParam, List<IValidationResult> results, string tableId)
-        {
-            foreach (var column in tableParam.ArrayOptions)
-            {
-                var options = column.GetOptions();
+                var options = columnOption.GetOptions();
                 if (options == null)
                     continue;
 
                 if (options.ForeignKey?.Pid != null)
                 {
-                    results.Add(Error.IncompatibleVolatileOption(
+                    results.Add(Error.IncompatibleVolatileTable_ColumnOption(
                         test,
                         referenceNode: tableParam,
-                        positionNode: column,
-                        item2Title: "ColumnOption/options",
-                        item2Value: "foreignKey",
-                        itemKind: "Table",
-                        idOrPid: "PID",
-                        itemId: tableId));
+                        positionNode: columnOption,
+                        optionName: "foreignKey",
+                        columnIdx: columnOption.Idx.RawValue));
                 }
 
                 if (options.IsSaved)
                 {
-                    results.Add(Error.IncompatibleVolatileOption(
+                    results.Add(Error.IncompatibleVolatileTable_ColumnOption(
                         test,
                         referenceNode: tableParam,
-                        positionNode: column,
-                        item2Title: "ColumnOption/options",
-                        item2Value: "save",
-                        itemKind: "Table",
-                        idOrPid: "PID",
-                        itemId: tableId));
+                        positionNode: columnOption,
+                        optionName: "save",
+                        columnIdx: columnOption.Idx.RawValue));
                 }
 
                 if (options.DVE?.IsElement == true)
                 {
-                    results.Add(Error.IncompatibleVolatileOption(
+                    results.Add(Error.IncompatibleVolatileTable_ColumnOption(
                         test,
                         referenceNode: tableParam,
-                        positionNode: column,
-                        item2Title: "ColumnOption/options",
-                        item2Value: "element",
-                        itemKind: "Table",
-                        idOrPid: "PID",
-                        itemId: tableId));
+                        positionNode: columnOption,
+                        optionName: "element",
+                        columnIdx: columnOption.Idx.RawValue));
                 }
             }
 

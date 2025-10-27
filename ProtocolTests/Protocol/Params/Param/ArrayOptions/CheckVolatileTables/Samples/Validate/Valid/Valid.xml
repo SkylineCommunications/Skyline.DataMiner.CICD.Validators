@@ -23,7 +23,8 @@
 				<ColumnOption idx="1" pid="1002" type="retrieved" />
 				<ColumnOption idx="2" pid="1003" type="retrieved" />
 				<ColumnOption idx="3" pid="1054" type="retrieved" />
-				<ColumnOption idx="4" pid="999" type="displaykey" />
+				<ColumnOption idx="4" pid="1005" type="retrieved" />
+				<ColumnOption idx="5" pid="999" type="displaykey" />
 			</ArrayOptions>
 		</Param>
 		<Param id="1001">
@@ -46,6 +47,10 @@
 			<Name>Volatile_WriteColumn</Name>
 			<Type>write</Type>
 		</Param>
+		<Param id="1005" trending="true">
+			<Name>Volatile_TrendedColumn</Name>
+			<Type>read</Type>
+		</Param>
 
 		<!-- Non-volatile tables -->
 		<Param id="10000">
@@ -66,7 +71,7 @@
 		</Param>
 
 		<Param id="10100">
-			<Name>NonVolatileForFKToMe</Name>
+			<Name>NonVolatileForFKFromOtherToMe</Name>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="10101" type="retrieved" options="" />
@@ -83,7 +88,7 @@
 		</Param>
 
 		<Param id="10200">
-			<Name>NonVolatileForFKToOther</Name>
+			<Name>NonVolatileForFKFromMeToOther</Name>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="10201" type="retrieved" options="" />

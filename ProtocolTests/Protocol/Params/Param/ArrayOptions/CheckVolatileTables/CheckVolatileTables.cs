@@ -9,8 +9,8 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables;
 
     [TestClass]
@@ -38,43 +38,102 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         #region Invalid Checks
 
         [TestMethod]
-        public void Param_CheckVolatileTables_IncompatibleVolatileOption()
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable()
         {
-            var data = new Generic.ValidateData
+            Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "IncompatibleVolatileOption",
+                FileName = "IncompatibleVolatileTable",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.IncompatibleVolatileTable(null, null, null, item2Value: "1000").WithSubResults(
-                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "save",       "Column", "IDX", "1"),    // Save
-                        Error.IncompatibleVolatileOption(null, null, null, "Alarm/Monitored",       "true",       "Column", "PID", "1003"), // Alarm
-                        Error.IncompatibleVolatileOption(null, null, null, "Param@trending",        "true",       "Column", "PID", "1004"), // Trending
-                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "foreignKey", "Column", "IDX", "4"),    // FK
-                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "element",    "Column", "IDX", "5")     // DVE
+                    Error.IncompatibleVolatileTable(null, null, null, tablePID: "1000").WithSubResults(
+                        Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "save",         "1"),   // Save
+                        Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "foreignKey",   "2"),   // FK
+                        Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "element",      "3"),   // DVE
+                        Error.IncompatibleVolatileTable_DCF(null, null, null,           "1000",         "1"),   // DCF
+                        Error.IncompatibleVolatileTable_Alarming(null, null, null,      "true",         "1003") // Alarm
                     ),
 
-                    Error.IncompatibleVolatileTable(null, null, null, item2Value: "2000").WithSubResults(
-                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",   "foreignKey", "Column", "IDX", "4") // FK Target
+                    Error.IncompatibleVolatileTable(null, null, null, tablePID: "2000").WithSubResults(
+                        Error.IncompatibleVolatileTable_Relation(null, null, null, "1000;2000", "MyRelationName")   // FK Target
                     ),
-                },
+                }
             };
 
             Generic.Validate(check, data);
         }
 
         [TestMethod]
-        public void Param_CheckVolatileTables_IncompatibleVolatileTable()
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_Alarming()
         {
-            var data = new Generic.ValidateData
+            Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "IncompatibleVolatileTable",
+                FileName = "IncompatibleVolatileTable_Alarming",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.IncompatibleVolatileTable(null, null, null, item2Value: "1000").WithSubResults(
-                        Error.IncompatibleVolatileOption(null, null, null, "ExportRule@table",                  "ExportRule",   "Table", "PID", "1000"),   // DVE
-                        Error.IncompatibleVolatileOption(null, null, null, "ParameterGroups/Group@dynamicId",   "dynamicId",    "Table", "PID", "1000")    // DCF
+                    Error.IncompatibleVolatileTable(null, null, null, tablePID: "1000").WithSubResults(
+                        Error.IncompatibleVolatileTable_Alarming(null, null, null, "true", "1002")
+                    ),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_ColumnOption()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "IncompatibleVolatileTable_ColumnOption",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.IncompatibleVolatileTable(null, null, null, tablePID: "1000").WithSubResults(
+                        Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "save",         "1"),   // Save
+                        Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "foreignKey",   "2"),   // FK
+                        Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "element",      "3")    // DVE
+                    ),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_DCF()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "IncompatibleVolatileTable_DCF",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.IncompatibleVolatileTable(null, null, null, tablePID: "1000").WithSubResults(
+                        Error.IncompatibleVolatileTable_DCF(null, null, null, "1000", "1")
+                    ),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_Relation()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "IncompatibleVolatileTable_Relation",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.IncompatibleVolatileTable(null, null, null, tablePID: "1000").WithSubResults(
+                        Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "foreignKey",   "1")
+                    ),
+
+                    Error.IncompatibleVolatileTable(null, null, null, tablePID: "2000").WithSubResults(
+                        Error.IncompatibleVolatileTable_Relation(null, null, null, "1000;2000", "MyRelationName")
                     ),
                 }
             };
@@ -85,7 +144,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         [TestMethod]
         public void Param_CheckVolatileTables_SuggestedVolatileOption()
         {
-            var data = new Generic.ValidateData
+            Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
                 FileName = "SuggestedVolatileOption",
@@ -105,26 +164,18 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
     public class ErrorMessages
     {
         [TestMethod]
-        public void Param_CheckVolatileTables_IncompatibleVolatileOption()
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable()
         {
             // Create ErrorMessage
-            var message = Error.IncompatibleVolatileOption(
-               test: null,
-               referenceNode: null,
-               positionNode: null,
-               item2Title: "ColumnOption/options",
-               item2Value: "save",
-               itemKind: "Table",
-               idOrPid: "PID",
-               itemId: "1000");
-
+            var message = Error.IncompatibleVolatileTable(null, null, null, "tablePID");
+                        
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = "Incompatible 'ArrayOptions/options' option 'volatile' with 'ColumnOption/options' option 'save'. Table PID '1000'.",
+                Description = "Incompatible 'ArrayOptions@options' option 'volatile'. Table PID 'tablePID'.",
                 HasCodeFix = false,
             };
 
@@ -133,46 +184,102 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         }
 
         [TestMethod]
-        public void Param_CheckVolatileTables_IncompatibleVolatileTable()
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_Alarming()
         {
-            var message = Error.IncompatibleVolatileTable(
-                test: null,
-                referenceNode: null,
-                positionNode: null,
-                item2Value: "1000");
-
+            // Create ErrorMessage
+            var message = Error.IncompatibleVolatileTable_Alarming(null, null, null, "monitoredValue", "columnPID");
+                        
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = "Incompatible 'ArrayOptions/options' value 'volatile' with 'Table PID' value '1000'.",
+                Description = "Incompatible 'Alarm/Monitored' value 'monitoredValue'. Column PID 'columnPID'.",
                 HasCodeFix = false,
             };
 
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_ColumnOption()
+        {
+            // Create ErrorMessage
+            var message = Error.IncompatibleVolatileTable_ColumnOption(null, null, null, "optionName", "columnIdx");
+                        
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = "Incompatible 'ColumnOption@options' option 'optionName'. Column IDX 'columnIdx'.",
+                HasCodeFix = false,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_DCF()
+        {
+            // Create ErrorMessage
+            var message = Error.IncompatibleVolatileTable_DCF(null, null, null, "dynamicID", "parameterGroupID");
+                        
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = "Incompatible 'ParameterGroups/Group@dynamicId' value 'dynamicID'. ParameterGroup ID 'parameterGroupID'.",
+                HasCodeFix = false,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_Relation()
+        {
+            // Create ErrorMessage
+            var message = Error.IncompatibleVolatileTable_Relation(null, null, null, "relationPath", "relationName");
+                        
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = "Incompatible 'Relation@path' value 'relationPath'. Relation name 'relationName'.",
+                HasCodeFix = false,
+            };
+
+            // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
 
         [TestMethod]
         public void Param_CheckVolatileTables_SuggestedVolatileOption()
         {
-            var message = Error.SuggestedVolatileOption(
-                test: null,
-                referenceNode: null,
-                positionNode: null,
-                itemId: "1000");
-
+            // Create ErrorMessage
+            var message = Error.SuggestedVolatileOption(null, null, null, "tablePID");
+                        
             var expected = new ValidationResult
             {
                 Severity = Severity.Minor,
                 Certainty = Certainty.Uncertain,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = "Suggested 'ArrayOptions/options' option 'volatile' in Table PID '1000'.",
+                Description = "Suggested 'ArrayOptions/options' option 'volatile' in Table PID 'tablePID'.",
                 HasCodeFix = false,
             };
 
+            // Assert
             message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
     }

@@ -838,7 +838,7 @@
             </DescriptionTemplate>
             <DescriptionTemplate id="9021">
                 <Name>IncompatibleValueInItem</Name>
-                <Format>Incompatible '{0}' value '{1}'. {4} {5} '{6}'.</Format>
+                <Format>Incompatible '{0}' value '{1}'. {2} {3} '{4}'.</Format>
                 <InputParameters>
                     <InputParameter id="0">itemTitle</InputParameter>
                     <InputParameter id="1">itemValue</InputParameter>
@@ -857,7 +857,7 @@
             </DescriptionTemplate>
             <DescriptionTemplate id="9031">
                 <Name>IncompatibleOptionInItem</Name>
-                <Format>Incompatible '{0}' option '{1}'. {4} {5} '{6}'.</Format>
+                <Format>Incompatible '{0}' option '{1}'. {2} {3} '{4}'.</Format>
                 <InputParameters>
                     <InputParameter id="0">optionTitle</InputParameter>
                     <InputParameter id="1">optionValue</InputParameter>
@@ -9187,6 +9187,25 @@
 						<Name namespace="Protocol.Params.Param.ArrayOptions">CheckVolatileTables</Name>
 						<ErrorMessages>
                             <ErrorMessage id="1">
+                                <Name>SuggestedVolatileOption</Name>
+                                <GroupDescription />
+                                <Description templateId="16001">
+                                    <InputParameters>
+                                        <InputParameter id="0" value="ArrayOptions/options">item1Title</InputParameter>
+                                        <InputParameter id="1" value="volatile">item1Value</InputParameter>
+                                        <InputParameter id="2" value="Table">itemKind</InputParameter>
+                                        <InputParameter id="3" value="PID">idOrPid</InputParameter>
+                                        <InputParameter id="4">tablePID</InputParameter>
+                                    </InputParameters>
+                                </Description>
+                                <Severity>Minor</Severity>
+                                <Certainty>Uncertain</Certainty>
+                                <Source>Validator</Source>
+                                <FixImpact>Breaking</FixImpact>
+                                <HasCodeFix>False</HasCodeFix>
+                                <HowToFix><![CDATA[Add the 'volatile' option to the table's <ArrayOptions>.]]></HowToFix>
+                            </ErrorMessage>
+                            <ErrorMessage id="2">
                                 <Name>IncompatibleVolatileTable</Name>
                                 <GroupDescription />
                                 <Description templateId="9031">
@@ -9205,18 +9224,16 @@
                                 <HasCodeFix>False</HasCodeFix>
                                 <HowToFix><![CDATA[]]></HowToFix>
                             </ErrorMessage>
-							<ErrorMessage id="2">
-								<Name>IncompatibleVolatileWithOption_Sub</Name>
+							<ErrorMessage id="3">
+								<Name>IncompatibleVolatileTable_ColumnOption</Name>
 								<GroupDescription />
-								<Description templateId="9011">
+								<Description templateId="9031">
 									<InputParameters>
-										<InputParameter id="0" value="ArrayOptions@options">item1Title</InputParameter>
-										<InputParameter id="1" value="volatile">item1Value</InputParameter>
-										<InputParameter id="2">item2Title</InputParameter>
-										<InputParameter id="3">item2Value</InputParameter>
-										<InputParameter id="4" value="">itemKind</InputParameter>
-										<InputParameter id="5">idOrPid</InputParameter>
-										<InputParameter id="6">itemId</InputParameter>
+                                        <InputParameter id="0" value="ColumnOption@options">optionTitle</InputParameter>
+                                        <InputParameter id="1">optionName</InputParameter>
+                                        <InputParameter id="2" value="Column">itemKind</InputParameter>
+                                        <InputParameter id="3" value="IDX">idOrPid</InputParameter>
+                                        <InputParameter id="4">columnIdx</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Major</Severity>
@@ -9226,25 +9243,63 @@
 								<HasCodeFix>False</HasCodeFix>
 								<HowToFix><![CDATA[]]></HowToFix>
 							</ErrorMessage>
-							<ErrorMessage id="3">
-								<Name>SuggestedVolatileOption</Name>
-								<GroupDescription />
-								<Description templateId="16001">
-									<InputParameters>
-										<InputParameter id="0" value="ArrayOptions/options">item1Title</InputParameter>
-										<InputParameter id="1" value="volatile">item1Value</InputParameter>
-										<InputParameter id="2" value="Table">itemKind</InputParameter>
-										<InputParameter id="3" value="PID">idOrPid</InputParameter>
-										<InputParameter id="4">tablePID</InputParameter>
-									</InputParameters>
-								</Description>
-								<Severity>Minor</Severity>
-								<Certainty>Uncertain</Certainty>
-								<Source>Validator</Source>
-								<FixImpact>Breaking</FixImpact>
-								<HasCodeFix>False</HasCodeFix>
-								<HowToFix><![CDATA[Add the 'volatile' option to the table's <ArrayOptions>.]]></HowToFix>
-							</ErrorMessage>
+                            <ErrorMessage id="4">
+                                <Name>IncompatibleVolatileTable_Relation</Name>
+                                <GroupDescription />
+                                <Description templateId="9021">
+                                    <InputParameters>
+                                        <InputParameter id="0" value="Relation@path">itemTitle</InputParameter>
+                                        <InputParameter id="1">relationPath</InputParameter>
+                                        <InputParameter id="2" value="Relation">itemKind</InputParameter>
+                                        <InputParameter id="3" value="name">idOrPid</InputParameter>
+                                        <InputParameter id="4">relationName</InputParameter>
+                                    </InputParameters>
+                                </Description>
+                                <Severity>Major</Severity>
+                                <Certainty>Certain</Certainty>
+                                <Source>Validator</Source>
+                                <FixImpact>Breaking</FixImpact>
+                                <HasCodeFix>False</HasCodeFix>
+                                <HowToFix><![CDATA[]]></HowToFix>
+                            </ErrorMessage>
+                            <ErrorMessage id="5">
+                                <Name>IncompatibleVolatileTable_Alarming</Name>
+                                <GroupDescription />
+                                <Description templateId="9021">
+                                    <InputParameters>
+                                        <InputParameter id="0" value="Alarm/Monitored">itemTitle</InputParameter>
+                                        <InputParameter id="1">monitoredValue</InputParameter>
+                                        <InputParameter id="2" value="Column">itemKind</InputParameter>
+                                        <InputParameter id="3" value="PID">idOrPid</InputParameter>
+                                        <InputParameter id="4">columnPID</InputParameter>
+                                    </InputParameters>
+                                </Description>
+                                <Severity>Major</Severity>
+                                <Certainty>Certain</Certainty>
+                                <Source>Validator</Source>
+                                <FixImpact>Breaking</FixImpact>
+                                <HasCodeFix>False</HasCodeFix>
+                                <HowToFix><![CDATA[]]></HowToFix>
+                            </ErrorMessage>
+                            <ErrorMessage id="6">
+                                <Name>IncompatibleVolatileTable_DCF</Name>
+                                <GroupDescription />
+                                <Description templateId="9021">
+                                    <InputParameters>
+                                        <InputParameter id="0" value="ParameterGroups/Group@dynamicId">itemTitle</InputParameter>
+                                        <InputParameter id="1">dynamicID</InputParameter>
+                                        <InputParameter id="2" value="ParameterGroup">itemKind</InputParameter>
+                                        <InputParameter id="3" value="ID">idOrPid</InputParameter>
+                                        <InputParameter id="4">parameterGroupID</InputParameter>
+                                    </InputParameters>
+                                </Description>
+                                <Severity>Major</Severity>
+                                <Certainty>Certain</Certainty>
+                                <Source>Validator</Source>
+                                <FixImpact>Breaking</FixImpact>
+                                <HasCodeFix>False</HasCodeFix>
+                                <HowToFix><![CDATA[]]></HowToFix>
+                            </ErrorMessage>
 						</ErrorMessages>
 					</Check>
 				</Checks>

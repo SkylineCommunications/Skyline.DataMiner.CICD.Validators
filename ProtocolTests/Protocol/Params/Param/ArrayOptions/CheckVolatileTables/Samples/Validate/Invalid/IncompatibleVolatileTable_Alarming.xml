@@ -1,0 +1,25 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>IncompatibleVolatile</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";volatile">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="1002" type="retrieved" options="" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>IncompatibleVolatile_PK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>IncompatibleVolatile_Alarmed</Name>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+	</Params>
+
+</Protocol>
