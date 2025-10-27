@@ -47,8 +47,15 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.IncompatibleVolatileTable(null, null, null, item2Value: "1000").WithSubResults(
-                        Error.IncompatibleVolatileOption(null, null, null, "ExportRule@table",                  "ExportRule",   "Table", "PID", "1000"),   // DVE
-                        Error.IncompatibleVolatileOption(null, null, null, "ParameterGroups/Group@dynamicId",   "dynamicId",    "Table", "PID", "1000")    // DCF
+                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "save",       "Column", "IDX", "1"),    // Save
+                        Error.IncompatibleVolatileOption(null, null, null, "Alarm/Monitored",       "true",       "Column", "PID", "1003"), // Alarm
+                        Error.IncompatibleVolatileOption(null, null, null, "Param@trending",        "true",       "Column", "PID", "1004"), // Trending
+                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "foreignKey", "Column", "IDX", "4"),    // FK
+                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "element",    "Column", "IDX", "5")     // DVE
+                    ),
+
+                    Error.IncompatibleVolatileTable(null, null, null, item2Value: "2000").WithSubResults(
+                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",   "foreignKey", "Column", "IDX", "4") // FK Target
                     ),
                 },
             };
@@ -66,15 +73,8 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.IncompatibleVolatileTable(null, null, null, item2Value: "1000").WithSubResults(
-                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "save",       "Column", "IDX", "1"),    // Save
-                        Error.IncompatibleVolatileOption(null, null, null, "Alarm/Monitored",       "true",       "Column", "PID", "1003"), // Alarm
-                        Error.IncompatibleVolatileOption(null, null, null, "Param@trending",        "true",       "Column", "PID", "1004"), // Trending
-                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "foreignKey", "Column", "IDX", "4"),    // FK
-                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",  "element",    "Column", "IDX", "5")     // DVE
-                    ),
-
-                    Error.IncompatibleVolatileTable(null, null, null, item2Value: "2000").WithSubResults(
-                        Error.IncompatibleVolatileOption(null, null, null, "ColumnOption/options",   "foreignKey", "Column", "IDX", "4") // FK Target
+                        Error.IncompatibleVolatileOption(null, null, null, "ExportRule@table",                  "ExportRule",   "Table", "PID", "1000"),   // DVE
+                        Error.IncompatibleVolatileOption(null, null, null, "ParameterGroups/Group@dynamicId",   "dynamicId",    "Table", "PID", "1000")    // DCF
                     ),
                 }
             };

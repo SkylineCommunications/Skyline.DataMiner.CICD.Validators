@@ -1,5 +1,20 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
 
+	<!-- DCF -->
+	<ParameterGroups>
+		<Group id="1" name="Input" type="in" dynamicId="1000" dynamicIndex="*" />
+	</ParameterGroups>
+
+	<!-- DVEs -->
+	<ExportRules>
+		<ExportRule table="1000" tag="Protocol/Display" attribute="defaultPage" value="Task Manager"/>
+	</ExportRules>
+
+	<!-- FKs -->
+	<Relations>
+		<Relation path="1000;2000" />
+	</Relations>
+
 	<Params>
 		<Param id="1000">
 			<Name>IncompatibleVolatile</Name>
@@ -7,14 +22,49 @@
 			<ArrayOptions index="0" options=";volatile">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options="" />
 				<ColumnOption idx="1" pid="1002" type="retrieved" options=";save" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="1004" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="1005" type="retrieved" options=";foreignKey=2000" />
+				<ColumnOption idx="5" pid="1006" type="retrieved" options=";element" />
 			</ArrayOptions>
 		</Param>
 		<Param id="1001">
-			<Name>IncompatibleVolatile_PK</Name>
+			<Name>IncompatibleVolatile_PK</Name>3
 			<Type>read</Type>
 		</Param>
-		<Param id="1002" trending="true">
-			<Name>IncompatibleVolatile_SavedColumn</Name>
+		<Param id="1002">
+			<Name>IncompatibleVolatile_Saved</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>IncompatibleVolatile_Alarmed</Name>
+			<Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="1004" trending="true">
+			<Name>IncompatibleVolatile_Trended</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1005">
+			<Name>IncompatibleVolatile_FK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1006">
+			<Name>IncompatibleVolatile_DVE</Name>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="2000">
+			<Name>IncompatibleVolatile_ForeignKeyTarget</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";volatile">
+				<ColumnOption idx="0" pid="2001" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001">
+			<Name>IncompatibleVolatile_ForeignKeyTarget_PK</Name>
 			<Type>read</Type>
 		</Param>
 	</Params>
