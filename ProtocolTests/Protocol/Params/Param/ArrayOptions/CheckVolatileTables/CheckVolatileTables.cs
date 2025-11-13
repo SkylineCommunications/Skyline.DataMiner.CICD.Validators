@@ -51,11 +51,11 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
                         Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "foreignKey",   "2"),   // FK
                         Error.IncompatibleVolatileTable_ColumnOption(null, null, null,  "element",      "3"),   // DVE
                         Error.IncompatibleVolatileTable_DCF(null, null, null,           "1000",         "1"),   // DCF
-                        Error.IncompatibleVolatileTable_Alarming(null, null, null,      "true",         "1003") // Alarm
+                        Error.IncompatibleVolatileTable_Alarming(null, null, null,      "true",         "1005") // Alarm
                     ),
 
                     Error.IncompatibleVolatileTable(null, null, null, tablePID: "2000").WithSubResults(
-                        Error.IncompatibleVolatileTable_Relation(null, null, null, "1000;2000", "MyRelationName")   // FK Target
+                        Error.IncompatibleVolatileTable_ForeignKeyTable(null, null, null, "1000;2000")
                     ),
                 }
             };
@@ -120,12 +120,12 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         }
 
         [TestMethod]
-        public void Param_CheckVolatileTables_IncompatibleVolatileTable_Relation()
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_ForeignKeyTable()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "IncompatibleVolatileTable_Relation",
+                FileName = "IncompatibleVolatileTable_ForeignKeyTable",
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.IncompatibleVolatileTable(null, null, null, tablePID: "1000").WithSubResults(
@@ -133,7 +133,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
                     ),
 
                     Error.IncompatibleVolatileTable(null, null, null, tablePID: "2000").WithSubResults(
-                        Error.IncompatibleVolatileTable_Relation(null, null, null, "1000;2000", "MyRelationName")
+                        Error.IncompatibleVolatileTable_ForeignKeyTable(null, null, null, "1000;2000")
                     ),
                 }
             };
@@ -244,10 +244,10 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         }
 
         [TestMethod]
-        public void Param_CheckVolatileTables_IncompatibleVolatileTable_Relation()
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_ForeignKeyTable()
         {
             // Create ErrorMessage
-            var message = Error.IncompatibleVolatileTable_Relation(null, null, null, "relationPath", "relationName");
+            var message = Error.IncompatibleVolatileTable_ForeignKeyTable(null, null, null, "relationPath");
                         
             var expected = new ValidationResult
             {
@@ -255,7 +255,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = "Incompatible 'Relation@path' value 'relationPath'. Relation name 'relationName'.",
+                Description = "Incompatible 'Foreign Key table path' value 'relationPath'.",
                 HasCodeFix = false,
             };
 

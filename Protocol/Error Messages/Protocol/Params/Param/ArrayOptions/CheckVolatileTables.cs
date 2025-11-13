@@ -81,13 +81,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        public static IValidationResult IncompatibleVolatileTable_Relation(IValidate test, IReadable referenceNode, IReadable positionNode, string relationPath, string relationName)
+        public static IValidationResult IncompatibleVolatileTable_ForeignKeyTable(IValidate test, IReadable referenceNode, IReadable positionNode, string relationPath)
         {
             return new ValidationResult
             {
                 Test = test,
                 CheckId = CheckId.CheckVolatileTables,
-                ErrorId = ErrorIds.IncompatibleVolatileTable_Relation,
+                ErrorId = ErrorIds.IncompatibleVolatileTable_ForeignKeyTable,
                 FullId = "2.78.4",
                 Category = Category.Param,
                 Severity = Severity.Major,
@@ -95,7 +95,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = String.Format("Incompatible '{0}' value '{1}'. {2} {3} '{4}'.", "Relation@path", relationPath, "Relation", "name", relationName),
+                Description = String.Format("Incompatible '{0}' value '{1}'.", "Foreign Key table path", relationPath),
                 HowToFix = "",
                 HasCodeFix = false,
 
@@ -156,7 +156,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint SuggestedVolatileOption = 1;
         public const uint IncompatibleVolatileTable = 2;
         public const uint IncompatibleVolatileTable_ColumnOption = 3;
-        public const uint IncompatibleVolatileTable_Relation = 4;
+        public const uint IncompatibleVolatileTable_ForeignKeyTable = 4;
         public const uint IncompatibleVolatileTable_Alarming = 5;
         public const uint IncompatibleVolatileTable_DCF = 6;
     }
