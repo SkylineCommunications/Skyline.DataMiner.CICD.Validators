@@ -20,31 +20,25 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         {
             var results = new List<IValidationResult>();
 
-            // Collect all array params.
-            var allTables = context.EachParamWithValidId()
-                                   .Where(p => p.Type?.Value == EnumParamType.Array)
-                                   .ToList();
-
             // Pre-create an entry for every table so FK destination sub results can be added immediately (order independent).
-            var tableInfo = allTables
-                .ConvertAll(t => new
+            var tablesInfo = context.EachParamWithValidId()
+                .Where(p => p.IsTable())
+                .Select(t => new
                 {
                     Table = t,
                     IsVolatile = t.ArrayOptions?.GetOptions()?.HasVolatile == true,
                     Subs = new List<IValidationResult>()
-                })
-;
+                }).ToList();
 
             // Map PID -> info for quick FK destination lookups.
-            var subsMap = tableInfo
-                .Where(x => !string.IsNullOrEmpty(x.Table.Id?.RawValue))
+            var subsMap = tablesInfo
                 .ToDictionary(x => x.Table.Id.RawValue, x => x.Subs);
 
             // Run validations per table.
-            foreach (var info in tableInfo)
+            foreach (var tableInfo in tablesInfo)
             {
-                var table = info.Table;
-                var subs = info.Subs;
+                var table = tableInfo.Table;
+                var subs = tableInfo.Subs;
 
                 ValidateColumns(this, context, table, subs);
                 ValidateColumnOptions(this, table, subs);
@@ -54,7 +48,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             // Incompatible volatile tables.
             results.AddRange(
-                tableInfo
+                tablesInfo
                     .Where(t => t.IsVolatile && t.Subs.Any())
                     .Select(t => Error.IncompatibleVolatileTable(
                         this,
@@ -66,7 +60,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             // Suggested volatile tables
             results.AddRange(
-                tableInfo
+                tablesInfo
                     .Where(t => !t.IsVolatile && t.Subs.Count == 0)
                     .Select(t => Error.SuggestedVolatileOption(
                         this,
@@ -82,14 +76,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         private static void ValidateColumns(IValidate test, ValidatorContext context, IParamsParam tableParam, List<IValidationResult> results)
         {
             var relationManager = context.ProtocolModel?.RelationManager;
-            var tableColumns = tableParam.GetColumns(relationManager, returnBaseColumnsIfDuplicateAs: true)
-                .Select(c => c.pid)
-                .Where(pid => !string.IsNullOrEmpty(pid));
 
-            foreach (string columnPid in tableColumns)
+            foreach (var columnInfo in tableParam.GetColumns(relationManager, returnBaseColumnsIfDuplicateAs: true))
             {
-                if (!context.ProtocolModel.TryGetObjectByKey(Mappings.ParamsById, columnPid, out IParamsParam columnParam))
-                    continue;
+                var columnParam = columnInfo.columnParam;
 
                 if (columnParam.Alarm?.Monitored?.Value == true)
                 {
@@ -98,7 +88,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                         referenceNode: tableParam,
                         positionNode: columnParam,
                         monitoredValue: columnParam.Alarm?.Monitored?.RawValue,
-                        columnPID: columnPid));
+                        columnPID: columnParam.Id.RawValue));
                 }
             }
         }
