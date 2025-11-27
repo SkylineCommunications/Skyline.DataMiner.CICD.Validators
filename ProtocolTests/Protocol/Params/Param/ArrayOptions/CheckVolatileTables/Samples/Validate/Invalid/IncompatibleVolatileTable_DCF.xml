@@ -2,7 +2,7 @@
 	
 	<!-- DCF -->
 	<ParameterGroups>
-		<Group id="1" name="Input" type="in" dynamicId="1000" dynamicIndex="*" />
+		<Group id="1" name="DCF_OnVolatileTable" type="in" dynamicId="1000" dynamicIndex="*" />
 	</ParameterGroups>
 
 	<Params>
