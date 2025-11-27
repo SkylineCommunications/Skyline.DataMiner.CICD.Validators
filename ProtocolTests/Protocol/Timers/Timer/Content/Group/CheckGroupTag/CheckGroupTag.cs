@@ -113,7 +113,10 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
                 FileName = "InvalidTypeLastTimerGroup",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.InvalidTypeLastTimerGroup(null, null, null, "Trigger", "1", "2"),
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Action",  "1", "20"),    // poll (implicit)
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Trigger", "2", "21"),    // poll (explicit)
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Action",  "3", "20"),    // poll action
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Trigger", "4", "21"),    // poll trigger
                 }
             };
             Generic.Validate(check, data);

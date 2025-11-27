@@ -1,34 +1,61 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
 
 	<Groups>
-		<Group id="1">
+		<!-- Poll Groups -->
+		<Group id="10">
+			<Name>PollGroup_Implicit</Name>
+		</Group>
+		<Group id="11">
+			<Name>PollGroup_poll</Name>
 			<Type>poll</Type>
 		</Group>
-		<Group id="2">
+		<Group id="12">
+			<Name>PollGroup_pollAction</Name>
+			<Type>poll action</Type>
+		</Group>
+		<Group id="13">
+			<Name>PollGroup_pollTrigger</Name>
+			<Type>poll trigger</Type>
+		</Group>
+
+		<!-- Non-Poll Groups -->
+		<Group id="20">
+			<Name>NonPollGroup_action</Name>
+			<Type>action</Type>
+		</Group>
+		<Group id="21">
+			<Name>NonPollGroup_trigger</Name>
 			<Type>trigger</Type>
 		</Group>
 	</Groups>
+	
 	<Timers>
-		<Timer id="1" >
+		<Timer id="1">
+			<Name>WithPollGroup_Implicit</Name>
 			<Content>
-				<Group>1</Group>
-				<Group>2</Group>
+				<Group>10</Group>
+				<Group>20</Group>
 			</Content>
 		</Timer>
-		<Timer id="2" >
+		<Timer id="2">
+			<Name>WithPollGroupI_Poll</Name>
 			<Content>
-				<Group>1</Group>
+				<Group>11</Group>
+				<Group>21</Group>
 			</Content>
 		</Timer>
-		<Timer id="3" >
+		<Timer id="3">
+			<Name>WithPollGroupI_PollAction</Name>
 			<Content>
-				<Group>2</Group>
+				<Group>12</Group>
+				<Group>20</Group>
 			</Content>
 		</Timer>
-		<Timer id="4" >
+		<Timer id="4">
+			<Name>WithPollGroupI_PollTrigger</Name>
 			<Content>
-				<Group>2</Group>
-				<Group>1</Group>
+				<Group>13</Group>
+				<Group>21</Group>
 			</Content>
 		</Timer>
 	</Timers>	
