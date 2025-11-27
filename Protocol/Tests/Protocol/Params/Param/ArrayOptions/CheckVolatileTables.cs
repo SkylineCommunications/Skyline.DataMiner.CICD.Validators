@@ -141,10 +141,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             foreach (var columnOption in tableParam.ArrayOptions)
             {
                 var options = columnOption.GetOptions();
-                if (options == null)
-                    continue;
 
-                if (options.IsSaved)
+                if (options?.IsSaved == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
                         test,
@@ -154,7 +152,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                         columnIdx: columnOption.Idx.RawValue));
                 }
 
-                if (options.DVE?.IsElement == true)
+                if (options?.DVE?.IsElement == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
                         test,
@@ -175,17 +173,15 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             foreach (var ParameterGroup in context.ProtocolModel.Protocol.ParameterGroups)
             {
-                if (ParameterGroup.DynamicId?.Value != tableParam.Id?.Value)
+                if (ParameterGroup.DynamicId?.Value == tableParam.Id?.Value)
                 {
-                    continue;
+                    subResults.Add(Error.IncompatibleVolatileTable_DCF(
+                        test,
+                        referenceNode: ParameterGroup,
+                        positionNode: ParameterGroup.DynamicId,
+                        dynamicID: ParameterGroup.DynamicId.RawValue,
+                        parameterGroupID: ParameterGroup.Id?.RawValue));
                 }
-
-                subResults.Add(Error.IncompatibleVolatileTable_DCF(
-                    test,
-                    referenceNode: tableParam,
-                    positionNode: tableParam,
-                    dynamicID: ParameterGroup.DynamicId.RawValue,
-                    parameterGroupID: ParameterGroup.Id?.RawValue));
             }
         }
 
@@ -194,30 +190,31 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             foreach (var columnOption in tableParam.ArrayOptions)
             {
                 var options = columnOption.GetOptions();
-                var fkPid = options?.ForeignKey?.Pid.ToString();
+
+                var fkPid = options?.ForeignKey?.Pid?.ToString();
                 if (string.IsNullOrEmpty(fkPid))
+                {
                     continue;
+                }
 
-                string columnIdx = columnOption.Idx?.RawValue;
-
-                // Source side.
+                // Source side (child table).
                 subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
                     test,
                     referenceNode: tableParam,
                     positionNode: columnOption,
                     optionName: "foreignKey",
-                    columnIdx: columnIdx));
+                    columnIdx: columnOption.Idx?.RawValue));
 
-                // Destination side (add sub result to destination table if volatile).
-                if (context.ProtocolModel.TryGetObjectByKey(Mappings.ParamsById, fkPid, out IParamsParam destTable) &&
-                    destTable.Type?.Value == EnumParamType.Array)
+                // Destination side (parent table).
+                if (context.ProtocolModel.TryGetObjectByKey(Mappings.ParamsById, fkPid, out IParamsParam destTable)
+                    && destTable.IsTable())
                 {
-                    var destId = destTable.Id?.RawValue;
-                    if (!string.IsNullOrEmpty(destId) && subResultsPerTablePid.TryGetValue(destId, out var destSubs))
+                    var destTablePid = destTable.Id?.RawValue;
+                    if (!string.IsNullOrEmpty(destTablePid) && subResultsPerTablePid.TryGetValue(destTablePid, out var destSubs))
                     {
                         destSubs.Add(Error.IncompatibleVolatileTable_ForeignKeyTable(
                             test,
-                            referenceNode: destTable,
+                            referenceNode: tableParam,
                             positionNode: columnOption,
                             relationPath: $"{tableParam.Id?.RawValue};{fkPid}"));
                     }
