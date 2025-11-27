@@ -33,21 +33,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
         #endregion
 
         #region Invalid Checks
-        [TestMethod]
-        public void Timer_CheckGroupTag_NonExistingIdInGroup()
-        {
-            Generic.ValidateData data = new Generic.ValidateData
-            {
-                TestType = Generic.TestType.Invalid,
-                FileName = "NonExistingIdInGroup",
-                ExpectedResults = new List<IValidationResult>
-                {
-                    Error.NonExistingIdInGroup(null, null, null, "Group", "10", "1")
-                }
-            };
-
-            Generic.Validate(check, data);
-        }
 
         [TestMethod]
         public void Timer_CheckGroupTag_EmptyGroupTag()
@@ -59,24 +44,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.EmptyGroupTag(null, null, null, "1")
-                }
-            };
-
-            Generic.Validate(check, data);
-        }
-
-        [TestMethod]
-        public void Timer_CheckGroupTag_InvalidTableIdInGroupTag()
-        {
-            Generic.ValidateData data = new Generic.ValidateData
-            {
-                TestType = Generic.TestType.Invalid,
-                FileName = "InvalidTableIdInGroupTag",
-                ExpectedResults = new List<IValidationResult>
-                {
-                    Error.InvalidGroupTag(null, null, null, "col:10:12", "1"),
-                    Error.InvalidGroupTag(null, null, null, "col:10:12", "2"),
-                    Error.InvalidGroupTag(null, null, null, "col:3:4", "3")
                 }
             };
 
@@ -105,6 +72,24 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
         }
 
         [TestMethod]
+        public void Timer_CheckGroupTag_InvalidTableIdInGroupTag()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "InvalidTableIdInGroupTag",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.InvalidGroupTag(null, null, null, "col:10:12", "1"),
+                    Error.InvalidGroupTag(null, null, null, "col:10:12", "2"),
+                    Error.InvalidGroupTag(null, null, null, "col:3:4", "3")
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
         public void Timer_CheckGroupTag_InvalidTypeLastTimerGroup()
         {
             Generic.ValidateData data = new Generic.ValidateData
@@ -119,6 +104,22 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
                     Error.InvalidTypeLastTimerGroup(null, null, null, "Trigger", "4", "21"),    // poll trigger
                 }
             };
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Timer_CheckGroupTag_NonExistingIdInGroup()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "NonExistingIdInGroup",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.NonExistingIdInGroup(null, null, null, "Group", "10", "1")
+                }
+            };
+
             Generic.Validate(check, data);
         }
 
