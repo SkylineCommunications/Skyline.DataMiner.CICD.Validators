@@ -113,17 +113,18 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             ValidateColumns(tableParam, subResults);
             ValidateColumnOptions(tableParam, subResults);
             ValidateDcfUsage(tableParam, subResults);
-            ValidateForeignKeys(tableParam, subResults);
+            ValidateForeignKeyDestinationTable(tableParam);
         }
 
         private void ValidateColumns(IParamsParam tableParam, List<IValidationResult> subResults)
         {
-            var relationManager = context.ProtocolModel?.RelationManager;
+            var relationManager = model.RelationManager;
 
             foreach (var columnInfo in tableParam.GetColumns(relationManager, returnBaseColumnsIfDuplicateAs: true))
             {
                 var columnParam = columnInfo.columnParam;
 
+                // Alarming
                 if (columnParam.Alarm?.Monitored?.Value == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_Alarming(
@@ -142,6 +143,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             {
                 var options = columnOption.GetOptions();
 
+                // Save
                 if (options?.IsSaved == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
@@ -149,9 +151,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                         referenceNode: tableParam,
                         positionNode: columnOption,
                         optionName: "save",
-                        columnIdx: columnOption.Idx.RawValue));
+                        columnIdx: columnOption.Idx?.RawValue));
                 }
 
+                // DVE
                 if (options?.DVE?.IsElement == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
@@ -159,19 +162,30 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                         referenceNode: tableParam,
                         positionNode: columnOption,
                         optionName: "element",
-                        columnIdx: columnOption.Idx.RawValue));
+                        columnIdx: columnOption.Idx?.RawValue));
+                }
+
+                // ForeignKey (source side - child table).
+                if (options?.ForeignKey?.Pid != null)
+                {
+                    subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
+                        test,
+                        referenceNode: tableParam,
+                        positionNode: columnOption,
+                        optionName: "foreignKey",
+                        columnIdx: columnOption.Idx?.RawValue));
                 }
             }
         }
 
         private void ValidateDcfUsage(IParamsParam tableParam, List<IValidationResult> subResults)
         {
-            if (context.ProtocolModel?.Protocol?.ParameterGroups == null)
+            if (model.Protocol?.ParameterGroups == null)
             {
                 return;
             }
 
-            foreach (var ParameterGroup in context.ProtocolModel.Protocol.ParameterGroups)
+            foreach (var ParameterGroup in model.Protocol.ParameterGroups)
             {
                 if (ParameterGroup.DynamicId?.Value == tableParam.Id?.Value)
                 {
@@ -185,7 +199,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             }
         }
 
-        private void ValidateForeignKeys(IParamsParam tableParam, List<IValidationResult> subResults)
+        private void ValidateForeignKeyDestinationTable(IParamsParam tableParam)
         {
             foreach (var columnOption in tableParam.ArrayOptions)
             {
@@ -197,17 +211,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                // Source side (child table).
-                subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
-                    test,
-                    referenceNode: tableParam,
-                    positionNode: columnOption,
-                    optionName: "foreignKey",
-                    columnIdx: columnOption.Idx?.RawValue));
-
                 // Destination side (parent table).
-                if (context.ProtocolModel.TryGetObjectByKey(Mappings.ParamsById, fkPid, out IParamsParam destTable)
-                    && destTable.IsTable())
+                if (model.TryGetObjectByKey(Mappings.ParamsById, fkPid, out IParamsParam destTable) && destTable.IsTable())
                 {
                     var destTablePid = destTable.Id?.RawValue;
                     if (!string.IsNullOrEmpty(destTablePid) && subResultsPerTablePid.TryGetValue(destTablePid, out var destSubs))
