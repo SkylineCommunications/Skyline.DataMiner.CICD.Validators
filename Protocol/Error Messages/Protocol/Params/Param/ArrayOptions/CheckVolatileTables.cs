@@ -81,13 +81,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             };
         }
 
-        public static IValidationResult IncompatibleVolatileTable_ForeignKeyTable(IValidate test, IReadable referenceNode, IReadable positionNode, string relationPath)
+        public static IValidationResult IncompatibleVolatileTable_ForeignKeyDestination(IValidate test, IReadable referenceNode, IReadable positionNode, string fkValue, string columnIdx)
         {
             return new ValidationResult
             {
                 Test = test,
                 CheckId = CheckId.CheckVolatileTables,
-                ErrorId = ErrorIds.IncompatibleVolatileTable_ForeignKeyTable,
+                ErrorId = ErrorIds.IncompatibleVolatileTable_ForeignKeyDestination,
                 FullId = "2.78.4",
                 Category = Category.Param,
                 Severity = Severity.Major,
@@ -95,7 +95,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = String.Format("Incompatible '{0}' value '{1}'.", "Foreign Key table path", relationPath),
+                Description = String.Format("Incompatible '{0}' value '{1}'. {2} {3} '{4}'.", "ColumnOption@options foreignKey", fkValue, "Column", "IDX", columnIdx),
                 HowToFix = "",
                 HasCodeFix = false,
 
@@ -156,7 +156,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint SuggestedVolatileOption = 1;
         public const uint IncompatibleVolatileTable = 2;
         public const uint IncompatibleVolatileTable_ColumnOption = 3;
-        public const uint IncompatibleVolatileTable_ForeignKeyTable = 4;
+        public const uint IncompatibleVolatileTable_ForeignKeyDestination = 4;
         public const uint IncompatibleVolatileTable_Alarming = 5;
         public const uint IncompatibleVolatileTable_DCF = 6;
     }

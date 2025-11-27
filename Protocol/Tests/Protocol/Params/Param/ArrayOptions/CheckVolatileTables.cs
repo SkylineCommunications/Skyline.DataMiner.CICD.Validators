@@ -124,7 +124,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             {
                 var columnParam = columnInfo.columnParam;
 
-                // Alarming
+                // Alarming.
                 if (columnParam.Alarm?.Monitored?.Value == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_Alarming(
@@ -143,7 +143,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             {
                 var options = columnOption.GetOptions();
 
-                // Save
+                // Save.
                 if (options?.IsSaved == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
@@ -154,7 +154,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                         columnIdx: columnOption.Idx?.RawValue));
                 }
 
-                // DVE
+                // DVE.
                 if (options?.DVE?.IsElement == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
@@ -217,11 +217,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     var destTablePid = destTable.Id?.RawValue;
                     if (!string.IsNullOrEmpty(destTablePid) && subResultsPerTablePid.TryGetValue(destTablePid, out var destSubs))
                     {
-                        destSubs.Add(Error.IncompatibleVolatileTable_ForeignKeyTable(
+                        destSubs.Add(Error.IncompatibleVolatileTable_ForeignKeyDestination(
                             test,
                             referenceNode: tableParam,
                             positionNode: columnOption,
-                            relationPath: $"{tableParam.Id?.RawValue};{fkPid}"));
+                            fkValue: fkPid,
+                            columnIdx: columnOption.Idx?.RawValue));
                     }
                 }
             }

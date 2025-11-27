@@ -9248,11 +9248,11 @@
 								<GroupDescription />
 								<Description templateId="9021">
 									<InputParameters>
-                                        <InputParameter id="0" value="ColumnOption@options foreignKey">itemTitle</InputParameter>
-                                        <InputParameter id="1">fkValue</InputParameter>
-                                        <InputParameter id="2" value="Column">itemKind</InputParameter>
-                                        <InputParameter id="3" value="IDX">idOrPid</InputParameter>
-                                        <InputParameter id="4">columnIdx</InputParameter>
+										<InputParameter id="0" value="ColumnOption@options foreignKey">itemTitle</InputParameter>
+										<InputParameter id="1">fkValue</InputParameter>
+										<InputParameter id="2" value="Column">itemKind</InputParameter>
+										<InputParameter id="3" value="IDX">idOrPid</InputParameter>
+										<InputParameter id="4">columnIdx</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Major</Severity>

@@ -55,7 +55,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
                     ),
 
                     Error.IncompatibleVolatileTable(null, null, null, tablePID: "2000").WithSubResults(
-                        Error.IncompatibleVolatileTable_ForeignKeyTable(null, null, null, "1000;2000")
+                        Error.IncompatibleVolatileTable_ForeignKeyDestination(null, null, null, "2000", "2")
                     ),
                 }
             };
@@ -120,12 +120,12 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         }
 
         [TestMethod]
-        public void Param_CheckVolatileTables_IncompatibleVolatileTable_ForeignKeyTable()
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_ForeignKeyDestination()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "IncompatibleVolatileTable_ForeignKeyTable",
+                FileName = "IncompatibleVolatileTable_ForeignKeyDestination",
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.IncompatibleVolatileTable(null, null, null, tablePID: "1000").WithSubResults(
@@ -133,7 +133,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
                     ),
 
                     Error.IncompatibleVolatileTable(null, null, null, tablePID: "2000").WithSubResults(
-                        Error.IncompatibleVolatileTable_ForeignKeyTable(null, null, null, "1000;2000")
+                        Error.IncompatibleVolatileTable_ForeignKeyDestination(null, null, null, "2000", "1")
                     ),
                 }
             };
@@ -244,10 +244,10 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
         }
 
         [TestMethod]
-        public void Param_CheckVolatileTables_IncompatibleVolatileTable_ForeignKeyTable()
+        public void Param_CheckVolatileTables_IncompatibleVolatileTable_ForeignKeyDestination()
         {
             // Create ErrorMessage
-            var message = Error.IncompatibleVolatileTable_ForeignKeyTable(null, null, null, "relationPath");
+            var message = Error.IncompatibleVolatileTable_ForeignKeyDestination(null, null, null, "fkValue", "columnIdx");
                         
             var expected = new ValidationResult
             {
@@ -255,7 +255,7 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = "Incompatible 'Foreign Key table path' value 'relationPath'.",
+                Description = "Incompatible 'ColumnOption@options foreignKey' value 'fkValue'. Column IDX 'columnIdx'.",
                 HasCodeFix = false,
             };
 
