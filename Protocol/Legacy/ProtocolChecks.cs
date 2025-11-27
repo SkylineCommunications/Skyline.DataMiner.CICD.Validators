@@ -173,9 +173,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
 
         /// <summary>
         /// Checks the DVE column option.
-        /// Check if DVE exported table has exactly one columnoption with options=;element.
+        /// Check if DVE exported table has exactly one columnOption with options=;element.
         /// </summary>
-        /// <param name="xDoc">The procotol document.</param>
+        /// <param name="xDoc">The protocol document.</param>
         /// <returns>List of results.</returns>
         public List<IValidationResult> CheckDveColumnOptionElement(XmlDocument xDoc) // M
         {
@@ -1465,96 +1465,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
                     lsTimes.Add(speed);
                 }
 
-                // Check that last group is a poll group.
-                XmlNode xnLastGroup = xnTimer.SelectSingleNode(".//slc:Content/slc:Group[last()]", xmlNsm);
-                string sType = String.Empty;
-                bool emptyTimer = false;
-                if (xnLastGroup == null)
-                {
-                    emptyTimer = true;
-                }
-                else
-                {
-                    string groupId = xnLastGroup.InnerXml;
-                    if (!String.IsNullOrWhiteSpace(groupId) && Int32.TryParse(groupId, out int iGroupId))
-                    {
-                        if (GroupsDictionary.TryGetValue(iGroupId, out XmlNode xnGroup))
-                        {
-                            XmlNode xnType = xnGroup.SelectSingleNode(".//slc:Type", xmlNsm);
-                            if (xnType != null)
-                            {
-                                sType = xnType.InnerXml;
-                            }
-                            else
-                            {
-                                XmlNode xnContent = xnGroup.SelectSingleNode("./slc:Content", xmlNsm);
-                                if (xnContent != null)
-                                {
-                                    int paramCounter = 0;
-                                    int pairCounter = 0;
-                                    int sessionCounter = 0;
-                                    XmlNodeList xnlContent = xnContent.ChildNodes;
-                                    int count = 0;
-                                    foreach (XmlNode xnContentChild in xnlContent)
-                                    {
-                                        if (xnContentChild.NodeType != XmlNodeType.Comment)
-                                        {
-                                            count++;
-                                            switch (xnContentChild.Name)
-                                            {
-                                                case "Param":
-                                                    paramCounter++;
-                                                    break;
-
-                                                case "Pair":
-                                                    pairCounter++;
-                                                    break;
-
-                                                case "Session":
-                                                    sessionCounter++;
-                                                    break;
-                                            }
-                                        }
-                                    }
-
-                                    if (paramCounter == count)
-                                    {
-                                        sType = "_allParams";
-                                    }
-                                    else if (pairCounter == count)
-                                    {
-                                        sType = "_allPairs";
-                                    }
-                                    else if (sessionCounter == count)
-                                    {
-                                        sType = "_allSessions";
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                List<string> pollTypes = new List<string> { "poll", "poll action", "poll trigger" };
-
-                if (!pollTypes.Contains(sType.ToLower()) && sType != "_allParams" && sType != "_allPairs" && sType != "_allSessions" && !emptyTimer)
-                {
-                    resultMsg.Add(new ValidationResult
-                    {
-                        Line = Convert.ToInt32(LineNum),
-                        ErrorId = 3202,
-                        DescriptionFormat = "The last group in the timer is not a poll group.",
-                        DescriptionParameters = null,
-                        TestName = "CheckTimers",
-                        Severity = Severity.Minor
-                    });
-                }
-
                 // Check that non-threaded timers contain no empty groups
                 string timerOptions = xnTimer.Attributes?["options"]?.InnerXml?.ToLower();
 
                 bool threaded = !String.IsNullOrEmpty(timerOptions) && timerOptions.Contains("threadpool");
-
                 if (!threaded)
                 {
                     // Get groups
