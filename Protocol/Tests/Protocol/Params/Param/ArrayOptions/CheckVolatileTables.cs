@@ -110,9 +110,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
         public void Validate(IParamsParam tableParam, List<IValidationResult> subResults)
         {
+            // This table.
             ValidateColumns(tableParam, subResults);
             ValidateColumnOptions(tableParam, subResults);
+
             ValidateDcfUsage(tableParam, subResults);
+
+            // Other linked tables.
             ValidateForeignKeyDestinationTable(tableParam);
         }
 
