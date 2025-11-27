@@ -62,7 +62,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             // Suggested volatile.
             results.AddRange(
                 tablesInfo
-                    .Where(t => !t.IsVolatile && t.Subs.Count == 0)
+                    .Where(t => !t.IsVolatile && !t.Subs.Any())
                     .Select(t => Error.SuggestedVolatileOption(
                         this,
                         referenceNode: t.Table,
