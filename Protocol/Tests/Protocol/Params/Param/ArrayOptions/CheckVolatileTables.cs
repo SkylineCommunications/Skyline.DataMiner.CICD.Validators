@@ -22,52 +22,51 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         {
             var results = new List<IValidationResult>();
 
-            // Pre-create an entry for every table so FK destination sub results can be added immediately (order independent).
+            // Prepare.
             var tablesInfo = context.EachParamWithValidId()
                 .Where(p => p.IsTable())
                 .Select(t => new
                 {
-                    Table = t,
+                    TableParam = t,
                     IsVolatile = t.ArrayOptions?.GetOptions()?.HasVolatile == true,
-                    Subs = new List<IValidationResult>()
+                    SubResults = new List<IValidationResult>()
                 }).ToList();
 
-            // Map PID -> info for quick FK destination look-ups.
-            var subsMap = tablesInfo
-                .ToDictionary(x => x.Table.Id.RawValue, x => x.Subs);
+            var subResultsPerTablePid = tablesInfo
+                .ToDictionary(x => x.TableParam.Id.RawValue, x => x.SubResults);
 
-            // Validate (by preparing sub-results).
-            ValidateHelper helper = new ValidateHelper(this, context, results, subsMap);
+            // Validate.
+            ValidateHelper helper = new ValidateHelper(this, context, results, subResultsPerTablePid);
 
             foreach (var tableInfo in tablesInfo)
             {
-                var table = tableInfo.Table;
-                var subs = tableInfo.Subs;
+                var tableParam = tableInfo.TableParam;
+                var subResults = tableInfo.SubResults;
 
-                helper.Validate(table, subs);
+                helper.Validate(tableParam, subResults);
             }
 
-            // Incompatible volatile.
+            // Results: Incompatible volatile.
             results.AddRange(
                 tablesInfo
-                    .Where(t => t.IsVolatile && t.Subs.Any())
+                    .Where(t => t.IsVolatile && t.SubResults.Any())
                     .Select(t => Error.IncompatibleVolatileTable(
                         this,
-                        referenceNode: t.Table,
-                        positionNode: t.Table,
-                        tablePID: t.Table.Id?.RawValue
-                    ).WithSubResults(t.Subs.ToArray()))
+                        referenceNode: t.TableParam,
+                        positionNode: t.TableParam,
+                        tablePID: t.TableParam.Id?.RawValue
+                    ).WithSubResults(t.SubResults.ToArray()))
             );
 
-            // Suggested volatile.
+            // Results: Suggested volatile.
             results.AddRange(
                 tablesInfo
-                    .Where(t => !t.IsVolatile && !t.Subs.Any())
+                    .Where(t => !t.IsVolatile && !t.SubResults.Any())
                     .Select(t => Error.SuggestedVolatileOption(
                         this,
-                        referenceNode: t.Table,
-                        positionNode: t.Table,
-                        tablePID: t.Table.Id?.RawValue
+                        referenceNode: t.TableParam,
+                        positionNode: t.TableParam,
+                        tablePID: t.TableParam.Id?.RawValue
                     ))
             );
 
@@ -189,16 +188,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return;
             }
 
-            foreach (var ParameterGroup in model.Protocol.ParameterGroups)
+            foreach (var parameterGroup in model.Protocol.ParameterGroups)
             {
-                if (ParameterGroup.DynamicId?.Value == tableParam.Id?.Value)
+                if (parameterGroup.DynamicId?.Value == tableParam.Id?.Value)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_DCF(
                         test,
-                        referenceNode: ParameterGroup,
-                        positionNode: ParameterGroup.DynamicId,
-                        dynamicID: ParameterGroup.DynamicId.RawValue,
-                        parameterGroupID: ParameterGroup.Id?.RawValue));
+                        referenceNode: parameterGroup,
+                        positionNode: parameterGroup.DynamicId,
+                        dynamicID: parameterGroup.DynamicId.RawValue,
+                        parameterGroupID: parameterGroup.Id?.RawValue));
                 }
             }
         }
@@ -215,7 +214,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                // Destination side (parent table).
+                // FK destination side (parent table).
                 if (model.TryGetObjectByKey(Mappings.ParamsById, fkPid, out IParamsParam destTable) && destTable.IsTable())
                 {
                     var destTablePid = destTable.Id?.RawValue;
@@ -231,6 +230,5 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
             }
         }
-
     }
 }
