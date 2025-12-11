@@ -1,9 +1,9 @@
 namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
@@ -24,11 +24,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             // Prepare.
             var tablesInfo = context.EachParamWithValidId()
-                .Where(p => p.IsTable())
-                .Select(t => new
+                .Where(param => param.IsTable())
+                .Select(tableParam => new
                 {
-                    TableParam = t,
-                    IsVolatile = t.ArrayOptions?.GetOptions()?.HasVolatile == true,
+                    TableParam = tableParam,
+                    IsVolatile = tableParam.ArrayOptions?.GetOptions()?.HasVolatile == true,
                     SubResults = new List<IValidationResult>()
                 }).ToList();
 
@@ -121,12 +121,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
         private void ValidateColumns(IParamsParam tableParam, List<IValidationResult> subResults)
         {
-            var relationManager = model.RelationManager;
-
-            foreach (var columnInfo in tableParam.GetColumns(relationManager, returnBaseColumnsIfDuplicateAs: true))
+            foreach ((_, string pid, IParamsParam columnParam) in tableParam.GetColumns(model.RelationManager, returnBaseColumnsIfDuplicateAs: true))
             {
-                var columnParam = columnInfo.columnParam;
-
                 // Alarming.
                 if (columnParam.Alarm?.Monitored?.Value == true)
                 {
@@ -135,7 +131,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                         referenceNode: columnParam,
                         positionNode: columnParam.Alarm.Monitored,
                         monitoredValue: columnParam.Alarm.Monitored.RawValue,
-                        columnPID: columnInfo.pid));
+                        columnPID: pid));
                 }
             }
         }
@@ -145,9 +141,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             foreach (var columnOption in tableParam.ArrayOptions)
             {
                 var options = columnOption.GetOptions();
+                if (options == null)
+                {
+                    continue;
+                }
 
                 // Save.
-                if (options?.IsSaved == true)
+                if (options.IsSaved)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
                         test,
@@ -158,7 +158,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
 
                 // DVE.
-                if (options?.DVE?.IsElement == true)
+                if (options.DVE?.IsElement == true)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
                         test,
@@ -169,7 +169,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
 
                 // ForeignKey (source side - child table).
-                if (options?.ForeignKey?.Pid != null)
+                if (options.ForeignKey?.Pid != null)
                 {
                     subResults.Add(Error.IncompatibleVolatileTable_ColumnOption(
                         test,
@@ -209,24 +209,26 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 var options = columnOption.GetOptions();
 
                 var fkPid = options?.ForeignKey?.Pid?.ToString();
-                if (string.IsNullOrEmpty(fkPid))
+                if (String.IsNullOrEmpty(fkPid))
                 {
                     continue;
                 }
 
                 // FK destination side (parent table).
-                if (model.TryGetObjectByKey(Mappings.ParamsById, fkPid, out IParamsParam destTable) && destTable.IsTable())
+                if (!model.TryGetObjectByKey(Mappings.ParamsById, fkPid, out IParamsParam destTable) || !destTable.IsTable())
                 {
-                    var destTablePid = destTable.Id?.RawValue;
-                    if (!string.IsNullOrEmpty(destTablePid) && subResultsPerTablePid.TryGetValue(destTablePid, out var destSubs))
-                    {
-                        destSubs.Add(Error.IncompatibleVolatileTable_ForeignKeyDestination(
-                            test,
-                            referenceNode: tableParam,
-                            positionNode: columnOption,
-                            fkValue: fkPid,
-                            columnIdx: columnOption.Idx?.RawValue));
-                    }
+                    continue;
+                }
+
+                var destTablePid = destTable.Id?.RawValue;
+                if (!String.IsNullOrEmpty(destTablePid) && subResultsPerTablePid.TryGetValue(destTablePid, out var destSubs))
+                {
+                    destSubs.Add(Error.IncompatibleVolatileTable_ForeignKeyDestination(
+                        test,
+                        referenceNode: tableParam,
+                        positionNode: columnOption,
+                        fkValue: fkPid,
+                        columnIdx: columnOption.Idx?.RawValue));
                 }
             }
         }
