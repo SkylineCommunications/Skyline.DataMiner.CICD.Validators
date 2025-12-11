@@ -805,6 +805,67 @@
 					<InputParameter id="6">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
+			<DescriptionTemplate id="9010">
+				<Name>IncompatibleOptions</Name>
+				<Format>Incompatible '{0}' option '{1}' with '{2}' option '{3}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">item1Title</InputParameter>
+					<InputParameter id="1">item1Value</InputParameter>
+					<InputParameter id="2">item2Title</InputParameter>
+					<InputParameter id="3">item2Value</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
+			<DescriptionTemplate id="9011">
+				<Name>IncompatibleOptionsInItem</Name>
+				<Format>Incompatible '{0}' option '{1}' with '{2}' option '{3}'. {4} {5} '{6}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">item1Title</InputParameter>
+					<InputParameter id="1">item1Value</InputParameter>
+					<InputParameter id="2">item2Title</InputParameter>
+					<InputParameter id="3">item2Value</InputParameter>
+					<InputParameter id="4">itemKind</InputParameter>
+					<InputParameter id="5" value="ID">idOrPid</InputParameter>
+					<InputParameter id="6">itemId</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
+			<DescriptionTemplate id="9020">
+				<Name>IncompatibleValue</Name>
+				<Format>Incompatible '{0}' value '{1}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">itemTitle</InputParameter>
+					<InputParameter id="1">itemValue</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
+			<DescriptionTemplate id="9021">
+				<Name>IncompatibleValueInItem</Name>
+				<Format>Incompatible '{0}' value '{1}'. {2} {3} '{4}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">itemTitle</InputParameter>
+					<InputParameter id="1">itemValue</InputParameter>
+					<InputParameter id="2">itemKind</InputParameter>
+					<InputParameter id="3" value="ID">idOrPid</InputParameter>
+					<InputParameter id="4">itemId</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
+			<DescriptionTemplate id="9030">
+				<Name>IncompatibleOption</Name>
+				<Format>Incompatible '{0}' option '{1}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">optionTitle</InputParameter>
+					<InputParameter id="1">optionValue</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
+			<DescriptionTemplate id="9031">
+				<Name>IncompatibleOptionInItem</Name>
+				<Format>Incompatible '{0}' option '{1}'. {2} {3} '{4}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">optionTitle</InputParameter>
+					<InputParameter id="1">optionValue</InputParameter>
+					<InputParameter id="2">itemKind</InputParameter>
+					<InputParameter id="3" value="ID">idOrPid</InputParameter>
+					<InputParameter id="4">itemId</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
 			<DescriptionTemplate id="10000">
 				<Name>UnsupportedTag</Name>
 				<Format>Unsupported tag '{0}'.</Format>
@@ -990,6 +1051,17 @@
 					<InputParameter id="5">itemKind</InputParameter>
 					<InputParameter id="6" value="ID">idOrPidForItem</InputParameter>
 					<InputParameter id="7">itemId</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
+			<DescriptionTemplate id="16001">
+				<Name>SuggestedOptionInItem</Name>
+				<Format>Suggested '{0}' option '{1}' in {2} {3} '{4}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">item1Title</InputParameter>
+					<InputParameter id="1">item1Value</InputParameter>
+					<InputParameter id="2">itemKind</InputParameter>
+					<InputParameter id="3" value="ID">idOrPid</InputParameter>
+					<InputParameter id="4">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
 			<DescriptionTemplate id="100000">
@@ -9108,6 +9180,125 @@
 								<FixImpact>NonBreaking</FixImpact>
 								<HasCodeFix>False</HasCodeFix>
 								<HowToFix><![CDATA[Depending on the use-case, you should either remove the save option or include another parameter within your response.[NewLine]-Is your parameter corresponding to a user configuration on the DataMiner element side -> don't use it in your response.[NewLine]- Is your parameter corresponding to data or configuration retrieved from your data-source -> no need to save it.[NewLine][NewLine]There might be some use-cases where you need to use a dataminer element configuration parameter as a filter/validation on whether a data-source response should be accepted or not. In such cases,  you will indeed want to save such configuration parameter but then, you should copy its value to a fixed (and non-saved) parameter and include it within your response so that the user configuration does not get overwritten by the data-source response.]]></HowToFix>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
+					<Check id="78">
+						<Name namespace="Protocol.Params.Param.ArrayOptions">CheckVolatileTables</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>SuggestedVolatileOption</Name>
+								<GroupDescription />
+								<Description templateId="16001">
+									<InputParameters>
+										<InputParameter id="0" value="ArrayOptions/options">item1Title</InputParameter>
+										<InputParameter id="1" value="volatile">item1Value</InputParameter>
+										<InputParameter id="2" value="Table">itemKind</InputParameter>
+										<InputParameter id="3" value="PID">idOrPid</InputParameter>
+										<InputParameter id="4">tablePID</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Uncertain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[Add the 'volatile' option to the table's <ArrayOptions>.]]></HowToFix>
+							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>IncompatibleVolatileTable</Name>
+								<GroupDescription />
+								<Description templateId="9031">
+									<InputParameters>
+										<InputParameter id="0" value="ArrayOptions@options">optionTitle</InputParameter>
+										<InputParameter id="1" value="volatile">optionValue</InputParameter>
+										<InputParameter id="2" value="Table">itemKind</InputParameter>
+										<InputParameter id="3" value="PID">idOrPid</InputParameter>
+										<InputParameter id="4">tablePID</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+							</ErrorMessage>
+							<ErrorMessage id="3">
+								<Name>IncompatibleVolatileTable_ColumnOption</Name>
+								<GroupDescription />
+								<Description templateId="9031">
+									<InputParameters>
+										<InputParameter id="0" value="ColumnOption@options">optionTitle</InputParameter>
+										<InputParameter id="1">optionName</InputParameter>
+										<InputParameter id="2" value="Column">itemKind</InputParameter>
+										<InputParameter id="3" value="IDX">idOrPid</InputParameter>
+										<InputParameter id="4">columnIdx</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+							</ErrorMessage>
+							<ErrorMessage id="4">
+								<Name>IncompatibleVolatileTable_ForeignKeyDestination</Name>
+								<GroupDescription />
+								<Description templateId="9021">
+									<InputParameters>
+										<InputParameter id="0" value="ColumnOption@options foreignKey">itemTitle</InputParameter>
+										<InputParameter id="1">fkValue</InputParameter>
+										<InputParameter id="2" value="Column">itemKind</InputParameter>
+										<InputParameter id="3" value="IDX">idOrPid</InputParameter>
+										<InputParameter id="4">columnIdx</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+							</ErrorMessage>
+							<ErrorMessage id="5">
+								<Name>IncompatibleVolatileTable_Alarming</Name>
+								<GroupDescription />
+								<Description templateId="9021">
+									<InputParameters>
+										<InputParameter id="0" value="Alarm/Monitored">itemTitle</InputParameter>
+										<InputParameter id="1">monitoredValue</InputParameter>
+										<InputParameter id="2" value="Column">itemKind</InputParameter>
+										<InputParameter id="3" value="PID">idOrPid</InputParameter>
+										<InputParameter id="4">columnPID</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
+							</ErrorMessage>
+							<ErrorMessage id="6">
+								<Name>IncompatibleVolatileTable_DCF</Name>
+								<GroupDescription />
+								<Description templateId="9021">
+									<InputParameters>
+										<InputParameter id="0" value="ParameterGroups/Group@dynamicId">itemTitle</InputParameter>
+										<InputParameter id="1">dynamicID</InputParameter>
+										<InputParameter id="2" value="ParameterGroup">itemKind</InputParameter>
+										<InputParameter id="3" value="ID">idOrPid</InputParameter>
+										<InputParameter id="4">parameterGroupID</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+								<HowToFix><![CDATA[]]></HowToFix>
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>

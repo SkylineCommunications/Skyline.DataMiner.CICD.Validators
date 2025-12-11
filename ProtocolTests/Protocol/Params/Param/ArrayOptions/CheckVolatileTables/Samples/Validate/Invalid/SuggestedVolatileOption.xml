@@ -1,0 +1,46 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="999">
+			<Name>CouldBeVolatile_DK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1000">
+			<Name>CouldBeVolatile</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" />
+				<ColumnOption idx="1" pid="1002" type="retrieved" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" />
+				<ColumnOption idx="3" pid="1054" type="retrieved" />
+				<ColumnOption idx="4" pid="1005" type="retrieved" />
+				<ColumnOption idx="5" pid="999" type="displaykey" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001">
+			<Name>CouldBeVolatile_PK</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002">
+			<Name>CouldBeVolatile_ReadOnlyColumn</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1003">
+			<Name>CouldBeVolatile_ReadWriteColumn</Name>
+			<Type>read</Type>
+		</Param>
+		<Param id="1053">
+			<Name>CouldBeVolatile_ReadWriteColumn</Name>
+			<Type>write</Type>
+		</Param>
+		<Param id="1054">
+			<Name>CouldBeVolatile_WriteColumn</Name>
+			<Type>write</Type>
+		</Param>
+		<Param id="1005" trending="true">
+			<Name>CouldBeVolatile_TrendedColumn</Name>
+			<Type>read</Type>
+		</Param>
+	</Params>
+	
+</Protocol>
