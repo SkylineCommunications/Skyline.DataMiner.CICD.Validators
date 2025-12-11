@@ -141,7 +141,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
         {
             results.ValidationTimeStamp = DateTime.Now;
             results.SuppressedIssuesIncluded = IncludeSuppressed ?? false;
-            
+
             if (String.IsNullOrWhiteSpace(OutputFileName))
             {
                 OutputFileName = $"MajorChangeCheckerResults_{results.Protocol}_{results.Version}";
@@ -157,7 +157,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
 
             logger.LogInformation("Writing results completed");
         }
-        
+
         private async Task<string?> GetPreviousProtocolVersionAsync(IProtocolModel currentProtocol, string temporaryDirectory, string solutionFileDirectoryName, CancellationToken cancellationToken = default)
         {
             /* Catalog API checks */
@@ -174,6 +174,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             ICatalogService catalogService = ArtifactDownloader.Downloader.FromCatalog(new HttpClient(), CatalogApiKey);
 
             string previousVersion = RetrievePreviousVersion(currentProtocol.Protocol);
+            logger.LogDebug("Found previous version: {PreviousVersion}", previousVersion);
 
             switch (previousVersion)
             {
@@ -340,19 +341,12 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
                 return "None";
             }
 
-            if (protocolVersion.Revision == 1)
+            if (protocolVersion is { Minor: 0, Build: 0, Revision: 1 })
             {
-                if (protocolVersion.Build > 0 || protocolVersion.Minor > 0)
-                {
-                    previousVersion = "Missing";
-                }
-                else
-                {
-                    // This means the current version is an X.0.0.1 where X is > 1. 
-                    // If no basedOn attribute is used, it indicates that this is a brand-new development.
-                    // If a basedOn attribute is used, it will be detected later in the program.
-                    previousVersion = "None";
-                }
+                // This means the current version is an X.0.0.1 where X is > 1. 
+                // If no basedOn attribute is used, it indicates that this is a brand-new development.
+                // If a basedOn attribute is used, it will be detected later in the program.
+                previousVersion = "None";
             }
 
             // Check if VersionHistory contains a basedOn attribute for this version.
