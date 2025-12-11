@@ -80,6 +80,29 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 ReferenceNode = referenceNode,
             };
         }
+
+        public static IValidationResult InvalidTypeLastTimerGroup(IValidate test, IReadable referenceNode, IReadable positionNode, string groupType, string timerId, string groupId)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckGroupTag,
+                ErrorId = ErrorIds.InvalidTypeLastTimerGroup,
+                FullId = "7.5.5",
+                Category = Category.Timer,
+                Severity = Severity.Major,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Invalid last group type '{0}' in Timer '{1}'. Group ID '{2}'.", groupType, timerId, groupId),
+                HowToFix = "",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
     }
 
     internal static class ErrorIds
@@ -87,6 +110,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
         public const uint NonExistingIdInGroup = 2;
         public const uint EmptyGroupTag = 3;
         public const uint InvalidGroupTag = 4;
+        public const uint InvalidTypeLastTimerGroup = 5;
     }
 
     /// <summary>

@@ -231,7 +231,6 @@
 
             output.Should().BeEquivalentTo(expectedOutput);
         }
-
         #endregion
     }
 }

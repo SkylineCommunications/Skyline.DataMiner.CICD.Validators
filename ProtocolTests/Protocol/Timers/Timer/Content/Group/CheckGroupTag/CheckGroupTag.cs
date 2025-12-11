@@ -33,21 +33,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
         #endregion
 
         #region Invalid Checks
-        [TestMethod]
-        public void Timer_CheckGroupTag_NonExistingIdInGroup()
-        {
-            Generic.ValidateData data = new Generic.ValidateData
-            {
-                TestType = Generic.TestType.Invalid,
-                FileName = "NonExistingIdInGroup",
-                ExpectedResults = new List<IValidationResult>
-                {
-                    Error.NonExistingIdInGroup(null, null, null, "Group", "10", "1")
-                }
-            };
-
-            Generic.Validate(check, data);
-        }
 
         [TestMethod]
         public void Timer_CheckGroupTag_EmptyGroupTag()
@@ -59,6 +44,27 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.EmptyGroupTag(null, null, null, "1")
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Timer_CheckGroupTag_InvalidGroupTag()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "InvalidGroupTag",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.InvalidGroupTag(null, null, null, "col10:20", "1"),
+                    Error.InvalidGroupTag(null, null, null, "col:5:20", "2").WithSubResults(
+                        Error.NonExistingIdInGroup(null, null, null, "Column index Table '2000' (0-based)", "5", "2" ),
+                        Error.NonExistingIdInGroup(null, null, null, "Group", "20", "2")),
+                    Error.InvalidGroupTag(null, null, null, "col:5:20", "3"),
+                    Error.InvalidGroupTag(null, null, null, "abc", "4")
                 }
             };
 
@@ -84,20 +90,33 @@ namespace ProtocolTests.Protocol.Timers.Timer.Content.Group.CheckGroupTag
         }
 
         [TestMethod]
-        public void Timer_CheckGroupTag_InvalidGroupTag()
+        public void Timer_CheckGroupTag_InvalidTypeLastTimerGroup()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "InvalidGroupTag",
+                FileName = "InvalidTypeLastTimerGroup",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.InvalidGroupTag(null, null, null, "col10:20", "1"),
-                    Error.InvalidGroupTag(null, null, null, "col:5:20", "2").WithSubResults(
-                        Error.NonExistingIdInGroup(null, null, null, "Column index Table '2000' (0-based)", "5", "2" ),
-                        Error.NonExistingIdInGroup(null, null, null, "Group", "20", "2")),
-                    Error.InvalidGroupTag(null, null, null, "col:5:20", "3"),
-                    Error.InvalidGroupTag(null, null, null, "abc", "4")
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Action",  "1", "20"),    // poll (implicit)
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Trigger", "2", "21"),    // poll (explicit)
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Action",  "3", "20"),    // poll action
+                    Error.InvalidTypeLastTimerGroup(null, null, null, "Trigger", "4", "21"),    // poll trigger
+                }
+            };
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Timer_CheckGroupTag_NonExistingIdInGroup()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "NonExistingIdInGroup",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.NonExistingIdInGroup(null, null, null, "Group", "10", "1")
                 }
             };
 

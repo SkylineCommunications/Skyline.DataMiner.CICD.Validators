@@ -2,27 +2,103 @@
 	
 	<Params>
 		<Param id="2000" trending="false">
+			<Name>MutliThreadedTable</Name>
 			<Type>array</Type>
 			<ArrayOptions index="0" options="">
-				<ColumnOption idx="0" pid="2001" type="custom" options=";" />
-				<ColumnOption idx="1" pid="2002" type="custom" options=";" />
-				<ColumnOption idx="2" pid="2003" type="custom" options=";" />
-				<ColumnOption idx="3" pid="2004" type="custom" options=";" />
+				<ColumnOption idx="0" pid="2001" type="custom" />
+				<ColumnOption idx="1" pid="2002" type="custom" />
+				<ColumnOption idx="2" pid="2003" type="custom" />
+				<ColumnOption idx="3" pid="2004" type="custom" />
 			</ArrayOptions>
 		</Param>
 	</Params>
 
 	<Groups>
-		<Group id="10"></Group>
+		<!-- Poll Groups -->
+		<Group id="10">
+			<Name>PollGroup_Implicit</Name>
+		</Group>
+		<Group id="11">
+			<Name>PollGroup_poll</Name>
+			<Type>poll</Type>
+		</Group>
+		<Group id="12">
+			<Name>PollGroup_pollAction</Name>
+			<Type>poll action</Type>
+		</Group>
+		<Group id="13">
+			<Name>PollGroup_pollTrigger</Name>
+			<Type>poll trigger</Type>
+		</Group>
+
+		<!-- Non-Poll Groups -->
+		<Group id="20">
+			<Name>NonPollGroup_action</Name>
+			<Type>action</Type>
+		</Group>
+		<Group id="21">
+			<Name>NonPollGroup_trigger</Name>
+			<Type>trigger</Type>
+		</Group>
 	</Groups>
 
 	<Timers>
-		<Timer id="1">
+		<!-- Poll Groups Timers-->
+		<Timer id="10">
+			<Name>PollGroupsTimer_SingleGroup</Name>
 			<Content>
 				<Group>10</Group>
 			</Content>
 		</Timer>
-		<Timer id="2" options="ip:2000,1">
+		<Timer id="11">
+			<Name>PollGroupsTimer_MultipleGroups</Name>
+			<Content>
+				<Group>11</Group>
+				<Group>12</Group>
+			</Content>
+		</Timer>
+		<Timer id="11">
+			<Name>PollGroupsTimer_MultipleGroups</Name>
+			<Content>
+				<Group>12</Group>
+				<Group>10</Group>
+			</Content>
+		</Timer>
+
+		<!-- Non-Poll Groups Timers-->
+		<Timer id="20">
+			<Name>NonPollGroupsTimer_SingleGroup</Name>
+			<Content>
+				<Group>20</Group>
+			</Content>
+		</Timer>
+		<Timer id="21">
+			<Name>NonPollGroupsTimer_MultipleGroups</Name>
+			<Content>
+				<Group>20</Group>
+				<Group>21</Group>
+			</Content>
+		</Timer>
+
+		<!-- Mixed (Poll and Non-Poll) Groups Timers-->
+		<Timer id="10">
+			<Name>MixedGroupsTimer_MultipleGroups</Name>
+			<Content>
+				<Group>20</Group>
+				<Group>10</Group>
+			</Content>
+		</Timer>
+		<Timer id="11">
+			<Name>MixedGroupsTimer_MultipleGroups</Name>
+			<Content>
+				<Group>11</Group>
+				<Group>20</Group>
+				<Group>10</Group>
+			</Content>
+		</Timer>
+		
+		<Timer id="100" options="ip:2000,1">
+			<Name>MultiThreaded Timer</Name>
 			<Content>
 				<Group>col:3:10</Group>
 			</Content>

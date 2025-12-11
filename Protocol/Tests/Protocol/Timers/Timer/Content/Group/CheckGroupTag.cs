@@ -5,6 +5,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
     using System.Linq;
     using System.Text.RegularExpressions;
 
+    using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Linking;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
@@ -30,45 +31,56 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
                 var linkedContentGroups = timer.GetTimerContentGroups(context.ProtocolModel.RelationManager).ToList();
 
-                foreach (ITimersTimerContentGroup group in timer.Content)
+                var hasPollGroups = false;
+                var lastTimerGroupId = String.Empty;
+                EnumGroupType? lastGroupType = EnumGroupType.Poll;
+                foreach (ITimersTimerContentGroup timerGroup in timer.Content)
                 {
-                    (GenericStatus valueStatus, uint convertedValue) = Generic.GenericTests.CheckBasics<uint>(group.Value);
+                    (GenericStatus valueStatus, uint timerGroupId) = Generic.GenericTests.CheckBasics<uint>(timerGroup.Value);
 
                     if (valueStatus.HasFlag(GenericStatus.Empty))
                     {
-                        results.Add(Error.EmptyGroupTag(this, group, group, timer.Id.RawValue));
+                        results.Add(Error.EmptyGroupTag(this, timerGroup, timerGroup, timer.Id.RawValue));
                         continue;
                     }
 
                     if (!valueStatus.HasFlag(GenericStatus.Invalid))
                     {
-                        if (linkedContentGroups.FirstOrDefault(g => g.Id?.Value == convertedValue) == null)
+                        if (linkedContentGroups.FirstOrDefault(g => g.Id?.Value == timerGroupId) == null)
                         {
                             // Linked group does not exist.
-                            results.Add(Error.NonExistingIdInGroup(this, timer, group, group.TagName, group.Value, timer.Id.RawValue));
+                            results.Add(Error.NonExistingIdInGroup(this, timer, timerGroup, timerGroup.TagName, timerGroup.Value, timer.Id.RawValue));
+                        }
+
+                        lastTimerGroupId = timerGroup.RawValue;
+                        lastGroupType = ValidateHelper.GetGroupType(context, Convert.ToUInt32(timerGroup.Value));
+
+                        if (ValidateHelper.IsPollGroup(lastGroupType))
+                        {
+                            hasPollGroups = true;
                         }
 
                         continue;
                     }
 
                     // Verify whether the group refers to a column.
-                    Match regexMatch = Regex.Match(group.Value, "^col:([0-9]+):([0-9]+)$", RegexOptions.IgnoreCase);
+                    Match regexMatch = Regex.Match(timerGroup.Value, "^col:([0-9]+):([0-9]+)$", RegexOptions.IgnoreCase);
 
                     if (!regexMatch.Success)
                     {
                         // Invalid content.
-                        results.Add(Error.InvalidGroupTag(this, group, group, group.Value, timer.Id.RawValue));
+                        results.Add(Error.InvalidGroupTag(this, timerGroup, timerGroup, timerGroup.Value, timer.Id.RawValue));
                         continue;
                     }
 
                     // If this value is specified, the timer must be a multi-threaded timer and the "ip" option has to define an existing table.
                     // This table should be retrieved to check whether the column referred in the Group tag exist.
-                    IParamsParam threadTable = ValidateHelper.GetMultithreadedTimerTableId(context, timer);
+                    IParamsParam threadTable = ValidateHelper.GetMultiThreadedTimerTable(context, timer);
 
                     if (threadTable == null)
                     {
                         // This means that either multi-threaded timer is missing the "ip" option or that the <Group>col:x:y</Group> option is used in a regular timer.
-                        results.Add(Error.InvalidGroupTag(this, group, group, group.Value, timer.Id.RawValue));
+                        results.Add(Error.InvalidGroupTag(this, timerGroup, timerGroup, timerGroup.Value, timer.Id.RawValue));
                         continue;
                     }
 
@@ -80,7 +92,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
                     if (!colColumnIdxIsUInt || !colGroupIdIsUInt)
                     {
-                        results.Add(Error.InvalidGroupTag(this, group, group, group.Value, timer.Id.RawValue));
+                        results.Add(Error.InvalidGroupTag(this, timerGroup, timerGroup, timerGroup.Value, timer.Id.RawValue));
                         continue;
                     }
 
@@ -89,20 +101,25 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                     // Verify whether the specified value is correct.
                     if (!ValidateHelper.HasColumnIndex(threadTable, colColumnIndex))
                     {
-                        subErrors.Add(Error.NonExistingIdInGroup(this, group, group, $"Column index Table '{threadTable.Id.Value}' (0-based)", colColumnIndexValue, timer.Id.RawValue));
+                        subErrors.Add(Error.NonExistingIdInGroup(this, timerGroup, timerGroup, $"Column index Table '{threadTable.Id.Value}' (0-based)", colColumnIndexValue, timer.Id.RawValue));
                     }
 
                     if (!ValidateHelper.GroupExists(context, colGroupId))
                     {
-                        subErrors.Add(Error.NonExistingIdInGroup(this, group, group, group.TagName, colGroupIdValue, timer.Id.RawValue));
+                        subErrors.Add(Error.NonExistingIdInGroup(this, timerGroup, timerGroup, timerGroup.TagName, colGroupIdValue, timer.Id.RawValue));
                     }
 
-                    if (subErrors.Count > 0)
+                    if (subErrors.Any())
                     {
-                        IValidationResult invalidGroupTag = Error.InvalidGroupTag(this, @group, @group, @group.Value, timer.Id.RawValue);
-                        invalidGroupTag.WithSubResults(subErrors.ToArray());
-                        results.Add(invalidGroupTag);
+                        results.Add(
+                            Error.InvalidGroupTag(this, timerGroup, timerGroup, timerGroup.Value, timer.Id.RawValue)
+                                .WithSubResults(subErrors.ToArray()));
                     }
+                }
+
+                if (hasPollGroups && !String.IsNullOrEmpty(lastTimerGroupId) && !ValidateHelper.IsPollGroup(lastGroupType))
+                {
+                    results.Add(Error.InvalidTypeLastTimerGroup(this, timer, timer, Convert.ToString(lastGroupType), timer.Id.RawValue, lastTimerGroupId));
                 }
             }
 
@@ -134,7 +151,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
     internal static class ValidateHelper
     {
-        public static IParamsParam GetMultithreadedTimerTableId(ValidatorContext context, ITimersTimer timer)
+        public static IParamsParam GetMultiThreadedTimerTable(ValidatorContext context, ITimersTimer timer)
         {
             var options = timer.GetOptions();
 
@@ -172,16 +189,22 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
         public static bool GroupExists(ValidatorContext context, uint groupId)
         {
-            bool groupExists = true;
+            return context.ProtocolModel.TryGetObjectByKey<IGroupsGroup>(Mappings.GroupsById, groupId.ToString(), out _);
+        }
 
-            var model = context.ProtocolModel;
+        public static bool IsPollGroup(EnumGroupType? groupType)
+        {
+            return groupType == EnumGroupType.Poll || groupType == EnumGroupType.PollTrigger || groupType == EnumGroupType.PollAction;
+        }
 
-            if (!model.TryGetObjectByKey<IGroupsGroup>(Mappings.GroupsById, groupId.ToString(), out _))
+        public static EnumGroupType? GetGroupType(ValidatorContext context, uint groupId)
+        {
+            if (context.ProtocolModel.TryGetObjectByKey<IGroupsGroup>(Mappings.GroupsById, groupId.ToString(), out var group))
             {
-                groupExists = false;
+                return group.Type?.Value ?? EnumGroupType.Poll;
             }
 
-            return groupExists;
+            return null;
         }
     }
 }
