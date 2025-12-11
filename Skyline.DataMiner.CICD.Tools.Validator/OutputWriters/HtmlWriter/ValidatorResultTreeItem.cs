@@ -2,83 +2,70 @@
 {
     using System.Text;
 
+    using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
 
-    internal abstract class ValidatorResultTreeItem
+    internal abstract class ValidatorResultTreeItem(ValidatorResult result)
     {
-        protected ValidatorResultTreeItem(ValidatorResult validatorResult)
-        {
-            Certainty = validatorResult.Certainty;
-            FixImpact = validatorResult.FixImpact;
-            Category = validatorResult.Category;
-            Id = validatorResult.Id;
-            Severity = validatorResult.Severity;
-            Description = validatorResult.Description;
-            Line = validatorResult.Line;
-            Column = validatorResult.Column;
-            Dve = validatorResult.Dve;
-            Suppressed = validatorResult.Suppressed;
-        }
-
         /// <summary>
         /// Gets or sets the certainty of the validator result.
         /// </summary>
         /// <value>The certainty of the validator result.</value>
-        public Certainty Certainty { get; }
+        public Certainty Certainty { get; } = result.Certainty;
 
         /// <summary>
         /// Gets or sets the impact of fixing this issue.
         /// </summary>
         /// <value>The impact of fixing this issue.</value>
-        public FixImpact FixImpact { get; }
+        public FixImpact FixImpact { get; } = result.FixImpact;
 
         /// <summary>
         /// Gets or sets the category of this result.
         /// </summary>
         /// <value>The category of this result.</value>
-        public Category Category { get; }
+        public Category Category { get; } = result.Category;
 
         /// <summary>
         /// Gets or sets the ID of the result.
         /// </summary>
         /// <value>The ID.</value>
-        public string Id { get; }
+        public string Id { get; } = result.Id;
 
         /// <summary>
         /// Gets or sets the severity of the result.
         /// </summary>
         /// <value>The severity.</value>
-        public Severity Severity { get; }
+        public Severity Severity { get; } = result.Severity;
 
         /// <summary>
         /// Gets or sets the description of the result.
         /// </summary>
         /// <value>The description.</value>
-        public string Description { get; }
+        public string Description { get; } = result.Description;
 
         /// <summary>
         /// Gets or sets the line where this issue occurs.
         /// </summary>
         /// <value>The line where this issue occurs.</value>
-        public int Line { get; }
+        public int Line { get; } = result.Line;
 
         /// <summary>
         /// Gets or sets the column where this issue occurs.
         /// </summary>
         /// <value>The column where this issue occurs.</value>
-        public int Column { get; }
+        public int Column { get; } = result.Column;
 
         /// <summary>
         /// Gets or sets the DVE for which this issue was detected.
         /// </summary>
         /// <value>The DVE for which this issue was detected.</value>
-        public string Dve { get; }
+        public string? Dve { get; } = result.Dve;
 
         /// <summary>
         /// Gets or sets a value indicating whether this issue is suppressed (Default: false).
         /// </summary>
         /// <value><c>true</c> if the value is suppressed; otherwise, <c>false</c>.</value>
-        public bool Suppressed { get; }
+        public bool Suppressed { get; } = result.Suppressed;
 
         /// <summary>
         /// Gets the number of suppressed items this item represents.

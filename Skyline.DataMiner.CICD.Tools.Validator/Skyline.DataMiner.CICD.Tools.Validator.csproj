@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dataminer-validator</ToolCommandName>
     <AssemblyName>Skyline.DataMiner.CICD.Tools.Validator</AssemblyName>
@@ -18,10 +18,11 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>SkylineCommunications</Authors>
     <Company>Skyline Communications</Company>
-    <Description>Validates a DataMiner artifact.</Description>
+    <Description>This .NET tool allows you to validate and compare protocol solutions.</Description>
     <RootNamespace>Skyline.DataMiner.CICD.Tools.Validator</RootNamespace>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Validators</RepositoryUrl>
+    <UserSecretsId>638ec70c-de65-436f-8e00-0192bc876f87</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,18 +36,22 @@
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.7.2" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.11.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="3.11.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.2.0" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Tools.Reporter" Version="1.0.2" />
-    <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.1.3" />
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="9.0.2" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Skyline.DataMiner.CICD.FileSystem" Version="1.4.0" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.2.1" />
+    <PackageReference Include="Skyline.DataMiner.Core.ArtifactDownloader" Version="3.1.1" />
+    <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.1.4" />
+    <PackageReference Include="System.CommandLine.Hosting" Version="0.4.0-alpha.22272.1" />
     <PackageReference Include="NuGet.Common" Version="6.6.2" ExcludeAssets="runtime" />
     <PackageReference Include="NuGet.Configuration" Version="6.6.2" ExcludeAssets="runtime" />
     <PackageReference Include="NuGet.Frameworks" Version="6.6.2" ExcludeAssets="runtime" />
     <PackageReference Include="NuGet.Packaging" Version="6.6.2" ExcludeAssets="runtime" />
     <PackageReference Include="NuGet.Protocol" Version="6.6.2" ExcludeAssets="runtime" />
     <PackageReference Include="NuGet.Versioning" Version="6.6.2" ExcludeAssets="runtime" />
+    <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,5 +81,22 @@
     <SonarQubeSetting Include="sonar.exclusions">
       <Value>Resources/**</Value>
     </SonarQubeSetting>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Microsoft.Extensions.Configuration" />
+    <Using Include="Microsoft.Extensions.Logging" />
+    <Using Include="Skyline.DataMiner.CICD.FileSystem.DirectoryInfoWrapper" />
+    <Using Include="Skyline.DataMiner.CICD.FileSystem.DirectoryInfoWrapper.DirectoryInfo">
+      <Alias>DirectoryInfo</Alias>
+    </Using>
+    <Using Include="Skyline.DataMiner.CICD.FileSystem.FileInfoWrapper" />
+    <Using Include="Skyline.DataMiner.CICD.FileSystem.FileInfoWrapper.FileInfo">
+      <Alias>FileInfo</Alias>
+    </Using>
+    <Using Include="Skyline.DataMiner.CICD.FileSystem.FileSystemInfoWrapper" />
+    <Using Include="System.CommandLine" />
+    <Using Include="System.CommandLine.Invocation" />
+    <Using Include="System.CommandLine.Parsing" />
   </ItemGroup>
 </Project>

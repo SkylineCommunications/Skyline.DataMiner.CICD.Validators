@@ -2,7 +2,7 @@
 
 ## About
 
-Validates a DataMiner artifact.
+Validates and compares DataMiner artifacts.
 
 > **Note**
 > Currently this tool only supports DataMiner protocol Visual Studio solutions.
@@ -36,16 +36,44 @@ In a command line terminal, install the tool using the following command:
 ```console
 dotnet tool install -g Skyline.DataMiner.CICD.Tools.Validator
 ```
-To validate a protocol Visual Studio solution, the following command can be used:
+
+### Validating a protocol solution
+
+To validate a protocol Visual Studio solution, use the following command:
 
 ```console
-dataminer-validator validate-protocol-solution --solution-file-path "<pathToSlnFile>" --results-output-directory-path "<FolderPath>"
+dataminer-validator validate protocol-solution --solution-path "<pathToSlnFile>" --output-directory "<FolderPath>"
 ```
 
-To obtain more information about all the options, the following command can be use:
+To obtain more information about all the options:
 
 ```console
-dataminer-validator validate-protocol-solution -h
+dataminer-validator validate protocol-solution -h
 ```
 
-Note: By default, a build operation will be performed. If you do not want this (e.g. because the tool is being used as part of a CI/CD pipeline where one of the previous steps is a build step, you can disable it by setting the `--perform-build` option to `false`.
+### Comparing a protocol solution with a previous version
+
+To compare a protocol solution with its previous version (using the Major Change Checker), use the following command:
+
+```console
+dataminer-validator compare protocol-solution --solution-path "<pathToSlnFile>" --output-directory "<FolderPath>" --catalog-id "<catalogId>" --catalog-api-key "<apiKey>"
+```
+
+The tool can automatically retrieve the previous version from the DataMiner Catalog, or you can provide a path to a previous protocol.xml file using the `--previous-protocol-xml-path` option.
+
+To obtain more information about all the options:
+
+```console
+dataminer-validator compare protocol-solution -h
+```
+
+### Additional options
+
+Both commands support the following common options:
+- `--output-file-name` / `-ofn`: Name of the results file (without extension)
+- `--output-format` / `-of`: Output format(s): JSON, XML, HTML (default: JSON and HTML)
+- `--include-suppressed` / `-is`: Include suppressed results in the output
+
+For the validate command:
+- `--perform-restore` / `-pr`: Perform a dotnet restore operation (default: true)
+- `--restore-timeout` / `-rt`: Timeout for the restore operation in milliseconds (default: 300000)

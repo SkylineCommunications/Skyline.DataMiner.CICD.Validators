@@ -61,44 +61,6 @@ namespace Skyline.DataMiner.CICD.Tools.Validator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;!--*********************************************************************************
-        ///*  Copyright (c) 2014,  Skyline Communications NV  All Rights Reserved.    *
-        ///*********************************************************************************
-        /// 
-        ///Reproduction of this document is authorized on condition that this
-        ///copyright notice is included.  This DataMiner Protocol Schema
-        ///embodies proprietary intellectual property.  The copyright
-        ///retains all title and ownershi [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string uom {
-            get {
-                return ResourceManager.GetString("uom", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to     &lt;/table&gt;
-        ///&lt;script type=&quot;text/javascript&quot;&gt;//&lt;![CDATA[
-        ///document.addEventListener(&apos;DOMContentLoaded&apos;, function() {
-        ///    [].forEach.call(document.querySelectorAll(&apos;#resultstable .toggle&apos;), function(el) {
-        ///  el.addEventListener(&apos;click&apos;, function() {
-        ///    var el = this;
-        ///    var tr = el.closest(&apos;tr&apos;);
-        ///    var children = findChildren(tr);
-        ///    var subnodes = children.filter(function(element) {
-        ///      return element.matches(&apos;.expand&apos;);
-        ///    });
-        ///    subnodes.forEach(function(subnode) {
-        ///      var subnodeChild [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string validatorResultsTemplateEnd {
-            get {
-                return ResourceManager.GetString("validatorResultsTemplateEnd", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
         ///&lt;head&gt;
@@ -123,11 +85,50 @@ namespace Skyline.DataMiner.CICD.Tools.Validator {
         ///}
         ///
         ///td {
-        ///	 [rest of string was truncated]&quot;;.
+        ///	padding-left: 3px;
+        ///	padding-right: 3px;
+        ///} [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string validatorResultsTemplateStart {
+        internal static string resultsTemplateHead {
             get {
-                return ResourceManager.GetString("validatorResultsTemplateStart", resourceCulture);
+                return ResourceManager.GetString("resultsTemplateHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;script type=&quot;text/javascript&quot;&gt;//&lt;![CDATA[
+        ///document.addEventListener(&apos;DOMContentLoaded&apos;, function() {
+        ///    [].forEach.call(document.querySelectorAll(&apos;#resultstable .toggle&apos;), function(el) {
+        ///  el.addEventListener(&apos;click&apos;, function() {
+        ///    var el = this;
+        ///    var tr = el.closest(&apos;tr&apos;);
+        ///    var children = findChildren(tr);
+        ///    var subnodes = children.filter(function(element) {
+        ///      return element.matches(&apos;.expand&apos;);
+        ///    });
+        ///    subnodes.forEach(function(subnode) {
+        ///      var subnodeChildren = findChil [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string resultsTemplateScript {
+            get {
+                return ResourceManager.GetString("resultsTemplateScript", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;!--*********************************************************************************
+        ///*  Copyright (c) 2014,  Skyline Communications NV  All Rights Reserved.    *
+        ///*********************************************************************************
+        /// 
+        ///Reproduction of this document is authorized on condition that this
+        ///copyright notice is included.  This DataMiner Protocol Schema
+        ///embodies proprietary intellectual property.  The copyright
+        ///retains all title and ownershi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string uom {
+            get {
+                return ResourceManager.GetString("uom", resourceCulture);
             }
         }
     }
