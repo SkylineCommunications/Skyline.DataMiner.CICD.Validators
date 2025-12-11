@@ -36,7 +36,7 @@
         public void GetAttribute_CheckProtocolTag_ThrowsArgumentNullException()
         {
             Type type = null;
-            Assert.ThrowsException<ArgumentNullException>(() => TestAttribute.GetAttribute(type));
+            Assert.ThrowsExactly<ArgumentNullException>(() => TestAttribute.GetAttribute(type));
         }
 
         [TestMethod]

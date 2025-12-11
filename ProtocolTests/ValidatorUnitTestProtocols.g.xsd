@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!--
-*********************************************************************************
-*  Copyright (c) 2011-2023,  Skyline Communications NV  All Rights Reserved.    *
-*********************************************************************************
- 
-Reproduction of this document is authorized on condition that this
-copyright notice is included.  This DataMiner Protocol Schema
-embodies proprietary intellectual property.  The copyright
-retains all title and ownership in the specification, including any
-revisions. 
-
-This specification is supplied "AS IS," and no
-warranty, either express or implied, as to the use, operation,
-condition, or performance of the specification, is made.
+***********************************************
+*  Copyright (c), Skyline Communications NV.  *
+***********************************************
 
 *********************************************************************************
 Revision History:

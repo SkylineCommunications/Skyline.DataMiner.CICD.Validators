@@ -1,85 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--*********************************************************************************
-*  Copyright (c) 2014,  Skyline Communications NV  All Rights Reserved.    *
-*********************************************************************************
- 
-Reproduction of this document is authorized on condition that this
-copyright notice is included.  This DataMiner Protocol Schema
-embodies proprietary intellectual property.  The copyright
-retains all title and ownership in the specification, including any
-revisions. 
-
-This specification is supplied "AS IS," and no
-warranty, either express or implied, as to the use, operation,
-condition, or performance of the specification, is made.
-
-*********************************************************************************
-Revision History:
-DATE        VERSION     AUTHOR          COMMENTS
-16/12/2013  REV001      MVT, Skyline    Initial Version - This file extends the protocol.xsd file with units of measure.
-29/01/2014  REV002      MVT, Skyline    added units: words,unit(allowDivByTime),pixels,lines,samples(allowDivByTime),SD pixels (sdpx),SD Lines (sdln),Octets
-30/01/2014  REV003      MVT, Skyline    added units: ohm
-04/02/2014  REV004      MVT, Skyline    added units: baud(Bd)(allowDivByTime),kilobaud(kBd)(allowDivByTime),megabaud(MBd)(allowDivByTime),gigabaud(GBd)(allowDivByTime),symbols per seconds(symps),mega symbols per second(Msymsps),blocks(blocks)(allowDivByTime)
-                                        changed units: kilo symbols per second (ksymps) instead of (Ksymps)
-                                        empty units allowed
-07/03/2014  REV005      MVT, Skyline    added units: symbols, knots(kn), decibel relative (dBr), parts per million (ppm), dB/Hz, dB/kHz, dB/MHz, dB/GHz, LKFS, LUFS, microseconds (us)(istimeunit), carrier ro receiver noise density (dBHz)
-07/03/2014  REV006      MVT, Skyline    allowDivByTime false for "Frames" to avoid duplicate with fps
-17/03/2014  REV007      MVT, Skyline    correction on loudness units full scale
-16/05/2014  REV008      MVT, Skyline    baud Bd can no longer be divided by time, added degree (plane angle) (deg), extended description for symps/ksymps
-17/12/2014  REV009      MVT, Skyline    added km, GOPs, kV, kVA, millidegree, Volt/deg
-26/02/2015  REV010      MVT, Skyline    New structure, now including prefixes, divideBy groups, multiplyBy Groups
-                                        Added: miles(+divbytime), bar, Legs (VOIP, divbytime), mB milliBell, Bft Beaufort, metres is now divbytime, dB can be divided by time and frequencies, multiplied by Hz, dBm can be divided by frequencies, PSI (non-SI)
-03/06/2015	REV011      MVT, Skyline	Added divOnly attribute to wk and yr units, so these will only be used for unit divisions and not as individual units.
-                                        Added E-6 (Bit Error Rate)
-17/05/2016	2.0.3.0     MVT, Skyline	version numbering reformatted to follow DIS release cycle
-                                        Added PDUs, MIB objects, Allocation Unit, Messages, Datagrams, Failures, Fragments, Files, Peers, Requests(allowdivbytime), sessions
-                                        Added prefixgroups: ixlarge(kibi,mebi, gibi), ixxlarge(tebi, pebi, exbi)
-                                        prefixgroups ixlarge, ixxlarge are now applied to bit, byte, bytes per second
-20/02/2018	2.09        PDB, Skyline	Added THz unit.
-04/04/2018  2.11        PDB, Skyline	Removed the empty enumeration value.
-11/05/2018	2.12        PDB, Skyline	Added liter (L) unit (DCP 72255).
-									    Added pHz and nHz unit (DCP 67874).
-04/07/2018  2.13        PDB, Skyline    Removed "Day(s)", as "d" should be used instead (this is the non-SI unit accepted for use by SI).
-                                        Added unit "Fields" (DCP 72256).
-                                        Added unit "Descriptors" (DCP 81012).
-                                        Added units "W/m^2", "in", "inHg" (DCP 68431).
-                                        Added units "kVAh" and "var" (DCP 73805).
-                                        Added unit "Steps" (DCP 80028).
-                                        Added units "kWh", "L/s", "ft^3/min", inAq, gpm, ft (DCP 62273).
-                                        Added unit "ops" (DCP 55299).
-                                        Added unit "clk" (DCP 67941).
-                                        Added unit "deg/s" (DCP 79335).
-                                        Added unit "bits/sym" (DCP 81011).
-                                        Added unit "TWH" (DCP 71117).
-                                        Added units "fpm", "fph" (DCP 83578).
-                                        Changed units: Refer to RN 19175 for an overview of the updated units (DCP 84023).
-                                        Added new units: Refer to RN 19176 for an overview of the added units (DCP 88740).
-11/10/2018      Added new units: mV/dB (DCP 87459), V/dBm (DCP 91445).
-08/01/2019      Added new unit kWh/d (DCP 93122).
-23/01/2019      Added new units Threads (DCP 96525), Jobs (DCP 96544), Rack Units (DCP 92827), cps (DCP 90923).
-01/03/2019      Added new units "Programs", "Segments" (DCP 91416).
-09/04/2019      Added new units "Ticks", "Tickets" (DCP 101139).
-                Added new units "Attempts/h", "Base Units", "Bursts/s", "bps/Hz", "Connections", "Slots", "Slots/s", "Tables/s", "ppb", "ppb/s" (DCP 96845).
-                Added new unit "DU" (Dobson Unit) (DCP 100103).
-                Added new units "mg", "mW/cm^2", "mg/m^3", "kg/m^3", "Hits/in^2", "Hits/cm^2", "umol/m^2/s", "Hits/in^2/h", "Hits/cm^2/h", lb_m/ft^3 (DCP 85814).
-                Added new unit "dBuV/min" (DCP 95981).
-                Added new units "g/m^3", "kg/h", "kW/h", "rps" (DCP 93927).
-                Added new units "hdln": HD lines, "hdpx": HD pixels (DCP 88813).
-                Added new units denoting gauge pressure: barG, mbarG, MbarG, kbarG (DCP 86395).
-                Added new units A_AC, A_DC (DCP 93726).
-                Added new units V_RMS, V_AC, V_DC (DCP 86627).
-                Added new unit %RH (DCP 93927).
-                Added new unit ps/nm and ps/(nm.km) (DCP 110915) and Slots/Frame (DCP 111327).
-                Added new unit kvar, NanoCPUs (DCP 109736).
-13/05/2020      Added new units Files/s, dBuW, L/h, L/min, Logins, Logins/h, Logins/min, Logins/s (DCP 116967, 105470).
-02/10/2020      Added new units mV/deg C/Cell (DCP 135687), Flashes/s (DCP 134907), Streams, Channels (DCP 134811).
-14/12/2020      Added new unit Hops (DCP 141693).
-11/01/2021      Added new unit Cycles (DCP 144152), Services (DCP 144937).
-10/02/2021      Added new unit Hz/s (DCP 146101).
-04/03/2021      Added new units "Alarms" (DCP 148431), Wh (DCP 147341).
-15/11/2021      Added new units "SCMD", "SCMH", "SCMM" (DCP 171043).
-30/03/2023      Added new units "cd/m^2" and "nt" (Mail request)
-=================================================================================-->
+<!--
+***********************************************
+*  Copyright (c), Skyline Communications NV.  *
+***********************************************
+-->
 <xs:schema version="1.0" elementFormDefault="qualified" xmlns:slu="http://www.skyline.be/uomapp" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:annotation>
         <xs:documentation>DataMiner Protocol Units of Measurement (UOM) XML Schema.</xs:documentation>
@@ -7082,6 +7006,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                         <slu:legacyNotations>
                             <slu:legacyNotation>Requests/yr</slu:legacyNotation>
                         </slu:legacyNotations>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Retries">
+                <xs:annotation>
+                    <xs:documentation>retries</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>retries</slu:name>
+                        <slu:ignoreInDescription>true</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
