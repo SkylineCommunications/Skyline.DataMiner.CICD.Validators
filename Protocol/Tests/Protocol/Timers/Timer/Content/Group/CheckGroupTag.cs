@@ -32,7 +32,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 var linkedContentGroups = timer.GetTimerContentGroups(context.ProtocolModel.RelationManager).ToList();
 
                 var hasPollGroups = false;
-                var lastTimerGroupId = string.Empty;
+                var lastTimerGroupId = String.Empty;
                 EnumGroupType? lastGroupType = EnumGroupType.Poll;
                 foreach (ITimersTimerContentGroup timerGroup in timer.Content)
                 {
@@ -117,7 +117,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                     }
                 }
 
-                if (hasPollGroups && !string.IsNullOrEmpty(lastTimerGroupId) && !ValidateHelper.IsPollGroup(lastGroupType))
+                if (hasPollGroups && !String.IsNullOrEmpty(lastTimerGroupId) && !ValidateHelper.IsPollGroup(lastGroupType))
                 {
                     results.Add(Error.InvalidTypeLastTimerGroup(this, timer, timer, Convert.ToString(lastGroupType), timer.Id.RawValue, lastTimerGroupId));
                 }
@@ -189,16 +189,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
 
         public static bool GroupExists(ValidatorContext context, uint groupId)
         {
-            bool groupExists = true;
-
-            var model = context.ProtocolModel;
-
-            if (!model.TryGetObjectByKey<IGroupsGroup>(Mappings.GroupsById, groupId.ToString(), out _))
-            {
-                groupExists = false;
-            }
-
-            return groupExists;
+            return context.ProtocolModel.TryGetObjectByKey<IGroupsGroup>(Mappings.GroupsById, groupId.ToString(), out _);
         }
 
         public static bool IsPollGroup(EnumGroupType? groupType)
@@ -210,7 +201,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
         {
             if (context.ProtocolModel.TryGetObjectByKey<IGroupsGroup>(Mappings.GroupsById, groupId.ToString(), out var group))
             {
-                return group.Type?.Value.Value ?? EnumGroupType.Poll;
+                return group.Type?.Value ?? EnumGroupType.Poll;
             }
 
             return null;

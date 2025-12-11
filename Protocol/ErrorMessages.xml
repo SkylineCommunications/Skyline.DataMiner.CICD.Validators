@@ -14519,7 +14519,7 @@
 								<Name>InvalidTypeLastTimerGroup</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Invalid last group type '{0}' in Timer '{1}'. Group ID '{2}'</Format>
+									<Format>Invalid last group type '{0}' in Timer '{1}'. Group ID '{2}'.</Format>
 									<InputParameters>
 										<InputParameter id="0">groupType</InputParameter>
 										<InputParameter id="1">timerId</InputParameter>

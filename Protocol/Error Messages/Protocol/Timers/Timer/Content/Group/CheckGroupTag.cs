@@ -87,7 +87,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
             {
                 Test = test,
                 CheckId = CheckId.CheckGroupTag,
-                ErrorId = ErrorIds.InvalidGroupTag,
+                ErrorId = ErrorIds.InvalidTypeLastTimerGroup,
                 FullId = "7.5.5",
                 Category = Category.Timer,
                 Severity = Severity.Major,
@@ -95,7 +95,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Invalid last group type '{0}' in Timer '{1}'. Group ID '{2}'.", groupType, timerId, groupId ),
+                Description = String.Format("Invalid last group type '{0}' in Timer '{1}'. Group ID '{2}'.", groupType, timerId, groupId),
                 HowToFix = "",
                 HasCodeFix = false,
 
