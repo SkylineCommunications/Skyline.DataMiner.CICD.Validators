@@ -4,7 +4,7 @@ uid: Validator_2_78_1
 
 # CheckVolatileTables
 
-## IncompatibleVolatileOption
+## SuggestedVolatileOption
 
 <!-- Description, Properties, ... sections are auto-generated. -->
 <!-- REPLACE ME AUTO-GENERATION -->

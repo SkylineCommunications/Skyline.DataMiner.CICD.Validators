@@ -3848,6 +3848,15 @@ DATE        VERSION     AUTHOR          COMMENTS
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Interrupts/s">
+                <xs:annotation>
+                    <xs:documentation>interrupts per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>interrupts per second</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="IRE">
                 <xs:annotation>
                     <xs:documentation>IRE</xs:documentation>

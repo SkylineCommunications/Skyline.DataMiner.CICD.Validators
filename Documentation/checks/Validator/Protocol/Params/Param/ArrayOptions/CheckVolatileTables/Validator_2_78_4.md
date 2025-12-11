@@ -4,7 +4,7 @@ uid: Validator_2_78_4
 
 # CheckVolatileTables
 
-## IncompatibleVolatileTable_Relation
+## IncompatibleVolatileTable_ForeignKeyDestination
 
 <!-- Description, Properties, ... sections are auto-generated. -->
 <!-- REPLACE ME AUTO-GENERATION -->
