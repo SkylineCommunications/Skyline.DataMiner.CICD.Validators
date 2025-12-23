@@ -93,9 +93,6 @@
     [XmlRoot(ElementName = "ErrorMessage")]
     public class ErrorMessage
     {
-        private string? howToFix;
-        private string? exampleCode;
-        private string? details;
         private string? groupDescription = String.Empty;
 
         [XmlElement(ElementName = "Name")]
@@ -139,75 +136,6 @@
                 }
 
                 HasCodeFix = value.ToUpperInvariant() == "TRUE";
-            }
-        }
-
-        [XmlElement(ElementName = "HowToFix")]
-        public XmlCDataSection? HowToFix
-        {
-            get
-            {
-                if (howToFix == null)
-                {
-                    return null;
-                }
-
-                XmlDocument doc = new XmlDocument();
-                return doc.CreateCDataSection(howToFix);
-            }
-
-            set
-            {
-                if (value != null)
-                {
-                    howToFix = value.Value;
-                }
-            }
-        }
-
-        [XmlElement(ElementName = "ExampleCode")]
-        public XmlCDataSection? ExampleCode
-        {
-            get
-            {
-                if (exampleCode == null)
-                {
-                    return null;
-                }
-
-                XmlDocument doc = new XmlDocument();
-                return doc.CreateCDataSection(exampleCode);
-            }
-
-            set
-            {
-                if (value != null)
-                {
-                    exampleCode = value.Value;
-                }
-            }
-        }
-
-        [XmlElement(ElementName = "Details")]
-        public XmlCDataSection? Details
-        {
-            get
-            {
-                if (details == null)
-                {
-                    return null;
-                }
-
-                XmlDocument doc = new XmlDocument();
-                return doc.CreateCDataSection(details);
-            }
-
-            set
-            {
-                if (value != null)
-                {
-                    details = value.Value;
-                }
             }
         }
 

@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "Trigger", "Name", duplicateName, triggerIds),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

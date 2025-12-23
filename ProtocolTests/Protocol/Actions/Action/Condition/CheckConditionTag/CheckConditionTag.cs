@@ -108,7 +108,6 @@ namespace ProtocolTests.Protocol.Actions.Action.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid condition 'currentCondition'. Reason 'reason'. Action ID '100'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 
@@ -133,7 +132,6 @@ namespace ProtocolTests.Protocol.Actions.Action.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'Action/Condition' references a non-existing 'Param' with PID '2'. Action ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 

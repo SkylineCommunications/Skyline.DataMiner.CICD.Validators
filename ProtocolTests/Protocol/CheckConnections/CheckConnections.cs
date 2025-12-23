@@ -479,7 +479,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Duplicated Connection name 'myConnection'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -504,7 +503,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Duplicated Connection name 'myConnection'. Connection IDs '1'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -529,7 +527,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Connections can not be defined simultaneously via 'Protocol/Type' and 'Protocol/Connections'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -554,7 +551,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Connection count in 'Protocol/Type' tag '0' does not match with PortSettings count '1'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -579,7 +575,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Invalid connection name 'myName' for a 'snmp' connection. Connection ID '1'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -604,7 +599,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Connection 0 has mismatching names: 'myConnectionName' vs 'myConnectionOtherName'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -629,7 +623,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Unrecommended use of the 'Protocol/Connections' syntax.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -658,7 +651,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "snmp Connection '0' with name 'myNewSnmp' was added.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -683,7 +675,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Order of connections changed from '0:snmp, 1:serial' to '0:serial, 1:snmp'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -708,7 +699,6 @@ namespace ProtocolTests.Protocol.CheckConnections
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "snmp Connection '0' with name 'myConnection' was changed into 'serial'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 

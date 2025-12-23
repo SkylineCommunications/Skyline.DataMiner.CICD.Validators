@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Interprete/Exceptions is incompatible with Param/Type '{0}'. Param ID '{1}'.", paramType, paramId),
-                HowToFix = "Use Measurement.Discreets.Discreet tags.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,7 +52,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Exception value tag for exception with id '{0}' on Param '{1}' was changed from '{2}' to '{3}'.", exceptionId, paramPid, previousExceptionValue, newExceptionValue),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -76,7 +74,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Exception with id '{0}' was removed from Param '{1}'.", exceptionId, paramPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -99,7 +96,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Exception with id '{0}' was added to Param '{1}'.", exceptionId, paramPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

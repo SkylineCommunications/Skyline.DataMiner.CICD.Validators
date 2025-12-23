@@ -93,7 +93,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.CheckDisplayTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Display' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

@@ -627,15 +627,6 @@
                     <CheckBox IsChecked="{Binding Path=Check.HasCodeFix}" IsEnabled="{Binding Check.HasCodeFixEnabled}"/>
                 </StackPanel>
             </ListBoxItem>
-
-            <!--How To Fix-->
-            <ListBoxItem MinHeight="30" Height="Auto" MaxHeight="150" IsTabStop="False" Focusable="False">
-                <StackPanel Orientation="Horizontal">
-                    <CheckBox IsTabStop="False" IsChecked="{Binding Check.HowToFixEnabled, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 10 0"/>
-                    <TextBlock Width="140" FontWeight="Bold">How To Fix</TextBlock>
-                    <TextBox Height="90" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" SpellCheck.IsEnabled="True" Text="{Binding Check.HowToFix, UpdateSourceTrigger=PropertyChanged}" MinWidth="570" Width="Auto" MaxWidth="1000"/>
-                </StackPanel>
-            </ListBoxItem>
         </ListBox>
 
         <!--Buttons-->

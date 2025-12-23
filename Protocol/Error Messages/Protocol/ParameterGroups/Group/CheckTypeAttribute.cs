@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("DCF Group type for ParameterGroup '{0}' was changed from '{1}' into '{2}'.", groupId, oldType, newType),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -185,6 +185,7 @@
             public FixImpact FixImpact { get; set; }
             public string GroupDescription { get; set; }
             public string Description { get; set; }
+            [Obsolete("Has been removed in favor of using the Extra Details in the dedicated markdown file about the error. Will be removed in the next major change update.")]
             public string HowToFix { get; set; }
             [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
             public string ExampleCode { get; set; }

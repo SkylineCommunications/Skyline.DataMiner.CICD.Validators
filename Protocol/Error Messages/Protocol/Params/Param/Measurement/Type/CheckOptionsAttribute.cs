@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing column sorting priorities on table '{0}'.", tablePid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("'{0}': Invalid '{1}' number of connections for one {2} for matrix '{3}'.", badValue, minOrMax, inputOrOutput, matrixPid),
-                HowToFix = "Make sure the total number of possible connections for a single input or output is not negative nor exceeds the total dimensions of the matrix.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Matrix Param '{0}' Measurement/Type@options - matrix:outputCount of '{1}' does not match Param/Type@options - dimensions: columnCount of '{2}'.", matrixPid, measurementOutputCount, dimensionColumnCount),
-                HowToFix = "Adjust Measurement to match dimensions or vice versa.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Matrix Param '{0}' Measurement/Type@options - matrix:inputCount of '{1}' does not match Param/Type@options - dimensions: rowCount of '{2}'.", matrixPid, measurementInputCount, dimensionRowCount),
-                HowToFix = "Adjust Measurement to match dimensions or vice versa.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid syntax for the '{0}' option. Matrix PID '{1}'.", optionName, matrixPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing '{0}' option for matrix Param. Matrix PID '{1}'.", optionName, matrixPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "Measurement/Type@Options", "Matrix", matrixPid),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Table not mainly sorted on one of its date(time) column(s). Table PID '{0}'. Date(time) column PIDs '{1}'.", tablePid, columnPids),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -211,7 +203,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' displayed as table column. Table PID '{1}'.", columnPid, tablePid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -237,7 +228,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Displayed column order with PID's '{0}' in table '{1}' was changed to '{2}'.", oldColumnOrder, tablePid, newColumnOrder),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Database type '{0}' for columns on table '{1}' was changed into '{2}'.", oldType, tablePid, newType),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -159,7 +159,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'ArrayOptions/NamingFormat' in Table 'tablePid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -184,7 +183,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'ArrayOptions/NamingFormat' references a non-existing 'Param' with ID 'referencedPid'. Table PID 'tablePid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -209,7 +207,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.NamingFormat.CheckNam
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'ArrayOptions/NamingFormat' in Table 'tablePid'. Current value 'untrimmedValue'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

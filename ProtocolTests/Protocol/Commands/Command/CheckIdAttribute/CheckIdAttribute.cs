@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "More than one Command with same ID '2'. Command Names '3'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -200,7 +199,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'Command@id'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -225,7 +223,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Invalid value '2' in attribute 'Command@id'. Command name 'MyName'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -250,7 +247,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Missing attribute 'Command@id'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -275,7 +271,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Untrimmed attribute 'Command@id'. Current value '2'.",
-                HowToFix = String.Empty,
                 HasCodeFix = true
             };
 

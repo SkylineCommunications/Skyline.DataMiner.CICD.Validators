@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invocation of method '{0}.{1}' is not compatible with '{2}'. QAction ID '{3}'.", methodClassType, incompatibleMethod, "DataMiner.Core.InterApp >= v1.0.1.1", qactionId),
-                HowToFix = "To ensure correct handling of messages, always respond to incoming interapp messages by invoking the `.Reply()` method on the original message object received from an external source. " + Environment.NewLine + "" + Environment.NewLine + "It is incorrect to use the `.Reply()` method on newly created message objects. " + Environment.NewLine + "Additionally, avoid performing `.SetParameter(9000001, data);` or invoking `.Send` to the `ReturnAddress`, as these actions are also incorrect.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

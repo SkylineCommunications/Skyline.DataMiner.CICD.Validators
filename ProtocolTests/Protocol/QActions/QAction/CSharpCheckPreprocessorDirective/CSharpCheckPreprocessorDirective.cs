@@ -84,7 +84,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckPreprocessorDirecti
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 Description = "Obsolete preprocessor directive 'DCFv1' used in QAction. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

@@ -331,7 +331,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Missing attribute 'pageOrder'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -356,7 +355,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'pageOrder'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -381,7 +379,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Untrimmed attribute 'pageOrder'. Current value 'ABC'.",
-                HowToFix = String.Empty,
                 HasCodeFix = true,
             };
 
@@ -406,7 +403,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Unsupported popup page 'ABC' in 'Protocol/Display@pageOrder' attribute.",
-                HowToFix = String.Empty,
                 HasCodeFix = true,
             };
 
@@ -431,7 +427,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Missing page 'ABC' on 'Protocol/Display@pageOrder' attribute.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -456,7 +451,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Missing WebInterface page.",
-                HowToFix = "Make sure the webInterface page(s) are defined as last and preceded by a separator page.",
                 HasCodeFix = false,
             };
 
@@ -481,7 +475,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Web page 'ABC' should be defined after all regular pages and the first web page should be preceded by a separator.",
-                HowToFix = "Make sure the webInterface page(s) are defined as last and preceded by a separator page.",
                 HasCodeFix = false,
             };
 
@@ -506,7 +499,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "The specified page 'ABC' does not exist.",
-                HowToFix = String.Empty,
                 HasCodeFix = false,
             };
 
@@ -531,7 +523,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Page 'ABC' has been added more than once to the pageOrder attribute.",
-                HowToFix = String.Empty,
                 HasCodeFix = true
             };
 
@@ -556,7 +547,6 @@ namespace ProtocolTests.Protocol.Display.CheckPageOrderAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Param with ID '1' is positioned on page 'ABC' which is not ordered via 'Protocol/Display@pageOrder' attribute.",
-                HowToFix = String.Empty,
                 HasCodeFix = false,
             };
 

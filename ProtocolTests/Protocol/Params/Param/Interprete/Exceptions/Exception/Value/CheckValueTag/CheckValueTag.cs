@@ -130,7 +130,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Va
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Exception/Value' in Param 'paramId'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

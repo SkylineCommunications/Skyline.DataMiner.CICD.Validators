@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Obsolete tag '{0}'. {1} {2} '{3}'.", "Information/Includes", "Param", "ID", pid),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

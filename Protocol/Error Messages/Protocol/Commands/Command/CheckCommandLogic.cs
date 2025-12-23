@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Commands.Com
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("No '{0}' Action triggered before Command '{1}'. '{0}' Param '{2}'.", "CRC", commandId, pid),
-                HowToFix = "Make sure a CRC action is triggered before command.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

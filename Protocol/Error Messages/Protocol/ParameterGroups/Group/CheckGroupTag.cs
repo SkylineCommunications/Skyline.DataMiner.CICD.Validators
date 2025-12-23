@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Incompatible links to parameters via 'Group@dynamicId' attribute and 'Group/Params' element. ParameterGroup ID '{0}'.", parameterGroupId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -53,7 +52,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("ParameterGroup '{0}' was removed.", groupId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

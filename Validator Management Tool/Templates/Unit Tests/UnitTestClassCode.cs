@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
@@ -20,10 +21,6 @@
             "FullId",
             "Category",
             "Source",
-
-            // These are almost never used.
-            "HowToFix",
-            "ExampleCode"
         };
 
         private readonly List<Check> allChecks;
@@ -54,7 +51,9 @@
 
         private void MakeLists()
         {
-            var interfaceProperties = typeof(IValidationResult).GetProperties();
+	        var interfaceProperties = typeof(IValidationResult).GetProperties()
+	                                                           .Where(prop => prop.GetCustomAttribute(typeof(ObsoleteAttribute)) == null)
+	                                                           .ToList();
 
             foreach (var check in this.checks)
             {

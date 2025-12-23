@@ -108,7 +108,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid condition 'currentCondition'. Reason 'reason'. QAction ID '100'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 
@@ -133,7 +132,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'QAction/Condition' references a non-existing 'Param' with PID '2'. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 

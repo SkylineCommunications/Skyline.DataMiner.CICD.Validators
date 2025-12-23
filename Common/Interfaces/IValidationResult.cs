@@ -81,6 +81,7 @@
         /// Gets information about how to fix the issue.
         /// </summary>
         /// <value>Information about how to fix the issue.</value>
+        [Obsolete("Has been removed in favor of using the Extra Details in the dedicated markdown file about the error. Will be removed in the next major change update.")]
         string HowToFix { get; }
 
         /// <summary>

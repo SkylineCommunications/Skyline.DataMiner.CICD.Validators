@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "userName", "Param", "ID", pid, "HTTP Session", "ID", sessionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

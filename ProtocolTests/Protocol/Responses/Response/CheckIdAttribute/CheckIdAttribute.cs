@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.Responses.Response.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "More than one Response with same ID '2'. Response Names '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -200,7 +199,6 @@ namespace ProtocolTests.Protocol.Responses.Response.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Response@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -225,7 +223,6 @@ namespace ProtocolTests.Protocol.Responses.Response.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Response@id'. Response name 'MyName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -250,7 +247,6 @@ namespace ProtocolTests.Protocol.Responses.Response.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Response@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -275,7 +271,6 @@ namespace ProtocolTests.Protocol.Responses.Response.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Response@id'. Current value '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

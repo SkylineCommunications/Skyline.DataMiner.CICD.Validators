@@ -469,7 +469,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...) method with one or more DateTime(s) given to it requires 'Param@historySet=true' on column with PID '1'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 
@@ -494,7 +493,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '2', use 'Parameter' class instead. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -519,7 +517,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '2', use 'Parameter' class instead. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -544,7 +541,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...)' references a non-existing 'column' with PID '2'. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -569,7 +565,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...)' references a non-existing 'table' with PID '2'. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -594,7 +589,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'NotifyProtocol(220/*NT_FILL_ARRAY_WITH_COLUMN*/, ...)' with arguments '2' is not implemented as expected. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -619,7 +613,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyProtocolNtFillArra
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended set on column '1' with 'ColumnOption@type' containing 'snmp'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

@@ -167,7 +167,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolTriggerAction
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 Description = "Method 'NotifyProtocol(221/*NT_RUN_ACTION*/, ...)' references a non-existing 'Action' with ID '1'. QAction ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

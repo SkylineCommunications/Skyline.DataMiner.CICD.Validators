@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid number of Discreets '{0}' for matrix Param. Expected count '{1}'. Param ID '{2}'.", discreetCount, expectedDiscreetCount, matrixPid),
-                HowToFix = "Make sure the number of discreets is equal to the number of inputs + outputs as defined in the Param/Type@options dimension.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Missing matrix Discreet values '{0}'. Param ID '{1}'.", missingValues, matrixPid),
-                HowToFix = "Make sure Discreet values are sequentially incremented by 1.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Matrix Discreet values should be one-based. Param ID '{0}'.", matrixPid),
-                HowToFix = "Make sure the first discreet value is 1.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

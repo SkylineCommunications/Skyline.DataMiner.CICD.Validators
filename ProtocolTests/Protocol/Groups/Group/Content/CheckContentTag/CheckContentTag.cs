@@ -244,7 +244,6 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.CheckContentTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Group contains more than 10 content elements. Group ID 'groupId'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -269,7 +268,6 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.CheckContentTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Group with 'multipleGet' true contains more than 20 content elements. Group ID 'groupId'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -294,7 +292,6 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.CheckContentTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Content' in Group 'groupId'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -319,7 +316,6 @@ namespace ProtocolTests.Protocol.Groups.Group.Content.CheckContentTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unsupported mixed group content 'contentTypes'. Group ID 'groupId'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

@@ -283,7 +283,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameters
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '2', use 'Parameter' class instead. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -308,7 +307,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameters
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.GetParameters' references a non-existing 'Param' with ID '2'. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -333,7 +331,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameters
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.GetParameters' with arguments '2' is not implemented as expected. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -358,7 +355,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameters
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.GetParameters' has an invalid type '2' for the argument 'ids'. QAction ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

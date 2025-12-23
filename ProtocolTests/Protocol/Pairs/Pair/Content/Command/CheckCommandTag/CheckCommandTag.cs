@@ -185,7 +185,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Command.CheckCommandTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Content/Command' in Pair '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -210,7 +209,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Command.CheckCommandTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'Content/Command'. Pair ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -235,7 +233,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Command.CheckCommandTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Content/Command' in Pair '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -260,7 +257,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Command.CheckCommandTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'Content/Command' references a non-existing 'Command' with ID '2'. Pair ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -285,7 +281,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Command.CheckCommandTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Content/Command' in Pair '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

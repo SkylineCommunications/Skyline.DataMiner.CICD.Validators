@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "ExportRule@whereValue"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

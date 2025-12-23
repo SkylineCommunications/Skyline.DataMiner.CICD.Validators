@@ -85,7 +85,6 @@ namespace ProtocolTests.Protocol.Chains.CheckChildNameAttributes
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Duplicated Chain child Name '2'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 

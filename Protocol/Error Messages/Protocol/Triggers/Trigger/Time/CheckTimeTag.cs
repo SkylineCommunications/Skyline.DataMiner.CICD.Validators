@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Triggers.Tri
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Multiple after startup Triggers. Trigger IDs '{0}'.", triggerId),
-                HowToFix = "Multiple Trigger after Startup Triggers need to be checked and merged into one Trigger.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

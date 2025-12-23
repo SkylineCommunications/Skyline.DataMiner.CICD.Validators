@@ -108,7 +108,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid condition 'currentCondition'. Reason 'reason'. Trigger ID '100'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 
@@ -133,7 +132,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'Trigger/Condition' references a non-existing 'Param' with PID '2'. Trigger ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 

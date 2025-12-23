@@ -737,7 +737,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.NotifyDataMiner(216/*NT_GET_REMOTE_TREND*/, ...)' is unrecommended. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -762,7 +761,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.NotifyDataMiner(260/*NT_GET_REMOTE_TREND_AVG*/, ...)' is unrecommended. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -787,7 +785,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.GetParameterIndex' is unrecommended. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -812,7 +809,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.SetParameterIndex' is unrecommended. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -837,7 +833,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.SetParametersIndex' is unrecommended. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -862,7 +857,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckUnrecommendedMethod
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'System.Threading.Thread.Abort' is unrecommended. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

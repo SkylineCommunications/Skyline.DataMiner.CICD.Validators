@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "More than one Pair with same ID '2'. Pair Names '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -200,7 +199,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Pair@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -225,7 +223,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Pair@id'. Pair name 'MyName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -250,7 +247,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Pair@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -275,7 +271,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Pair@id'. Current value '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

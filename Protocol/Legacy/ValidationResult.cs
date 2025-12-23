@@ -115,6 +115,7 @@
             }
         }
 
+        [Obsolete("Has been removed in favor of using the Extra Details in the dedicated markdown file about the error. Will be removed in the next major change update.")]
         public string HowToFix
         {
             get

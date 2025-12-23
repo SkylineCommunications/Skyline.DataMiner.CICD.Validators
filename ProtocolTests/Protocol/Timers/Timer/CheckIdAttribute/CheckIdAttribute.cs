@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "More than one Timer with same ID '2'. Timer Names '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -200,7 +199,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Timer@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -225,7 +223,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Timer@id'. Timer name 'MyName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -250,7 +247,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Timer@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -275,7 +271,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Timer@id'. Current value '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

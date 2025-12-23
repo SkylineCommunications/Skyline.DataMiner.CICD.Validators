@@ -234,7 +234,6 @@
                         Source = firstResult.Source,
                         FixImpact = firstResult.FixImpact,
                         Description = firstResult.GroupDescription,
-                        HowToFix = firstResult.HowToFix,
                         HasCodeFix = false,
 
                         //Position = firstResult.Position,

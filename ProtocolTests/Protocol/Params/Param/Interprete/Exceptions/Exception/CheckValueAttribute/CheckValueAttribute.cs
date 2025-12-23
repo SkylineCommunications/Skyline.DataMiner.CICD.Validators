@@ -95,7 +95,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.Exceptions.Exception.Ch
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Exception@value' in Param 'paramId'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

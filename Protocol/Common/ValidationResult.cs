@@ -44,6 +44,7 @@
         [DataMember(Order = 2)]
         public string Description { get; set; }
 
+        [Obsolete("Has been removed in favor of using the Extra Details in the dedicated markdown file about the error. Will be removed in the next major change update.")]
         public string HowToFix { get; set; }
 
         [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
@@ -125,7 +126,6 @@
                 .AppendLine($"\tCertainty = {Certainty}")
                 .AppendLine($"\tFixImpact = {FixImpact}")
                 .AppendLine($"\tHasCodeFix = {HasCodeFix}")
-                .AppendLine($"\tHowToFix = {HowToFix}")
                 .AppendLine("\tSubResults = ");
 
             if (SubResults != null)

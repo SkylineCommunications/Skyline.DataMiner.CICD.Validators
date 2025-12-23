@@ -107,7 +107,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckCommandLogic
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "No 'CRC' Action triggered before Command '1'. 'CRC' Param '2'.",
-                HowToFix = "Make sure a CRC action is triggered before command.",
                 HasCodeFix = false
             };
 

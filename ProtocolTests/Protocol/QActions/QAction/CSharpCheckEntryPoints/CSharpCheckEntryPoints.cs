@@ -208,7 +208,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpCheckEntryPoints
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Entry point '1.2' not found in QAction. QAction ID 3.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Constructor '{0}' ('{1}') is unrecommended. QAction ID '{2}'.", typeUnrecommendedConstructor, constructorNamespace, qactionId),
-                HowToFix = "Use one of the following constructors:" + Environment.NewLine + "- XmlSerializer.XmlSerializer(Type)" + Environment.NewLine + "- XmlSerializer.XmlSerializer(Type, String)",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -79,7 +79,6 @@ namespace ProtocolTests.Protocol.Actions.Action.Name.CheckNameTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Duplicated Action Name '0'. Action IDs '1'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 

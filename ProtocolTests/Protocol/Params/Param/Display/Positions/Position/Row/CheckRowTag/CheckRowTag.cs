@@ -141,7 +141,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Position/Row' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -166,7 +165,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value 'abc' in tag 'Position/Row'. Param ID '100'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -191,7 +189,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Position/Row' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -216,7 +213,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.Position.Row.Che
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Position/Row' in Param '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

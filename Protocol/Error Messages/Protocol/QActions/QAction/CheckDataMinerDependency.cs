@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Package '{0}' version '{1}' has a higher version than the version specified in the MinimumRequiredVersion tag '{2}'. QAction ID '{3}'.", packageName, packageVersion, minimumRequiredVersion, qactionId),
-                HowToFix = "Either increase version in the MinimumRequiredVersion tag or downgrade the package so it matches with the minimum required version.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

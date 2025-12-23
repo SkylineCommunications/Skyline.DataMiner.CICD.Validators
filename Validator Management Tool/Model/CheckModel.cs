@@ -31,9 +31,6 @@
         private string description;
         private bool fromTemplate;
         private uint templateId;
-        private string howToFix;
-        private string exampleCode;
-        private string details;
         private Category category;
         private Source source;
         private uint categoryId;
@@ -603,6 +600,15 @@
             }
         }
 
+        [Obsolete("Has been removed in favor of using the Extra Details in the dedicated markdown file about the error. Will be removed in the next major change update.")]
+        public string HowToFix => throw new NotSupportedException();
+
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
+        public string ExampleCode => throw new NotSupportedException();
+
+        [Obsolete("Has been moved to the dedicated markdown file about the error. Will be removed in the next major change update.")]
+        public string Details => throw new NotSupportedException();
+
         /// <summary>
         /// Gets or sets a value indicating whether the description is from a description template or not.
         /// </summary>
@@ -643,101 +649,7 @@
                 }
             }
         }
-
-        /// <summary>
-        /// Gets or sets the description of how to fix the error message.
-        /// </summary>
-        public string HowToFix
-        {
-            get
-            {
-                return howToFix;
-            }
-
-            set
-            {
-                if (howToFix != value)
-                {
-                    howToFix = value;
-                    RaisePropertyChanged("HowToFix");
-                    RaisePropertyChanged("HowToFixEnabled");
-
-                    if (value == null)
-                    {
-                        SettedProperties.Remove("HowToFix");
-                    }
-                    else
-                    {
-                        SettedProperties.Add("HowToFix");
-                    }
-
-                    HasChanges = true;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a piece of example code to fix the error.
-        /// </summary>
-        public string ExampleCode
-        {
-            get
-            {
-                return exampleCode;
-            }
-
-            set
-            {
-                if (exampleCode != value)
-                {
-                    exampleCode = value;
-                    RaisePropertyChanged("ExampleCode");
-                }
-
-                if (value == null)
-                {
-                    SettedProperties.Remove("ExampleCode");
-                }
-                else
-                {
-                    SettedProperties.Add("ExampleCode");
-                }
-
-                HasChanges = true;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets some details about the error message.
-        /// </summary>
-        public string Details
-        {
-            get
-            {
-                return details;
-            }
-
-            set
-            {
-                if (details != value)
-                {
-                    details = value;
-                    RaisePropertyChanged("Details");
-                }
-
-                if (value == null)
-                {
-                    SettedProperties.Remove("Details");
-                }
-                else
-                {
-                    SettedProperties.Add("Details");
-                }
-
-                HasChanges = true;
-            }
-        }
-
+		
         /// <summary>
         /// Gets or sets the category of the error message.
         /// </summary>
@@ -1058,37 +970,6 @@
             get
             {
                 return new MyCommand(OnEdit);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the how to fix tag should be included in the XML or not.
-        /// </summary>
-        public bool HowToFixEnabled
-        {
-            get
-            {
-                return SettedProperties.Contains("HowToFix");
-            }
-
-            set
-            {
-                if (value)
-                {
-                    if (HowToFix == null)
-                    {
-                        HowToFix = String.Empty;
-                    }
-
-                    SettedProperties.Add("HowToFix");
-                }
-                else
-                {
-                    HowToFix = null;
-                    SettedProperties.Remove("HowToFix");
-                }
-
-                RaisePropertyChanged("HowToFixEnabled");
             }
         }
 

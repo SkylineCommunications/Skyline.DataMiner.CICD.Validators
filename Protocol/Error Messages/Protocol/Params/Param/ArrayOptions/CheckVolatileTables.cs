@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Suggested '{0}' option '{1}' in {2} {3} '{4}'.", "ArrayOptions/options", "volatile", "Table", "PID", tablePID),
-                HowToFix = "Add the 'volatile' option to the table's <ArrayOptions>.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Incompatible '{0}' option '{1}'. {2} {3} '{4}'.", "ArrayOptions@options", "volatile", "Table", "PID", tablePID),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Incompatible '{0}' option '{1}'. {2} {3} '{4}'.", "ColumnOption@options", optionName, "Column", "IDX", columnIdx),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Incompatible '{0}' value '{1}'. {2} {3} '{4}'.", "ColumnOption@options foreignKey", fkValue, "Column", "IDX", columnIdx),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Incompatible '{0}' value '{1}'. {2} {3} '{4}'.", "Alarm/Monitored", monitoredValue, "Column", "PID", columnPID),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Incompatible '{0}' value '{1}'. {2} {3} '{4}'.", "ParameterGroups/Group@dynamicId", dynamicID, "ParameterGroup", "ID", parameterGroupID),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

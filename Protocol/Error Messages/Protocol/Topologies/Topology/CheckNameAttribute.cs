@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Topologies.T
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'.", "Topology", "name", duplicateName),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

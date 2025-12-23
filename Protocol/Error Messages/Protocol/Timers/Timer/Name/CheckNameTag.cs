@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "Timer", "Name", duplicateName, timerIds),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

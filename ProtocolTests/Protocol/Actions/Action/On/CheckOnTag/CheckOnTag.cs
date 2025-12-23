@@ -145,7 +145,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckOnTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'On' in Action '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -170,7 +169,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckOnTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'On'. Action ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -195,7 +193,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckOnTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'On' in Action '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -220,7 +217,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckOnTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'On' in Action '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

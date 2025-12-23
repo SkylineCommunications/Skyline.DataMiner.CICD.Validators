@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckBaseFor
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'.", "baseFor", attributeValue),
-                HowToFix = "Make sure that the Protocol@baseFor attribute value is not equal to the value specified in Protocol/ElementType.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

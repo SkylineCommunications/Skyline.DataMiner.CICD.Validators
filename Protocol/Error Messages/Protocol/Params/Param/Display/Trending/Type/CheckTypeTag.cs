@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Trend Type '{0}' on Param '{1}' was changed into '{2}'.", oldTrendType, paramId, newTrendType),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

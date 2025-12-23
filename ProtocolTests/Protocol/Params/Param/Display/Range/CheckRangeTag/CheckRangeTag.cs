@@ -187,21 +187,11 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Range.CheckRangeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Display/Range' in Param '2'.",
-                HowToFix = "Either add 'Range/Low' and/or 'Range/High' tag(s), either remove the empty 'Display/Range' tag.",
                 HasCodeFix = false,
             };
 
             // Assert
-            message.Should().BeEquivalentTo(expected, ExcludePropertiesForErrorMessagesIncludingExtra);
-
-            EquivalencyAssertionOptions<ValidationResult> ExcludePropertiesForErrorMessagesIncludingExtra(EquivalencyAssertionOptions<ValidationResult> options)
-            {
-                Generic.ExcludePropertiesForErrorMessages(options);
-
-                options.Including(x => x.HowToFix);
-
-                return options;
-            }
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
         }
 
         [TestMethod]

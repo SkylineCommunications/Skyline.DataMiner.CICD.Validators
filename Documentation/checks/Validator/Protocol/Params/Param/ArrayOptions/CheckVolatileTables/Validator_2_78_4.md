@@ -6,8 +6,8 @@ uid: Validator_2_78_4
 
 ## IncompatibleVolatileTable_ForeignKeyDestination
 
-<!-- Description, Properties, ... sections are auto-generated. -->
-<!-- REPLACE ME AUTO-GENERATION -->
+<!-- 'Description' and 'Properties' sections are auto-generated. -->
+<!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->
 
 <!-- Uncomment to add extra details -->
 <!--### Details-->

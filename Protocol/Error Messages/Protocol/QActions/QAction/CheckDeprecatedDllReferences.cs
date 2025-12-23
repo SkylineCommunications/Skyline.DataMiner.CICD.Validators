@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Deprecated DLL '{0}' referenced. QAction '{1}'.", packageName, qactionId),
-                HowToFix = "Replace the deprecated DLL by a NuGet and adapt the QAction accordingly.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Type.CheckDa
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Partitioned trending was enabled on protocol.",
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

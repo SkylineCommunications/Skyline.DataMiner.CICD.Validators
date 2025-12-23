@@ -93,7 +93,6 @@ namespace ProtocolTests.Protocol.Params.Param.Information.Includes.CheckIncludes
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Obsolete tag 'Information/Includes'. Param ID 'pid'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

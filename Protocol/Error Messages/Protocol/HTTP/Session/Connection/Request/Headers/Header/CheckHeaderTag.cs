@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}'. Current value '{1}'.", "Header", tagValue),
-                HowToFix = "Trim the Header tag value.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

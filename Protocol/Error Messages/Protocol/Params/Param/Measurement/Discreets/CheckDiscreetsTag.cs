@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing '{0}' tag for '{1}' Param with ID '{2}'.", "Measurement/Discreets", paramDisplayType, pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

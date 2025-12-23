@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Response.CheckResponseTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Content/Response' in Pair '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -200,7 +199,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Response.CheckResponseTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'Content/Response'. Pair ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -225,7 +223,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Response.CheckResponseTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'Content/Response' references a non-existing 'Response' with ID '2'. Pair ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -250,7 +247,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Content.Response.CheckResponseTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Content/Response' in Pair '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

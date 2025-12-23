@@ -157,7 +157,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolGetParameter
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 Description = "Method 'SLProtocol.GetParameter' references a non-existing 'Param' with ID '1'. QAction ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

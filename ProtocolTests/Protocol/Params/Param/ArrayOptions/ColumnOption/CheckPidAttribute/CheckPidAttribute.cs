@@ -152,7 +152,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckPid
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'ColumnOption@pid' in Param 'tablePid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -177,7 +176,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckPid
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'ColumnOption@pid' in table 'tablePid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -202,7 +200,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckPid
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'ColumnOption@pid' references a non-existing 'column' with PID 'columnPid'. Table PID 'tablePid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -227,7 +224,6 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.ColumnOption.CheckPid
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'ColumnOption@pid' in Table 'tablePid'. Current value 'untrimmedValue'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 
