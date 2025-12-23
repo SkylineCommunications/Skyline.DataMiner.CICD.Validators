@@ -17,7 +17,6 @@ SSH Username, SSH Password, SSH Options are restricted to one SSH connection on 
 Use only one of these configurations.
 'PortSettings/SSH' is generally better as it supports multiple SSH connections and use any port number.
 
-
 ### Example code
 
 <PortSettings name="SSH Connection">

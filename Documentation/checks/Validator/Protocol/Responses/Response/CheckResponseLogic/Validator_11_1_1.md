@@ -9,8 +9,9 @@ uid: Validator_11_1_1
 <!-- 'Description' and 'Properties' sections are auto-generated. -->
 <!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->
 
-<!-- Uncomment to add extra details -->
-<!--### Details-->
+### Details
+
+When a CRC is defined on a response, a CRC action should be triggered after response.
 
 <!-- Uncomment to add example code -->
 <!--### Example code-->

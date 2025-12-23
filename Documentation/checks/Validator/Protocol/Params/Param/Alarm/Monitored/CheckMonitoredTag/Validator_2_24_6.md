@@ -12,5 +12,12 @@ uid: Validator_2_24_6
 <!-- Uncomment to add extra details -->
 <!--### Details-->
 
+### How to fix
+
+Double check if alarming is really needed or not.
+
+- If so, set RTDisplay tag to true.
+- If not, remove the full Alarm tag.
+
 <!-- Uncomment to add example code -->
 <!--### Example code-->

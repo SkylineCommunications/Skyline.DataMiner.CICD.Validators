@@ -12,5 +12,9 @@ uid: Validator_2_11_3
 <!-- Uncomment to add extra details -->
 <!--### Details-->
 
+### How to fix
+
+Either add 'Range/Low' and/or 'Range/Hight' tag(s), either remove the empty 'Display/Range' tag.
+
 <!-- Uncomment to add example code -->
 <!--### Example code-->

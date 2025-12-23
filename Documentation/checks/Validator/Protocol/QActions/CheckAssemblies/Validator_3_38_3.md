@@ -11,7 +11,7 @@ uid: Validator_3_38_3
 
 ### Details
 
-Secure Coding is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.
+[Secure Coding](https://www.nuget.org/packages/Skyline.DataMiner.Utils.SecureCoding) is a NuGet library designed to streamline secure development by minimizing the need for boilerplate code. This library offers a set of methods and functionalities aimed at enhancing the security of your applications, reducing common vulnerabilities, and promoting secure coding practices.
 
 <!-- Uncomment to add example code -->
 <!--### Example code-->

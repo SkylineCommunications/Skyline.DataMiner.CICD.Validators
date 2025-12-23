@@ -12,5 +12,11 @@ uid: Validator_2_21_19
 <!-- Uncomment to add extra details -->
 <!--### Details-->
 
+### How to fix
+
+Either change the reference to the columntype parameter within the matrix parameter.
+
+Either change the LenghtType of the parameter currently referenced as being the columntype parameter.
+
 <!-- Uncomment to add example code -->
 <!--### Example code-->

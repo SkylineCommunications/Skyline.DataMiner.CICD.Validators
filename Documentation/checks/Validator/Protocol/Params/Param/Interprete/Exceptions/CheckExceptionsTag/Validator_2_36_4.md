@@ -11,7 +11,7 @@ uid: Validator_2_36_4
 
 ### Details
 
-Do not use Exception tags to add exceptions to write parameters.
+Exception tags should not be used on write parameters. Instead, define such value via the [Measurement.Discreets.Discreet](https://docs.dataminer.services/develop/schemadoc/Protocol/Protocol.Params.Param.Measurement.Discreets.Discreet.html) tag and possibly set the [Display@state](https://docs.dataminer.services/develop/schemadoc/Protocol/Protocol.Params.Param.Measurement.Discreets.Discreet.Display-state.html) attribute to false.
 
 <!-- Uncomment to add example code -->
 <!--### Example code-->
