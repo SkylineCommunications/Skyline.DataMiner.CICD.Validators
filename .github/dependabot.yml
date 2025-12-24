@@ -5,8 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "nuget"
+    directory: "/"
     schedule:
       interval: "daily"
     ignore:
@@ -19,3 +19,8 @@ updates:
     exclude-paths:
       - "ProtocolTests/Protocol/**/*.csproj"
       - "Protocol.FeatureTests/Test Files/**"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
