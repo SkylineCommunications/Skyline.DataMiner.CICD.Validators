@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "Missing default thresholds on some monitored parameters.",
                 Description = String.Format("Missing default thresholds on monitored parameter. Param ID '{0}'.", pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

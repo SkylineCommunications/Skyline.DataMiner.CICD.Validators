@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
     using System.Text;
 
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
@@ -21,7 +23,9 @@
             var argumentLists = new Dictionary<string, Dictionary<string, string>>();
             var propertyLists = new Dictionary<string, Dictionary<string, object>>();
 
-            var interfaceProperties = typeof(IValidationResult).GetProperties();
+            var interfaceProperties = typeof(IValidationResult).GetProperties()
+                                                               .Where(prop => prop.GetCustomAttribute(typeof(ObsoleteAttribute)) == null)
+                                                               .ToList();
 
             foreach (var check in allChecks)
             {
@@ -30,12 +34,6 @@
 
                 foreach (var interfaceProperty in interfaceProperties)
                 {
-                    if (interfaceProperty.Name == "Details" || interfaceProperty.Name == "ExampleCode")
-                    {
-                        // Skip the properties that are obsolete
-                        continue;
-                    }
-
                     // Add the description with the correct parameters
                     if (interfaceProperty.Name == "Description")
                     {

@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "SNMP/TrapOID@mapAlarm", "Param", pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "SNMP/TrapOID@mapAlarm", "Param", pid, untrimmedValue),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' generating alarms based on traps.", pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

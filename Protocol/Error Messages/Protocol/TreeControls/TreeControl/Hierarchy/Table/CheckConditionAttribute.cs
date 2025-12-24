@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "Table@condition", "TreeControl", treeControlPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed value '{0}' in attribute 'Table@condition' in TreeControl '{1}'.", untrimmedColumnPid, treeControlId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Table@condition", attributeValue, "TreeControl", treeControlPid, "ID"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "Hierarchy/Table", "condition", "Column", "PID", columnPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid option '{0}' in attribute '{1}'. {2} {3} '{4}'. Current Value '{5}'.", optionName, "Table@condition", "TreeControl", "ID", treeControlId, optionValue),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing value '{0}' in attribute '{1}'. {2} {3} '{4}'.", valueName, "Table@condition", "TreeControl", "ID", treeControlId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.TreeControls
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Param '{0}' referred as condition column in 'Hierarchy/Table@condition' attribute. TreeControl PID '{1}'.", columnPid, treeControlPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

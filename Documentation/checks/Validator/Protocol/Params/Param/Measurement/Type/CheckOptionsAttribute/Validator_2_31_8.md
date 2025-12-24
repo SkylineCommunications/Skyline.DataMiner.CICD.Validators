@@ -6,8 +6,8 @@ uid: Validator_2_31_8
 
 ## MissingAttribute
 
-<!-- Description, Properties, ... sections are auto-generated. -->
-<!-- REPLACE ME AUTO-GENERATION -->
+<!-- 'Description' and 'Properties' sections are auto-generated. -->
+<!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->
 
 ### Details
 

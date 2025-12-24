@@ -199,7 +199,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Discreets@dependencyId' in Param '100'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -224,7 +223,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value 'aaa' in attribute 'Discreets@dependencyId'. Param ID '100'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -249,7 +247,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Discreets@dependencyId' references a non-existing 'Param' with ID '100'. Param ID '1000'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -274,7 +271,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param '100' referenced by a 'Discreets@dependencyId' attribute. Param ID '1000'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -299,7 +295,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid Param Type '2' on Param referenced by a 'Discreets@dependencyId' attribute. Param ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -324,7 +319,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.CheckDepende
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Discreets@dependencyId' in Param '100'. Current value ' untrimmed '.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

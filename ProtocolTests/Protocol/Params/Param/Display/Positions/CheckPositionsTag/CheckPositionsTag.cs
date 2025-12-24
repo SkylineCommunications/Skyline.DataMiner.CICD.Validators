@@ -124,7 +124,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.CheckPositionsTa
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Display/Positions' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 
@@ -149,7 +148,6 @@ namespace ProtocolTests.Protocol.Params.Param.Display.Positions.CheckPositionsTa
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param '2' which is positioned.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

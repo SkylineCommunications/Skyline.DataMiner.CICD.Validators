@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("No '{0}' Action triggered before Response '{1}'. '{0}' Param '{2}'.", "CRC", responseId, paramPid),
-                HowToFix = "Make sure a CRC action is triggered after response.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Responses.Re
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Defined headers and trailers linked to smart-serial connection '{0}' should be used in response '{1}'.", connectionId, responseId),
-                HowToFix = "Use a header and matching trailer parameter in the response.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

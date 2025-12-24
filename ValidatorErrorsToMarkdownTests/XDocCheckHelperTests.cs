@@ -29,9 +29,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -64,9 +61,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -97,9 +91,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             string xmlTemplateContent = @"  <DescriptionTemplates>
@@ -141,9 +132,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             string xmlTemplateContent = @"  <DescriptionTemplates>
@@ -181,9 +169,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             string xmlTemplateContent = @"  <DescriptionTemplates>
@@ -226,9 +211,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -260,9 +242,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -294,9 +273,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -327,9 +303,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -360,9 +333,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -393,9 +363,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -426,9 +393,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -459,9 +423,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -492,9 +453,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -525,9 +483,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Remove invalid prefix and trim if needed.]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                         </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);
@@ -537,107 +492,6 @@
 
             // Assert
             result.Should().BeTrue();
-        }
-
-        [TestMethod]
-        public void GetCheckHowToFixTest()
-        {
-            // Arrange
-            string xmlContent = @"  <Check id=""1"">
-                                        <Name namespace=""Protocol"">CheckProtocolTag</Name>
-                                        <ErrorMessage id=""5"">
-                                            <Name>InvalidPrefix</Name>
-                                            <GroupDescription />
-                                            <Description templateId=""1000"">
-                                                <InputParameters>
-                                                    <InputParameter id=""0"">tagName</InputParameter>
-                                                </InputParameters>
-                                            </Description>
-                                            <Severity>Critical</Severity>
-                                            <Certainty>Certain</Certainty>
-                                            <Source>Validator</Source>
-                                            <FixImpact>NonBreaking</FixImpact>
-                                            <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[Use one of the following constructors:[NewLine]- XmlSerializer.XmlSerializer(Type)[NewLine]- XmlSerializer.XmlSerializer(Type, String)]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
-                                        </ErrorMessage>
-                                    </Check>";
-            XElement element = XElement.Parse(xmlContent);
-
-            // Act
-            var result = XDocCheckHelper.GetCheckHowToFix(element.Descendants("ErrorMessage").FirstOrDefault());
-
-            // Assert
-            result.Should()
-                  .BeEquivalentTo(
-                      $"Use one of the following constructors:{Environment.NewLine}- XmlSerializer.XmlSerializer(Type){Environment.NewLine}- XmlSerializer.XmlSerializer(Type, String)");
-        }
-
-        [TestMethod]
-        public void GetCheckExampleCodeTest()
-        {
-            // Arrange
-            string xmlContent = @"  <Check id=""1"">
-                                        <Name namespace=""Protocol"">CheckProtocolTag</Name>
-                                        <ErrorMessage id=""5"">
-                                            <Name>InvalidPrefix</Name>
-                                            <GroupDescription />
-                                            <Description templateId=""1000"">
-                                                <InputParameters>
-                                                    <InputParameter id=""0"">tagName</InputParameter>
-                                                </InputParameters>
-                                            </Description>
-                                            <Severity>Critical</Severity>
-                                            <Certainty>Certain</Certainty>
-                                            <Source>Validator</Source>
-                                            <FixImpact>NonBreaking</FixImpact>
-                                            <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[]]></HowToFix>
-                                            <ExampleCode><![CDATA[object[] elementInfo = new object[] { elementId, ipPort, multipleSet, instance, connectionId, setCommunityString, enableRetries, agentId };[NewLine]object[] oidInfo = new object[] { new object[] { oid, newValue, snmpType } };[NewLine][NewLine]object[] result = (object[])protocol.NotifyProtocol(292/*NT_SNMP_SET*/, elementInfo, oidInfo);]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
-                                        </ErrorMessage>
-                                    </Check>";
-            XElement element = XElement.Parse(xmlContent);
-
-            // Act
-            var result = XDocCheckHelper.GetCheckExampleCode(element.Descendants("ErrorMessage").FirstOrDefault());
-
-            // Assert
-            result.Should().BeEquivalentTo("object[] elementInfo = new object[] { elementId, ipPort, multipleSet, instance, connectionId, setCommunityString, enableRetries, agentId };" + Environment.NewLine + "object[] oidInfo = new object[] { new object[] { oid, newValue, snmpType } };" + Environment.NewLine + Environment.NewLine + "object[] result = (object[])protocol.NotifyProtocol(292/*NT_SNMP_SET*/, elementInfo, oidInfo);");
-        }
-
-        [TestMethod]
-        public void GetCheckDetailsTest()
-        {
-            // Arrange
-            string xmlContent = @"  <Check id=""1"">
-                                        <Name namespace=""Protocol"">CheckProtocolTag</Name>
-                                        <ErrorMessage id=""5"">
-                                            <Name>InvalidPrefix</Name>
-                                            <GroupDescription />
-                                            <Description templateId=""1000"">
-                                                <InputParameters>
-                                                    <InputParameter id=""0"">tagName</InputParameter>
-                                                </InputParameters>
-                                            </Description>
-                                            <Severity>Critical</Severity>
-                                            <Certainty>Certain</Certainty>
-                                            <Source>Validator</Source>
-                                            <FixImpact>NonBreaking</FixImpact>
-                                            <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[Skyline recommends the following structure for driver pages:[NewLine]- General[NewLine]- -----------[NewLine]- Data Page(s)[NewLine]- -----------[NewLine]- WebInterface]]></Details>
-                                        </ErrorMessage>
-                                    </Check>";
-            XElement element = XElement.Parse(xmlContent);
-
-            // Act
-            var result = XDocCheckHelper.GetCheckDetails(element.Descendants("ErrorMessage").FirstOrDefault());
-
-            // Assert
-            result.Should().BeEquivalentTo("Skyline recommends the following structure for driver pages:" + Environment.NewLine + "- General" + Environment.NewLine + "- -----------" + Environment.NewLine + "- Data Page(s)" + Environment.NewLine + "- -----------" + Environment.NewLine + "- WebInterface");
         }
 
         [TestMethod]
@@ -659,9 +513,6 @@
                                             <Source>Validator</Source>
                                             <FixImpact>NonBreaking</FixImpact>
                                             <HasCodeFix>True</HasCodeFix>
-                                            <HowToFix><![CDATA[]]></HowToFix>
-                                            <ExampleCode><![CDATA[]]></ExampleCode>
-                                            <Details><![CDATA[]]></Details>
                                             <AutoFixWarnings>
 									            <AutoFixWarning autoFixPopup=""true"">Double check the use of the Parameter class in QActions.</AutoFixWarning>
                                                 <AutoFixWarning autoFixPopup=""false"">Double check the use of the (Get/Set)ParameterByName methods in QActions.</AutoFixWarning>
@@ -694,9 +545,6 @@
 							            	<Source>MajorChangeChecker</Source>
 							            	<FixImpact>Breaking</FixImpact>
 							            	<HasCodeFix>False</HasCodeFix>
-							            	<HowToFix><![CDATA[]]></HowToFix>
-							            	<ExampleCode><![CDATA[]]></ExampleCode>
-							            	<Details><![CDATA[]]></Details>
 							            </ErrorMessage>
                                     </Check>";
             XElement element = XElement.Parse(xmlContent);

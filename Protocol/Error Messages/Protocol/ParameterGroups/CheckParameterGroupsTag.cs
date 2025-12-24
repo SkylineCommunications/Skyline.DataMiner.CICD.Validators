@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ParameterGro
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "DCF was added.",
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

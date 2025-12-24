@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "triggers", "QAction", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "triggers", "QAction", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "triggers", triggersValue, "QAction", qactionId, "ID"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "triggers", "Param", "ID", pid, "QAction", "ID", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "triggers", "Group", "ID", triggerId, "QAction", "ID", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicate value '{0}' in attribute '{1}'. {2} {3} '{4}'.", duplicateId, "QAction@triggers", "QAction", "ID", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

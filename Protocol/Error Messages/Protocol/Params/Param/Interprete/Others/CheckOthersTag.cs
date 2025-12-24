@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Id attribute '{0}' has been changed to '{1}' for Other tag with Value tag '{2}'. Param ID '{3}'.", oldId, newId, valueTag, paramPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -51,7 +50,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Display tag '{0}' has been changed to '{1}' for Other tag with Value tag '{2}'. Param ID '{3}'.", oldDisplayTag, newDisplayTag, valueTag, paramPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -74,7 +72,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Other with Value tag '{0}' has been deleted. Param '{1}'.", oldValue, paramPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -97,7 +94,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Other with Value tag '{0}' has been added. Param '{1}'.", newValue, paramPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

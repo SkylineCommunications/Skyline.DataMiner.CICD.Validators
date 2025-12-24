@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}@{1}' references a non-existing '{2}' with {3} '{4}'.", "ExportRule", "table", "Table", "PID", pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "ExportRule@table"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'.", "ExportRule@table", tableValue),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ExportRules.
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "ExportRule@table"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

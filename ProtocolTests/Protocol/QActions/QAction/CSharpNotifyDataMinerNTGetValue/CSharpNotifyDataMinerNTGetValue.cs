@@ -109,7 +109,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTGetValu
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(69/*NT_GET_VALUE*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

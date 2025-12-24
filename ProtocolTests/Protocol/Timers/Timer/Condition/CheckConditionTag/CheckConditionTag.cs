@@ -132,7 +132,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended condition on Timer. Timer ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 
@@ -158,7 +157,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'Timer/Condition' references a non-existing 'Param' with PID '1'. Timer ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 
@@ -184,7 +182,6 @@ namespace ProtocolTests.Protocol.Timers.Timer.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid condition '1'. Reason '2'. Timer ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 

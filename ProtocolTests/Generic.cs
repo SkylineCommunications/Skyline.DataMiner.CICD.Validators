@@ -384,7 +384,6 @@
                    .Excluding(x => x.ErrorId)
                    .Excluding(x => x.FullId)
                    .Excluding(x => x.Source)
-                   .Excluding(x => x.HowToFix)
                    .Excluding(x => x.Type == typeof(IValidate)) // Test
                    .Excluding(x => x.Path.EndsWith("ExtraData"));
 

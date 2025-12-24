@@ -144,7 +144,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckAsciiAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'ascii' in Command '0'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -169,7 +168,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckAsciiAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Invalid value '0' in attribute 'ascii'. Command ID '1'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -194,7 +192,6 @@ namespace ProtocolTests.Protocol.Commands.Command.CheckAsciiAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Attribute 'ascii' references a non-existing 'Param' with ID '0'. Command ID '1'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 

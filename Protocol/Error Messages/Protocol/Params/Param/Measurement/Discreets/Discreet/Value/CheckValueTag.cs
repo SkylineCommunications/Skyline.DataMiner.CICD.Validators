@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Discreet value tag with display '{0}' on Param '{1}' was changed from '{2}' into '{3}'.", displayValue, paramId, previousValue, newValue),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -51,7 +50,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Discreet tag with value '{0}' on Param '{1}' was removed.", discreetValue, paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

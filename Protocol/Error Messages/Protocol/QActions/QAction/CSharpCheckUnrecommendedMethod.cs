@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "System.Threading.Thread", "Abort", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "GetParameterIndex", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "SetParameterIndex", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "SetParametersIndex", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyDataMiner(216/*NT_GET_REMOTE_TREND*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyDataMiner(260/*NT_GET_REMOTE_TREND_AVG*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(156/*NT_DELETE_ROW*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(149/*NT_ADD_ROW*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -211,7 +203,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(134/*NT_CHECK_TRIGGER*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -234,7 +225,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(60/*NT_GET_DATA*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -257,7 +247,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(163/*NT_GET_KEY_POSITION*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -280,7 +269,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(73/*NT_GET_PARAMETER*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -303,7 +291,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol( 87/*NT_GET_PARAMETER_BY_DATA*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -326,7 +313,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(85/*NT_GET_PARAMETER_BY_NAME*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -349,7 +335,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(77/*NT_GET_DESCRIPTION*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -372,7 +357,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(122/*NT_GET_PARAMETER_INDEX*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -395,7 +379,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(88/*NT_GET_ITEM_DATA*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -418,7 +401,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(215/*NT_GET_ROW*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -441,7 +423,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(195/*NT_ARRAY_ROW_COUNT*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -464,7 +445,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(123/*NT_NOTIFY_DISPLAY*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -487,7 +467,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(256/*NT_SET_PARAMETER_WITH_HISTORY*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -510,7 +489,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(86/*NT_SET_PARAMETER_BY_DATA*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -533,7 +511,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(84/*NT_SET_PARAMETER_BY_NAME*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -556,7 +533,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(131/*NT_SET_DESCRIPTION*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -579,7 +555,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(89/*NT_SET_ITEM_DATA*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -602,7 +577,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Method '{0}.{1}' is unrecommended. QAction ID '{2}'.", "SLProtocol", "NotifyProtocol(225/*NT_SET_ROW*/, ...)", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

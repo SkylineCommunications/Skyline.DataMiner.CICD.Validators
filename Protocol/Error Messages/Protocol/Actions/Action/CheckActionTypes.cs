@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Incompatible '{0}' value '{1}' with '{2}' value '{3}'. {4} {5} '{6}'.", "Action/Type", actionType, "Action/On", actionOn, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' due to '{1}' '{2}' and '{3}' '{4}'. {5} {6} '{7}'.", "On@id", "Action/Type", actionType, "Action/On", actionOn, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' due to '{1}' '{2}' and '{3}' '{4}'. {5} {6} '{7}'.", "Type@id", "Action/Type", actionType, "Action/On", actionOn, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' due to '{1}' '{2}' and '{3}' '{4}'. {5} {6} '{7}'.", "On@nr", "Action/Type", actionType, "Action/On", actionOn, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Type@id", "Param", "ID", pid, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' due to '{1}' '{2}' and '{3}' '{4}'. {5} {6} '{7}'.", "Type@id or Type@value", "Action/Type", actionType, "Action/On", actionOn, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Excessive attribute '{0}' due to '{1}' '{2}' and '{3}' '{4}'. {5} {6} '{7}'.", "Type@id or Type@value", "Action/Type", actionType, "Action/On", actionOn, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute 'On@nr' references a non-existing 'Pair' with 1-based position '{0}' in Group '{1}'. Action ID '{2}' triggered by Trigger '{3}'.", pairPosition, groupId, actionId, triggerId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -211,7 +203,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute '{0}' references a non-existing '{1}' with {2} '{3}'. {4} {5} '{6}'.", "Type@nr", "Connection", "ID", connectionId, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -234,7 +225,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("{5}'Type@nr' attribute in action of type '{0}' on '{1}' references Connection '{2}' with wrong type '{3}'. Action ID '{4}'.", actionType, actionOn, connectionId, connectionType, actionId, optionalPrefix),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -257,7 +247,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute 'On@id' in action of type '{0}' on '{1}' references Group '{2}' which is missing 'Content/Param' tag(s). Action ID '{3}'.", actionType, actionOn, groupId, actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -280,7 +269,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute 'On@id' in action of type '{0}' on '{1}' references Group '{2}' which references Param '{3}' with unsupported 'Param/Type' '{4}'. Action ID '{5}'.", actionType, actionOn, groupId, paramId, paramType, actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -303,7 +291,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Attribute 'On@id' in action of type '{0}' on '{1}' references Group '{2}' which references Param '{3}' with unsupported 'SNMP/Enabled' '{4}'. Action ID '{5}'.", actionType, actionOn, groupId, paramId, snmpEnabledValue, actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -326,7 +313,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Unsupported attribute '{0}' in combination with '{1}' '{2}' and  '{3}' '{4}'. {5} {6} '{7}'.", "Action/On@nr", "Action/Type", actionType, "Action/On", actionOn, "Action", "ID", actionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

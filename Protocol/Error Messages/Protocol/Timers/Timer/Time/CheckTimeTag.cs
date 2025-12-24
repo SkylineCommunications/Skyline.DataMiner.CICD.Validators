@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}' in {1} '{2}'.", "Time", "Timer", timerId),
-                HowToFix = "Choose a value between '1' and '2.073.600.000' (included). The max value corresponds to 24 days.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Time", "Timer", timerId),
-                HowToFix = "Choose a value between '1' and '2.073.600.000' (included). The max value corresponds to 24 days.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Time", "Timer", timerId, untrimmedValue),
-                HowToFix = "Choose a value between '1' and '2.073.600.000' (included). The max value corresponds to 24 days.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in tag '{0}'. Possible values '{2}'.", "Time", tagValue, allowedValues),
-                HowToFix = "Choose a value between '1' and '2.073.600.000' (included). The max value corresponds to 24 days.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Timer Tag value '{0}' is higher than the max allowed value of 24 days. Timer id '{1}'.", timeValue, timerId),
-                HowToFix = "Choose a value between '1' and '2.073.600.000' (included). The max value corresponds to 24 days.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicate Timer with Time '{0}'. Timer IDs '{1}'.", timerTime, timerIDs),
-                HowToFix = "Combine the timers into one.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Too fast Timer Time '{0}'. Timer ID '{1}'.", timerTime, timerId),
-                HowToFix = "Increase the timer time to at least 1s.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Timers.Timer
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Timer Time values too similar. Timer IDs '{0}'. Time values '{1}'.", timerId, timerTime),
-                HowToFix = "Change the timer time so that the difference between the specified time and the time of the other timers is at least 1s.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -76,7 +76,6 @@ namespace ProtocolTests.Protocol.CheckProtocolTag
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Missing tag 'Protocol'.",
-                HowToFix = "Add Protocol root tag to the document.",
                 HasCodeFix = false
             };
 

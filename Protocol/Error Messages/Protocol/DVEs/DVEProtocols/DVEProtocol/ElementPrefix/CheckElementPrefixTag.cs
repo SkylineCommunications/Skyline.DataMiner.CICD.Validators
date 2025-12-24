@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.DVEs.DVEProt
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("ElementPrefix was added to DVE Protocol with Name '{0}' for Table '{1}'.", dveProtocolName, tableId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -51,7 +50,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.DVEs.DVEProt
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("ElementPrefix was removed from DVE Protocol with Name '{0}' for Table '{1}'.", dveProtocolName, tableId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Interprete type on Param '{0}' has been changed from '{1}' to '{2}'.", paramId, oldTypeValue, newTypeValue),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -51,7 +50,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Interprete type on Param '{0}' has been removed.", paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -74,7 +72,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("New Type tag '{0}' for interprete in Param '{1}' was added.", typeValue, paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

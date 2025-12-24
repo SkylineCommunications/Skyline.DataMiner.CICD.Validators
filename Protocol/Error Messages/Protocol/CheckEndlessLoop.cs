@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Endless loop detected. Involved items '{0}'", involvedItems),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckEndless
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Potential endless loop detected. Involved items '{0}'", involvedItems),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -169,7 +169,6 @@ namespace ProtocolTests.Protocol.Display.CheckWideColumnPagesAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "The page 'pageName' specified in 'Protocol/Display@wideColumnPages' does not exist.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -194,7 +193,6 @@ namespace ProtocolTests.Protocol.Display.CheckWideColumnPagesAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'wideColumnsPages'. Current value 'untrimmedValue'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

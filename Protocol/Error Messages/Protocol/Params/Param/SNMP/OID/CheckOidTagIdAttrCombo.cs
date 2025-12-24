@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Unsupported attribute '{0}' in {1} '{2}'.", "SNMP/OID@id", "Param", pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid combination of OID value '{0}' and SNMP/OID@id value '{1}' in Param '{2}'.", oidValue, idValue, pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

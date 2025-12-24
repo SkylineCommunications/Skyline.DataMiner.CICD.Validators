@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}' in {1} '{2}'.", "ArrayOptions@options", "Param", tablePid),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}' in {1} '{2}'. Current value '{3}'.", "ArrayOptions@options", "Table", tablePid, untrimmedValue),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty option '{0}' in attribute '{1}'. {2} {3} '{4}'.", "naming", "ArrayOptions@options", "Table", "PID", tablePid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Option '{0}' in attribute '{1}' references a non-existing '{2}' with {3} '{4}'. {5} {6} '{7}'.", "naming", "ArrayOptions@options", "Param", "ID", referencedPid, "Table", "PID", tablePid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Unrecommended use of the \"preserve state\" option on table '{0}'.", tablePid),
-                HowToFix = "Use a QAction to compare the previous and new values of the cells, and calculate the state of each row.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Table view option '{0}' must refer to an existing table excluding the view table itself. View table PID '{1}'.", viewOption, viewTablePid),
-                HowToFix = "Make sure the view table refers to an existing table, excluding view tables.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Column '{0}' specified in the filterChange option must refer to a column of the view table '{1}'.", columnPid, viewTablePid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Column '{0}' specified in the directView option of view table '{1}' must refer to a column of another table.", columnPid, viewTablePid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -214,7 +206,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Database link for logger table '{0}' was removed.", paramPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

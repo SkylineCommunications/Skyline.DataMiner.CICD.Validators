@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "HTTP/Session@id"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "HTTP/Session@id"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "HTTP/Session@id", attributeValue),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "HTTP/Session@id", sessionId, "Session", sessionName, "name"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.HTTP.Session
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("More than one {0} with same ID '{1}'. {0} Names '{2}'.", "HTTP Session", sessionId, sessionNames),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

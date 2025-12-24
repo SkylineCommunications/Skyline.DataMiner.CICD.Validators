@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Minimum required version '{0}' too low. Expected value '{1}'.", currentMinDmVersion, expectedMinDmVersion),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("'{0}' : '{1}'", requiredDmVersion, usedFeature),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Feature used in '{0}' with '{1}' '{2}'.", itemKind, identifierType, itemId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Feature used in '{0}'.", itemKind),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}'. Current value '{1}'.", "MinimumRequiredVersion", tagValue),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}'.", "MinimumRequiredVersion"),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}'.", "MinimumRequiredVersion"),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Protocol minimum required DM version '{0}' is lower than the Skyline minimum supported DM version '{1}'.", protocolMinDmVersion, skylineMinDmVersion),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -211,7 +203,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in tag '{0}'.", "MinimumRequiredVersion", tagValue),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -237,7 +228,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Compliancies
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Minimum DataMiner required version increased from '{0}' to '{1}'.", oldMinDmVersion, newMinDmVersion),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

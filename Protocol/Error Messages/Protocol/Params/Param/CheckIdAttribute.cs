@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}'.", "Param@id"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Empty attribute '{0}'.", "Param@id"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'.", "Param@id", pid, "Param", paramName, "name"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Out of range {0} ID '{1}'.", "Param", id),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid use of Spectrum ID range for Param with ID '{0}'.", paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid use of Mediation ID range for Param with ID '{0}'.", paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid use of DataMiner Modules ID range for Param with ID '{0}'.", paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid use of Enhanced Service ID range for Param with ID '{0}'.", paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -211,7 +203,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid use of SLA ID range for Param with ID '{0}'.", paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -234,7 +225,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("More than one {0} with same ID '{1}'. {0} Names '{2}'.", "Param", pid, paramNames),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -257,7 +247,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed attribute '{0}'. Current value '{1}'.", "Param@id", attributeValue),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -280,7 +269,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("RTDisplay(true) expected on Spectrum Params. Param ID '{0}'.", pid),
-                HowToFix = "Either the parameter should be removed, either its RTDisplay tag should be set to true.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -306,7 +294,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Missing displayed Param. Param Name '{0}'. Param Type '{1}'. Param ID '{2}'.", paramName, paramType, paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

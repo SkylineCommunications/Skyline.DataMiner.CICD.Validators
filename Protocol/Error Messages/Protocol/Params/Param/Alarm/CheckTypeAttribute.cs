@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Normalization with Alarm type '{0}' on Param '{1}' was removed.", alarmType, paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -51,7 +50,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Normalization with Alarm type '{0}' on Param '{1}' was changed into '{2}'.", alarmType, paramId, newAlarmType),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -74,7 +72,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Normalization with Alarm type '{0}' on Param '{1}' was added.", normalizationType, pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

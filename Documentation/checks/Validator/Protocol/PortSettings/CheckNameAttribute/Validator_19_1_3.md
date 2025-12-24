@@ -6,8 +6,8 @@ uid: Validator_19_1_3
 
 ## UntrimmedAttribute
 
-<!-- Description, Properties, ... sections are auto-generated. -->
-<!-- REPLACE ME AUTO-GENERATION -->
+<!-- 'Description' and 'Properties' sections are auto-generated. -->
+<!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->
 
 ### Details
 

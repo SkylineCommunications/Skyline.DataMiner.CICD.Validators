@@ -270,7 +270,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.SetParameter' references a non-existing 'Param' with ID '1'. QAction ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -295,7 +294,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '1', use 'Parameter' class instead. QAction ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -320,7 +318,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolSetParameter
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "SLProtocol.SetParameter overload with 'ValueType timeInfo' argument requires 'Param@historySet=true'. Param ID '1'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

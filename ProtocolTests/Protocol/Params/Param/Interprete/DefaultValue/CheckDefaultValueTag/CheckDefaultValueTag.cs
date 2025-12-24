@@ -146,7 +146,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.DefaultValue.CheckDefau
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unsupported tag 'DefaultValue' in Column 'columnPid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -171,7 +170,6 @@ namespace ProtocolTests.Protocol.Params.Param.Interprete.DefaultValue.CheckDefau
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unsupported tag 'DefaultValue' in Param 'paramId'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

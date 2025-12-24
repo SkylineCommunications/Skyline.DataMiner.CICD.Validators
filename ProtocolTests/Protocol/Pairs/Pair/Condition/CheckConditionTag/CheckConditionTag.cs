@@ -108,7 +108,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid condition 'currentCondition'. Reason 'reason'. Pair ID '100'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 
@@ -133,7 +132,6 @@ namespace ProtocolTests.Protocol.Pairs.Pair.Condition.CheckConditionTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'Pair/Condition' references a non-existing 'Param' with PID '2'. Pair ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false
             };
 

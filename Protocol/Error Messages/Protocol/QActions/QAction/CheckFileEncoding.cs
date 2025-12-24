@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid file encoding '{0}' detected in file '{1}'. QAction ID '{2}'.", invalidFileEncoding, fileName, qactionId),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

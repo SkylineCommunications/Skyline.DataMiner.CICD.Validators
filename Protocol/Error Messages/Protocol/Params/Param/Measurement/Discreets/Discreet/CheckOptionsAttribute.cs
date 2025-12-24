@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Misconfigured 'confirm' option(s) in 'Discreet@options' for ContextMenu. Param ID '{0}'.", pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing value '{0}' in attribute '{1}' for {2} '{3}'. {4} {5} '{6}'.", "confirm", "Discreet@options", "context-menu item", contextMenuItem, "Param", "ID", pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty option '{0}' in attribute '{1}' for {2} '{3}'. {4} {5} {6}'.", "confirm", "Discreet@options", "context-menu item", contextMenuItem, "Param", "ID", pid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed option '{0}' in attribute '{1}' for {2} '{3}' in {4} with {5} '{6}'. Current value '{7}'.", "confirm", "Discreet@options", "context-menu item", contextMenuItem, "Param", "ID", pid, untrimmedValue),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

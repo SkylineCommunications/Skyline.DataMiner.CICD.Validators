@@ -6,8 +6,8 @@ uid: Validator_2_21_21
 
 ## InvalidMixOfSshOptionsAndPortSettings
 
-<!-- Description, Properties, ... sections are auto-generated. -->
-<!-- REPLACE ME AUTO-GENERATION -->
+<!-- 'Description' and 'Properties' sections are auto-generated. -->
+<!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->
 
 ### Details
 
@@ -16,7 +16,6 @@ You're using both SSH Username, SSH Password, SSH Options and 'PortSettings/SSH'
 SSH Username, SSH Password, SSH Options are restricted to one SSH connection on port 22 only and shouldn't be mixed with 'PortSettings/SSH'.
 Use only one of these configurations.
 'PortSettings/SSH' is generally better as it supports multiple SSH connections and use any port number.
-
 
 ### Example code
 

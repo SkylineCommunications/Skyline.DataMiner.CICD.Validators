@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Measurement/Type 'togglebutton' is recommended for Param with ID '{0}'.", pid),
-                HowToFix = "Change measurement type to 'togglebutton'.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid RawType '{0}' for matrix Param '{1}'. Expected RawType 'other'.", rawType, matrixPid),
-                HowToFix = "",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid Interprete/Type '{0}' for matrix Param '{1}'. Expected Type '{2}'.", interpreteType, matrixPid, expectedInterpreteType),
-                HowToFix = "",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid LengthType '{0}' for matrix Param '{1}'. Expected LengthType 'next param'.", lengthType, matrixPid),
-                HowToFix = "",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("{0} Param '{1}' should be alarmed.", "Matrix", matrixPid),
-                HowToFix = "Enable alarming.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("{0} Param '{1}' should not be trended.", "Matrix", matrixPid),
-                HowToFix = "Disable trending.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Unsupported attribute '{0}' in {1} '{2}'. Current value '{3}'.", "setter", "Matrix", matrixPid, "true"),
-                HowToFix = "Remove the setter attribute.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid Interprete for matrix Param '{0}'.", matrixPid),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -211,7 +203,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in '{1}' for '{2}'. {3} {4} '{5}'.", paramType, "Param/Type", measurementType, "Param", "ID", paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -234,7 +225,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Measurement/Type", "Param", paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -257,7 +247,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid value '{0}' in tag '{1}'. {2} {4} '{3}'.", measurementType, "Measurement/Type", "Param", paramId, "ID"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -280,7 +269,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Measurement/Type", "Param", paramId, untrimmedValue),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

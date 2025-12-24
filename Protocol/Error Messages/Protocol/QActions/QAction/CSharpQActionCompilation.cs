@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("C# compilation errors. QAction ID '{0}'.", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("{0}", errorMessage),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.Undefined,
                 GroupDescription = "",
                 Description = String.Format("No C# QAction code analysis was performed due to unsupported C# version '{0}' in Visual Studio version '{1}'.", cSharpVersion, visualStudioVersion),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

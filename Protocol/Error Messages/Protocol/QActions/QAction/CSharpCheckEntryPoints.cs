@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Entry point '{0}.{1}' not found in QAction. QAction ID {2}.", entryPointClass, entryPointMethod, qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Entry point method '{0}.{1}' has unexpected access modifier '{2}'. QAction ID {3}.", entryPointClass, entryPointMethod, currentAccessModifier, qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Entry point class '{0}' has unexpected access modifier '{1}'. QAction ID {2}.", entryPointClass, currentAccessModifier, qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Entry point method '{0}.{1}' has a first argument with unexpected type '{2}'. QAction ID {3}.", entryPointClass, entryPointMethod, arg0Type, qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

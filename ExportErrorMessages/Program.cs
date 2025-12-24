@@ -99,9 +99,6 @@
                 headerRow.CreateCell(8).SetCellValue("Fix Impact");
                 headerRow.CreateCell(9).SetCellValue("Has Code Fix");
                 headerRow.CreateCell(10).SetCellValue("Source");
-                headerRow.CreateCell(11).SetCellValue("Details");
-                headerRow.CreateCell(12).SetCellValue("Example Code");
-                headerRow.CreateCell(13).SetCellValue("How To Fix");
 
                 int rowCount = 2;
 
@@ -153,9 +150,6 @@
                     row.CreateCell(8).SetCellValue(errorMessage.ErrorMessage.FixImpact.ToString());
                     row.CreateCell(9).SetCellValue(errorMessage.ErrorMessage.HasCodeFix.GetValueOrDefault());
                     row.CreateCell(10).SetCellValue(errorMessage.ErrorMessage.Source.ToString());
-                    row.CreateCell(11).SetCellValue(errorMessage.ErrorMessage.Details?.Value);
-                    row.CreateCell(12).SetCellValue(errorMessage.ErrorMessage.ExampleCode?.Value);
-                    row.CreateCell(13).SetCellValue(errorMessage.ErrorMessage.HowToFix?.Value);
 
                     rowCount++;
                 }

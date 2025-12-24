@@ -177,7 +177,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "More than one Connection with same ID '2' in HTTP Session '4'. Connection Names '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -202,7 +201,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Connection@id' in HTTP Session '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -227,7 +225,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Connection@id'. HTTP Session ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -252,7 +249,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Connection@id' in HTTP Session '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -277,7 +273,6 @@ namespace ProtocolTests.Protocol.HTTP.Session.Connection.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Connection@id' in HTTP Session '2'. Current value ' a '.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

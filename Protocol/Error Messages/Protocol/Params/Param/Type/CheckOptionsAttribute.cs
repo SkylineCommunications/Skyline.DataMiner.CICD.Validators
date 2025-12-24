@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("HeaderTrailerLink option should be defined on {0} with PID '{1}'.", headerOrTrailer, paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("HeaderTrailerLink option is wrongly defined on {0} with PID '{1}'.", headerOrTrailer, paramId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("HeaderTrailerLink option should not be defined on Param '{0}' as it is nor a header nor a trailer.", paramId),
-                HowToFix = "Remove the option.",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("HeaderTrailerLink with ID '{0}' defined on more than 1 {1}. PIDs {2}.", linkId, headerOrTrailer, paramPids),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Matrix option '{0}' not inline with option '{1}'. Matrix PID '{2}'.", columnTypes, dimensions, matrixPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid Interprete/RawType '{0}' for 'Matrix ColumnType Param'. ColumnType PID '{1}'. Matrix PID '{2}'. Possible values 'numeric text, unsigned number'.", rawType, columnTypePid, matrixPid),
-                HowToFix = "Either by changing the reference to the columntype parameter withing the matrix parameter." + Environment.NewLine + "Either by changing the RawType of the parameter currently referenced as bying the columntype parameter.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing '{0}' option for matrix. Param ID '{1}'.", optionName, matrixPid),
-                HowToFix = "Make sure both dimensions and columntypes options are correctly defined via the Param/Type@options attribute.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -188,7 +181,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "Param/Type@options", "Matrix", matrixPid),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -211,7 +203,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid Param Type '{0}' on matrix. Matrix PID '{1}'.", paramType, matrixPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -234,7 +225,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid syntax for the '{0}' option. Matrix PID '{1}'.", optionName, matrixPid),
-                HowToFix = "Make sure both dimensions and columntypes options are correctly defined.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -257,7 +247,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid Interprete/LengthType '{0}' for 'Matrix ColumnType Param'. ColumnType PID '{1}'. Matrix PID '{2}'. Possible values 'next param, fixed'.", lengthType, columnTypePid, matrixPid),
-                HowToFix = "Either by changing the reference to the columntype parameter withing the matrix parameter." + Environment.NewLine + "Either by changing the LengthType of the parameter currently referenced as bying the columntype parameter.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -280,7 +269,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid Interprete/Type '{0}' for 'Matrix ColumnType Param'. ColumnType PID '{1}'. Matrix PID '{2}'. Possible values 'double'.", type, columnTypePid, matrixPid),
-                HowToFix = "Either by changing the reference to the columntype parameter withing the matrix parameter." + Environment.NewLine + "Either by changing the Inteprete/Type of the parameter currently referenced as bying the columntype parameter.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -303,7 +291,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing 'columntypes' Param with ID '{0}' for matrix Param with ID '{1}'.", missingColumnTypePid, matrixPid),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -326,7 +313,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing 'Interprete' Tag on matrix ColumnType Param with ID '{0}' for matrix Param with ID '{1}'.", missingColumnTypePid, matrixPid),
-                HowToFix = "",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -349,7 +335,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid Interprete for 'Matrix ColumnType Param'. ColumnType PID '{0}'. Matrix PID '{1}'.", columnTypePid, matrixPid),
-                HowToFix = "Either by changing the reference to the columntype parameter withing the matrix parameter." + Environment.NewLine + "Either by changing the Inteprete of the parameter currently referenced as bying the columntype parameter.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -372,7 +357,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Unrecommended option '{0}' in Param '{1}'", option, pid),
-                HowToFix = "Remove the option from the parameter." + Environment.NewLine + "Reference the parameter in the PortSettings.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -395,7 +379,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Mixing option {0} and PortSettings SSH is invalid. Param ID '{1}'.", option, pid),
-                HowToFix = "Remove the option from the parameter." + Environment.NewLine + "Reference the parameter in the PortSettings.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -418,7 +401,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Connection option should be defined on {0} with PID '{1}'.", headerOrTrailer, paramId),
-                HowToFix = "Add a connection",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -441,7 +423,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("The connection '{0}' needs to be a valid connection type when used on a {1} with PID '{2}'.", connectionId, headerOrTrailer, paramId),
-                HowToFix = "Assign the connection to an ID of a valid connection type",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -467,7 +448,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Matrix Dimensions on Param '{0}' was changed from '{1}' to '{2}'.", matrixPid, oldDimensions, newDimensions),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -490,7 +470,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Matrix Dimensions '{0}' on Param '{1}' were removed.", matrixDimensions, matrixPid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

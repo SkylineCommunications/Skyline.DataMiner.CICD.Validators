@@ -89,7 +89,6 @@ namespace ProtocolTests.Protocol.Params.Param.CheckColumns
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value 'columnType' in tag 'Param/Type' for column. Possible values 'read, write, group, read bit, write bit'. Column PID 'columnPid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

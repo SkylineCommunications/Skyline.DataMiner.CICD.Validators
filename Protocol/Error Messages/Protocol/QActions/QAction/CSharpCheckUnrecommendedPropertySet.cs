@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Setting property '{0}.{1}' is unrecommended. QAction ID '{2}'.", "CultureInfo", "DefaultThreadCurrentCulture", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Setting property '{0}.{1}' is unrecommended. QAction ID '{2}'.", "Thread.CurrentThread", "CurrentCulture", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Setting property '{0}.{1}' is unrecommended. QAction ID '{2}'.", "Thread.CurrentThread", "CurrentUICulture", qactionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

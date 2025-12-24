@@ -6,8 +6,8 @@ uid: MajorChangeChecker_2_24_1
 
 ## RemovedAlarming
 
-<!-- Description, Properties, ... sections are auto-generated. -->
-<!-- REPLACE ME AUTO-GENERATION -->
+<!-- 'Description' and 'Properties' sections are auto-generated. -->
+<!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->
 
 <!-- Uncomment to add extra details -->
 <!--### Details-->

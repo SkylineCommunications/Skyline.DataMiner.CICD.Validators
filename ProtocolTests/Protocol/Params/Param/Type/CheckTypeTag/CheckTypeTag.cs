@@ -144,7 +144,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Param/Type' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -169,7 +168,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'Param/Type'. Param ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -194,7 +192,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Param/Type' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -219,7 +216,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckTypeTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Param/Type' in Param '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

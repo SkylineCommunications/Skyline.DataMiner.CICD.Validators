@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "More than one QAction with same ID '2'. QAction Names '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -200,7 +199,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'QAction@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -225,7 +223,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'QAction@id'. QAction name 'MyName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -250,7 +247,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'QAction@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -275,7 +271,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'QAction@id'. Current value '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

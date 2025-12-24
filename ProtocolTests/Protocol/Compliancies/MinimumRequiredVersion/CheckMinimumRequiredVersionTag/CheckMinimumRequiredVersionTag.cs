@@ -426,7 +426,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Feature used in 'Protocol'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -451,7 +450,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Feature used in 'Param' with 'ID' '3'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -476,7 +474,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Minimum required version '9.5.0.0 - 1234' too low. Expected value '10.0.0.0 - 1234'.",
-                HowToFix = String.Empty,
                 HasCodeFix = true
             };
 
@@ -501,7 +498,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "'10.0.0.0 - 1234' : 'Test Feature'",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -526,7 +522,6 @@ namespace ProtocolTests.Protocol.Compliancies.MinimumRequiredVersion.CheckMinimu
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Untrimmed tag 'MinimumRequiredVersion'. Current value ' 10.0.0.0 - 1234 '.",
-                HowToFix = String.Empty,
                 HasCodeFix = true
             };
 

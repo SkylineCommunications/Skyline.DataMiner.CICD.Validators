@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Connection {0} has mismatching names: {1}.", connectionId, names),
-                HowToFix = "",
                 HasCodeFix = hasCodeFix,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid connection name '{0}' for a '{1}' connection. Connection ID '{2}'.", connectionName, connectionType, connectionId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -73,7 +71,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'.", "Connection", "name", duplicateName),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -96,7 +93,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "Connection", "name", duplicateName, connectionIds),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -119,7 +115,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Connection count in 'Protocol/Type' tag '{0}' does not match with PortSettings count '{1}'.", connectionCount, portSettingCount),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -142,7 +137,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Connections can not be defined simultaneously via 'Protocol/Type' and 'Protocol/Connections'.",
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -165,7 +159,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended use of the 'Protocol/Connections' syntax.",
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -191,7 +184,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Order of connections changed from '{0}' to '{1}'.", oldOrder, newOrder),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -214,7 +206,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("{0} Connection '{1}' with name '{2}' was changed into '{3}'.", connectionType, connectionId, connectionName, newConnectionType),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -237,7 +228,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("{0} Connection '{1}' with name '{2}' was added.", connectionType, connectionId, connectionName),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -136,7 +136,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckVirtualAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Type@virtual' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 
@@ -161,7 +160,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckVirtualAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on parameters used as virtual source. Param ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -186,7 +184,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckVirtualAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Type@virtual' in Param '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

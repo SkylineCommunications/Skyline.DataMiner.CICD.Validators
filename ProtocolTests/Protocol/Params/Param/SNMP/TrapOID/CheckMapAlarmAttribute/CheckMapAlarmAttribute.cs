@@ -126,7 +126,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribut
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'SNMP/TrapOID@mapAlarm' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -151,7 +150,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribut
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param '2' generating alarms based on traps.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -176,7 +174,6 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.TrapOID.CheckMapAlarmAttribut
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'SNMP/TrapOID@mapAlarm' in Param '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

@@ -108,7 +108,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTAssignS
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(Queued)(76/*NT_ASSIGN_SIMULATION*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

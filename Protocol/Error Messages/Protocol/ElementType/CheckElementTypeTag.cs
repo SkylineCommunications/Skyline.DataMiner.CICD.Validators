@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ElementType.
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}'.", "ElementType"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.ElementType.
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Empty tag '{0}'.", "ElementType"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

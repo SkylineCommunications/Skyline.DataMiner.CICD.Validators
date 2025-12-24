@@ -76,7 +76,6 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.CheckAlarmTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "Missing default thresholds on some monitored parameters.",
                 Description = "Missing default thresholds on monitored parameter. Param ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

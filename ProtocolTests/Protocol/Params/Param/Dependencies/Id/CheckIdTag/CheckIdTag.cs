@@ -177,7 +177,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Dependencies/Id' in Param 'pid'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 
@@ -202,7 +201,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Dependencies/Id' references a non-existing 'Param' with ID 'referencedPid'. Param ID 'pid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -227,7 +225,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param 'pid' containing 'Dependencies/Id' tag(s).",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -252,7 +249,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param 'referencedPid' referenced by a 'Dependencies/Id' tag. Param ID 'referencingPid'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -277,7 +273,6 @@ namespace ProtocolTests.Protocol.Params.Param.Dependencies.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Dependencies/Id' in Param 'pid'. Current value 'untrimmedValue'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

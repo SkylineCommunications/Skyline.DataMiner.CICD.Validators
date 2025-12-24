@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("DisplayColumn attribute with column idx '{0}' on table '{1}' was changed into naming options: '{2}'.", columnIdx, tableId, namingValue),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -51,7 +50,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("DisplayColumn attribute with column idx '{0}' on table '{1}' was changed into NamingFormat: '{2}'.", columnIdx, tableId, namingFormatValue),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -201,7 +201,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "More than one Group with same ID '2'. Group Names '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -226,7 +225,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Group@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -251,7 +249,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Group@id'. Group name 'MyName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -276,7 +273,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Group@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -301,7 +297,6 @@ namespace ProtocolTests.Protocol.Groups.Group.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Group@id'. Current value '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

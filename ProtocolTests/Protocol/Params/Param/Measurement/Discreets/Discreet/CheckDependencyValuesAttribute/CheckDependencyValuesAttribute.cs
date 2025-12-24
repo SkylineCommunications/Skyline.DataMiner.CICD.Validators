@@ -161,7 +161,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Discreet@dependencyValues' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -186,7 +185,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Discreet@dependencyValues' references a non-existing 'Param' with ID '2'. Param ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -211,7 +209,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param '1002' referenced in 'Discreet@dependencyValues' attribute. Param ID '999'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -236,7 +233,6 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Discreets.Discreet.Che
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Discreet@dependencyValues' in Param '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

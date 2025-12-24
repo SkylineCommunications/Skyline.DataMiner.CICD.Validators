@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.Actions.Action.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "More than one Action with same ID '2'. Action Names '3'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -200,7 +199,6 @@ namespace ProtocolTests.Protocol.Actions.Action.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'Action@id'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -225,7 +223,6 @@ namespace ProtocolTests.Protocol.Actions.Action.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Invalid value '2' in attribute 'Action@id'. Action name 'MyName'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -250,7 +247,6 @@ namespace ProtocolTests.Protocol.Actions.Action.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Missing attribute 'Action@id'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -275,7 +271,6 @@ namespace ProtocolTests.Protocol.Actions.Action.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Untrimmed attribute 'Action@id'. Current value '2'.",
-                HowToFix = String.Empty,
                 HasCodeFix = true
             };
 

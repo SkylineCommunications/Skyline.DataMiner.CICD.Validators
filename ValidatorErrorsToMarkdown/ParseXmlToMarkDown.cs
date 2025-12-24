@@ -80,14 +80,7 @@
                         // Properties table
                         doc.Root.Add(new MdHeading("Properties", 3));
                         doc.Root.Add(CreateTable(errorMessage, categoryName, fullId));
-
-                        string howToFix = XDocCheckHelper.GetCheckHowToFix(errorMessage);
-                        if (howToFix is not "")
-                        {
-                            doc.Root.Add(new MdHeading("How to fix", 3));
-                            doc.Root.Add(new MdParagraph(howToFix));
-                        }
-
+						
                         List<string> autofixWarnings = XDocCheckHelper.GetCheckAutoFixWarnings(errorMessage);
                         if (autofixWarnings is not null)
                         {
@@ -116,7 +109,7 @@
 
                         string content = File.ReadAllText(filePath);
 
-                        string newContent = content.Replace("<!-- REPLACE ME AUTO-GENERATION -->", doc.ToString().Trim());
+                        string newContent = content.Replace("<!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->", doc.ToString().Trim());
                         File.WriteAllText(filePath, newContent);
                     }
                 }

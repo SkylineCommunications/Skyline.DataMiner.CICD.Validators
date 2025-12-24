@@ -132,7 +132,6 @@ namespace ProtocolTests.Protocol.Commands.Command.Content.Param.CheckParamTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Empty tag 'Content/Param' in Command '0'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -157,7 +156,6 @@ namespace ProtocolTests.Protocol.Commands.Command.Content.Param.CheckParamTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Invalid value 'test' in tag 'Content/Param'. Command ID '1'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -182,7 +180,6 @@ namespace ProtocolTests.Protocol.Commands.Command.Content.Param.CheckParamTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Tag 'Content/Param' references a non-existing 'Param' with ID '0'. Command ID '1'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 

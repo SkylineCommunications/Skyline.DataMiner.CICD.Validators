@@ -475,7 +475,6 @@ namespace ProtocolTests.Protocol.Actions.Action.CheckActionTypes
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Incompatible 'Action/Type' value 'actionType' with 'Action/On' value 'actionOn'. Action ID 'actionId'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

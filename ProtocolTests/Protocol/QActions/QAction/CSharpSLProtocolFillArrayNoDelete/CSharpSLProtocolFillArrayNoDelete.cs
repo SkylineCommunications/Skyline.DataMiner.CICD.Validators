@@ -155,7 +155,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayNoDel
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Method 'SLProtocol.FillArrayNoDelete' references a non-existing 'table' with PID '1'. QAction ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -180,7 +179,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayNoDel
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "SLProtocol.FillArrayNoDelete overload with 'DateTime? timeInfo' argument requires 'Param@historySet=true'. column PID '1'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 
@@ -205,7 +203,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpSLProtocolFillArrayNoDel
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Unrecommended use of magic number '1', use 'Parameter' class instead. QAction ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

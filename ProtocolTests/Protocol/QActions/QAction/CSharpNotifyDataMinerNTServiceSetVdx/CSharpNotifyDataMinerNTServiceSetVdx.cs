@@ -111,7 +111,6 @@ namespace ProtocolTests.Protocol.QActions.QAction.CSharpNotifyDataMinerNTService
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invocation of method 'SLProtocol.NotifyDataMiner(Queued)(232/*NT_SERVICE_SET_VDX*/, ...)' is not compatible with 'DELT'. QAction ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

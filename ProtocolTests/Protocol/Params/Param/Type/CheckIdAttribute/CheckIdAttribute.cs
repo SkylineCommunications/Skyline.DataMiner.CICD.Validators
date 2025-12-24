@@ -182,7 +182,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Type@id' in Param '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -207,7 +206,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Type@id' references a non-existing 'Column' with PID '2'. Param ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -232,7 +230,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Type@id' references a non-existing 'Param' with ID '2'. Param ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -257,7 +254,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Type@id' references a non-existing 'Response' with ID '2'. Param ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -282,7 +278,6 @@ namespace ProtocolTests.Protocol.Params.Param.Type.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Type@id' in Param '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

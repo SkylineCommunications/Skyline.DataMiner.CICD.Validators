@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Missing clear response routine for pair '{0}'.", pairId),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Pairs.Pair.C
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Missing clear response '{0}' routine after response '{1}'.", responseIdToClear, responseIdOnWhichToTrigger),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

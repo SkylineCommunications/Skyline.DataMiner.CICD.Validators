@@ -349,7 +349,6 @@ namespace ProtocolTests.Protocol.CheckEndlessLoop
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Endless loop detected. Involved items '1'",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -374,7 +373,6 @@ namespace ProtocolTests.Protocol.CheckEndlessLoop
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = String.Empty,
                 Description = "Potential endless loop detected. Involved items '1'",
-                HowToFix = String.Empty,
                 HasCodeFix = false,
             };
 

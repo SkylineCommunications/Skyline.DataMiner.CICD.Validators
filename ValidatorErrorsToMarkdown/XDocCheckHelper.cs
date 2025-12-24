@@ -129,27 +129,6 @@
         public static bool HasCheckErrorMessageCodeFix(XElement errorMessage) => errorMessage?.Element("HasCodeFix")?.Value is "True";
 
         /// <summary>
-        /// Gets the how to fix of the <see cref="XElement"/> errorMessage.
-        /// </summary>
-        /// <param name="errorMessage"></param>
-        /// <returns>A <see cref="string"/> howToFix.</returns>
-        public static string GetCheckHowToFix(XElement errorMessage) => SetNewLines(errorMessage?.Element("HowToFix")?.Value);
-
-        /// <summary>
-        /// Gets the example code of the <see cref="XElement"/> errorMessage.
-        /// </summary>
-        /// <param name="errorMessage"></param>
-        /// <returns>A <see cref="string"/> exampleCode.</returns>
-        public static string GetCheckExampleCode(XElement errorMessage) => SetNewLines(errorMessage?.Element("ExampleCode")?.Value);
-
-        /// <summary>
-        /// Gets the details of the <see cref="XElement"/> errorMessage.
-        /// </summary>
-        /// <param name="errorMessage"></param>
-        /// <returns>A <see cref="string"/> details.</returns>
-        public static string GetCheckDetails(XElement errorMessage) => SetNewLines(errorMessage?.Element("Details")?.Value);
-
-        /// <summary>
         /// Gets the auto fix warnings of the <see cref="XElement"/> errorMessage.
         /// </summary>
         /// <param name="errorMessage"></param>

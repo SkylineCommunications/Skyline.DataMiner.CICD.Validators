@@ -190,7 +190,6 @@ namespace ProtocolTests.Protocol.QActions.CheckAssemblies
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package. QAction ID 'qactionId'.",
-                HowToFix = "Include the Skyline.DataMiner.Utils.SecureCoding.Analyzers NuGet package in all projects within the solution.",
                 HasCodeFix = false,
             };
 

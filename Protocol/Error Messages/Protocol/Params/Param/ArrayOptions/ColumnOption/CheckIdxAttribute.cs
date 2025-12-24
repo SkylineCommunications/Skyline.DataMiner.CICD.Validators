@@ -28,7 +28,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Column with PID '{0}' had its SLProtocol position changed from '{1}' into '{2}'. Table PID '{3}'.", columnPid, oldSLProtocolPosition, newSLProtocolPosition, tablePid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -51,7 +50,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = String.Format("Some columns have their SLProtocol position changed. Table PID '{0}'.", tablePid),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

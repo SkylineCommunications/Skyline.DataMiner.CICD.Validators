@@ -207,7 +207,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty tag 'Content/Id' in Trigger '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -232,7 +231,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Invalid value '2' in tag 'Content/Id'. Trigger ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -257,7 +255,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Content/Id' in Trigger '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -282,7 +279,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Tag 'Content/Id' references a non-existing '2' with ID '3'. Trigger ID '4'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -307,7 +303,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.Content.Id.CheckIdTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed tag 'Content/Id' in Trigger '2'. Current value '3'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

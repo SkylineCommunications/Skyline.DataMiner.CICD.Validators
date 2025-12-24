@@ -75,7 +75,6 @@ namespace ProtocolTests.Protocol.Display.CheckDisplayTag
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing tag 'Protocol/Display'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

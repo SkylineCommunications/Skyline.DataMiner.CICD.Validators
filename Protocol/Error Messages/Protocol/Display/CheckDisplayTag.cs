@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Display.Chec
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing tag '{0}'.", "Protocol/Display"),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Actions.Acti
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} {1} '{2}'. {0} IDs '{3}'.", "Action", "Name", duplicateName, actionIds),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

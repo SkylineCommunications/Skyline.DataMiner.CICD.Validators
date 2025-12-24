@@ -264,7 +264,6 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Ping group for '2' connection is not a '2' poll group. Group ID '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -289,7 +288,6 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Multiple ping pairs for connection with name '2' and type '3'. Connection ID '4'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -314,7 +312,6 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Multiple ping pairs for connection '2'. Pair '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -339,7 +336,6 @@ namespace ProtocolTests.Protocol.CheckConnectionPingGroups
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Ping pair for 'serial' connection contains no response. Pair ID '1'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

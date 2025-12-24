@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Chains.Check
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Duplicated {0} Name '{1}'.", "Chain child", chainName),
-                HowToFix = "",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

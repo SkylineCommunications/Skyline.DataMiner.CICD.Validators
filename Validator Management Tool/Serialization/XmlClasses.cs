@@ -123,7 +123,6 @@
     [XmlRoot(ElementName = "ErrorMessage")]
     public class ErrorMessage
     {
-        private string _howToFix = null;
         private string _groupDescription = String.Empty;
 
         [XmlElement(ElementName = "Name")]
@@ -159,31 +158,6 @@
 
         [XmlElement(ElementName = "HasCodeFix")]
         public string HasCodeFix { get; set; }
-
-        [XmlElement(ElementName = "HowToFix")]
-        public XmlCDataSection HowToFix
-        {
-            get
-            {
-                if (_howToFix != null)
-                {
-                    XmlDocument doc = new XmlDocument();
-                    return doc.CreateCDataSection(_howToFix);
-                }
-                else
-                {
-                    return null;
-                }
-            }
-
-            set
-            {
-                if (value != null)
-                {
-                    _howToFix = value.Value;
-                }
-            }
-        }
 
         [XmlAttribute(AttributeName = "id")]
         public string Id { get; set; }

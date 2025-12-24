@@ -163,7 +163,6 @@ namespace ProtocolTests.Protocol.Params.CheckLoadSequenceAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Params@loadSequence'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -188,7 +187,6 @@ namespace ProtocolTests.Protocol.Params.CheckLoadSequenceAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Params@loadSequence'. Current value '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

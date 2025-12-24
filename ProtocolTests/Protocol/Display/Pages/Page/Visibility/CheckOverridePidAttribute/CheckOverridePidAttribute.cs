@@ -163,7 +163,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Page.Visibility@overridePID' in Page 'pageName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -188,7 +187,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Page.Visibility@overridePID' in Page 'pageName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -213,7 +211,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Attribute 'Page.Visibility@overridePID' references a non-existing 'Param' with ID 'pid'. Page Name 'pageName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -238,7 +235,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "RTDisplay(true) expected on Param 'pid' used as page visibility condition. Page name 'pageName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -263,7 +259,6 @@ namespace ProtocolTests.Protocol.Display.Pages.Page.Visibility.CheckOverridePidA
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Page.Visibility@overridePID' in Page 'pageName'. Current value 'untrimmedValue'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

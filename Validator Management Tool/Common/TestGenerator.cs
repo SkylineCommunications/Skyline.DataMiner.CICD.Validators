@@ -54,7 +54,7 @@
 
                 CreateErrorClass(currentChecks);
                 CreateUnitTestClass(currentChecks);
-                CreateExtraDetailsMarkdownFile(currentChecks);
+                CreateMarkdownFile(currentChecks);
             }
 
             if (Settings.ErrorClassesInOneFile)
@@ -67,7 +67,7 @@
         /// Creates a markdown file that can be used to add additional information about the check such as extra details and example code.
         /// </summary>
         /// <param name="currentChecks">The current checks.</param>
-        private static void CreateExtraDetailsMarkdownFile(List<Check> currentChecks)
+        private static void CreateMarkdownFile(List<Check> currentChecks)
         {
             foreach (var check in currentChecks)
             {
@@ -84,54 +84,38 @@
                 string directoryPath = $"{Settings.DocumentationMarkdownFilesPath}/checks/{source}/{namespacePath}/{checkName}";
                 string filePath = $"{directoryPath}/{uid}.md";
 
-                if (!File.Exists(filePath))
+                if (File.Exists(filePath))
                 {
-                    StringBuilder stringBuilder = new StringBuilder();
-                    stringBuilder.AppendLine("---");
-                    stringBuilder.AppendLine($"uid: {uid}");
-                    stringBuilder.AppendLine("---");
-                    stringBuilder.AppendLine();
-                    stringBuilder.AppendLine($"# {check.CheckName}");
-                    stringBuilder.AppendLine();
-                    stringBuilder.AppendLine($"## {check.Name}");
-                    stringBuilder.AppendLine();
-                    stringBuilder.AppendLine("<!-- Description, Properties, ... sections are auto-generated. -->");
-                    stringBuilder.AppendLine("<!-- REPLACE ME AUTO-GENERATION -->");
-                    stringBuilder.AppendLine();
-
-                    if (String.IsNullOrWhiteSpace(check.Details))
-                    {
-                        stringBuilder.AppendLine("<!-- Uncomment to add extra details -->");
-                        stringBuilder.AppendLine("<!--### Details-->");
-                    }
-                    else
-                    {
-                        stringBuilder.AppendLine("### Details");
-                        stringBuilder.AppendLine();
-                        stringBuilder.AppendLine(check.Details);
-                    }
-
-                    stringBuilder.AppendLine();
-
-                    if (String.IsNullOrWhiteSpace(check.ExampleCode))
-                    {
-                        stringBuilder.AppendLine("<!-- Uncomment to add example code -->");
-                        stringBuilder.AppendLine("<!--### Example code-->");
-                    }
-                    else
-                    {
-                        stringBuilder.AppendLine("### Example code");
-                        stringBuilder.AppendLine();
-                        stringBuilder.AppendLine(check.ExampleCode);
-                    }
-
-                    if (!Directory.Exists(directoryPath))
-                    {
-                        Directory.CreateDirectory(directoryPath);
-                    }
-
-                    File.WriteAllText(filePath, stringBuilder.ToString());
+                    // Documentation file already exists, skip creation.
+                    continue;
                 }
+
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.AppendLine("---");
+                stringBuilder.AppendLine($"uid: {uid}");
+                stringBuilder.AppendLine("---");
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine($"# {check.CheckName}");
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine($"## {check.Name}");
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("<!-- 'Description' and 'Properties' sections are auto-generated. -->");
+                stringBuilder.AppendLine("<!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->");
+                stringBuilder.AppendLine();
+
+                stringBuilder.AppendLine("<!-- Uncomment to add extra details -->");
+                stringBuilder.AppendLine("<!--### Details-->");
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("<!-- Uncomment to add example code -->");
+                stringBuilder.AppendLine("<!--### Example code-->");
+                stringBuilder.AppendLine();
+
+                if (!Directory.Exists(directoryPath))
+                {
+	                Directory.CreateDirectory(directoryPath);
+                }
+
+                File.WriteAllText(filePath, stringBuilder.ToString());
             }
         }
 

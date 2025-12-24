@@ -27,7 +27,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Invalid syntax for 'Measurement/Type@link' attribute on matrix Param. Matrix PID '{0}'.", matrixPid),
-                HowToFix = "Make sure the value contains a valid file name including the .xml extension.",
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -50,7 +49,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = String.Format("Missing attribute '{0}' in {1} '{2}'.", "Measurement/Type@link", "matrix", matrixPid),
-                HowToFix = "Add link=\"XXXXXXXX.xml\"",
                 HasCodeFix = true,
 
                 PositionNode = positionNode,

@@ -221,7 +221,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'On@id' in Action '2'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -246,7 +245,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Invalid value '2' in attribute 'On@id'. Action ID '3'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -271,7 +269,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Attribute 'On@id' references a non-existing '2' with ID '3'. Action ID '4'.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -296,7 +293,6 @@ namespace ProtocolTests.Protocol.Actions.Action.On.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Untrimmed value '2' in attribute 'On@id'. Action ID '3'.",
-                HowToFix = String.Empty,
                 HasCodeFix = true
             };
 

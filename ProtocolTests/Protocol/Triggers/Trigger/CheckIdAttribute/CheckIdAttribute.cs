@@ -175,7 +175,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "More than one Trigger with same ID '2'. Trigger Names '3'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -200,7 +199,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Empty attribute 'Trigger@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -225,7 +223,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Invalid value 'AAA' in attribute 'Trigger@id'. Trigger name 'MyName'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -250,7 +247,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
                 Description = "Missing attribute 'Trigger@id'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 
@@ -275,7 +271,6 @@ namespace ProtocolTests.Protocol.Triggers.Trigger.CheckIdAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Untrimmed attribute 'Trigger@id'. Current value '2'.",
-                HowToFix = "",
                 HasCodeFix = true,
             };
 

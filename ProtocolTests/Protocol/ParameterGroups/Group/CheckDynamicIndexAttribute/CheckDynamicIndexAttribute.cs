@@ -76,7 +76,6 @@ namespace ProtocolTests.Protocol.ParameterGroups.Group.CheckDynamicIndexAttribut
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
                 Description = "Filtering via 'Group@dynamicIndex' attribute requires a 'Group@dynamicId' attribute. ParameterGroup ID '2'.",
-                HowToFix = "",
                 HasCodeFix = false,
             };
 

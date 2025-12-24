@@ -173,7 +173,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Missing attribute 'defaultPage'.",
-                HowToFix = "Specify a default page using the defaultPage attribute.",
                 HasCodeFix = false
             };
 
@@ -198,7 +197,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Empty attribute 'defaultPage'.",
-                HowToFix = "Specify a default page in the defaultPage attribute.",
                 HasCodeFix = false
             };
 
@@ -223,7 +221,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "The specified defaultPage 'ABC' does not exist.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
@@ -248,7 +245,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Untrimmed attribute 'defaultPage'. Current value 'ABC'.",
-                HowToFix = String.Empty,
                 HasCodeFix = true
             };
 
@@ -273,7 +269,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "The default page should be a page with name 'General'.",
-                HowToFix = "Define a page with name 'General' and specify it as the default page.",
                 HasCodeFix = false
             };
 
@@ -298,7 +293,6 @@ namespace ProtocolTests.Protocol.Display.CheckDefaultPageAttribute
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = String.Empty,
                 Description = "Unsupported popup page 'ABC' in defaultPage attribute.",
-                HowToFix = String.Empty,
                 HasCodeFix = false
             };
 
