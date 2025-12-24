@@ -9,8 +9,8 @@ uid: Validator_7_5_5
 <!-- 'Description' and 'Properties' sections are auto-generated. -->
 <!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->
 
-<!-- Uncomment to add extra details -->
-<!--### Details-->
+### Details
+See [Timer content](https://docs.dataminer.services/develop/codingguidelines/Protocol/Timers.html#timer-content) secion for more information.
 
 <!-- Uncomment to add example code -->
 <!--### Example code-->
