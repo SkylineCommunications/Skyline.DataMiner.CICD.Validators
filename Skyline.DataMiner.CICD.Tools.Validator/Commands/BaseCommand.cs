@@ -9,7 +9,7 @@
         {
             AddOption(new Option<IFileSystemInfoIO>(
                 aliases: ["--solution-path", "-sp"],
-                description: "Path to a solution file (.sln) of a DataMiner protocol or a directory that contains a .sln file. Note: In case the specified directory contains multiple .sln files, you must specify the file path of a specific solution.",
+                description: "Path to a solution file (.sln or .slnx) of a DataMiner protocol or a directory that contains a solution file. Note: In case the specified directory contains multiple solution files, you must specify the file path of a specific solution.",
                 parseArgument: OptionHelper.ParseFileSystemInfo!)
             {
                 IsRequired = true
@@ -72,17 +72,19 @@
                     break;
                 case IDirectoryInfoIO directory:
                 {
-                    var files = directory.GetFiles("*.sln", SearchOption.TopDirectoryOnly);
+                    var files = directory.GetFiles("*.sln", SearchOption.TopDirectoryOnly)
+                                         .Concat(directory.GetFiles("*.slnx", SearchOption.TopDirectoryOnly))
+                                         .ToArray();
 
                     if (files.Length == 0)
                     {
-                        throw new ArgumentException($"The specified directory '{directory.FullName}' does not contain a .sln file.");
+                        throw new ArgumentException($"The specified directory '{directory.FullName}' does not contain a solution file.");
                     }
 
                     if (files.Length > 1)
                     {
                         throw new ArgumentException(
-                            $"The specified directory '{directory.FullName}' contains multiple .sln files. Specify the full path of the solution.");
+                            $"The specified directory '{directory.FullName}' contains multiple solution files. Specify the full path of the solution.");
                     }
 
                     solutionFile = files[0];

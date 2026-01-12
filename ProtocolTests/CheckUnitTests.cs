@@ -1626,16 +1626,17 @@
             }
         }
 
-        private static string FindFirstInDirectoryOrParents(string directory, string searchPattern, int maxDepth = 10)
+        private static string FindFirstInDirectoryOrParents(string directory, int maxDepth = 10)
         {
             maxDepth--;
             if (maxDepth == 0) return String.Empty;
 
-            var foundFile = FileSystem.Instance.Directory.GetFiles(directory, searchPattern, SearchOption.TopDirectoryOnly)?.FirstOrDefault();
+            var foundFile = FileSystem.Instance.Directory.GetFiles(directory, "*.sln", SearchOption.TopDirectoryOnly)?.FirstOrDefault() ??
+                            FileSystem.Instance.Directory.GetFiles(directory, "*.slnx", SearchOption.TopDirectoryOnly)?.FirstOrDefault();
 
             if (foundFile == null)
             {
-                return FindFirstInDirectoryOrParents(FileSystem.Instance.Directory.GetParentDirectory(directory), searchPattern);
+                return FindFirstInDirectoryOrParents(FileSystem.Instance.Directory.GetParentDirectory(directory));
             }
             else
             {
@@ -1645,7 +1646,7 @@
 
         private static string GetSolutionPath()
         {
-            return FindFirstInDirectoryOrParents(FileSystem.Instance.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "*.sln");
+            return FindFirstInDirectoryOrParents(FileSystem.Instance.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
         }
 
         internal static string GetNamespace(SyntaxNode rootSyntaxNode)
