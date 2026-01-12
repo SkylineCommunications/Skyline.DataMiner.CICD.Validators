@@ -18,6 +18,7 @@
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.MSBuild;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Skyline.DataMiner.CICD.FileSystem;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
@@ -499,6 +500,16 @@
 
             // ..\\Samples\\Validate\\Valid\\solutionFolder\\solution.sln
             string filePath = Path.Combine(validatePath, type, data.FileName, fileName);
+            if (FileSystem.Instance.File.Exists(filePath))
+            {
+                return filePath;
+            }
+
+            // Fall back to slnx solution file
+            // ..\\Samples\\Validate\\Valid\\solutionFolder\\solution.slnx
+            fileName = data.FileName.EndsWith(".slnx") ? data.FileName : $"{data.FileName}.slnx";
+
+            filePath = Path.Combine(validatePath, type, data.FileName, fileName);
             return filePath;
         }
 
