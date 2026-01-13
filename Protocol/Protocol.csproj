@@ -42,6 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="4.1.0" />
     <SonarQubeSetting Include="sonar.exclusions">
       <Value>Legacy/**</Value>
     </SonarQubeSetting>
