@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Skyline.DataMiner.CICD.FileSystem" Version="1.4.0" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="1.1.2" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="1.2.0-alpha" />
     <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.1.5" />
   </ItemGroup>
 
