@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.CICD.CSharpAnalysis.Protocol" Version="1.1.0-bravo" />
+    <PackageReference Include="Skyline.DataMiner.CICD.CSharpAnalysis.Protocol" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
