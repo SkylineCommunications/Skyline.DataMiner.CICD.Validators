@@ -2,9 +2,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate
 {
     using System.Diagnostics;
     using System.Xml.Linq;
-
-    using Microsoft.Build.Locator;
-
+    
     using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio;
     using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
     using Skyline.DataMiner.CICD.Tools.Validator.Helpers;
@@ -50,12 +48,6 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate
             try
             {
                 IFileInfoIO solutionFile = GetSolutionFile();
-
-                // Required for both building solution and for loading the MSBuildWorkspace to perform validation.
-                if (!MSBuildLocator.IsRegistered)
-                {
-                    MSBuildLocator.RegisterDefaults();
-                }
 
                 // Check SDK style solution
                 Solution solution = Solution.Load(solutionFile.FullName);

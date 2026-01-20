@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Linq.Expressions;
     using System.Runtime.CompilerServices;
     using System.Text;
     using System.Threading;
@@ -14,16 +13,13 @@
     using FluentAssertions;
     using FluentAssertions.Equivalency;
 
-    using Microsoft.Build.Locator;
     using Microsoft.CodeAnalysis;
-    using Microsoft.CodeAnalysis.MSBuild;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using Skyline.DataMiner.CICD.FileSystem;
-    using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Parsers.Common.Xml;
-    using Skyline.DataMiner.CICD.Parsers.Protocol.VisualStudio;
     using Skyline.DataMiner.CICD.Validators.Common.Data;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
