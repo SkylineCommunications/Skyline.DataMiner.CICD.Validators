@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <AssemblyName>Skyline.DataMiner.CICD.Validators.Protocol</AssemblyName>
@@ -28,7 +28,8 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="Skyline.DataMiner.CICD.CSharpAnalysis.Protocol" Version="1.1.0" />
+    <PackageReference Include="Skyline.DataMiner.CICD.CSharpAnalysis.Protocol" Version="2.0.0" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="4.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,11 +43,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="4.1.1" />
     <SonarQubeSetting Include="sonar.exclusions">
       <Value>Legacy/**</Value>
     </SonarQubeSetting>
   </ItemGroup>
-
 
 </Project>
