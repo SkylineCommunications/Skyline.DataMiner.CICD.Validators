@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <AssemblyName>Skyline.DataMiner.CICD.Validators.Protocol.Features</AssemblyName>
@@ -27,7 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.CICD.CSharpAnalysis.Protocol" Version="1.1.0" />
+    <PackageReference Include="Skyline.DataMiner.CICD.CSharpAnalysis.Protocol" Version="2.0.0" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="4.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="4.1.1" />
     <InternalsVisibleTo Include="Skyline.DataMiner.CICD.Validators.Protocol" />
     <InternalsVisibleTo Include="Protocol.FeaturesTests" />
   </ItemGroup>

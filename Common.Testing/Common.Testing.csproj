@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFrameworks>net48;net8.0</TargetFrameworks>
     <AssemblyName>Skyline.DataMiner.CICD.Validators.Common.Testing</AssemblyName>
   </PropertyGroup>
 
@@ -9,9 +9,17 @@
     <PackageReference Include="Skyline.DataMiner.Files.QActionHelper" Version="10.5.2.2" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.14.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.14.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="5.0.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
