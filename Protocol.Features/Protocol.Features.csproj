@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="4.1.1" />
     <InternalsVisibleTo Include="Skyline.DataMiner.CICD.Validators.Protocol" />
     <InternalsVisibleTo Include="Protocol.FeaturesTests" />
   </ItemGroup>
