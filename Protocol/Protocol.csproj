@@ -29,7 +29,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Skyline.DataMiner.CICD.CSharpAnalysis.Protocol" Version="2.0.0" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="4.1.1" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="5.1.0" />
   </ItemGroup>
 
   <ItemGroup>
