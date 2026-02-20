@@ -18,7 +18,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     {
         public List<IValidationResult> Validate(ValidatorContext context)
         {
-            List<IValidationResult> results = new List<IValidationResult>();
+            var results = new List<IValidationResult>();
+
+            var pageButtons = new List<IParamsParam>();
+            var pageButtonsPerPage = new Dictionary<string, List<IParamsParam>>();
 
             foreach (IParamsParam param in context.EachParamWithValidId())
             {
@@ -43,17 +46,42 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                ValidateHelper helper = new ValidateHelper(this, context, results, param);
+                var helper = new ValidateHelper(this, context, results, param);
                 helper.CheckParamType();
                 helper.CheckObviousToggleButtons();
 
                 if (param.IsMatrix())
                 {
-                    ValidateMatrix matrixValidator = new ValidateMatrix(this, param, param.Id.RawValue);
+                    var matrixValidator = new ValidateMatrix(this, param, param.Id.RawValue);
                     results.AddIfNotNull(matrixValidator.CheckMatrixInterprete());
                     results.AddIfNotNull(matrixValidator.CheckMatrixTrending());
                     results.AddIfNotNull(matrixValidator.CheckMatrixAlarming());
                     results.AddIfNotNull(matrixValidator.CheckMatrixSetterOnWrite());
+                }
+
+                if (param.IsPageButton())
+                {
+                    pageButtons.Add(param);
+
+                    if (param.Measurement.Discreets != null)
+                    {
+                        foreach (var discreet in param.Measurement.Discreets)
+                        {
+                            string pageName = discreet.ValueElement?.Value;
+                            if (pageName == null)
+                            {
+                                continue;
+                            }
+
+                            if (!pageButtonsPerPage.TryGetValue(pageName, out var pageButtonsOnPage))
+                            {
+                                pageButtonsOnPage = new List<IParamsParam>();
+                                pageButtonsPerPage.Add(pageName, pageButtonsOnPage);
+                            }
+
+                            pageButtonsOnPage.Add(param);
+                        }
+                    }
                 }
 
                 if (status.HasFlag(GenericStatus.Untrimmed))
@@ -62,7 +90,71 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
             }
 
+            // Nested pageButton depth
+            foreach (var pageButton in pageButtons)
+            {
+                int nestingDepth = 0;
+
+                ComputeNestingDepth(pageButtonsPerPage, pageButton, ref nestingDepth);
+
+                if (nestingDepth > 1)
+                {
+                    results.Add(Error.ExcessivePageButtonNesting(this, pageButton, pageButton.Display.Positions, nestingDepth.ToString(), pageButton.Id.RawValue));
+                }
+            }
+
             return results;
+        }
+
+        private static void ComputeNestingDepth(Dictionary<string, List<IParamsParam>> pageButtonsPerPage, IParamsParam pageButton, ref int nestingDepth, HashSet<IParamsParam> visited = null)
+        {
+            if (pageButton.Display?.Positions == null)
+            {
+                return;
+            }
+
+            // Initialize visited set on first call
+            if (visited == null)
+            {
+                visited = new HashSet<IParamsParam>();
+            }
+
+            // Prevent circular references
+            if (!visited.Add(pageButton))
+            {
+                // TODO: we should probably generate a circular pageButton error here?
+
+                return; // Already visiting this pageButton in current path
+            }
+
+            foreach (var position in pageButton.Display.Positions)
+            {
+                int maxDepth = nestingDepth;
+
+                string pageName = position.Page?.Value;
+                if (pageName == null)
+                {
+                    continue;
+                }
+
+                if (pageButtonsPerPage.TryGetValue(pageName, out var pageButtonsOnPage))
+                {
+                    maxDepth++;
+
+                    foreach (var pageButtonOnPage in pageButtonsOnPage)
+                    {
+                        ComputeNestingDepth(pageButtonsPerPage, pageButtonOnPage, ref maxDepth, visited);
+                    }
+                }
+
+                if (maxDepth > nestingDepth)
+                {
+                    nestingDepth = maxDepth;
+                }
+            }
+
+            // Remove from visited when backtracking
+            visited.Remove(pageButton);
         }
 
         public ICodeFixResult Fix(CodeFixContext context)

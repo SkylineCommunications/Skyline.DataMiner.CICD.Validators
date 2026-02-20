@@ -15,7 +15,7 @@
 				<Type>pagebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>MyPageButtonPage_Level1</Display>
+						<Display>My PageButton 200</Display>
 						<Value>MyPageButtonPage_Level1</Value>
 					</Discreet>
 				</Discreets>
@@ -35,7 +35,7 @@
 				<Type>pagebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>MyPageButtonPage_Level2</Display>
+						<Display>My PageButton 201</Display>
 						<Value>MyPageButtonPage_Level2</Value>
 					</Discreet>
 				</Discreets>
@@ -55,7 +55,7 @@
 				<Type>pagebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>MyPageButtonPage_Level3</Display>
+						<Display>My PageButton 202</Display>
 						<Value>MyPageButtonPage_Level3</Value>
 					</Discreet>
 				</Discreets>
@@ -75,7 +75,7 @@
 				<Type>pagebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>MyPageButtonPage_Level4</Display>
+						<Display>My PageButton 203</Display>
 						<Value>MyPageButtonPage_Level4</Value>
 					</Discreet>
 				</Discreets>
@@ -95,7 +95,7 @@
 				<Type>pagebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>MyPageButtonPage_Level5</Display>
+						<Display>My PageButton 204</Display>
 						<Value>MyPageButtonPage_Level5</Value>
 					</Discreet>
 				</Discreets>
