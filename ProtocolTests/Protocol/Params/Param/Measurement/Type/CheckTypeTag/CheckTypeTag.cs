@@ -51,6 +51,24 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Type.CheckTypeTag
         }
 
         [TestMethod]
+        public void Param_CheckTypeTag_ExcessivePageButtonNesting()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "ExcessivePageButtonNesting",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.ExcessivePageButtonNesting(null, null, null, "2", "202"),
+                    Error.ExcessivePageButtonNesting(null, null, null, "3", "203"),
+                    Error.ExcessivePageButtonNesting(null, null, null, "4", "204"),
+                }
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
         public void Param_CheckTypeTag_InvalidParamType()
         {
             Generic.ValidateData data = new Generic.ValidateData
