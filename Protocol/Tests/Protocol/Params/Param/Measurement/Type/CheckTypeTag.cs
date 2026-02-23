@@ -99,7 +99,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
                 if (nestingDepth > 1)
                 {
-                    results.Add(Error.ExcessivePageButtonNesting(this, pageButton, pageButton.Display.Positions, nestingDepth.ToString(), pageButton.Id.RawValue));
+                    results.Add(Error.DeepPageButtonNesting(this, pageButton, pageButton.Display.Positions, nestingDepth.ToString(), pageButton.Id.RawValue));
                 }
             }
 

@@ -1,5 +1,5 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
-	
+
 	<Params>
 		<Param id="200">
 			<Name>Standalone_WriteOnly_PageButton</Name>
@@ -102,5 +102,5 @@
 			</Measurement>
 		</Param>
 	</Params>
-	
+
 </Protocol>

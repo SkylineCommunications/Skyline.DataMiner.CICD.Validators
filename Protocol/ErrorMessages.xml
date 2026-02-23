@@ -5934,10 +5934,10 @@
 								<HasCodeFix>True</HasCodeFix>
 							</ErrorMessage>
                             <ErrorMessage id="13">
-                                <Name>ExcessivePageButtonNesting</Name>
+                                <Name>DeepPageButtonNesting</Name>
                                 <GroupDescription />
                                 <Description>
-                                    <Format>Excessive pageButton nesting: {0} levels deep (max recommended: 2). PageButton PID '{1}'.</Format>
+                                    <Format>Deep pageButton nesting: {0} levels deep (max recommended: 2). PageButton PID '{1}'.</Format>
                                     <InputParameters>
                                         <InputParameter id="0">nestedLevelsCount</InputParameter>
                                         <InputParameter id="1">pageButtonPid</InputParameter>
