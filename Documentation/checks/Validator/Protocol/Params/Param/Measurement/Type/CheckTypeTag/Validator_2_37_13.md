@@ -4,7 +4,7 @@ uid: Validator_2_37_13
 
 # CheckTypeTag
 
-## ExcessivePageButtonNesting
+## DeepPageButtonNesting
 
 <!-- 'Description' and 'Properties' sections are auto-generated. -->
 <!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->
@@ -14,4 +14,3 @@ uid: Validator_2_37_13
 
 <!-- Uncomment to add example code -->
 <!--### Example code-->
-
