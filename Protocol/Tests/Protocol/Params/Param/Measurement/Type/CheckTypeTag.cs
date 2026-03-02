@@ -21,7 +21,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             var results = new List<IValidationResult>();
 
             var pageButtons = new List<IParamsParam>();
-            var pageButtonsPerPage = new Dictionary<string, List<IParamsParam>>();
+            var pageButtonsPerPage = new Dictionary<string, List<IParamsParam>>(StringComparer.OrdinalIgnoreCase);
 
             foreach (IParamsParam param in context.EachParamWithValidId())
             {
@@ -90,71 +90,15 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
             }
 
+            var validatePageButton = new ValidatePageButton(this, pageButtonsPerPage);
+
             // Nested pageButton depth
             foreach (var pageButton in pageButtons)
             {
-                int nestingDepth = 0;
-
-                ComputeNestingDepth(pageButtonsPerPage, pageButton, ref nestingDepth);
-
-                if (nestingDepth > 1)
-                {
-                    results.Add(Error.DeepPageButtonNesting(this, pageButton, pageButton.Display.Positions, nestingDepth.ToString(), pageButton.Id.RawValue));
-                }
+                results.AddIfNotNull(validatePageButton.CheckNestedDepth(pageButton));
             }
 
             return results;
-        }
-
-        private static void ComputeNestingDepth(Dictionary<string, List<IParamsParam>> pageButtonsPerPage, IParamsParam pageButton, ref int nestingDepth, HashSet<IParamsParam> visited = null)
-        {
-            if (pageButton.Display?.Positions == null)
-            {
-                return;
-            }
-
-            // Initialize visited set on first call
-            if (visited == null)
-            {
-                visited = new HashSet<IParamsParam>();
-            }
-
-            // Prevent circular references
-            if (!visited.Add(pageButton))
-            {
-                // TODO: we should probably generate a circular pageButton error here?
-
-                return; // Already visiting this pageButton in current path
-            }
-
-            foreach (var position in pageButton.Display.Positions)
-            {
-                int maxDepth = nestingDepth;
-
-                string pageName = position.Page?.Value;
-                if (pageName == null)
-                {
-                    continue;
-                }
-
-                if (pageButtonsPerPage.TryGetValue(pageName, out var pageButtonsOnPage))
-                {
-                    maxDepth++;
-
-                    foreach (var pageButtonOnPage in pageButtonsOnPage)
-                    {
-                        ComputeNestingDepth(pageButtonsPerPage, pageButtonOnPage, ref maxDepth, visited);
-                    }
-                }
-
-                if (maxDepth > nestingDepth)
-                {
-                    nestingDepth = maxDepth;
-                }
-            }
-
-            // Remove from visited when backtracking
-            visited.Remove(pageButton);
         }
 
         public ICodeFixResult Fix(CodeFixContext context)
@@ -282,7 +226,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 results.Add(togglebuttonRecommended);
             }
         }
-
     }
 
     internal class ValidateMatrix
@@ -527,6 +470,82 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             if (trended)
             {
                 return Error.MatrixTrendingEnabled(LinkToTest, Param, Param, Pid);
+            }
+
+            return null;
+        }
+    }
+
+    internal class ValidatePageButton
+    {
+        private readonly CheckTypeTag test;
+        private readonly IReadOnlyDictionary<string, List<IParamsParam>> pageButtonsPerPage;
+
+        public ValidatePageButton(CheckTypeTag test, IReadOnlyDictionary<string, List<IParamsParam>> pageButtonsPerPage)
+        {
+            this.test = test;
+            this.pageButtonsPerPage = pageButtonsPerPage;
+        }
+
+        private int ComputeNestingDepth(IParamsParam pageButton, HashSet<IParamsParam> visited = null)
+        {
+            if (!pageButton.HasPosition())
+            {
+                return 0;
+            }
+
+            // Initialize visited set on first call
+            if (visited == null)
+            {
+                visited = new HashSet<IParamsParam>();
+            }
+
+            // Prevent circular references
+            if (!visited.Add(pageButton))
+            {
+                // Circular reference detected, stop recursion
+                // In the future this could be turned into an error, but for now we just ignore further nesting to avoid infinite loops
+                return 0;
+            }
+
+            int maxDepth = 0;
+            foreach (var position in pageButton.Display.Positions)
+            {
+                string pageName = position.Page?.Value;
+                if (pageName == null)
+                {
+                    // Invalid page name, skip
+                    continue;
+                }
+
+                if (!pageButtonsPerPage.TryGetValue(pageName, out var pageButtonsOnPage))
+                {
+                    // Page has no pageButtons, skip
+                    continue;
+                }
+
+                foreach (var pageButtonOnPage in pageButtonsOnPage)
+                {
+                    int depth = ComputeNestingDepth(pageButtonOnPage, visited);
+                    if (depth > maxDepth)
+                    {
+                        maxDepth = depth;
+                    }
+                }
+            }
+
+            // Remove from visited when backtracking
+            visited.Remove(pageButton);
+
+            return maxDepth + 1; // +1 for current level
+        }
+
+        public IValidationResult CheckNestedDepth(IParamsParam pageButton)
+        {
+            int nestingDepth = ComputeNestingDepth(pageButton);
+            if (nestingDepth > 2)
+            {
+                return Error.DeepPageButtonNesting(test, pageButton, pageButton.Display.Positions, nestingDepth.ToString(), pageButton.Id.RawValue);
             }
 
             return null;

@@ -43,9 +43,9 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Type.CheckTypeTag
                 FileName = "DeepPageButtonNesting",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.DeepPageButtonNesting(null, null, null, "2", "202"),
-                    Error.DeepPageButtonNesting(null, null, null, "3", "203"),
-                    Error.DeepPageButtonNesting(null, null, null, "4", "204"),
+                    Error.DeepPageButtonNesting(null, null, null, "3", "202"),
+                    Error.DeepPageButtonNesting(null, null, null, "4", "203"),
+                    Error.DeepPageButtonNesting(null, null, null, "5", "204"),
                 }
             };
 
