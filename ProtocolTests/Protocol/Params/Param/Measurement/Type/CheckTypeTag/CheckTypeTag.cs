@@ -35,6 +35,24 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Type.CheckTypeTag
         #region Invalid Checks
 
         [TestMethod]
+        public void Param_CheckTypeTag_DeepPageButtonNesting()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "DeepPageButtonNesting",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.DeepPageButtonNesting(null, null, null, "3", "202"),
+                    Error.DeepPageButtonNesting(null, null, null, "4", "203"),
+                    Error.DeepPageButtonNesting(null, null, null, "5", "204"),
+                }
+            };
+
+            Generic.Validate(test, data);
+        }
+
+        [TestMethod]
         public void Param_CheckTypeTag_EmptyTag()
         {
             Generic.ValidateData data = new Generic.ValidateData
@@ -369,12 +387,24 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Type.CheckTypeTag
     public class ErrorMessages
     {
         [TestMethod]
+        public void Param_CheckTypeTag_DeepPageButtonNesting()
+        {
+            // Create ErrorMessage
+            var message = Error.DeepPageButtonNesting(null, null, null, "nestedLevelsCount", "pageButtonPid");
+
+            string description = "Deep pageButton nesting: nestedLevelsCount levels deep (max recommended: 2). PageButton PID 'pageButtonPid'.";
+
+            // Assert
+            Assert.AreEqual(description, message.Description);
+        }
+
+        [TestMethod]
         public void Param_CheckTypeTag_EmptyTag()
         {
             // Create ErrorMessage
-            var message = Error.EmptyTag(null, null, null, "0");
+            var message = Error.EmptyTag(null, null, null, "paramId");
 
-            string description = "Empty tag 'Measurement/Type' in Param '0'.";
+            string description = "Empty tag 'Measurement/Type' in Param 'paramId'.";
 
             // Assert
             Assert.AreEqual(description, message.Description);
@@ -384,9 +414,9 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Type.CheckTypeTag
         public void Param_CheckTypeTag_InvalidParamType()
         {
             // Create ErrorMessage
-            var message = Error.InvalidParamType(null, null, null, "read", "button", "2");
+            var message = Error.InvalidParamType(null, null, null, "read", "button", "paramId");
 
-            string description = "Invalid value 'read' in 'Param/Type' for 'button'. Param ID '2'.";
+            string description = "Invalid value 'read' in 'Param/Type' for 'button'. Param ID 'paramId'.";
 
             // Assert
             Assert.AreEqual(description, message.Description);

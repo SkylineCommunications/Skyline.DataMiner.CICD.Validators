@@ -5933,6 +5933,22 @@
 								<FixImpact>NonBreaking</FixImpact>
 								<HasCodeFix>True</HasCodeFix>
 							</ErrorMessage>
+                            <ErrorMessage id="13">
+                                <Name>DeepPageButtonNesting</Name>
+                                <GroupDescription />
+                                <Description>
+                                    <Format>Deep pageButton nesting: {0} levels deep (max recommended: 2). PageButton PID '{1}'.</Format>
+                                    <InputParameters>
+                                        <InputParameter id="0">nestedLevelsCount</InputParameter>
+                                        <InputParameter id="1">pageButtonPid</InputParameter>
+                                    </InputParameters>
+                                </Description>
+                                <Severity>Minor</Severity>
+                                <Certainty>Certain</Certainty>
+                                <Source>Validator</Source>
+                                <FixImpact>NonBreaking</FixImpact>
+                                <HasCodeFix>False</HasCodeFix>
+                            </ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="38">

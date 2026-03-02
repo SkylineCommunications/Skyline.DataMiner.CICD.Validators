@@ -262,20 +262,6 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Legacy
 
                 try
                 {
-                    validationResult.AddRange(protocolChecks.CheckRecursivePageButtons(xDoc));
-                }
-                catch (Exception ex)
-                {
-                    validationResult.Add(new InternalError
-                    {
-                        Line = Convert.ToInt32(protocolChecks.LineNum),
-                        DescriptionParameters = new object[] { "Check Recursive Page Buttons", ex.ToString() },
-                        TestName = "CheckRecursivePageButtons"
-                    });
-                }
-
-                try
-                {
                     validationResult.AddRange(protocolChecks.CheckTableIndexSequence(xDoc));
                 }
                 catch (Exception ex)

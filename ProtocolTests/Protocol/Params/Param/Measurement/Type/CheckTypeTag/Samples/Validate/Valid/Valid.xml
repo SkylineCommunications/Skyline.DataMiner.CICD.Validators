@@ -1,4 +1,5 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
 	<Params>
 		<!--Standalone ReadOnly Parameters-->
 		<Param id="100">
@@ -74,6 +75,46 @@
 					<Discreet>
 						<Display>Enable</Display>
 						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="202">
+			<Name>Standalone_WriteOnly_PageButton</Name>
+			<Type>write</Type>
+			<Display>
+				<Positions>
+					<Position>
+						<Page>MyNormalPage</Page>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>pagebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>MyPageButtonPage_Level1</Display>
+						<Value>MyPageButtonPage_Level1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="203">
+			<Name>Standalone_WriteOnly_PageButton_NestedLevel1</Name>
+			<Type>write</Type>
+			<Display>
+				<Positions>
+					<Position>
+						<Page>MyPageButtonPage_Level1</Page>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>pagebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>MyPageButtonPage_Level2</Display>
+						<Value>MyPageButtonPage_Level2</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -192,8 +233,8 @@
 					</Discreet>
 				</Discreets>
 			</Measurement>
-		
-	</Param>
+
+		</Param>
 
 		<!--Matrix Parameters-->
 		<Param id="10000">
@@ -256,4 +297,5 @@
 			</Measurement>
 		</Param>
 	</Params>
+
 </Protocol>

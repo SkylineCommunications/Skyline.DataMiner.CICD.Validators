@@ -275,6 +275,28 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 ReferenceNode = referenceNode,
             };
         }
+
+        public static IValidationResult DeepPageButtonNesting(IValidate test, IReadable referenceNode, IReadable positionNode, string nestedLevelsCount, string pageButtonPid)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckTypeTag,
+                ErrorId = ErrorIds.DeepPageButtonNesting,
+                FullId = "2.37.13",
+                Category = Category.Param,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Deep pageButton nesting: {0} levels deep (max recommended: 2). PageButton PID '{1}'.", nestedLevelsCount, pageButtonPid),
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
     }
 
     internal static class ErrorIds
@@ -291,6 +313,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
         public const uint EmptyTag = 10;
         public const uint InvalidValue = 11;
         public const uint UntrimmedTag = 12;
+        public const uint DeepPageButtonNesting = 13;
     }
 
     /// <summary>
