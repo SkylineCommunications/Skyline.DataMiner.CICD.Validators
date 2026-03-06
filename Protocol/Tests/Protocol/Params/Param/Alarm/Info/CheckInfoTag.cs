@@ -22,35 +22,31 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             foreach (var param in context.EachParamWithValidId())
             {
-                var alarm = param.Alarm;
-                if (alarm == null)
+                var infoTag = param.Alarm?.Info;
+                (GenericStatus status, string infoRawValue, string infoValue) = GenericTests.CheckBasics<string>(infoTag, isRequired: false);
+
+                // No info tag is OK
+                if (infoTag == null)
                 {
                     continue;
                 }
 
-                var info = param.Alarm.Info;
-                (GenericStatus status, string infoRawValue, string infoValue) = GenericTests.CheckBasics<string>(info, isRequired: true);
-
-                // Missing is OK
-                if (status.HasFlag(GenericStatus.Missing))
+                // Empty
+                if (status.HasFlag(GenericStatus.Empty))
                 {
+                    results.Add(Error.EmptyTag(this, param, infoTag, param.Id.RawValue));
                     continue;
                 }
 
                 // Untrimmed
                 if (status.HasFlag(GenericStatus.Untrimmed))
                 {
-                    results.Add(Error.UntrimmedTag(this, param, info, param.Id.RawValue, infoRawValue));
-                }
-
-                // Empty
-                if (status.HasFlag(GenericStatus.Empty))
-                {
-                    results.Add(Error.EmptyTag(this, param, info, param.Id.RawValue));
+                    results.Add(Error.UntrimmedTag(this, param, infoTag, param.Id.RawValue, infoRawValue));
+                    continue;
                 }
 
                 // Tag exists but is unrecommended
-                results.Add(Error.UnrecommendedInfoTag(this, param, info, param.Id.RawValue));
+                results.Add(Error.UnrecommendedInfoTag(this, param, infoTag, param.Id.RawValue));
             }
 
             return results;
