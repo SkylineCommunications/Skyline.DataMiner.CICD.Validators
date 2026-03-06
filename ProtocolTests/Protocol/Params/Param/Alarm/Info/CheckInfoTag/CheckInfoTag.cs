@@ -6,7 +6,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Info.CheckInfoTag
     using FluentAssertions;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    
+
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -53,6 +53,41 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Info.CheckInfoTag
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void Param_CheckInfoTag_EmptyTag()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "EmptyTag",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.EmptyTag(null, null, null, "100"),
+                    Error.EmptyTag(null, null, null, "101"),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckInfoTag_UntrimmedTag()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "UntrimmedTag",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.UntrimmedTag(null, null, null, "100", " value1"),
+
+                    Error.UntrimmedTag(null, null, null, "200", "value2 "),
+                    Error.UntrimmedTag(null, null, null, "201", " value3 "),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
         #endregion
     }
 
@@ -81,7 +116,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Info.CheckInfoTag
         {
             // Create ErrorMessage
             var message = Error.UnrecommendedInfoTag(null, null, null, "paramId");
-                        
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Minor,
@@ -90,6 +125,46 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Info.CheckInfoTag
                 GroupDescription = "",
                 Description = "Unrecommended tag 'Alarm/Info' for Param with ID 'paramId'.",
                 HasCodeFix = true,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckInfoTag_EmptyTag()
+        {
+            // Create ErrorMessage
+            var message = Error.EmptyTag(null, null, null, "paramId");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Empty tag 'Alarm/Info' in Param 'paramId'.",
+                HasCodeFix = false,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckInfoTag_UntrimmedTag()
+        {
+            // Create ErrorMessage
+            var message = Error.UntrimmedTag(null, null, null, "paramId", "untrimmedValue");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = "Untrimmed tag 'Alarm/Info' in Param 'paramId'. Current value 'untrimmedValue'.",
+                HasCodeFix = false,
             };
 
             // Assert

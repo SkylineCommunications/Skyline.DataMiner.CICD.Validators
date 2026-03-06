@@ -1,0 +1,22 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Params>
+        <Param id="100">
+            <Alarm>
+				<Monitored>true</Monitored>
+                <Info> value1</Info>
+            </Alarm>
+        </Param>
+        <Param id="200">
+            <Alarm>
+				<Monitored>true</Monitored>
+                <Info>value2 </Info>
+            </Alarm>
+        </Param>
+        <Param id="201">
+            <Alarm>
+				<Monitored>true</Monitored>
+                <Info> value3 </Info>
+            </Alarm>
+        </Param>
+    </Params>
+</Protocol>

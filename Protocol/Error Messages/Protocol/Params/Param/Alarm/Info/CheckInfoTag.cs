@@ -33,11 +33,57 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 ReferenceNode = referenceNode,
             };
         }
+
+        public static IValidationResult UntrimmedTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId, string untrimmedValue)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckInfoTag,
+                ErrorId = ErrorIds.UntrimmedTag,
+                FullId = "2.79.2",
+                Category = Category.Param,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Untrimmed tag 'Alarm/Info' in Param '{0}'. Current value '{1}'.", paramId, untrimmedValue),
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult EmptyTag(IValidate test, IReadable referenceNode, IReadable positionNode, string paramId)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckInfoTag,
+                ErrorId = ErrorIds.EmptyTag,
+                FullId = "2.79.3",
+                Category = Category.Param,
+                Severity = Severity.Minor,
+                Certainty = Certainty.Certain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.NonBreaking,
+                GroupDescription = "",
+                Description = String.Format("Empty tag 'Alarm/Info' in Param '{0}'.", paramId),
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
     }
 
     internal static class ErrorIds
     {
         public const uint UnrecommendedInfoTag = 1;
+        public const uint UntrimmedTag = 2;
+        public const uint EmptyTag = 3;
     }
 
     /// <summary>

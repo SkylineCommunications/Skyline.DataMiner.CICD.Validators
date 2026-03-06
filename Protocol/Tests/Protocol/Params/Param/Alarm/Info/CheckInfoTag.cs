@@ -8,6 +8,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Generic;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckInfoTag, Category.Param)]
@@ -21,20 +22,35 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             foreach (var param in context.EachParamWithValidId())
             {
-                var infoTag = param.Alarm?.Info;
-
-                // No info tag
-                if (infoTag == null)
+                var alarm = param.Alarm;
+                if (alarm == null)
                 {
                     continue;
                 }
 
-                // Info tag should have a value
-                if (infoTag.Value != null)
+                var info = param.Alarm.Info;
+                (GenericStatus status, string infoRawValue, string infoValue) = GenericTests.CheckBasics<string>(info, isRequired: true);
+
+                // Missing is OK
+                if (status.HasFlag(GenericStatus.Missing))
                 {
-                    var positionNode = infoTag ?? (IReadable)param.Alarm;
-                    results.Add(Error.UnrecommendedInfoTag(this, param, positionNode, param.Id.RawValue));
+                    continue;
                 }
+
+                // Untrimmed
+                if (status.HasFlag(GenericStatus.Untrimmed))
+                {
+                    results.Add(Error.UntrimmedTag(this, param, info, param.Id.RawValue, infoRawValue));
+                }
+
+                // Empty
+                if (status.HasFlag(GenericStatus.Empty))
+                {
+                    results.Add(Error.EmptyTag(this, param, info, param.Id.RawValue));
+                }
+
+                // Tag exists but is unrecommended
+                results.Add(Error.UnrecommendedInfoTag(this, param, info, param.Id.RawValue));
             }
 
             return results;
@@ -52,12 +68,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             switch (context.Result.ErrorId)
             {
                 case ErrorIds.UnrecommendedInfoTag:
-                    var paramReadNode = (IParamsParam)context.Result.ReferenceNode;
-                    var paramEditNode = context.Protocol.Params.Get(paramReadNode);
+                    {
+                        var paramReadNode = (IParamsParam)context.Result.ReferenceNode;
+                        var paramEditNode = context.Protocol.Params.Get(paramReadNode);
 
-                    paramEditNode.Alarm.Info = null;
-                    result.Success = true;
-                    break;
+                        paramEditNode.Alarm.Info = null;
+                        result.Success = true;
+                        break;
+                    }
 
                 default:
                     result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
@@ -66,7 +84,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             return result;
         }
-        
+
         public List<IValidationResult> Compare(MajorChangeCheckContext context)
         {
             List<IValidationResult> results = new List<IValidationResult>();
