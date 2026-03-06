@@ -21,15 +21,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
             foreach (var param in context.EachParamWithValidId())
             {
-                var alarmTag = param.Alarm;
-
-                // No alarm tag
-                if (alarmTag == null)
-                {
-                    continue;
-                }
-
-                var infoTag = alarmTag.Info;
+                var infoTag = param.Alarm?.Info;
 
                 // No info tag
                 if (infoTag == null)
