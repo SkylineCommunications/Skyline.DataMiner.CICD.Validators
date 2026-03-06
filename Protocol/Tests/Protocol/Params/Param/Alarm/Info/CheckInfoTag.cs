@@ -32,7 +32,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 // Info tag should have a value
                 if (infoTag.Value != null)
                 {
-                    var positionNode = infoTag ?? (IReadable)alarmTag;
+                    var positionNode = infoTag ?? (IReadable)param.Alarm;
                     results.Add(Error.UnrecommendedInfoTag(this, param, positionNode, param.Id.RawValue));
                 }
             }
