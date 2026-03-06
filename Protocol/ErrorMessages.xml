@@ -8895,6 +8895,39 @@
 								<FixImpact>NonBreaking</FixImpact>
 								<HasCodeFix>True</HasCodeFix>
 							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>UntrimmedTag</Name>
+								<GroupDescription />
+								<Description templateId="3001">
+									<InputParameters>
+										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2" value="">itemId</InputParameter>
+										<InputParameter id="3">untrimmedValue</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+							</ErrorMessage>
+							<ErrorMessage id="3">
+								<Name>EmptyTag</Name>
+								<GroupDescription />
+								<Description templateId="2001">
+									<InputParameters>
+										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2">itemId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 				</Checks>
