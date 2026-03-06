@@ -26,7 +26,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Unrecommended tag 'Alarm/Info' for Param with ID '{0}'.", paramId),
+                Description = String.Format("Unrecommended tag '{0}' for {1} with {2} '{3}'.", "Alarm/Info", "Param", "ID", paramId),
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
@@ -48,7 +48,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Untrimmed tag 'Alarm/Info' in Param '{0}'. Current value '{1}'.", paramId, untrimmedValue),
+                Description = String.Format("Untrimmed tag '{0}' in {1} '{2}'. Current value '{3}'.", "Alarm/Info", "Param", paramId, untrimmedValue),
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -70,7 +70,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Empty tag 'Alarm/Info' in Param '{0}'.", paramId),
+                Description = String.Format("Empty tag '{0}' in {1} '{2}'.", "Alarm/Info", "Param", paramId),
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

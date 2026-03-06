@@ -1022,6 +1022,16 @@
 					<InputParameter id="3">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
+			<DescriptionTemplate id="14010">
+				<Name>UnrecommendedTagInItem</Name>
+				<Format>Unrecommended tag '{0}' for {1} with {2} '{3}'.</Format>
+				<InputParameters>
+					<InputParameter id="0">tagName</InputParameter>
+					<InputParameter id="1" value="Param">itemKind</InputParameter>
+					<InputParameter id="2" value="ID">idOrPid</InputParameter>
+					<InputParameter id="2">itemId</InputParameter>
+				</InputParameters>
+			</DescriptionTemplate>
 			<DescriptionTemplate id="14100">
 				<Name>ObsoleteAttribute</Name>
 				<Format>Obsolete attribute '{0}'.</Format>
@@ -8883,10 +8893,12 @@
 							<ErrorMessage id="1">
 								<Name>UnrecommendedInfoTag</Name>
 								<GroupDescription />
-								<Description>
-									<Format>Unrecommended tag 'Alarm/Info' for Param with ID '{0}'.</Format>
+								<Description templateId="14010">
 									<InputParameters>
-										<InputParameter id="0">paramId</InputParameter>
+										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2" value="ID">idOrPid</InputParameter>
+										<InputParameter id="3" value="">paramId</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Minor</Severity>
@@ -8902,7 +8914,7 @@
 									<InputParameters>
 										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
 										<InputParameter id="1" value="Param">itemKind</InputParameter>
-										<InputParameter id="2" value="">itemId</InputParameter>
+										<InputParameter id="2">paramId</InputParameter>
 										<InputParameter id="3">untrimmedValue</InputParameter>
 									</InputParameters>
 								</Description>
@@ -8919,7 +8931,7 @@
 									<InputParameters>
 										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
 										<InputParameter id="1" value="Param">itemKind</InputParameter>
-										<InputParameter id="2">itemId</InputParameter>
+										<InputParameter id="2">paramId</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Minor</Severity>
