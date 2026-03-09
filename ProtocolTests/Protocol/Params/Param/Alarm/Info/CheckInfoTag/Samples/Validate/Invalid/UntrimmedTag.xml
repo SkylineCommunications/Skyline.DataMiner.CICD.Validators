@@ -1,22 +1,27 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
     <Params>
         <Param id="100">
+			<Name>LeadingSpaces</Name>
             <Alarm>
 				<Monitored>true</Monitored>
                 <Info> value1</Info>
             </Alarm>
         </Param>
         <Param id="200">
+			<Name>TrailingSpaces</Name>
             <Alarm>
 				<Monitored>true</Monitored>
                 <Info>value2 </Info>
             </Alarm>
         </Param>
-        <Param id="201">
+        <Param id="300">
+			<Name>LeadingAndTrailingSpaces</Name>
             <Alarm>
 				<Monitored>true</Monitored>
                 <Info> value3 </Info>
             </Alarm>
         </Param>
     </Params>
+	
 </Protocol>

@@ -1,16 +1,20 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
     <Params>
         <Param id="100">
+			<Name>EmptyTag</Name>
             <Alarm>
                 <Monitored>true</Monitored>
 				<Info></Info>
             </Alarm>
         </Param>
         <Param id="101">
+			<Name>Spaces</Name>
             <Alarm>
                 <Monitored>true</Monitored>
 				<Info> </Info>
             </Alarm>
         </Param>
     </Params>
+	
 </Protocol>

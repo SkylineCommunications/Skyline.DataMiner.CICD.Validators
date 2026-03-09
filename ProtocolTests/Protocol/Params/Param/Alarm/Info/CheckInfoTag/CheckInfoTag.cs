@@ -80,9 +80,8 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Info.CheckInfoTag
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.UntrimmedTag(null, null, null, "100", " value1"),
-
                     Error.UntrimmedTag(null, null, null, "200", "value2 "),
-                    Error.UntrimmedTag(null, null, null, "201", " value3 "),
+                    Error.UntrimmedTag(null, null, null, "300", " value3 "),
                 }
             };
 

@@ -12,7 +12,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
     [Test(CheckId.CheckInfoTag, Category.Param)]
-    internal class CheckInfoTag : IValidate, ICodeFix, ICompare
+    internal class CheckInfoTag : IValidate, ICodeFix/*, ICompare*/
     {
         // Please comment out the interfaces that aren't used together with the respective methods.
 
@@ -23,11 +23,12 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             foreach (var param in context.EachParamWithValidId())
             {
                 var infoTag = param.Alarm?.Info;
-                (GenericStatus status, string infoRawValue, string infoValue) = GenericTests.CheckBasics<string>(infoTag, isRequired: false);
+                (GenericStatus status, string infoRawValue, string _) = GenericTests.CheckBasics<string>(infoTag, isRequired: false);
 
-                // No info tag is OK
+                // Missing
                 if (infoTag == null)
                 {
+                    // Tag is not required, so no error.
                     continue;
                 }
 
@@ -45,7 +46,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                     continue;
                 }
 
-                // Tag exists but is unrecommended
+                // Unrecommended
                 results.Add(Error.UnrecommendedInfoTag(this, param, infoTag, param.Id.RawValue));
             }
 
@@ -81,11 +82,11 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             return result;
         }
 
-        public List<IValidationResult> Compare(MajorChangeCheckContext context)
-        {
-            List<IValidationResult> results = new List<IValidationResult>();
+        ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
+        ////{
+        ////    List<IValidationResult> results = new List<IValidationResult>();
 
-            return results;
-        }
+        ////    return results;
+        ////}
     }
 }

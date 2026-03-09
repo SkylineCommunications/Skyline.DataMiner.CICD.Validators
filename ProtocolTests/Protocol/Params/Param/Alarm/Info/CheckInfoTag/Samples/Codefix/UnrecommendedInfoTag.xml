@@ -1,9 +1,12 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
 	<Params>
 		<Param id="10">
+			<Name>UnrecommendedInfoTag</Name>
 			<Alarm>
 				<Monitored>true</Monitored>
 			</Alarm>
 		</Param>
 	</Params>
+
 </Protocol>
