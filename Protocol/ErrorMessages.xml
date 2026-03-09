@@ -451,7 +451,6 @@
 					<InputParameter id="2">itemKind</InputParameter>
 					<InputParameter id="3">itemId</InputParameter>
 					<InputParameter id="4" value="ID">idOrPid</InputParameter>
-                    <Format>Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'. {5} {7} '{6}'.</Format>
 				</InputParameters>
 			</DescriptionTemplate>
 			<DescriptionTemplate id="4110">
