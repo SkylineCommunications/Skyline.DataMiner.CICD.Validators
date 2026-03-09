@@ -451,9 +451,7 @@
 					<InputParameter id="2">itemKind</InputParameter>
 					<InputParameter id="3">itemId</InputParameter>
 					<InputParameter id="4" value="ID">idOrPid</InputParameter>
-					<InputParameter id="5">subItemKind</InputParameter>
-					<InputParameter id="6">subItemId</InputParameter>
-					<InputParameter id="7" value="ID">subIdOrPid</InputParameter>
+                    <Format>Invalid value '{1}' in attribute '{0}'. {2} {4} '{3}'. {5} {7} '{6}'.</Format>
 				</InputParameters>
 			</DescriptionTemplate>
 			<DescriptionTemplate id="4110">
@@ -986,7 +984,7 @@
 					<InputParameter id="4">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
-			<DescriptionTemplate id="12000">
+				<DescriptionTemplate id="12000">
 				<Name>WrongCasingParent</Name>
 				<Format>'{0}' values do not follow {1} rules.</Format>
 				<InputParameters>
@@ -994,6 +992,36 @@
 					<InputParameter id="1" value="title casing">casingRule</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
+            <DescriptionTemplate id="13000">
+                <Name>UnrecommendedTag</Name>
+                <Format>Unrecommended tag '{0}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">tagName</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
+            <DescriptionTemplate id="13001">
+                <Name>UnrecommendedTagInItem</Name>
+                <Format>Unrecommended tag '{0}' in {1} with {2} '{3}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">tagName</InputParameter>
+                    <InputParameter id="1" value="Param">itemKind</InputParameter>
+                    <InputParameter id="2" value="ID">idOrPid</InputParameter>
+                    <InputParameter id="3">itemId</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
+            <DescriptionTemplate id="13002">
+                <Name>UnrecommendedTagInItemInSubItem</Name>
+                <Format>Unrecommended tag '{0}' in {1} with {2} '{3}'. {4} {5} '{6}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">tagName</InputParameter>
+                    <InputParameter id="1" value="Param">itemKind</InputParameter>
+                    <InputParameter id="2" value="ID">idOrPidForItem</InputParameter>
+                    <InputParameter id="3">itemId</InputParameter>
+                    <InputParameter id="4">subItemKind</InputParameter>
+                    <InputParameter id="5" value="ID">idOrPidForSubItem</InputParameter>
+                    <InputParameter id="6">subItemId</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
 			<DescriptionTemplate id="13310">
 				<Name>UnrecommendedActionOnItemWithOption</Name>
 				<Format>Unrecommended {0} on {1} '{2}' with '{3}' containing '{4}'.</Format>
@@ -1020,16 +1048,6 @@
 					<InputParameter id="1" value="Param">itemKind</InputParameter>
 					<InputParameter id="2" value="ID">idOrPid</InputParameter>
 					<InputParameter id="3">itemId</InputParameter>
-				</InputParameters>
-			</DescriptionTemplate>
-			<DescriptionTemplate id="14010">
-				<Name>UnrecommendedTagInItem</Name>
-				<Format>Unrecommended tag '{0}' for {1} with {2} '{3}'.</Format>
-				<InputParameters>
-					<InputParameter id="0">tagName</InputParameter>
-					<InputParameter id="1" value="Param">itemKind</InputParameter>
-					<InputParameter id="2" value="ID">idOrPid</InputParameter>
-					<InputParameter id="2">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
 			<DescriptionTemplate id="14100">
@@ -8893,12 +8911,12 @@
 							<ErrorMessage id="1">
 								<Name>UnrecommendedInfoTag</Name>
 								<GroupDescription />
-								<Description templateId="14010">
+								<Description templateId="13001">
 									<InputParameters>
 										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
 										<InputParameter id="1" value="Param">itemKind</InputParameter>
 										<InputParameter id="2" value="ID">idOrPid</InputParameter>
-										<InputParameter id="3" value="">paramId</InputParameter>
+										<InputParameter id="3">paramId</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Minor</Severity>

@@ -123,7 +123,7 @@ namespace ProtocolTests.Protocol.Params.Param.Alarm.Info.CheckInfoTag
                 Certainty = Certainty.Certain,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = "Unrecommended tag 'Alarm/Info' for Param with ID 'paramId'.",
+                Description = "Unrecommended tag 'Alarm/Info' in Param with ID 'paramId'.",
                 HasCodeFix = true,
             };
 

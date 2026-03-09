@@ -26,7 +26,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.NonBreaking,
                 GroupDescription = "",
-                Description = String.Format("Unrecommended tag '{0}' for {1} with {2} '{3}'.", "Alarm/Info", "Param", "ID", paramId),
+                Description = String.Format("Unrecommended tag '{0}' in {1} with {2} '{3}'.", "Alarm/Info", "Param", "ID", paramId),
                 HasCodeFix = true,
 
                 PositionNode = positionNode,
