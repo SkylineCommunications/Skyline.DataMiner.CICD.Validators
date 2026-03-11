@@ -451,6 +451,9 @@
 					<InputParameter id="2">itemKind</InputParameter>
 					<InputParameter id="3">itemId</InputParameter>
 					<InputParameter id="4" value="ID">idOrPid</InputParameter>
+                    <InputParameter id="5">subItemKind</InputParameter>
+                    <InputParameter id="6">subItemId</InputParameter>
+                    <InputParameter id="7" value="ID">subIdOrPid</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
 			<DescriptionTemplate id="4110">
