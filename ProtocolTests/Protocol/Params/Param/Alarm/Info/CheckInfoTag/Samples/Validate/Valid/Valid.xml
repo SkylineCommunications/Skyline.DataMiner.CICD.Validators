@@ -1,0 +1,18 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	
+	<Params>
+		<Param id="1">
+			<Name>NoAlarmTag</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+		<Param id="10">
+			<Name>AlarmTag_NoInfoTag</Name>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+		</Param>
+	</Params>
+	
+</Protocol>

@@ -451,9 +451,9 @@
 					<InputParameter id="2">itemKind</InputParameter>
 					<InputParameter id="3">itemId</InputParameter>
 					<InputParameter id="4" value="ID">idOrPid</InputParameter>
-					<InputParameter id="5">subItemKind</InputParameter>
-					<InputParameter id="6">subItemId</InputParameter>
-					<InputParameter id="7" value="ID">subIdOrPid</InputParameter>
+                    <InputParameter id="5">subItemKind</InputParameter>
+                    <InputParameter id="6">subItemId</InputParameter>
+                    <InputParameter id="7" value="ID">subIdOrPid</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
 			<DescriptionTemplate id="4110">
@@ -986,7 +986,7 @@
 					<InputParameter id="4">itemId</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
-			<DescriptionTemplate id="12000">
+				<DescriptionTemplate id="12000">
 				<Name>WrongCasingParent</Name>
 				<Format>'{0}' values do not follow {1} rules.</Format>
 				<InputParameters>
@@ -994,6 +994,36 @@
 					<InputParameter id="1" value="title casing">casingRule</InputParameter>
 				</InputParameters>
 			</DescriptionTemplate>
+            <DescriptionTemplate id="13000">
+                <Name>UnrecommendedTag</Name>
+                <Format>Unrecommended tag '{0}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">tagName</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
+            <DescriptionTemplate id="13001">
+                <Name>UnrecommendedTagInItem</Name>
+                <Format>Unrecommended tag '{0}' in {1} with {2} '{3}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">tagName</InputParameter>
+                    <InputParameter id="1" value="Param">itemKind</InputParameter>
+                    <InputParameter id="2" value="ID">idOrPid</InputParameter>
+                    <InputParameter id="3">itemId</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
+            <DescriptionTemplate id="13002">
+                <Name>UnrecommendedTagInItemInSubItem</Name>
+                <Format>Unrecommended tag '{0}' in {1} with {2} '{3}'. {4} {5} '{6}'.</Format>
+                <InputParameters>
+                    <InputParameter id="0">tagName</InputParameter>
+                    <InputParameter id="1" value="Param">itemKind</InputParameter>
+                    <InputParameter id="2" value="ID">idOrPidForItem</InputParameter>
+                    <InputParameter id="3">itemId</InputParameter>
+                    <InputParameter id="4">subItemKind</InputParameter>
+                    <InputParameter id="5" value="ID">idOrPidForSubItem</InputParameter>
+                    <InputParameter id="6">subItemId</InputParameter>
+                </InputParameters>
+            </DescriptionTemplate>
 			<DescriptionTemplate id="13310">
 				<Name>UnrecommendedActionOnItemWithOption</Name>
 				<Format>Unrecommended {0} on {1} '{2}' with '{3}' containing '{4}'.</Format>
@@ -5933,22 +5963,22 @@
 								<FixImpact>NonBreaking</FixImpact>
 								<HasCodeFix>True</HasCodeFix>
 							</ErrorMessage>
-                            <ErrorMessage id="13">
-                                <Name>DeepPageButtonNesting</Name>
-                                <GroupDescription />
-                                <Description>
-                                    <Format>Deep pageButton nesting: {0} levels deep (max recommended: 2). PageButton PID '{1}'.</Format>
-                                    <InputParameters>
-                                        <InputParameter id="0">nestedLevelsCount</InputParameter>
-                                        <InputParameter id="1">pageButtonPid</InputParameter>
-                                    </InputParameters>
-                                </Description>
-                                <Severity>Minor</Severity>
-                                <Certainty>Certain</Certainty>
-                                <Source>Validator</Source>
-                                <FixImpact>NonBreaking</FixImpact>
-                                <HasCodeFix>False</HasCodeFix>
-                            </ErrorMessage>
+							<ErrorMessage id="13">
+								<Name>DeepPageButtonNesting</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Deep pageButton nesting: {0} levels deep (max recommended: 2). PageButton PID '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">nestedLevelsCount</InputParameter>
+										<InputParameter id="1">pageButtonPid</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
 					<Check id="38">
@@ -8873,6 +8903,61 @@
 								<Certainty>Certain</Certainty>
 								<Source>Validator</Source>
 								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
+					<Check id="79">
+						<Name namespace="Protocol.Params.Param.Alarm.Info">CheckInfoTag</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>UnrecommendedInfoTag</Name>
+								<GroupDescription />
+								<Description templateId="13001">
+									<InputParameters>
+										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2" value="ID">idOrPid</InputParameter>
+										<InputParameter id="3">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>UntrimmedTag</Name>
+								<GroupDescription />
+								<Description templateId="3001">
+									<InputParameters>
+										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2">paramId</InputParameter>
+										<InputParameter id="3">untrimmedValue</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+							</ErrorMessage>
+							<ErrorMessage id="3">
+								<Name>EmptyTag</Name>
+								<GroupDescription />
+								<Description templateId="2001">
+									<InputParameters>
+										<InputParameter id="0" value="Alarm/Info">tagName</InputParameter>
+										<InputParameter id="1" value="Param">itemKind</InputParameter>
+										<InputParameter id="2">paramId</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
 								<HasCodeFix>False</HasCodeFix>
 							</ErrorMessage>
 						</ErrorMessages>
