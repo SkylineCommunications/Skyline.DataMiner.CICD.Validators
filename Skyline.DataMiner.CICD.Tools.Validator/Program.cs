@@ -4,7 +4,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
     using System.CommandLine.Builder;
     using System.CommandLine.Hosting;
     using System.Threading.Tasks;
-
+    using Microsoft.Build.Locator;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
@@ -53,6 +53,11 @@ namespace Skyline.DataMiner.CICD.Tools.Validator
             LogEventLevel level = parseResult.GetValueForOption(isDebug)
                 ? LogEventLevel.Debug
                 : parseResult.GetValueForOption(logLevel);
+
+            if (!MSBuildLocator.IsRegistered)
+            {
+                MSBuildLocator.RegisterDefaults();
+            }
 
             var builder = new CommandLineBuilder(rootCommand).UseDefaults().UseHost(host =>
             {

@@ -9,7 +9,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.FileSystem;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
+    using Skyline.DataMiner.CICD.Assemblers.Common.VisualStudio.Projects;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -34,7 +34,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             {
                 try
                 {
-                    Project project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
+                    Project project = Project.Load(projectData.Project.FilePath);
                     string projectDirectory = FileSystem.Instance.Path.GetDirectoryName(project.Path);
                     foreach (ProjectFile file in project.Files)
                     {

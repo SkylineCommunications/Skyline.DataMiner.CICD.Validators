@@ -6,7 +6,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
 
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
+    using Skyline.DataMiner.CICD.Assemblers.Common.VisualStudio.Projects;
     
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
@@ -96,7 +96,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             foreach ((CompiledQActionProject compiledQActionProject, IQActionsQAction qaction) in context.EachQActionProject(allowBuildErrors: true))
             {
                 // Load csproj of the QAction
-                Project qactionProject = Project.Load(compiledQActionProject.Project.FilePath, compiledQActionProject.Project.Name);
+                Project qactionProject = Project.Load(compiledQActionProject.Project.FilePath);
 
                 string[] referencedDlls = qactionProject.References.Select(reference => reference.GetDllName()).ToArray();
                 foreach (string deprecatedDll in QActionHelper.DeprecatedDlls)
