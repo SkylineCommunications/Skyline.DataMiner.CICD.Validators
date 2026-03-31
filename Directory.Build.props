@@ -1,5 +1,5 @@
 <Project>
-    <ItemGroup>
+    <ItemGroup> 
         <PackageReference Include="NuGet.Frameworks" Version="7.3.0" ExcludeAssets="runtime" PrivateAssets="all" />
     </ItemGroup>
 </Project>
