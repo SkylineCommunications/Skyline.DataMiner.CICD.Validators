@@ -5,7 +5,7 @@
 
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
+    using Skyline.DataMiner.CICD.Assemblers.Common.VisualStudio.Projects;
 
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
@@ -31,7 +31,7 @@
             List<IReadable> qActions = new List<IReadable>();
             foreach ((CompiledQActionProject projectData, IQActionsQAction qaction) in context.EachQActionProject())
             {
-                var project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
+                var project = Project.Load(projectData.Project.FilePath);
 
                 bool packageReferencesFound = project.PackageReferences.Any(IsNotDevPackOrStyleCop);
 

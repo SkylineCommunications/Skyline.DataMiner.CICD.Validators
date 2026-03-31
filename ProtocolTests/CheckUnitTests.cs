@@ -467,15 +467,15 @@
             solution = Roslyn.GetSolution();
 
 #if NETFRAMEWORK
-            valProject = solution.Projects.Single(x => x.Name == "Protocol(netstandard2.0)");
+            valProject = solution.Projects.Single(x => x.Name == "Protocol(net48)");
 #else
-            valProject = solution.Projects.Single(x => x.Name == "Protocol(net8.0)");
+            valProject = solution.Projects.Single(x => x.Name == "Protocol(net10.0)");
 #endif
 
 #if NETFRAMEWORK
             testProject = solution.Projects.Single(x => x.Name == "ProtocolTests" || x.Name == "ProtocolTests(net48)");
-#elif NET8_0
-            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net8.0)");
+#elif NET10_0
+            testProject = solution.Projects.Single(x => x.Name == "ProtocolTests(net10.0)");
 #endif
 
             // SDK style projects don't have each file mentioned in the csproj anymore

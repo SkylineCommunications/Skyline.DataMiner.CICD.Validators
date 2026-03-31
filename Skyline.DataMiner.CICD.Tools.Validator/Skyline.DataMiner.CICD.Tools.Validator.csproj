@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackAsTool>true</PackAsTool>
@@ -39,11 +39,12 @@
     <PackageReference Include="Serilog.Extensions.Logging" Version="10.0.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
     <PackageReference Include="Skyline.DataMiner.CICD.FileSystem" Version="1.4.1" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="5.1.1" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Assemblers.Protocol" Version="6.0.0-bravo" />
     <PackageReference Include="Skyline.DataMiner.Core.ArtifactDownloader" Version="3.3.0" />
     <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.1.5" />
     <PackageReference Include="System.CommandLine.Hosting" Version="0.4.0-alpha.22272.1" />
     <PackageReference Include="YamlDotNet" Version="16.3.0" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.11.31" ExcludeAssets="runtime" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

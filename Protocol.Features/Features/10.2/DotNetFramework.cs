@@ -5,7 +5,7 @@
 
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
+    using Skyline.DataMiner.CICD.Assemblers.Common.VisualStudio.Projects;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Attributes;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Interfaces;
@@ -34,7 +34,7 @@
             {
                 try
                 {
-                    Project project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
+                    Project project = Project.Load(projectData.Project.FilePath);
 
                     if (project.TargetFrameworkMoniker == ".NETFramework,Version=v4.6.2" || // SDK style projects
                         project.TargetFrameworkMoniker == ".NETFramework,Version=4.6.2") // Legacy style projects
