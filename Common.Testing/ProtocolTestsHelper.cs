@@ -6,12 +6,12 @@
     using System.Text;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.MSBuild;
+    using Skyline.DataMiner.CICD.Assemblers.Protocol;
     using Skyline.DataMiner.CICD.Models.Common;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Models.Protocol.Read.Interfaces;
     using Skyline.DataMiner.CICD.Parsers.Common.Xml;
-    using Skyline.DataMiner.CICD.Parsers.Protocol.VisualStudio;
     using Skyline.DataMiner.CICD.Validators.Common.Data;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
 

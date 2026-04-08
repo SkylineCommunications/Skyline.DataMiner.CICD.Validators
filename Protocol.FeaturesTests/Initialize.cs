@@ -3,6 +3,8 @@
     using System;
     using System.Linq;
     using System.Reflection;
+
+    using Microsoft.Build.Locator;
     using Microsoft.CodeAnalysis.Host.Mef;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -17,6 +19,11 @@
                 // warm up some Roslyn classes, to avoid that unit test fail
                 var defaultServices = MSBuildMefHostServices.DefaultServices;
                 var defaultHost = MefHostServices.DefaultHost;
+
+                if (!MSBuildLocator.IsRegistered)
+                {
+                    MSBuildLocator.RegisterDefaults();
+                }
             }
             catch (ReflectionTypeLoadException tle)
             {

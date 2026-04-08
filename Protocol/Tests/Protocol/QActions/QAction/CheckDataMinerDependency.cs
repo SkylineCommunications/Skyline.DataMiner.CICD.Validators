@@ -7,7 +7,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.Common;
     using Skyline.DataMiner.CICD.Models.Protocol;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
+    using Skyline.DataMiner.CICD.Assemblers.Common.VisualStudio.Projects;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
@@ -33,7 +33,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             foreach ((CompiledQActionProject projectData, IQActionsQAction qaction) in context.EachQActionProject(true))
             {
                 // Load csproj
-                var project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
+                var project = Project.Load(projectData.Project.FilePath);
                 if (!project.PackageReferences.Any())
                 {
                     // No NuGet packages being used

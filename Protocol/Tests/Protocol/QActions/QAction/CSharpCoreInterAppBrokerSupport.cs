@@ -20,7 +20,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
     using Skyline.DataMiner.CICD.Validators.Protocol.Helpers;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
-    using Project = Parsers.Common.VisualStudio.Projects.Project;
+    using Project = Assemblers.Common.VisualStudio.Projects.Project;
 
     [Test(CheckId.CSharpCoreInterAppBrokerSupport, Category.QAction)]
     internal class CSharpCoreInterAppBrokerSupport : IValidate
@@ -38,7 +38,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.QActions.QAc
             foreach ((IQActionsQAction qaction, SyntaxTree syntaxTree, SemanticModel semanticModel, CompiledQActionProject projectData) in context.EachQActionProjectsAndSyntaxTreesAndModelsAndProjectDatas(true))
             {
                 // Load csproj
-                var project = Project.Load(projectData.Project.FilePath, projectData.Project.Name);
+                var project = Project.Load(projectData.Project.FilePath);
                 if (!project.PackageReferences.Any())
                 {
                     // No NuGet packages being used

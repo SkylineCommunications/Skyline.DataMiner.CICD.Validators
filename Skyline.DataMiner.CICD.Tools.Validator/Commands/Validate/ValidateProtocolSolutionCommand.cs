@@ -3,8 +3,8 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate
     using System.Diagnostics;
     using System.Xml.Linq;
     
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio;
-    using Skyline.DataMiner.CICD.Parsers.Common.VisualStudio.Projects;
+    using Skyline.DataMiner.CICD.Assemblers.Common.VisualStudio;
+    using Skyline.DataMiner.CICD.Assemblers.Common.VisualStudio.Projects;
     using Skyline.DataMiner.CICD.Tools.Validator.Helpers;
     using Skyline.DataMiner.CICD.Tools.Validator.OutputWriters.Results;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
