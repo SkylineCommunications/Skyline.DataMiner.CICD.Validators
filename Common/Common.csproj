@@ -22,7 +22,7 @@
     <PackageReference Include="Skyline.DataMiner.CICD.FileSystem" Version="1.4.1" />
     <PackageReference Include="Skyline.DataMiner.CICD.Models.Protocol" Version="2.0.0" />
     <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.1.5" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="6.0.0-golf" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>

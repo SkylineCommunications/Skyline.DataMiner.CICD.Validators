@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Assemblers.Protocol" Version="6.0.0-golf" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Assemblers.Protocol" Version="6.0.0" />
     <PackageReference Include="Skyline.DataMiner.CICD.CSharpAnalysis.Protocol" Version="2.1.0" />
   </ItemGroup>
 
