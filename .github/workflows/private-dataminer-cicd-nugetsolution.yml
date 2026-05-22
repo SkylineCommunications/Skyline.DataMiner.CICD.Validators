@@ -51,7 +51,7 @@ jobs:
         env:
           VERSION: ${{ github.ref_name }}
         run: |
-          dotnet build "Skyline.DataMiner.CICD.Packages.sln" `
+          dotnet build "Skyline.DataMiner.CICD.Validators.sln" `
             -p:Version="$env:VERSION" `
             -p:PackageVersion="$env:VERSION" `
             --configuration Release `
