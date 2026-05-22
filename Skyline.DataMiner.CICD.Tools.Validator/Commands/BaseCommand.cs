@@ -23,7 +23,7 @@
                 IsRequired = true
             }.LegalFilePathsOnly());
 
-            AddOption(new Option<string>(
+            AddOption(new Option<string?>(
                     aliases: ["--output-file-name", "-ofn"],
                     description: "Name of the results file. Note: Do not provide an extension, the extension is automatically added based on the results-output-formats option.")
                 .LegalFileNamesOnly());

@@ -61,6 +61,11 @@ dataminer-validator compare protocol-solution --solution-path "<pathToSlnFile>" 
 
 The tool can automatically retrieve the previous version from the DataMiner Catalog, or you can provide a path to a previous protocol.xml file using the `--previous-protocol-xml-path` option.
 
+Whenever a previous version is available (either resolved from the Catalog or supplied via `--previous-protocol-xml-path`), the compare command will **also run the validator against that previous version** and write the results to a separate output file (default name: `previousValidateResults`). The file name can be overridden via `--previous-validate-output-file-name` (`-pvofn`). When the current version is an initial version (e.g. `1.0.0.1`, or `X.0.0.1` without a `BasedOn` attribute), no previous version is fetched and this extra file is not produced.
+
+> **Note**
+> Validation of the previous version runs against the bare `protocol.xml` only, so QAction C# checks are skipped. The same limitation applies to the regular compare logic.
+
 To obtain more information about all the options:
 
 ```console

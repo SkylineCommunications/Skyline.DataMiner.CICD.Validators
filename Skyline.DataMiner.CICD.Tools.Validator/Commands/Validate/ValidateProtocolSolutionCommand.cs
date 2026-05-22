@@ -70,25 +70,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Validate
                 ValidatorSettings settings = new ValidatorSettings(Globals.MinSupportedDataMinerVersionWithBuildNumber, new UnitList(XDocument.Parse(Resources.uom)));
 
                 Stopwatch sw = Stopwatch.StartNew();
-                Task<IList<IValidationResult>>[] tasks =
-                [
-                    Task.Factory.StartNew(() =>
-                    {
-                        // Legacy validator.
-                        var validator = new Validators.Protocol.Legacy.Validator();
-
-                        return validator.RunValidate(inputData, settings, context.GetCancellationToken());
-                    }, context.GetCancellationToken()),
-                    Task.Factory.StartNew(() =>
-                    {
-                        // New validator.
-                        var validator = new Validators.Protocol.Validator();
-
-                        return validator.RunValidate(inputData, settings, context.GetCancellationToken());
-                    }, context.GetCancellationToken())
-                ];
-
-                IList<IValidationResult> validatorResults = Task.WhenAll(tasks).Result.SelectMany(x => x).ToList();
+                IList<IValidationResult> validatorResults = ProtocolValidationRunner.Run(inputData, settings, context.GetCancellationToken());
                 sw.Stop();
 
                 // Validate only has suppression in the comments

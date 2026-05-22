@@ -38,6 +38,11 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             AddOption(new Option<string?>(
                 aliases: ["--catalog-api-key", "-cak"],
                 description: "Catalog API key for fetching previous protocol version from the Catalog. Can also be set with the environment variable DATAMINER_TOKEN. Required when not providing a previous protocol XML file."));
+
+            AddOption(new Option<string?>(
+                aliases: ["--previous-validate-output-file-name", "-pvofn"],
+                description: "Name of the validate-results file produced for the previous protocol version (without extension). Only emitted when a previous version is available.")
+                .LegalFileNamesOnly());
         }
     }
 
@@ -54,6 +59,8 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
         public string? CatalogId { get; set; }
 
         public string? CatalogApiKey { get; set; }
+
+        public string? PreviousValidateOutputFileName { get; set; }
 
         public override async Task<int> InvokeAsync(InvocationContext context)
         {
@@ -93,9 +100,12 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
                     logger.LogInformation("Found previous protocol version.");
                 }
 
-                (IProtocolInputData previousInputData, _) = InputDataAndLineInfoHelper.GetBasedOnXml(previousProtocolXmlFile);
+                (IProtocolInputData previousInputData, ILineInfoProvider previousLineInfoProvider) = InputDataAndLineInfoHelper.GetBasedOnXml(previousProtocolXmlFile);
 
                 ValidatorSettings settings = new ValidatorSettings(Globals.MinSupportedDataMinerVersionWithBuildNumber, new UnitList(XDocument.Parse(Resources.uom)));
+
+                /* Validate previous version */
+                RunPreviousValidate(previousInputData, previousLineInfoProvider, settings, context.GetCancellationToken());
 
                 /* Compare */
                 Stopwatch sw = Stopwatch.StartNew();
@@ -134,6 +144,58 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             {
                 FileSystem.Instance.Directory.Delete(temporaryDirectory, true);
                 logger.LogDebug("Finished {Method}.", nameof(CompareProtocolSolutionCommand));
+            }
+        }
+
+        private void RunPreviousValidate(IProtocolInputData previousInputData, ILineInfoProvider previousLineInfoProvider, ValidatorSettings settings, CancellationToken cancellationToken)
+        {
+            try
+            {
+                logger.LogInformation("Validating previous protocol version...");
+
+                Stopwatch sw = Stopwatch.StartNew();
+                IList<IValidationResult> validatorResults = ProtocolValidationRunner.Run(previousInputData, settings, cancellationToken);
+                sw.Stop();
+
+                // Validate only has suppression in the comments
+                ISuppressionManager suppressionManager = new CommentSuppressionManager(previousInputData.Document, previousLineInfoProvider);
+
+                ValidatorResults results = new ValidatorResults(previousInputData);
+
+                ResultsConverter.ConvertResults(results, validatorResults, suppressionManager, previousLineInfoProvider);
+                ResultsConverter.ProcessSubResults(results, results.Issues, IncludeSuppressed ?? false);
+
+                results.ValidationTimeStamp = DateTime.Now;
+                results.SuppressedIssuesIncluded = IncludeSuppressed ?? false;
+
+                logger.LogInformation("Previous version validation completed.");
+
+                logger.LogInformation("  Detected {ResultsCriticalIssueCount} critical issue(s).", results.CriticalIssueCount);
+                logger.LogInformation("  Detected {ResultsMajorIssueCount} major issue(s).", results.MajorIssueCount);
+                logger.LogInformation("  Detected {ResultsMinorIssueCount} minor issue(s).", results.MinorIssueCount);
+                logger.LogInformation("  Detected {ResultsWarningIssueCount} warning issue(s).", results.WarningIssueCount);
+
+                logger.LogInformation("  Time elapsed: {ElapsedTime}", sw.Elapsed);
+
+                if (String.IsNullOrWhiteSpace(PreviousValidateOutputFileName))
+                {
+                    PreviousValidateOutputFileName = $"PreviousValidatorResults_{results.Protocol}_{results.Version}";
+                }
+
+                logger.LogInformation("Writing previous version validation results...");
+
+                OutputDirectory.Create();
+                foreach (var writer in GetResultWriters(PreviousValidateOutputFileName))
+                {
+                    writer.WriteResults(results);
+                }
+
+                logger.LogInformation("Writing previous version validation results completed");
+            }
+            catch (Exception e)
+            {
+                // Best-effort: failing to validate the previous version should not break the compare flow.
+                logger.LogError(e, "Failed to validate the previous protocol version. Continuing with compare.");
             }
         }
 
