@@ -43,6 +43,11 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
                 aliases: ["--previous-validate-output-file-name", "-pvofn"],
                 description: "Name of the validate-results file produced for the previous protocol version (without extension). Only emitted when a previous version is available.")
                 .LegalFileNamesOnly());
+
+            AddOption(new Option<string?>(
+                aliases: ["--current-validate-output-file-name", "-cvofn"],
+                description: "Name of the validate-results file produced for the current protocol version, validated from XML only (same scope as the previous-version validation). Only emitted when a previous version is available.")
+                .LegalFileNamesOnly());
         }
     }
 
@@ -61,6 +66,8 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
         public string? CatalogApiKey { get; set; }
 
         public string? PreviousValidateOutputFileName { get; set; }
+
+        public string? CurrentValidateOutputFileName { get; set; }
 
         public override async Task<int> InvokeAsync(InvocationContext context)
         {
@@ -104,8 +111,11 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
 
                 ValidatorSettings settings = new ValidatorSettings(Globals.MinSupportedDataMinerVersionWithBuildNumber, new UnitList(XDocument.Parse(Resources.uom)));
 
-                /* Validate previous version */
+                /* Validate previous version (XML-based) */
                 RunPreviousValidate(previousInputData, previousLineInfoProvider, settings, context.GetCancellationToken());
+
+                /* Validate current version (XML-based, same scope as previous) */
+                RunCurrentValidate(inputData, lineInfoProvider, settings, context.GetCancellationToken());
 
                 /* Compare */
                 Stopwatch sw = Stopwatch.StartNew();
@@ -199,6 +209,58 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             }
         }
 
+        private void RunCurrentValidate(IProtocolInputData currentInputData, ILineInfoProvider currentLineInfoProvider, ValidatorSettings settings, CancellationToken cancellationToken)
+        {
+            try
+            {
+                logger.LogInformation("Validating current protocol version (XML-based)...");
+
+                Stopwatch sw = Stopwatch.StartNew();
+                IList<IValidationResult> validatorResults = ProtocolValidationRunner.Run(currentInputData, settings, cancellationToken);
+                sw.Stop();
+
+                // Validate only has suppression in the comments
+                ISuppressionManager suppressionManager = new CommentSuppressionManager(currentInputData.Document, currentLineInfoProvider);
+
+                ValidatorResults results = new ValidatorResults(currentInputData);
+
+                ResultsConverter.ConvertResults(results, validatorResults, suppressionManager, currentLineInfoProvider);
+                ResultsConverter.ProcessSubResults(results, results.Issues, IncludeSuppressed ?? false);
+
+                results.ValidationTimeStamp = DateTime.Now;
+                results.SuppressedIssuesIncluded = IncludeSuppressed ?? false;
+
+                logger.LogInformation("Current version validation (XML-based) completed.");
+
+                logger.LogInformation("  Detected {ResultsCriticalIssueCount} critical issue(s).", results.CriticalIssueCount);
+                logger.LogInformation("  Detected {ResultsMajorIssueCount} major issue(s).", results.MajorIssueCount);
+                logger.LogInformation("  Detected {ResultsMinorIssueCount} minor issue(s).", results.MinorIssueCount);
+                logger.LogInformation("  Detected {ResultsWarningIssueCount} warning issue(s).", results.WarningIssueCount);
+
+                logger.LogInformation("  Time elapsed: {ElapsedTime}", sw.Elapsed);
+
+                if (String.IsNullOrWhiteSpace(CurrentValidateOutputFileName))
+                {
+                    CurrentValidateOutputFileName = $"CurrentValidatorResults_{results.Protocol}_{results.Version}";
+                }
+
+                logger.LogInformation("Writing current version validation results...");
+
+                OutputDirectory.Create();
+                foreach (var writer in GetResultWriters(CurrentValidateOutputFileName))
+                {
+                    writer.WriteResults(results);
+                }
+
+                logger.LogInformation("Writing current version validation results completed");
+            }
+            catch (Exception e)
+            {
+                // Best-effort: failing to validate the current version (XML-based) should not break the compare flow.
+                logger.LogError(e, "Failed to validate the current protocol version (XML-based). Continuing with compare.");
+            }
+        }
+
         private void WriteOutputResults(MajorChangeCheckerResults results)
         {
             results.ValidationTimeStamp = DateTime.Now;
@@ -236,7 +298,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             ICatalogService catalogService = ArtifactDownloader.Downloader.FromCatalog(new HttpClient(), CatalogApiKey);
 
             string previousVersion = RetrievePreviousVersion(currentProtocol.Protocol);
-            logger.LogDebug("Found previous version: {PreviousVersion}", previousVersion);
+            logger.LogInformation("Found previous version: {PreviousVersion}", previousVersion);
 
             switch (previousVersion)
             {
