@@ -100,7 +100,7 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
 
                     if (String.Equals("Skipped", previousProtocolXmlFile))
                     {
-                        WriteOutputResults(new MajorChangeCheckerResults(inputData, null));
+                        WriteOutputResults(MarkSkipped(new MajorChangeCheckerResults(inputData, null), "Compare skipped - no previous version available (current is the initial version)."));
                         return (int)ExitCodes.Ok;
                     }
 
@@ -116,6 +116,14 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
 
                 /* Validate current version (XML-based, same scope as previous) */
                 RunCurrentValidate(inputData, lineInfoProvider, settings, context.GetCancellationToken());
+
+                /* Major Change Checker - skip when current version revision == 1 */
+                if (IsRevisionOne(inputData.Model?.Protocol))
+                {
+                    logger.LogInformation("Skipping major change checker: current protocol version revision is 1.");
+                    WriteOutputResults(MarkSkipped(new MajorChangeCheckerResults(inputData, previousInputData), "Major change checker skipped - current protocol version revision is 1."));
+                    return (int)ExitCodes.Ok;
+                }
 
                 /* Compare */
                 Stopwatch sw = Stopwatch.StartNew();
@@ -280,6 +288,28 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
             }
 
             logger.LogInformation("Writing results completed");
+        }
+
+        private static MajorChangeCheckerResults MarkSkipped(MajorChangeCheckerResults results, string reason)
+        {
+            results.Skipped = true;
+            results.SkippedReason = reason;
+            return results;
+        }
+
+        private static bool IsRevisionOne(IProtocol? protocol)
+        {
+            if (protocol?.Version?.Value == null)
+            {
+                return false;
+            }
+
+            if (!Version.TryParse(protocol.Version.Value, out Version? protocolVersion))
+            {
+                return false;
+            }
+
+            return protocolVersion.Revision == 1;
         }
 
         private async Task<string?> GetPreviousProtocolVersionAsync(IProtocolModel currentProtocol, string temporaryDirectory, string solutionFileDirectoryName, CancellationToken cancellationToken = default)

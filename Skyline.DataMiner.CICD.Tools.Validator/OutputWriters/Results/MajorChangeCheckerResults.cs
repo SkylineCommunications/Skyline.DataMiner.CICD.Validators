@@ -22,5 +22,15 @@
         /// Gets or sets the version of the previous protocol.
         /// </summary>
         public string PreviousVersion { get; }  = previousInputData?.Model?.Protocol?.Version?.Value ?? Unknown;
+
+        /// <summary>
+        /// Indicates whether the major change check was skipped (e.g. the current version is the first build of a major/minor/build iteration, i.e. revision == 1).
+        /// </summary>
+        public bool Skipped { get; set; }
+
+        /// <summary>
+        /// Optional human-readable reason explaining why the major change check was skipped. Only set when <see cref="Skipped"/> is <see langword="true"/>.
+        /// </summary>
+        public string? SkippedReason { get; set; }
     }
 }
