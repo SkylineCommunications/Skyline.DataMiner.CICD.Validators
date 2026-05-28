@@ -167,49 +167,54 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
 
         private void RunPreviousValidate(IProtocolInputData previousInputData, ILineInfoProvider previousLineInfoProvider, ValidatorSettings settings, CancellationToken cancellationToken)
         {
-            try
-            {
-                logger.LogInformation("Validating previous protocol version...");
+	        try
+	        {
+		        logger.LogInformation("Validating previous protocol version...");
 
-                Stopwatch sw = Stopwatch.StartNew();
-                IList<IValidationResult> validatorResults = ProtocolValidationRunner.Run(previousInputData, settings, cancellationToken);
-                sw.Stop();
+		        Stopwatch sw = Stopwatch.StartNew();
+		        IList<IValidationResult> validatorResults = ProtocolValidationRunner.Run(previousInputData, settings, cancellationToken);
+		        sw.Stop();
 
-                // Validate only has suppression in the comments
-                ISuppressionManager suppressionManager = new CommentSuppressionManager(previousInputData.Document, previousLineInfoProvider);
+		        // Validate only has suppression in the comments
+		        ISuppressionManager suppressionManager = new CommentSuppressionManager(previousInputData.Document, previousLineInfoProvider);
 
-                ValidatorResults results = new ValidatorResults(previousInputData);
+		        ValidatorResults results = new ValidatorResults(previousInputData);
 
-                ResultsConverter.ConvertResults(results, validatorResults, suppressionManager, previousLineInfoProvider);
-                ResultsConverter.ProcessSubResults(results, results.Issues, IncludeSuppressed ?? false);
+		        ResultsConverter.ConvertResults(results, validatorResults, suppressionManager, previousLineInfoProvider);
+		        ResultsConverter.ProcessSubResults(results, results.Issues, IncludeSuppressed ?? false);
 
-                results.ValidationTimeStamp = DateTime.Now;
-                results.SuppressedIssuesIncluded = IncludeSuppressed ?? false;
+		        results.ValidationTimeStamp = DateTime.Now;
+		        results.SuppressedIssuesIncluded = IncludeSuppressed ?? false;
 
-                logger.LogInformation("Previous version validation completed.");
+		        logger.LogInformation("Previous version validation completed.");
 
-                logger.LogInformation("  Detected {ResultsCriticalIssueCount} critical issue(s).", results.CriticalIssueCount);
-                logger.LogInformation("  Detected {ResultsMajorIssueCount} major issue(s).", results.MajorIssueCount);
-                logger.LogInformation("  Detected {ResultsMinorIssueCount} minor issue(s).", results.MinorIssueCount);
-                logger.LogInformation("  Detected {ResultsWarningIssueCount} warning issue(s).", results.WarningIssueCount);
+		        logger.LogInformation("  Detected {ResultsCriticalIssueCount} critical issue(s).", results.CriticalIssueCount);
+		        logger.LogInformation("  Detected {ResultsMajorIssueCount} major issue(s).", results.MajorIssueCount);
+		        logger.LogInformation("  Detected {ResultsMinorIssueCount} minor issue(s).", results.MinorIssueCount);
+		        logger.LogInformation("  Detected {ResultsWarningIssueCount} warning issue(s).", results.WarningIssueCount);
 
-                logger.LogInformation("  Time elapsed: {ElapsedTime}", sw.Elapsed);
+		        logger.LogInformation("  Time elapsed: {ElapsedTime}", sw.Elapsed);
 
-                if (String.IsNullOrWhiteSpace(PreviousValidateOutputFileName))
-                {
-                    PreviousValidateOutputFileName = $"PreviousValidatorResults_{results.Protocol}_{results.Version}";
-                }
+		        if (String.IsNullOrWhiteSpace(PreviousValidateOutputFileName))
+		        {
+			        PreviousValidateOutputFileName = $"PreviousValidatorResults_{results.Protocol}_{results.Version}";
+		        }
 
-                logger.LogInformation("Writing previous version validation results...");
+		        logger.LogInformation("Writing previous version validation results...");
 
-                OutputDirectory.Create();
-                foreach (var writer in GetResultWriters(PreviousValidateOutputFileName))
-                {
-                    writer.WriteResults(results);
-                }
+		        OutputDirectory.Create();
+		        foreach (var writer in GetResultWriters(PreviousValidateOutputFileName))
+		        {
+			        writer.WriteResults(results);
+		        }
 
-                logger.LogInformation("Writing previous version validation results completed");
-            }
+		        logger.LogInformation("Writing previous version validation results completed");
+	        }
+	        catch (OperationCanceledException)
+	        {
+                // Don't catch OperationCanceledException as it is used for cancellation and should be handled by the caller.
+                throw;
+	        }
             catch (Exception e)
             {
                 // Best-effort: failing to validate the previous version should not break the compare flow.
@@ -261,6 +266,11 @@ namespace Skyline.DataMiner.CICD.Tools.Validator.Commands.Compare
                 }
 
                 logger.LogInformation("Writing current version validation results completed");
+            }
+            catch (OperationCanceledException)
+            {
+	            // Don't catch OperationCanceledException as it is used for cancellation and should be handled by the caller.
+	            throw;
             }
             catch (Exception e)
             {
