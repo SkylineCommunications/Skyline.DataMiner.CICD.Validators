@@ -2,9 +2,10 @@ name: External Pull Request
 
 # Controls when the workflow will run
 on:
-  pull_request: 
-    branches-ignore:
-        - 'dependabot/**'
+  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   build-and-test:
