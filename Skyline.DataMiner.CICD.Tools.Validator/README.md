@@ -61,6 +61,15 @@ dataminer-validator compare protocol-solution --solution-path "<pathToSlnFile>" 
 
 The tool can automatically retrieve the previous version from the DataMiner Catalog, or you can provide a path to a previous protocol.xml file using the `--previous-protocol-xml-path` option.
 
+Whenever a previous version is available (either resolved from the Catalog or supplied via `--previous-protocol-xml-path`), the compare command will **also run the validator against that previous version** and write the results to a separate output file (default name: `PreviousValidatorResults_{Protocol}_{Version}`). The file name can be overridden via `--previous-validate-output-file-name` (`-pvofn`). The generated file format(s) follow `--output-format` (default: JSON and HTML). When the current version is an initial version (e.g. `1.0.0.1`, or `X.0.0.1` without a `BasedOn` attribute), no previous version is fetched and this extra file is not produced.
+
+In the same scenario the compare command also produces a validation of the current version (default name: `CurrentValidatorResults_{Protocol}_{Version}`, overridable via `--current-validate-output-file-name` / `-cvofn`). The generated file format(s) follow `--output-format` (default: JSON and HTML). This output uses the same validation scope as the previous-version file (bare `protocol.xml`, no QAction C# compilation), so the two are directly comparable in CI gates that diff current vs previous validator results. This file is independent of the regular `validate protocol-solution` command output, which remains the authoritative solution-based validation.
+
+When the current protocol version's revision is `1` (e.g. `1.0.0.1`, `2.0.0.1`, `2.1.0.1`, `1.2.3.1`), the Major Change Checker pass is **skipped** regardless of whether a `BasedOn` attribute is set or a previous version was resolved. The output `MajorChangeCheckerResults.json` is still written, but with `Skipped: true` and a `SkippedReason` describing why. The previous/current validate output files are still produced as long as a previous version is available, so downstream tooling can still evaluate validator-result deltas for revision-1 versions with a `BasedOn`.
+
+> **Note**
+> Validation of the previous version runs against the bare `protocol.xml` only, so QAction C# checks are skipped. The same limitation applies to the regular compare logic and to the XML-based current-version validation produced by the compare command.
+
 To obtain more information about all the options:
 
 ```console
