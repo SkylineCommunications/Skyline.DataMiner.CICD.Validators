@@ -33,6 +33,49 @@
             <Name>read_service_name</Name>
             <Description>Service Name</Description>
         </Param>
+		<Param id="300">
+			<Name>Title_End_Generic</Name>
+		</Param>
+		<Param id="301">
+			<Name>title_begin_sla_status</Name>
+			<Description>Compliance Info</Description>
+		</Param>
+		<Param id="302">
+			<Name>title_begin_service_status</Name>
+			<Description>General Info</Description>
+		</Param>
+		<Param id="303">
+			<Name>title_begin_violation_status</Name>
+			<Description>Performance Indicators</Description>
+		</Param>
+		<Param id="304">
+			<Name>title_begin_sla_window</Name>
+			<Description>Window settings</Description>
+		</Param>
+		<Param id="305">
+			<Name>title_begin_sla_config</Name>
+			<Description>Extra settings</Description>
+		</Param>
+		<Param id="306">
+			<Name>title_begin_total_breach_config</Name>
+			<Description>Total violation</Description>
+		</Param>
+		<Param id="307">
+			<Name>title_begin_cons_breach_config</Name>
+			<Description>Single violation</Description>
+		</Param>
+		<Param id="308">
+			<Name>title_begin_number_breach_config</Name>
+			<Description>Violation count</Description>
+		</Param>
+		<Param id="309">
+			<Name>title_begin_sla_alarm_config</Name>
+			<Description>Alarm settings</Description>
+		</Param>
+		<Param id="310">
+			<Name>title_begin_advanced_config</Name>
+			<Description>Advanced Config</Description>
+		</Param>
         <Param id="2059">
             <Name>show_active_alarms</Name>
             <Description>Active Alarms</Description>

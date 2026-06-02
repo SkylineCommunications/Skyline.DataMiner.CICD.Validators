@@ -778,6 +778,23 @@
             { 2067, ("Affecting_Alarms_Level", "Affecting Alarms Level") },
         };
 
+        private static readonly Dictionary<uint, (string Name, string Description)> SlaParams4_0_0 = new Dictionary<uint, (string Name, string Description)>
+        {
+            /* Currently based on: https://svn.skyline.be/svn/SystemEngineering/Protocols/Skyline/Skyline SLA Definition Basic/4.0.0.4 */
+            
+            { 300 , ("Title_End_Generic", "") },
+            { 301 , ("title_begin_sla_status", "Compliance Info") },
+            { 302 , ("title_begin_service_status", "General Info") },
+            { 303 , ("title_begin_violation_status", "Performance Indicators") },
+            { 304 , ("title_begin_sla_window", "Window settings") },
+            { 305 , ("title_begin_sla_config", "Extra settings") },
+            { 306 , ("title_begin_total_breach_config", "Total violation") },
+            { 307 , ("title_begin_cons_breach_config", "Single violation") },
+            { 308 , ("title_begin_number_breach_config", "Violation count") },
+            { 309 , ("title_begin_sla_alarm_config", "Alarm settings") },
+            { 310 , ("title_begin_advanced_config", "Advanced Config") },
+        };
+
         private static readonly Dictionary<uint, (string Name, string Description)> EnhancedServiceParams = new Dictionary<uint, (string Name, string Description)>
         {
             /* Currently based on: Skyline Service Definition Basic/1.0.0.11 (https://catalog.dataminer.services/details/809251d6-724d-499a-9c3c-d41ae1b5492b) */
@@ -942,6 +959,7 @@
 
         public static bool IsCorrectSlaParam(IParamsParam checkParam)
         {
+            // Sanity checks
             if (checkParam == null)
             {
                 throw new ArgumentNullException(nameof(checkParam));
@@ -952,15 +970,18 @@
                 throw new InvalidDataException("Parameter ID is invalid.");
             }
 
-            uint paramId = checkParam.Id.Value.Value;
-            string paramName = checkParam.Name?.Value;
-            string paramDescription = checkParam.Description?.Value;
-            if (SlaParams2_0_0.TryGetValue(paramId, out var param2) && paramName == param2.Name && paramDescription == param2.Description)
+            // Valid Param checks
+            if (HasMatchingParamNameAndDescription(SlaParams2_0_0, checkParam))
             {
                 return true;
             }
 
-            if (SlaParams3_0_0.TryGetValue(paramId, out var param3) && paramName == param3.Name && paramDescription == param3.Description)
+            if (HasMatchingParamNameAndDescription(SlaParams3_0_0, checkParam))
+            {
+                return true;
+            }
+
+            if (HasMatchingParamNameAndDescription(SlaParams4_0_0, checkParam))
             {
                 return true;
             }
@@ -970,6 +991,7 @@
 
         public static bool IsCorrectEnhancedServiceParam(IParamsParam checkParam)
         {
+            // Sanity checks
             if (checkParam == null)
             {
                 throw new ArgumentNullException(nameof(checkParam));
@@ -980,10 +1002,8 @@
                 throw new InvalidDataException("Parameter ID is invalid.");
             }
 
-            uint paramId = checkParam.Id.Value.Value;
-            string paramName = checkParam.Name?.Value;
-            string paramDescription = checkParam.Description?.Value;
-            if (EnhancedServiceParams.TryGetValue(paramId, out var param) && paramName == param.Name && paramDescription == param.Description)
+            // Valid Param checks
+            if (HasMatchingParamNameAndDescription(EnhancedServiceParams, checkParam))
             {
                 return true;
             }
@@ -1001,11 +1021,13 @@
             string paramName = checkParam.Name?.Value;
 
             // Check if Name starts with two underscore (such name are reserved for software internal use only)
-            return (paramName != null && paramName.StartsWith("__")) || RestrictedParamNames.Contains(paramName, StringComparer.OrdinalIgnoreCase);
+            return (paramName != null && paramName.StartsWith("__"))
+                || RestrictedParamNames.Contains(paramName, StringComparer.OrdinalIgnoreCase);
         }
 
         public static bool IsCorrectSpectrumParam(IParamsParam checkParam)
         {
+            // Sanity checks
             if (checkParam == null)
             {
                 throw new ArgumentNullException(nameof(checkParam));
@@ -1016,10 +1038,8 @@
                 throw new InvalidDataException("Parameter ID is invalid.");
             }
 
-            uint paramId = checkParam.Id.Value.Value;
-            string paramName = checkParam.Name?.Value;
-            string paramDescription = checkParam.Description?.Value;
-            if (SpectrumParams.TryGetValue(paramId, out var param) && paramName == param.Name && paramDescription == param.Description)
+            // Valid Param checks
+            if (HasMatchingParamNameAndDescription(SpectrumParams, checkParam))
             {
                 return true;
             }
@@ -1051,6 +1071,23 @@
         public static bool IsInternalPid(int paramId)
         {
             if ((paramId >= 64300 && paramId <= 69999) || (paramId >= 100000 && paramId <= 999999))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool HasMatchingParamNameAndDescription(Dictionary<uint, (string Name, string Description)> validParams, IParamsParam checkParam)
+        {
+            uint paramId = checkParam.Id.Value.Value;
+            string paramName = checkParam.Name?.Value;
+            string paramDescription = checkParam.Description?.Value;
+
+            if (validParams.TryGetValue(paramId, out var param)
+                && paramName == param.Name
+                && (paramDescription == param.Description
+                    || (string.IsNullOrEmpty(paramDescription) && string.IsNullOrEmpty(param.Description))))
             {
                 return true;
             }
