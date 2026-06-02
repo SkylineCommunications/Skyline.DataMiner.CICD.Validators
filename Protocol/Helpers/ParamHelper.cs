@@ -783,16 +783,16 @@
             /* Currently based on: https://svn.skyline.be/svn/SystemEngineering/Protocols/Skyline/Skyline SLA Definition Basic/4.0.0.4 */
             
             { 300 , ("Title_End_Generic", "") },
-            { 301 , ("title_begin_sla_status", "Compliance Info") },
-            { 302 , ("title_begin_service_status", "General Info") },
-            { 303 , ("title_begin_violation_status", "Performance Indicators") },
-            { 304 , ("title_begin_sla_window", "Window settings") },
-            { 305 , ("title_begin_sla_config", "Extra settings") },
-            { 306 , ("title_begin_total_breach_config", "Total violation") },
-            { 307 , ("title_begin_cons_breach_config", "Single violation") },
-            { 308 , ("title_begin_number_breach_config", "Violation count") },
-            { 309 , ("title_begin_sla_alarm_config", "Alarm settings") },
-            { 310 , ("title_begin_advanced_config", "Advanced Config") },
+            { 301 , ("Title_Begin_SLA_Status", "Compliance Info") },
+            { 302 , ("Title_Begin_Service_Status", "General Info") },
+            { 303 , ("Title_Begin_Violation_Status", "Performance Indicators") },
+            { 304 , ("Title_Begin_SLA_Window", "Window Settings") },
+            { 305 , ("Title_Begin_SLA_Config", "Extra Settings") },
+            { 306 , ("Title_Begin_Total_Breach_Config", "Total Violation") },
+            { 307 , ("Title_Begin_Cons_Breach_Config", "Single Violation") },
+            { 308 , ("Title_Begin_Number_Breach_Config", "Violation Count") },
+            { 309 , ("Title_Begin_SLA_Alarm_Config", "Alarm Settings") },
+            { 310 , ("Title_Begin_Advanced_Config", "Advanced Config") },
         };
 
         private static readonly Dictionary<uint, (string Name, string Description)> EnhancedServiceParams = new Dictionary<uint, (string Name, string Description)>
