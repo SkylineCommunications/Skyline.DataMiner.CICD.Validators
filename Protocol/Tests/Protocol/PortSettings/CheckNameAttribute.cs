@@ -26,13 +26,13 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.PortSettings
             }
 
             var portSettings = context.ProtocolModel?.Protocol?.PortSettings;
-            //if (portSettings == null)
-            //{
-            //    /* This check is only about the name check, not about the presence of PortSettings.
-            //     * MissingPortSettings should be handled by a separate check.
-            //     * */
-            //    return results;
-            //}
+            if (portSettings == null)
+            {
+                /* This check is only about the name check, not about the presence of PortSettings.
+                 * MissingPortSettings should be handled by a separate check.
+                 * */
+                return results;
+            }
 
             // Name checks
             bool isRequired = context.ProtocolModel.Protocol.Type.Value != EnumProtocolType.Virtual

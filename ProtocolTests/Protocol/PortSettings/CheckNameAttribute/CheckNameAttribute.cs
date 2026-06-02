@@ -118,22 +118,6 @@ namespace ProtocolTests.Protocol.PortSettings.CheckNameAttribute
         }
 
         [TestMethod]
-        public void PortSettings_CheckNameAttribute_MissingPortSettings()
-        {
-            Generic.ValidateData data = new Generic.ValidateData
-            {
-                TestType = Generic.TestType.Invalid,
-                FileName = "MissingPortSettings",
-                ExpectedResults = new List<IValidationResult>
-                {
-                    Error.MissingAttribute(null, null, null, "0"),
-                }
-            };
-
-            Generic.Validate(check, data);
-        }
-
-        [TestMethod]
         public void PortSettings_CheckNameAttribute_UntrimmedAttribute()
         {
             Generic.ValidateData data = new Generic.ValidateData
