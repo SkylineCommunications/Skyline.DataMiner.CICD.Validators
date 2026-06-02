@@ -86,7 +86,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 getDuplicationIdentifier: p => p.Description?.Value,
                 getId: p => p.Id?.RawValue,
                 isValidDuplicate: ParamHelper.IsValidParamAssociation,
-                generateSubResult: x => Error.DuplicatedValue(this, x.item, x.item, x.duplicateValue, x.id),
+                generateSubResult: x => Error.DuplicatedValue(this, x.item, x.item?.Description, x.duplicateValue, x.id),
                 generateSummaryResult: x => Error.DuplicatedValue(this, null, null, x.duplicateValue, String.Join(", ", x.ids)).WithSubResults(x.subResults)
                 );
 
