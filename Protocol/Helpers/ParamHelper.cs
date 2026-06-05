@@ -960,7 +960,7 @@
             { 467 , ("ViolationSettings_Exclusive", "Violation Filter Exclusive") },
             { 458 , ("ViolationSettings_PropertyName", "Violation Filter Property Name") },
             { 468 , ("ViolationSettings_PropertyName", "Violation Filter Property Name") },
-            { 470 , ("ViolationSettingsAddEntryButton", "Violation Settings") },
+            { 470 , ("ViolationSettingsButtons", "") },
             { 500 , ("OutageDetails", "Outagedetails") },
             { 550 , ("RootToOutage", "Table Holding Root to Outage") },
             { 551 , ("RootToOutage_ID", "Array_Root_to_Outage_Id") },
