@@ -13,9 +13,12 @@ updates:
       # AutoMapper can't be updated as we would lose support for .NET Standard 2.0
       - dependency-name: "AutoMapper"
       
-      # FluentAssertions equal to or higher than 8.0.0 are a different license, which requires payment
+      # FluentAssertions equal to or higher than 8.0.0 has a different license, which requires payment
       - dependency-name: "FluentAssertions"
         versions: [ ">=8.0.0" ]
+      # NPOI equal to or higher than 2.8.0 has a different license, which requires payment
+      - dependency-name: "NPOI"
+        versions: [ ">=2.8.0" ]
     exclude-paths:
       - "ProtocolTests/Protocol/**/*.csproj"
       - "Protocol.FeatureTests/Test Files/**"
