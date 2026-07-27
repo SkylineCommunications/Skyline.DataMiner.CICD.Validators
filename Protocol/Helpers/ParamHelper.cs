@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
     using System.Linq;
 
@@ -1315,19 +1316,15 @@
 
         private static bool HasMatchingParamNameAndDescription(Dictionary<uint, (string Name, string Description)> validParams, IParamsParam checkParam)
         {
+            Debug.Assert(checkParam.Id.Value != null, "checkParam.Id.Value != null");
             uint paramId = checkParam.Id.Value.Value;
             string paramName = checkParam.Name?.Value;
             string paramDescription = checkParam.Description?.Value;
 
-            if (validParams.TryGetValue(paramId, out var param)
-                && paramName == param.Name
-                && (paramDescription == param.Description
-                    || (string.IsNullOrEmpty(paramDescription) && string.IsNullOrEmpty(param.Description))))
-            {
-                return true;
-            }
-
-            return false;
+            return validParams.TryGetValue(paramId, out var param)
+                   && paramName == param.Name
+                   && (paramDescription == param.Description
+                       || (String.IsNullOrEmpty(paramDescription) && String.IsNullOrEmpty(param.Description)));
         }
 
         public static IEnumerable<object> GetParamNameUnrecommendedChars(string paramName)
