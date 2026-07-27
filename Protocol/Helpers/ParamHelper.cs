@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
     using System.Linq;
 
@@ -778,6 +779,258 @@
             { 2067, ("Affecting_Alarms_Level", "Affecting Alarms Level") },
         };
 
+        private static readonly Dictionary<uint, (string Name, string Description)> SlaParams4_0_0 = new Dictionary<uint, (string Name, string Description)>
+        {
+            /* Currently based on: https://svn.skyline.be/svn/SystemEngineering/Protocols/Skyline/Skyline SLA Definition Basic/4.0.0.4 */
+            
+            { 1 , ("ServiceName", "Service Name") },
+            { 2 , ("Bus_ServiceID", "Service id") },
+            { 3 , ("Fixed_NotUsed", "not_used") },
+            { 4 , ("RawAlarmInput", "Raw_Alarm_Input") },
+            { 5 , ("Fixed_0", "") },
+            { 6 , ("Fixed_1", "") },
+            { 7 , ("Fixed_TimestampFromCreation", "") },
+            { 8 , ("Fixed_TimestampForever", "") },
+            { 10 , ("SlaComplianceState", "Compliance") },
+            { 11 , ("ServiceAlarmState", "Service Alarm State") },
+            { 13 , ("SlaPredictedComplianceState", "Predicted Compliance") },
+            { 14 , ("HistoryPropertyUpdate", "History Property Update") },
+            { 20 , ("ViolationTotalTimeLeft", "Total Violation Time Left") },
+            { 21 , ("ViolationTotalTime", "Total Violation Time") },
+            { 22 , ("ViolationMaxTime", "Longest Violation Time") },
+            { 24 , ("ViolationsCount", "Number of Violations") },
+            { 27 , ("ResetCountersDate", "Last Manual Reset") },
+            { 28 , ("ResetCountersButton", "") },
+            { 29 , ("WindowBaseTimestamp", "Base Timestamp") },
+            { 30 , ("WindowBaseTimestamp", "Base Timestamp") },
+            { 31 , ("WindowStartTime", "Start Time") },
+            { 32 , ("WindowEndTime", "End Time") },
+            { 34 , ("ViolationPercentTime", "Violation percentage") },
+            { 35 , ("SlaTrackingAdminState", "Admin State") },
+            { 36 , ("SlaTrackingAdminState", "Admin State") },
+            { 78 , ("Outages_ContextMenu", "Context Menu for Outage List") },
+            { 37 , ("Outages", "Outage List") },
+            { 47 , ("Outages_PK", "Column_Index") },
+            { 38 , ("Outages_Severity", "Alarm Severity") },
+            { 39 , ("Outages_StartTime", "Begin Timestamp") },
+            { 40 , ("Outages_AdminState", "Adm. State") },
+            { 46 , ("Outages_EndTime", "End Timestamp") },
+            { 50 , ("Outages_Motivation", "Motivation") },
+            { 51 , ("Outages_Motivation", "Motivation") },
+            { 52 , ("Outages_Correction", "Correction") },
+            { 53 , ("Outages_Correction", "Correction") },
+            { 54 , ("Outages_Outage", "Outage") },
+            { 56 , ("Outages_OutagePercent", "Outage Pct") },
+            { 57 , ("Outages_CorrectionPercent", "Correction Pct") },
+            { 60 , ("Outages_Corrected", "Outage Corrected") },
+            { 61 , ("Outages_ViolationPercent", "Violation Pct") },
+            { 62 , ("Outages_WindowState", "Current Window") },
+            { 66 , ("Outages_TicketNumber", "Ticket") },
+            { 74 , ("Outages_Impact", "Outage Impact") },
+            { 77 , ("Outages_ViolationTime", "Violation") },
+            { 41 , ("ViolationTimeLeft", "Single Violation Time Left") },
+            { 42 , ("ViolationTimeLeftPercent", "Total Violation Time Availability") },
+            { 43 , ("ViolationTimeLeftSingle", "Single Violation Time Availability") },
+            { 44 , ("ViolationCountLeft", "Number of Violations Left") },
+            { 45 , ("ViolationCountLeftPercent", "Number of Violations Availability") },
+            { 48 , ("NonViolationPercentTime", "Availability") },
+            { 49 , ("NonViolationPercentTimePrediction", "Predicted Availability") },
+            { 55 , ("Convert", "convert") },
+            { 58 , ("LastOutageIndex", "last_outage_index") },
+            { 59 , ("MonitorspanInSeconds", "monitor span") },
+            { 63 , ("OutagesMonthToKeep", "Time to Keep Outages") },
+            { 64 , ("OutagesMonthToKeep", "Time to Keep Outages") },
+            { 65 , ("NonViolationPercentTimeWithoutCorrection", "Availability Without Correction") },
+            { 67 , ("SlaValidityStartTime", "SLA Validity Start Time") },
+            { 69 , ("SlaValidityStartTime", "SLA Validity Start Time") },
+            { 68 , ("SlaValidityEndTime", "SLA Validity End Time") },
+            { 71 , ("SlaValidityEndTime", "SLA Validity End Time") },
+            { 70 , ("SlaHealthState", "SLA Health Status") },
+            { 72 , ("ServiceLiveState", "Service Live State") },
+            { 73 , ("ServiceCurrentViolationImpact", "Current Outage Impact") },
+            { 75 , ("UnweightTotalViolationTime", "Total Outage Time") },
+            { 76 , ("UnweightMaxViolationTime", "Longest Outage Time") },
+            { 79 , ("Outages_QActionFeedback", "Outage List_Qactionfeedback") },
+            { 101 , ("sla_monitor_time", "Time") },
+            { 102 , ("sla_monitor_time", "Time") },
+            { 103 , ("sla_monitor_unit", "Unit") },
+            { 104 , ("sla_monitor_unit", "Unit") },
+            { 105 , ("sla_monitor_type", "Type") },
+            { 106 , ("sla_monitor_type", "Type") },
+            { 108 , ("sla_delay_time", "Delay Time") },
+            { 109 , ("sla_delay_time", "Delay Time") },
+            { 110 , ("sla_recalculate", "Recalculate") },
+            { 111 , ("sla_minimum_outage_threshold", "Minimum Outage Threshold") },
+            { 112 , ("sla_minimum_outage_threshold", "Minimum Outage Threshold") },
+            { 121 , ("sla_breach_value", "Maximum Total Violations Value") },
+            { 122 , ("sla_breach_value", "Maximum Total Violations Value") },
+            { 123 , ("sla_breach_unit", "Maximum Total Violations Unit") },
+            { 124 , ("sla_breach_unit", "Maximum Total Violations Unit") },
+            { 125 , ("sla_consecutive_breach_value", "Maximum Single Violation Value") },
+            { 126 , ("sla_consecutive_breach_value", "Maximum Single Violation Value") },
+            { 127 , ("sla_consecutive_breach_unit", "Maximum Single Violation Unit") },
+            { 128 , ("sla_consecutive_breach_unit", "Maximum Single Violation Unit") },
+            { 129 , ("sla_max_violations", "Total Violations Before Breach") },
+            { 130 , ("sla_max_violations", "Total Violations Before Breach") },
+            { 131 , ("sla_violation_level", "Violation Level") },
+            { 132 , ("sla_violation_level", "Violation Level") },
+            { 133 , ("manual_outage_start_time", "Manual Outage Start Time") },
+            { 134 , ("manual_outage_start_time", "Manual Outage Start Time") },
+            { 135 , ("manual_outage_end_time", "Manual Outage End Time") },
+            { 136 , ("manual_outage_end_time", "Manual Outage End Time") },
+            { 137 , ("manual_outage_motivation", "Manual Outage Motivation") },
+            { 138 , ("manual_outage_motivation", "Manual Outage Motivation") },
+            { 139 , ("manual_outage_overrule_motivation", "Overrule Existing Motivations") },
+            { 140 , ("manual_outage_overrule_motivation", "Overrule Existing Motivations") },
+            { 141 , ("manual_outage_add", "") },
+            { 142 , ("manual_outage_delete", "") },
+            { 143 , ("manual_outage_delete_pk", "Manual Outage Key") },
+            { 144 , ("manual_outage_delete_pk", "Manual Outage Key") },
+            { 147 , ("manual_outage_start_time_client_input", "New Outage Start Time") },
+            { 148 , ("manual_outage_start_time_client_input", "New Outage Start Time") },
+            { 149 , ("manual_outage_end_time_client_input", "New Outage End Time") },
+            { 150 , ("manual_outage_end_time_client_input", "New Outage End Time") },
+            { 166 , ("TicketNumber", "Ticket") },
+            { 201 , ("sla_total_breach", "Maximum Total Violation Time") },
+            { 203 , ("sla_max_consecutive_breach", "Maximum Single Violation Time") },
+            { 208 , ("sla_total_slot_type", "Maximum Total Violations Type") },
+            { 209 , ("sla_total_slot_type", "Maximum Total Violations Type") },
+            { 210 , ("sla_max_consecutive_slot_type", "Maximum Single Violation Type") },
+            { 211 , ("sla_max_consecutive_slot_type", "Maximum Single Violation Type") },
+            { 212 , ("total_relative_percentage", "Maximum Total Violations Percentage") },
+            { 213 , ("total_relative_percentage", "Maximum Total Violations Percentage") },
+            { 216 , ("max_consecutive_relative_percentage", "Maximum Single Violation Percentage") },
+            { 217 , ("max_consecutive_relative_percentage", "Maximum Single Violation Percentage") },
+            { 250 , ("CurrentActiveServiceAlarms", "Current Active Service Alarms") },
+            { 251 , ("CurrentActiveServiceAlarms_ID", "Current Active Service Alarm Id") },
+            { 252 , ("CurrentActiveServiceAlarms_Severity", "Current Active Service Alarm Severity") },
+            { 253 , ("CurrentActiveServiceAlarms_Time", "Current Active Service Alarm Time") },
+            { 254 , ("CurrentActiveServiceAlarms_Element", "Current Active Service Alarm Element") },
+            { 255 , ("CurrentActiveServiceAlarms_Parameter", "Current Active Service Alarm Parameter") },
+            { 256 , ("CurrentActiveServiceAlarms_Value", "Current Active Service Alarm Value") },
+            { 257 , ("CurrentActiveServiceAlarms_State", "Current Active Service Alarm State") },
+            { 258 , ("CurrentActiveServiceAlarms_Type", "Current Active Service Alarm Type") },
+            { 259 , ("CurrentActiveServiceAlarms_UserState", "Current Active Service Alarm User State") },
+            { 260 , ("CurrentActiveServiceAlarms_Source", "Current Active Service Alarm Source") },
+            { 261 , ("CurrentActiveServiceAlarms_Category", "Current Active Service Alarm Category") },
+            { 262 , ("CurrentActiveServiceAlarms_OfflineImpact", "Current Active Service Alarm Offline Impact") },
+            { 263 , ("CurrentActiveServiceAlarms_ServicePoint", "Current Active Service Alarm Service Point") },
+            { 264 , ("CurrentActiveServiceAlarms_ComponentInfo", "Current Active Service Alarm Component Info") },
+            { 265 , ("CurrentActiveServiceAlarms_InclusionState", "Current Active Service Alarm Overruled Inclusion State") },
+            { 266 , ("CurrentActiveServiceAlarms_InclusionState", "Current Active Service Alarm Overruled Inclusion State") },
+            { 267 , ("CurrentActiveServiceAlarms_InclusionStateCalculated", "Current Active Service Alarm Calculated Inclusion State") },
+            { 300 , ("Title_End_Generic", "") },
+            { 301 , ("Title_Begin_SLA_Status", "Compliance Info") },
+            { 302 , ("Title_Begin_Service_Status", "General Info") },
+            { 303 , ("Title_Begin_Violation_Status", "Performance Indicators") },
+            { 304 , ("Title_Begin_SLA_Window", "Window Settings") },
+            { 305 , ("Title_Begin_SLA_Config", "Extra Settings") },
+            { 306 , ("Title_Begin_Total_Breach_Config", "Total Violation") },
+            { 307 , ("Title_Begin_Cons_Breach_Config", "Single Violation") },
+            { 308 , ("Title_Begin_Number_Breach_Config", "Violation Count") },
+            { 309 , ("Title_Begin_SLA_Alarm_Config", "Alarm Settings") },
+            { 310 , ("Title_Begin_Advanced_Config", "Advanced Config") },
+            { 350 , ("trigger_dummy_row_added", "trigger_dummy_row_added") },
+            { 351 , ("trigger_dummy_row_changed", "trigger_dummy_row_changed") },
+            { 352 , ("trigger_dummy_row_deleted", "trigger_dummy_row_deleted") },
+            { 400 , ("OfflineWindow", "Offline Window") },
+            { 401 , ("OfflineWindow_Id", "Offline Window Id") },
+            { 402 , ("OfflineWindow_StartDay", "Offline Window Start Day") },
+            { 412 , ("OfflineWindow_StartDay", "Offline Window Start Day") },
+            { 403 , ("OfflineWindow_StartTime", "Offline Window Start Time") },
+            { 413 , ("OfflineWindow_StartTime", "Offline Window Start Time") },
+            { 414 , ("OfflineWindow_EndDay", "Offline Window End Day") },
+            { 405 , ("OfflineWindow_EndTime", "Offline Window End Time") },
+            { 415 , ("OfflineWindow_EndTime", "Offline Window End Time") },
+            { 406 , ("OfflineWindow_State", "Offline Window State") },
+            { 416 , ("OfflineWindow_State", "Offline Window State") },
+            { 420 , ("OfflineWindowChangeButton", "Offline Window Change") },
+            { 450 , ("ViolationSettings", "Violation Settings") },
+            { 451 , ("ViolationSettings_ID", "Violation Filter Id") },
+            { 452 , ("ViolationSettings_Type", "Violation Filter Type") },
+            { 462 , ("ViolationSettings_Type", "Violation Filter Type") },
+            { 453 , ("ViolationSettings_Value", "Violation Filter Value") },
+            { 463 , ("ViolationSettings_Value", "Violation Filter Value") },
+            { 454 , ("ViolationSettings_Impact", "Violation Filter Impact") },
+            { 464 , ("ViolationSettings_Impact", "Violation Filter Impact") },
+            { 455 , ("ViolationSettings_Sequence", "Violation Filter Sequence") },
+            { 465 , ("ViolationSettings_Sequence", "Violation Filter Sequence") },
+            { 456 , ("ViolationSettings_State", "Violation Filter State") },
+            { 466 , ("ViolationSettings_State", "Violation Filter State") },
+            { 457 , ("ViolationSettings_Exclusive", "Violation Filter Exclusive") },
+            { 467 , ("ViolationSettings_Exclusive", "Violation Filter Exclusive") },
+            { 458 , ("ViolationSettings_PropertyName", "Violation Filter Property Name") },
+            { 468 , ("ViolationSettings_PropertyName", "Violation Filter Property Name") },
+            { 470 , ("ViolationSettingsButtons", "") },
+            { 500 , ("OutageDetails", "Outagedetails") },
+            { 550 , ("RootToOutage", "Table Holding Root to Outage") },
+            { 551 , ("RootToOutage_ID", "Array_Root_to_Outage_Id") },
+            { 552 , ("RootToOutage_Root", "Array_Root_to_Outage_Root") },
+            { 553 , ("RootToOutage_Outage", "Array_Root_to_Outage_Outage") },
+            { 554 , ("RootToOutage_Weight", "Array_Root_to_Outage_Weight") },
+            { 555 , ("RootToOutage_InclusionState", "Array_Root_to_Outage_Inclustion_State") },
+            { 556 , ("RootToOutage_Alarm", "Array_Root_to_Outage_Alarm") },
+            { 600 , ("GenerateTicket", "Generate Ticket") },
+            { 610 , ("GenerateTicket", "Generate Ticket") },
+            { 750 , ("ActiveServiceAlarms", "Active Service Alarms") },
+            { 751 , ("ActiveServiceAlarms_RootId", "Active Service Alarm RootId") },
+            { 752 , ("ActiveServiceAlarms_Severity", "Active Service Alarm Severity") },
+            { 753 , ("ActiveServiceAlarms_Time", "Active Service Alarm Time") },
+            { 754 , ("ActiveServiceAlarms_Element", "Active Service Alarm Element") },
+            { 755 , ("ActiveServiceAlarms_Parameter", "Active Service Alarm Parameter") },
+            { 756 , ("ActiveServiceAlarms_Value", "Active Service Alarm Value") },
+            { 757 , ("ActiveServiceAlarms_State", "Active Service Alarm State") },
+            { 758 , ("ActiveServiceAlarms_Type", "Active Service Alarm Type") },
+            { 759 , ("ActiveServiceAlarms_UserState", "Active Service Alarm User State") },
+            { 760 , ("ActiveServiceAlarms_Source", "Active Service Alarm Source") },
+            { 761 , ("ActiveServiceAlarms_Category", "Active Service Alarm Category") },
+            { 762 , ("ActiveServiceAlarms_OfflineImpact", "Active Service Alarm Offline Impact") },
+            { 763 , ("ActiveServiceAlarms_ServicePoint", "Active Service Alarm Service Point") },
+            { 764 , ("ActiveServiceAlarms_ComponentInfo", "Active Service Alarm Component Info") },
+            { 765 , ("ActiveServiceAlarms_InclusionState", "Active Service Alarm Overruled Inclusion State") },
+            { 766 , ("ActiveServiceAlarms_InclusionState", "Active Service Alarm Overruled Inclusion State") },
+            { 767 , ("ActiveServiceAlarms_CalculatedInclusionState", "Active Service Alarm Calculated Inclusion State") },
+            { 768 , ("ActiveServiceAlarms_AlarmId", "Active Service Alarm Id") },
+            { 1000 , ("HistoryStatistics", "History Statistics Table") },
+            { 1001 , ("HistoryStatistics_TrackingPeriod", "Tracking Period [IDX]") },
+            { 1002 , ("HistoryStatistics_StartTime", "Start Time (History)") },
+            { 1003 , ("HistoryStatistics_EndTime", "End Time (History)") },
+            { 1004 , ("HistoryStatistics_StoredEndTime", "Stored End Time (History)") },
+            { 1005 , ("HistoryStatistics_Compliance", "Compliance (History)") },
+            { 1006 , ("HistoryStatistics_Availability", "Availability (History)") },
+            { 1007 , ("HistoryStatistics_AvailabilityWithoutCorrections", "Availability Without Corrections (History)") },
+            { 1008 , ("HistoryStatistics_TotalViolationTime", "Total Violation Time (History)") },
+            { 1009 , ("HistoryStatistics_LongestViolationTime", "Longest Violation Time (History)") },
+            { 1010 , ("HistoryStatistics_NumberOfViolations", "Number of Violations (History)") },
+            { 10011 , ("HistoryStatistics_Recalculate", "Recalculate (History)") },
+            { 1050 , ("ClearHistoryStatisticsButton", "") },
+            { 1051 , ("CurrentHistoryIDX", "Current History IDX") },
+            { 1052 , ("MaxNumberOfHistoryRows", "Max Number of History Rows") },
+            { 1053 , ("MaxNumberOfHistoryRows", "Max Number of History Rows") },
+            { 1060 , ("ConfigurationName", "Configuration Name") },
+            { 1061 , ("ConfigurationName", "Configuration Name") },
+            { 1062 , ("AvailableConfigurations", "Available Configurations") },
+            { 1063 , ("SaveLoadConfig", "") },
+            { 1064 , ("SaveLoadStatus", "Save/Load Status") },
+            { 1065 , ("SaveLoadConfigPageButton", "") },
+            { 1066 , ("LoadConfigurationsButton", "") },
+            { 2000 , ("EditOutagePageButton", "") },
+            { 2001 , ("OutageToStopOrDeleteSelection", "Outage to Stop or Delete") },
+            { 2002 , ("OutageToStopOrDeleteSelection", "Outage to Stop or Delete") },
+            { 2003 , ("OutageToStopOrDeleteButtons", "") },
+            { 2050 , ("hide_violation_filtered_alarms", "Violation Filtered Alarms") },
+            { 2051 , ("hide_violation_filtered_alarms", "Violation Filtered Alarms") },
+            { 2052 , ("hide_offline_window_outages", "Offline Window Outages") },
+            { 2053 , ("hide_offline_window_outages", "Offline Window Outages") },
+            { 2054 , ("enable_predictions", "Predictions") },
+            { 2055 , ("enable_predictions", "Predictions") },
+            { 2056 , ("enable_outages", "Outages") },
+            { 2057 , ("enable_outages", "Outages") },
+            { 2058 , ("show_active_alarms", "Active Alarms") },
+            { 2059 , ("show_active_alarms", "Active Alarms") },
+            { 2060 , ("enable_enhanced_service_mode", "Enhanced Service Mode") },
+        };
+
         private static readonly Dictionary<uint, (string Name, string Description)> EnhancedServiceParams = new Dictionary<uint, (string Name, string Description)>
         {
             /* Currently based on: Skyline Service Definition Basic/1.0.0.11 (https://catalog.dataminer.services/details/809251d6-724d-499a-9c3c-d41ae1b5492b) */
@@ -942,6 +1195,7 @@
 
         public static bool IsCorrectSlaParam(IParamsParam checkParam)
         {
+            // Sanity checks
             if (checkParam == null)
             {
                 throw new ArgumentNullException(nameof(checkParam));
@@ -952,15 +1206,18 @@
                 throw new InvalidDataException("Parameter ID is invalid.");
             }
 
-            uint paramId = checkParam.Id.Value.Value;
-            string paramName = checkParam.Name?.Value;
-            string paramDescription = checkParam.Description?.Value;
-            if (SlaParams2_0_0.TryGetValue(paramId, out var param2) && paramName == param2.Name && paramDescription == param2.Description)
+            // Valid Param checks
+            if (HasMatchingParamNameAndDescription(SlaParams2_0_0, checkParam))
             {
                 return true;
             }
 
-            if (SlaParams3_0_0.TryGetValue(paramId, out var param3) && paramName == param3.Name && paramDescription == param3.Description)
+            if (HasMatchingParamNameAndDescription(SlaParams3_0_0, checkParam))
+            {
+                return true;
+            }
+
+            if (HasMatchingParamNameAndDescription(SlaParams4_0_0, checkParam))
             {
                 return true;
             }
@@ -970,6 +1227,7 @@
 
         public static bool IsCorrectEnhancedServiceParam(IParamsParam checkParam)
         {
+            // Sanity checks
             if (checkParam == null)
             {
                 throw new ArgumentNullException(nameof(checkParam));
@@ -980,10 +1238,8 @@
                 throw new InvalidDataException("Parameter ID is invalid.");
             }
 
-            uint paramId = checkParam.Id.Value.Value;
-            string paramName = checkParam.Name?.Value;
-            string paramDescription = checkParam.Description?.Value;
-            if (EnhancedServiceParams.TryGetValue(paramId, out var param) && paramName == param.Name && paramDescription == param.Description)
+            // Valid Param checks
+            if (HasMatchingParamNameAndDescription(EnhancedServiceParams, checkParam))
             {
                 return true;
             }
@@ -1001,11 +1257,13 @@
             string paramName = checkParam.Name?.Value;
 
             // Check if Name starts with two underscore (such name are reserved for software internal use only)
-            return (paramName != null && paramName.StartsWith("__")) || RestrictedParamNames.Contains(paramName, StringComparer.OrdinalIgnoreCase);
+            return (paramName != null && paramName.StartsWith("__"))
+                || RestrictedParamNames.Contains(paramName, StringComparer.OrdinalIgnoreCase);
         }
 
         public static bool IsCorrectSpectrumParam(IParamsParam checkParam)
         {
+            // Sanity checks
             if (checkParam == null)
             {
                 throw new ArgumentNullException(nameof(checkParam));
@@ -1016,10 +1274,8 @@
                 throw new InvalidDataException("Parameter ID is invalid.");
             }
 
-            uint paramId = checkParam.Id.Value.Value;
-            string paramName = checkParam.Name?.Value;
-            string paramDescription = checkParam.Description?.Value;
-            if (SpectrumParams.TryGetValue(paramId, out var param) && paramName == param.Name && paramDescription == param.Description)
+            // Valid Param checks
+            if (HasMatchingParamNameAndDescription(SpectrumParams, checkParam))
             {
                 return true;
             }
@@ -1056,6 +1312,19 @@
             }
 
             return false;
+        }
+
+        private static bool HasMatchingParamNameAndDescription(Dictionary<uint, (string Name, string Description)> validParams, IParamsParam checkParam)
+        {
+            Debug.Assert(checkParam.Id.Value != null, "checkParam.Id.Value != null");
+            uint paramId = checkParam.Id.Value.Value;
+            string paramName = checkParam.Name?.Value;
+            string paramDescription = checkParam.Description?.Value;
+
+            return validParams.TryGetValue(paramId, out var param)
+                   && paramName == param.Name
+                   && (paramDescription == param.Description
+                       || (String.IsNullOrEmpty(paramDescription) && String.IsNullOrEmpty(param.Description)));
         }
 
         public static IEnumerable<object> GetParamNameUnrecommendedChars(string paramName)

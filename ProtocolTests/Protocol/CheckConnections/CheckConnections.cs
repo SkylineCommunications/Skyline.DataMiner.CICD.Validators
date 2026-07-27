@@ -61,6 +61,19 @@ namespace ProtocolTests.Protocol.CheckConnections
         }
 
         [TestMethod]
+        public void Protocol_CheckConnections_Valid_Sla()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "Valid_Sla",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
         public void Protocol_CheckConnections_Valid_SshNames()
         {
             Generic.ValidateData data = new Generic.ValidateData

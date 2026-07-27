@@ -172,9 +172,10 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.CheckConnect
 
         internal int CheckInvalidCount(IList<Connection> connections)
         {
-            if (connections.Count == 1 && connections[0].Type == EnumProtocolType.Virtual && connections[0].PortSettings == null)
+            if (connections.Count == 1 && connections[0].PortSettings == null
+                && (connections[0].Type == EnumProtocolType.Virtual || connections[0].Type == EnumProtocolType.Sla))
             {
-                // Virtual drivers don't need PortSettings
+                // Virtual and SLA connectors don't need PortSettings
                 return 1;
             }
 

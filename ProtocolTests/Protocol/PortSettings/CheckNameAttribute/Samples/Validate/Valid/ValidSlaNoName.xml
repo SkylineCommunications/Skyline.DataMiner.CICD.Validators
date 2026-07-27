@@ -1,4 +1,7 @@
 ﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
-	<Type>snmp</Type>
+	<Type>sla</Type>
+	
+	<PortSettings>
+	</PortSettings>
 	
 </Protocol>

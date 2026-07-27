@@ -18,15 +18,26 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.PortSettings
         {
             List<IValidationResult> results = new List<IValidationResult>();
 
+            // Sanity checks
             if (context.ProtocolModel?.Protocol?.Type?.Value == null)
             {
                 // Can't check if there isn't a Type (Currently Connections tag isn't supported)
                 return results;
             }
 
-            bool isRequired = context.ProtocolModel.Protocol.Type.Value != EnumProtocolType.Virtual;
-
             var portSettings = context.ProtocolModel?.Protocol?.PortSettings;
+            if (portSettings == null)
+            {
+                /* This check is only about the name check, not about the presence of PortSettings.
+                 * MissingPortSettings should be handled by a separate check.
+                 * */
+                return results;
+            }
+
+            // Name checks
+            bool isRequired = context.ProtocolModel.Protocol.Type.Value != EnumProtocolType.Virtual
+                && context.ProtocolModel.Protocol.Type.Value != EnumProtocolType.Sla;
+
             var name = portSettings?.Name;
             (GenericStatus status, string rawValue, string _) = GenericTests.CheckBasics(name, isRequired);
 

@@ -30,6 +30,32 @@ namespace ProtocolTests.Protocol.PortSettings.CheckNameAttribute
         }
 
         [TestMethod]
+        public void PortSettings_CheckNameAttribute_ValidSlaNoName()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidSlaNoName",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void PortSettings_CheckNameAttribute_ValidSlaNoPortSettings()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "ValidSlaNoPortSettings",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
         public void PortSettings_CheckNameAttribute_ValidVirtualNoName()
         {
             Generic.ValidateData data = new Generic.ValidateData
@@ -82,22 +108,6 @@ namespace ProtocolTests.Protocol.PortSettings.CheckNameAttribute
             {
                 TestType = Generic.TestType.Invalid,
                 FileName = "MissingAttribute",
-                ExpectedResults = new List<IValidationResult>
-                {
-                    Error.MissingAttribute(null, null, null, "0"),
-                }
-            };
-
-            Generic.Validate(check, data);
-        }
-
-        [TestMethod]
-        public void PortSettings_CheckNameAttribute_MissingPortSettings()
-        {
-            Generic.ValidateData data = new Generic.ValidateData
-            {
-                TestType = Generic.TestType.Invalid,
-                FileName = "MissingPortSettings",
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.MissingAttribute(null, null, null, "0"),
