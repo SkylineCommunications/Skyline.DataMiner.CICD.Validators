@@ -26,7 +26,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = String.Format("Read and Write of SNMP Parameter '{0}' have different SNMP Types. Read type: '{1}' ; Write type: '{2}'", paramName, readType, writeType),
+                Description = String.Format("Read and Write of SNMP Parameter '{0}' have different SNMP Types. As SNMP Types are usually the same, this might cause the read or write to not work. Read type: '{1}' ; Write type: '{2}'", paramName, readType, writeType),
                 HasCodeFix = false,
 
                 PositionNode = positionNode,

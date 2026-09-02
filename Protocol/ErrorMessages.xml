@@ -8969,7 +8969,7 @@
 								<Name>MismatchedSNMPReadWriteType</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Read and Write of SNMP Parameter '{0}' have different SNMP Types. Read type: '{1}' ; Write type: '{2}'</Format>
+									<Format>Read and Write of SNMP Parameter '{0}' have different SNMP Types. As SNMP Types are usually the same, this might cause the read or write to not work. Read type: '{1}' ; Write type: '{2}'</Format>
 									<InputParameters>
 										<InputParameter id="0">paramName</InputParameter>
 										<InputParameter id="1">readType</InputParameter>

@@ -71,7 +71,7 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckMismatchingSNMPRead
                 Certainty = Certainty.Uncertain,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = "Read and Write of SNMP Parameter 'paramName' have different SNMP Types. Read type: 'readType' ; Write type: 'writeType'",
+                Description = "Read and Write of SNMP Parameter 'paramName' have different SNMP Types. As SNMP Types are usually the same, this might cause the read or write to not work. Read type: 'readType' ; Write type: 'writeType'",
                 HasCodeFix = false,
             };
 
