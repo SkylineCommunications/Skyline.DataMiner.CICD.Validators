@@ -80,9 +80,9 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 }
             }
 
-            // Duplicate
+            // Duplicate (Non-title)
             var duplicateResults = GenericTests.CheckDuplicates(
-                items: parameters,
+                items: parameters.Where(p => !p.IsTitle()),
                 getDuplicationIdentifier: p => p.Description?.Value,
                 getId: p => p.Id?.RawValue,
                 isValidDuplicate: ParamHelper.IsValidParamAssociation,
@@ -90,12 +90,24 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 generateSummaryResult: x => Error.DuplicatedValue(this, null, null, x.duplicateValue, String.Join(", ", x.ids)).WithSubResults(x.subResults)
                 );
 
+            results.AddRange(duplicateResults);
+
+            // Duplicate (title begin)
+            var duplicateTitleResults = GenericTests.CheckDuplicates(
+                items: parameters.Where(p => p.IsTitleBegin()),
+                getDuplicationIdentifier: p => p.Description?.Value,
+                getId: p => p.Id?.RawValue,
+                generateSubResult: x => Error.DuplicatedValue(this, x.item, x.item?.Description ?? (IReadable)x.item, x.duplicateValue, x.id),
+                generateSummaryResult: x => Error.DuplicatedValue(this, null, null, x.duplicateValue, String.Join(", ", x.ids)).WithSubResults(x.subResults)
+                );
+
+            results.AddRange(duplicateTitleResults);
+
+            // Title Casing
             if (casingResults.Count > 0)
             {
                 results.Add(Error.WrongCasing(this, null, null).WithSubResults(casingResults.ToArray()));
             }
-
-            results.AddRange(duplicateResults);
 
             return results;
 
