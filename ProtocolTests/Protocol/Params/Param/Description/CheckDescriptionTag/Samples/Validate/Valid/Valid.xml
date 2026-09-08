@@ -51,6 +51,26 @@
 			</Display>
 		</Param>
 
+		<Param id="400">
+			<Name>ValidDuplicate_TitleBegin</Name>
+			<Description>Valid Duplicate - Title Versus Non-Title</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="begin">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="401">
+			<Name>ValidDuplicate_NonTitleBegin</Name>
+			<Description>Valid Duplicate - Title Versus Non-Title</Description>
+			<Type>read</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+		</Param>
+
 		<Param id="10000">
 			<Name>NoDescription_Button</Name>
 			<Type>write</Type>
