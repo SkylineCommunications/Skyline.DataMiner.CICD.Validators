@@ -1,0 +1,31 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+    <Name>ParentProtocol</Name>
+    <Type>virtual</Type>
+    <Params>
+    <Param id="2000">
+			<Name>OriginalTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" />
+			</ArrayOptions>
+        </Param>
+        <Param id="2001" duplicateAs="3001">
+            <Name>OriginalTable_PK</Name>
+            <Type>read</Type>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+        </Param>
+    <Param id="3000">
+			<Name>ViewTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";volatile;view=2000">
+				<ColumnOption idx="0" pid="3001" type="retrieved" options=";view=2001" />
+			</ArrayOptions>
+        </Param>
+        <Param id="3001">
+            <Name>ViewTable_PK</Name>
+            <Type>read</Type>
+        </Param>
+    </Params>
+</Protocol>

@@ -121,7 +121,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
         private void ValidateColumns(IParamsParam tableParam, List<IValidationResult> subResults)
         {
-            foreach ((_, string pid, IParamsParam columnParam) in tableParam.GetColumns(model.RelationManager, returnBaseColumnsIfDuplicateAs: true))
+            foreach ((_, string pid, IParamsParam columnParam) in tableParam.GetColumns(model.RelationManager, returnBaseColumnsIfDuplicateAs: false))
             {
                 // Alarming.
                 if (columnParam.Alarm?.Monitored?.Value == true)
