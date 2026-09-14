@@ -8963,17 +8963,30 @@
 						</ErrorMessages>
 					</Check>
 					<Check id="80">
-						<Name namespace="Protocol.Params.Param.SNMP.Type">CheckMismatchingSNMPReadWriteType</Name>
+						<Name namespace="Protocol.Params.Param.SNMP.Type">CheckInconsistentSnmpReadWriteTypes</Name>
 						<ErrorMessages>
 							<ErrorMessage id="1">
-								<Name>MismatchedSNMPReadWriteType</Name>
+								<Name>InconsistentSnmpReadWriteTypes</Name>
 								<GroupDescription />
 								<Description>
-									<Format>Read and Write of SNMP Parameter '{0}' have different SNMP Types. As SNMP Types are usually the same, this might cause the read or write to not work. Read type: '{1}' ; Write type: '{2}'</Format>
+									<Format>Inconsistent 'SNMP/Type' values on read/write parameters.</Format>
+									<InputParameters />
+								</Description>
+								<Severity>Major</Severity>
+								<Certainty>Uncertain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>Breaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>InconsistentSnmpReadWriteTypes_Sub</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Inconsistent 'SNMP/Type' value '{0}' on {1} Param. Param ID '{2}'.</Format>
 									<InputParameters>
-										<InputParameter id="0">paramName</InputParameter>
-										<InputParameter id="1">readType</InputParameter>
-										<InputParameter id="2">writeType</InputParameter>
+										<InputParameter id="0">snmpTypeValue</InputParameter>
+										<InputParameter id="1">paramType</InputParameter>
+										<InputParameter id="2">paramId</InputParameter>
 									</InputParameters>
 								</Description>
 								<Severity>Major</Severity>

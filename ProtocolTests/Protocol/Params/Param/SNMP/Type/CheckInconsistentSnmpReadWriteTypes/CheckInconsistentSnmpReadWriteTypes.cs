@@ -10,6 +10,7 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpRea
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
     using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpReadWriteTypes;
 
@@ -46,7 +47,9 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpRea
                 FileName = "InconsistentSnmpReadWriteTypes",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.InconsistentSnmpReadWriteTypes(null, null, null, "snmpParam", "integer", "octetstring"),
+                    Error.InconsistentSnmpReadWriteTypes(null, null, null).WithSubResults(
+                        Error.InconsistentSnmpReadWriteTypes_Sub(null, null, null, "integer", "read", "1"),
+                        Error.InconsistentSnmpReadWriteTypes_Sub(null, null, null, "octetstring", "write", "51")),
                 }
             };
 
@@ -63,15 +66,35 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpRea
         public void Param_CheckInconsistentSnmpReadWriteTypes_InconsistentSnmpReadWriteTypes()
         {
             // Create ErrorMessage
-            var message = Error.InconsistentSnmpReadWriteTypes(null, null, null, "paramName", "readType", "writeType");
-                        
+            var message = Error.InconsistentSnmpReadWriteTypes(null, null, null);
+
             var expected = new ValidationResult
             {
                 Severity = Severity.Major,
                 Certainty = Certainty.Uncertain,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = "Read and Write of SNMP Parameter 'paramName' have different SNMP Types. As SNMP Types are usually the same, this might cause the read or write to not work. Read type: 'readType' ; Write type: 'writeType'",
+                Description = "Inconsistent 'SNMP/Type' values on read/write parameters.",
+                HasCodeFix = false,
+            };
+
+            // Assert
+            message.Should().BeEquivalentTo(expected, Generic.ExcludePropertiesForErrorMessages);
+        }
+
+        [TestMethod]
+        public void Param_CheckInconsistentSnmpReadWriteTypes_InconsistentSnmpReadWriteTypes_Sub()
+        {
+            // Create ErrorMessage
+            var message = Error.InconsistentSnmpReadWriteTypes_Sub(null, null, null, "2", "3", "4");
+
+            var expected = new ValidationResult
+            {
+                Severity = Severity.Major,
+                Certainty = Certainty.Uncertain,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = "Inconsistent 'SNMP/Type' value '2' on 3 Param. Param ID '4'.",
                 HasCodeFix = false,
             };
 

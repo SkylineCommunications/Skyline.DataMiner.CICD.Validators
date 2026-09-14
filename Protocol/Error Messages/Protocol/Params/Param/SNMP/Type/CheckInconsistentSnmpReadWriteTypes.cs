@@ -12,7 +12,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
     internal static class Error
     {
-        public static IValidationResult InconsistentSnmpReadWriteTypes(IValidate test, IReadable referenceNode, IReadable positionNode, string paramName, string readType, string writeType)
+        public static IValidationResult InconsistentSnmpReadWriteTypes(IValidate test, IReadable referenceNode, IReadable positionNode)
         {
             return new ValidationResult
             {
@@ -26,7 +26,29 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 Source = Source.Validator,
                 FixImpact = FixImpact.Breaking,
                 GroupDescription = "",
-                Description = String.Format("Read and Write of SNMP Parameter '{0}' have different SNMP Types. As SNMP Types are usually the same, this might cause the read or write to not work. Read type: '{1}' ; Write type: '{2}'", paramName, readType, writeType),
+                Description = "Inconsistent 'SNMP/Type' values on read/write parameters.",
+                HasCodeFix = false,
+
+                PositionNode = positionNode,
+                ReferenceNode = referenceNode,
+            };
+        }
+
+        public static IValidationResult InconsistentSnmpReadWriteTypes_Sub(IValidate test, IReadable referenceNode, IReadable positionNode, string snmpTypeValue, string paramType, string paramId)
+        {
+            return new ValidationResult
+            {
+                Test = test,
+                CheckId = CheckId.CheckInconsistentSnmpReadWriteTypes,
+                ErrorId = ErrorIds.InconsistentSnmpReadWriteTypes_Sub,
+                FullId = "2.80.2",
+                Category = Category.Param,
+                Severity = Severity.Major,
+                Certainty = Certainty.Uncertain,
+                Source = Source.Validator,
+                FixImpact = FixImpact.Breaking,
+                GroupDescription = "",
+                Description = String.Format("Inconsistent 'SNMP/Type' value '{0}' on {1} Param. Param ID '{2}'.", snmpTypeValue, paramType, paramId),
                 HasCodeFix = false,
 
                 PositionNode = positionNode,
@@ -38,6 +60,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     internal static class ErrorIds
     {
         public const uint InconsistentSnmpReadWriteTypes = 1;
+        public const uint InconsistentSnmpReadWriteTypes_Sub = 2;
     }
 
     /// <summary>
