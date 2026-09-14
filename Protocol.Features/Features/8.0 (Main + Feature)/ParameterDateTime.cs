@@ -52,7 +52,9 @@
 
             return options.Split(new[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries)
                           .Select(option => option.Trim())
-                          .Any(option => option.Equals("date", StringComparison.OrdinalIgnoreCase) || option.StartsWith("datetime", StringComparison.OrdinalIgnoreCase));
+                          .Any(option => option.Equals("date", StringComparison.OrdinalIgnoreCase) ||
+                                         option.Equals("datetime", StringComparison.OrdinalIgnoreCase) ||
+                                         option.StartsWith("datetime:", StringComparison.OrdinalIgnoreCase));
         }
 
         private static bool IsHeaderSumDisabledIfInTable(IParamsParam param, Dictionary<uint, List<ITypeColumnOption>> columnOptionsByPid)
