@@ -2,9 +2,9 @@
 uid: Validator_2_80_1
 ---
 
-# CheckMismatchingSNMPReadWriteType
+# CheckInconsistentSnmpReadWriteTypes
 
-## MismatchedSNMPReadWriteType
+## InconsistentSnmpReadWriteTypes
 
 <!-- 'Description' and 'Properties' sections are auto-generated. -->
 <!-- DON'T TOUCH ME - I'M USED BY VALIDATOR DOC AUTO-GENERATION CODE -->

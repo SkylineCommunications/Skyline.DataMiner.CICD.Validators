@@ -1,4 +1,4 @@
-namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckMismatchingSNMPReadWriteType
+namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpReadWriteTypes
 {
     using System;
     using System.Collections.Generic;
@@ -11,17 +11,17 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckMismatchingSNMPRead
     using Skyline.DataMiner.CICD.Validators.Common.Model;
     using Skyline.DataMiner.CICD.Validators.Protocol.Common;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
-    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.Type.CheckMismatchingSNMPReadWriteType;
+    using Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpReadWriteTypes;
 
     [TestClass]
     public class Validate
     {
-        private readonly IValidate check = new CheckMismatchingSNMPReadWriteType();
+        private readonly IValidate check = new CheckInconsistentSnmpReadWriteTypes();
 
         #region Valid Checks
 
         [TestMethod]
-        public void Param_CheckMismatchingSNMPReadWriteType_Valid()
+        public void Param_CheckInconsistentSnmpReadWriteTypes_Valid()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
@@ -38,15 +38,15 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckMismatchingSNMPRead
         #region Invalid Checks
 
         [TestMethod]
-        public void Param_CheckMismatchingSNMPReadWriteType_MismatchedSNMPReadWriteType()
+        public void Param_CheckInconsistentSnmpReadWriteTypes_InconsistentSnmpReadWriteTypes()
         {
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Invalid,
-                FileName = "MismatchedSNMPReadWriteType",
+                FileName = "InconsistentSnmpReadWriteTypes",
                 ExpectedResults = new List<IValidationResult>
                 {
-                    Error.MismatchedSNMPReadWriteType(null, null, null, "snmpParam", "integer", "octetstring"),
+                    Error.InconsistentSnmpReadWriteTypes(null, null, null, "snmpParam", "integer", "octetstring"),
                 }
             };
 
@@ -60,10 +60,10 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckMismatchingSNMPRead
     public class ErrorMessages
     {
         [TestMethod]
-        public void Param_CheckMismatchingSNMPReadWriteType_MismatchedSNMPReadWriteType()
+        public void Param_CheckInconsistentSnmpReadWriteTypes_InconsistentSnmpReadWriteTypes()
         {
             // Create ErrorMessage
-            var message = Error.MismatchedSNMPReadWriteType(null, null, null, "paramName", "readType", "writeType");
+            var message = Error.InconsistentSnmpReadWriteTypes(null, null, null, "paramName", "readType", "writeType");
                         
             var expected = new ValidationResult
             {
@@ -83,12 +83,12 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckMismatchingSNMPRead
     [TestClass]
     public class Attribute
     {
-        private readonly IRoot check = new CheckMismatchingSNMPReadWriteType();
+        private readonly IRoot check = new CheckInconsistentSnmpReadWriteTypes();
 
         [TestMethod]
-        public void Param_CheckMismatchingSNMPReadWriteType_CheckCategory() => Generic.CheckCategory(check, Category.Param);
+        public void Param_CheckInconsistentSnmpReadWriteTypes_CheckCategory() => Generic.CheckCategory(check, Category.Param);
 
         [TestMethod]
-        public void Param_CheckMismatchingSNMPReadWriteType_CheckId() => Generic.CheckId(check, CheckId.CheckMismatchingSNMPReadWriteType);
+        public void Param_CheckInconsistentSnmpReadWriteTypes_CheckId() => Generic.CheckId(check, CheckId.CheckInconsistentSnmpReadWriteTypes);
     }
 }

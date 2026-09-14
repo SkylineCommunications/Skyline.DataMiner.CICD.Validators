@@ -1,4 +1,4 @@
-namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.Type.CheckMismatchingSNMPReadWriteType
+namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpReadWriteTypes
 {
     using System;
     using System.Collections.Generic;
@@ -11,8 +11,8 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using Skyline.DataMiner.CICD.Validators.Protocol.Common.Extensions;
     using Skyline.DataMiner.CICD.Validators.Protocol.Interfaces;
 
-    [Test(CheckId.CheckMismatchingSNMPReadWriteType, Category.Param)]
-    internal class CheckMismatchingSNMPReadWriteType : IValidate /*, ICodeFix, ICompare*/
+    [Test(CheckId.CheckInconsistentSnmpReadWriteTypes, Category.Param)]
+    internal class CheckInconsistentSnmpReadWriteTypes : IValidate /*, ICodeFix, ICompare*/
     {
         // Please comment out the interfaces that aren't used together with the respective methods.
 
@@ -50,7 +50,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
                 string paramName = readParam.Name?.RawValue ?? readParam.Id.RawValue;
 
-                results.Add(Error.MismatchedSNMPReadWriteType(
+                results.Add(Error.InconsistentSnmpReadWriteTypes(
                     this,
                     readParam,
                     readParam,
