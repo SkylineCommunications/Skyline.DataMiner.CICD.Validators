@@ -3,6 +3,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
     using System;
     using System.Collections.Generic;
     using System.Linq;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
     using Skyline.DataMiner.CICD.Validators.Common.Interfaces;
@@ -25,15 +26,16 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             var snmpParams = context.EachParamWithValidId()
                 .Where(p => p.SNMP?.Enabled?.Value == true
                          && p.SNMP.Type?.Value != null
-                         && !String.IsNullOrWhiteSpace(p.SNMP.OID?.RawValue))
+                         && !String.IsNullOrWhiteSpace(p.SNMP.OID?.RawValue)
+                         && p.Type?.Value != null)
                 .ToList();
 
             var writeParamsByOid = snmpParams
-                .Where(p => p.Type?.Value == EnumParamType.Write)
+                .Where(p => p.Type.Value == EnumParamType.Write)
                 .GroupBy(GetSnmpTargetKey, StringComparer.OrdinalIgnoreCase)
                 .ToDictionary(g => g.Key, g => g.ToList(), StringComparer.OrdinalIgnoreCase);
 
-            foreach (var readParam in snmpParams.Where(p => p.Type?.Value == EnumParamType.Read))
+            foreach (var readParam in snmpParams.Where(p => p.Type.Value == EnumParamType.Read))
             {
                 string targetKey = GetSnmpTargetKey(readParam);
 
@@ -68,33 +70,33 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
         private static string GetSnmpTargetKey(IParamsParam param)
         {
-            string oid = param.SNMP.OID.RawValue?.Trim();
+            string oid = param.SNMP.OID.RawValue.Trim();
             string oidId = param.SNMP.OID.Id?.RawValue?.Trim();
             string options = param.SNMP.OID.Options?.RawValue?.Trim();
 
             return String.Join("|", oid, oidId, options);
         }
 
-        //public ICodeFixResult Fix(CodeFixContext context)
-        //{
-        //    CodeFixResult result = new CodeFixResult();
+        ////public ICodeFixResult Fix(CodeFixContext context)
+        ////{
+        ////    CodeFixResult result = new CodeFixResult();
 
-        //    switch (context.Result.ErrorId)
-        //    {
+        ////    switch (context.Result.ErrorId)
+        ////    {
 
-        //        default:
-        //            result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
-        //            break;
-        //    }
+        ////        default:
+        ////            result.Message = $"This error ({context.Result.ErrorId}) isn't implemented.";
+        ////            break;
+        ////    }
 
-        //    return result;
-        //}
+        ////    return result;
+        ////}
         
-        //public List<IValidationResult> Compare(MajorChangeCheckContext context)
-        //{
-        //    List<IValidationResult> results = new List<IValidationResult>();
+        ////public List<IValidationResult> Compare(MajorChangeCheckContext context)
+        ////{
+        ////    List<IValidationResult> results = new List<IValidationResult>();
 
-        //    return results;
-        //}
+        ////    return results;
+        ////}
     }
 }
