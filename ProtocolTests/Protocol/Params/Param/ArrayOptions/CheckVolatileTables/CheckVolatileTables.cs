@@ -39,6 +39,19 @@ namespace ProtocolTests.Protocol.Params.Param.ArrayOptions.CheckVolatileTables
             Generic.ValidateData data = new Generic.ValidateData
             {
                 TestType = Generic.TestType.Valid,
+                FileName = "ValidVolatileViewTable",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckViewTables_Valid()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
                 FileName = "ValidViewTable",
                 ExpectedResults = new List<IValidationResult>()
             };

@@ -19,7 +19,7 @@
 		<Param id="3000">
 			<Name>ViewTable</Name>
 			<Type>array</Type>
-			<ArrayOptions index="0" options=";view=2000">
+			<ArrayOptions index="0" options=";volatile;view=2000">
 				<ColumnOption idx="0" pid="3001" type="retrieved" options=";view=2001" />
 			</ArrayOptions>
 		</Param>
