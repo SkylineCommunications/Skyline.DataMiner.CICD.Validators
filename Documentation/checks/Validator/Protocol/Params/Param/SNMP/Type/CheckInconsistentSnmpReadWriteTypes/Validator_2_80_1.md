@@ -14,6 +14,8 @@ uid: Validator_2_80_1
 
 When an SNMP parameter has both a read parameter and a write parameter targeting the same OID (`/Protocol/Params/Param/SNMP/OID`), the `/Protocol/Params/Param/SNMP/Type` of both parameters should match. If the read parameter and the write parameter use a different SNMP type, DataMiner may encode or decode the value inconsistently between polling (read) and setting (write) the parameter.
 
+If the type for read and write is different but intentional, please provide a Suppression reasoning.
+
 <!-- Uncomment to add example code -->
 ### Example code
 
