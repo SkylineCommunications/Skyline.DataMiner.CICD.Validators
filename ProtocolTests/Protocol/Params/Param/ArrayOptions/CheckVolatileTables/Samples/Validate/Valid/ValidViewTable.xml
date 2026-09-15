@@ -16,6 +16,8 @@
 				<Monitored>true</Monitored>
 			</Alarm>
 		</Param>
+
+		<!--View table without volatile attribute-->
 		<Param id="3000">
 			<Name>ViewTable</Name>
 			<Type>array</Type>
@@ -24,6 +26,19 @@
 			</ArrayOptions>
 		</Param>
 		<Param id="3001">
+			<Name>ViewTable_PK</Name>
+			<Type>read</Type>
+		</Param>
+
+		<!--View table with volatile attribute-->
+		<Param id="4000">
+			<Name>ViewTable</Name>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";volatile;view=2000">
+				<ColumnOption idx="0" pid="4001" type="retrieved" options=";view=2001" />
+			</ArrayOptions>
+		</Param>
+		<Param id="4001">
 			<Name>ViewTable_PK</Name>
 			<Type>read</Type>
 		</Param>
