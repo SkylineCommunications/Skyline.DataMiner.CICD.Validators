@@ -34,6 +34,32 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpRea
             Generic.Validate(check, data);
         }
 
+        [TestMethod]
+        public void Param_CheckInconsistentSnmpReadWriteTypes_DifferentOidId()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "DifferentOidId",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckInconsistentSnmpReadWriteTypes_DifferentOidOptions()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Valid,
+                FileName = "DifferentOidOptions",
+                ExpectedResults = new List<IValidationResult>()
+            };
+
+            Generic.Validate(check, data);
+        }
+
         #endregion
 
         #region Invalid Checks
@@ -45,6 +71,42 @@ namespace ProtocolTests.Protocol.Params.Param.SNMP.Type.CheckInconsistentSnmpRea
             {
                 TestType = Generic.TestType.Invalid,
                 FileName = "InconsistentSnmpReadWriteTypes",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.InconsistentSnmpReadWriteTypes(null, null, null).WithSubResults(
+                        Error.InconsistentSnmpReadWriteTypes_Sub(null, null, null, "integer", "read", "1"),
+                        Error.InconsistentSnmpReadWriteTypes_Sub(null, null, null, "octetstring", "write", "51")),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckInconsistentSnmpReadWriteTypes_SameOidId()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "SameOidId",
+                ExpectedResults = new List<IValidationResult>
+                {
+                    Error.InconsistentSnmpReadWriteTypes(null, null, null).WithSubResults(
+                        Error.InconsistentSnmpReadWriteTypes_Sub(null, null, null, "integer", "read", "1"),
+                        Error.InconsistentSnmpReadWriteTypes_Sub(null, null, null, "octetstring", "write", "51")),
+                }
+            };
+
+            Generic.Validate(check, data);
+        }
+
+        [TestMethod]
+        public void Param_CheckInconsistentSnmpReadWriteTypes_SameOidOptions()
+        {
+            Generic.ValidateData data = new Generic.ValidateData
+            {
+                TestType = Generic.TestType.Invalid,
+                FileName = "SameOidOptions",
                 ExpectedResults = new List<IValidationResult>
                 {
                     Error.InconsistentSnmpReadWriteTypes(null, null, null).WithSubResults(
