@@ -20,7 +20,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
             var results = new List<IValidationResult>();
 
             var dateColumnsByPid = context.ProtocolModel.Protocol?.Params
-                ?.Where(param => param != null && param.IsTable() && param.ArrayOptions != null)
+                ?.Where(param => param?.ArrayOptions != null)
                 .SelectMany(tableParam => tableParam.ArrayOptions.Where(column => column?.Pid?.Value != null).Select(column => (tableParam, column)))
                 .GroupBy(item => item.column.Pid.Value.Value)
                 .ToDictionary(group => group.Key, group => group.ToList());
@@ -34,12 +34,14 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
                 if (param.Interprete?.Decimals?.Value != 8)
                 {
-                    results.Add(Error.InvalidInterpreteDecimals(this, param, param.Interprete?.Decimals ?? param, param.Id.RawValue));
+                    IReadable positionNode = param.Interprete?.Decimals as IReadable ?? param;
+                    results.Add(Error.InvalidInterpreteDecimals(this, param, positionNode, param.Id.RawValue));
                 }
 
                 if (param.Display?.Decimals?.Value != 8)
                 {
-                    results.Add(Error.InvalidDisplayDecimals(this, param, param.Display?.Decimals ?? param, param.Id.RawValue));
+                    IReadable positionNode = param.Display?.Decimals as IReadable ?? param;
+                    results.Add(Error.InvalidDisplayDecimals(this, param, positionNode, param.Id.RawValue));
                 }
 
                 if (param.Id?.Value == null || dateColumnsByPid == null || !dateColumnsByPid.TryGetValue(param.Id.Value.Value, out var tableColumns))
@@ -61,7 +63,17 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
 
         private static bool IsDateOrDateTime(IParamsParam param)
         {
-            return param?.IsDateTime() == true && !param.IsTime();
+            var options = param?.Measurement?.Type?.Options?.Value;
+            if (String.IsNullOrWhiteSpace(options))
+            {
+                return false;
+            }
+
+            return options.Split(new[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries)
+                          .Select(option => option.Trim())
+                          .Any(option => option.Equals("date", StringComparison.OrdinalIgnoreCase) ||
+                                         option.Equals("datetime", StringComparison.OrdinalIgnoreCase) ||
+                                         option.StartsWith("datetime:", StringComparison.OrdinalIgnoreCase));
         }
 
         private static bool HasDisableHeaderSumWithoutEnable(string optionsRawValue)
