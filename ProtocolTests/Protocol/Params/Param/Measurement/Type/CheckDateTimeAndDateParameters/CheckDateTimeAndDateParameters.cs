@@ -32,6 +32,18 @@ namespace ProtocolTests.Protocol.Params.Param.Measurement.Type.CheckDateTimeAndD
         }
 
         [TestMethod]
+        public void Param_CheckDateTimeAndDateParameters_ValidMixedOptionDelimiters()
+        {
+            const string code = "<Protocol><Params><Param id='1000'><Type>array</Type><ArrayOptions><ColumnOption idx='0' pid='1001' options=';foo,disableHeaderSum'/></ArrayOptions></Param><Param id='1001'><Type>read</Type><Interprete><Decimals>8</Decimals></Interprete><Display><Decimals>8</Decimals></Display><Measurement><Type options='datetime'>number</Type></Measurement></Param></Params></Protocol>";
+
+            var context = new ValidatorContext(new ProtocolInputData(code), new ValidatorSettings());
+
+            var results = test.Validate(context);
+
+            results.Should().BeEmpty();
+        }
+
+        [TestMethod]
         public void Param_CheckDateTimeAndDateParameters_Invalid()
         {
             const string code = "<Protocol><Params><Param id='1000'><Type>array</Type><ArrayOptions><ColumnOption idx='0' pid='1003' options=',foo,enableHeaderSum'/></ArrayOptions></Param><Param id='1001'><Type>read</Type><Interprete><Decimals>7</Decimals></Interprete><Display><Decimals>8</Decimals></Display><Measurement><Type options='date'>number</Type></Measurement></Param><Param id='1002'><Type>read</Type><Interprete><Decimals>8</Decimals></Interprete><Display><Decimals>9</Decimals></Display><Measurement><Type options='datetime:minute'>number</Type></Measurement></Param><Param id='1003'><Type>read</Type><Interprete><Decimals>8</Decimals></Interprete><Display><Decimals>8</Decimals></Display><Measurement><Type options='datetime'>number</Type></Measurement></Param><Param id='1004'><Type>read</Type><Measurement><Type options='time'>number</Type></Measurement></Param></Params></Protocol>";

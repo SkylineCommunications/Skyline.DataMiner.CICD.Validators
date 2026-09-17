@@ -73,7 +73,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                           .Select(option => option.Trim())
                           .Any(option => option.Equals("date", StringComparison.OrdinalIgnoreCase) ||
                                          option.Equals("datetime", StringComparison.OrdinalIgnoreCase) ||
-                                         option.StartsWith("datetime:", StringComparison.OrdinalIgnoreCase));
+                                         (option.StartsWith("datetime:", StringComparison.OrdinalIgnoreCase) && option.Length > "datetime:".Length));
         }
 
         private static bool HasDisableHeaderSumWithoutEnable(string optionsRawValue)
@@ -83,17 +83,7 @@ namespace Skyline.DataMiner.CICD.Validators.Protocol.Tests.Protocol.Params.Param
                 return false;
             }
 
-            IEnumerable<string> tokens;
-
-            char separator = optionsRawValue[0];
-            if (Char.IsLetterOrDigit(separator))
-            {
-                tokens = new[] { optionsRawValue };
-            }
-            else
-            {
-                tokens = optionsRawValue.Split(new[] { separator }, StringSplitOptions.RemoveEmptyEntries);
-            }
+            var tokens = optionsRawValue.Split(new[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             bool hasDisable = false;
             bool hasEnable = false;
