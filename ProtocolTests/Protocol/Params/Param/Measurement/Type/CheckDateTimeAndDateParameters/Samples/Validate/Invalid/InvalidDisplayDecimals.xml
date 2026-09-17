@@ -1,0 +1,16 @@
+<Protocol>
+	<Params>
+		<Param id="1001">
+			<Type>read</Type>
+			<Interprete>
+				<Decimals>8</Decimals>
+			</Interprete>
+			<Display>
+				<Decimals>9</Decimals>
+			</Display>
+			<Measurement>
+				<Type options="datetime:minute">number</Type>
+			</Measurement>
+		</Param>
+	</Params>
+</Protocol>
