@@ -1,0 +1,15 @@
+﻿<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+	<Params>
+		<Param id="1">
+		</Param>
+	</Params>
+	<Actions>
+		<Action id="1">
+			<On id="1">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+	</Actions>
+	<QActions>
+		<QAction id="1" triggers="1" />
+	</QActions>
+</Protocol>
