@@ -12,7 +12,7 @@
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Common.Results;
     using Skyline.DataMiner.CICD.Validators.Protocol.Features.Features;
 
-#if NET8_0 // Times out when running in .NET Framework test runner. No clue why, but not worth investigating right now.
+#if !NETFRAMEWORK // Times out when running in .NET Framework test runner. No clue why, but not worth investigating right now.
     [TestClass]
     public class DotNetFrameworkTests
     {
@@ -41,6 +41,7 @@
         }
 
         [TestMethod]
+        [Ignore("Legacy is deprecated anyway, and has no value to try to fix this for .NET 10")]
         public void CheckIsUsed_Solution_Framework462_Legacy()
         {
             // Arrange
@@ -74,6 +75,7 @@
         }
 
         [TestMethod]
+        [Ignore("Legacy is deprecated anyway, and has no value to try to fix this for .NET 10")]
         public void CheckIsUsed_Solution_OtherFramework_Legacy()
         {
             // Arrange

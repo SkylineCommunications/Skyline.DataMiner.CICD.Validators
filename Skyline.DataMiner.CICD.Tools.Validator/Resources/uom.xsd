@@ -22,6 +22,15 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="%/s">
+                <xs:annotation>
+                    <xs:documentation>percent per second</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>percent per second</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="%RH">
                 <xs:annotation>
                     <xs:documentation>relative humidity</xs:documentation>
@@ -276,6 +285,15 @@
                     <xs:documentation>attosecond</xs:documentation>
                     <xs:appinfo>
                         <slu:name>attosecond</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Attempts">
+                <xs:annotation>
+                    <xs:documentation>attempts</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>attempts</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
@@ -849,6 +867,15 @@
                     <xs:documentation>centimeter of mercury (pressure)</xs:documentation>
                     <xs:appinfo>
                         <slu:name>centimeter of mercury (pressure)</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Collisions">
+                <xs:annotation>
+                    <xs:documentation>collisions</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>collisions</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
@@ -2269,6 +2296,15 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="E-7">
+                <xs:annotation>
+                    <xs:documentation>E-7 (Bit Error Rate)</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>E-7 (Bit Error Rate)</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="EA">
                 <xs:annotation>
                     <xs:documentation>exa-ampere</xs:documentation>
@@ -2599,6 +2635,15 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Euro">
+                <xs:annotation>
+                    <xs:documentation>euro</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>euro</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="eV">
                 <xs:annotation>
                     <xs:documentation>electronvolt</xs:documentation>
@@ -2613,6 +2658,15 @@
                     <xs:documentation>exavolt</xs:documentation>
                     <xs:appinfo>
                         <slu:name>exavolt</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Events">
+                <xs:annotation>
+                    <xs:documentation>events</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>events</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
@@ -3768,6 +3822,15 @@
                     <xs:documentation>inches of mercury (pressure)</xs:documentation>
                     <xs:appinfo>
                         <slu:name>inches of mercury (pressure)</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Interfaces">
+                <xs:annotation>
+                    <xs:documentation>interfaces</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>interfaces</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
@@ -5695,6 +5758,15 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+             <xs:enumeration value="MWh">
+                <xs:annotation>
+                    <xs:documentation>megawatt hour</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>megawatt hour</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="N">
                 <xs:annotation>
                     <xs:documentation>newton</xs:documentation>
@@ -6169,6 +6241,15 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Operations">
+                <xs:annotation>
+                    <xs:documentation>operations</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>operations</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="ops">
                 <xs:annotation>
                     <xs:documentation>operations per second</xs:documentation>
@@ -6574,6 +6655,15 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Ports">
+                <xs:annotation>
+                    <xs:documentation>ports</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>ports</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="pPa">
                 <xs:annotation>
                     <xs:documentation>picopascal</xs:documentation>
@@ -6700,6 +6790,15 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Pulses">
+                <xs:annotation>
+                    <xs:documentation>pulses</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>pulses</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="pV">
                 <xs:annotation>
                     <xs:documentation>picovolt</xs:documentation>
@@ -6745,6 +6844,15 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
+			<xs:enumeration value="px/deg">
+				<xs:annotation>
+					<xs:documentation>pixels per degree</xs:documentation>
+					<xs:appinfo>
+						<slu:name>pixels per degree</slu:name>
+						<slu:ignoreInDescription>false</slu:ignoreInDescription>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
             <xs:enumeration value="R">
                 <xs:annotation>
                     <xs:documentation>roentgen</xs:documentation>
@@ -7617,6 +7725,15 @@
                     <xs:documentation>transactions per second</xs:documentation>
                     <xs:appinfo>
                         <slu:name>transactions per second</slu:name>
+                        <slu:ignoreInDescription>false</slu:ignoreInDescription>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Traps">
+                <xs:annotation>
+                    <xs:documentation>traps</xs:documentation>
+                    <xs:appinfo>
+                        <slu:name>traps</slu:name>
                         <slu:ignoreInDescription>false</slu:ignoreInDescription>
                     </xs:appinfo>
                 </xs:annotation>
