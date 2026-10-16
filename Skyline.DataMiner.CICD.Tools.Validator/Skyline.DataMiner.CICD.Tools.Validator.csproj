@@ -44,7 +44,7 @@
     <PackageReference Include="Skyline.DataMiner.Core.ArtifactDownloader" Version="4.2.0" />
     <PackageReference Include="Skyline.DataMiner.XmlSchemas.Protocol" Version="1.1.11" />
     <PackageReference Include="System.CommandLine.Hosting" Version="0.4.0-alpha.22272.1" />
-    <PackageReference Include="YamlDotNet" Version="16.3.0" />
+    <PackageReference Include="YamlDotNet" Version="18.1.0" />
     <PackageReference Include="Microsoft.Build.Framework" Version="17.11.31" ExcludeAssets="runtime" PrivateAssets="all" />
   </ItemGroup>
 
