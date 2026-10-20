@@ -13,6 +13,5 @@ uid: Validator_1_2_4
 
 A connector name is mandatory, should be trimmed, cannot start with "Production" and following characters are forbidden: '<', '>', ':', '"', '/', '\\', '|', '?', '*', ';', '°'.
 
-
 <!-- Uncomment to add example code -->
 <!--### Example code-->
