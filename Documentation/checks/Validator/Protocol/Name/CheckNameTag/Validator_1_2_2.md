@@ -11,7 +11,11 @@ uid: Validator_1_2_2
 
 ### Details
 
-A connector name is mandatory, should be trimmed, cannot start with "Production" and following characters are forbidden: '<', '>', ':', '"', '/', '\\', '|', '?', '*', ';', '°'.
+A connector name is mandatory and should adhere to following rules:
+
+- Leading and trailing spaces must be trimmed.
+- Cannot start with "Production".
+- The following characters are forbidden: "`<`", "`>`", "`:`", "`"`", "`/`", "`\`", "`|`", "`?`", "`*`", "`;`", "`°`".
 
 <!-- Uncomment to add example code -->
 <!--### Example code-->
