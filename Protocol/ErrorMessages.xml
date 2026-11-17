@@ -8962,6 +8962,44 @@
 							</ErrorMessage>
 						</ErrorMessages>
 					</Check>
+					<Check id="80">
+						<Name namespace="Protocol.Params.Param.Description">CheckColumnDescriptions</Name>
+						<ErrorMessages>
+							<ErrorMessage id="1">
+								<Name>MissingTableDescriptionAsSuffixes</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Missing table description '{0}' in round brackets at the end of column descriptions. Table PID '{1}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">tableDescription</InputParameter>
+										<InputParameter id="1">tablePid</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>False</HasCodeFix>
+							</ErrorMessage>
+							<ErrorMessage id="2">
+								<Name>MissingTableDescriptionAsSuffix</Name>
+								<GroupDescription />
+								<Description>
+									<Format>Missing table description '{0}' in round brackets at the end of column description '{1}'. Column PID '{2}'.</Format>
+									<InputParameters>
+										<InputParameter id="0">tableDescription</InputParameter>
+										<InputParameter id="1">columnDescription</InputParameter>
+										<InputParameter id="2">columnPid</InputParameter>
+									</InputParameters>
+								</Description>
+								<Severity>Minor</Severity>
+								<Certainty>Certain</Certainty>
+								<Source>Validator</Source>
+								<FixImpact>NonBreaking</FixImpact>
+								<HasCodeFix>True</HasCodeFix>
+							</ErrorMessage>
+						</ErrorMessages>
+					</Check>
 				</Checks>
 			</Category>
 			<Category id="3">
