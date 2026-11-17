@@ -1,0 +1,80 @@
+<Protocol xmlns="http://www.skyline.be/validatorProtocolUnitTest">
+
+	<Params>
+		<Param id="1000">
+			<Name>MyTests</Name>
+			<Description>My Tests</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" />
+				<ColumnOption idx="1" pid="1002" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="1001" duplicateAs="10001">
+			<Name>MyTestsInstance</Name>
+			<Description>Instance [IDX] (My Tests)</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="1002" duplicateAs="10002">
+			<Name>MyTestsColumn2</Name>
+			<Description>Column 2 (My Tests)</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="1052">
+			<Name>MyTestsColumn2</Name>
+			<Description>Column 2 (My Tests)</Description>
+			<Type>write</Type>
+		</Param>
+
+		<Param id="2000">
+			<Name>MyTestsTable</Name>
+			<Description>My Tests Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" />
+				<ColumnOption idx="1" pid="2002" type="retrieved" />
+			</ArrayOptions>
+		</Param>
+		<Param id="2001" duplicateAs="10011">
+			<Name>MyTestsTableInstance</Name>
+			<Description>Instance (My Tests Table)</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="2002" duplicateAs="10012">
+			<Name>MyTestsTableColumn2</Name>
+			<Description>Column 2 (My Tests Table)</Description>
+			<Type>read</Type>
+		</Param>
+
+		<Param id="5000">
+			<Name>TableSyntax1</Name>
+			<Description>Table Syntax 1</Description>
+			<Type id="5001;5002">array</Type>
+			<ArrayOptions index="0">
+			</ArrayOptions>
+		</Param>
+		<Param id="5001">
+			<Name>TableSyntax1_Instance</Name>
+			<Description>Instance (Table Syntax 1)</Description>
+			<Type>read</Type>
+		</Param>
+		<Param id="5002">
+			<Name>TableSyntax1_Column2</Name>
+			<Description>Column 2 (Table Syntax 1)</Description>
+			<Type>read</Type>
+		</Param>
+
+		<!--View table: for view tables using duplicateAs column, the check should not generate warnings-->
+		<Param id="10000">
+			<Name>MyViewTable</Name>
+			<Description>My View Table</Description>
+			<ArrayOptions index="0" options=";volatile;view=1000">
+				<ColumnOption idx="0" pid="10001" options=";view=1001" />
+				<ColumnOption idx="1" pid="10002" options=";view=1002" />
+				<ColumnOption idx="2" pid="10011" options=";view=1002:2001" />
+				<ColumnOption idx="3" pid="10012" options=";view=1002:2002" />
+			</ArrayOptions>
+		</Param>
+	</Params>
+
+</Protocol>
